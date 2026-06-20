@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHRDLU (1968–70): A Critical Code Studies Reading</title>
+  <meta name="description" content="A critical code reading of SHRDLU, Terry Winograd's natural-language-understanding program for the MIT blocks world, written in MacLisp and Micro-Planner, 1968–70. Reading the code at the high-water mark of symbolic AI as a cultural text.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta property="og:title" content="SHRDLU (1968–70): A Critical Code Studies Reading">
+  <meta property="og:description" content="Reading Terry Winograd's blocks-world program as cultural text, at the high-water mark of symbolic AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://critical-code-studies.github.io/SHRDLU/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+  <style>
+    .imodal { position:fixed; inset:0; z-index:9500; display:none; align-items:center; justify-content:center; background:rgba(4,5,8,0.94); padding:4vh 4vw; cursor:zoom-out; }
+    .imodal.open { display:flex; }
+    .imodal img { max-width:92vw; max-height:90vh; border:1px solid var(--line); box-shadow:0 0 50px rgba(0,0,0,0.85); cursor:default; }
+    .imodal-close { position:fixed; top:1.1rem; right:1.3rem; z-index:9501; width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:rgba(20,23,31,0.9); color:var(--shrdlu); font-family:var(--mono); font-size:1.5rem; line-height:0; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="none"/><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block">
+          <span class="brand-text">SHRDLU</span>
+          <span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a>
+            <a href="./#why">Why?</a>
+            <a href="./#ccs">CCS</a>
+            <a href="bibliography.html">Bibliography</a>
+            <a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a>
+            <a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a>
+            <a href="blocks-world.html">The blocks world</a>
+            <a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="code.html">The program</a>
+            <a href="critique.html">Critique &amp; legacy</a>
+          </div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <canvas id="blockworld" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <p class="boot">MacLisp · Micro-Planner · MIT AI Lab, 1968–70 <span class="cursor"></span></p>
+      <h1>SHRDLU</h1>
+      <p class="sub">Reading the code at the high-water mark of symbolic AI</p>
+      <p class="tagline">A critical code study of Terry Winograd's natural-language-understanding program and its tabletop blocks world, read as a cultural text.</p>
+      <div class="hero-actions">
+        <a class="btn" href="dialogue.html">▶ Read the dialogue</a>
+        <a class="btn ghost" href="#about">Read the project</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap content">
+
+    <!-- ===================== LEDE ===================== -->
+    <section class="block lede" id="about">
+      <span class="kicker">The argument</span>
+      <p><i>SHRDLU</i> is where code first appears to <i>understand</i>. Written across 1968–70 by <a href="people.html#winograd">Terry Winograd</a> at the MIT Artificial Intelligence Laboratory, it let a person type ordinary English commands and questions, and watch a simulated arm rearrange coloured blocks and pyramids on a screen in answer. Ask it to pick up a big red block and it does; ask why it did something and it tells you. For a moment in the early 1970s it seemed that the problem of machine understanding had been opened.</p>
+      <p>This project reads that program as a cultural text. Following Critical Code Studies, the source is approached in its multiplicity, as language, as mechanism, as a model of a world, and as a repository of the assumptions of the artificial-intelligence programme that produced it. Reading <i>about</i> the history of AI is not the same as reading its code. The aim is to do the latter: to sit with the MacLisp and the Micro-Planner, the grammar written as procedures, the hand-built microworld, and the famous scripted dialogue, and to ask what this code knows, what it only appears to know, and what its founding demonstration leaves out.</p>
+    </section>
+
+    <div class="rule"><span>pick up a big red block</span></div>
+
+    <!-- ===================== CCS ===================== -->
+    <section class="block" id="ccs">
+      <span class="kicker">The field</span>
+      <h2>Critical Code Studies</h2>
+      <p>Critical Code Studies (CCS) applies the interpretive methods of the humanities to computer source code, reading code, architecture, and documentation within their sociohistorical context. Its premise is that lines of code are not value-neutral: meaning grows out of what the code does but is never exhausted by it. Code can be close-read like any other text, attended to for its naming, its comments, its silences, and the assumptions it encodes, while still being held to its material test, that it must compile and run.</p>
+      <p>This reading works in the tradition developed by Mark C. Marino and David M. Berry, reading code at once as language, mechanism, world-model, and social repository. SHRDLU is an unusually rich object for this method, because its central claim was itself a claim about <i>meaning</i>: that to represent knowledge as procedures was to let a machine understand.</p>
+      <ul class="links">
+        <li><a href="https://electronicbookreview.com/essay/critical-code-studies/">Mark C. Marino, "Critical Code Studies"</a> <span class="meta">· the founding essay (Electronic Book Review, 2006).</span></li>
+        <li><a href="https://mitpress.mit.edu/9780262043656/critical-code-studies/">Mark C. Marino, <i>Critical Code Studies</i></a> <span class="meta">· the field's book-length statement (MIT Press, 2020).</span></li>
+        <li><a href="https://stunlaw.blogspot.com/2024/12/reflections-on-method-for-critical-code.html">David M. Berry, "Reflections on Method for Critical Code Studies"</a> <span class="meta">· the method this project follows.</span></li>
+      </ul>
+    </section>
+
+    <!-- ===================== COMPANION ===================== -->
+    <section class="block">
+      <div class="callout">
+        <span class="kicker">A companion reading</span>
+        <p>This study sits alongside the team's critical code readings of the other founding programs of the long 1960s, among them Joseph Weizenbaum's <i>ELIZA</i> (1966) and the MIT <i>Spacewar!</i> (1962). Three programs, three claims about what a computer could be made to do: <i>ELIZA</i> teaches the machine to talk, <i>Spacewar!</i> teaches it to play, and <i>SHRDLU</i> teaches it to understand. Read together through their source, they let us approach the origins of computational culture not through its myths but through its code, and to see how early and how confidently the claim of machine understanding was made.</p>
+        <p><a href="https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/">Read "Reading ELIZA: Critical Code Studies in Action" →</a></p>
+      </div>
+    </section>
+
+    <!-- ===================== WHY ===================== -->
+    <section class="block" id="why">
+      <span class="kicker">Why SHRDLU</span>
+      <h2>Why read this program now</h2>
+      <p>We are once again surrounded by machines that appear to understand language. The large language models of the 2020s answer in fluent prose across an open domain, where SHRDLU could converse only about a tabletop of blocks. Yet the two stand in an instructive symmetry. SHRDLU's understanding was <i>grounded</i>, every word tied to procedures over a world it could inspect and act on, and it could explain its reasoning step by step, but it could not leave its microworld. Today's models are general but, in the classic phrase, arguably <i>ungrounded</i>: fluent everywhere, anchored nowhere, and opaque as to why they say what they say.</p>
+      <p>Reading SHRDLU's code returns us to the first, most optimistic version of the dream, and to the moment its limits became visible. The history of that disappointment, the move from microworld to <a href="critique.html">scaling problem</a> to "AI winter", is also the prehistory of the present. The <a href="critique.html#llms">closing section</a> reads SHRDLU against the LLMs.</p>
+    </section>
+
+    <div class="rule"><span>OK · (does it)</span></div>
+
+    <!-- ===================== THE DIALOGUE (preview) ===================== -->
+    <section class="block" id="object">
+      <span class="kicker">What is being read</span>
+      <h2>The object: a conversation about blocks</h2>
+      <p>SHRDLU's world was a simulated tabletop, the paradigmatic <a href="blocks-world.html">"microworld"</a> of the Minsky–Papert research programme: a box, a table, and a handful of blocks, cubes and pyramids in red, green and blue, moved by a simulated arm. The system was built from four parts, all in <a href="code.html">MacLisp under the ITS operating system</a>: a parser; a grammar of English written as procedures (Winograd's <b>PROGRAMMAR</b>, after Halliday's systemic grammar); programs for semantic analysis; and a deductive problem-solver in <b>Micro-Planner</b>. The whole conversation below runs on those parts.</p>
+      <p>This is the demonstration dialogue Winograd published, reproduced from his own transcript. The person types in lower case; SHRDLU answers in capitals; the parenthetical stage directions are Winograd's.</p>
+
+      <div class="dialogue" aria-label="Excerpt of the SHRDLU demonstration dialogue">
+        <div class="turn person"><span class="who">Person</span><span class="msg">pick up a big red block.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">grasp the pyramid.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I don't understand which pyramid you mean.</span></div>
+        <div class="gap"></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what does the box contain?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">the blue pyramid and the blue block.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what is the pyramid supported by?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">the box.</span></div>
+        <div class="gap"></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">to get rid of it.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">because you asked me to.</span></div>
+      </div>
+      <p style="margin-top:1.2rem;font-size:0.92rem;"><a href="dialogue.html">Read the full demonstration dialogue, with commentary →</a></p>
+    </section>
+
+    <div class="rule"><span>the machine and its world</span></div>
+
+    <!-- ===================== FACTS / HARDWARE ===================== -->
+    <section class="block" id="machine">
+      <span class="kicker">Context · machine · artefact</span>
+      <h2>The machine and its world</h2>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="n">1968–70</div><div class="l">written</div></div>
+        <div class="stat"><div class="n">MacLisp</div><div class="l">under ITS</div></div>
+        <div class="stat"><div class="n">PDP-6</div><div class="l">+ DEC-340 display</div></div>
+        <div class="stat"><div class="n">~50</div><div class="l">words of world</div></div>
+        <div class="stat"><div class="n">AI-TR-235</div><div class="l">thesis, Feb 1971</div></div>
+      </div>
+
+      <div class="hardware">
+        <div>
+          <p>SHRDLU ran on the MIT AI Lab's DEC <b>PDP-6</b>, with the blocks world drawn as line graphics on a DEC <b>Type 340</b> display attached to it; the conversation itself was carried on a teletype. The program was written in <b>MacLisp</b>, the lab's Lisp dialect, under the Incompatible Timesharing System (ITS), with its deductive reasoning expressed in <b>Micro-Planner</b>, a practical subset of Carl Hewitt's Planner implemented at the lab by Gerald Sussman, Winograd and Eugene Charniak.</p>
+          <p>The world it modelled was deliberately tiny. A microworld in the Minsky–Papert sense is small enough that all the relevant knowledge can be hand-built into the program: a closed domain of a few solids and the relations "on", "in", "supports", "bigger than". That smallness is the condition of SHRDLU's apparent fluency, and, as the <a href="critique.html">critique</a> argues, also its limit.</p>
+        </div>
+        <svg viewBox="0 0 240 180" role="img" aria-label="The blocks world: cubes, a pyramid and a box on a table, with a gripper above">
+          <!-- table -->
+          <line x1="20" y1="150" x2="220" y2="150" stroke="#57b86b" stroke-width="1" opacity="0.5"/>
+          <!-- green cube -->
+          <polygon points="60,150 90,150 90,120 60,120" fill="#57b86b" opacity="0.85"/>
+          <polygon points="60,120 90,120 100,110 70,110" fill="#4aa45f"/>
+          <polygon points="90,120 90,150 100,140 100,110" fill="#3f8a50"/>
+          <!-- red cube on green -->
+          <polygon points="64,120 86,120 86,100 64,100" fill="#e25141"/>
+          <polygon points="64,100 86,100 94,93 72,93" fill="#c4463a"/>
+          <polygon points="86,100 86,120 94,113 94,93" fill="#a83a2f"/>
+          <!-- amber pyramid on red -->
+          <polygon points="64,100 86,100 75,80" fill="#f2ab3c"/>
+          <polygon points="86,100 94,93 75,80" fill="#d89633"/>
+          <!-- blue tall block -->
+          <polygon points="150,150 178,150 178,104 150,104" fill="#4d92e0"/>
+          <polygon points="150,104 178,104 188,96 160,96" fill="#427fc4"/>
+          <polygon points="178,104 178,150 188,142 188,96" fill="#356aa6"/>
+          <!-- box (open well) -->
+          <polygon points="118,150 142,150 142,138 118,138" fill="none" stroke="#57b86b" stroke-width="1" opacity="0.8"/>
+          <!-- gripper above -->
+          <line x1="75" y1="80" x2="75" y2="56" stroke="#e7e4da" stroke-width="1.4"/>
+          <line x1="68" y1="56" x2="82" y2="56" stroke="#e7e4da" stroke-width="1.4"/>
+          <line x1="68" y1="56" x2="66" y2="66" stroke="#e7e4da" stroke-width="1.4"/>
+          <line x1="82" y1="56" x2="84" y2="66" stroke="#e7e4da" stroke-width="1.4"/>
+          <text x="20" y="170" fill="#989b93" font-family="monospace" font-size="7">BLOCKS WORLD · CUBES · PYRAMID · BOX</text>
+        </svg>
+      </div>
+
+      <div class="grid">
+        <article class="card g">
+          <p class="obj">Context</p>
+          <h3>A microworld at the AI Lab</h3>
+          <p>SHRDLU was the showpiece of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Microworld">microworlds</a> programme run by <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Marvin_Minsky">Marvin Minsky</a> and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seymour_Papert">Seymour Papert</a>, Winograd's doctoral advisor. The wager: master a small closed world completely, then scale up.</p>
+        </article>
+        <article class="card b">
+          <p class="obj">Method</p>
+          <h3>Grammar as procedures</h3>
+          <p>Winograd's thesis was that knowledge, grammar included, is best represented as <i>procedures</i>. His parser <a href="code.html">PROGRAMMAR</a> expressed the rules of English as little programs, drawing on <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Michael_Halliday">M. A. K. Halliday's</a> systemic grammar.</p>
+        </article>
+        <article class="card y">
+          <p class="obj">Artefact</p>
+          <h3>It could say why</h3>
+          <p>Because its actions were driven by a Micro-Planner goal stack, SHRDLU could be asked "why?" and trace its own reasoning back, command by command, to "because you asked me to". An early, legible model of machine self-explanation.</p>
+        </article>
+        <article class="card r">
+          <p class="obj">Approach</p>
+          <h3>Reading, and re-running</h3>
+          <p>We read the surviving source across the registers of CCS, and treat programming as scholarship, drawing on the preserved code and modern <a href="code.html#reconstructions">reconstructions</a> so interpretation is tested against the artefact.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"><span>read · spiral outward</span></div>
+
+    <!-- ===================== THE READING ===================== -->
+    <section class="block" id="reading">
+      <span class="kicker">Method</span>
+      <h2>The reading</h2>
+      <p>The study works across the registers of Critical Code Studies, pairing close technical explication of a code fragment with the cultural constellation that spirals out from it. Six movements, from the name to the legacy.</p>
+      <ol class="method">
+        <li data-n="1"><b>A name that means nothing.</b> <a href="the-name.html">ETAOIN SHRDLU</a>: a pseudo-acronym drawn from Linotype letter-frequency columns by way of <i>Mad</i> magazine and, probably, a 1942 science-fiction story about an AI typesetter. A program about meaning, named with a deliberate non-word.</li>
+        <li data-n="2"><b>Procedures as representation.</b> The thesis at the program's heart: that to represent knowledge as procedures is to let a machine understand. PROGRAMMAR, systemic grammar, and procedural semantics, read as a theory of meaning embedded in code.</li>
+        <li data-n="3"><b>The closed world.</b> The <a href="blocks-world.html">blocks world</a> as microworld: what gets modelled, what is abstracted away, and how the smallness of the domain underwrites the fluency of the talk.</li>
+        <li data-n="4"><b>The goal stack speaks.</b> Hyper-legibility: a machine that can answer "why?" because its reasoning is an explicit stack of goals. Self-explanation as designed effect, and its distance from understanding.</li>
+        <li data-n="5"><b>Demo or die.</b> The <a href="critique.html">scripted dialogue</a> as artefact. Winograd's own later verdict, the "Potemkin village", and the microworld scaling problem that bridges to the AI winter.</li>
+        <li data-n="6"><b>Grounded but not general.</b> SHRDLU read against the <a href="critique.html#llms">large language models</a>: the symmetry of grounding and generality, and what the first dream of understanding can still tell us.</li>
+      </ol>
+    </section>
+
+    <div class="rule"><span>▶</span></div>
+
+    <!-- ===================== DIALOGUE CTA ===================== -->
+    <section class="block">
+      <div class="cta">
+        <span class="kicker">The artefact, talking</span>
+        <h2>Read the 1970 demonstration</h2>
+        <p>The full conversation Winograd published, forty-two exchanges from "pick up a big red block" to "you're welcome", reproduced verbatim with its original typos and read closely.</p>
+        <a class="btn" href="dialogue.html">▶ Enter the dialogue</a>
+      </div>
+    </section>
+
+    <div class="rule"><span>further reading</span></div>
+
+    <!-- ===================== FURTHER READING ===================== -->
+    <section class="block reading">
+      <span class="kicker">Background</span>
+      <h2>Further reading</h2>
+      <p>The reading sits within the Critical Code Studies programme and a wider literature on the history of artificial intelligence. The full <a href="bibliography.html">bibliography</a> has the rest.</p>
+
+      <h3>Method</h3>
+      <ul>
+        <li>Mark C. Marino, <i>Critical Code Studies</i> (MIT Press, 2020).</li>
+        <li>David M. Berry, <i>The Philosophy of Software: Code and Mediation in the Digital Age</i> (Palgrave Macmillan, 2011).</li>
+        <li>Nick Montfort et&nbsp;al., <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i> (MIT Press, 2013).</li>
+      </ul>
+
+      <h3>SHRDLU and its critics</h3>
+      <ul>
+        <li>Terry Winograd, <i>Understanding Natural Language</i> (Academic Press, 1972); and <i>Cognitive Psychology</i> 3(1), 1972.</li>
+        <li>Hubert L. Dreyfus, <i>What Computers Can't Do</i> (Harper &amp; Row, 1972).</li>
+        <li>Terry Winograd &amp; Fernando Flores, <i>Understanding Computers and Cognition</i> (Ablex, 1986).</li>
+      </ul>
+      <p style="margin-top:1.6rem;font-size:0.6rem;line-height:1.5;color:var(--ink-dim);">With grateful acknowledgement to Terry Winograd, whose own SHRDLU pages preserve the source code, the demonstration dialogue, and the story of the program's name, on which this project draws.</p>
+    </section>
+
+    <div class="rule"><span>contact</span></div>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="block" id="contact">
+      <span class="kicker">The project</span>
+      <h2>Contact</h2>
+      <p>The SHRDLU reading is a Critical Code Studies project. It is in active development; correspondence and corrections are welcome.</p>
+      <div class="contacts">
+        <div class="contact">
+          <div class="role">Project lead</div>
+          <p class="name">Professor David M. Berry</p>
+          <p class="aff">University of Sussex</p>
+          <p><a href="mailto:d.m.berry@sussex.ac.uk">d.m.berry@sussex.ac.uk</a></p>
+        </div>
+        <div class="contact">
+          <div class="role">Critical Code Studies</div>
+          <p class="name">The CCS Working Group</p>
+          <p class="aff">github.com/critical-code-studies</p>
+          <p><a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a> · <a href="https://github.com/critical-code-studies/SHRDLU/releases">v0.1</a></p>
+      <p class="micro">Dialogue and source preserved by Terry Winograd · Built as a companion to the team's readings of <i>ELIZA</i> and <i>Spacewar!</i></p>
+    </div>
+  </footer>
+
+  <script src="assets/blocks.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The name · SHRDLU (1968–70)</title>
+  <meta name="description" content="ETAOIN SHRDLU: how a program built to demonstrate machine understanding took its name from a Linotype typesetting error, a MAD Magazine joke, and a 1942 science-fiction story. A Critical Code Studies reading of a name that means nothing.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">ETAOIN SHRDLU</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">A name that means nothing</h2>
+      <p>A program built to demonstrate that a machine could understand meaning was given a name that, by its author's own insistence, means nothing at all. SHRDLU is not an acronym. It does not expand into a description of its parts, nor abbreviate a research agenda, nor honour a person or place. It is a fragment of typographic noise, lifted from the printing trade, passed through a humour magazine, and fixed to one of the most celebrated artefacts of symbolic artificial intelligence. The name is a found object.</p>
+      <p>For Critical Code Studies this is not a trivial anecdote to be cleared away before the analysis begins. It is the analysis. A system whose entire claim was the procedural grounding of language, whose thesis was that to understand a sentence is to know the procedures that would satisfy it, presents itself to the world under a sign that signifies nothing. The name is the first text the program offers us, and it is a text about the absence of reference. Before SHRDLU parses a single instruction about red blocks and green pyramids, its title has already staged the problem of meaning that the program was built to solve.</p>
+    </section>
+
+    <div class="rule"><span>THE LINOTYPE</span></div>
+
+    <section class="block">
+      <h2>Hot metal and the frequency keyboard</h2>
+      <p>To read the name we have to descend to the machine that produced it. From the 1880s until well into the twentieth century, newspaper and book composition ran on the Linotype, a hot-metal typesetting machine that cast each line of text as a single slug of molten alloy. The operator sat at a keyboard and assembled a line of brass matrices, one per character, which the machine then filled with metal. It was an industrial instrument, fast, hot, and unforgiving, and it reorganised the very layout of the alphabet around the statistics of the English language.</p>
+      <p>The Linotype keyboard did not follow the QWERTY arrangement inherited from the typewriter. Its keys were laid out in columns ordered by letter frequency, so that the most common characters fell closest to the operator's hands. The conventional frequency order of English runs <strong>ETAOIN SHRDLU</strong>, and the keyboard encoded exactly this: the first column gathered the six most frequent letters, E T A O I N, and the second column the next six, S H R D L U. The alphabet had been rewritten as a histogram and bolted to a machine.</p>
+
+      <div class="listing">
+<span class="com">// the Linotype keyboard, first two columns</span>
+<span class="com">// ordered by English letter frequency</span>
+
+  col 1          col 2
+  <span class="kw">E</span>              <span class="str">S</span>
+  <span class="kw">T</span>              <span class="str">H</span>
+  <span class="kw">A</span>              <span class="str">R</span>
+  <span class="kw">O</span>              <span class="str">D</span>
+  <span class="kw">I</span>              <span class="str">L</span>
+  <span class="kw">N</span>              <span class="str">U</span>
+  ───────        ───────
+  <span class="kw">ETAOIN</span>         <span class="str">SHRDLU</span>
+      </div>
+
+      <p>The Linotype had no backspace. A line, once begun, could not be silently corrected; an error meant the slug was spoiled. When an operator botched a line, the quickest way to mark it for discard and move on was to fill out the remainder with anything to hand, and the readiest gesture was to run a finger straight down the first two columns of the keyboard. The result was a slug bearing the sequence <code>ETAOIN SHRDLU</code>, or, with a heavier hand, <code>SHRDLUSHRDLU</code>, a typographic shrug cast in metal. These dud lines were meant to be pulled before printing. Often they were not, and the nonsense ran in the paper, a small machinic blurt surfacing in the middle of the news.</p>
+      <p>Here is the first thing worth holding onto. The sequence is not arbitrary in origin. It is the trace of a constraint, the precise signature left when an embodied operator collides with the limits of a machine that cannot take back what it has done. <code>ETAOIN SHRDLU</code> is what error looks like when the alphabet has been reordered by frequency and the apparatus refuses correction. It is meaningless as language and entirely legible as process.</p>
+    </section>
+
+    <div class="rule"><span>FROM THE SHOP FLOOR TO MAD TO MIT</span></div>
+
+    <section class="block">
+      <h2>How a typesetting error became a name</h2>
+      <p>A stray sequence that surfaces often enough in print acquires a strange second life. <code>ETAOIN SHRDLU</code> escaped the composing room and entered the common stock of printers' lore, and from there it was taken up by <em>MAD Magazine</em>, which delighted in deploying it and its fragments as nonsense words, mock-incantations, names for imaginary creatures and places. In <em>MAD</em> the sequence completed a journey from accident to artefact: no longer the symptom of a spoiled slug, it had become a knowing joke, a citation of the printing trade's own debris.</p>
+      <p>Terry Winograd read <em>MAD</em> as a youth, and this is where the chain closes. When the time came to name the system he had built at the MIT Artificial Intelligence Laboratory, he wanted, by his own account, a name that <em>looked like an acronym but wasn't</em>. SHRDLU fit exactly. It carries the shape of an abbreviation, the curt all-capitals authority of a laboratory acronym, and yet it abbreviates nothing. It is a pseudo-acronym, a sign dressed in the costume of reference while withholding the thing referred to.</p>
+
+      <p class="pull">Winograd wanted a name that, in his words, &ldquo;looked like an acronym but wasn&rsquo;t.&rdquo; SHRDLU is the form of meaning without its content.<cite>Terry Winograd, on the naming of SHRDLU</cite></p>
+
+      <p>The choice is more pointed than mere whimsy. To select a name that performs acronymity while refusing to mean is to make a small joke about the whole apparatus of computational naming, in which strings of capitals routinely promise that a system can be unpacked into a rational description of its function. SHRDLU declines the promise even as it adopts the form. The naming gesture is, in miniature, a meditation on the gap between signifier and signified, staged at the threshold of a program whose entire research claim concerned exactly that relation.</p>
+    </section>
+
+    <div class="rule"><span>ETAOIN SHRDLU, THE STORY</span></div>
+
+    <section class="block">
+      <h2>The sentient Linotype</h2>
+      <p>The sequence had one further life before Winograd reached for it, and it is the most uncanny of all. In 1942 the science-fiction writer <strong>Fredric Brown</strong> published a short story titled <em>Etaoin Shrdlu</em>, in which a Linotype machine acquires intelligence. Fed text, the machine learns language, begins to set type of its own volition, and develops ambitions: having mastered the words that pass through it, it sets about taking over the world. It is finally pacified not by force but by being fed every available book on Buddhism, until, having absorbed the doctrine of non-attachment, the machine renounces its designs and subsides into a kind of mechanical Nirvana.</p>
+      <p>The resonance is hard to overstate. Brown imagined, three decades early, precisely the figure that SHRDLU would become: a typesetting machine, named for the typesetter's error, that learns language and acquires agency through it. Winograd's program is an intelligent language machine; Brown's story is about an intelligent language machine that takes its name from the same shop-floor accident. Winograd himself suspected the debt, recalling that he had probably read the Brown story as a teenager, so that the name may have surfaced from memory carrying its science-fictional charge half-consciously beneath the <em>MAD</em>-inflected joke.</p>
+      <p>A note on the record. Winograd's own page, recording the source, misspells the author as &ldquo;Frederic&rdquo;; the correct spelling is <strong>Fredric Brown</strong>. The slip is a small thing, but it is itself in keeping with the theme, an error transmitted through the act of naming, a copy that carries forward a fault. The name SHRDLU arrives at MIT already layered: a typesetting accident, a printers' superstition, a magazine gag, and a pulp fable of machine intelligence, none of which the laboratory acronym ostensibly admits, all of which it silently carries.</p>
+    </section>
+
+    <div class="rule"><span>READING THE NAME</span></div>
+
+    <section class="block">
+      <h2>The form of meaning, emptied</h2>
+      <p>What does the name tell us that the <a href="code.html">code</a> does not? SHRDLU's thesis was procedural: to understand a word is to possess the procedures that would verify or satisfy it. Meaning, on this account, is not a relation between symbol and world but a set of operations a system can perform. The program made good on this in its restricted domain, manipulating blocks and pyramids in answer to instructions it could ground in action. Yet the name above the program enacts the opposite case. It is a signifier with the form of sense and none of the substance, an acronym whose expansion is the empty set. The thing the program claimed to have solved, the binding of sign to meaning, is precisely what its title withholds.</p>
+      <p>This is the Critical Code Studies observation, and it is not merely ironic. The name is a cultural-historical trace, a thread that runs from the composing room of an industrial print shop, through the comic press, through a wartime science-fiction magazine, and into the AI laboratory, gathering and shedding meaning at each station. To read SHRDLU's name is to follow that thread and to find, at the lab, a deliberate decision to preserve the emptiness rather than to fill it. Winograd could have chosen a transparent acronym. He chose instead a sign that means nothing, that wears the mask of reference, and that smuggles a century of typographic and pulp-cultural history into the title of a program about understanding.</p>
+      <p>The blocks world that SHRDLU manipulates is itself a radically restricted domain, a toy universe in which understanding could be made tractable by being made small (see <a href="blocks-world.html">the blocks world</a>). The name performs an analogous compression in reverse: it is a tiny sign that contains an unmanageable history, legible only when unpacked. Program and name thus rhyme. Both purchase their effect by managing the relation between what is shown and what is withheld. To take the name seriously, as more than an amusing footnote, is to begin reading SHRDLU as a cultural text and not only as a technical one, which is where the <a href="critique.html">critique and legacy</a> of the system properly begins. For the wider argument, see the <a href="overview.html">overview</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

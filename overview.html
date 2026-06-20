@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview · SHRDLU (1968–70)</title>
+  <meta name="description" content="What SHRDLU was: Terry Winograd's natural-language program for a simulated blocks world, the showpiece of symbolic AI and the MIT microworlds programme.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">The program</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">An overview of SHRDLU</h2>
+      <p>SHRDLU is the showpiece of symbolic artificial intelligence, and the most celebrated artefact of the microworlds programme that Marvin Minsky and Seymour Papert pursued at the MIT Artificial Intelligence Laboratory. It was, in the plainest description, a natural-language program. You typed English at it on a teletype, and you watched a simulated arm move coloured blocks around a small tabletop world rendered on a display screen. The conversation that resulted, in which the program parsed your sentences, manipulated its world, and answered questions about what it had done and why, seemed for a time to show that a machine could be made to understand language.</p>
+      <p>The program was written between 1968 and 1970 by Terry Winograd, then a doctoral student supervised by Seymour Papert. It was published as his 1971 MIT thesis, issued as Artificial Intelligence Technical Report 235 (AI-TR-235), and again in 1972 both as the book <em>Understanding Natural Language</em> and as a complete issue of the journal <em>Cognitive Psychology</em>, volume 3, number 1. Few computer programs of the period were documented and disseminated so thoroughly, and fewer still came to carry so much interpretive weight.</p>
+    </section>
+
+    <div class="rule"><span>How it worked</span></div>
+
+    <section class="block">
+      <span class="kicker">Architecture</span>
+      <h2>How it worked</h2>
+      <p>SHRDLU was not a single trick but an integration of four cooperating components, each addressing a different layer of the problem of taking a typed English sentence and turning it into an action or an answer. What made the system persuasive was that these layers spoke to one another, so that syntax, meaning, and reasoning were brought into a single loop rather than handled in isolation. Winograd's central thesis, captured in his dissertation title, was that procedures themselves could serve as the representation of linguistic knowledge.</p>
+      <div class="grid">
+        <article class="card b">
+          <h3>1. A parser</h3>
+          <p>The first component read the user's typed sentence and worked out its grammatical structure, the scaffolding on which meaning could be built.</p>
+        </article>
+        <article class="card g">
+          <h3>2. A recognition grammar</h3>
+          <p>The grammar of English was written not as static rules but as procedures, in a system Winograd called <a href="code.html">PROGRAMMAR</a>. It drew on M. A. K. Halliday's systemic grammar, the first major computational application of that linguistic theory.</p>
+        </article>
+        <article class="card y">
+          <h3>3. Semantic analysis</h3>
+          <p>A set of programs for semantic analysis turned the parsed sentence into something the system could act on, a command to be carried out or a query to be answered against the model of the world.</p>
+        </article>
+        <article class="card r">
+          <h3>4. A problem-solver</h3>
+          <p>A deductive problem-solver, expressed in <a href="code.html">Micro-Planner</a>, planned the manipulations of the <a href="blocks-world.html">blocks world</a> and answered questions of why and how by reasoning over its own goals.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"><span>What it could do</span></div>
+
+    <section class="block">
+      <span class="kicker">Capabilities</span>
+      <h2>What it could do</h2>
+      <div class="stat-strip">
+        <div class="stat"><span class="n">1968–70</span><span class="l">Written at the MIT AI Lab</span></div>
+        <div class="stat"><span class="n">~50</span><span class="l">Words to describe its whole world</span></div>
+        <div class="stat"><span class="n">AI-TR-235</span><span class="l">MIT thesis, Feb 1971</span></div>
+        <div class="stat"><span class="n">MacLisp</span><span class="l">Under the ITS operating system</span></div>
+      </div>
+      <p>Within its small domain SHRDLU did things that no earlier program had managed to combine. It resolved reference and anaphora in context, so that a pronoun such as "it" or a phrase such as "the green one" could be understood against what had just been said and what currently stood on the table. It queried its own model of the world, reporting on which objects existed and how they were arranged. It could answer "why" questions by reading back its goal stack, reconstructing the chain of intentions behind an action it had taken. It learned new words when told what they meant, accepting a definition for "steeple" and using it thereafter. And it refused requests it judged impossible, declining to perform what its model of the world would not allow.</p>
+      <div class="dialogue">
+        <div class="turn person"><span class="who">Person</span><span class="msg">Why did you clear off that cube?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">TO PUT IT ON A LARGE GREEN CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">Why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BECAUSE YOU ASKED ME TO.</span></div>
+      </div>
+      <p>The exchange reads as a small marvel of self-explanation, the program tracing its actions back through its own reasoning to the instruction that prompted them. You can <a href="dialogue.html">read the full dialogue</a>, and follow how the conversation builds context turn by turn.</p>
+    </section>
+
+    <div class="rule"><span>Significance</span></div>
+
+    <section class="block">
+      <span class="kicker">Legacy</span>
+      <h2>Why it mattered, and what came next</h2>
+      <p>SHRDLU is rightly remembered as the high-water mark of good old-fashioned AI. It seemed to demonstrate that symbolic representation and deductive reasoning could yield genuine linguistic understanding, and the optimism it produced ran well ahead of what the program could in fact do. That gap is the subject of the <a href="critique.html">critique and legacy</a> page, which develops three lines: the scripted, "demo or die" character of the famous dialogue, worked through line by line; the microworld scaling problem, the difficulty of extending an intelligence purchased by radically restricting the world; and Winograd's own later turn, from builder to critic, culminating in <em>Understanding Computers and Cognition</em> with Fernando Flores in 1986.</p>
+      <p>For the curious matter of where the program got its name, see <a href="the-name.html">the name</a>, and for the figures who built it and argued over it, see <a href="people.html">people</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

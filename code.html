@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The program · SHRDLU (1968–70)</title>
+  <meta name="description" content="A Critical Code Studies reading of SHRDLU's architecture: a layered system written in MacLisp under ITS, with PROGRAMMAR, systemic grammar, and Micro-Planner enacting Winograd's thesis that meaning could be represented as procedures.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede" id="program">
+      <span class="kicker">The code</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">The program</h2>
+      <p>SHRDLU is best understood not as a single program but as a layered system, a stack of cooperating components written in MacLisp under the ITS operating system, with its deductive and problem-solving work expressed in Micro-Planner. Terry Winograd assembled four interacting parts: a parser, a systemic recognition grammar called PROGRAMMAR, a set of semantic-analysis programs, and a Micro-Planner deductive problem-solver. Each part is a piece of working code, and the system's apparent fluency in conversation about its toy world of blocks is the visible surface of these layers passing control and partial results between one another.</p>
+      <p>The architecture matters because it carries an argument. Winograd's central thesis was that meaning could be represented as procedures rather than as static tables of facts or grammatical rules. Knowledge, in this account, is something a program does, not something it merely stores. Grammar becomes a program that recognises sentences, semantics becomes a program that builds meanings, and reasoning becomes a program that pursues goals. To read SHRDLU as a cultural text, then, is to read a wager about the nature of understanding inscribed directly into its control flow.</p>
+    </section>
+
+    <div class="rule"><span>Procedures as representation</span></div>
+
+    <section class="block" id="procedural-semantics">
+      <span class="kicker">The core claim</span>
+      <h2>Procedures as representation</h2>
+      <p>The title of Winograd's 1971 MIT thesis states the doctrine plainly: <em>Procedures as a Representation for Data in a Computer Program for Understanding Natural Language</em>. The claim, which the literature came to call <strong>procedural semantics</strong>, is that the meaning of a linguistic expression is best captured by the procedure that would compute or verify it, rather than by a declarative description sitting passively in memory. To know what "the red block" refers to is, on this view, to possess a program that can find it; to understand "is the block on the table" is to hold a procedure that can test the relation in the model and return an answer.</p>
+      <p>This is the conceptual hinge on which the whole system turns, and it is where SHRDLU becomes most interesting for Critical Code Studies. The decision to encode meaning as executable code rather than as inert data is not a neutral engineering convenience. It folds the question of understanding into the question of execution, so that comprehension and computation become, for the duration of a query, indistinguishable. The system understands a sentence by running it. Meaning here is performative in a quite literal sense: it is the trace left by a procedure as it executes against a world model, and the boundary between representing a fact and acting upon it dissolves into the call stack.</p>
+      <div class="pull">
+        <p>Comprehension and computation become, for the duration of a query, indistinguishable. The system understands a sentence by running it.</p>
+        <cite>On procedural semantics</cite>
+      </div>
+    </section>
+
+    <div class="rule"><span>PROGRAMMAR and systemic grammar</span></div>
+
+    <section class="block" id="programmar">
+      <span class="kicker">The parser</span>
+      <h2>PROGRAMMAR and systemic grammar</h2>
+      <p>Winograd's parser, <strong>PROGRAMMAR</strong>, is the clearest expression of the procedural doctrine at the level of syntax. Rather than treating a grammar as a fixed list of rewrite rules to be matched against an input string, PROGRAMMAR expresses each grammatical rule as a small program, a "procedural grammar" in which the act of parsing is the act of running these programs. A rule does not simply assert that a noun phrase may consist of a determiner followed by adjectives and a noun; it actively attempts to build that structure, branching, backtracking, and consulting context as it goes. Grammar becomes a collection of little procedures that know how to recognise the constituents they describe.</p>
+      <p>The grammatical theory underneath PROGRAMMAR is M.A.K. Halliday's <strong>systemic grammar</strong>, and SHRDLU stands as the first major computational application of systemic theory. Halliday's framework treats grammatical choices as networks of options, "systems" of features from which a speaker selects, and this orientation towards choice and function rather than towards static phrase-structure trees lent itself naturally to a procedural rendering. The recognition grammar asks, at each point, which systemic options are in play and what evidence would resolve them, so that the parse is driven by functional questions rather than by mechanical pattern application.</p>
+      <p>The illustrative pseudocode below, which is a stylised reconstruction and not the original PROGRAMMAR source, suggests the flavour of a grammar rule written as a program:</p>
+      <div class="listing">
+<span class="com">;; ILLUSTRATIVE – not the original PROGRAMMAR source</span>
+<span class="com">;; A noun-phrase rule expressed as a procedure that builds structure</span>
+(<span class="kw">defun</span> parse-noun-phrase ()
+  (<span class="kw">when</span> (parse <span class="str">'DETERMINER</span>)        <span class="com">; try "the", "a", "two" ...</span>
+    (<span class="kw">loop</span> <span class="kw">while</span> (parse <span class="str">'ADJECTIVE</span>))   <span class="com">; gather "red", "small" ...</span>
+    (<span class="kw">if</span> (parse <span class="str">'NOUN</span>)               <span class="com">; require a head noun</span>
+        (build <span class="str">'NP</span>)                    <span class="com">; succeed: assemble the NP</span>
+        (fail-and-backtrack))))         <span class="com">; else undo and report failure</span>
+      </div>
+    </section>
+
+    <div class="rule"><span>Micro-Planner and the goal stack</span></div>
+
+    <section class="block" id="micro-planner">
+      <span class="kicker">The reasoner</span>
+      <h2>Micro-Planner and the goal stack</h2>
+      <p>The deductive heart of SHRDLU is <strong>Micro-Planner</strong>, a practical subset of Carl Hewitt's PLANNER language, implemented at MIT by Gerald Sussman, Terry Winograd, and Eugene Charniak and documented in the Micro-Planner Reference Manual (MIT AI Memo 203, July 1970, revised as 203A in December 1971). PLANNER introduced a goal-directed, theorem-proving style of programming in which one does not call a procedure by name but instead states a goal and lets the system search for assertions and "theorems", themselves procedures, that can satisfy it. Micro-Planner brought a workable portion of this vision into MacLisp, and SHRDLU used it to reason about the blocks world.</p>
+      <p>The mechanism that gives SHRDLU much of its conversational depth is the <strong>goal stack</strong>. Because the system pursues goals by invoking subgoals, the chain of goals active at any moment is preserved as an explicit structure. This is why SHRDLU can answer questions about its own behaviour, including the famous "why" questions in the dialogue. When asked why it did something, the system does not reconstruct a plausible story after the fact; it reads back up the record of goals that motivated the action, so that "why did you do that" is answered by "to get rid of it" or "to clear off that cube", each answer a node retrieved from the deductive history. The capacity for explanation is here a side effect of the architecture rather than a separately engineered feature. You can follow this in the <a href="dialogue.html">canonical dialogue</a>, where the chain of "why" exchanges walks step by step back up the goal stack.</p>
+      <p>The illustrative Planner-style pseudocode below, again a stylised reconstruction rather than the original code, shows how a goal such as picking up a block decomposes into subgoals:</p>
+      <div class="listing">
+<span class="com">;; ILLUSTRATIVE – Planner-style goal decomposition, not original source</span>
+<span class="com">;; To grasp X, first ensure its top is clear, then grasp it</span>
+(<span class="kw">THCONSE</span> (GRASP ?X)
+  (<span class="kw">THGOAL</span> (CLEARTOP ?X) (<span class="kw">THUSE</span> CLEAR-IT))  <span class="com">; subgoal pushed onto the stack</span>
+  (<span class="kw">THGOAL</span> (MOVE-HAND-TO ?X))                <span class="com">; subgoal: position the hand</span>
+  (<span class="kw">THASSERT</span> (GRASPING ?X)))                  <span class="com">; record the new world state</span>
+
+(<span class="kw">THCONSE</span> (CLEARTOP ?X)                          <span class="com">; CLEAR-IT theorem</span>
+  (<span class="kw">THGOAL</span> (GET-RID-OF ?Y) (ON ?Y ?X)))         <span class="com">; remove whatever sits on X</span>
+      </div>
+    </section>
+
+    <div class="rule"><span>The machine it ran on</span></div>
+
+    <section class="block" id="machine">
+      <span class="kicker">Material conditions</span>
+      <h2>The machine it ran on</h2>
+      <div class="stat-strip">
+        <div class="stat"><strong>MacLisp</strong><span>implementation language</span></div>
+        <div class="stat"><strong>ITS</strong><span>operating system</span></div>
+        <div class="stat"><strong>PDP-6</strong><span>host computer (DEC)</span></div>
+        <div class="stat"><strong>DEC-340</strong><span>display</span></div>
+      </div>
+      <p>By Winograd's own account, SHRDLU was written in MacLisp for the ITS system, vintage 1970, and ran on a DEC PDP-6 of the kind in use at the MIT Artificial Intelligence Laboratory, with the blocks world rendered as a line drawing on a DEC-340 display attached to the machine and the dialogue conducted over a teletype. These are not incidental details. The toy world's restriction to a handful of blocks and pyramids, and the patience the conversation demands, are partly conditions of the hardware, a time-shared research machine driving a vector display in an era when every cycle and every word of core counted.</p>
+      <p>The MIT AI Lab context is equally formative. SHRDLU belongs to the microworlds research programme overseen by Marvin Minsky and Seymour Papert, the latter of whom supervised Winograd. The lab's culture of building integrated, demonstrable systems, and its commitment to symbolic reasoning over a sharply bounded domain, shaped what SHRDLU could be. The program is in this sense a precipitate of its institution: its ambitions, its confidence that intelligence could be assembled from procedures, and its strategic decision to make a small world work completely rather than a large world work badly are all legible in the choices the code makes.</p>
+    </section>
+
+    <div class="rule"><span>Reconstructions</span></div>
+
+    <section class="block" id="reconstructions">
+      <span class="kicker">Afterlives</span>
+      <h2>Reconstructions</h2>
+      <p>SHRDLU survives in several forms, and the distinctions between them matter for anyone wishing to read or run the code. The original source is preserved; alongside it are independent modern efforts that re-create the system on contemporary platforms. None of the modern reimplementations should be attributed to Winograd himself.</p>
+      <ul class="links">
+        <li><a href="https://hci.stanford.edu/winograd/shrdlu/code">Original source (Winograd, Stanford HCI)</a> <span class="meta">The preserved original SHRDLU source, hosted on Winograd's own Stanford pages, the highest-authority primary text.</span></li>
+        <li><a href="https://github.com/policecar/shrdlu">policecar/shrdlu (GitHub mirror)</a> <span class="meta">A community mirror of the preserved original source for convenient browsing and retrieval.</span></li>
+        <li><a href="https://patrickvanbergen.com/blocks-world/">Patrick van Bergen, Blocks World (2023)</a> <span class="meta">A complete modern replication of the canonical SHRDLU dialogue, by van Bergen, not by Winograd.</span></li>
+        <li><a href="https://github.com/garfix/blocks-world">garfix/blocks-world (GitHub)</a> <span class="meta">The source repository for van Bergen's 2023 dialogue replication.</span></li>
+        <li><span>University of Missouri–Rolla "resurrection"</span> <span class="meta">A student project producing a Common Lisp console version and a Java3D graphical version. An independent re-creation, not a Winograd port.</span></li>
+      </ul>
+      <p>For what these afterlives reveal about SHRDLU's reception, its status as a "Potemkin village" demonstration, and its place in the longer history of artificial intelligence, see <a href="critique.html">Critique &amp; legacy</a>. To explore the bounded domain in which all of this machinery operates, see <a href="blocks-world.html">The blocks world</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

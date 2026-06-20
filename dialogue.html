@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The dialogue · SHRDLU (1968–70)</title>
+  <meta name="description" content="The full SHRDLU demonstration dialogue, reproduced verbatim from Terry Winograd's own transcript, with a critical code studies commentary.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">The artefact, talking</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">The demonstration dialogue</h2>
+      <p>This is the conversation Terry Winograd published as the demonstration of SHRDLU, reproduced verbatim from his own transcript. The person types in lower case; SHRDLU answers in capitals; the parenthetical stage directions, <span class="stage">(does it)</span>, are Winograd's own. The original typographical quirks are preserved, including the misspelling "ANWHERE" and the irregular spacing, because they are evidence of the transcript's status as a hand-prepared artefact rather than a live trace, which is itself part of what a <a href="critique.html">critical reading</a> of the demo must attend to.</p>
+    </section>
+
+    <div class="rule"><span>begin</span></div>
+
+    <section class="block">
+      <div class="dialogue" aria-label="The full SHRDLU demonstration dialogue">
+        <div class="turn person"><span class="who">Person</span><span class="msg">pick up a big red block.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">grasp the pyramid.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I DON'T UNDERSTAND WHICH PYRAMID YOU MEAN.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">find a block which is taller than the one you are holding and put it into the box.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BY "IT", I ASSUME YOU MEAN THE BLOCK WHICH IS TALLER THAN THE ONE I AM HOLDING.</span></div>
+        <div class="turn shrdlu"><span class="who"></span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what does the box contain?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">THE BLUE PYRAMID AND THE BLUE BLOCK.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what is the pyramid supported by?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">THE BOX.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">how many blocks are not in the box?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">FOUR OF THEM.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">is at least one of them narrower than the one which I told you to pick up?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, THE RED CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">is it supported?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, BY THE TABLE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">can the table pick up blocks?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">NO.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">can a pyramid be supported by a block?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">can a pyramid support a pyramid?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I DON'T KNOW.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">stack up two pyramids.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I CAN'T.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">will you please stack up both of the red blocks and either a green cube or a pyramid?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">which cube is sitting on the table?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">THE LARGE GREEN ONE WHICH SUPPORTS THE RED PYRAMID.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">is there a large block behind a pyramid?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, THREE OF THEM: A LARGE RED ONE, A LARGE GREEN CUBE, AND THE BLUE ONE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">put a small one onto the green cube which supports a pyramid.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">put the littlest pyramid on top of it.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">does the shortest thing the tallest pyramid's support supports support anything green?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, THE GREEN PYRAMID.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what color is it?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BY "IT", I ASSUME YOU MEAN THE SHORTEST THING THE TALLEST PYRAMID'S SUPPORT SUPPORTS.</span></div>
+        <div class="turn shrdlu"><span class="who"></span><span class="msg">RED</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">how many things are on top of green cubes?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I'M NOT SURE WHAT YOU MEAN BY "ON TOP OF" IN THE PHRASE "ON TOP OF GREEN CUBES".<br>DO YOU MEAN:<br>1 - DIRECTLY ON THE SURFACE<br>2 - ANWHERE ON TOP OF ?</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">2</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">THREE OF THEM.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">had you touched any pyramid before you put the green one on the little cube?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, THE GREEN ONE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">when did you pick it up?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">WHILE I WAS STACKING UP THE RED CUBE, A LARGE RED BLOCK AND A LARGE GREEN CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">TO GET RID OF IT.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">TO CLEAN OFF THE RED CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you clear off that cube?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">TO PUT IT ON A LARGE GREEN CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">TO STACK UP THE RED CUBE, A LARGE RED BLOCK AND A LARGE GREEN CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BECAUSE YOU ASKED ME TO.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">how did you do it?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BY PUTTING A LARGE RED BLOCK ON THE TABLE; THEN LETTING GO OF IT; THEN PUTTING A LARGE GREEN CUBE ON IT; THEN LETTING GO OF THAT CUBE; THEN PUTTING THE RED CUBE ON THAT CUBE; THEN LETTING GO OF THAT CUBE.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">how many objects did you touch while you were doing it?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">FOUR OF THEM.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">what did the red cube support before you started to clean it off?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">THE GREEN PYRAMID.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">there were five blocks to the left of the box then.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">NO, ONLY FOUR OF THEM: THE RED CUBE, TWO LARGE GREEN CUBES AND A LARGE RED BLOCK.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">put the blue pyramid on the block in the box.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">is there anything which is bigger than every pyramid but is not as wide as the thing that supports it?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, THE BLUE BLOCK.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">does a steeple</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg"><span class="stage">(interrupting)</span> SORRY, I DON'T KNOW THE WORD "STEEPLE".</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">a "steeple" is a stack which contains two green cubes and a pyramid.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I UNDERSTAND.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">are there any steeples now?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">NO.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">build one.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">call the biggest block "superblock".</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">have you picked superblock up since we began?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">why did you drop it?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">BY "IT", I ASSUME YOU MEAN THE SUPERBLOCK.<br>I CAN'T EXPLAIN A NON-EXISTENT EVENT.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">is there anything to the right of the red pyramid?</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YES, FOUR THINGS: THE BOX, THE RED CUBE, THE BLUE PYRAMID AND THE BLOCK NAMED SUPERBLOCK.</span></div>
+        <div class="turn person"><span class="who">Person</span><span class="msg">thank you.</span></div>
+        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">YOU'RE WELCOME!</span></div>
+      </div>
+      <p class="micro" style="margin-top:0.9rem;">Source: Terry Winograd, "The dialog that was used as a SHRDLU demo", <a href="https://hci.stanford.edu/winograd/shrdlu/">hci.stanford.edu/winograd/shrdlu</a> (archived). Reproduced verbatim, typos and spacing preserved.</p>
+    </section>
+
+    <div class="rule"><span>reading the conversation</span></div>
+
+    <section class="block">
+      <span class="kicker">Commentary</span>
+      <h2>What the dialogue is doing</h2>
+      <p>Read as a text, the conversation is a carefully ordered argument for machine understanding. Each exchange exhibits a distinct capacity, and the order is not accidental.</p>
+
+      <h3 style="margin-top:1.8rem;">Reference and ambiguity</h3>
+      <p>"Grasp the pyramid" is met not with an action but with a question: <span style="color:var(--shrdlu);font-family:var(--mono);font-size:0.82rem;">I DON'T UNDERSTAND WHICH PYRAMID YOU MEAN</span>. SHRDLU knows there is more than one pyramid and that the definite article presupposes a unique referent. A few lines later it resolves "it" by spelling out the description it has inferred, "BY 'IT', I ASSUME YOU MEAN…". This is anaphora and presupposition handled in context, the very phenomena that the later <a href="critique.html">Winograd Schema Challenge</a> would make a benchmark.</p>
+
+      <h3 style="margin-top:1.8rem;">A model of the world, queried</h3>
+      <p>"What does the box contain?", "what is the pyramid supported by?", "how many blocks are not in the box?" treat the blocks world as a small database of spatial relations. SHRDLU is not pattern-matching on the words; it is consulting a model and computing. "CAN THE TABLE PICK UP BLOCKS? NO." and "CAN A PYRAMID SUPPORT A PYRAMID? I DON'T KNOW." show the difference between what the world rules out and what the program simply has no axiom for. The honest "I DON'T KNOW" is doing real work for the demo's credibility.</p>
+
+      <h3 style="margin-top:1.8rem;">The goal stack speaks</h3>
+      <p>The chain of "why?" questions is the most quoted passage, and the most revealing. "TO GET RID OF IT", "TO CLEAN OFF THE RED CUBE", up to "BECAUSE YOU ASKED ME TO", is SHRDLU reading back its own <a href="code.html">Micro-Planner goal stack</a>. The machine can explain itself because its reasoning was an explicit structure of goals and sub-goals. This legibility is precisely what today's neural systems lack, and it is worth holding onto as a design value even as we read the demo sceptically.</p>
+
+      <h3 style="margin-top:1.8rem;">Learning, and refusing</h3>
+      <p>Near the end the person defines a new word, "a 'steeple' is a stack which contains two green cubes and a pyramid", and SHRDLU answers "I UNDERSTAND" and can then build one. It also refuses gracefully: asked why it dropped the superblock, it corrects the false presupposition, "I CAN'T EXPLAIN A NON-EXISTENT EVENT." These are the high points of the demonstration, and the reason it persuaded.</p>
+
+      <h3 style="margin-top:1.8rem;">The seam in the artefact</h3>
+      <p>The misspelling "ANWHERE" and the irregular spacing are small but telling. This is a prepared transcript, the dialogue Winograd himself later described as "very carefully worked through, line by line." The conversation is real in that SHRDLU could produce these responses, and staged in that the path through them was chosen in advance. Holding both facts at once is the task of a <a href="critique.html">critical reading</a>: the dialogue is neither a fraud nor a free conversation, but a demonstration, an artefact built to make an argument.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

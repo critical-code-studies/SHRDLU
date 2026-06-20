@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline · SHRDLU (1968–70)</title>
+  <meta name="description" content="A chronological timeline of SHRDLU and its context, from Fredric Brown's 1942 story to Winograd's MIT thesis, its publication, the Dreyfus critique, and present-day reconstructions.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+  <style>
+    .tl { list-style:none; margin:0; padding:0; border-left:2px solid var(--line); }
+    .tl li { position:relative; padding:0 0 1.8rem 1.6rem; }
+    .tl li:last-child { padding-bottom:0; }
+    .tl li::before {
+      content:""; position:absolute; left:-7px; top:0.45rem;
+      width:12px; height:12px; border-radius:50%;
+      background:var(--blk-blue); border:2px solid var(--line);
+    }
+    .tl .tl-date {
+      display:block; font-weight:700; letter-spacing:0.02em;
+      color:var(--pyr-amber); font-size:0.95rem; margin-bottom:0.25rem;
+    }
+    .tl .tl-body { color:var(--ink); margin:0; }
+    .tl .tl-body a { color:var(--shrdlu); }
+    .tl li.tl-key::before { background:var(--shrdlu); }
+    .tl li.tl-coda::before { background:var(--pyr-amber); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">Chronology</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">Timeline</h2>
+      <p>SHRDLU was not an isolated event but the convergence of a science-fiction conceit, a research programme, and a particular machine. The chronology below traces the program from the cultural prehistory of its name, through its construction at the MIT Artificial Intelligence Laboratory between 1968 and 1970, to its publication, the critique that followed, Winograd's own turn from builder to critic, and the reconstructions that keep the dialogue running today.</p>
+    </section>
+
+    <div class="rule"><span>The timeline</span></div>
+
+    <section class="block">
+      <ul class="tl">
+
+        <li>
+          <span class="tl-date">1942</span>
+          <p class="tl-body">Fredric Brown publishes the science-fiction story "Etaoin Shrdlu", in which a sentient Linotype machine learns language and threatens to take over, only to be pacified by a turn to Buddhism. Decades later it would furnish the probable subliminal source for the program's name. <a href="the-name.html">On the name</a>.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">Mid to late 1960s</span>
+          <p class="tl-body">Carl Hewitt designs PLANNER, a procedural problem-solving language, at MIT. Marvin Minsky and Seymour Papert co-direct the AI Laboratory and its "microworlds" research programme, which holds that intelligence can be studied by building systems competent within deliberately restricted domains.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">1966</span>
+          <p class="tl-body">Terry Winograd takes his BA at Colorado College before moving to MIT for doctoral study.</p>
+        </li>
+
+        <li class="tl-key">
+          <span class="tl-date">1968–1970</span>
+          <p class="tl-body">Winograd writes SHRDLU at the MIT Artificial Intelligence Laboratory, supervised by Seymour Papert. The program is written in MacLisp under the ITS operating system, with its deductive and problem-solving components expressed in Micro-Planner. <a href="code.html">The program</a>.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">July 1970</span>
+          <p class="tl-body">The <em>Micro-Planner Reference Manual</em> is issued as MIT AI Memo 203 (a revised 203A follows in December 1971), authored by Gerald Jay Sussman, Terry Winograd, and Eugene Charniak. Micro-Planner is the practical subset of Hewitt's PLANNER on which SHRDLU's reasoning is built.</p>
+        </li>
+
+        <li class="tl-key">
+          <span class="tl-date">February 1971</span>
+          <p class="tl-body">Winograd's thesis, <em>Procedures as a Representation for Data in a Computer Program for Understanding Natural Language</em>, is issued as MIT AI Technical Report 235. (The work is sometimes dated to its completion in 1970; the technical report carries a February 1971 issue date.)</p>
+        </li>
+
+        <li class="tl-key">
+          <span class="tl-date">1972</span>
+          <p class="tl-body">The thesis reaches a wide audience: as the book <em>Understanding Natural Language</em> (Academic Press) and as a complete issue of <em>Cognitive Psychology</em> 3(1), pp. 1–191. In the same year Hubert Dreyfus publishes <em>What Computers Can't Do</em>, arguing that artificial intelligence succeeds only within artificial micro-worlds and cannot capture the embodied, non-formalisable background of human understanding. SHRDLU becomes a central exhibit. <a href="critique.html">Critique &amp; legacy</a>.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">1973</span>
+          <p class="tl-body">Winograd leaves MIT for Stanford, where he will spend the rest of his career.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">1983</span>
+          <p class="tl-body">Winograd publishes <em>Language as a Cognitive Process, Vol. 1: Syntax</em>. The planned multi-volume framework stalls, and no further volumes appear.</p>
+        </li>
+
+        <li class="tl-key">
+          <span class="tl-date">1986</span>
+          <p class="tl-body">Winograd, now working with Fernando Flores, publishes <em>Understanding Computers and Cognition: A New Foundation for Design</em>. Drawing on Heidegger and the phenomenological tradition, the book repudiates much of the rationalist programme that produced SHRDLU. The builder has become a critic. <a href="people.html">People</a>.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">1992</span>
+          <p class="tl-body">Dreyfus issues a revised and expanded edition, <em>What Computers Still Can't Do</em> (MIT Press), restating the critique against the longer history of symbolic AI.</p>
+        </li>
+
+        <li>
+          <span class="tl-date">2023</span>
+          <p class="tl-body">Patrick van Bergen publishes a complete replication of the canonical SHRDLU dialogue, reconstructing the system so that the historic conversation can be run again from end to end. <a href="code.html#reconstructions">Reconstructions</a>.</p>
+        </li>
+
+        <li class="tl-coda">
+          <span class="tl-date">The present</span>
+          <p class="tl-body">In the era of large language models, SHRDLU stands as the symbolic counterpoint to statistical and neural approaches: grounded but not general, where today's systems are general but arguably ungrounded. The Winograd Schema Challenge, a coreference test named in his honour, descends directly from the kind of pronoun resolution SHRDLU performed in its blocks world. <a href="critique.html#llms">SHRDLU and the LLMs</a>.</p>
+        </li>
+
+      </ul>
+    </section>
+
+    <div class="rule"><span>Continue</span></div>
+
+    <section class="block">
+      <h3>Where next</h3>
+      <ul class="links">
+        <li><a href="people.html">People</a>: Winograd, Papert, Hewitt, Sussman, Charniak, and the critics.</li>
+        <li><a href="bibliography.html">Bibliography</a>: primary sources, infrastructure manuals, critique, and reconstructions.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

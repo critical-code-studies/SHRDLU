@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critique &amp; legacy · SHRDLU (1968–70)</title>
+  <meta name="description" content="A critical reading of SHRDLU as both genuine achievement and instructive failure: the scripted demo, the scaling problem, Dreyfus's phenomenological objection, Winograd's own turn against GOFAI, and what the first dream of machine understanding tells us in the age of large language models.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <script src="assets/nav.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <span class="brand-block"><span class="brand-text">SHRDLU</span><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">The critical reading</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">Critique and legacy</h2>
+      <p>SHRDLU is best read as two things at once, and the reading falters if it collapses into either alone. It was a genuine achievement: a single program that integrated syntax, semantics, deductive reasoning, a model of a world, a memory of its own past actions, and the capacity to explain why it had done them. Nothing of that scope had been assembled before, and the ambition that drove it, that a machine might be made to <em>understand</em> rather than merely to match patterns, remains one of the most serious questions in the field. To dismiss SHRDLU as a trick is to miss what made it worth building.</p>
+      <p>It was also an instructive failure, and the most rigorous account of why comes not from its critics but from its author. The intelligence that SHRDLU displayed was inseparable from the world it was given, and that world had been engineered, axiom by axiom, to be exactly the kind of place in which a program of this design could appear to understand. The gap between the appearance and the achievement is where the critical reading lives. What follows takes that gap seriously, holds it open, and asks what it tells us about the dream of machine understanding then and now.</p>
+    </section>
+
+    <div class="rule"><span>The scripted demo</span></div>
+
+    <section class="block">
+      <h3>Demo or die</h3>
+      <p>The famous transcript, reproduced on <a href="dialogue.html">the dialogue page</a>, reads with an uncanny smoothness. Each question lands in exactly the register the system can handle; each answer arrives polished and apt; the ambiguities resolved are the ambiguities the program was built to resolve. That smoothness is not an accident of selection. By Winograd's own later testimony the dialogue was, in his words, "very carefully worked through, line by line." It is not a recording of a conversation that happened to go well. It is a composition.</p>
+      <p>This matters because the demonstration was, for a generation of readers, the argument. The transcript travelled into textbooks and popular accounts as evidence that the problem of natural language understanding had, in some meaningful local sense, been solved. Winograd is unusually candid about the distance between what the demo showed and what the system could do. If you sat down and asked a question that was not in the dialogue, he recalled, "there was some probability it would answer it." Some probability. The honest reckoning is not that SHRDLU could converse and the transcript merely sampled that capacity, but that the transcript and the capacity were close to coextensive.</p>
+      <p>Winograd locates the cause not in personal deception but in an institutional pressure he names precisely, the demand for "something you could demo." He reaches for the Media Lab's later slogan to characterise the whole mode of work:</p>
+      <div class="pull">
+        <p>"Demo or die ... they were sort of Potemkin villages, in the sense that they looked good, but when you looked behind that there wasn't enough structure to make it really work more generally."</p>
+        <cite>Terry Winograd, Charles Babbage Institute oral history, 1991</cite>
+      </div>
+      <p>The strongest internal critique of SHRDLU is therefore SHRDLU's creator. The Potemkin metaphor is exact and worth holding to: a facade convincing from the road, with nothing of the promised town behind it. The danger is not that the facade was built, every research prototype is in some measure a facade, but that the facade was mistaken for the town, and that the mistaking shaped where the field believed it stood. A demonstration optimised to persuade is a poor instrument for measuring how far a science has actually come.</p>
+    </section>
+
+    <div class="rule"><span>Why it did not scale</span></div>
+
+    <section class="block">
+      <h3>The scaling problem</h3>
+      <p>Why could mastering the blocks world not be extended, step by step, into mastering the world? The answer is structural, and it explains the disappointment that followed. SHRDLU's competence rested on the fact that its world was closed and hand-axiomatised. Every object, property, and relation that mattered, every cube, pyramid, box, and colour, had been enumerated in advance and given an explicit representation. Within such a world, reasoning is tractable because the space of what can be meant is bounded. The program does not have to decide what is relevant; relevance has been settled by the design of the world. The detail is on <a href="blocks-world.html">the blocks world page</a>.</p>
+      <p>Open-ended language is precisely the absence of those guarantees. To understand an ordinary sentence is to bring to bear an indefinitely large and unbounded body of background knowledge, and, harder still, to know which fragment of it is relevant here and now. There is no enumeration. The microworld did not understate this problem by a constant factor that more memory and faster machines would close; it dissolved the problem by construction, and so could teach almost nothing about how to face it. Adding a second microworld does not yield a half of the real world. It yields two microworlds.</p>
+      <div class="callout">
+        <p>The microworld was not a small model of intelligence from which a larger one could be grown. It was a different kind of object, one whose tractability was purchased by removing exactly the features, ambiguity, open horizon, unbounded relevance, that make understanding hard. Scaling was not slow. It was the wrong verb.</p>
+      </div>
+      <p>This is the thread that runs to the so-called AI winter. When the microworld results refused to generalise and the funding agencies noticed the distance between promise and delivery, optimism contracted sharply. One conspicuous response inverted SHRDLU's economy of restriction. If understanding required an enormous body of common-sense knowledge, then perhaps that body should simply be encoded by hand, all of it. Doug Lenat's Cyc, begun in 1984, set out to do exactly that, axiomatising millions of everyday facts in formal logic. Cyc is the microworld strategy taken to its limit and its reductio: the recognition that the background cannot be ignored, paired with the wager that it can nonetheless be written down. Decades on, that wager remains a cautionary tale about the cost of formalising what human beings simply know.</p>
+    </section>
+
+    <div class="rule"><span>The phenomenological objection</span></div>
+
+    <section class="block">
+      <h3>Dreyfus, and the body</h3>
+      <p>The deepest objection had been stated before SHRDLU's results soured, and it was stated philosophically. Hubert Dreyfus, in <em>What Computers Can't Do</em> (1972; revised 1979; reissued as <em>What Computers Still Can't Do</em>, MIT Press, 1992), argued that artificial intelligence succeeds only in artificial micro-worlds, and that this success is no down-payment on general intelligence because intelligence does not rest on formal representations at all. Drawing on Heidegger and Merleau-Ponty, Dreyfus held that human competence is grounded in an embodied, holistic background of skilled coping, a familiarity with situations that is lived rather than represented, and which cannot in principle be reduced to a set of explicit rules and facts.</p>
+      <div class="pull">
+        <p>Intelligent behaviour presupposes a background of everyday practices that are too pervasive, too bodily, and too situation-dependent to be made explicit, and a micro-world is precisely the artefact built to do without them.</p>
+        <cite>After Hubert Dreyfus, What Computers Can't Do (1972)</cite>
+      </div>
+      <p>On this reading SHRDLU was not a partial solution but the clearest possible illustration of the objection. It worked because someone had supplied, in advance and by hand, the relevances that a human being inhabits without representing. Its world had no horizon, no body, no involvement, only a finite lattice of declared objects and rules. That is why it could explain its own actions with such tidy precision and why that very tidiness should give us pause: a world transparent enough to be fully narrated by the agent within it is a world from which the hard part of understanding has already been removed. Dreyfus was widely resented at the time and has been substantially vindicated since, not because formal AI achieved nothing, but because the background he insisted on proved to be exactly where the difficulty lived.</p>
+    </section>
+
+    <div class="rule"><span>An unusual repudiation</span></div>
+
+    <section class="block">
+      <h3>The builder turns critic</h3>
+      <p>What gives SHRDLU's story its peculiar force is that its author followed the argument to its conclusion and changed his mind in public. Winograd moved to Stanford in 1973 intending to build out a full multi-volume framework for language understanding. It stalled. Only the first volume, <em>Language as a Cognitive Process, Vol. 1: Syntax</em>, appeared, in 1983, and the larger edifice was never completed. The reasons were not merely practical. Having engaged seriously with Dreyfus's critique, and having met the Chilean philosopher and politician Fernando Flores, Winograd came to doubt the foundations of the programme he had helped to define.</p>
+      <p>The result was <em>Understanding Computers and Cognition: A New Foundation for Design</em> (Ablex, 1986), written with Flores. It is a Heideggerian, phenomenological critique of the rationalist tradition in artificial intelligence, arguing that cognition is not the manipulation of internal representations of a pre-given world but is constituted in language, practice, and being-in-the-world. Winograd's later career moved decisively toward human-computer interaction and design, toward building tools that augment situated human activity rather than machines that purport to replace human understanding.</p>
+      <p>This arc is rare and it is worth marking as such. It is not common for the builder of a discipline's showpiece to repudiate the paradigm the showpiece exemplified, in print, with argument, naming the philosophers his own field had dismissed. We should resist the temptation to read this as a tidy conversion narrative or to use it to retire the questions SHRDLU raised; the point is harder and more interesting than that. The same person who produced the most persuasive demonstration of symbolic understanding produced one of its most considered refutations, and he did so because he took the difficulty seriously rather than managing it away. That intellectual honesty is part of SHRDLU's legacy, and not the least part.</p>
+    </section>
+
+    <div class="rule"><span>The first dream, and the present</span></div>
+
+    <section class="block" id="llms">
+      <h3>SHRDLU and the language models</h3>
+      <p>Set SHRDLU beside a contemporary large language model and the two appear as near-perfect inversions, which is why the comparison is illuminating rather than merely topical. SHRDLU is symbolic, the paradigm now called GOFAI, good old-fashioned AI. Its words are tied to procedures that act over an inspectable world; when it manipulates "the red pyramid" there is a representation in the system that the term denotes, and the program can trace and report the reasoning that connects word to deed. It is grounded and self-explaining. What it is not is general: outside its enumerated world it has nothing to say.</p>
+      <p>Large language models invert each term. They are statistical and neural, trained to predict text rather than to reason over a declared world, and they are general in a way SHRDLU never approached, fluent across open domains, responsive to almost any prompt. But the grounding that SHRDLU had by construction is exactly what they appear to lack. This is the symbol-grounding problem in Stevan Harnad's formulation: tokens manipulated only by their statistical relations to other tokens have no anchorage in anything they are about, and meaning threatens to circulate endlessly within the system without ever touching the world. And where SHRDLU could narrate its goal stack, the workings of a large model are opaque even to those who build it. The legibility that was one of symbolic AI's quiet virtues has been lost.</p>
+      <div class="grid">
+        <article class="card r">
+          <h3>SHRDLU</h3>
+          <p>Symbolic, GOFAI. Grounded over an inspectable world, able to explain its own reasoning. Not general: competent only inside a hand-built microworld.</p>
+        </article>
+        <article class="card b">
+          <h3>Large language models</h3>
+          <p>Statistical, neural. General and fluent across open domains. Arguably ungrounded (the symbol-grounding problem) and opaque, unable to give a faithful account of why they say what they say.</p>
+        </article>
+        <article class="card g">
+          <h3>The symmetry</h3>
+          <p>SHRDLU is grounded but not general; the language models are general but arguably ungrounded. Each possesses precisely what the other lacks, which suggests neither has yet captured understanding whole.</p>
+        </article>
+        <article class="card y">
+          <h3>The lineage</h3>
+          <p>The Winograd Schema Challenge, a test of common-sense coreference resolution, descends directly from the kind of anaphora SHRDLU was built to handle, and carries his name into the present debate.</p>
+        </article>
+      </div>
+      <p>The symmetry should be read as interpretation and not as settled fact; the categories are contested, and the claim that a large model is "ungrounded" is itself a live philosophical dispute rather than a measurement. But the framing earns its keep. It suggests that the two great strategies, build the world and let understanding follow, or absorb the corpus and let competence emerge, have each secured one half of what understanding seemed to require, and that neither half has yet implied the other. The Winograd Schema Challenge is the visible thread of descent: a benchmark of pronoun resolution that turns on world knowledge, named for the author of the system that first made coreference a problem a machine might be asked to solve.</p>
+      <p>This is why SHRDLU remains worth a close reading half a century on, and not as an antiquarian exercise. The first dream of machine understanding was specific and demanding: a world the machine could grasp, words it could mean, actions it could account for. That dream was realised, in miniature, and the miniature would not grow. What it left us is a sharpened question rather than an answer. We have since built machines that talk about everything and ground nothing, and machines that ground everything and talk about almost nothing, and we still do not have one that does both. SHRDLU is where that question was first posed with enough clarity to be worth keeping. For the wider context see the <a href="overview.html">overview</a>; for the program itself, <a href="code.html">the code</a>; and for the sources behind this reading, the <a href="bibliography.html">bibliography</a>.</p>
+      <ul class="links">
+        <li><a href="overview.html">Overview: what SHRDLU was</a></li>
+        <li><a href="dialogue.html">The dialogue: the scripted demonstration</a></li>
+        <li><a href="blocks-world.html">The blocks world: the closed microworld</a></li>
+        <li><a href="code.html">The code: how the program was built</a></li>
+        <li><a href="bibliography.html">Bibliography and sources</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
