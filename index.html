@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=2">
+  <link rel="stylesheet" href="assets/css/site.css?v=3">
   <script src="assets/nav.js" defer></script>
   <style>
     .imodal { position:fixed; inset:0; z-index:9500; display:none; align-items:center; justify-content:center; background:rgba(4,5,8,0.94); padding:4vh 4vw; cursor:zoom-out; }
@@ -56,8 +56,13 @@
     .tt-feed { animation:tt-flicker 3.8s infinite; }
     @keyframes tt-flicker { 0%,100%{filter:brightness(1);} 50%{filter:brightness(0.92);} 53%{filter:brightness(1.06);} 72%{filter:brightness(0.97);} }
     @media (prefers-reduced-motion: reduce){ .tt-feed { animation:none; } }
-    .hero-titles { display:flex; flex-direction:column; align-items:flex-end; }
-    .hero-titles .boot { margin:0 0 0.7rem; color:#eceae3; }
+    /* lockup framed to the wordmark width, eyebrow + sub centred above/below
+       so the block reads balanced */
+    .hero-titles { display:flex; flex-direction:column; align-items:center; text-align:center;
+      width:clamp(256px, 44vw, 600px); }
+    .hero-titles .boot { margin:0 0 0.7rem; color:#eceae3; width:100%; }
+    .hero-titles .sub, .hero-titles .tagline { width:100%; margin-left:auto; margin-right:auto; }
+    .hero-titles .hero-actions { justify-content:center; }
     /* the wordmark is inline SVG traced pixel-exact from the Knight TV bitmap
        font, so it always renders in Knight regardless of web-font loading */
     .hero h1 { margin:0; line-height:0; }
@@ -374,6 +379,6 @@
   </footer>
 
   <script src="assets/dialogue.js?v=1"></script>
-  <script src="assets/blocks.js?v=4"></script>
+  <script src="assets/blocks.js?v=5"></script>
 </body>
 </html>

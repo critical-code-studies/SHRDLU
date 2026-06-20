@@ -78,9 +78,10 @@ a:hover { color: var(--bright); text-shadow: var(--glow); }
 .brand { display: flex; align-items: center; gap: 0.7rem; border: 0 !important; }
 .brand svg { width: 30px; height: 30px; }
 .brand .brand-cube { filter: drop-shadow(0 0 3px rgba(58,168,98,0.55)); }
-.brand-block { display: flex; flex-direction: column; gap: 0.28rem; line-height: 1.1; }
-/* the site logotype: the green Knight TV pixel wordmark (assets/wordmark.svg) */
-.brand-mark { display: block; height: 17px; width: auto;
+.brand-block { display: flex; flex-direction: column; align-items: flex-start; gap: 0.32rem; line-height: 1.1; }
+/* the site logotype: the green Knight TV pixel wordmark (assets/wordmark.svg).
+   align-self:flex-start + fixed width stop the flex column stretching it. */
+.brand-mark { display: block; height: 16px; width: 58px; align-self: flex-start;
   filter: drop-shadow(0 0 3px rgba(58,168,98,0.45)); }
 .brand-tagline { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 1px; color: var(--ink-dim); text-transform: uppercase; }
 .nav-toggle {
