@@ -65,6 +65,9 @@
     .tt-feed { animation:tt-flicker 3.8s infinite; }
     @keyframes tt-flicker { 0%,100%{filter:brightness(1);} 50%{filter:brightness(0.92);} 53%{filter:brightness(1.06);} 72%{filter:brightness(0.97);} }
     @media (prefers-reduced-motion: reduce){ .tt-feed { animation:none; } }
+    /* the live dialogue player, floated beside the first paragraph of "The object" */
+    .object-teletype { float:right; width:min(42%, 360px); margin:0.4rem 0 1.2rem 1.8rem; }
+    @media (max-width:680px){ .object-teletype { float:none; width:100%; margin:0.6rem 0 1.2rem; } }
     .hero-titles { display:flex; flex-direction:column; align-items:flex-end; }
     .hero-titles .boot { margin:0 0 0.7rem; color:#eceae3; }
     /* the wordmark is inline SVG traced pixel-exact from the Knight TV bitmap
@@ -182,7 +185,6 @@
     <canvas id="blockworld" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
       <div class="hero-content">
-        <div class="teletype" aria-hidden="true"><div class="tt-feed" id="tt-feed"></div></div>
         <div class="hero-titles">
           <p class="boot">MacLisp · Micro-Planner · MIT AI Lab, 1968–70</p>
           <h1><svg class="wordmark-svg" viewBox="0 0 36 10" role="img" aria-label="SHRDLU" preserveAspectRatio="xMidYMid meet" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM0 2h1v1h-1zM4 2h1v1h-1zM0 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM6 1h1v1h-1zM10 1h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM6 3h1v1h-1zM10 3h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM10 6h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM12 2h1v1h-1zM16 2h1v1h-1zM12 3h1v1h-1zM16 3h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM12 7h1v1h-1zM16 7h1v1h-1zM18 1h1v1h-1zM19 1h1v1h-1zM20 1h1v1h-1zM21 1h1v1h-1zM19 2h1v1h-1zM22 2h1v1h-1zM19 3h1v1h-1zM22 3h1v1h-1zM19 4h1v1h-1zM22 4h1v1h-1zM19 5h1v1h-1zM22 5h1v1h-1zM19 6h1v1h-1zM22 6h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM24 1h1v1h-1zM24 2h1v1h-1zM24 3h1v1h-1zM24 4h1v1h-1zM24 5h1v1h-1zM24 6h1v1h-1zM24 7h1v1h-1zM25 7h1v1h-1zM26 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM30 1h1v1h-1zM34 1h1v1h-1zM30 2h1v1h-1zM34 2h1v1h-1zM30 3h1v1h-1zM34 3h1v1h-1zM30 4h1v1h-1zM34 4h1v1h-1zM30 5h1v1h-1zM34 5h1v1h-1zM30 6h1v1h-1zM34 6h1v1h-1zM31 7h1v1h-1zM32 7h1v1h-1zM33 7h1v1h-1z"/></svg></h1>
@@ -244,26 +246,9 @@
     <section class="block" id="object">
       <span class="kicker">What is being read</span>
       <h2>The object: a conversation about blocks</h2>
-      <p>SHRDLU's world was a simulated tabletop, the paradigmatic <a href="blocks-world.html">"microworld"</a> of the Minsky–Papert research programme: a box, a table, and a handful of blocks, cubes and pyramids in red, green and blue, moved by a simulated arm. The system was built from four parts, all in <a href="code.html">MacLisp under the ITS operating system</a>: a parser; a grammar of English written as procedures (Winograd's <b>PROGRAMMAR</b>, after Halliday's systemic grammar); programs for semantic analysis; and a deductive problem-solver in <b>Micro-Planner</b>. The whole conversation below runs on those parts.</p>
-      <p>This is the demonstration dialogue Winograd published, reproduced from his own transcript. The person types in lower case; SHRDLU answers in capitals.</p>
-
-      <div class="dialogue" aria-label="Excerpt of the SHRDLU demonstration dialogue">
-        <div class="turn person"><span class="who">Person</span><span class="msg">pick up a big red block.</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">OK. <span class="stage">(does it)</span></span></div>
-        <div class="turn person"><span class="who">Person</span><span class="msg">grasp the pyramid.</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">I don't understand which pyramid you mean.</span></div>
-        <div class="gap"></div>
-        <div class="turn person"><span class="who">Person</span><span class="msg">what does the box contain?</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">the blue pyramid and the blue block.</span></div>
-        <div class="turn person"><span class="who">Person</span><span class="msg">what is the pyramid supported by?</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">the box.</span></div>
-        <div class="gap"></div>
-        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">to get rid of it.</span></div>
-        <div class="turn person"><span class="who">Person</span><span class="msg">why did you do that?</span></div>
-        <div class="turn shrdlu"><span class="who">SHRDLU</span><span class="msg">because you asked me to.</span></div>
-      </div>
-      <p style="margin-top:1.2rem;font-size:0.92rem;"><a href="dialogue.html">Read the full demonstration dialogue, with commentary →</a></p>
+      <div class="teletype object-teletype" aria-hidden="true"><div class="tt-feed" id="tt-feed"></div></div>
+      <p>SHRDLU's world was a simulated tabletop, the paradigmatic <a href="blocks-world.html">"microworld"</a> of the Minsky–Papert research programme: a box, a table, and a handful of blocks, cubes and pyramids in red, green and blue, moved by a simulated arm. The system was built from four parts, all in <a href="code.html">MacLisp under the ITS operating system</a>: a parser; a grammar of English written as procedures (Winograd's <b>PROGRAMMAR</b>, after Halliday's systemic grammar); programs for semantic analysis; and a deductive problem-solver in <b>Micro-Planner</b>. The conversation here is the demonstration dialogue Winograd published, reproduced from his own transcript and running on those parts: the person types in lower case, SHRDLU answers in capitals.</p>
+      <p style="clear:both;margin-top:1.2rem;font-size:0.92rem;"><a href="dialogue.html">Read the full demonstration dialogue, with commentary →</a></p>
     </section>
 
     <div class="rule"><span>the machine and its world</span></div>
