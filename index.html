@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=3">
+  <link rel="stylesheet" href="assets/css/site.css?v=4">
   <script src="assets/nav.js" defer></script>
   <style>
     .imodal { position:fixed; inset:0; z-index:9500; display:none; align-items:center; justify-content:center; background:rgba(4,5,8,0.94); padding:4vh 4vw; cursor:zoom-out; }
@@ -34,8 +34,8 @@
       -webkit-mask-image:linear-gradient(to right, #000 0, #000 56%, transparent 90%);
               mask-image:linear-gradient(to right, #000 0, #000 56%, transparent 90%); }
     .hero-code-inner { margin:0; padding:1.4rem 2rem; font-family:"IBM Plex Mono", var(--mono);
-      font-size:12.5px; line-height:1.55; color:rgba(150,196,166,0.06); white-space:pre;
-      animation:code-scroll 95s linear infinite; }
+      font-size:27px; line-height:1.5; color:rgba(150,196,166,0.12); white-space:pre;
+      animation:code-scroll 120s linear infinite; }
     @keyframes code-scroll { from{transform:translateY(0);} to{transform:translateY(-50%);} }
     @media (prefers-reduced-motion: reduce){ .hero-code-inner { animation:none; } }
     #blockworld { z-index:1; }
@@ -246,7 +246,7 @@
       <span class="kicker">What is being read</span>
       <h2>The object: a conversation about blocks</h2>
       <p>SHRDLU's world was a simulated tabletop, the paradigmatic <a href="blocks-world.html">"microworld"</a> of the Minsky–Papert research programme: a box, a table, and a handful of blocks, cubes and pyramids in red, green and blue, moved by a simulated arm. The system was built from four parts, all in <a href="code.html">MacLisp under the ITS operating system</a>: a parser; a grammar of English written as procedures (Winograd's <b>PROGRAMMAR</b>, after Halliday's systemic grammar); programs for semantic analysis; and a deductive problem-solver in <b>Micro-Planner</b>. The whole conversation below runs on those parts.</p>
-      <p>This is the demonstration dialogue Winograd published, reproduced from his own transcript. The person types in lower case; SHRDLU answers in capitals; the parenthetical stage directions are Winograd's.</p>
+      <p>This is the demonstration dialogue Winograd published, reproduced from his own transcript. The person types in lower case; SHRDLU answers in capitals.</p>
 
       <div class="dialogue" aria-label="Excerpt of the SHRDLU demonstration dialogue">
         <div class="turn person"><span class="who">Person</span><span class="msg">pick up a big red block.</span></div>
@@ -285,7 +285,7 @@
       <div class="hardware">
         <div>
           <p>SHRDLU ran on the MIT AI Lab's DEC <b>PDP-6</b>, with the blocks world drawn as line graphics on a DEC <b>Type 340</b> display attached to it; the conversation itself was carried on a teletype. The program was written in <b>MacLisp</b>, the lab's Lisp dialect, under the Incompatible Timesharing System (ITS), with its deductive reasoning expressed in <b>Micro-Planner</b>, a practical subset of Carl Hewitt's Planner implemented at the lab by Gerald Sussman, Winograd and Eugene Charniak.</p>
-          <p>The world it modelled was deliberately tiny. A microworld in the Minsky–Papert sense is small enough that all the relevant knowledge can be hand-built into the program: a closed domain of a few solids and the relations "on", "in", "supports", "bigger than". That smallness is the condition of SHRDLU's apparent fluency, and, as the <a href="critique.html">critique</a> argues, also its limit.</p>
+          <p>The world it modelled was deliberately tiny. A microworld in the Minsky–Papert sense is small enough that all the relevant knowledge can be hand-built into the program: a closed domain of a few solids and the relations "on", "in", "supports", "bigger than". That smallness is the condition of SHRDLU's apparent fluency.</p>
         </div>
         <svg viewBox="0 0 240 180" role="img" aria-label="The blocks world: cubes, a pyramid and a box on a table, with a gripper above">
           <!-- table -->

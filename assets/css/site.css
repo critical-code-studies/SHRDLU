@@ -20,10 +20,10 @@
   --blk-green: #57b86b;
   --blk-blue:  #4d92e0;
   --pyr-amber: #f2ab3c;          /* pyramids */
-  --beam:      var(--blk-blue);  /* default link / accent */
+  --beam:      #57c08a;  /* default link / accent */
   --shrdlu:    #6fdc8c;          /* the machine's voice (phosphor green) */
   --you:       #f2ab3c;          /* the person's voice (amber) */
-  --glow:      0 0 6px rgba(77, 146, 224, 0.5), 0 0 14px rgba(77, 146, 224, 0.22);
+  --glow:      0 0 6px rgba(87, 192, 138, 0.5), 0 0 14px rgba(87, 192, 138, 0.22);
   --glow-soft: 0 0 5px rgba(250, 248, 242, 0.25);
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
@@ -110,13 +110,13 @@ a:hover { color: var(--bright); text-shadow: var(--glow); }
   color: var(--ink-dim); padding: 0.6rem 1.2rem; text-decoration: none;
   display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; width: 100%;
 }
-.nav-top:hover, .nav-top:focus-visible { color: var(--beam); text-shadow: var(--glow); background: rgba(77,146,224,0.08); outline: none; }
+.nav-top:hover, .nav-top:focus-visible { color: var(--beam); text-shadow: var(--glow); background: rgba(87,192,138,0.08); outline: none; }
 .nav-top .caret { font-size: 0.7em; opacity: 0.7; transition: transform 0.15s ease; }
 .nav-top[aria-expanded="true"] .caret { transform: rotate(180deg); }
-.nav-menu { display: none; flex-direction: column; background: rgba(77,146,224,0.045); }
+.nav-menu { display: none; flex-direction: column; background: rgba(87,192,138,0.045); }
 .nav-menu.open { display: flex; }
 .nav-menu a { color: var(--ink-dim); border: 0; padding: 0.5rem 1.2rem 0.5rem 2rem; text-decoration: none; }
-.nav-menu a:hover { color: var(--beam); text-shadow: var(--glow); background: rgba(77,146,224,0.08); }
+.nav-menu a:hover { color: var(--beam); text-shadow: var(--glow); background: rgba(87,192,138,0.08); }
 
 /* ---------- nav: desktop horizontal bar with click dropdowns ---------- */
 @media (min-width: 900px) {
@@ -160,7 +160,7 @@ a:hover { color: var(--bright); text-shadow: var(--glow); }
 .btn {
   font-family: var(--mono); font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase;
   padding: 0.8rem 1.5rem; border: 1px solid var(--beam); color: var(--beam);
-  background: rgba(77,146,224,0.06); border-radius: 2px; transition: all 0.18s ease;
+  background: rgba(87,192,138,0.06); border-radius: 2px; transition: all 0.18s ease;
 }
 .btn:hover { background: var(--beam); color: var(--bg); box-shadow: var(--glow); }
 .btn.ghost { border-color: var(--line); color: var(--ink-dim); background: transparent; }
@@ -190,7 +190,7 @@ h3 { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(
   padding: 1.4rem; border-radius: 3px; transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
 }
-.card:hover { border-color: var(--beam); box-shadow: inset 0 0 30px rgba(77,146,224,0.05), var(--glow); transform: translateY(-2px); }
+.card:hover { border-color: var(--beam); box-shadow: inset 0 0 30px rgba(87,192,138,0.05), var(--glow); transform: translateY(-2px); }
 .card .obj { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-dim); margin: 0 0 0.6rem; }
 .card p { font-size: 0.95rem; color: var(--ink); margin: 0; max-width: none; }
 .card h3 a { border: 0; }
@@ -223,7 +223,7 @@ h3 { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(
 .method b { color: var(--bright); font-family: var(--mono); font-weight: 700; font-size: 0.95rem; }
 
 /* CTA */
-.cta { border: 1px solid var(--line); background: linear-gradient(135deg, rgba(77,146,224,0.07), rgba(77,146,224,0.01)); padding: 2.6rem; border-radius: 4px; text-align: center; }
+.cta { border: 1px solid var(--line); background: linear-gradient(135deg, rgba(87,192,138,0.07), rgba(87,192,138,0.01)); padding: 2.6rem; border-radius: 4px; text-align: center; }
 .cta h2 { margin-bottom: 0.6rem; }
 .cta p { margin: 0 auto 1.6rem; }
 
