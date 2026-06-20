@@ -92,21 +92,6 @@
     ctx.restore();
   }
 
-  // faint full-bleed isometric grid, the coordinate space behind the scene
-  function bgGrid(offx, offy) {
-    var bx = W * 0.5 + offx, by = H * 0.46 + offy, gu = U * 1.15, R = 22;
-    function p(gx, gy) { return { x: bx + (gx - gy) * gu, y: by + (gx + gy) * gu * 0.46 }; }
-    ctx.save();
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(150,205,175,0.05)';
-    ctx.shadowBlur = 0;
-    for (var g = -R; g <= R; g += 2) {
-      ctx.beginPath(); moveTo(p(g, -R)); lineTo(p(g, R)); ctx.stroke();
-      ctx.beginPath(); moveTo(p(-R, g)); lineTo(p(R, g)); ctx.stroke();
-    }
-    ctx.restore();
-  }
-
   var PERIOD = 520;
   function liftHeight() {
     if (reduce) return 0;
@@ -126,16 +111,10 @@
     px += (tx - px) * 0.04; py += (ty - py) * 0.04;
     var wob = reduce ? 0 : Math.sin(t * 0.05) * 0.6 + Math.sin(t * 1.7) * 0.3;
     var wobY = reduce ? 0 : Math.cos(t * 0.043) * 0.5;
-    var driftX = reduce ? 0 : Math.sin(t * 0.005) * 10;
-    var driftY = reduce ? 0 : Math.cos(t * 0.004) * 7;
 
-    // background: faint grid, moves a little (far layer) + slow drift
+    // the scene, with a slight pointer parallax + CRT wobble
     ctx.save();
-    ctx.translate(px * 9 + driftX, py * 7 + driftY);
-    bgGrid(0, 0);
-    ctx.restore();
-
-    // foreground: the scene, moves more (near layer) + CRT wobble
+    ctx.translate(px * 24 + wob, py * 17 + wobY);
     ctx.save();
     ctx.translate(px * 24 + wob, py * 17 + wobY);
     ctx.lineWidth = Math.max(1, U / 32);

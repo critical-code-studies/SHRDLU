@@ -100,8 +100,8 @@
     {s:1,t:"you're welcome!"}
   ];
 
-  // pacing (ms), relaxed
-  var CHAR_YOU = 46, CHAR_SH = 32, GAP_TO_SH = 480, GAP_TO_YOU = 820, LOOP_PAUSE = 5000;
+  // pacing (ms), slow and relaxed
+  var CHAR_YOU = 78, CHAR_SH = 54, GAP_TO_SH = 700, GAP_TO_YOU = 1250, LOOP_PAUSE = 7000;
 
   var cursor = document.createElement('span');
   cursor.className = 'tt-cursor';
