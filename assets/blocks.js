@@ -24,11 +24,11 @@
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * DPR; canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    var narrow = W < 760;
-    U = Math.max(24, Math.min(44, W / 26));
-    // scene anchored to the LEFT (the wordmark sits on the right)
-    ox = narrow ? W * 0.50 : W * 0.30;
-    oy = narrow ? H * 0.66 : H * 0.58;
+    var narrow = W < 880;
+    U = Math.max(20, Math.min(40, W / 32));
+    // scene anchored to the LEFT third so it clears the right-hand wordmark column
+    ox = narrow ? W * 0.50 : W * 0.23;
+    oy = narrow ? H * 0.66 : H * 0.55;
   }
 
   function moveTo(p) { ctx.moveTo(p.x, p.y); }
@@ -89,7 +89,7 @@
   function ground() {
     ctx.save();
     ctx.strokeStyle = 'rgba(210,224,238,0.42)';
-    var a = iso(-5, -2, 0), b = iso(6, -2, 0), c = iso(6, 5, 0), d = iso(-5, 5, 0);
+    var a = iso(-4, -2, 0), b = iso(4, -2, 0), c = iso(4, 4, 0), d = iso(-4, 4, 0);
     ctx.beginPath(); moveTo(a); lineTo(b); lineTo(c); lineTo(d); lineTo(a); ctx.stroke();
     ctx.restore();
   }
