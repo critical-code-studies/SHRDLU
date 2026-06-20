@@ -41,5 +41,9 @@ Static HTML/CSS/JS, no framework, no build step. Served by GitHub Pages.
 ## Credits
 
 Dialogue, source code, and the story of the name preserved by Terry Winograd.
+The SHRDLU wordmark is set in the **Knight TV font**, the character generator of
+the MIT AI Lab's Knight TV terminals that fronted the ITS operating system (MIT,
+released under the GPL in 1999; via [larsbrinkhoff/Knight-TV-font](https://github.com/larsbrinkhoff/Knight-TV-font),
+see `assets/fonts/NOTICE.md`).
 A Critical Code Studies project led by David M. Berry (University of Sussex).
 </content>
