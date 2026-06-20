@@ -100,7 +100,7 @@
     {s:1,t:"you're welcome!"}
   ];
 
-  // pacing (ms) — relaxed
+  // pacing (ms), relaxed
   var CHAR_YOU = 46, CHAR_SH = 32, GAP_TO_SH = 480, GAP_TO_YOU = 820, LOOP_PAUSE = 5000;
 
   var cursor = document.createElement('span');
