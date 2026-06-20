@@ -1,4 +1,4 @@
-/* Hero "blocks world" — a homage to the original SHRDLU display: white
+/* Hero "blocks world", a homage to the original SHRDLU display: white
    wireframe solids on a black CRT, an arm/gripper that descends, grips a
    cube, lifts it and sets it back in a slow loop. Stroke-only vector
    line-drawing with a faint phosphor glow and a slight CRT wobble.
@@ -81,14 +81,17 @@
     var cx = (topCorners[0].x + topCorners[2].x) / 2;
     var cy = (topCorners[0].y + topCorners[2].y) / 2;
     var wrist = { x: cx, y: cy - U * 1.6 };
+    ctx.save();
+    ctx.strokeStyle = 'rgba(234,240,247,0.5)';   // dimmer so the arm reads quietly
     edge({ x: cx, y: -10 }, wrist);
-    edge({ x: cx - U * 0.5, y: wrist.y }, { x: cx + U * 0.5, y: wrist.y });
-    for (var i = 0; i < 4; i++) edge(wrist, topCorners[i]);
+    edge({ x: cx - U * 0.42, y: wrist.y }, { x: cx + U * 0.42, y: wrist.y });
+    for (var i = 1; i < 4; i++) edge(wrist, topCorners[i]); // skip the occluded back corner
+    ctx.restore();
   }
 
   function ground() {
     ctx.save();
-    ctx.strokeStyle = 'rgba(210,224,238,0.42)';
+    ctx.strokeStyle = 'rgba(210,224,238,0.3)';
     var a = iso(-4, -2, 0), b = iso(4, -2, 0), c = iso(4, 4, 0), d = iso(-4, 4, 0);
     ctx.beginPath(); moveTo(a); lineTo(b); lineTo(c); lineTo(d); lineTo(a); ctx.stroke();
     ctx.restore();
@@ -119,29 +122,26 @@
     ctx.save();
     ctx.translate(jx, jy);
 
-    ctx.lineWidth = Math.max(1, U / 30);
-    ctx.strokeStyle = 'rgba(234,240,247,0.9)';
+    ctx.lineWidth = Math.max(1, U / 32);
+    ctx.strokeStyle = 'rgba(234,240,247,0.82)';
     ctx.lineJoin = 'round';
-    ctx.shadowColor = 'rgba(200,224,255,0.55)';
-    ctx.shadowBlur = Math.max(4, U / 6);
+    ctx.shadowColor = 'rgba(200,224,255,0.45)';
+    ctx.shadowBlur = Math.max(3, U / 9);
 
     ground();
 
-    // left: the cube the arm is working, lifted by the pick-and-place cycle
+    // three clear objects, well spaced, no overlap:
+    // 1) the cube the arm is working, lifted by the pick-and-place cycle
     var lift = liftHeight();
-    var held = wireCube(-2.4, 0.2, lift, 1.5, 1.4);
+    var held = wireCube(-2.2, 0.0, lift, 1.5, 1.4);
     arm(held);
 
-    // an empty cube beside it
-    wireCube(-0.3, -0.4, 0, 1.4, 1.3);
+    // 2) a cube with a pyramid on top
+    wireCube(2.2, 0.6, 0, 1.6, 1.5);
+    wirePyramid(2.2, 0.6, 1.5, 1.05);
 
-    // right: a tall stack, large cube -> open box -> pyramid
-    wireCube(2.6, 0.7, 0, 1.7, 1.5);
-    wireOpenBox(2.6, 0.7, 1.5, 1.35, 0.8);
-    wirePyramid(2.6, 0.7, 2.3, 1.0);
-
-    // a small bin at the front
-    wireOpenBox(0.9, 2.6, 0, 0.8, 0.55);
+    // 3) a single open box (the bin)
+    wireOpenBox(0.4, 2.4, 0, 0.95, 0.6);
 
     ctx.restore();
 

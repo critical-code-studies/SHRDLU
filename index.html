@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=1">
+  <link rel="stylesheet" href="assets/css/site.css?v=2">
   <script src="assets/nav.js" defer></script>
   <style>
     .imodal { position:fixed; inset:0; z-index:9500; display:none; align-items:center; justify-content:center; background:rgba(4,5,8,0.94); padding:4vh 4vw; cursor:zoom-out; }
@@ -48,8 +48,16 @@
     .tt-line.sh { color:#f1efe8; text-shadow:0 0 5px rgba(231,235,245,0.3); } /* SHRDLU, bright white */
     .tt-cursor { display:inline-block; width:0.58em; height:1.02em; vertical-align:-0.16em; margin-left:1px;
       background:#f1efe8; box-shadow:0 0 7px rgba(231,235,245,0.6); animation:blink 1.06s steps(1) infinite; }
+    /* VDU effect on the dialogue: scanlines, glow, faint flicker */
+    .teletype::after { content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+      background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 1.5px, rgba(0,0,0,0.34) 2px 3px);
+      mix-blend-mode:multiply; }
+    .tt-line { text-shadow:0 0 4px rgba(231,235,245,0.4); }
+    .tt-feed { animation:tt-flicker 3.8s infinite; }
+    @keyframes tt-flicker { 0%,100%{filter:brightness(1);} 50%{filter:brightness(0.92);} 53%{filter:brightness(1.06);} 72%{filter:brightness(0.97);} }
+    @media (prefers-reduced-motion: reduce){ .tt-feed { animation:none; } }
     .hero-titles { display:flex; flex-direction:column; align-items:flex-end; }
-    .hero-titles .boot { margin:0 0 0.7rem; }
+    .hero-titles .boot { margin:0 0 0.7rem; color:#eceae3; }
     /* the wordmark is inline SVG traced pixel-exact from the Knight TV bitmap
        font, so it always renders in Knight regardless of web-font loading */
     .hero h1 { margin:0; line-height:0; }
@@ -77,9 +85,9 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="./" aria-label="SHRDLU home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="none"/><path d="M6 22 L16 27 L26 22 L16 17 Z" fill="#57b86b"/><path d="M6 22 L16 27 L16 22 L6 17 Z" fill="#3f9152"/><path d="M26 22 L16 27 L16 22 L26 17 Z" fill="#4aa45f"/><path d="M16 6 L23 16 L16 19 Z" fill="#f2ab3c"/><path d="M16 6 L9 16 L16 19 Z" fill="#d2922f"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true" class="brand-cube"><g fill="none" stroke="#3aa862" stroke-width="1.5" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>
         <span class="brand-block">
-          <span class="brand-text">SHRDLU</span>
+          <img class="brand-mark" src="assets/wordmark.svg" alt="SHRDLU">
           <span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span>
         </span>
       </a>
@@ -366,6 +374,6 @@
   </footer>
 
   <script src="assets/dialogue.js?v=1"></script>
-  <script src="assets/blocks.js?v=3"></script>
+  <script src="assets/blocks.js?v=4"></script>
 </body>
 </html>
