@@ -24,18 +24,17 @@
 
     /* ---- landing hero: a homage to the original SHRDLU CRT ---- */
     /* blocks world drawn on the LEFT (canvas); the wordmark sits on the RIGHT */
-    .hero { background:#05060a; min-height:92vh; }
+    .hero { background:transparent; min-height:92vh; }
     /* faint scanlines, on the hero only, to sell the vector tube */
     .hero::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
       background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 3px 4px);
       mix-blend-mode:multiply; opacity:0.5; }
     /* faint scrolling Lisp / Micro-Planner source, as wallpaper */
-    .hero-code { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;
-      -webkit-mask-image:linear-gradient(to right, #000 0, #000 56%, transparent 90%);
-              mask-image:linear-gradient(to right, #000 0, #000 56%, transparent 90%); }
+    /* full-page wallpaper: faint scrolling Lisp / Micro-Planner source behind everything */
+    .hero-code { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; }
     .hero-code-inner { margin:0; padding:1.4rem 2rem; font-family:"IBM Plex Mono", var(--mono);
-      font-size:66px; line-height:1.5; color:rgba(150,196,166,0.12); white-space:pre;
-      animation:code-scroll 420s linear infinite; }
+      font-size:34px; line-height:1.5; color:rgba(150,196,166,0.085); white-space:pre;
+      animation:code-scroll 720s linear infinite; }
     @keyframes code-scroll { from{transform:translateY(0);} to{transform:translateY(-50%);} }
     @media (prefers-reduced-motion: reduce){ .hero-code-inner { animation:none; } }
     #blockworld { z-index:1; }
