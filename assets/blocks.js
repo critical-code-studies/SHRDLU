@@ -1,130 +1,140 @@
-/* Hero "blocks world" — an axonometric line-drawing of SHRDLU's tabletop:
-   cubes, pyramids and a box on a faint table grid, in the blocks-world primaries.
-   A quiet homage to the DEC-340 line display. Decorative only; honours
-   prefers-reduced-motion (draws a static scene, no animation). */
+/* Hero "blocks world" — a homage to the original SHRDLU display: white
+   wireframe solids on a black CRT, a gripper hung from above on its line,
+   an open box, a pyramid on a stack. Stroke-only vector line-drawing with a
+   faint phosphor glow and a slight CRT wobble. Decorative only; honours
+   prefers-reduced-motion (static, no wobble). */
 (function () {
   var canvas = document.getElementById('blockworld');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var W, H, DPR, ox, oy, t = 0, raf;
-  var TILE = 30, CUBE = 30; // iso tile half-width and cube height in px (scaled below)
+  var W, H, DPR, ox, oy, U, t = 0, raf;
 
-  var COL = {
-    red:   { top: '#e25141', l: '#a83a2f', r: '#c4463a' },
-    green: { top: '#57b86b', l: '#3f8a50', r: '#4aa45f' },
-    blue:  { top: '#4d92e0', l: '#356aa6', r: '#427fc4' },
-    amber: { top: '#f2ab3c', l: '#bd842c', r: '#d89633' }
-  };
-
-  // The scene: a hand-laid arrangement keyed loosely to the canonical demo
-  // (green cubes supporting pyramids, a tall blue block, a box).
-  // grid coords (gx, gy) on the table; z = stack height in cube units.
-  var SCENE = [
-    { gx: -2, gy: 1,  z: 0, k: 'cube', size: 1.0, c: 'green' },
-    { gx: -2, gy: 1,  z: 1, k: 'pyr',  size: 0.8, c: 'red'   },
-    { gx: 0,  gy: 0,  z: 0, k: 'cube', size: 1.0, c: 'red'   },
-    { gx: 0,  gy: 0,  z: 1, k: 'cube', size: 0.82, c: 'green' },
-    { gx: 0,  gy: 0,  z: 2, k: 'pyr',  size: 0.7, c: 'green' },
-    { gx: 2,  gy: 1,  z: 0, k: 'cube', size: 1.3, c: 'blue'  },
-    { gx: 1,  gy: 3,  z: 0, k: 'pyr',  size: 1.0, c: 'amber' },
-    { gx: -1, gy: 4,  z: 0, k: 'box',  size: 1.0, c: 'green' }
-  ];
+  // grid -> screen, axonometric. U is the unit (tile) size; flattened a little
+  // to echo the low, receding ground plane of the original screen photograph.
+  function iso(gx, gy, z) {
+    return {
+      x: ox + (gx - gy) * U,
+      y: oy + (gx + gy) * U * 0.46 - z * U
+    };
+  }
 
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * DPR; canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    var s = Math.max(0.7, Math.min(1.35, W / 1000));
-    TILE = 34 * s; CUBE = 30 * s;
-    // anchor the scene toward the right so it sits behind/around the headline
-    ox = W * 0.66; oy = H * 0.42;
+    U = Math.max(26, Math.min(46, W / 24));
+    // anchor the scene toward the lower right; the headline sits lower-left
+    ox = W * 0.60; oy = H * 0.60;
   }
 
-  // isometric projection of a grid point at height z (in cube units)
-  function iso(gx, gy, z) {
-    return {
-      x: ox + (gx - gy) * TILE,
-      y: oy + (gx + gy) * TILE * 0.5 - z * CUBE
-    };
-  }
+  function moveTo(p) { ctx.moveTo(p.x, p.y); }
+  function lineTo(p) { ctx.lineTo(p.x, p.y); }
+  function edge(a, b) { ctx.beginPath(); moveTo(a); lineTo(b); ctx.stroke(); }
 
-  function lineTo(p, move) { if (move) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); }
-
-  function face(pts, fill) {
+  // 12 edges of a box from (x0,y0,z0) to (x1,y1,z1)
+  function wireCube(gx, gy, z0, s, h) {
+    var x0 = gx - s/2, x1 = gx + s/2, y0 = gy - s/2, y1 = gy + s/2, z1 = z0 + (h || s);
+    var b = [iso(x0,y0,z0), iso(x1,y0,z0), iso(x1,y1,z0), iso(x0,y1,z0)];
+    var tp = [iso(x0,y0,z1), iso(x1,y0,z1), iso(x1,y1,z1), iso(x0,y1,z1)];
     ctx.beginPath();
-    for (var i = 0; i < pts.length; i++) lineTo(pts[i], i === 0);
-    ctx.closePath();
-    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(231,228,218,0.85)';
+    moveTo(b[0]); lineTo(b[1]); lineTo(b[2]); lineTo(b[3]); lineTo(b[0]); // bottom
+    moveTo(tp[0]); lineTo(tp[1]); lineTo(tp[2]); lineTo(tp[3]); lineTo(tp[0]); // top
+    for (var i = 0; i < 4; i++) { moveTo(b[i]); lineTo(tp[i]); } // verticals
+    ctx.stroke();
+    return tp; // return top corners (for the gripper / stacking)
+  }
+
+  // open box (no top face), with a few vertical hatch lines on the near face
+  function wireOpenBox(gx, gy, z0, s, h) {
+    var x0 = gx - s/2, x1 = gx + s/2, y0 = gy - s/2, y1 = gy + s/2, z1 = z0 + h;
+    var b = [iso(x0,y0,z0), iso(x1,y0,z0), iso(x1,y1,z0), iso(x0,y1,z0)];
+    var tp = [iso(x0,y0,z1), iso(x1,y0,z1), iso(x1,y1,z1), iso(x0,y1,z1)];
+    ctx.beginPath();
+    moveTo(b[0]); lineTo(b[1]); lineTo(b[2]); lineTo(b[3]); lineTo(b[0]);
+    moveTo(tp[0]); lineTo(tp[1]); lineTo(tp[2]); lineTo(tp[3]); lineTo(tp[0]); // open rim
+    for (var i = 0; i < 4; i++) { moveTo(b[i]); lineTo(tp[i]); }
+    ctx.stroke();
+    // hatch on the near (front, +y) face: between b[2]-b[3] and tp[2]-tp[3]
+    for (var k = 1; k <= 3; k++) {
+      var f = k / 4;
+      var lo = { x: b[3].x + (b[2].x - b[3].x) * f, y: b[3].y + (b[2].y - b[3].y) * f };
+      var hi = { x: tp[3].x + (tp[2].x - tp[3].x) * f, y: tp[3].y + (tp[2].y - tp[3].y) * f };
+      edge(lo, hi);
+    }
+    return tp;
+  }
+
+  function wirePyramid(gx, gy, z0, s) {
+    var x0 = gx - s/2, x1 = gx + s/2, y0 = gy - s/2, y1 = gy + s/2;
+    var b = [iso(x0,y0,z0), iso(x1,y0,z0), iso(x1,y1,z0), iso(x0,y1,z0)];
+    var apex = iso(gx, gy, z0 + s * 1.15);
+    ctx.beginPath();
+    moveTo(b[0]); lineTo(b[1]); lineTo(b[2]); lineTo(b[3]); lineTo(b[0]); // base
+    for (var i = 0; i < 4; i++) { moveTo(b[i]); lineTo(apex); }
     ctx.stroke();
   }
 
-  function drawCube(o) {
-    var s = o.size, c = COL[o.c];
-    var x0 = o.gx - s/2, x1 = o.gx + s/2, y0 = o.gy - s/2, y1 = o.gy + s/2;
-    var z0 = o.z, z1 = o.z + s;
-    // top
-    face([iso(x0,y0,z1), iso(x1,y0,z1), iso(x1,y1,z1), iso(x0,y1,z1)], c.top);
-    // left (front-left face, +x edge toward viewer)
-    face([iso(x1,y0,z0), iso(x1,y1,z0), iso(x1,y1,z1), iso(x1,y0,z1)], c.r);
-    // right (front face toward +y)
-    face([iso(x0,y1,z0), iso(x1,y1,z0), iso(x1,y1,z1), iso(x0,y1,z1)], c.l);
+  // the SHRDLU gripper: a line dropping from the top of the frame to a small
+  // wrist bar, then a funnel of lines splaying down to the four top corners of
+  // the gripped cube.
+  function gripper(topCorners) {
+    var cx = (topCorners[0].x + topCorners[2].x) / 2;
+    var cy = (topCorners[0].y + topCorners[2].y) / 2;
+    var wristY = cy - U * 1.7;
+    var wrist = { x: cx, y: wristY };
+    edge({ x: cx, y: -10 }, wrist);                 // the long line from above
+    edge({ x: cx - U * 0.5, y: wristY }, { x: cx + U * 0.5, y: wristY }); // wrist bar
+    for (var i = 0; i < 4; i++) edge(wrist, topCorners[i]); // funnel
   }
 
-  function drawPyramid(o) {
-    var s = o.size, c = COL[o.c];
-    var x0 = o.gx - s/2, x1 = o.gx + s/2, y0 = o.gy - s/2, y1 = o.gy + s/2;
-    var z0 = o.z, apex = iso(o.gx, o.gy, o.z + s * 1.25);
-    var b1 = iso(x1,y0,z0), b2 = iso(x1,y1,z0), b3 = iso(x0,y1,z0);
-    face([b1, b2, apex], c.r);   // right visible face
-    face([b2, b3, apex], c.l);   // left visible face
-  }
-
-  function drawBox(o) {
-    // an open container: a low wireframe well
-    var s = o.size * 1.6;
-    var x0 = o.gx - s/2, x1 = o.gx + s/2, y0 = o.gy - s/2, y1 = o.gy + s/2;
-    var d = 0.5;
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(87,184,107,0.75)';
-    // floor
-    face([iso(x0,y0,0), iso(x1,y0,0), iso(x1,y1,0), iso(x0,y1,0)], 'rgba(87,184,107,0.10)');
-    // two visible walls
-    ctx.beginPath();
-    lineTo(iso(x1,y0,0), true); lineTo(iso(x1,y0,d)); lineTo(iso(x1,y1,d)); lineTo(iso(x1,y1,0));
-    lineTo(iso(x0,y1,0)); lineTo(iso(x0,y1,d)); lineTo(iso(x1,y1,d));
-    ctx.strokeStyle = 'rgba(87,184,107,0.8)'; ctx.stroke();
-  }
-
-  function drawGrid() {
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(231,228,218,0.07)';
-    var R = 6;
-    for (var g = -R; g <= R; g++) {
-      ctx.beginPath(); lineTo(iso(g, -R, 0), true); lineTo(iso(g, R, 0)); ctx.stroke();
-      ctx.beginPath(); lineTo(iso(-R, g, 0), true); lineTo(iso(R, g, 0)); ctx.stroke();
-    }
+  function ground() {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(210,224,238,0.42)';
+    var a = iso(-5, -2, 0), b = iso(6, -2, 0), c = iso(6, 5, 0), d = iso(-5, 5, 0);
+    ctx.beginPath(); moveTo(a); lineTo(b); lineTo(c); lineTo(d); lineTo(a); ctx.stroke();
+    ctx.restore();
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    // gentle breathing offset for the whole scene (skipped if reduced motion)
-    var bob = reduce ? 0 : Math.sin(t * 0.012) * 5;
-    var oy0 = oy; oy = oy0 + bob;
 
-    drawGrid();
-    // painter's order: sort by (gx+gy) then z so nearer objects draw later
-    var order = SCENE.slice().sort(function (a, b) {
-      return (a.gx + a.gy + a.z * 0.01) - (b.gx + b.gy + b.z * 0.01);
-    });
-    for (var i = 0; i < order.length; i++) {
-      var o = order[i];
-      if (o.k === 'cube') drawCube(o);
-      else if (o.k === 'pyr') drawPyramid(o);
-      else if (o.k === 'box') drawBox(o);
+    // CRT wobble: a small whole-scene translation + jitter (skipped if reduced)
+    var jx = 0, jy = 0;
+    if (!reduce) {
+      jx = Math.sin(t * 0.05) * 0.6 + (Math.sin(t * 1.7) * 0.3);
+      jy = Math.cos(t * 0.043) * 0.5;
     }
-    oy = oy0;
+    ctx.save();
+    ctx.translate(jx, jy);
+
+    ctx.lineWidth = Math.max(1, U / 30);
+    ctx.strokeStyle = 'rgba(234,240,247,0.9)';
+    ctx.lineJoin = 'round';
+    ctx.shadowColor = 'rgba(200,224,255,0.55)';
+    ctx.shadowBlur = Math.max(4, U / 6);
+
+    ground();
+
+    // left: the gripped cube, raised slightly off the ground as if just lifted
+    var gripped = wireCube(-2.4, 0.2, 0.25, 1.5, 1.4);
+    gripper(gripped);
+
+    // an empty cube beside it
+    wireCube(-0.3, -0.4, 0, 1.4, 1.3);
+
+    // right: a tall stack, large cube -> open box -> pyramid
+    var bigTop = wireCube(2.6, 0.7, 0, 1.7, 1.5);
+    wireOpenBox(2.6, 0.7, 1.5, 1.35, 0.8);
+    wirePyramid(2.6, 0.7, 2.3, 1.0);
+
+    // a small bin (open box) at the front
+    wireOpenBox(0.9, 2.6, 0, 0.8, 0.55);
+
+    ctx.restore();
+
     t++;
     if (!reduce) raf = requestAnimationFrame(draw);
   }
