@@ -22,13 +22,6 @@
     .imodal img { max-width:92vw; max-height:90vh; border:1px solid var(--line); box-shadow:0 0 50px rgba(0,0,0,0.85); cursor:default; }
     .imodal-close { position:fixed; top:1.1rem; right:1.3rem; z-index:9501; width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:rgba(20,23,31,0.9); color:var(--shrdlu); font-family:var(--mono); font-size:1.5rem; line-height:0; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 
-    /* the Knight TV font: the MIT-AI ITS terminal character generator
-       (MIT, GPL 1999; see assets/fonts/NOTICE.md) */
-    @font-face {
-      font-family:"Knight TV";
-      src:url("assets/fonts/knighttv.ttf") format("truetype");
-      font-weight:normal; font-style:normal; font-display:swap;
-    }
     /* ---- landing hero: a homage to the original SHRDLU CRT ---- */
     /* blocks world drawn on the LEFT (canvas); the wordmark sits on the RIGHT */
     .hero { background:#05060a; min-height:92vh; }
@@ -49,13 +42,15 @@
       margin-left:3px; vertical-align:-0.1em; animation:blink 1.06s steps(1) infinite; }
     .hero-titles { display:flex; flex-direction:column; align-items:flex-end; }
     .hero-titles .boot { margin:0 0 0.7rem; }
-    .hero h1 { font-family:"Knight TV", "IBM Plex Mono", var(--mono); font-weight:400;
-      font-size:clamp(3rem, 12vw, 8.5rem); line-height:0.92; letter-spacing:5px; margin:0;
+    /* the wordmark is inline SVG traced pixel-exact from the Knight TV bitmap
+       font, so it always renders in Knight regardless of web-font loading */
+    .hero h1 { margin:0; line-height:0; }
+    .hero .wordmark-svg { display:block; width:clamp(256px, 44vw, 600px); height:auto;
       color:#7df0a2; /* phosphor-green VDU, after the ITS Knight TV display */
-      text-shadow:0 0 8px rgba(95,224,140,0.8), 0 0 26px rgba(95,224,140,0.45), 0 0 64px rgba(95,224,140,0.22);
+      filter:drop-shadow(0 0 6px rgba(95,224,140,0.85)) drop-shadow(0 0 18px rgba(95,224,140,0.5)) drop-shadow(0 0 42px rgba(95,224,140,0.22));
       animation:vdu-flicker 4.4s infinite steps(40); }
     @keyframes vdu-flicker { 0%,100%{opacity:1;} 48%{opacity:0.97;} 49%{opacity:0.9;} 50%{opacity:0.99;} 92%{opacity:0.95;} }
-    @media (prefers-reduced-motion: reduce){ .hero h1 { animation:none; } }
+    @media (prefers-reduced-motion: reduce){ .hero .wordmark-svg { animation:none; } }
     .hero .sub { margin-top:0.4rem; }
     .hero .sub, .hero .tagline { text-shadow:0 1px 6px rgba(0,0,0,0.7); }
     .hero-actions { justify-content:flex-end; }
@@ -125,7 +120,7 @@
         </div>
         <div class="hero-titles">
           <p class="boot">MacLisp · Micro-Planner · MIT AI Lab, 1968–70</p>
-          <h1>SHRDLU</h1>
+          <h1><svg class="wordmark-svg" viewBox="0 0 36 10" role="img" aria-label="SHRDLU" preserveAspectRatio="xMidYMid meet" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM0 2h1v1h-1zM4 2h1v1h-1zM0 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM6 1h1v1h-1zM10 1h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM6 3h1v1h-1zM10 3h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM10 6h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM12 2h1v1h-1zM16 2h1v1h-1zM12 3h1v1h-1zM16 3h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM12 7h1v1h-1zM16 7h1v1h-1zM18 1h1v1h-1zM19 1h1v1h-1zM20 1h1v1h-1zM21 1h1v1h-1zM19 2h1v1h-1zM22 2h1v1h-1zM19 3h1v1h-1zM22 3h1v1h-1zM19 4h1v1h-1zM22 4h1v1h-1zM19 5h1v1h-1zM22 5h1v1h-1zM19 6h1v1h-1zM22 6h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM24 1h1v1h-1zM24 2h1v1h-1zM24 3h1v1h-1zM24 4h1v1h-1zM24 5h1v1h-1zM24 6h1v1h-1zM24 7h1v1h-1zM25 7h1v1h-1zM26 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM30 1h1v1h-1zM34 1h1v1h-1zM30 2h1v1h-1zM34 2h1v1h-1zM30 3h1v1h-1zM34 3h1v1h-1zM30 4h1v1h-1zM34 4h1v1h-1zM30 5h1v1h-1zM34 5h1v1h-1zM30 6h1v1h-1zM34 6h1v1h-1zM31 7h1v1h-1zM32 7h1v1h-1zM33 7h1v1h-1z"/></svg></h1>
           <p class="sub">Reading the code at the high-water mark of symbolic AI</p>
           <p class="tagline">A critical code study of Terry Winograd's natural-language-understanding program and its tabletop blocks world, read as a cultural text.</p>
           <div class="hero-actions">
@@ -361,6 +356,7 @@
     <div class="wrap">
       <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a> · <a href="https://github.com/critical-code-studies/SHRDLU/releases">v0.1</a></p>
       <p class="micro">Dialogue and source preserved by Terry Winograd · Built as a companion to the team's readings of <i>ELIZA</i> and <i>Spacewar!</i></p>
+      <p class="micro">† The SHRDLU wordmark is set in the <a href="https://github.com/larsbrinkhoff/Knight-TV-font">Knight TV</a> font, the character generator of the MIT-AI Knight TV terminals that fronted the ITS operating system (MIT, released under the GPL in 1999), traced here as pixel-exact SVG. It is the closest typeface available for the web to SHRDLU's own 1968–70 DEC Type 340 vector display, and stands in for it.</p>
     </div>
   </footer>
 
