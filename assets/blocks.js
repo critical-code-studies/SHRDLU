@@ -115,8 +115,6 @@
     // the scene, with a slight pointer parallax + CRT wobble
     ctx.save();
     ctx.translate(px * 24 + wob, py * 17 + wobY);
-    ctx.save();
-    ctx.translate(px * 24 + wob, py * 17 + wobY);
     ctx.lineWidth = Math.max(1, U / 32);
     ctx.strokeStyle = 'rgba(234,240,247,0.82)';
     ctx.lineJoin = 'round';
