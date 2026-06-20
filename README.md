@@ -29,15 +29,10 @@ Static HTML/CSS/JS, no framework, no build step. Served by GitHub Pages.
 | `timeline.html` | Chronology, 1942 to the present |
 | `bibliography.html` | Sources (Harvard) |
 
-`docs/` holds the verified research brief, the canonical dialogue transcript, and the
-shared page template.
+`docs/` holds the canonical dialogue transcript and the shared page template.
 
 ## House rules
 
-- **No em dashes.** Use commas or en dashes (–). British spelling.
-- **Verify, never fabricate.** Facts are grounded in the research brief
-  (`docs/shrdlu-research-brief-2026-06-20.md`); citations are being verified against
-  the project's reference library.
 - **Aesthetic:** the blocks world. A dark lab workbench seen on the DEC-340 display;
   primary-coloured cubes and pyramids in axonometric line-drawing; a teletype dialogue
   in which the person types lower case and SHRDLU answers in capitals. The stylesheet
