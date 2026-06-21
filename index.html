@@ -67,8 +67,10 @@
     .tt-feed { animation:tt-flicker 3.8s infinite; }
     @keyframes tt-flicker { 0%,100%{filter:brightness(1);} 50%{filter:brightness(0.92);} 53%{filter:brightness(1.06);} 72%{filter:brightness(0.97);} }
     @media (prefers-reduced-motion: reduce){ .tt-feed { animation:none; } }
-    /* the live dialogue player, floated beside the first paragraph of "The object" */
-    .object-teletype { float:right; width:min(42%, 360px); margin:0.4rem 0 1.2rem 1.8rem; }
+    /* the live dialogue player, boxed like a small VDU, floated beside the first paragraph of "The object" */
+    .object-teletype { float:right; width:min(42%, 360px); margin:0.4rem 0 1.2rem 1.8rem;
+      border:1px solid var(--line); border-radius:6px; padding:0.75rem 0.95rem;
+      background:rgba(0,0,0,0.32); box-shadow:inset 0 0 28px rgba(0,0,0,0.6), 0 6px 18px rgba(0,0,0,0.45); }
     @media (max-width:680px){ .object-teletype { float:none; width:100%; margin:0.6rem 0 1.2rem; } }
     .hero-titles { display:flex; flex-direction:column; align-items:flex-end; }
     .hero-titles .boot { margin:0 0 0.7rem; color:#eceae3; }
