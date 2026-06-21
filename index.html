@@ -11,6 +11,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://critical-code-studies.github.io/SHRDLU/">
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.png?v=1">
+  <meta property="og:image:width" content="1402">
+  <meta property="og:image:height" content="646">
+  <meta property="og:image:alt" content="SHRDLU: reading the code at the high-water mark of symbolic AI">
+  <meta name="twitter:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -79,10 +84,7 @@
     .hero h1 { margin:0; line-height:0; }
     .hero .wordmark-svg { display:block; width:clamp(256px, 44vw, 600px); height:auto;
       color:#37a05f; /* deeper phosphor green */
-      filter:drop-shadow(0 0 5px rgba(55,160,95,0.7)) drop-shadow(0 0 16px rgba(55,160,95,0.4)) drop-shadow(0 0 38px rgba(55,160,95,0.18));
-      animation:vdu-flicker 4.4s infinite steps(40); }
-    @keyframes vdu-flicker { 0%,100%{opacity:1;} 48%{opacity:0.97;} 49%{opacity:0.9;} 50%{opacity:0.99;} 92%{opacity:0.95;} }
-    @media (prefers-reduced-motion: reduce){ .hero .wordmark-svg { animation:none; } }
+      filter:drop-shadow(0 0 5px rgba(55,160,95,0.7)) drop-shadow(0 0 16px rgba(55,160,95,0.4)) drop-shadow(0 0 38px rgba(55,160,95,0.18)); }
     .hero .sub { margin-top:0.4rem; }
     .hero .sub, .hero .tagline { text-shadow:0 1px 6px rgba(0,0,0,0.7); }
     .hero-actions { justify-content:flex-end; }
@@ -420,7 +422,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a> · <a href="https://github.com/critical-code-studies/SHRDLU/releases">v0.1</a></p>
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a> · <a href="https://github.com/critical-code-studies/SHRDLU/releases">v0.2</a></p>
       <p class="micro">Dialogue and source preserved by Terry Winograd · Built as a companion to the team's readings of <i>ELIZA</i> and <i>Spacewar!</i></p>
       <p class="micro">† The SHRDLU wordmark is set in the <a href="https://github.com/larsbrinkhoff/Knight-TV-font">Knight TV</a> font, the character generator of the MIT-AI Knight TV terminals that fronted the ITS operating system (MIT, released under the GPL in 1999), traced here as pixel-exact SVG. It is the closest typeface available for the web to SHRDLU's own 1968–70 DEC Type 340 vector display.</p>
     </div>

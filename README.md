@@ -5,6 +5,13 @@ program (MIT Artificial Intelligence Laboratory, 1968–70), as a cultural text.
 A companion to the Critical Code Studies group's readings of *ELIZA* (1966) and
 *Spacewar!* (1962).
 
+**Status:** v0.2, live at <https://critical-code-studies.github.io/SHRDLU/>. Ten pages
+built; the prose has since been through an extensive authorial editing pass (the close
+readings now reflect David M. Berry's voice and argument throughout, including the
+world-models / Heidegger "world-poor" framing, the Weizenbaum "con" question, and the
+SHRDLU-vs-LLMs comparison). The homepage social-share card is `assets/DB-Card.png`
+(David's design), wired as `og:image`.
+
 SHRDLU let a person type ordinary English and watch a simulated arm rearrange
 coloured blocks and pyramids in a tabletop "blocks world". Written in MacLisp under
 the ITS operating system, with its reasoning expressed in Micro-Planner, and parsed
