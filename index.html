@@ -115,15 +115,13 @@
     }
 
     /* ---- easter eggs ---- */
-    /* the Knight TV font, used only for the ETAOIN SHRDLU flourish */
-    @font-face { font-family:"KnightTV"; src:url("assets/fonts/knighttv.ttf") format("truetype"); font-display:swap; }
-    /* ETAOIN SHRDLU: type "etaoin" or the Konami code, the Linotype slug ghosts over the hero */
-    .etaoin-flourish { position:fixed; inset:0; z-index:9700; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:0; }
-    .etaoin-flourish span { font-family:"KnightTV", var(--mono); font-size:clamp(1.5rem,6.5vw,3.6rem); letter-spacing:0.14em; white-space:nowrap;
-      color:#37a05f; text-shadow:0 0 6px rgba(55,160,95,0.85),0 0 22px rgba(55,160,95,0.45),0 0 52px rgba(55,160,95,0.2); }
-    .etaoin-flourish.show { animation:etaoin-egg 2.7s ease forwards; }
-    @keyframes etaoin-egg { 0%{opacity:0;} 7%{opacity:1;} 9%{opacity:0.25;} 12%{opacity:1;} 15%{opacity:0.5;} 19%{opacity:1;} 80%{opacity:1;} 100%{opacity:0;} }
-    @media (prefers-reduced-motion: reduce) { .etaoin-flourish.show { animation:etaoin-egg-rm 2.7s ease forwards; } @keyframes etaoin-egg-rm { 0%{opacity:0;} 12%{opacity:1;} 82%{opacity:1;} 100%{opacity:0;} } }
+    /* ETAOIN SHRDLU: type "etaoin" or the Konami code, the Linotype slug ghosts
+       over the page (mono phosphor; the Knight web font does not render text reliably) */
+    .etaoin-flourish { position:fixed; inset:0; z-index:9700; display:flex; align-items:center; justify-content:center;
+      pointer-events:none; opacity:0; transition:opacity 0.45s ease; }
+    .etaoin-flourish.show { opacity:1; }
+    .etaoin-flourish span { font-family:var(--mono); font-weight:700; font-size:clamp(1.7rem,7vw,3.8rem); letter-spacing:0.22em; white-space:nowrap;
+      color:#3aa862; text-shadow:0 0 8px rgba(58,168,98,0.85),0 0 26px rgba(58,168,98,0.5),0 0 60px rgba(58,168,98,0.22); }
     /* talk to SHRDLU: press "/" or type "shrdlu", a small command prompt opens */
     .shrdlu-console { position:fixed; left:50%; bottom:clamp(1rem,5vh,3rem); transform:translateX(-50%); z-index:9600;
       width:min(560px,92vw); background:rgba(6,8,11,0.95); border:1px solid var(--line); border-radius:8px;
@@ -619,8 +617,8 @@
       var flo = document.getElementById('etaoinFlourish'), floTimer = null;
       function flourish() {
         if (!flo) return;
-        flo.classList.remove('show'); void flo.offsetWidth; flo.classList.add('show');
-        clearTimeout(floTimer); floTimer = setTimeout(function () { flo.classList.remove('show'); }, 2800);
+        flo.classList.add('show');
+        clearTimeout(floTimer); floTimer = setTimeout(function () { flo.classList.remove('show'); }, 2200);
       }
 
       // ---- triggers (home page, keyboard only) ----
