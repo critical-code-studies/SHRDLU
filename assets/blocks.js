@@ -12,6 +12,12 @@
   var ctx = canvas.getContext('2d');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // monochrome by default (the original vector display); a button on the page can
+  // switch the blocks to their named colours (the later, coloured rendering)
+  var colour = false;
+  try { colour = localStorage.getItem('shrdlu-colour') === '1'; } catch (e) {}
+  window.SHRDLU_setColour = function (on) { colour = !!on; if (reduce) draw(); };
+
   var W, H, DPR, ox, oy, U, t = 0, raf;
   // pointer parallax: target (tx,ty) eased into (px,py), normalised about centre
   var tx = 0, ty = 0, px = 0, py = 0;
@@ -88,6 +94,13 @@
       for (var i = 1; i < 4; i++) edge(wrist, topCorners[i]);
     }
     ctx.restore();
+  }
+
+  // pick stroke + glow for the frame: white in monochrome, the block's named
+  // colour when colour mode is on
+  function setPaint(monoStroke, colourStroke) {
+    if (colour) { ctx.strokeStyle = colourStroke; ctx.shadowColor = colourStroke; }
+    else { ctx.strokeStyle = monoStroke; ctx.shadowColor = 'rgba(200,224,255,0.35)'; }
   }
 
   function ground() {
@@ -175,21 +188,23 @@
 
     ground();
 
-    // a populated blocks world, uniform phosphor white like the real display:
-    // an open box on the right, a pyramid-capped block (the base of the pyramid
-    // matches the block's top, so it caps it cleanly) on the left, and a loose
-    // cube set back to the side
-    ctx.strokeStyle = 'rgba(234,240,247,0.78)';
-    wireOpenBox(2.3, 1.0, 0, 1.8, 1.1);
-    wireCube(-2.8, 1.7, 0, 1.2, 1.1);
-    wirePyramid(-2.8, 1.7, 1.1, 1.2);
-    wireCube(-0.9, -0.7, 0, 1.1, 1.0);
+    // a populated blocks world: an open box on the right, a pyramid-capped block
+    // (the pyramid's base matches the block's top, so it caps it cleanly) on the
+    // left, and a loose cube set back. Monochrome by default; named colours when
+    // the colour toggle is on.
+    var MONO = 'rgba(234,240,247,0.78)', MONO_HI = 'rgba(234,240,247,0.92)';
+    setPaint(MONO, 'rgba(87,184,107,0.92)');  wireOpenBox(2.3, 1.0, 0, 1.8, 1.1);   // box: green
+    setPaint(MONO, 'rgba(87,184,107,0.92)');  wireCube(-2.8, 1.7, 0, 1.2, 1.1);     // capped block: green
+    setPaint(MONO, 'rgba(242,171,60,0.95)');  wirePyramid(-2.8, 1.7, 1.1, 1.2);     // pyramid: amber
+    setPaint(MONO, 'rgba(77,146,224,0.92)');  wireCube(-0.9, -0.7, 0, 1.1, 1.0);    // loose cube: blue
 
-    // the one block the arm is moving, drawn a touch brighter
-    ctx.strokeStyle = 'rgba(234,240,247,0.92)';
+    // the one block the arm is moving (the red block)
+    setPaint(MONO_HI, 'rgba(226,81,65,0.96)');
     var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
     var cx = (held[0].x + held[2].x) / 2, cy = (held[0].y + held[2].y) / 2;
+    // the arm itself stays white; reset the glow so it does not pick up the block's colour
+    ctx.shadowColor = 'rgba(200,224,255,0.35)';
     drawArm(held, { x: cx, y: cy - s.lift * U }, s.fingers);
 
     ctx.restore();
