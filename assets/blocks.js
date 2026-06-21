@@ -109,8 +109,9 @@
 
     // ease parallax toward the pointer target
     px += (tx - px) * 0.04; py += (ty - py) * 0.04;
-    var wob = reduce ? 0 : Math.sin(t * 0.05) * 0.6 + Math.sin(t * 1.7) * 0.3;
-    var wobY = reduce ? 0 : Math.cos(t * 0.043) * 0.5;
+    // a single slow, smooth sway (no high-frequency term, which shimmered on hi-DPI screens)
+    var wob = reduce ? 0 : Math.sin(t * 0.012) * 1.2;
+    var wobY = reduce ? 0 : Math.cos(t * 0.009) * 0.8;
 
     // the scene, with a slight pointer parallax + CRT wobble
     ctx.save();
@@ -134,7 +135,9 @@
     if (!reduce) raf = requestAnimationFrame(draw);
   }
 
-  if (!reduce) {
+  // pointer parallax only on a fine pointer (mouse); skip on touch so the
+  // scene does not jump when a finger drags across the screen
+  if (!reduce && window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
     window.addEventListener('pointermove', function (e) {
       tx = (e.clientX / window.innerWidth) - 0.5;
       ty = (e.clientY / window.innerHeight) - 0.5;
