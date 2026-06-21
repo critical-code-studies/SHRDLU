@@ -1,8 +1,10 @@
 /* Hero "blocks world", a homage to the original SHRDLU display: white
-   wireframe solids on a black CRT, an arm that lifts a cube in a slow loop.
-   Behind it, a faint isometric grid drifts and parallaxes for depth.
-   Stroke-only vector line-drawing with a phosphor glow and slight CRT wobble.
-   Decorative; honours prefers-reduced-motion (static, no drift/parallax). */
+   wireframe solids on a black CRT, an arm that picks up a cube, carries it
+   between a few resting places (the ground, the top of the box, beside the
+   pyramid), sets it down and leaves it for a beat before collecting it again.
+   Stroke-only vector line-drawing with a phosphor glow. No idle sway: the
+   only motion is the arm's work and an optional faint pointer parallax.
+   Decorative; honours prefers-reduced-motion (static, no animation). */
 (function () {
   var canvas = document.getElementById('blockworld');
   if (!canvas) return;
@@ -72,15 +74,18 @@
     ctx.stroke();
   }
 
-  function arm(topCorners) {
-    var cx = (topCorners[0].x + topCorners[2].x) / 2;
-    var cy = (topCorners[0].y + topCorners[2].y) / 2;
-    var wrist = { x: cx, y: cy - U * 1.6 };
+  // The gantry arm: a post from the top of the frame to the wrist, a gripper
+  // bar, and (only while gripping) four fingers angling down to the cube's top
+  // corners. fingerAlpha fades the fingers in on grip and out on release.
+  function drawArm(topCorners, wrist, fingerAlpha) {
     ctx.save();
     ctx.strokeStyle = 'rgba(234,240,247,0.5)';
-    edge({ x: cx, y: -10 }, wrist);
-    edge({ x: cx - U * 0.42, y: wrist.y }, { x: cx + U * 0.42, y: wrist.y });
-    for (var i = 1; i < 4; i++) edge(wrist, topCorners[i]);
+    edge({ x: wrist.x, y: -10 }, wrist);
+    edge({ x: wrist.x - U * 0.42, y: wrist.y }, { x: wrist.x + U * 0.42, y: wrist.y });
+    if (fingerAlpha > 0.01) {
+      ctx.strokeStyle = 'rgba(234,240,247,' + (0.5 * fingerAlpha).toFixed(3) + ')';
+      for (var i = 1; i < 4; i++) edge(wrist, topCorners[i]);
+    }
     ctx.restore();
   }
 
@@ -92,30 +97,72 @@
     ctx.restore();
   }
 
-  var PERIOD = 520;
-  function liftHeight() {
-    if (reduce) return 0;
-    var u = (t % PERIOD) / PERIOD;
-    var ease = function (a) { return a*a*(3 - 2*a); };
-    if (u < 0.18) return 0;
-    if (u < 0.40) return ease((u - 0.18) / 0.22) * 1.4;
-    if (u < 0.60) return 1.4;
-    if (u < 0.82) return (1 - ease((u - 0.60) / 0.22)) * 1.4;
-    return 0;
+  // The cube's tour: it rests at each station, is collected, carried, set down
+  // at the next, and left there. Stations: left ground, on top of the box,
+  // beside the pyramid stack.
+  var CUBE_S = 1.5, CUBE_H = 1.4;
+  var STATIONS = [
+    { gx: -2.2, gy: 0.0, z: 0.0 },   // home, left ground
+    { gx: 0.4,  gy: 2.4, z: 0.6 },   // on top of the open box
+    { gx: 2.2,  gy: -0.8, z: 0.0 }   // beside the pyramid stack
+  ];
+  var TRAVEL_Z = 2.0;                 // base height the cube is carried at
+  var GRIP_LIFT = 1.5, PARK_LIFT = 2.8;
+  // phase lengths (frames): rest (dropped, arm waits), descend, lift, travel, lower, retract
+  var REST = 150, DESC = 40, LIFT = 34, TRAVEL = 80, LOWER = 34, RETRACT = 40;
+  var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
+
+  function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
+  function ss(a) { a = clamp01(a); return a * a * (3 - 2 * a); }
+  function lerp(a, b, u) { return a + (b - a) * u; }
+
+  // Resolve the cube position, finger alpha, and wrist lift for the frame.
+  function state(frame) {
+    var leg = Math.floor(frame / LEG);
+    var lt = frame - leg * LEG;
+    var cur = STATIONS[leg % STATIONS.length];
+    var nxt = STATIONS[(leg + 1) % STATIONS.length];
+    var cube = { gx: cur.gx, gy: cur.gy, z: cur.z };
+    var fingers = 0, lift = PARK_LIFT, u;
+
+    if (lt < REST) {
+      // resting at the station, released, arm parked high above it
+    } else if (lt < REST + DESC) {
+      u = ss((lt - REST) / DESC);                       // arm comes down, grips
+      fingers = u;
+      lift = lerp(PARK_LIFT, GRIP_LIFT, u);
+    } else if (lt < REST + DESC + LIFT) {
+      u = ss((lt - REST - DESC) / LIFT);                // lift off
+      cube.z = lerp(cur.z, TRAVEL_Z, u);
+      fingers = 1; lift = GRIP_LIFT;
+    } else if (lt < REST + DESC + LIFT + TRAVEL) {
+      u = ss((lt - REST - DESC - LIFT) / TRAVEL);       // carry across
+      cube.gx = lerp(cur.gx, nxt.gx, u);
+      cube.gy = lerp(cur.gy, nxt.gy, u);
+      cube.z = TRAVEL_Z;
+      fingers = 1; lift = GRIP_LIFT;
+    } else if (lt < REST + DESC + LIFT + TRAVEL + LOWER) {
+      u = ss((lt - REST - DESC - LIFT - TRAVEL) / LOWER); // set down
+      cube.gx = nxt.gx; cube.gy = nxt.gy;
+      cube.z = lerp(TRAVEL_Z, nxt.z, u);
+      fingers = 1; lift = GRIP_LIFT;
+    } else {
+      u = ss((lt - REST - DESC - LIFT - TRAVEL - LOWER) / RETRACT); // release, retract
+      cube.gx = nxt.gx; cube.gy = nxt.gy; cube.z = nxt.z;
+      fingers = 1 - u;
+      lift = lerp(GRIP_LIFT, PARK_LIFT, u);
+    }
+    return { cube: cube, fingers: fingers, lift: lift };
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // ease parallax toward the pointer target
+    // ease parallax toward the pointer target (no idle sway)
     px += (tx - px) * 0.04; py += (ty - py) * 0.04;
-    // a single slow, smooth sway (no high-frequency term, which shimmered on hi-DPI screens)
-    var wob = reduce ? 0 : Math.sin(t * 0.012) * 1.2;
-    var wobY = reduce ? 0 : Math.cos(t * 0.009) * 0.8;
 
-    // the scene, with a slight pointer parallax + CRT wobble
     ctx.save();
-    ctx.translate(px * 24 + wob, py * 17 + wobY);
+    ctx.translate(px * 24, py * 17);
     ctx.lineWidth = Math.max(1, U / 32);
     ctx.strokeStyle = 'rgba(234,240,247,0.82)';
     ctx.lineJoin = 'round';
@@ -123,12 +170,17 @@
     ctx.shadowBlur = Math.max(3, U / 9);
 
     ground();
-    var lift = liftHeight();
-    var held = wireCube(-2.2, 0.0, lift, 1.5, 1.4);
-    arm(held);
+    // static furniture of the world
     wireCube(2.2, 0.6, 0, 1.6, 1.5);
     wirePyramid(2.2, 0.6, 1.5, 1.05);
     wireOpenBox(0.4, 2.4, 0, 0.95, 0.6);
+
+    // the cube under the arm
+    var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
+    var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
+    var cx = (held[0].x + held[2].x) / 2, cy = (held[0].y + held[2].y) / 2;
+    drawArm(held, { x: cx, y: cy - s.lift * U }, s.fingers);
+
     ctx.restore();
 
     t++;
