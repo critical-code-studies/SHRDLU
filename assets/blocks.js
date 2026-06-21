@@ -176,7 +176,7 @@
     // drawn dim so it reads as a backdrop landmark, not something to set onto
     ctx.strokeStyle = 'rgba(234,240,247,0.5)';
     wireCube(-3.6, 1.4, 0, 1.4, 1.3);
-    wirePyramid(-3.6, 1.4, 1.3, 0.95);
+    wirePyramid(-3.6, 1.4, 1.3, 1.4);
 
     // the one cube in motion, drawn bright, under the arm
     ctx.strokeStyle = 'rgba(234,240,247,0.92)';
