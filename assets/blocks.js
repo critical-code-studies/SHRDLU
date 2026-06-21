@@ -1,10 +1,11 @@
 /* Hero "blocks world", a homage to the original SHRDLU display: white
    wireframe solids on a black CRT, an arm that picks up a cube, carries it
-   between a few resting places (the ground, the top of the box, beside the
-   pyramid), sets it down and leaves it for a beat before collecting it again.
-   Stroke-only vector line-drawing with a phosphor glow. No idle sway: the
-   only motion is the arm's work and an optional faint pointer parallax.
-   Decorative; honours prefers-reduced-motion (static, no animation). */
+   slowly between a few well-spaced resting places (the ground, the top of the
+   box, a clear spot to the right), sets it down cleanly and leaves it for a
+   beat before collecting it again. Stroke-only vector line-drawing with a
+   phosphor glow. The static furniture is drawn dim so the eye follows the one
+   block in motion. No idle sway; the only motion is the arm's work and an
+   optional faint pointer parallax. Honours prefers-reduced-motion (static). */
 (function () {
   var canvas = document.getElementById('blockworld');
   if (!canvas) return;
@@ -91,25 +92,27 @@
 
   function ground() {
     ctx.save();
-    ctx.strokeStyle = 'rgba(210,224,238,0.3)';
+    ctx.strokeStyle = 'rgba(210,224,238,0.28)';
     var a = iso(-4, -2, 0), b = iso(4, -2, 0), c = iso(4, 4, 0), d = iso(-4, 4, 0);
     ctx.beginPath(); moveTo(a); lineTo(b); lineTo(c); lineTo(d); lineTo(a); ctx.stroke();
     ctx.restore();
   }
 
   // The cube's tour: it rests at each station, is collected, carried, set down
-  // at the next, and left there. Stations: left ground, on top of the box,
-  // beside the pyramid stack.
-  var CUBE_S = 1.5, CUBE_H = 1.4;
+  // at the next, and left there. Stations are spaced well apart so the pick-up
+  // and put-down each happen over clear ground: left ground, on top of the box,
+  // a clear spot to the right.
+  var CUBE_S = 1.4, CUBE_H = 1.3;
   var STATIONS = [
-    { gx: -2.2, gy: 0.0, z: 0.0 },   // home, left ground
-    { gx: 0.4,  gy: 2.4, z: 0.6 },   // on top of the open box
-    { gx: 2.2,  gy: -0.8, z: 0.0 }   // beside the pyramid stack
+    { gx: -2.6, gy: 0.2,  z: 0.0 },   // left ground
+    { gx: 0.4,  gy: 2.4,  z: 0.6 },   // on top of the open box
+    { gx: 2.4,  gy: -0.6, z: 0.0 }    // clear ground to the right
   ];
-  var TRAVEL_Z = 2.0;                 // base height the cube is carried at
-  var GRIP_LIFT = 1.5, PARK_LIFT = 2.8;
-  // phase lengths (frames): rest (dropped, arm waits), descend, lift, travel, lower, retract
-  var REST = 150, DESC = 40, LIFT = 34, TRAVEL = 80, LOWER = 34, RETRACT = 40;
+  var TRAVEL_Z = 1.85;                 // base height the cube is carried at
+  var GRIP_LIFT = 1.4, PARK_LIFT = 2.6;
+  // phase lengths (frames) — slow and deliberate: rest (dropped, arm waits),
+  // descend, lift, travel, lower, retract
+  var REST = 170, DESC = 52, LIFT = 52, TRAVEL = 132, LOWER = 52, RETRACT = 52;
   var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
 
   function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
@@ -159,23 +162,25 @@
     ctx.clearRect(0, 0, W, H);
 
     // ease parallax toward the pointer target (no idle sway)
-    px += (tx - px) * 0.04; py += (ty - py) * 0.04;
+    px += (tx - px) * 0.03; py += (ty - py) * 0.03;
 
     ctx.save();
-    ctx.translate(px * 24, py * 17);
-    ctx.lineWidth = Math.max(1, U / 32);
-    ctx.strokeStyle = 'rgba(234,240,247,0.82)';
+    ctx.translate(px * 18, py * 12);
+    ctx.lineWidth = Math.max(1, U / 34);
     ctx.lineJoin = 'round';
-    ctx.shadowColor = 'rgba(200,224,255,0.45)';
-    ctx.shadowBlur = Math.max(3, U / 9);
+    ctx.shadowColor = 'rgba(200,224,255,0.35)';
+    ctx.shadowBlur = Math.max(2, U / 13);
 
     ground();
-    // static furniture of the world
-    wireCube(2.2, 0.6, 0, 1.6, 1.5);
-    wirePyramid(2.2, 0.6, 1.5, 1.05);
+
+    // static furniture, drawn dim so it recedes behind the working block
+    ctx.strokeStyle = 'rgba(234,240,247,0.5)';
+    wireCube(2.6, 2.4, 0, 1.5, 1.4);
+    wirePyramid(2.6, 2.4, 1.4, 1.0);
     wireOpenBox(0.4, 2.4, 0, 0.95, 0.6);
 
-    // the cube under the arm
+    // the one cube in motion, drawn bright, under the arm
+    ctx.strokeStyle = 'rgba(234,240,247,0.92)';
     var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
     var cx = (held[0].x + held[2].x) / 2, cy = (held[0].y + held[2].y) / 2;

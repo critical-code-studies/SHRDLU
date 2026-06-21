@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · SHRDLU (1968–70)</title>
+  <meta name="description" content="About this Critical Code Studies reading of SHRDLU, and the team behind it: David M. Berry (University of Sussex) and Mark C. Marino (University of Southern California).">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css?v=4">
+  <script src="assets/nav.js" defer></script>
+  <style>
+    .team { display:flex; flex-wrap:wrap; gap:2.6rem; justify-content:center; margin-top:2.4rem; }
+    .member { flex:0 0 auto; width:210px; text-align:center; margin:0; }
+    .member .portrait {
+      position:relative; width:148px; height:148px; margin:0 auto 1.1rem;
+      border-radius:50%; overflow:hidden; border:1px solid var(--line);
+      background:var(--panel); box-shadow: inset 0 0 26px rgba(0,0,0,0.45);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .member:hover .portrait { border-color:var(--beam); box-shadow: var(--glow); transform: translateY(-3px); }
+    .member .portrait img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter: grayscale(0.3) contrast(1.03); }
+    .member .portrait .initials {
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      font-family:var(--mono); font-size:2rem; letter-spacing:1px; color:var(--ink-dim);
+    }
+    .member h3 { margin:0 0 0.25rem; font-size:1.08rem; }
+    .member .role { font-family:var(--mono); font-size:0.6rem; letter-spacing:1.6px; text-transform:uppercase; color:var(--beam); margin:0 0 0.2rem; }
+    .member .affil { font-size:0.82rem; color:var(--ink-dim); margin:0; line-height:1.45; }
+    @media (max-width:480px) { .member { width:150px; } .member .portrait { width:116px; height:116px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="SHRDLU home">
+        <svg viewBox="0 0 32 32" aria-hidden="true" class="brand-cube"><g fill="none" stroke="#3aa862" stroke-width="1.5" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>
+        <span class="brand-block"><img class="brand-mark" src="assets/wordmark.svg" alt="SHRDLU"><span class="brand-tagline">Critical Code Studies · MIT · 1968–70</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars" aria-hidden="true">&#9776;</span>&nbsp;Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">Main <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="./">Home</a><a href="./#why">Why?</a><a href="./#ccs">CCS</a><a href="bibliography.html">Bibliography</a><a href="./#contact">Contact</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">SHRDLU <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu">
+            <a href="overview.html">Overview</a><a href="dialogue.html" style="border-top:1px solid var(--line);margin-top:0.3rem;padding-top:0.7rem;">The dialogue</a><a href="blocks-world.html">The blocks world</a><a href="the-name.html">The name</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-top" aria-expanded="false">The code <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-menu"><a href="code.html">The program</a><a href="critique.html">Critique &amp; legacy</a></div>
+        </div>
+        <a class="nav-top nav-direct" href="people.html">People</a>
+        <a class="nav-top nav-direct" href="timeline.html">Timeline</a><a class="nav-top nav-direct" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap content" style="padding-top:3rem;">
+
+    <section class="block lede">
+      <span class="kicker">About</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">About this project</h2>
+      <p>This is a Critical Code Studies reading of <strong>SHRDLU</strong>, Terry Winograd's natural-language-understanding program for the MIT blocks world (1968–70). It reads the program as a cultural text, sitting with the MacLisp and Micro-Planner, the grammar written as procedures, the hand-built microworld, and the famous demonstration dialogue, to ask what this code knows, what it only appears to know, and what its founding demonstration leaves out.</p>
+      <p>It is one of a series of critical code readings of the founding programs of the long 1960s, alongside the team's readings of Joseph Weizenbaum's <em>ELIZA</em> (1966) and the MIT <em>Spacewar!</em> (1962). The method it follows is set out in <a href="./#ccs">Critical Code Studies</a> and in the <a href="bibliography.html">bibliography</a>.</p>
+    </section>
+
+    <div class="rule"><span>The team</span></div>
+
+    <section class="block">
+      <div class="team">
+
+        <figure class="member">
+          <div class="portrait">
+            <span class="initials" aria-hidden="true">DB</span>
+            <img src="assets/images/DavidBerryPhoto%20small.jpg" alt="David M. Berry" onerror="this.remove()">
+          </div>
+          <h3>David M. Berry</h3>
+          <p class="role">Co-lead</p>
+          <p class="affil">University of Sussex</p>
+        </figure>
+
+        <figure class="member">
+          <div class="portrait">
+            <span class="initials" aria-hidden="true">MM</span>
+            <img src="assets/images/MarkMarino.png" alt="Mark C. Marino" onerror="this.remove()">
+          </div>
+          <h3>Mark C. Marino</h3>
+          <p class="role">Co-lead</p>
+          <p class="affil">University of Southern California</p>
+        </figure>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="micro">A Critical Code Studies reading of SHRDLU (Terry Winograd, MIT, 1968–70). · Source: <a href="https://github.com/critical-code-studies/SHRDLU">github.com/critical-code-studies/SHRDLU</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
