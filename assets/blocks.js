@@ -172,12 +172,8 @@
 
     ground();
 
-    // static furniture, drawn dim so it recedes behind the working block
-    ctx.strokeStyle = 'rgba(234,240,247,0.5)';
-    wireCube(2.6, 2.4, 0, 1.5, 1.4);
-    wirePyramid(2.6, 2.4, 1.4, 1.0);
-
-    // the one cube in motion, drawn bright, under the arm
+    // just the one cube in motion, drawn bright, under the arm — nothing for it
+    // to be set down onto
     ctx.strokeStyle = 'rgba(234,240,247,0.92)';
     var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
