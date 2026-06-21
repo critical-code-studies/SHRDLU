@@ -106,6 +106,34 @@
       .teletype { max-width:92vw; text-align:left; }
       .hero-actions { justify-content:flex-start; }
     }
+
+    /* ---- easter eggs ---- */
+    /* the Knight TV font, used only for the ETAOIN SHRDLU flourish */
+    @font-face { font-family:"KnightTV"; src:url("assets/fonts/knighttv.ttf") format("truetype"); font-display:swap; }
+    /* ETAOIN SHRDLU: type "etaoin" or the Konami code, the Linotype slug ghosts over the hero */
+    .etaoin-flourish { position:absolute; inset:0; z-index:6; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:0; }
+    .etaoin-flourish span { font-family:"KnightTV", var(--mono); font-size:clamp(1.5rem,6.5vw,3.6rem); letter-spacing:0.14em; white-space:nowrap;
+      color:#37a05f; text-shadow:0 0 6px rgba(55,160,95,0.85),0 0 22px rgba(55,160,95,0.45),0 0 52px rgba(55,160,95,0.2); }
+    .etaoin-flourish.show { animation:etaoin-egg 2.7s ease forwards; }
+    @keyframes etaoin-egg { 0%{opacity:0;} 7%{opacity:1;} 9%{opacity:0.25;} 12%{opacity:1;} 15%{opacity:0.5;} 19%{opacity:1;} 80%{opacity:1;} 100%{opacity:0;} }
+    @media (prefers-reduced-motion: reduce) { .etaoin-flourish.show { animation:etaoin-egg-rm 2.7s ease forwards; } @keyframes etaoin-egg-rm { 0%{opacity:0;} 12%{opacity:1;} 82%{opacity:1;} 100%{opacity:0;} } }
+    /* talk to SHRDLU: press "/" or type "shrdlu", a small command prompt opens */
+    .shrdlu-console { position:fixed; left:50%; bottom:clamp(1rem,5vh,3rem); transform:translateX(-50%); z-index:9600;
+      width:min(560px,92vw); background:rgba(6,8,11,0.95); border:1px solid var(--line); border-radius:8px;
+      box-shadow:inset 0 0 40px rgba(0,0,0,0.7),0 12px 40px rgba(0,0,0,0.6); padding:0.9rem 1rem 0.8rem; }
+    .shrdlu-console[hidden] { display:none; }
+    .sc-scroll { max-height:38vh; overflow-y:auto; margin-bottom:0.5rem; line-height:1.6; font-family:"IBM Plex Mono",var(--mono); font-size:0.82rem; }
+    .sc-line { margin:0 0 0.15rem; white-space:pre-wrap; word-break:break-word; text-transform:uppercase; letter-spacing:0.5px; }
+    .sc-line.you { color:rgba(231,228,218,0.45); }
+    .sc-line.sh { color:#6fdc8c; text-shadow:0 0 6px rgba(111,220,140,0.3); }
+    .sc-line.note { color:var(--ink-dim); text-transform:none; font-style:italic; letter-spacing:0; }
+    .sc-input-line { display:flex; align-items:center; gap:0.5rem; border-top:1px solid var(--line-soft); padding-top:0.5rem; }
+    .sc-prompt { color:#6fdc8c; font-family:"IBM Plex Mono",var(--mono); }
+    .sc-input-line input { flex:1; background:transparent; border:0; outline:0; color:#eceae3;
+      font-family:"IBM Plex Mono",var(--mono); font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px; }
+    .sc-close { position:absolute; top:0.5rem; right:0.6rem; background:transparent; border:0; color:var(--ink-dim);
+      font-family:var(--mono); font-size:0.58rem; letter-spacing:1px; text-transform:uppercase; cursor:pointer; }
+    .sc-close:hover { color:var(--beam); }
   </style>
 </head>
 <body>
@@ -203,6 +231,7 @@
       <button id="colourBtn" type="button" class="hero-colour-btn" aria-pressed="false" aria-label="Colour the blocks world">Colour</button>
       <span class="hero-year" id="heroYear">1970</span>
     </div>
+    <div class="etaoin-flourish" id="etaoinFlourish" aria-hidden="true"><span>ETAOIN SHRDLU</span></div>
     <div class="wrap hero-inner">
       <div class="hero-content">
         <div class="hero-titles">
@@ -477,6 +506,101 @@
         var on = btn.getAttribute('aria-pressed') !== 'true';
         try { localStorage.setItem('shrdlu-colour', on ? '1' : '0'); } catch (e) {}
         apply(on);
+      });
+    })();
+  </script>
+
+  <!-- easter egg: a hidden SHRDLU command prompt (press "/" or type "shrdlu") -->
+  <div class="shrdlu-console" id="shrdluConsole" hidden role="dialog" aria-label="SHRDLU command prompt">
+    <button class="sc-close" id="scClose" aria-label="Close (Esc)">esc &#10005;</button>
+    <div class="sc-scroll" id="scScroll" aria-live="polite"></div>
+    <div class="sc-input-line">
+      <span class="sc-prompt" aria-hidden="true">&gt;</span>
+      <input id="scInput" type="text" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" aria-label="Type a command to SHRDLU">
+    </div>
+  </div>
+
+  <script>
+    /* easter eggs: (1) talk to SHRDLU — press "/" or type "shrdlu" to open a
+       prompt; replies are verbatim from the canonical 1970 demonstration.
+       (3) ETAOIN SHRDLU — type "etaoin" or the Konami code to ghost the
+       Linotype slug over the hero. Home page only, keyboard only. */
+    (function () {
+      // ---- (1) talk to SHRDLU ----
+      var con = document.getElementById('shrdluConsole');
+      var scroll = document.getElementById('scScroll');
+      var input = document.getElementById('scInput');
+      var closeBtn = document.getElementById('scClose');
+      var opened = false, greeted = false;
+
+      var REPLIES = {
+        'pick up a big red block': 'OK.',
+        'grasp the pyramid': "I DON'T UNDERSTAND WHICH PYRAMID YOU MEAN.",
+        'what does the box contain': 'THE BLUE PYRAMID AND THE BLUE BLOCK.',
+        'what is the pyramid supported by': 'THE BOX.',
+        'how many blocks are not in the box': 'FOUR OF THEM.',
+        'can the table pick up blocks': 'NO.',
+        'can a pyramid be supported by a block': 'YES.',
+        'can a pyramid support a pyramid': "I DON'T KNOW.",
+        'stack up two pyramids': "I CAN'T.",
+        'which cube is sitting on the table': 'THE LARGE GREEN ONE WHICH SUPPORTS THE RED PYRAMID.',
+        'put the blue pyramid on the block in the box': 'OK.',
+        'build one': 'OK.',
+        'build a steeple': 'OK.',
+        'thank you': "YOU'RE WELCOME!"
+      };
+      function norm(s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, '').replace(/\s+/g, ' ').trim(); }
+      function line(text, cls) { var p = document.createElement('p'); p.className = 'sc-line ' + (cls || ''); p.textContent = text; scroll.appendChild(p); scroll.scrollTop = scroll.scrollHeight; }
+      function reply(raw) {
+        var q = norm(raw);
+        if (!q) return;
+        var ans = REPLIES[q];
+        if (!ans) {
+          if (q.indexOf('steeple') >= 0) ans = 'SORRY, I DON’T KNOW THE WORD "STEEPLE".';
+          else if (/^why\b/.test(q)) ans = 'BECAUSE YOU ASKED ME TO.';
+          else if (q.indexOf('thank') >= 0) ans = "YOU'RE WELCOME!";
+          else if (q.indexOf('pick up') >= 0 || (q.indexOf('put') >= 0 && q.indexOf('box') >= 0) || q.indexOf('stack up') >= 0) ans = 'OK.';
+          else ans = "I DON'T UNDERSTAND.";
+        }
+        line(raw.toUpperCase(), 'you');
+        line(ans, 'sh');
+        if (ans === 'OK.') line('(does it)', 'note');
+      }
+      function openConsole() {
+        if (opened) return; opened = true; con.hidden = false;
+        if (!greeted) { greeted = true; line('SHRDLU READY.', 'sh'); line('type a command, e.g. PICK UP A BIG RED BLOCK', 'note'); }
+        setTimeout(function () { input.focus(); }, 0);
+      }
+      function closeConsole() { opened = false; con.hidden = true; if (input) input.blur(); }
+      if (closeBtn) closeBtn.addEventListener('click', closeConsole);
+      if (input) input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); var v = input.value; input.value = ''; reply(v); }
+        else if (e.key === 'Escape') { e.preventDefault(); closeConsole(); }
+      });
+
+      // ---- (3) ETAOIN SHRDLU flourish ----
+      var flo = document.getElementById('etaoinFlourish'), floTimer = null;
+      function flourish() {
+        if (!flo) return;
+        flo.classList.remove('show'); void flo.offsetWidth; flo.classList.add('show');
+        clearTimeout(floTimer); floTimer = setTimeout(function () { flo.classList.remove('show'); }, 2800);
+      }
+
+      // ---- triggers (home page, keyboard only) ----
+      var buf = '';
+      var konami = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'], kidx = 0;
+      function inField(t) { return t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable); }
+      document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (k === konami[kidx]) { kidx++; if (kidx === konami.length) { kidx = 0; flourish(); } } else { kidx = (k === konami[0]) ? 1 : 0; }
+
+        if (opened || inField(e.target)) return;
+        if (e.key === '/') { e.preventDefault(); buf = ''; openConsole(); return; }
+        if (/^[a-z]$/.test(k)) {
+          buf = (buf + k).slice(-6);
+          if (buf === 'shrdlu') { buf = ''; openConsole(); }
+          else if (buf === 'etaoin') { buf = ''; flourish(); }
+        } else { buf = ''; }
       });
     })();
   </script>
