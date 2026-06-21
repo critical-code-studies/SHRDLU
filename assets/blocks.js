@@ -1,8 +1,8 @@
 /* Hero "blocks world", a homage to the original SHRDLU display: white
-   wireframe solids on a black CRT, an arm that picks up a cube, carries it
-   very slowly between three well-spaced spots on the open ground, sets it down
-   cleanly and leaves it for a long beat before collecting it again. Stroke-only
-   vector line-drawing with a
+   wireframe solids on a black CRT: an open box, a pyramid-capped block and a
+   loose cube populate the scene, while an arm very slowly lifts one block and
+   sets it down inside the box, then carries it back out, the canonical "put the
+   block in the box". Stroke-only vector line-drawing with a
    phosphor glow. The static furniture is drawn dim so the eye follows the one
    block in motion. No idle sway; the only motion is the arm's work and an
    optional faint pointer parallax. Honours prefers-reduced-motion (static). */
@@ -98,20 +98,19 @@
     ctx.restore();
   }
 
-  // The cube's tour: it rests at each station, is collected, carried, set down
-  // at the next, and left there. Three clear, well-spaced spots on the open
-  // ground, so each pick-up and put-down happens over empty space.
-  var CUBE_S = 1.4, CUBE_H = 1.3;
+  // The arm moves one block back and forth between the open ground and the
+  // inside of the open box — the canonical "put the block in the box". The rest
+  // of the scene (box, a pyramid-capped block, a loose cube) stays put.
+  var CUBE_S = 1.1, CUBE_H = 1.0;
   var STATIONS = [
-    { gx: -0.6, gy: 0.6,  z: 0.0 },   // left-of-centre ground (clear of the stack)
-    { gx: 1.5,  gy: 1.9,  z: 0.0 },   // centre-front ground
-    { gx: 3.0,  gy: -0.5, z: 0.0 }    // ground to the right
+    { gx: 0.0, gy: 2.6, z: 0.0 },     // on the open ground, front
+    { gx: 2.3, gy: 1.0, z: 0.0 }      // set down inside the open box
   ];
-  var TRAVEL_Z = 1.8;                  // base height the cube is carried at
-  var GRIP_LIFT = 1.4, PARK_LIFT = 2.6;
-  // phase lengths (frames) — very slow and deliberate: rest (dropped, arm
+  var TRAVEL_Z = 1.95;                 // base height the cube is carried at (clears the box wall)
+  var GRIP_LIFT = 1.3, PARK_LIFT = 2.6;
+  // phase lengths (frames) — very slow and deliberate: rest (set down, arm
   // waits), descend, lift, travel, lower, retract
-  var REST = 300, DESC = 120, LIFT = 110, TRAVEL = 340, LOWER = 110, RETRACT = 120;
+  var REST = 280, DESC = 110, LIFT = 100, TRAVEL = 280, LOWER = 100, RETRACT = 110;
   var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
 
   function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
@@ -172,13 +171,17 @@
 
     ground();
 
-    // a static stack parked far to the left, well clear of the block's path,
-    // drawn dim so it reads as a backdrop landmark, not something to set onto
-    ctx.strokeStyle = 'rgba(234,240,247,0.5)';
-    wireCube(-3.6, 1.4, 0, 1.4, 1.3);
-    wirePyramid(-3.6, 1.4, 1.3, 1.4);
+    // a populated blocks world, uniform phosphor white like the real display:
+    // an open box on the right, a pyramid-capped block (the base of the pyramid
+    // matches the block's top, so it caps it cleanly) on the left, and a loose
+    // cube set back to the side
+    ctx.strokeStyle = 'rgba(234,240,247,0.78)';
+    wireOpenBox(2.3, 1.0, 0, 1.8, 1.1);
+    wireCube(-2.8, 1.7, 0, 1.2, 1.1);
+    wirePyramid(-2.8, 1.7, 1.1, 1.2);
+    wireCube(-0.9, -0.7, 0, 1.0, 0.9);
 
-    // the one cube in motion, drawn bright, under the arm
+    // the one block the arm is moving, drawn a touch brighter
     ctx.strokeStyle = 'rgba(234,240,247,0.92)';
     var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
