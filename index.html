@@ -118,7 +118,7 @@
     /* the Knight TV font, used only for the ETAOIN SHRDLU flourish */
     @font-face { font-family:"KnightTV"; src:url("assets/fonts/knighttv.ttf") format("truetype"); font-display:swap; }
     /* ETAOIN SHRDLU: type "etaoin" or the Konami code, the Linotype slug ghosts over the hero */
-    .etaoin-flourish { position:absolute; inset:0; z-index:6; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:0; }
+    .etaoin-flourish { position:fixed; inset:0; z-index:9700; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:0; }
     .etaoin-flourish span { font-family:"KnightTV", var(--mono); font-size:clamp(1.5rem,6.5vw,3.6rem); letter-spacing:0.14em; white-space:nowrap;
       color:#37a05f; text-shadow:0 0 6px rgba(55,160,95,0.85),0 0 22px rgba(55,160,95,0.45),0 0 52px rgba(55,160,95,0.2); }
     .etaoin-flourish.show { animation:etaoin-egg 2.7s ease forwards; }
@@ -491,7 +491,7 @@
   (function () { var c = document.querySelector('.hero-code-inner'); if (c) c.innerHTML += '\n' + c.innerHTML; })();
   </script>
   <script src="assets/dialogue.js?v=3"></script>
-  <script src="assets/blocks.js?v=18"></script>
+  <script src="assets/blocks.js?v=19"></script>
   <script>
     /* monochrome (the original vector display) <-> colour (the later rendering),
        with a year that shifts to match. Persisted so the choice sticks. */
@@ -574,6 +574,16 @@
         var q = norm(raw);
         if (!q) return;
         line(raw.toUpperCase(), 'you');
+        if (q === 'help' || q === 'commands') {
+          line('TRY, FOR INSTANCE:', 'sh');
+          line('pick up a big red block', 'you');
+          line('put the blue pyramid on the block in the box', 'you');
+          line('stack up two pyramids', 'you');
+          line('what does the box contain', 'you');
+          line('why    thank you    help', 'you');
+          line('also try: etaoin, eliza', 'note');
+          return;
+        }
         if (q.indexOf('eliza') >= 0) {
           line('ELIZA CAME FIRST, IN 1966.', 'sh');
           linkLine('Read "Inventing ELIZA" (MIT Press) →', 'https://mitpress.mit.edu/9780262052481/inventing-eliza/');

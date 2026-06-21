@@ -111,60 +111,76 @@
     ctx.restore();
   }
 
-  // The arm moves one block: mostly in and out of the open box ("put the block
-  // in the box"), and now and then it stacks the block on the loose cube
-  // instead. The rest of the scene (box, pyramid-capped block, loose cube) stays put.
+  // Two blocks the arm tends, by colour. Mostly it works the red block (in and
+  // out of the box, onto the blue block); now and then it lifts the blue block
+  // itself, sets it down elsewhere, then brings it back. The box and the
+  // pyramid-capped block are fixed scenery.
   var CUBE_S = 1.1, CUBE_H = 1.0;
-  var STATIONS = [
-    { gx: 0.0,  gy: 2.6, z: 0.0 },    // 0: on the open ground, front
-    { gx: 2.3,  gy: 1.0, z: 0.0 },    // 1: set down inside the open box
-    { gx: -0.9, gy: -0.7, z: 1.0 }    // 2: stacked on top of the loose cube
+  var POS = {
+    ground:   { gx:  0.0, gy:  2.6, z: 0.0 },   // open ground, front
+    box:      { gx:  2.3, gy:  1.0, z: 0.0 },   // inside the open box
+    onblue:   { gx: -0.9, gy: -0.7, z: 1.0 },   // on top of the blue block
+    bluehome: { gx: -0.9, gy: -0.7, z: 0.0 },   // the blue block's usual place
+    bluemove: { gx: -2.3, gy: -0.3, z: 0.0 }    // where the blue block visits
+  };
+  var rest = { red: POS.ground, blue: POS.bluehome };
+  var COLOUR = { red: 'rgba(226,81,65,0.96)', blue: 'rgba(77,146,224,0.94)' };
+  // the looping itinerary of moves: mostly the red block, occasionally the blue
+  var ITIN = [
+    { b: 'red',  to: 'box' },
+    { b: 'red',  to: 'ground' },
+    { b: 'red',  to: 'onblue' },
+    { b: 'red',  to: 'ground' },
+    { b: 'red',  to: 'box' },
+    { b: 'red',  to: 'ground' },
+    { b: 'blue', to: 'bluemove' },
+    { b: 'blue', to: 'bluehome' }
   ];
-  // the order the block visits, looping: in/out of the box, with an occasional
-  // trip to stack it on the loose cube (station 2)
-  var SEQUENCE = [0, 1, 0, 1, 0, 2, 0, 1, 0, 2];
-  var TRAVEL_Z = 1.95;                 // base height the cube is carried at (clears the box wall)
+  var TRAVEL_Z = 1.95;                 // base height a block is carried at (clears the box wall)
   var GRIP_LIFT = 1.3, PARK_LIFT = 2.6;
   // phase lengths (frames) — very slow and deliberate: rest (set down, arm
   // waits), descend, lift, travel, lower, retract
   var REST = 280, DESC = 110, LIFT = 100, TRAVEL = 280, LOWER = 100, RETRACT = 110;
   var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
 
-  // stepper state: each leg the block rests at fromIdx then is moved to toIdx,
-  // advancing through SEQUENCE. A page control (the SHRDLU prompt) can nudge the
-  // block to a chosen station via window.SHRDLU_moveTo.
-  var legStart = 0, seqPtr = 1, fromIdx = SEQUENCE[0], toIdx = SEQUENCE[1 % SEQUENCE.length], pending = -1;
+  // stepper: each leg lifts block `carried` from fromPos to toPos, advancing
+  // through ITIN. The SHRDLU prompt can nudge the red block via SHRDLU_moveTo.
+  var legStart = 0, itPtr = 0, carried = ITIN[0].b, fromPos = rest[carried], toPos = POS[ITIN[0].to], pendingMove = null;
   window.SHRDLU_moveTo = function (idx) {
     if (reduce) return;
-    idx = idx | 0;
-    if (idx < 0 || idx >= STATIONS.length) return;
+    var key = ['ground', 'box', 'onblue'][idx | 0];
+    if (!key) return;
     var lt = t - legStart;
-    if (lt < REST) {            // arm is resting: begin the move at once
-      if (idx === toIdx) return;
-      fromIdx = toIdx; toIdx = idx; pending = -1; legStart = t - REST;
-    } else { pending = idx; }   // mid-move: do it as soon as this leg finishes
+    if (lt < REST && carried === 'red') {        // red is resting: redirect now
+      if (toPos === POS[key]) return;
+      fromPos = rest.red; toPos = POS[key]; pendingMove = null; legStart = t - REST;
+    } else { pendingMove = { b: 'red', to: key }; }   // else queue for next leg
   };
 
   function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
   function ss(a) { a = clamp01(a); return a * a * (3 - 2 * a); }
   function lerp(a, b, u) { return a + (b - a) * u; }
 
-  // Resolve the cube position, finger alpha, and wrist lift for the frame.
+  // Resolve the carried block, its animated position, finger alpha and wrist lift.
   function state(frame) {
     var lt = frame - legStart;
     if (lt >= LEG) {
+      rest[carried] = toPos;          // finalise the move just completed
       legStart += LEG;
-      fromIdx = toIdx;
-      if (pending >= 0) { toIdx = pending; pending = -1; }
-      else { seqPtr = (seqPtr + 1) % SEQUENCE.length; toIdx = SEQUENCE[seqPtr]; }
+      var mv;
+      if (pendingMove) { mv = pendingMove; pendingMove = null; }
+      else { itPtr = (itPtr + 1) % ITIN.length; mv = ITIN[itPtr]; }
+      carried = mv.b;
+      fromPos = rest[carried];
+      toPos = POS[mv.to];
       lt = frame - legStart;
     }
-    var cur = STATIONS[fromIdx], nxt = STATIONS[toIdx];
+    var cur = fromPos, nxt = toPos;
     var cube = { gx: cur.gx, gy: cur.gy, z: cur.z };
     var fingers = 0, lift = PARK_LIFT, u;
 
     if (lt < REST) {
-      // resting at the station, released, arm parked high above it
+      // resting at fromPos, released, arm parked high above it
     } else if (lt < REST + DESC) {
       u = ss((lt - REST) / DESC);                       // arm comes down, grips
       fingers = u;
@@ -190,7 +206,7 @@
       fingers = 1 - u;
       lift = lerp(GRIP_LIFT, PARK_LIFT, u);
     }
-    return { cube: cube, fingers: fingers, lift: lift };
+    return { carried: carried, cube: cube, fingers: fingers, lift: lift };
   }
 
   function draw() {
@@ -208,22 +224,25 @@
 
     ground();
 
-    // a populated blocks world: an open box on the right, a pyramid-capped block
-    // (the pyramid's base matches the block's top, so it caps it cleanly) on the
-    // left, and a loose cube set back. Monochrome by default; named colours when
-    // the colour toggle is on.
+    // fixed scenery: an open box on the right and a pyramid-capped block on the
+    // left. Monochrome by default; named colours when the colour toggle is on.
     var MONO = 'rgba(234,240,247,0.78)', MONO_HI = 'rgba(234,240,247,0.92)';
     setPaint(MONO, 'rgba(87,184,107,0.92)');  wireOpenBox(2.3, 1.0, 0, 1.8, 1.1);   // box: green
     setPaint(MONO, 'rgba(87,184,107,0.92)');  wireCube(-2.8, 1.7, 0, 1.2, 1.1);     // capped block: green
     setPaint(MONO, 'rgba(242,171,60,0.95)');  wirePyramid(-2.8, 1.7, 1.1, 1.2);     // pyramid: amber
-    setPaint(MONO, 'rgba(77,146,224,0.92)');  wireCube(-0.9, -0.7, 0, 1.1, 1.0);    // loose cube: blue
 
-    // the one block the arm is moving (the red block)
-    setPaint(MONO_HI, 'rgba(226,81,65,0.96)');
-    var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
+    var s = reduce ? { carried: 'red', cube: POS.ground, fingers: 0, lift: PARK_LIFT } : state(t);
+    var other = s.carried === 'red' ? 'blue' : 'red';
+
+    // the block at rest (not being carried), then the one the arm is carrying
+    var op = rest[other];
+    setPaint(MONO, COLOUR[other]);
+    wireCube(op.gx, op.gy, op.z, CUBE_S, CUBE_H);
+
+    setPaint(MONO_HI, COLOUR[s.carried]);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
     var cx = (held[0].x + held[2].x) / 2, cy = (held[0].y + held[2].y) / 2;
-    // the arm itself stays white; reset the glow so it does not pick up the block's colour
+    // the arm stays white; reset the glow so it does not take the block's colour
     ctx.shadowColor = 'rgba(200,224,255,0.35)';
     drawArm(held, { x: cx, y: cy - s.lift * U }, s.fingers);
 
