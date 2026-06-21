@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SHRDLU (1968–70): A Critical Code Studies Reading</title>
   <meta name="description" content="A critical code reading of SHRDLU, Terry Winograd's natural-language-understanding program for the MIT blocks world, written in MacLisp and Micro-Planner, 1968–70. Reading the code at the high-water mark of symbolic AI as a cultural text.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
   <meta name="theme-color" content="#11131a">
   <meta property="og:title" content="SHRDLU (1968–70): A Critical Code Studies Reading">
   <meta property="og:description" content="Reading Terry Winograd's blocks-world program as cultural text, at the high-water mark of symbolic AI.">
@@ -99,6 +99,10 @@
       padding:0.42rem 0.85rem; cursor:pointer; transition:color .2s ease, border-color .2s ease; }
     .hero-colour-btn:hover { color:var(--bright); border-color:var(--beam); }
     .hero-colour-btn[aria-pressed="true"] { color:var(--blk-green); border-color:var(--blk-green); }
+    .hero-slash-btn { font-family:var(--mono); font-size:0.78rem; line-height:1; color:var(--ink-dim);
+      background:rgba(8,10,14,0.55); border:1px solid var(--line); border-radius:3px; padding:0.34rem 0.62rem;
+      cursor:pointer; transition:color .2s ease, border-color .2s ease; }
+    .hero-slash-btn:hover { color:var(--shrdlu); border-color:var(--shrdlu); }
     .hero-year { font-family:var(--mono); font-size:0.8rem; letter-spacing:2px; color:var(--ink-dim); transition:color .25s ease; }
     .hero-year.lit { color:var(--blk-blue); }
     @media (prefers-reduced-motion: reduce) { .teletype { animation:none; opacity:0.95; } }
@@ -231,6 +235,7 @@
 </pre></div>
     <canvas id="blockworld" aria-hidden="true"></canvas>
     <div class="hero-toggle">
+      <button id="slashBtn" type="button" class="hero-slash-btn" aria-label="Open the SHRDLU prompt" title="Talk to SHRDLU (or press /)">/</button>
       <button id="colourBtn" type="button" class="hero-colour-btn" aria-pressed="false" aria-label="Colour the blocks world">Colour</button>
       <span class="hero-year" id="heroYear">1970</span>
     </div>
@@ -486,7 +491,7 @@
   (function () { var c = document.querySelector('.hero-code-inner'); if (c) c.innerHTML += '\n' + c.innerHTML; })();
   </script>
   <script src="assets/dialogue.js?v=3"></script>
-  <script src="assets/blocks.js?v=17"></script>
+  <script src="assets/blocks.js?v=18"></script>
   <script>
     /* monochrome (the original vector display) <-> colour (the later rendering),
        with a year that shifts to match. Persisted so the choice sticks. */
@@ -554,9 +559,27 @@
       };
       function norm(s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, '').replace(/\s+/g, ' ').trim(); }
       function line(text, cls) { var p = document.createElement('p'); p.className = 'sc-line ' + (cls || ''); p.textContent = text; scroll.appendChild(p); scroll.scrollTop = scroll.scrollHeight; }
+      function linkLine(text, href) {
+        var p = document.createElement('p'); p.className = 'sc-line note';
+        var a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.textContent = text; a.style.color = 'var(--beam)';
+        p.appendChild(a); scroll.appendChild(p); scroll.scrollTop = scroll.scrollHeight;
+      }
+      function driveArm(q) {
+        if (!window.SHRDLU_moveTo) return;
+        var tgt = q.indexOf('box') >= 0 ? 1 : (q.indexOf('stack') >= 0 ? 2 : 0);
+        window.SHRDLU_moveTo(tgt);   // 0 ground, 1 inside the box, 2 on the loose cube
+      }
       function reply(raw) {
         var q = norm(raw);
         if (!q) return;
+        line(raw.toUpperCase(), 'you');
+        if (q.indexOf('eliza') >= 0) {
+          line('ELIZA CAME FIRST, IN 1966.', 'sh');
+          linkLine('Read "Inventing ELIZA" (MIT Press) →', 'https://mitpress.mit.edu/9780262052481/inventing-eliza/');
+          return;
+        }
+        if (q.indexOf('etaoin') >= 0) { line('ETAOIN SHRDLU.', 'sh'); flourish(); return; }
         var ans = REPLIES[q];
         if (!ans) {
           if (q.indexOf('steeple') >= 0) ans = 'SORRY, I DON’T KNOW THE WORD "STEEPLE".';
@@ -565,9 +588,8 @@
           else if (q.indexOf('pick up') >= 0 || (q.indexOf('put') >= 0 && q.indexOf('box') >= 0) || q.indexOf('stack up') >= 0) ans = 'OK.';
           else ans = "I DON'T UNDERSTAND.";
         }
-        line(raw.toUpperCase(), 'you');
         line(ans, 'sh');
-        if (ans === 'OK.') line('(does it)', 'note');
+        if (ans === 'OK.') { line('(does it)', 'note'); driveArm(q); }
       }
       function openConsole() {
         if (opened) return; opened = true; con.hidden = false;
@@ -576,6 +598,8 @@
       }
       function closeConsole() { opened = false; con.hidden = true; if (input) input.blur(); }
       if (closeBtn) closeBtn.addEventListener('click', closeConsole);
+      var slashBtn = document.getElementById('slashBtn');
+      if (slashBtn) slashBtn.addEventListener('click', openConsole);
       if (input) input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); var v = input.value; input.value = ''; reply(v); }
         else if (e.key === 'Escape') { e.preventDefault(); closeConsole(); }

@@ -130,16 +130,36 @@
   var REST = 280, DESC = 110, LIFT = 100, TRAVEL = 280, LOWER = 100, RETRACT = 110;
   var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
 
+  // stepper state: each leg the block rests at fromIdx then is moved to toIdx,
+  // advancing through SEQUENCE. A page control (the SHRDLU prompt) can nudge the
+  // block to a chosen station via window.SHRDLU_moveTo.
+  var legStart = 0, seqPtr = 1, fromIdx = SEQUENCE[0], toIdx = SEQUENCE[1 % SEQUENCE.length], pending = -1;
+  window.SHRDLU_moveTo = function (idx) {
+    if (reduce) return;
+    idx = idx | 0;
+    if (idx < 0 || idx >= STATIONS.length) return;
+    var lt = t - legStart;
+    if (lt < REST) {            // arm is resting: begin the move at once
+      if (idx === toIdx) return;
+      fromIdx = toIdx; toIdx = idx; pending = -1; legStart = t - REST;
+    } else { pending = idx; }   // mid-move: do it as soon as this leg finishes
+  };
+
   function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
   function ss(a) { a = clamp01(a); return a * a * (3 - 2 * a); }
   function lerp(a, b, u) { return a + (b - a) * u; }
 
   // Resolve the cube position, finger alpha, and wrist lift for the frame.
   function state(frame) {
-    var leg = Math.floor(frame / LEG);
-    var lt = frame - leg * LEG;
-    var cur = STATIONS[SEQUENCE[leg % SEQUENCE.length]];
-    var nxt = STATIONS[SEQUENCE[(leg + 1) % SEQUENCE.length]];
+    var lt = frame - legStart;
+    if (lt >= LEG) {
+      legStart += LEG;
+      fromIdx = toIdx;
+      if (pending >= 0) { toIdx = pending; pending = -1; }
+      else { seqPtr = (seqPtr + 1) % SEQUENCE.length; toIdx = SEQUENCE[seqPtr]; }
+      lt = frame - legStart;
+    }
+    var cur = STATIONS[fromIdx], nxt = STATIONS[toIdx];
     var cube = { gx: cur.gx, gy: cur.gy, z: cur.z };
     var fingers = 0, lift = PARK_LIFT, u;
 
