@@ -103,7 +103,7 @@
   // ground, so each pick-up and put-down happens over empty space.
   var CUBE_S = 1.4, CUBE_H = 1.3;
   var STATIONS = [
-    { gx: -2.6, gy: 0.2,  z: 0.0 },   // left ground
+    { gx: -1.9, gy: 0.4,  z: 0.0 },   // left ground (clear of the parked stack)
     { gx: 0.2,  gy: 1.8,  z: 0.0 },   // centre-front ground
     { gx: 2.4,  gy: -0.6, z: 0.0 }    // clear ground to the right
   ];
@@ -111,7 +111,7 @@
   var GRIP_LIFT = 1.4, PARK_LIFT = 2.6;
   // phase lengths (frames) — very slow and deliberate: rest (dropped, arm
   // waits), descend, lift, travel, lower, retract
-  var REST = 300, DESC = 85, LIFT = 80, TRAVEL = 250, LOWER = 80, RETRACT = 85;
+  var REST = 300, DESC = 120, LIFT = 110, TRAVEL = 340, LOWER = 110, RETRACT = 120;
   var LEG = REST + DESC + LIFT + TRAVEL + LOWER + RETRACT;
 
   function clamp01(a) { return a < 0 ? 0 : a > 1 ? 1 : a; }
@@ -172,8 +172,13 @@
 
     ground();
 
-    // just the one cube in motion, drawn bright, under the arm — nothing for it
-    // to be set down onto
+    // a static stack parked far to the left, well clear of the block's path,
+    // drawn dim so it reads as a backdrop landmark, not something to set onto
+    ctx.strokeStyle = 'rgba(234,240,247,0.5)';
+    wireCube(-3.4, 1.4, 0, 1.4, 1.3);
+    wirePyramid(-3.4, 1.4, 1.3, 0.95);
+
+    // the one cube in motion, drawn bright, under the arm
     ctx.strokeStyle = 'rgba(234,240,247,0.92)';
     var s = reduce ? { cube: STATIONS[0], fingers: 0, lift: PARK_LIFT } : state(t);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
