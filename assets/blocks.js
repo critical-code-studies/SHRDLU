@@ -98,14 +98,18 @@
     ctx.restore();
   }
 
-  // The arm moves one block back and forth between the open ground and the
-  // inside of the open box — the canonical "put the block in the box". The rest
-  // of the scene (box, a pyramid-capped block, a loose cube) stays put.
+  // The arm moves one block: mostly in and out of the open box ("put the block
+  // in the box"), and now and then it stacks the block on the loose cube
+  // instead. The rest of the scene (box, pyramid-capped block, loose cube) stays put.
   var CUBE_S = 1.1, CUBE_H = 1.0;
   var STATIONS = [
-    { gx: 0.0, gy: 2.6, z: 0.0 },     // on the open ground, front
-    { gx: 2.3, gy: 1.0, z: 0.0 }      // set down inside the open box
+    { gx: 0.0,  gy: 2.6, z: 0.0 },    // 0: on the open ground, front
+    { gx: 2.3,  gy: 1.0, z: 0.0 },    // 1: set down inside the open box
+    { gx: -0.9, gy: -0.7, z: 1.0 }    // 2: stacked on top of the loose cube
   ];
+  // the order the block visits, looping: in/out of the box, with an occasional
+  // trip to stack it on the loose cube (station 2)
+  var SEQUENCE = [0, 1, 0, 1, 0, 2, 0, 1, 0, 2];
   var TRAVEL_Z = 1.95;                 // base height the cube is carried at (clears the box wall)
   var GRIP_LIFT = 1.3, PARK_LIFT = 2.6;
   // phase lengths (frames) — very slow and deliberate: rest (set down, arm
@@ -121,8 +125,8 @@
   function state(frame) {
     var leg = Math.floor(frame / LEG);
     var lt = frame - leg * LEG;
-    var cur = STATIONS[leg % STATIONS.length];
-    var nxt = STATIONS[(leg + 1) % STATIONS.length];
+    var cur = STATIONS[SEQUENCE[leg % SEQUENCE.length]];
+    var nxt = STATIONS[SEQUENCE[(leg + 1) % SEQUENCE.length]];
     var cube = { gx: cur.gx, gy: cur.gy, z: cur.z };
     var fingers = 0, lift = PARK_LIFT, u;
 
@@ -179,7 +183,7 @@
     wireOpenBox(2.3, 1.0, 0, 1.8, 1.1);
     wireCube(-2.8, 1.7, 0, 1.2, 1.1);
     wirePyramid(-2.8, 1.7, 1.1, 1.2);
-    wireCube(-0.9, -0.7, 0, 1.0, 0.9);
+    wireCube(-0.9, -0.7, 0, 1.1, 1.0);
 
     // the one block the arm is moving, drawn a touch brighter
     ctx.strokeStyle = 'rgba(234,240,247,0.92)';
