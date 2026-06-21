@@ -45,5 +45,6 @@ The SHRDLU wordmark is set in the **Knight TV font**, the character generator of
 the MIT AI Lab's Knight TV terminals that fronted the ITS operating system (MIT,
 released under the GPL in 1999; via [larsbrinkhoff/Knight-TV-font](https://github.com/larsbrinkhoff/Knight-TV-font),
 see `assets/fonts/NOTICE.md`).
-A Critical Code Studies project led by David M. Berry (University of Sussex).
+A Critical Code Studies project co-led by David M. Berry (University of Sussex) and
+Mark C. Marino (University of Southern California).
 </content>
