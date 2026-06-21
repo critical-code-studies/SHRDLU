@@ -5,7 +5,7 @@ program (MIT Artificial Intelligence Laboratory, 1968–70), as a cultural text.
 A companion to the Critical Code Studies group's readings of *ELIZA* (1966) and
 *Spacewar!* (1962).
 
-**Status:** v0.2, live at <https://critical-code-studies.github.io/SHRDLU/>.
+**Status:** v0.3, live at <https://critical-code-studies.github.io/SHRDLU/>.
 
 SHRDLU let a person type ordinary English and watch a simulated arm rearrange
 coloured blocks and pyramids in a tabletop "blocks world". Written in MacLisp under
