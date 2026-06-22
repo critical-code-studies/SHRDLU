@@ -3,3 +3,7 @@
 
 # private working notes (not for publication)
 docs/shrdlu-research-brief-*.md
+
+# preserved binary artefacts (kept as GitHub Release assets, not in the tree)
+source/javashrdlu.zip
+source/Program Files/
