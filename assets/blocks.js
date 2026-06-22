@@ -145,7 +145,7 @@
 
   // stepper: each leg lifts block `carried` from fromPos to toPos, advancing
   // through ITIN. The SHRDLU prompt can nudge the red block via SHRDLU_moveTo.
-  var legStart = 0, itPtr = 0, carried = ITIN[0].b, fromPos = rest[carried], toPos = POS[ITIN[0].to], pendingMove = null;
+  var legStart = 0, itPtr = 0, carried = ITIN[0].b, fromPos = rest[carried], toPos = POS[ITIN[0].to], pendingMove = null, parkPos = rest[ITIN[0].b];
   window.SHRDLU_moveTo = function (idx) {
     if (reduce) return;
     var key = ['ground', 'box', 'onblue'][idx | 0];
@@ -166,6 +166,7 @@
     var lt = frame - legStart;
     if (lt >= LEG) {
       rest[carried] = toPos;          // finalise the move just completed
+      parkPos = toPos;                // where the arm is now parked (above the drop point)
       legStart += LEG;
       var mv;
       if (pendingMove) { mv = pendingMove; pendingMove = null; }
@@ -206,7 +207,17 @@
       fingers = 1 - u;
       lift = lerp(GRIP_LIFT, PARK_LIFT, u);
     }
-    return { carried: carried, cube: cube, fingers: fingers, lift: lift };
+    // the gripper hovers above the block it is tending. While resting it glides
+    // (empty, up high) from where it dropped the last block to above this one,
+    // so switching between the red and blue blocks does not jump.
+    var aGX, aGY, aZ;
+    if (lt < REST) {
+      var r = ss(lt / REST);
+      aGX = lerp(parkPos.gx, fromPos.gx, r);
+      aGY = lerp(parkPos.gy, fromPos.gy, r);
+      aZ  = lerp(parkPos.z,  fromPos.z,  r);
+    } else { aGX = cube.gx; aGY = cube.gy; aZ = cube.z; }
+    return { carried: carried, cube: cube, fingers: fingers, lift: lift, aGX: aGX, aGY: aGY, aZ: aZ };
   }
 
   function draw() {
@@ -231,7 +242,7 @@
     setPaint(MONO, 'rgba(87,184,107,0.92)');  wireCube(-2.8, 1.7, 0, 1.2, 1.1);     // capped block: green
     setPaint(MONO, 'rgba(242,171,60,0.95)');  wirePyramid(-2.8, 1.7, 1.1, 1.2);     // pyramid: amber
 
-    var s = reduce ? { carried: 'red', cube: POS.ground, fingers: 0, lift: PARK_LIFT } : state(t);
+    var s = reduce ? { carried: 'red', cube: POS.ground, fingers: 0, lift: PARK_LIFT, aGX: POS.ground.gx, aGY: POS.ground.gy, aZ: POS.ground.z } : state(t);
     var other = s.carried === 'red' ? 'blue' : 'red';
 
     // the block at rest (not being carried), then the one the arm is carrying
@@ -241,10 +252,11 @@
 
     setPaint(MONO_HI, COLOUR[s.carried]);
     var held = wireCube(s.cube.gx, s.cube.gy, s.cube.z, CUBE_S, CUBE_H);
-    var cx = (held[0].x + held[2].x) / 2, cy = (held[0].y + held[2].y) / 2;
+    // wrist hovers above the arm's gliding hover point (top-centre of a block there)
+    var topc = iso(s.aGX, s.aGY, s.aZ + CUBE_H);
     // the arm stays white; reset the glow so it does not take the block's colour
     ctx.shadowColor = 'rgba(200,224,255,0.35)';
-    drawArm(held, { x: cx, y: cy - s.lift * U }, s.fingers);
+    drawArm(held, { x: topc.x, y: topc.y - s.lift * U }, s.fingers);
 
     ctx.restore();
 
