@@ -74,16 +74,25 @@
       <h2>PROGRAMMAR and systemic grammar</h2>
       <p>Winograd's parser, <strong>PROGRAMMAR</strong>, is the clearest expression of the procedural doctrine at the level of syntax. Rather than treating a grammar as a fixed list of rewrite rules to be matched against an input string, PROGRAMMAR expresses each grammatical rule as a small program, a "procedural grammar" in which the act of parsing is the act of running these programs. A rule does not simply assert that a noun phrase may consist of a determiner followed by adjectives and a noun; it actively attempts to build that structure, branching, backtracking, and consulting context as it goes. Grammar becomes a collection of little procedures that know how to recognise the constituents they describe.</p>
       <p>The grammatical theory underneath PROGRAMMAR is M.A.K. Halliday's <strong>systemic grammar</strong>, and SHRDLU stands as the first major computational application of systemic theory. Halliday's framework treats grammatical choices as networks of options, "systems" of features from which a speaker selects, and this orientation towards choice and function rather than towards static phrase-structure trees lent itself naturally to a procedural rendering. The recognition grammar asks, at each point, which systemic options are in play and what evidence would resolve them, so that the parse is driven by functional questions rather than by mechanical pattern application.</p>
-      <p>The illustrative pseudocode below, which is a stylised reconstruction and not the original PROGRAMMAR source, suggests the flavour of a grammar rule written as a program:</p>
+      <p>The rule below is the real thing: the opening of PROGRAMMAR's noun-group (<code>NG</code>) rule, from the original source (<code>gramar</code>, <a href="https://github.com/critical-code-studies/SHRDLU/blob/main/source/original/code/gramar">preserved in this project</a>; an excerpt, lightly trimmed). A rule <em>is</em> a program: it examines the systemic features of the current node (<code>CQ</code>) and of the next word (<code>NQ</code>) and jumps (<code>GO</code>) to the block that handles each case, so the parse is driven by functional questions rather than by matching a fixed pattern. Winograd's own comments are kept:</p>
       <div class="listing">
-<span class="com">;; ILLUSTRATIVE – not the original PROGRAMMAR source</span>
-<span class="com">;; A noun-phrase rule expressed as a procedure that builds structure</span>
-(<span class="kw">defun</span> parse-noun-phrase ()
-  (<span class="kw">when</span> (parse <span class="str">'DETERMINER</span>)        <span class="com">; try "the", "a", "two" ...</span>
-    (<span class="kw">loop</span> <span class="kw">while</span> (parse <span class="str">'ADJECTIVE</span>))   <span class="com">; gather "red", "small" ...</span>
-    (<span class="kw">if</span> (parse <span class="str">'NOUN</span>)               <span class="com">; require a head noun</span>
-        (build <span class="str">'NP</span>)                    <span class="com">; succeed: assemble the NP</span>
-        (fail-and-backtrack))))         <span class="com">; else undo and report failure</span>
+<span class="com">;; NG (noun group), opening of the real PROGRAMMAR rule (gramar, excerpt).</span>
+<span class="com">;; CQ tests a feature of the current node; NQ tests the next word; GO jumps.</span>
+(<span class="kw">PDEFINE</span> NG NIL
+ NGSTART                                       <span class="com">; examine initial features, then jump</span>
+  (<span class="kw">COND</span> ((<span class="kw">CQ</span> RELWD)    (<span class="kw">GO</span> RELWD))
+        ((<span class="kw">CQ</span> QUEST)    (<span class="kw">GO</span> QUEST))
+        ((<span class="kw">OR</span> (<span class="kw">NQ</span> QDET) (<span class="kw">NQ</span> QPRON)) (<span class="kw">FQ</span> QUEST) (<span class="kw">GO</span> QUEST))
+        ((<span class="kw">CQ</span> TIME)     (<span class="kw">GO</span> TIME))
+        ((<span class="kw">NQ</span> PROPN)    (<span class="kw">GO</span> PROPN))
+        ((<span class="kw">NQ</span> PRON)     (<span class="kw">GO</span> PRON)))
+ LOOK                                          <span class="com">; entry for each new constituent</span>
+  (<span class="kw">COND</span> ((<span class="kw">NQ</span> DET)   (<span class="kw">GO</span> DET))               <span class="com">; "the", "a", "two" ...</span>
+        ((<span class="kw">NQ</span> NUM)   (<span class="kw">GO</span> NUM))
+        ((<span class="kw">OR</span> (<span class="kw">NQ</span> ING) (<span class="kw">NQ</span> EN) (<span class="kw">NQ</span> ADJ)) (<span class="kw">GO</span> ADJ))  <span class="com">; "red", "small" ...</span>
+        ((<span class="kw">NQ</span> NOUN)  (<span class="kw">GO</span> NOUN)))              <span class="com">; the head noun</span>
+  <span class="com">;; ... the DET, NUM, ADJ, NOUN blocks below build the structure and SETR it ...</span>
+  )
       </div>
     </section>
 
@@ -94,17 +103,25 @@
       <h2>Micro-Planner and the goal stack</h2>
       <p>The deductive heart of SHRDLU is <strong>Micro-Planner</strong>, a practical subset of Carl Hewitt's PLANNER language, implemented at MIT by Gerald Sussman, Terry Winograd, and Eugene Charniak and documented in the Micro-Planner Reference Manual (MIT AI Memo 203, July 1970, revised as 203A in December 1971). PLANNER introduced a goal-directed, theorem-proving style of programming in which one does not call a procedure by name but instead states a goal and lets the system search for assertions and "theorems", themselves procedures, that can satisfy it. Micro-Planner brought a workable portion of this vision into MacLisp, and SHRDLU used it to reason about the blocks world.</p>
       <p>The mechanism that gives SHRDLU much of its conversational depth is the <strong>goal stack</strong>. Because the system pursues goals by invoking subgoals, the chain of goals active at any moment is preserved as an explicit structure. This is why SHRDLU can answer questions about its own behaviour, including the famous "why" questions in the dialogue. When asked why it did something, the system does not reconstruct a plausible story after the fact; it reads back up the record of goals that motivated the action, so that "why did you do that" is answered by "to get rid of it" or "to clear off that cube", each answer a node retrieved from the deductive history. The capacity for explanation is here a side effect of the architecture rather than a separately engineered feature. You can follow this in the <a href="dialogue.html">canonical dialogue</a>, where the chain of "why" exchanges walks step by step back up the goal stack.</p>
-      <p>The illustrative Planner-style pseudocode below, again a stylised reconstruction rather than the original code, shows how a goal such as picking up a block decomposes into subgoals:</p>
+      <p>The Micro-Planner theorem below is the real thing, from the original SHRDLU source (the file <code>blockp</code>, <a href="https://github.com/critical-code-studies/SHRDLU/blob/main/source/original/code/blockp">preserved in this project</a>; lightly reindented for the page). It clears the top of a block, and shows the goal stack at work: to clear <code>X</code>, find whatever supports it and recursively <code>GET-RID-OF</code> that, then assert the result and record the event with <code>MEMOREND</code>, the memory SHRDLU later reads back to answer "why":</p>
       <div class="listing">
-<span class="com">;; ILLUSTRATIVE – Planner-style goal decomposition, not original source</span>
-<span class="com">;; To grasp X, first ensure its top is clear, then grasp it</span>
-(<span class="kw">THCONSE</span> (GRASP ?X)
-  (<span class="kw">THGOAL</span> (CLEARTOP ?X) (<span class="kw">THUSE</span> CLEAR-IT))  <span class="com">; subgoal pushed onto the stack</span>
-  (<span class="kw">THGOAL</span> (MOVE-HAND-TO ?X))                <span class="com">; subgoal: position the hand</span>
-  (<span class="kw">THASSERT</span> (GRASPING ?X)))                  <span class="com">; record the new world state</span>
-
-(<span class="kw">THCONSE</span> (CLEARTOP ?X)                          <span class="com">; CLEAR-IT theorem</span>
-  (<span class="kw">THGOAL</span> (GET-RID-OF ?Y) (ON ?Y ?X)))         <span class="com">; remove whatever sits on X</span>
+<span class="com">;; TC-CLEARTOP, from the original SHRDLU source (blockp).</span>
+<span class="com">;; To clear X: get rid of whatever supports it, then record the result.</span>
+(<span class="kw">DEFPROP</span> TC-CLEARTOP
+  (<span class="kw">THCONSE</span> (X Y (WHY (EV)) EV)
+    (#CLEARTOP $?X)
+    (<span class="kw">ATOM</span> $?X)
+    (<span class="kw">THOR</span> (<span class="kw">THGOAL</span> (#SUPPORT $?X ?))
+         (<span class="kw">THAND</span> (<span class="kw">THASSERT</span> (#CLEARTOP $?X)) (<span class="kw">THSUCCEED</span> THEOREM)))
+    (<span class="kw">MEMORY</span>)
+    GO
+    (<span class="kw">THCOND</span> ((<span class="kw">THGOAL</span> (#SUPPORT $?X $_Y))
+            (<span class="kw">THGOAL</span> (#GET-RID-OF $?Y) (<span class="kw">THNODB</span>) (<span class="kw">THUSE</span> TC-GET-RID-OF))
+            (<span class="kw">THGO</span> GO))
+           ((<span class="kw">THASSERT</span> (#CLEARTOP $?X))
+            (<span class="kw">MEMOREND</span> (#CLEARTOP $?EV $?X))
+            (<span class="kw">THSUCCEED</span> THEOREM))))
+  THEOREM)
       </div>
     </section>
 
