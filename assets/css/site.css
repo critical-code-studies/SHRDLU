@@ -179,6 +179,8 @@ section.block:last-child { margin-bottom: 0; }
 .kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--beam); margin-bottom: 0.9rem; display: block; }
 
 h2 { font-family: var(--mono); font-weight: 700; font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--bright); letter-spacing: -0.3px; margin: 0 0 1.2rem; }
+/* the page's own h1: same voice as h2, one size up */
+h1.page-title { font-family: var(--mono); font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--bright); letter-spacing: -0.3px; margin: 0 0 1.2rem; }
 h3 { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(--bright); letter-spacing: 0.4px; margin: 0 0 0.5rem; }
 .lede p { font-size: 1.28rem; line-height: 1.6; color: var(--ink); max-width: 60ch; }
 .content p { max-width: 68ch; }

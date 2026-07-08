@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The program · SHRDLU (1968–70)</title>
   <meta name="description" content="A Critical Code Studies reading of SHRDLU's architecture: a layered system written in MacLisp under ITS, with PROGRAMMAR, systemic grammar, and Micro-Planner enacting Winograd's thesis that meaning could be represented as procedures.">
+  <link rel="canonical" href="https://critical-code-studies.github.io/SHRDLU/code.html">
+  <meta property="og:title" content="The program · SHRDLU (1968–70)">
+  <meta property="og:description" content="A Critical Code Studies reading of SHRDLU's architecture: a layered system written in MacLisp under ITS, with PROGRAMMAR, systemic grammar, and Micro-Planner enacting Winograd's thesis that meaning could be represented as procedures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://critical-code-studies.github.io/SHRDLU/code.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.png?v=1">
+  <meta property="og:image:width" content="1402">
+  <meta property="og:image:height" content="646">
+  <meta property="og:image:alt" content="SHRDLU: reading the code at the high-water mark of symbolic AI">
+  <meta name="twitter:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.png?v=1">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
   <meta name="theme-color" content="#11131a">
-  <link rel="stylesheet" href="assets/css/site.css?v=6">
+  <link rel="stylesheet" href="assets/css/site.css?v=7">
   <script src="assets/nav.js" defer></script>
 </head>
 <body>
@@ -48,7 +59,7 @@
 
     <section class="block lede" id="program">
       <span class="kicker">The code</span>
-      <h2 style="font-size:clamp(1.8rem,5vw,2.6rem);">The program</h2>
+      <h1 class="page-title">The program</h1>
       <p>SHRDLU is best understood not as a single program but as a layered system, a stack of cooperating components written in MacLisp under the ITS operating system, with its deductive and problem-solving work expressed in Micro-Planner. Terry Winograd assembled four interacting parts: a parser, a systemic recognition grammar called PROGRAMMAR, a set of semantic-analysis programs, and a Micro-Planner deductive problem-solver. Each part is a piece of working code, and the system's apparent fluency in conversation about its toy world of blocks is the visible surface of these layers passing control and partial results between one another.</p>
       <p>The architecture matters because it carries an argument. Winograd's central thesis was that meaning could be represented as procedures rather than as static tables of facts or grammatical rules. Knowledge, in this account, is something a program does, not something it merely stores. Grammar becomes a program that recognises sentences, semantics becomes a program that builds meanings, and reasoning becomes a program that pursues goals. To read SHRDLU as a cultural text, then, is to read a wager about the nature of understanding inscribed directly into its control flow.</p>
     </section>
