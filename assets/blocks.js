@@ -18,7 +18,7 @@
   try { colour = localStorage.getItem('shrdlu-colour') === '1'; } catch (e) {}
   window.SHRDLU_setColour = function (on) { colour = !!on; if (reduce) draw(); };
 
-  var W, H, DPR, ox, oy, U, t = 0, raf;
+  var W, H, DPR, ox, oy, U, narrow = false, t = 0, raf;
   // pointer parallax: target (tx,ty) eased into (px,py), normalised about centre
   var tx = 0, ty = 0, px = 0, py = 0;
 
@@ -31,10 +31,10 @@
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * DPR; canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    var narrow = W < 880;
-    U = Math.max(20, Math.min(40, W / 32));
-    ox = narrow ? W * 0.50 : W * 0.23;
-    oy = narrow ? H * 0.66 : H * 0.55;
+    narrow = W < 880;
+    U = narrow ? Math.max(14, Math.min(22, W / 40)) : Math.max(20, Math.min(40, W / 32));
+    ox = narrow ? W * 0.5 : W * 0.23;
+    oy = narrow ? H * 0.92 : H * 0.55;
   }
 
   function moveTo(p) { ctx.moveTo(p.x, p.y); }
@@ -84,10 +84,14 @@
   // The gantry arm: a post from the top of the frame to the wrist, a gripper
   // bar, and (only while gripping) four fingers angling down to the cube's top
   // corners. fingerAlpha fades the fingers in on grip and out on release.
+  // On narrow layouts the hero text stacks the full height of the scene, so
+  // the post is kept short (just above the wrist) instead of spanning the
+  // whole frame, or it would be drawn straight through the words.
   function drawArm(topCorners, wrist, fingerAlpha) {
     ctx.save();
     ctx.strokeStyle = 'rgba(234,240,247,0.5)';
-    edge({ x: wrist.x, y: -10 }, wrist);
+    var postTop = narrow ? wrist.y - U * 3.2 : -10;
+    edge({ x: wrist.x, y: postTop }, wrist);
     edge({ x: wrist.x - U * 0.42, y: wrist.y }, { x: wrist.x + U * 0.42, y: wrist.y });
     if (fingerAlpha > 0.01) {
       ctx.strokeStyle = 'rgba(234,240,247,' + (0.5 * fingerAlpha).toFixed(3) + ')';
