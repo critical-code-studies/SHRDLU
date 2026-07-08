@@ -33,6 +33,15 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* keyboard-only skip link, off-screen until focused */
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 9999;
+  background: var(--bg-2); color: var(--bright); border: 1px solid var(--beam);
+  font-family: var(--mono); font-size: 0.8rem; padding: 0.6rem 1rem; border-radius: 3px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 1rem; }
+
 body {
   margin: 0;
   background:
