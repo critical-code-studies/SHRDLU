@@ -216,6 +216,13 @@ h3 { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(
 }
 .turn { display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.4rem 0.8rem; padding: 0.18rem 0; }
 .turn .who { text-align: right; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; padding-top: 0.18rem; user-select: none; }
+/* each exchange (person turn) is individually citable; the number is a quiet
+   permalink, visible on row hover, so a scholar can link to "exchange 20" */
+.turn.person[id] { scroll-margin-top: 92px; }
+.x-num { border: 0 !important; opacity: 0; font-variant-numeric: tabular-nums; color: var(--ink-dim); margin-right: 0.3em; transition: opacity 0.15s ease; }
+.turn.person:hover .x-num, .x-num:focus { opacity: 1; }
+.turn.person:target { background: rgba(87,192,138,0.08); margin: 0 -0.6rem; padding: 0.18rem 0.6rem; border-radius: 3px; }
+.turn.person:target .x-num { opacity: 1; color: var(--beam); }
 .turn.person .who { color: var(--you); }
 .turn.shrdlu .who { color: var(--shrdlu); }
 .turn.person .msg { color: var(--ink); }
