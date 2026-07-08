@@ -117,6 +117,8 @@ a:hover { color: var(--bright); text-shadow: var(--glow); }
 .nav-menu.open { display: flex; }
 .nav-menu a { color: var(--ink-dim); border: 0; padding: 0.5rem 1.2rem 0.5rem 2rem; text-decoration: none; }
 .nav-menu a:hover { color: var(--beam); text-shadow: var(--glow); background: rgba(87,192,138,0.08); }
+/* sets "The dialogue" apart from the rest of the SHRDLU group, the primary artefact */
+.nav-menu a.divider { border-top: 1px solid var(--line); margin-top: 0.3rem; padding-top: 0.7rem; }
 
 /* ---------- nav: desktop horizontal bar with click dropdowns ---------- */
 @media (min-width: 900px) {
@@ -299,6 +301,10 @@ h3 { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(
 .micro { font-size: 0.66rem; color: var(--ink-dim); letter-spacing: 0.4px; line-height: 1.5; }
 .micro a { color: var(--ink-dim); border: 0; }
 .micro a:hover { color: var(--beam); }
+
+/* footnotes: numbered, backlinked, set in .micro */
+.fn { font-size: 0.65rem; line-height: 1.7; margin-top: 1rem; }
+.fn + .fn { margin-top: 0.6rem; }
 
 @media (max-width: 620px) {
   .brand-tagline { display: none; }
