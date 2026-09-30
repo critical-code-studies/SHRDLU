@@ -249,7 +249,7 @@
       '<button class="btn" id="run-step" title="Forward one exchange: type the next exchange of the 1970 dialogue, then wait">»</button>' +
       '<button class="btn ghost" id="run-stop" title="Stop: quit what SHRDLU is doing, as ^G did on ITS, and stop playing the dialogue">■ Stop</button>' +
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
-      '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About running</button>' +
+      '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About…</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
       '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div></div>' +
       '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
