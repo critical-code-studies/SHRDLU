@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>SHRDLU Research Bench</title>
+  <meta name="description" content="A working bench for the critical reading of the SHRDLU source code: read, compare, trace the versions, annotate and export.">
+  <meta property="og:title" content="SHRDLU Research Bench">
+  <meta property="og:description" content="Read, compare and annotate the surviving MacLisp and Micro-Planner source of Terry Winograd's SHRDLU (MIT, 1968–72), with the Critical Code Studies group.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://critical-code-studies.github.io/SHRDLU/research/">
+  <meta property="og:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.jpg?v=1">
+  <meta property="og:image:width" content="1402">
+  <meta property="og:image:height" content="646">
+  <meta property="og:image:alt" content="SHRDLU: reading the code at the high-water mark of symbolic AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://critical-code-studies.github.io/SHRDLU/assets/DB-Card.jpg?v=1">
+  <!-- Bench version: the ?v= on every script and stylesheet below. Raise it by
+       0.0.1 on every push that changes research/, all tags alike, so browsers
+       fetch fresh copies. core.js reads it from its own tag. Set bench-date to
+       the day of the release; the About box shows both. -->
+  <meta name="bench-date" content="2026-09-30">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=3">
+  <link rel="stylesheet" href="css/research.css?v=0.1">
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="./" title="SHRDLU Research Bench">
+      <svg viewBox="0 0 32 32" aria-hidden="true" class="brand-cube" width="26" height="26"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>
+      <span class="brand-name"><img class="brand-mark" src="../assets/wordmark.svg" alt="SHRDLU" width="58" height="16"><b>research bench</b></span>
+      <span class="bench-ver" id="bench-ver"></span>
+    </a>
+    <label class="pick">
+      <span>Version</span>
+      <select id="pick-a" aria-label="Version"></select>
+      <span class="swref" id="vref" title="The bench’s reference to this source (Help ▸ Referencing and versions)"></span>
+    </label>
+        <div class="bar-right">
+      <span class="status" id="status" role="status" aria-live="polite"></span>
+      <span class="size-btns"><button class="icon-btn" id="btn-smaller" title="Smaller code text">A−</button><button class="icon-btn" id="btn-larger" title="Larger code text">A+</button></span>
+      <button class="icon-btn" id="btn-theme" title="Switch between your last light and dark colour themes (choose themes in ⚙ Settings)">◐</button>
+      <button class="icon-btn news-btn" id="btn-news" title="What’s new in the group’s annotations">✉<span class="news-n" id="news-n"></span></button>
+      <!-- About is in the Help menu; this hidden button carries its handler -->
+      <button class="icon-btn" id="btn-about" hidden>ⓘ</button>
+      <button class="icon-btn" id="btn-settings" title="Your initials and the Hypothesis group, colour theme, code font and size">⚙</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Views">
+    <button data-tab="read" class="on">Read</button>
+    <button data-tab="run" title="Run SHRDLU: the demonstration dialogue, and the interpreter being built">Run</button>
+    <button data-menu="text" data-tabs="analyse" data-lenses="1 2 3 7" aria-expanded="false" title="The source as text: comments, hands and dates, names, histories">Text <span class="caret" aria-hidden="true">▾</span></button>
+    <button data-menu="program" data-tabs="analyse" data-lenses="4 5 6" aria-expanded="false" title="The program: its parts, calls, Micro-Planner theorems, the dictionary">Program <span class="caret" aria-hidden="true">▾</span></button>
+    <button data-menu="versions" data-tabs="about compare genealogy analyse" data-lenses="8" aria-expanded="false" title="The version open, comparison, genealogy, gaps in the record">Versions <span class="caret" aria-hidden="true">▾</span></button>
+    <button data-tab="findings" title="What the bench and the group have established, with evidence; shared">Findings</button>
+    <button data-tab="notes" title="What you have gathered for writing: figures, excerpts, findings, paragraphs; private, in this browser">My notes</button>
+    <button data-menu="help" aria-expanded="false" title="About the bench, settings, the code">Help <span class="caret" aria-hidden="true">▾</span></button>
+    <a class="tabs-map" href="sitemap.html" title="Every view and version as a plain link, for when a menu will not open">Site map</a>
+  </nav>
+  <noscript><div class="noscript">The research bench runs in JavaScript, which is turned off in this browser. The <a href="sitemap.html">site map</a> lists every version with its source files, which open on GitHub without it.</div></noscript>
+
+  <main id="main">
+    <section class="view on" id="view-read"></section>
+    <section class="view" id="view-run"></section>
+    <section class="view" id="view-analyse"></section>
+    <section class="view" id="view-compare"></section>
+    <section class="view" id="view-genealogy"></section>
+            <section class="view" id="view-about"></section>
+    <section class="view" id="view-findings"></section>
+    <section class="view" id="view-notes"></section>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-label="Details">
+    <div class="drawer-head">
+      <h2 id="drawer-title">Annotations</h2>
+      <button class="icon-btn" id="drawer-close" title="Close">✕</button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <dialog id="dlg-settings">
+    <form method="dialog" class="settings">
+      <div class="tour-row"><button type="button" class="btn" id="set-tour">Take the welcome tour</button><span class="hint">A few stops through reading, comparing and annotating; about two minutes.</span></div>
+      <h2>Your details</h2>
+      <p class="hint">Initials and a date are attached to every annotation, so discussions can be followed. They are kept in this browser.</p>
+      <label>Initials <input id="set-initials" maxlength="6" placeholder="DMB" autocomplete="off"></label>
+      <label>Name <input id="set-name" placeholder="David M. Berry" autocomplete="off"></label>
+      <h2>Shared annotations</h2>
+      <p class="hint">Annotations are shared through the project's private Hypothesis group, <b>1Kb3vwEV</b> (set for you). Paste another group's link or ID only to use a different one, and a personal API token (hypothes.is/account/developer). Without them, annotations are kept as drafts in this browser and can be exported or published later.</p>
+      <label>Group link or ID <input id="set-group" placeholder="https://hypothes.is/groups/1Kb3vwEV/shrdlu" autocomplete="off"></label>
+      <label for="set-token">API token</label>
+      <div class="token-row"><input id="set-token" type="password" placeholder="6879-…" autocomplete="off" spellcheck="false"><button id="set-token-show" type="button" class="btn ghost" aria-pressed="false">Show</button></div>
+      <p class="hint" id="set-check"></p>
+      <p class="hint"><button type="button" class="btn ghost" id="set-join">New to this? How to join the group</button> An account, the group and your token, step by step.</p>
+      <h2>Colour theme</h2>
+      <p class="hint">The colours of the whole bench: listings, annotations and figures. The ◐ button in the top bar switches between your last light and dark themes. The display in Run keeps the DEC 340’s own phosphor.</p>
+      <label>Theme <select id="set-theme"></select></label>
+      <div class="theme-swatches" id="set-theme-sw"></div>
+      <h2>Reading code</h2>
+      <p class="hint">Applies wherever code is shown: listings, comparisons, traces, tables. The A− and A+ buttons in the top bar change the size too.</p>
+      <label>Code font <select id="set-font">
+        <option value="system">System monospace</option>
+        <option value="JetBrains Mono">JetBrains Mono</option>
+        <option value="IBM Plex Mono">IBM Plex Mono</option>
+        <option value="Source Code Pro">Source Code Pro</option>
+        <option value="Fira Code">Fira Code</option>
+        <option value="Courier Prime">Courier Prime (typewriter)</option>
+        <option value="Courier New">Courier New</option>
+      </select></label>
+      <input type="checkbox" id="set-chmbright" hidden>
+      <label class="check-row"><span><input type="checkbox" id="set-noteshade"> Tint annotated lines</span><span class="hint">A faint ground on every line an annotation covers, in the listings.</span></label>
+      <label>Code size <span class="token-row"><input id="set-size" type="range" min="9" max="24" step="1"><span id="set-size-out" class="mono" style="min-width:3.5em"></span></span></label>
+      <h2>Figures</h2>
+      <p class="hint">The background given to exported figures (PNG and SVG). On a white or paper background figures are drawn in dark ink; on black, in phosphor. Transparent leaves the background empty, for layering in other software.</p>
+      <label>Background for exported figures <select id="set-figbg">
+        <option value="white">White (for print and Word)</option>
+        <option value="paper">Listing paper</option>
+        <option value="black">Black (phosphor)</option>
+        <option value="transparent">Transparent</option>
+        <option value="theme">The current colour theme</option>
+      </select></label>
+      <details class="dev-set" id="set-dev-box"><summary><h2>Developer</h2> <span class="dev-warn">Only use if you are developing this software.</span></summary>
+      <label class="check-row"><span><input type="checkbox" id="set-dev"> Developer mode</span><span class="hint">Shows annotations marked Developer only, and features still being built. This allows you to see Beta software and may affect your ability to use the software.</span></label>
+      </details>
+      <div class="row">
+        <button value="cancel" class="btn ghost">Cancel</button>
+        <button id="set-test" type="button" class="btn ghost">Test connection</button>
+        <button value="save" id="set-save" class="btn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-note" data-keep>
+    <form method="dialog" class="settings" id="note-form">
+      <h2 id="note-title">Annotate</h2>
+      <p class="keep-hint" hidden>Unsaved annotation. Save it, or Cancel to discard it.</p>
+      <p class="hint" id="note-anchor"></p>
+      <textarea id="note-text" rows="7" placeholder="Your annotation. Markdown is fine."></textarea>
+      <label>Tags <input id="note-tags" placeholder="e.g. grammar, planner, provenance" autocomplete="off"></label>
+      <label class="check-row dev-check" id="note-dev" hidden><span><input type="checkbox"> Developer only</span></label>
+      <p class="hint" id="note-who"></p>
+      <div class="row">
+        <button value="cancel" class="btn ghost">Cancel</button>
+        <button value="save" class="btn">Save annotation</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-about">
+    <form method="dialog" class="settings about-box">
+      <div class="about-head"><svg viewBox="0 0 32 32" aria-hidden="true" width="40" height="40"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg><div><h2>SHRDLU Research Bench</h2><div class="hint" id="about-ver"></div></div></div>
+      <table class="about-meta">
+        <tr><td>Author</td><td>David M. Berry</td></tr>
+        <tr><td>Version</td><td id="about-v"></td></tr>
+        <tr><td>Released</td><td id="about-date"></td></tr>
+        <tr><td>Purpose</td><td>A bench for the critical reading of the SHRDLU source code, made for the Critical Code Studies SHRDLU project (David M. Berry and Mark C. Marino).</td></tr>
+        <tr><td>Tech stack</td><td>Plain HTML, CSS and JavaScript; no framework or build step. Runs in the browser from GitHub Pages; annotations via Hypothesis; settings and drafts in local storage; My notes in local storage and kept privately on Hypothesis; Help ▸ Back up everything saves all of it to one file. Built on the Spacewar! Research Bench.</td></tr>
+        <tr><td>Inside</td><td>A MacLisp 1.6 reader and indexer for the source files. A MacLisp interpreter, to run SHRDLU in the browser, is being built.</td></tr>
+        <tr><td>Sources</td><td>Code by Terry Winograd, revised by Dave McDonald, Jeff Hill, Stu Card and Andee Rubin (MIT AI Laboratory, 1968–77); the MIT files as recovered on ITS and Eric Swenson’s 2024 restoration (PDP-10/its); Winograd’s Stanford distribution. Details under Versions.</td></tr>
+        <tr><td>Catalogue</td><td id="about-cat"></td></tr>
+        <tr><td>Code</td><td><a href="https://github.com/critical-code-studies/SHRDLU" target="_blank" rel="noopener">github.com/critical-code-studies/SHRDLU ↗</a></td></tr>
+        <tr><td>Cite as</td><td id="about-cite" class="about-cite"></td></tr>
+      </table>
+      <div class="row">
+        <button type="button" class="btn ghost" id="about-tour">Take the welcome tour</button>
+        <button type="button" class="btn ghost" id="about-copy">Copy citation</button>
+        <button value="close" class="btn">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/versions.js?v=0.1"></script>
+  <script src="js/export.js?v=0.1"></script>
+  <script src="js/genealogy.js?v=0.1"></script>
+  <script src="js/lisp.js?v=0.1"></script>
+  <script src="js/core.js?v=0.1"></script>
+  <script src="js/swhid.js?v=0.1"></script>
+  <script src="js/notes.js?v=0.1"></script>
+  <script src="js/tray.js?v=0.1"></script>
+  <script src="js/figures.js?v=0.1"></script>
+  <script src="js/read.js?v=0.1"></script>
+  <script src="js/run.js?v=0.1"></script>
+  <script src="js/analyse.js?v=0.1"></script>
+  <script src="js/compare.js?v=0.1"></script>
+  <script src="js/stemma.js?v=0.1"></script>
+  <script src="js/about.js?v=0.1"></script>
+  <script src="js/edition.js?v=0.1"></script>
+  <script src="js/findings.js?v=0.1"></script>
+  <script src="js/tours.js?v=0.1"></script>
+  <script src="js/main.js?v=0.1"></script>
+</body>
+</html>

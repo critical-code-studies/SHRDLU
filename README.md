@@ -33,6 +33,19 @@ Static HTML/CSS/JS, no framework, no build step. Served by GitHub Pages.
 
 `docs/` holds the canonical dialogue transcript and the shared page template.
 
+## The research bench
+
+`research/` is a working bench for reading the SHRDLU source together, built on
+the Spacewar! Research Bench: read each version's MacLisp files with every
+defined name cross-referenced, compare versions, trace their genealogy,
+annotate through the project's Hypothesis group, and export to Word or
+Markdown. A MacLisp interpreter, to run SHRDLU in the browser, is being built.
+Live at <https://critical-code-studies.github.io/SHRDLU/research/> (not indexed).
+Its sources are `source/original/` (Winograd's distribution) and `source/its/`
+(the MIT files as found on ITS, and Eric Swenson's 2024 restoration; see
+`source/its/PROVENANCE.md`). Regenerate its site map with
+`node research/tools/build-sitemap.js`.
+
 ## House rules
 
 - **Aesthetic:** the blocks world. A dark lab workbench seen on the DEC-340 display;

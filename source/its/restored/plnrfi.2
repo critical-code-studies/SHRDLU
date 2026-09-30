@@ -1,0 +1,10 @@
+(defun MAKOBLIST (x)
+  (cond ((null x)
+         (LISTARRAY obarray (- (cadr (arraydims 'obarray)) 129.)))
+        (t 
+         (*ARRAY x 'OBARRAY))))
+                        
+(defun dump-planner ()
+  (suspend)
+  (thinit)
+  (thert toplevel))
