@@ -97,7 +97,11 @@
     o = o || {};
     this.colour = !!o.colour;
     this.solid = !!o.solid;
-    this.labels = o.labels !== false;   // the names graphf writes by each object (DISCUSS); the 1970 film shows none
+    this.labels = o.labels !== false;
+    // Dialogue (an option, after the 1970 film, which shows the conversation at the top of the
+    // screen; the surviving code writes only the objects' names on the 340): the last exchanges,
+    // [{ you, shrdlu }], in capitals, the typed sentence indented
+    this.dialogue = !!o.dialogue; this.caption = [];   // the names graphf writes by each object (DISCUSS); the 1970 film shows none
     this.canvas = o.canvas || null;
     this.onChange = o.onChange || null;
     this.reset();
@@ -248,6 +252,19 @@
   D.DISGORGE = function (a, m) { this.calls++; return m.NIL; };
   D.DISAD = D.DISPOINT = function (a, m) { this.calls++; return m.NIL; };
 
+  // the caption as screen lines: at most 44 characters, the typed sentence indented one space
+  D.captionLines = function () {
+    var out = [], W = 44;
+    function wrap(s, lead) {
+      var words = String(s).toUpperCase().replace(/\s+/g, ' ').trim().split(' '), line = lead;
+      words.forEach(function (w) { if ((line + w).length > W && line.trim()) { out.push(line.replace(/\s+$/, '')); line = ''; } line += w + ' '; });
+      if (line.trim()) out.push(line.replace(/\s+$/, ''));
+    }
+    // as in the film: the sentence, indented, and the reply running on from it (PUT THE BLUE PYRAMID ... BOX. OK.)
+    this.caption.slice(-2).forEach(function (c, i) { if (i) out.push(''); wrap((c.you || '') + ' ' + (c.shrdlu || ''), ' '); });
+    return out.slice(-11);
+  };
+
   // ---------- drawing ----------
   D.lines = function () {   // every visible line on the screen, in screen points
     var out = [], d = this;
@@ -295,6 +312,11 @@
       g.font = Math.round(14 * k * 1.4) + 'px ui-monospace, Menlo, monospace';
       if (d.labels) it.texts.forEach(function (t) { g.fillText(t[2], (it.ox + t[0]) * k, H - (it.oy + t[1]) * k - 4 * k); });
     });
+    if (d.dialogue && d.caption.length) {   // the conversation, top left, as in the film
+      g.globalAlpha = 1; g.fillStyle = g.shadowColor = beam; g.shadowBlur = 4 * k;
+      g.font = Math.round(26 * k) + 'px ui-monospace, Menlo, monospace';
+      d.captionLines().forEach(function (ln, i) { g.fillText(ln, 40 * k, (70 + i * 36) * k); });
+    }
     g.globalAlpha = 1; g.shadowBlur = 0;
   };
   // the screen as SVG, for figures and for checks without a canvas
@@ -303,6 +325,7 @@
     d.lines().forEach(function (l) { o.push('<line x1="' + l[0].toFixed(1) + '" y1="' + (1024 - l[1]).toFixed(1) + '" x2="' + l[2].toFixed(1) + '" y2="' + (1024 - l[3]).toFixed(1) + '"' + (d.colour ? ' stroke="' + itemColour(l[4], '#cfe8ff') + '"' : '') + '/>'); });
     o.push('</g><g fill="#cfe8ff" font-family="monospace" font-size="20">');
     if (d.labels) d.order.forEach(function (id) { var it = d.items[id]; if (it && it.visible) it.texts.forEach(function (t) { o.push('<text' + (d.colour ? ' fill="' + itemColour(it, '#cfe8ff') + '"' : '') + ' x="' + (it.ox + t[0]).toFixed(1) + '" y="' + (1024 - it.oy - t[1] - 4).toFixed(1) + '">' + String(t[2]).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); }); });
+    if (d.dialogue && d.caption.length) d.captionLines().forEach(function (ln, i) { o.push('<text x="40" y="' + (70 + i * 36) + '" font-size="26">' + ln.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); });
     o.push('</g></svg>');
     return o.join('');
   };

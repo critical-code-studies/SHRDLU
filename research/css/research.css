@@ -1747,7 +1747,14 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .tty-you { color: #e58be0; }
 .tty-bench { color: #8a8d86; font-style: italic; }
 /* the input at the cursor, inside the teletype, as on a terminal */
-.tty-in { display: block; margin: 0; padding: 0; }
+.tty-in { display: block; margin: 0; padding: 0; position: relative; }
+.tty-ghost { position: absolute; left: 0; top: 0; pointer-events: none; white-space: pre; color: #4f535a; font: inherit; }
+.tty-ghost-v { color: transparent; }
+.tty-in input { position: relative; }
+.tty-sugg { display: flex; flex-wrap: wrap; gap: 2px 6px; min-height: 0; font-size: 11px; margin-top: 2px; }
+.tty-sugg .hint { font-size: 10px; color: #5b5f66; }
+.tty-s { background: none; border: 1px solid #23262f; border-radius: 3px; color: #8a8d86; font: 11px var(--code-font); padding: 0 5px; cursor: pointer; }
+.tty-s.on { color: #e58be0; border-color: #e58be0; }
 .tty-in input { width: 100%; background: transparent; border: 0; outline: 0; padding: 0; margin: 0; color: #e58be0; caret-color: #e58be0; font: inherit; line-height: inherit; }
 .tty-in input::placeholder { color: #5b5f66; }
 /* the Deep dive */
@@ -1827,3 +1834,7 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .run-bar .vlang { flex: none; }
 @media (max-width: 1100px) { .run-bar { flex-wrap: wrap; } .run-bar #run-status { flex-basis: 100%; order: 10; } }
 .run-bar .btn .badge { line-height: 1; padding: 1px 5px; font-size: 10.5px; vertical-align: 1px; }
+.tty { position: relative; }
+.tty-copy { position: absolute; top: 6px; right: 8px; z-index: 2; color: #8a8d86; background: rgba(7, 8, 11, .7); border-radius: 4px; }
+.tty-copy:hover { color: #e7e4da; }
+.tty-out { user-select: text; }

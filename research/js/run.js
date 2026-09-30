@@ -56,6 +56,59 @@
       ttyAppend(part);
     });
   }
+  // the exchange on the 340 (Dialogue): SHRDLU's reply, without its parse counters and prompts
+  function caption() {
+    if (!said || !disp) return;
+    var ans = lastOut.split('\n').map(function (l) { return l.replace(/\[\d+\]/g, ' ').trim(); })
+      .filter(function (l) { return l && !/^READY$/.test(l) && !/^RATIO OF WINNING PARSES/.test(l) && !/^>>>/.test(l); }).join(' ');
+    // the restoration echoes the sentence before it answers: the echo is left out
+    var key = function (s) { return String(s).toUpperCase().replace(/[^A-Z0-9]+/g, ''); }, k = key(said.you), words = ans.split(' '), cut = 0;
+    for (var i = 1; i <= words.length; i++) if (key(words.slice(0, i).join(' ')) === k) { cut = i; break; }
+    if (cut) ans = words.slice(cut).join(' ').replace(/^[\s.,;:?!]+/, '');
+    ans = ans.replace(/\s+([.,;:?!])/g, '$1').trim();
+    disp.caption.push({ you: said.you, shrdlu: ans });
+    if (disp.caption.length > 4) disp.caption.shift();
+    said = null; disp.dirty();
+  }
+  // ---------- Tab completion in the teletype ----------
+  // Whole sentences of the 1970 dialogue that begin with what is typed; otherwise the word being
+  // typed, completed from SHRDLU's own dictionary (every word with a FEATURES property in the
+  // running Lisp). The best shows in grey after the cursor; Tab takes it, Tab again the next.
+  var vocab = null, sugg = [], suggAt = 0, sentences = [];
+  function dictionary() {
+    if (vocab || !sess) return vocab || [];
+    var m = sess.m, F = m.obarray.get('FEATURES'), out = [];
+    if (F) m.obarray.forEach(function (s) { if (/^[A-Z][A-Z-]*$/.test(s.name) && s.name.length > 1 && m.get(s, F) !== m.NIL) out.push(s.name.toLowerCase()); });
+    vocab = out.sort();
+    return vocab;
+  }
+  function suggest() {
+    var inp = SW.$('#tty-input', view), g = SW.$('#tty-ghost', view), list = SW.$('#tty-sugg', view); if (!inp || !g) return;
+    var v = inp.value, lv = v.toLowerCase();
+    sugg = []; suggAt = 0;
+    if (v.trim().length >= 2 && inp.selectionStart === v.length && !/^\s*\(/.test(v)) {
+      sugg = sentences.filter(function (s) { return s.indexOf(lv) === 0 && s !== lv; }).slice(0, 6).map(function (s) { return { full: s, label: s }; });
+      if (!sugg.length) {
+        var mw = /([a-z-]+)$/i.exec(v), w = mw ? mw[1].toLowerCase() : '';
+        if (w.length >= 1) sugg = dictionary().filter(function (d) { return d.indexOf(w) === 0 && d !== w; }).slice(0, 8).map(function (d) { return { full: v.slice(0, v.length - w.length) + d, label: d }; });
+      }
+    }
+    paintSugg();
+  }
+  function paintSugg() {
+    var inp = SW.$('#tty-input', view), g = SW.$('#tty-ghost', view), list = SW.$('#tty-sugg', view);
+    var s = sugg[suggAt], v = inp.value;
+    g.innerHTML = s && s.full.toLowerCase().indexOf(v.toLowerCase()) === 0 ? '<span class="tty-ghost-v">' + SW.esc(v) + '</span>' + SW.esc(s.full.slice(v.length)) : '';
+    list.innerHTML = sugg.length ? '<span class="hint">Tab</span> ' + sugg.map(function (x, i) { return '<button type="button" class="tty-s' + (i === suggAt ? ' on' : '') + '" data-s="' + i + '">' + SW.esc(x.label) + '</button>'; }).join('') : '';
+  }
+  var taken = null;   // the last completion taken, so that Tab again cycles to the next
+  function fill(s) { return s.full + (/[.?!]$/.test(s.full) ? '' : ' '); }
+  function takeSugg(i) {
+    var inp = SW.$('#tty-input', view), s = sugg[i]; if (!s) return;
+    taken = { list: sugg, i: i };
+    inp.value = fill(s);
+    inp.focus(); suggest();
+  }
   var deepPrev = null, watch = SW.store.get('run.watch', []);
   function paintDeep(fresh) {
     var d = SW.$('#run-deep', view), body = SW.$('#run-deep-body', view);
@@ -69,7 +122,7 @@
   }
 
   // ---------- the DEC 340 display (js/display.js) ----------
-  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), disp = null;
+  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), disp = null, said = null;
   function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
@@ -79,13 +132,14 @@
     SW.$('#run-arm', view).disabled = !(dispOn && has);
     SW.$('#run-col', view).disabled = !(dispOn && has);
     SW.$('#run-lab', view).disabled = !(dispOn && has);
+    SW.$('#run-dlgon', view).disabled = !(dispOn && has);
     SW.$('#run-solid', view).disabled = !(dispOn && has);
     cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
   }
 
   function boot(then) {
     var v = V.byId(vid);
-    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; deepPrev = null; lastOut = ''; loadLog = '';
+    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; deepPrev = null; vocab = null; lastOut = ''; loadLog = '';
     if (out) SW.$$('span', out).forEach(function (s) { if (!s.closest('#tty-form')) s.remove(); });
     paintSide();
     status('Fetching the files of ' + v.label + '…');
@@ -96,10 +150,10 @@
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
       var cv = SW.$('#d340', view);
-      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, labels: labOn }) : null;
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, labels: labOn, dialogue: dlgOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
-      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') paintDeep(true); } });
+      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') { paintDeep(true); caption(); } } });
       sess.boot(function (r) {
         var ms = Math.round(performance.now() - t0);
         ttyAppend('', 'tty-sh');
@@ -116,6 +170,7 @@
   function send(line) {
     if (!sess || sess.state !== 'waiting') { SW.toast(sess ? 'SHRDLU is busy; wait for it to finish.' : 'Start it first.'); return false; }
     ttyAppend(line + '\n', 'tty-you');
+    if (line.trim() && !/^\s*\(/.test(line) && !/^\s*GO\s*$/i.test(line)) said = { you: line.trim(), out: '' };
     lastOut = '';
     sess.type(line, function () {
       // SHRDLU reads a sentence until its full stop, question mark or exclamation mark
@@ -251,7 +306,7 @@
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
       '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About…</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
-      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div></div>' +
+      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here, e.g. pick up a big red block.  (Tab completes)" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
       '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
       '<div class="run-side"><div class="d340"><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas>' +
@@ -260,6 +315,7 @@
       '<label class="check" title="How fast the arm moves: Original pauses where graphf’s MOVETO says SLEEP (.06 seconds a step); ×2 and ×3 shorten the pauses; Instant leaves them out">Arm <select id="run-arm">' + [[1, 'Original'], [2, '×2'], [3, '×3'], [0, 'Instant']].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === armSpeed ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label>' +
       '<label class="check" title="Draw each object in the colour SHRDLU names it (the labels graphf writes: RED, GREEN, BLUE, WHITE; the table grey). The DEC 340 drew in one colour; untick for the screen as it was"><input type="checkbox" id="run-col"' + (colOn ? ' checked' : '') + '> Colour</label>' +
       '<label class="check" title="The names graphf writes by each object (RED, GREEN, BLUE, WHITE, BLACK: the last field of each entry in DISPLAY-AS). The surviving code of 1972–77 draws them; the 1970 film shows none"><input type="checkbox" id="run-lab"' + (labOn ? ' checked' : '') + '> Labels</label>' +
+      '<label class="check" title="The last exchanges at the top of the screen, in capitals, as the 1970 film shows the conversation on the display. The surviving code writes only the objects’ names on the 340; this is the bench, after the film"><input type="checkbox" id="run-dlgon"' + (dlgOn ? ' checked' : '') + '> Dialogue</label>' +
       '<label class="check" title="Objects hide what stands behind them, painted back to front from graphf’s own tables of positions and sizes; what is in the box shows faintly through its walls. The 340 drew lines only, with the lines graphf found hidden left out; untick for the screen as it was"><input type="checkbox" id="run-solid"' + (solidOn ? ' checked' : '') + '> Solid</label>' +
       '<button class="btn ghost" id="run-flip" title="Put the display on the other side of the teletype">⇄</button>' +
       '<span id="run-dfig"></span>' +
@@ -277,6 +333,7 @@
     dd.addEventListener('click', function (e) { var x = e.target.closest('[data-unwatch]'); if (!x) return; watch = watch.filter(function (w) { return w !== x.dataset.unwatch; }); SW.store.set('run.watch', watch); paintDeep(false); });
     SW.$('#run-flip', view).onclick = function () { var g = SW.$('.run-grid', view), on = !g.classList.contains('flip'); g.classList.toggle('flip', on); SW.store.set('run.flip', on); };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };
+    SW.$('#run-dlgon', view).onchange = function (e) { dlgOn = e.target.checked; SW.store.set('run.dialogue', dlgOn); if (disp) { disp.dialogue = dlgOn; disp.dirty(); } };
     SW.$('#run-lab', view).onchange = function (e) { labOn = e.target.checked; SW.store.set('run.labels', labOn); if (disp) { disp.labels = labOn; disp.dirty(); } };
     SW.$('#run-col', view).onchange = function (e) { colOn = e.target.checked; SW.store.set('run.colour', colOn); if (disp) { disp.colour = colOn; disp.dirty(); } };
     SW.$('#run-arm', view).onchange = function (e) { armSpeed = +e.target.value; SW.store.set('run.arm', armSpeed); if (sess) { sess.animate = armSpeed > 0; sess.speed = armSpeed || 1; } };
@@ -297,11 +354,38 @@
     SW.$('#run-dlg', view).addEventListener('click', function (e) { var d = SW.$('#run-dlg', view); if (e.target === d || e.target.closest('[data-x]')) d.close(); });
     var inp = SW.$('#tty-input', view);
     SW.$('#tty-form', view).onsubmit = function (e) { e.preventDefault(); if (send(inp.value)) inp.value = ''; };
+    loadDialogue().then(function (ex) { sentences = []; ex.forEach(function (e) { e.turns.forEach(function (tn) { if (tn.who === 'person') sentences.push(tn.text.toLowerCase().replace(/\s+/g, ' ')); }); }); });
+    inp.addEventListener('input', function () { taken = null; suggest(); });
+    inp.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab' && taken && inp.value === fill(taken.list[taken.i]) && taken.list.length > 1) {
+        e.preventDefault();
+        taken.i = (taken.i + (e.shiftKey ? taken.list.length - 1 : 1)) % taken.list.length;
+        inp.value = fill(taken.list[taken.i]);
+        SW.$('#tty-sugg', view).innerHTML = '<span class="hint">Tab</span> ' + taken.list.map(function (x, k) { return '<button type="button" class="tty-s' + (k === taken.i ? ' on' : '') + '">' + SW.esc(x.label) + '</button>'; }).join('');
+        SW.$('#tty-ghost', view).innerHTML = '';
+        return;
+      }
+      if (e.key === 'Tab' && sugg.length) {
+        e.preventDefault();
+        var g = SW.$('#tty-ghost', view);
+        if (g.textContent && inp.value !== sugg[suggAt].full) takeSugg(suggAt);
+        else { suggAt = (suggAt + (e.shiftKey ? sugg.length - 1 : 1)) % sugg.length; paintSugg(); }
+        return;
+      }
+      if (e.key === 'Escape') { sugg = []; paintSugg(); }
+    });
+    SW.$('#tty-sugg', view).addEventListener('mousedown', function (e) { var b = e.target.closest('[data-s]'); if (b) { e.preventDefault(); takeSugg(+b.dataset.s); } });
+    SW.$('#tty-form', view).addEventListener('submit', function () { sugg = []; setTimeout(paintSugg, 0); });
     inp.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowUp' && hist.length) { hi = Math.min(hist.length - 1, hi + 1); inp.value = hist[hi]; e.preventDefault(); }
       if (e.key === 'ArrowDown') { hi = Math.max(-1, hi - 1); inp.value = hi >= 0 ? hist[hi] : ''; e.preventDefault(); }
     });
-    out.addEventListener('click', function () { inp.focus(); });
+    // a click puts the cursor in the input line, unless text is being selected to copy
+    out.addEventListener('click', function () { var s = window.getSelection(); if (!s || s.isCollapsed || !out.contains(s.anchorNode)) inp.focus(); });
+    SW.$('#tty-copy', view).onclick = function () {
+      var txt = SW.$$('span', out).filter(function (s) { return !s.closest('#tty-form'); }).map(function (s) { return s.textContent; }).join('');
+      SW.copyText(txt.replace(/\n{3,}/g, '\n\n').trim() + '\n', 'the transcript');
+    };
     paintSide();
     boot();
   }
