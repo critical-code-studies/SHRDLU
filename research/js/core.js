@@ -145,6 +145,23 @@
     return { labels: [], loc: '', code: ci >= 0 ? s.slice(0, ci) : s, comment: ci >= 0 ? s.slice(ci) : '' };
   };
 
+  // The language a version is written in, and what a file of it is, for the
+  // small type in the top bar and the file headers.
+  SW.langOf = function (v) {
+    if (!v) return '';
+    return v.id === 'ejs' ? 'MacLisp 2156 (ITS, 2024) · Micro-Planner' : 'MacLisp 1.6 (June 1972) · Micro-Planner';
+  };
+  var FILE_LANG = { plnr: 'Micro-Planner, written in MacLisp', thtrac: 'Micro-Planner tracing, MacLisp', progmr: 'PROGRAMMAR, the grammar language, MacLisp', proggo: 'PROGRAMMAR, MacLisp',
+    ginter: 'PROGRAMMAR interpreter, MacLisp', gramar: 'the grammar, in PROGRAMMAR', cgram: 'the grammar, precompiled PROGRAMMAR', dictio: 'the dictionary, DEFS entries in MacLisp',
+    blockp: 'Micro-Planner theorems', blocks: 'the blocks world, MacLisp and Micro-Planner', blockl: 'MacLisp', data: 'Micro-Planner assertions (THDATA)', data2: 'Micro-Planner theorem names (THDATA)',
+    graphf: 'MacLisp, driving the DEC 340 display', smspec: 'the semantic specialists, MacLisp', smutil: 'semantic utilities, building Micro-Planner code, MacLisp', smass: 'semantic access functions, MacLisp',
+    newans: 'answering, MacLisp calling Micro-Planner', syscom: 'the top level and system commands, MacLisp', morpho: 'reading and morphology (ETAOIN), MacLisp', show: 'the Show and Tell interface, MacLisp', setup: 'start-up and switches, MacLisp', loader: 'the loader, MacLisp', init: 'a loader, MacLisp', parser: 'the parser alone, MacLisp', demo: 'the TWDEMO replay script: text between @ signs, display commands in MacLisp', twutil: 'MacLisp (TWDEMO)', macros: 'MacLisp macros' };
+  SW.fileLangOf = function (src, role) {
+    var base = src.split('/').pop().replace(/\.[^.]*$/, '').replace(/\.\d+$/, '').toLowerCase();
+    if (role === 'doc') return 'documentation, text';
+    return FILE_LANG[base] || 'MacLisp';
+  };
+
   // Build = fetch + read + index. Cached per version.
   var buildCache = {};
   SW.build = function (id) {
@@ -171,6 +188,17 @@
       });
     });
     b.sym = {}; b.labelAt = {}; b.errorsAt = {}; b.macros = {}; b.kind = {};
+    // repairs the bench makes to this version as it runs it (js/repairs.js), by line: kintsugi marks in Read
+    b.repairs = root.SHRepairs ? root.SHRepairs.forVersion(b.v.id) : [];
+    b.kin = {}; b.kinFiles = {};
+    b.repairs.forEach(function (r) {
+      if (r.kind !== 'text') return;
+      b.parts.forEach(function (pt, pi) {
+        if (pt.src.split('/').pop().replace(/\.\d+$/, '').toLowerCase() !== r.file.toLowerCase()) return;
+        for (var n = r.n0; n <= r.n1; n++) b.kin[pi + ':' + n] = r;
+        (b.kinFiles[pi] = b.kinFiles[pi] || []).push(r);
+      });
+    });
     b.srcOf = function () { return null; };
     b.symAt = function () { return null; };
     if (!b.asm) return;
@@ -282,6 +310,23 @@
     var file = part ? part.src.split('/').pop() : String(p + 1);
     return r + ', ' + file + (n0 != null ? ':' + n0 + (n1 && n1 !== n0 ? '–' + n1 : '') : '');
   };
+  // ---------- repairs: kintsugi ----------
+  var KIND = { text: 'A passage read from another copy', load: 'What the loader reads', form: 'Lisp run before the program starts', start: 'How the bench starts it' };
+  SW.repairPop = function (r, x, y) {
+    SW.pop(x, y, '<h4 class="kin-h">✦ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint">' + SW.esc(KIND[r.kind] || r.kind) + '</div>' +
+      '<p><b>What.</b> ' + SW.esc(r.what) + '</p><p><b>Why.</b> ' + SW.esc(r.why) + '</p><p class="faint"><b>Evidence.</b> ' + SW.esc(r.evidence) + '</p>' +
+      '<p class="faint">The held file is not changed: the repair is made as the bench loads the version to run it (Run), and is marked here in gold.</p>');
+  };
+  // The reconstruction card: every repair to a version, and the machine it runs on
+  SW.reconstructionCard = function (v) {
+    var rs = root.SHRepairs ? root.SHRepairs.forVersion(v.id) : [];
+    if (!v.build) return '';
+    return '<div class="kin-card"><h3>✦ Reconstruction card</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins: minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered.</p>' +
+      (rs.length ? '<table class="ov-sub"><thead><tr><th>Repair</th><th>Kind</th><th>What</th><th>Why</th><th>Evidence</th></tr></thead><tbody>' +
+        rs.map(function (r) { return '<tr><td class="mono">' + SW.esc(r.id) + '</td><td>' + SW.esc(KIND[r.kind] || r.kind) + '</td><td><b>' + SW.esc(r.title) + '.</b> ' + SW.esc(r.what) + '</td><td>' + SW.esc(r.why) + '</td><td class="faint">' + SW.esc(r.evidence) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p>No repairs.</p>') +
+      '<h4>The machine</h4><table class="ov-sub"><tbody>' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return '<tr><td>' + SW.esc(m[0]) + '</td><td>' + SW.esc(m[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+  };
+
   // ---------- reading errors (the badges in Read open this) ----------
   // The bench reads each file as MacLisp would; these are the places where the
   // parentheses do not balance, which the MacLisp reader would also have met.

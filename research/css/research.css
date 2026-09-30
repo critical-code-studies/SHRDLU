@@ -1654,3 +1654,46 @@ body.dev-on .dev-only { display: revert !important; }
 
 .brand-name b { margin-left: 0; }
 .bar-right { margin-left: auto; }
+
+/* ---------- kintsugi: where the bench repairs a version to run it ---------- */
+:root { --gold: #d4af37; --gold-bg: rgba(212, 175, 55, 0.13); }
+:root[data-theme="paper"], :root[data-theme="white"], :root[data-theme="sepia"] { --gold: #9a7400; --gold-bg: rgba(170, 128, 0, 0.12); }
+.ln.kin { background: linear-gradient(90deg, var(--gold-bg), transparent 70%); box-shadow: inset 3px 0 0 var(--gold); }
+.ln.kin .n { color: var(--gold); cursor: help; }
+.ph-kin { margin: 4px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
+.kin-chip { font: 11px var(--mono); color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
+.kin-h { color: var(--gold); }
+.kin-card { border: 1px solid var(--gold); border-left-width: 3px; border-radius: 4px; padding: 10px 14px; margin: 16px 0; background: var(--gold-bg); }
+.kin-card h3 { color: var(--gold); margin-top: 0; }
+.vlang { font: 10px var(--mono); letter-spacing: 0.5px; color: var(--text-faint); margin-left: 8px; white-space: nowrap; }
+.ph-lang { color: var(--text-faint); font-style: italic; }
+@media (max-width: 900px) { .vlang { display: none; } }
+
+/* ---------- Run: the teletype ---------- */
+.run-wrap { display: flex; flex-direction: column; height: calc(100vh - var(--bar-h, 90px) - 44px); min-height: 480px; }
+.run-bar { flex: none; }
+.run-grid { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px; padding: 10px 14px 14px; }
+.tty-col { display: flex; flex-direction: column; min-height: 0; }
+.tty { flex: 1 1 auto; min-height: 260px; display: flex; flex-direction: column; background: #07080b; border: 1px solid var(--line); border-radius: 6px; box-shadow: inset 0 0 40px rgba(0,0,0,0.7); }
+.tty-out { flex: 1 1 auto; overflow-y: auto; padding: 12px 14px; font: 13.5px/1.55 "IBM Plex Mono", var(--mono); white-space: pre-wrap; word-break: break-word; cursor: text; }
+.tty-sh { color: #6fdc8c; text-shadow: 0 0 5px rgba(111,220,140,0.28); }
+.tty-you { color: #f2ab3c; }
+.tty-bench { color: #8a8d86; font-style: italic; }
+.tty-in { flex: none; display: flex; align-items: center; gap: 8px; border-top: 1px solid #23262f; padding: 8px 12px; }
+.tty-prompt { color: #f2ab3c; font-family: var(--mono); }
+.tty-in input { flex: 1; background: transparent; border: 0; outline: 0; color: #f2ab3c; font: 13.5px "IBM Plex Mono", var(--mono); }
+.run-loadlog { flex: none; margin-top: 6px; }
+.run-loadlog pre { max-height: 180px; overflow: auto; font-size: 11px; color: var(--text-dim); background: var(--code-bg); padding: 6px 8px; border-radius: 4px; }
+.run-side { display: flex; flex-direction: column; min-height: 0; }
+.run-tabs { flex: none; margin-bottom: 8px; }
+#run-side-body { flex: 1 1 auto; overflow: auto; min-height: 0; }
+.run-test td { vertical-align: top; font-size: 12.5px; }
+.run-test .run-person { font-family: var(--code-font); color: var(--amber); }
+.run-test .run-shrdlu, .run-test .run-got { font-family: var(--code-font); color: var(--beam); }
+.run-test .run-got { color: var(--text); }
+.run-vd { font: 700 15px var(--mono); text-align: center; }
+.vd-same { color: var(--green); } .vd-part { color: var(--amber); } .vd-differs { color: var(--red); } .vd-break { color: var(--gold); }
+.run-about p { max-width: 62ch; }
+@media (max-width: 900px) { .run-wrap { height: auto; } .run-grid { grid-template-columns: 1fr; } .tty { min-height: 360px; } }
+
+.ctl { color: var(--red); background: rgba(226,81,65,0.12); border-radius: 2px; padding: 0 1px; font-size: 0.85em; }

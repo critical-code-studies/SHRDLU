@@ -78,6 +78,8 @@
     if (b.errorsAt[k]) cls += ' err';
     if (L.raw !== L.norm && !L.skipped) cls += ' norm';
     if (b.kind && b.kind[k]) cls += ' k' + b.kind[k];
+    var kin = b.kin && b.kin[k];
+    if (kin) cls += ' kin';
     if (SW.breakpoints && words && words.some(function (w) { return SW.breakpoints[w.loc]; })) cls += ' bp';
     var a = '', w = '', wTitle = '';
     if (words && words.length) {
@@ -100,12 +102,13 @@
     }
     var title = '';
     if (b.errorsAt[k]) title = b.errorsAt[k].map(function (e) { return e.message + (e.symbol ? ' "' + e.symbol + '"' : ''); }).join('; ');
+    if (kin) title = 'Repaired when the bench runs this version (' + kin.id + ', ' + kin.title + '): ' + kin.what + ' Click the gold mark for the reason and evidence.' + (title ? ' · ' + title : '');
     
     return '<div class="' + cls + '" id="L' + L.p + '-' + L.n + '" data-p="' + L.p + '" data-n="' + L.n + '"' +
       (title ? ' title="' + SW.esc(title) + '"' : '') + '>' +
       '<span class="n" style="--d:' + String(L.n).length + ';' + heat + '"><button class="qa" tabindex="-1" title="Annotate this">+A</button>' + L.n + '</span><span class="a"' + (wTitle ? ' title="' + SW.esc(wTitle) + '"' : '') + '>' + a + '</span>' +
       '<span class="w"' + (wTitle ? ' title="' + SW.esc(wTitle) + '"' : '') + '>' + w + '</span>' +
-      '<span class="t">' + (text ? hl(text, b).replace(/\f/g, '<span class="pgbrk" title="Page break: a form feed in the file (ITS page mark)">↡</span>').replace(/\u0003/g, '<span class="pgbrk" title="End of file mark (^C, ITS padding)">␃</span>') : ' ') + '</span><span class="mk">' + mk + '</span></div>';
+      '<span class="t">' + (text ? hl(text, b).replace(/\f/g, '<span class="pgbrk" title="Page break: a form feed in the file (ITS page mark)">↡</span>').replace(/\u0003/g, '<span class="pgbrk" title="End of file mark (^C, ITS padding)">␃</span>').replace(/[\u0000-\u0002\u0004-\u0008\u000b\u000e-\u001f\u007f\r]/g, function (c) { var n = c.charCodeAt(0), t = n === 127 ? '^?' : '^' + String.fromCharCode(n + 64); return '<span class="ctl" title="A control character in the file: ' + t + '">' + t + '</span>'; }) : ' ') + '</span><span class="mk">' + mk + '</span></div>';
   }
 
   function render() {
@@ -189,7 +192,12 @@
     var wrap = SW.el('div', { class: 'rd-body' + (marginOn() ? ' with-margin' : '') });
     var box = SW.el('div', { class: 'listing' + (opts.words ? '' : ' hide-words') });
     var margin = SW.el('div', { class: 'note-margin', 'aria-label': 'Annotations' });
-    wrap.addEventListener('click', function (e) { if (e.target.closest('[data-asmerrs]')) { e.stopPropagation(); SW.asmErrors(b); } });
+    wrap.addEventListener('click', function (e) {
+      if (e.target.closest('[data-asmerrs]')) { e.stopPropagation(); SW.asmErrors(b); return; }
+      var kc = e.target.closest('[data-kin]'), kr = kc ? b.repairs.filter(function (r) { return r.id === kc.dataset.kin; })[0] : null;
+      if (!kr && e.target.closest('.ln.kin .n') && !e.target.closest('.qa')) { var row = e.target.closest('.ln'); kr = b.kin[row.dataset.p + ':' + row.dataset.n]; }
+      if (kr) { e.stopPropagation(); SW.repairPop(kr, e.clientX, e.clientY); }
+    });
     b.parts.forEach(function (part, pi) {
       if (!showsTape(pi)) return;
       var t = info[pi], sec = SW.el('div', { class: 'part' });
@@ -199,7 +207,8 @@
         '<div class="ph-main">' + (b.parts.length > 1 ? '<span class="ph-num">File ' + (pi + 1) + ' of ' + b.parts.length + '</span>' : '') +
         '<span class="ph-title">' + SW.esc(t.label) + '</span> ' + SW.refTag(b.v.id, pi, null, null, b.parts.length) +
         (errs ? '<button class="badge err" data-asmerrs title="What the error' + (errs > 1 ? 's are' : ' is') + ', explained">' + errs + ' error' + (errs > 1 ? 's' : '') + '</button>' : '') + '</div>' +
-        '<div class="ph-sub">' + SW.sourceLink(part.src, part.src.split('/').pop()) +
+        (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc(r.what) + '">✦ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
+        '<div class="ph-sub"><span class="ph-lang" title="What this file is written in">' + SW.esc(SW.fileLangOf(part.src, part.role)) + '</span> · ' + SW.sourceLink(part.src, part.src.split('/').pop()) +
         ' · ' + ({ program: 'read in by the loader', support: 'a support file', doc: 'documentation' }[part.role] || 'text file') + ' · ' + b.lines[pi].length + ' lines' +
         (t.title && part.role !== 'doc' ? ' · <span title="Its first comment">“' + SW.esc(t.title.slice(0, 90)) + '”</span>' : '') + '</div>' +
         '<div class="lncols"><span class="n" title="The line’s number in the source file">Line</span>' +

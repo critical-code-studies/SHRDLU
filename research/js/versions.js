@@ -46,7 +46,7 @@
         { src: 'loader.18', role: 'support' }, { src: 'twutil.14', role: 'support' }, { src: 'demo.flick', role: 'support' }]) },
     { id: 'stanford', label: 'Winograd’s distribution (Stanford)', date: 'files 1972–77; distributed 1997', sort: 19970916, authors: AUTHORS,
       fork: 'mit', status: 'recovered', medium: 'Source files (Winograd’s code directory, dated 16 September 1997)',
-      summary: 'The 33-file directory Winograd gave out from Stanford, “a cleaned up version done by Stu Card, Andee Rubin, and Terry Winograd in 1972”, retrieved from MIT’s MC machine in 1987 (John Mallery’s letter in file-note). Its program files carry the same text as the ITS files: they differ in end-of-file page marks and blank lines, two comment lines broken in smutil, and plnr laid out with other indentation (the same words), except for a block of about sixty lines in smspec whose characters are corrupted. It adds the CMU manual, the MacLisp usage index, Winograd’s README, and files the ITS copy lacks (cgram, parser, init, macros). No display code.',
+      summary: 'The 33-file directory Winograd gave out from Stanford, “a cleaned up version done by Stu Card, Andee Rubin, and Terry Winograd in 1972”, retrieved from MIT’s MC machine in 1987 (John Mallery’s letter in file-note). Its program files carry the same text as the ITS files: they differ in end-of-file page marks and blank lines, in plnr laid out with other indentation (the same words), in bare carriage returns of the ITS text made into line breaks (two of them splitting comments in smutil so that their ends read as code), and in a block of about sixty lines of smspec whose characters are corrupted. It adds the CMU manual, the MacLisp usage index, Winograd’s README, and files the ITS copy lacks (cgram, parser, init, macros). No display code.',
       build: files('original/code/', ['plnr', 'thtrac', 'syscom', 'morpho', 'show', 'progmr', 'ginter', 'gramar', 'dictio',
         'smspec', 'smass', 'smutil', 'newans', 'blockp', 'blockl', 'data', 'setup',
         { src: 'loader', role: 'support' }, { src: 'init', role: 'support' }, { src: 'macros', role: 'support' }, { src: 'parser', role: 'support' },
@@ -69,7 +69,7 @@
   VERSIONS.forEach(function (v) {
     v.dialect = 'maclisp';
     v.buildNotes = (v.buildNotes || []).map(function (t) { return { by: 'log', who: 'Claude Code (build log)', date: '2026-09-30', text: t }; });
-    v.runnable = false;   // the MacLisp interpreter is not yet in the bench
+    v.runnable = !!v.build;   // runs on the bench's MacLisp (js/maclisp.js), with its recorded repairs (js/repairs.js)
     v.url = function () { return '#v=' + encodeURIComponent(v.id); };
   });
 

@@ -23,7 +23,7 @@
   <meta name="bench-date" content="2026-09-30">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=3">
-  <link rel="stylesheet" href="css/research.css?v=0.1">
+  <link rel="stylesheet" href="css/research.css?v=0.1.1">
 </head>
 <body>
   <header class="bar">
@@ -36,6 +36,7 @@
       <span>Version</span>
       <select id="pick-a" aria-label="Version"></select>
       <span class="swref" id="vref" title="The bench’s reference to this source (Help ▸ Referencing and versions)"></span>
+      <span class="vlang" id="vlang" title="The language this version is written in"></span>
     </label>
         <div class="bar-right">
       <span class="status" id="status" role="status" aria-live="polite"></span>
@@ -50,7 +51,7 @@
 
   <nav class="tabs" id="tabs" aria-label="Views">
     <button data-tab="read" class="on">Read</button>
-    <button data-tab="run" title="Run SHRDLU: the demonstration dialogue, and the interpreter being built">Run</button>
+    <button data-tab="run" title="Run SHRDLU in the browser, from a version’s own source: type to it, or play the 1970 dialogue as a test">Run</button>
     <button data-menu="text" data-tabs="analyse" data-lenses="1 2 3 7" aria-expanded="false" title="The source as text: comments, hands and dates, names, histories">Text <span class="caret" aria-hidden="true">▾</span></button>
     <button data-menu="program" data-tabs="analyse" data-lenses="4 5 6" aria-expanded="false" title="The program: its parts, calls, Micro-Planner theorems, the dictionary">Program <span class="caret" aria-hidden="true">▾</span></button>
     <button data-menu="versions" data-tabs="about compare genealogy analyse" data-lenses="8" aria-expanded="false" title="The version open, comparison, genealogy, gaps in the record">Versions <span class="caret" aria-hidden="true">▾</span></button>
@@ -157,7 +158,7 @@
         <tr><td>Released</td><td id="about-date"></td></tr>
         <tr><td>Purpose</td><td>A bench for the critical reading of the SHRDLU source code, made for the Critical Code Studies SHRDLU project (David M. Berry and Mark C. Marino).</td></tr>
         <tr><td>Tech stack</td><td>Plain HTML, CSS and JavaScript; no framework or build step. Runs in the browser from GitHub Pages; annotations via Hypothesis; settings and drafts in local storage; My notes in local storage and kept privately on Hypothesis; Help ▸ Back up everything saves all of it to one file. Built on the Spacewar! Research Bench.</td></tr>
-        <tr><td>Inside</td><td>A MacLisp 1.6 reader and indexer for the source files. A MacLisp interpreter, to run SHRDLU in the browser, is being built.</td></tr>
+        <tr><td>Inside</td><td>A MacLisp reader and indexer for the source files, and a MacLisp interpreter written for the bench (MacLisp 1.6 and the later MacLisp of the 2024 restoration) that runs SHRDLU in the browser from each version’s own source, with every repair recorded.</td></tr>
         <tr><td>Sources</td><td>Code by Terry Winograd, revised by Dave McDonald, Jeff Hill, Stu Card and Andee Rubin (MIT AI Laboratory, 1968–77); the MIT files as recovered on ITS and Eric Swenson’s 2024 restoration (PDP-10/its); Winograd’s Stanford distribution. Details under Versions.</td></tr>
         <tr><td>Catalogue</td><td id="about-cat"></td></tr>
         <tr><td>Code</td><td><a href="https://github.com/critical-code-studies/SHRDLU" target="_blank" rel="noopener">github.com/critical-code-studies/SHRDLU ↗</a></td></tr>
@@ -173,24 +174,27 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/versions.js?v=0.1"></script>
-  <script src="js/export.js?v=0.1"></script>
-  <script src="js/genealogy.js?v=0.1"></script>
-  <script src="js/lisp.js?v=0.1"></script>
-  <script src="js/core.js?v=0.1"></script>
-  <script src="js/swhid.js?v=0.1"></script>
-  <script src="js/notes.js?v=0.1"></script>
-  <script src="js/tray.js?v=0.1"></script>
-  <script src="js/figures.js?v=0.1"></script>
-  <script src="js/read.js?v=0.1"></script>
-  <script src="js/run.js?v=0.1"></script>
-  <script src="js/analyse.js?v=0.1"></script>
-  <script src="js/compare.js?v=0.1"></script>
-  <script src="js/stemma.js?v=0.1"></script>
-  <script src="js/about.js?v=0.1"></script>
-  <script src="js/edition.js?v=0.1"></script>
-  <script src="js/findings.js?v=0.1"></script>
-  <script src="js/tours.js?v=0.1"></script>
-  <script src="js/main.js?v=0.1"></script>
+  <script src="js/versions.js?v=0.1.1"></script>
+  <script src="js/export.js?v=0.1.1"></script>
+  <script src="js/genealogy.js?v=0.1.1"></script>
+  <script src="js/maclisp.js?v=0.1.1"></script>
+  <script src="js/repairs.js?v=0.1.1"></script>
+  <script src="js/session.js?v=0.1.1"></script>
+  <script src="js/lisp.js?v=0.1.1"></script>
+  <script src="js/core.js?v=0.1.1"></script>
+  <script src="js/swhid.js?v=0.1.1"></script>
+  <script src="js/notes.js?v=0.1.1"></script>
+  <script src="js/tray.js?v=0.1.1"></script>
+  <script src="js/figures.js?v=0.1.1"></script>
+  <script src="js/read.js?v=0.1.1"></script>
+  <script src="js/run.js?v=0.1.1"></script>
+  <script src="js/analyse.js?v=0.1.1"></script>
+  <script src="js/compare.js?v=0.1.1"></script>
+  <script src="js/stemma.js?v=0.1.1"></script>
+  <script src="js/about.js?v=0.1.1"></script>
+  <script src="js/edition.js?v=0.1.1"></script>
+  <script src="js/findings.js?v=0.1.1"></script>
+  <script src="js/tours.js?v=0.1.1"></script>
+  <script src="js/main.js?v=0.1.1"></script>
 </body>
 </html>

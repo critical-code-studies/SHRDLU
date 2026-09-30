@@ -28,7 +28,7 @@
       { title: 'Compare two versions', v: 'mit', tab: 'compare', b: 'stanford', focus: '#tabs [data-menu="versions"]',
         text: 'Compare sets two versions side by side, as text, as the definitions that differ, or as a map of their forms. Here the MIT files against Winograd’s Stanford copy: the same text, except where the Stanford smspec is damaged.' },
       { title: 'Run', v: 'mit', tab: 'run', focus: '#tabs [data-tab="run"]',
-        text: 'Run will run SHRDLU in the browser, from each version’s own source. For now it holds the test every run will be held to: the forty-two exchanges of the 1970 demonstration dialogue.' },
+        text: 'Run runs SHRDLU in the browser, from each version’s own source, on a MacLisp interpreter written for the bench. Type to it at the teletype, or play the forty-two exchanges of the 1970 demonstration dialogue and see, exchange by exchange, where the surviving code agrees with the demonstration.' },
       { title: 'Findings and My notes', v: 'mit', tab: 'findings', focus: '#tabs [data-tab="notes"]',
         text: 'Findings gathers what the group and the bench have established, each with its evidence a click away. My notes is your own tray for writing: figures, excerpts and findings, exported to Word or Markdown. Help holds this tour, referencing, the site map and Settings.' }
     ] }

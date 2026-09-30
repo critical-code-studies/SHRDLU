@@ -38,13 +38,14 @@
           ' <span class="faint">' + b.lines[i].length + ' lines</span>';
       }).join('<br>') || 'none'],
       ['Read as', a ? 'MacLisp 1.6 source: ' + a.forms.length + ' top-level forms; ' + Object.keys(kinds).map(function (k) { return kinds[k] + ' ' + (K[k] || k) + (kinds[k] === 1 ? '' : 's'); }).join(', ') + (a.errors.length ? '; ' + a.errors.length + ' places where the parentheses do not balance' : '') : 'none'],
-      ['Runs', 'not yet: the MacLisp interpreter for the Run view is being built'],
+      ['Runs', v.build ? 'in the browser, on the bench’s MacLisp, loaded by its own loader, with the repairs in its reconstruction card (below); open Run to type to it' : 'no: no copy is held'],
       ['This text', SW.esc(SW.MADE[v.id] || (v.medium || ''))],
       ['SWHID', v.build ? SW.swhidList(SW.filesOf(v)) + '<span class="hint">Software Heritage identifiers of the files, from their bytes; click to copy.</span>' : 'none'],
       ['Cite this version', SW.esc(v.label + ' (' + v.date + '). ' + (v.authors || '') + '. SHRDLU research bench, ' + SW.versionURI(v.id) + (v.build ? ' ' + SW.refText(v.id) : ''))]
     ];
     pad.innerHTML = '<h2 style="margin-top:0">' + SW.esc(v.label) + (v.build ? ' ' + SW.refTag(v.id) : '') + '</h2><p class="prose">' + SW.esc(v.summary) + '</p>' +
       '<dl class="meta">' + dl.map(function (r) { return '<dt>' + r[0] + '</dt><dd>' + (/</.test(r[1]) ? r[1] : r[1]) + '</dd>'; }).join('') + '</dl>' +
+      SW.reconstructionCard(v) +
       '<h3>The variorum</h3>' + timeline(v.id) +
       '<h3 style="margin-top:22px">Annotations on this version</h3>' +
       '<p class="hint">A shared space for provenance, corrections and general discussion of the version as a whole. Annotations on lines are made in the Read view.</p>' +
