@@ -190,7 +190,7 @@
       '<div class="run-grid"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"></div>' +
       '<form class="tty-in" id="tty-form"><span class="tty-prompt">▸</span><input id="tty-input" autocomplete="off" spellcheck="false" placeholder="type a sentence, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
-      '<div class="run-side"><div class="seg-btns run-tabs"><button class="btn" data-side="test">The dialogue test</button><button class="btn" data-side="card">✦ Reconstruction card</button><button class="btn" data-side="about">About running</button></div><div id="run-side-body"></div></div></div></div>';
+      '<div class="run-side"><div class="seg-btns run-tabs"><button class="btn" data-side="test">The dialogue test</button><button class="btn" data-side="card">Reconstruction card</button><button class="btn" data-side="about">About running</button></div><div id="run-side-body"></div></div></div></div>';
     out = SW.$('#tty-out', view);
     SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid));
     SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };

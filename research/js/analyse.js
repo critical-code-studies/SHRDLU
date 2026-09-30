@@ -372,7 +372,8 @@
   var VERS = [['about', 'This version', 'Its record, sources and annotations'],
               ['compare', 'Compare', 'Two versions side by side'],
               ['genealogy', 'Genealogy', 'How the versions descend'],
-              ['absence', 'Absence', 'Gaps in the record, and damage in the texts']];
+              ['absence', 'Absence', 'Gaps in the record, and damage in the texts'],
+              ['storage', 'How the files were stored', 'The machines, ITS files, disks and backup tapes, and the path of each copy']];
   function menuHTML(which) {
     if (which === 'help') {
       var dm = document.querySelector('meta[name="bench-date"]');
@@ -435,6 +436,7 @@
           else window.open(p === 'code' ? 'https://github.com/critical-code-studies/SHRDLU' : 'https://github.com/critical-code-studies/SHRDLU/issues', '_blank', 'noopener');
           return;
         }
+        if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return; }
         if (which === 'versions' && p !== 'absence') { SW.setTab(p); return; }
         var nl = which === 'versions' ? 8 : +p;
         if (nl !== lens) { lens = nl; SW.store.set('an.lens', lens); SW.forget('analyse'); }

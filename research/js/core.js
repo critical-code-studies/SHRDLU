@@ -316,7 +316,7 @@
   SW.mendOf = mendOf;
   SW.repairPop = function (r, x, y) {
     var m = mendOf(r);
-    SW.pop(x, y, '<h4 class="kin-h">✦ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint"><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '">' + SW.esc(m.label) + '</span> ' + SW.esc(m.note) + '. ' + SW.esc(KIND[r.kind] || r.kind) + '.</div>' +
+    SW.pop(x, y, '<h4 class="kin-h">◆ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint"><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '">' + SW.esc(m.label) + '</span> ' + SW.esc(m.note) + '. ' + SW.esc(KIND[r.kind] || r.kind) + '.</div>' +
       '<p><b>What.</b> ' + SW.esc(r.what) + '</p><p><b>Why.</b> ' + SW.esc(r.why) + '</p><p class="faint"><b>Evidence.</b> ' + SW.esc(r.evidence) + '</p>' +
       (r.by ? '<p class="faint"><b>By</b> ' + SW.esc(r.by) + ', ' + SW.esc(r.date || '') + '.</p>' : '') +
       '<p class="faint">The held file is not changed: the repair is made as the bench loads the version to run it (Run), and is marked here in gold.</p>');
@@ -325,7 +325,7 @@
   SW.reconstructionCard = function (v) {
     var rs = root.SHRepairs ? root.SHRepairs.forVersion(v.id) : [];
     if (!v.build) return '';
-    return '<div class="kin-card"><h3>✦ Reconstruction card: ' + SW.esc(v.label) + '</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered. Corrections and supplied passages change what the program reads; changes for running (paler gold) change only how it is loaded or started.</p>' +
+    return '<div class="kin-card"><h3>Reconstruction card: ' + SW.esc(v.label) + '</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered. Corrections and supplied passages change what the program reads; changes for running (paler gold) change only how it is loaded or started.</p>' +
       (rs.length ? '<table class="ov-sub"><thead><tr><th>Repair</th><th>Kind</th><th>What</th><th>Why</th><th>Evidence</th><th>By</th></tr></thead><tbody>' +
         rs.map(function (r) { var m = mendOf(r); return '<tr><td class="mono">' + SW.esc(r.id) + '</td><td><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '" title="' + SW.esc(m.note) + '">' + SW.esc(m.label) + '</span><div class="faint">' + SW.esc(KIND[r.kind] || r.kind) + '</div></td><td><b>' + SW.esc(r.title) + '.</b> ' + SW.esc(r.what) + '</td><td>' + SW.esc(r.why) + '</td><td class="faint">' + SW.esc(r.evidence) + '</td><td class="faint">' + SW.esc((r.by || '') + (r.date ? ', ' + r.date : '')) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p>No repairs.</p>') +
       '<h4>The machine</h4><table class="ov-sub"><tbody>' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return '<tr><td>' + SW.esc(m[0]) + '</td><td>' + SW.esc(m[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
@@ -339,6 +339,11 @@
     d.showModal();
     return d;
   }
+  SW.kinAbout = function () {
+    return '<h4>The repair marks</h4><p>Where the bench reads a version differently in order to run it, the line is marked in gold, after kintsugi, the mending of pottery with gold, which leaves the repair in view. The held files are never altered; each repair is made as the version is loaded, and each is recorded with its reason, evidence and author on the version’s reconstruction card.</p>' +
+      '<div class="keylist"><div><span class="kx-kin rp-hibi"></span> corrected: a reading mended against another copy of the same file</div><div><span class="kx-kin rp-yobitsugi"></span> supplied: a passage from another copy or version</div><div><span class="kx-kin rp-mount"></span> for running (paler): how the program is loaded or started, not its text</div></div>' +
+      '<p class="faint">After Berry, ‘Digital ruins and critical code studies’ (2025): see Help ▸ What you should read, and Help ▸ Reconstruction cards.</p>';
+  };
   SW.cardsOne = function (v) { bigDialog('Reconstruction card', SW.reconstructionCard(v), 'refhelp'); };
   // Help ▸ Reconstruction cards: every runnable version's card, the current one first
   SW.cardsHelp = function () {
@@ -359,11 +364,12 @@
       'Sussman, G.J., Winograd, T. and Charniak, E. (1970) <i>Micro-Planner Reference Manual</i>. MIT Artificial Intelligence Laboratory, AI Memo 203. Available at: <a href="https://dspace.mit.edu/handle/1721.1/5833" target="_blank" rel="noopener">dspace.mit.edu/handle/1721.1/5833</a>.',
       'Hewitt, C. (1969) ‘PLANNER: a language for proving theorems in robots’, in <i>Proceedings of the 1st International Joint Conference on Artificial Intelligence</i>. Washington, DC, 7–9 May, pp. 295–301.']],
     ['Reading and repairing code', [
-      'Berry, D.M. (2025) ‘Digital ruins and critical code studies: towards an ethics of historical software reconstruction’, <i>Stunlaw</i>, January. Available at: <a href="https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html" target="_blank" rel="noopener">stunlaw.blogspot.com</a>. The principles the bench’s repairs and reconstruction cards follow.',
-      'Berry, D.M. and Marino, M.C. (2024) ‘Reading ELIZA: critical code studies in action’, <i>Electronic Book Review</i>.',
-      'Marino, M.C. (2020) <i>Critical Code Studies</i>. Cambridge, MA: MIT Press.',
-      'Berry, D.M. (2011) <i>The Philosophy of Software: Code and Mediation in the Digital Age</i>. Basingstoke: Palgrave Macmillan.',
-      'Montfort, N., Baudoin, P., Bell, J., Bogost, I., Douglass, J., Marino, M.C., Mateas, M., Reas, C., Sample, M. and Vawter, N. (2013) <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i>. Cambridge, MA: MIT Press.']],
+      'Berry, D. M. (2025) ‘Digital Ruins and Critical Code Studies: Towards an Ethics of Historical Software Reconstruction’, <i>Stunlaw: Philosophy and Critique for a Digital Age</i>. Available at: <a href="https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html" target="_blank" rel="noopener">https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html</a>. <span class="faint">The approach behind the bench’s repair marks (gold, in Read) and its reconstruction cards.</span>',
+      'Berry, D. M. and Marino, M. C. (2024) ‘Reading ELIZA: Critical Code Studies in Action’, <i>Electronic Book Review</i>. Available at: <a href="https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/" target="_blank" rel="noopener">https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/</a>.',
+      'Marino, M. C., Weil, P., Shrager, J., Schwarz, A., Hay, A., Ciston, S., Berry, D. M. and Millican, P. (2026) ‘Conversations about conversational code: on the collaborative critical code studies reading of ELIZA’, <i>AI &amp; Society</i>. <a href="https://doi.org/10.1007/s00146-026-03086-7" target="_blank" rel="noopener">https://doi.org/10.1007/s00146-026-03086-7</a>.',
+      'Marino, M. C. (2020) <i>Critical Code Studies</i>. Cambridge, MA: The MIT Press.',
+      'Berry, D. M. (2011) <i>The Philosophy of Software: Code and Mediation in the Digital Age</i>. Basingstoke: Palgrave Macmillan.',
+      'Montfort, N., Baudoin, P., Bell, J., Bogost, I., Douglass, J., Marino, M. C., Mateas, M., Reas, C., Sample, M. and Vawter, N. (2014) <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i>. Cambridge, MA: MIT Press.']],
     ['Critique', [
       'Dreyfus, H.L. (1972) <i>What Computers Can’t Do: A Critique of Artificial Reason</i>. New York: Harper &amp; Row.',
       'Winograd, T. and Flores, F. (1986) <i>Understanding Computers and Cognition: A New Foundation for Design</i>. Norwood, NJ: Ablex.']],

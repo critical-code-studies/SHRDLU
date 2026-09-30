@@ -15,7 +15,7 @@ const views = [
   ['Read', [['index.html?tab=read', 'Read', 'the listing, annotated'], ['index.html?tab=run', 'Run', 'the demonstration dialogue as the test; the interpreter being built']]],
   ['Text', [['index.html?lens=1', 'Comments', 'every comment, searchable'], ['index.html?lens=2', 'Hands and dates', 'names, initials, dates'], ['index.html?lens=3', 'Lexicon', 'every defined name'], ['index.html?lens=7', 'Symbol histories', 'one name across the versions']]],
   ['Program', [['index.html?lens=4', 'Files', 'the files the loader reads'], ['index.html?lens=5', 'Calls', 'which definitions call which'], ['index.html?lens=6', 'Theorems', 'the Micro-Planner theorems']]],
-  ['Versions', [['index.html?tab=about', 'This version', 'its record and annotations'], ['index.html?tab=compare&b=stanford', 'Compare', 'two versions side by side'], ['index.html?tab=genealogy', 'Genealogy', 'how the versions descend'], ['index.html?lens=8', 'Absence', 'gaps and damage']]],
+  ['Versions', [['index.html?tab=about', 'This version', 'its record and annotations'], ['index.html?tab=compare&b=stanford', 'Compare', 'two versions side by side'], ['index.html?tab=genealogy', 'Genealogy', 'how the versions descend'], ['index.html?lens=8', 'Absence', 'gaps and damage'], ['storage.html', 'How the files were stored', 'machines, disks, tapes, and each copy']]],
   ['Shared', [['index.html?tab=findings', 'Findings', 'what has been established, with evidence'], ['index.html?tab=notes', 'My notes', 'your tray for writing']]],
   ['Help', [['index.html?tour=welcome', 'Welcome tour', ''], ['index.html?help=refs', 'Referencing and versions', ''], ['index.html?help=join', 'Joining the annotation group', ''], ['index.html?help=about', 'About the bench', '']]]
 ];
