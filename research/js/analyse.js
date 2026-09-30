@@ -278,6 +278,16 @@
     var lc = wide(card('Versions known and not held', 'What the record names but the bench cannot read.'));
     lc.insertAdjacentHTML('beforeend', lost.map(function (v) { return '<p><b>' + SW.esc(v.label) + '</b> <span class="faint">(' + SW.esc(v.date) + ')</span><br>' + SW.esc(v.summary) + '</p>'; }).join(''));
     el.appendChild(lc);
+    // the repairs register (js/repairs.js), as the reconstruction card has it; gold in Read
+    var rrows = (b.repairs || []).map(function (r) {
+      var p = -1; if (r.file) b.parts.forEach(function (pt, pi) { if (pt.src.split('/').pop().replace(/\.\d+$/, '').toLowerCase() === r.file.toLowerCase()) p = pi; });
+      return [r.id, SW.mendOf(r).label, p >= 0 ? where(b, p, r.n0) : '', r.title + '. ' + r.why, r.evidence, (r.by || '') + (r.date ? ', ' + r.date : '')];
+    });
+    if (b.v.build) {
+      var rc = wide(card('What the bench repairs to run this version', rrows.length ? 'The version’s reconstruction card: corrections and supplied passages (gold in Read), and changes for running (paler gold). Click a place to see it in Read.' : 'No repairs.'));
+      if (rrows.length) rc.appendChild(SW.table(['Repair', 'Kind', 'Where', 'What and why', 'Evidence', 'By'], rrows, { cls: ['mono', '', 'mono', '', 'faint', 'faint'] }));
+      el.appendChild(rc); linkRows(rc);
+    }
     if (b.asm) {
       var ec = wide(card('Parentheses that do not balance in this version', b.asm.errors.length ? 'Places where the text as held cannot be read as whole MacLisp forms: damage, or an edit left unfinished.' : 'None: every file of this version reads as whole forms.'));
       if (b.asm.errors.length) ec.appendChild(SW.table(['Where', 'What'], b.asm.errors.map(function (e) { return [where(b, e.file, e.line), e.message]; }), { cls: ['mono', ''] }));
@@ -288,7 +298,7 @@
       if (ctl.length) cc.appendChild(SW.table(['Where', 'Line'], ctl, { cls: ['mono', 'mono'] }));
       el.appendChild(cc); linkRows(cc);
     }
-    return function () { return [SW.tableBlock('Absence and damage', ['Version', 'Date', 'Note'], lost.map(function (v) { return [v.label, v.date, v.summary]; }))]; };
+    return function () { return [SW.tableBlock('Absence and damage', ['Version', 'Date', 'Note'], lost.map(function (v) { return [v.label, v.date, v.summary]; }))].concat(rrows.length ? [SW.tableBlock('Repairs made to run this version', ['Repair', 'Kind', 'Where', 'What and why', 'Evidence', 'By'], rrows.map(function (r) { return r.map(function (c) { return c && c.text != null ? c.text : c; }); }))] : []); };
   };
 
   // ---------- rendering ----------
@@ -368,6 +378,8 @@
       var dm = document.querySelector('meta[name="bench-date"]');
       var HELP = [['Getting started', [['tour', 'Take the welcome tour', 'A few stops through the bench; about two minutes'],
                                        ['refs', 'Referencing and versions', 'How the bench cites a source, as [REF: SHI, plnr.182:120]'],
+                                       ['reading', 'What you should read', 'Winograd, Micro-Planner, and reading and repairing old code'],
+                                       ['cards', 'Reconstruction cards', 'Every repair the bench makes to run each version, marked in gold'],
                                        ['join', 'Joining the annotation group', 'A Hypothesis account, the group and your token, step by step'],
                                        ['anno', 'Advanced annotation', 'Rich text, and links between annotations across versions'],
                                        ['sitemap', 'Site map', 'Every view and version as a plain link']]],
@@ -410,6 +422,8 @@
         if (which === 'help') {
           if (p === 'tour') { SW.tours.start('welcome'); return; }
           if (p === 'refs') { SW.refHelp(); return; }
+          if (p === 'reading') { SW.readingHelp(); return; }
+          if (p === 'cards') { SW.cardsHelp(); return; }
           if (p === 'anno') { SW.notes.help(); return; }
           if (p === 'join') { SW.notes.joinHelp(); return; }
           if (p === 'sitemap') { location.href = 'sitemap.html'; return; }

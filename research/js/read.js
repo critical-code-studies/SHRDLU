@@ -8,7 +8,7 @@
   var R = SW.views.read = {};
   var build = null, notes = [], counts = {}, noted = {}, anchorSel = null;
   // tapes: which of the version's tapes to show: 'all', or a single tape's index.
-  var opts = { words: false, norm: false, tapes: SW.store.get('read.file', '0'), heat: false, onlyNoted: false, by: '', notes: SW.store.get('read.notes', 'inline'), show: SW.store.get('read.show', 'all'), ghosts: SW.store.get('read.ghosts', true) };
+  var opts = { repairs: SW.store.get('read.repairs', true), words: false, norm: false, tapes: SW.store.get('read.file', '0'), heat: false, onlyNoted: false, by: '', notes: SW.store.get('read.notes', 'inline'), show: SW.store.get('read.show', 'all'), ghosts: SW.store.get('read.ghosts', true) };
   // show: whose annotations Read shows: 'all', 'mine' (those you started) or 'none';
   // cycled from the chevron on the Annotations heading.
   var SHOW = { all: '▾ All', mine: '▾ Mine', open: '▾ Open', none: '▸ None' }, SHOW_NEXT = { all: 'mine', mine: 'open', open: 'none', none: 'all' };
@@ -70,6 +70,14 @@
     return h;
   }
 
+  // Control characters as ^X: marked in the text, spelt plainly inside a tag's attributes
+  var CTL = /[\u0000-\u0002\u0004-\u0008\u000b\u000e-\u001f\u007f\r]/g;
+  function caret(c) { var n = c.charCodeAt(0); return n === 127 ? '^?' : '^' + String.fromCharCode(n + 64); }
+  function ctlMark(m, tag, txt) {
+    if (tag) return tag.replace(/[\f\u0003]/g, caret).replace(CTL, caret);
+    return txt.replace(/\f/g, '<span class="pgbrk" title="Page break: a form feed in the file (ITS page mark)">↡</span>').replace(/\u0003/g, '<span class="pgbrk" title="End of file mark (^C, ITS padding)">␃</span>').replace(CTL, function (c) { var t = caret(c); return '<span class="ctl" title="A control character in the file: ' + t + '">' + t + '</span>'; });
+  }
+
   // ---------- rendering ----------
   function rowHTML(b, L) {
     var k = L.p + ':' + L.n, cls = 'ln';
@@ -79,7 +87,7 @@
     if (L.raw !== L.norm && !L.skipped) cls += ' norm';
     if (b.kind && b.kind[k]) cls += ' k' + b.kind[k];
     var kin = b.kin && b.kin[k];
-    if (kin) cls += ' kin';
+    if (kin) cls += ' kin rp-' + (kin.mend || 'hibi');
     if (SW.breakpoints && words && words.some(function (w) { return SW.breakpoints[w.loc]; })) cls += ' bp';
     var a = '', w = '', wTitle = '';
     if (words && words.length) {
@@ -102,13 +110,13 @@
     }
     var title = '';
     if (b.errorsAt[k]) title = b.errorsAt[k].map(function (e) { return e.message + (e.symbol ? ' "' + e.symbol + '"' : ''); }).join('; ');
-    if (kin) title = 'Repaired when the bench runs this version (' + kin.id + ', ' + kin.title + '): ' + kin.what + ' Click the gold mark for the reason and evidence.' + (title ? ' · ' + title : '');
+    if (kin) title = SW.mendOf(kin).label + ' when the bench runs this version (' + kin.id + ', ' + kin.title + '): ' + kin.what + ' By ' + (kin.by || 'the project') + ', ' + (kin.date || '') + '. Click the line number for the reason and evidence.' + (title ? ' · ' + title : '');
     
     return '<div class="' + cls + '" id="L' + L.p + '-' + L.n + '" data-p="' + L.p + '" data-n="' + L.n + '"' +
       (title ? ' title="' + SW.esc(title) + '"' : '') + '>' +
       '<span class="n" style="--d:' + String(L.n).length + ';' + heat + '"><button class="qa" tabindex="-1" title="Annotate this">+A</button>' + L.n + '</span><span class="a"' + (wTitle ? ' title="' + SW.esc(wTitle) + '"' : '') + '>' + a + '</span>' +
       '<span class="w"' + (wTitle ? ' title="' + SW.esc(wTitle) + '"' : '') + '>' + w + '</span>' +
-      '<span class="t">' + (text ? hl(text, b).replace(/\f/g, '<span class="pgbrk" title="Page break: a form feed in the file (ITS page mark)">↡</span>').replace(/\u0003/g, '<span class="pgbrk" title="End of file mark (^C, ITS padding)">␃</span>').replace(/[\u0000-\u0002\u0004-\u0008\u000b\u000e-\u001f\u007f\r]/g, function (c) { var n = c.charCodeAt(0), t = n === 127 ? '^?' : '^' + String.fromCharCode(n + 64); return '<span class="ctl" title="A control character in the file: ' + t + '">' + t + '</span>'; }) : ' ') + '</span><span class="mk">' + mk + '</span></div>';
+      '<span class="t">' + (text ? hl(text, b).replace(/(<[^>]*>)|([^<]+)/g, ctlMark) : ' ') + '</span><span class="mk">' + mk + '</span></div>';
   }
 
   function render() {
@@ -122,7 +130,7 @@
       '<details class="menu"><summary class="btn" title="What the listing shows">View ▾</summary><div class="menu-body">' +
       '<label class="check" title="Hide every line that no annotation covers, so the listing reads as the discussion so far. A dashed rule marks where lines are left out. Exports of the whole listing follow the filter."><input type="checkbox" id="rd-noted"' + (opts.onlyNoted ? ' checked' : '') + '> Only annotated lines</label>' +
       '<label class="check" title="Show only annotations (and the lines they cover) in which these initials take part, as author or in a reply">Annotations by <select id="rd-by"><option value="">anyone</option></select></label>' +
-      '' +
+      '<label class="check" title="Mark in gold where the bench changes what this version reads, to run it (kintsugi): readings corrected against another copy, passages supplied from another copy or version. Changes for running only (paler gold) are on the reconstruction card. Click a gold line number for what was changed and why."><input type="checkbox" id="rd-repairs"' + (opts.repairs ? ' checked' : '') + '> Repairs (gold)</label>' +
       '</div></details><span class="hint" id="rd-nf"></span>' +
       '<span class="undo-pair"><button class="btn" id="rd-undo" disabled title="Undo">↶</button><button class="btn" id="rd-redo" disabled title="Redo">↷</button></span>';
     tb.appendChild(SW.el('button', { class: 'btn', title: 'What the colours and marks in the listing mean', onclick: function (e) {
@@ -133,12 +141,38 @@
         '<div><i class="kx knoted"></i>covered by an annotation (initials at the right; click them)</div>' +
         '<div><span class="errs">(</span> a parenthesis that does not balance (hover for the message)</div>' +
         '<div><span class="pgbrk">↡</span> a page break; <span class="pgbrk">␃</span> the end-of-file mark</div>' +
+        '<div class="faint" style="margin-top:6px">Repairs, in gold (kintsugi; View ▸ Repairs):</div>' +
+        '<div><span class="kx-kin rp-hibi"></span> a reading corrected against another copy of the same file</div>' +
+        '<div><span class="kx-kin rp-yobitsugi"></span> a passage supplied from another copy or version; the chip above the file names it</div>' +
+        '<div><span class="kx-kin rp-mount"></span> paler: a change for running (how the program is loaded or started), not to its text</div>' +
         '<div class="faint flow" style="margin-top:6px">Text: <span class="lab">names defined in this version</span>, <span class="op">MacLisp</span>, <span class="mac">Micro-Planner (TH…)</span>, <span class="var">planner variables ($?X)</span>, <span class="num">numbers</span>, <span class="cm">comments</span>. Click a name for where it is defined and used.</div></div>');
     } }, 'Key'));
     if (b.v.build && b.parts.length > 1) {
       var ti = tapeInfo(b);
       tb.appendChild(SW.el('label', { class: 'check tape-pick', title: tapeHelp(ti) },
         'File <select id="rd-tape">' + tapeOptions(b, ti) + '</select> <span class="help-dot">?</span>'));
+    }
+    // ✦ the repairs, in turn: each passage the bench reads differently, file by file
+    var stops = [];
+    Object.keys(b.kinFiles || {}).forEach(function (pi) { b.kinFiles[pi].forEach(function (r) { stops.push({ p: +pi, n: r.n0, r: r }); }); });
+    stops.sort(function (x, y) { return x.p - y.p || x.n - y.n; });
+    if (b.v.build && (stops.length || b.repairs.length)) {
+      var ki = -1, kg = SW.el('span', { class: 'kin-nav' });
+      var kl = SW.el('button', { class: 'btn kin-btn', title: 'The reconstruction card: every repair the bench makes to run this version (' + b.repairs.length + '), with its reason, evidence and author' }, '✦ ' + (stops.length ? stops.length + ' in the text' : 'none in the text'));
+      kl.onclick = function () { SW.cardsOne(b.v); };
+      kg.appendChild(kl);
+      if (stops.length) {
+        var step = function (d) {
+          ki = (ki + d + stops.length) % stops.length;
+          var s = stops[ki];
+          R.goto(s.p, s.n, true);
+          kl.textContent = '✦ ' + (ki + 1) + ' of ' + stops.length;
+          SW.toast('✦ ' + s.r.id + ' · ' + SW.mendOf(s.r).label + ': ' + s.r.title, 3000);
+        };
+        kg.appendChild(SW.el('button', { class: 'btn', title: 'The previous repair', onclick: function () { step(-1); } }, '‹'));
+        kg.appendChild(SW.el('button', { class: 'btn', title: 'The next repair (switches file if it must)', onclick: function () { step(1); } }, '›'));
+      }
+      tb.appendChild(kg);
     }
     // Only assembly errors are flagged here; the word count and start address
     // are on the Version & notes page.
@@ -190,7 +224,7 @@
     var b = build, info = tapeInfo(b), bar = SW.$('#rd-selbar', view);
     SW.$$('.rd-body', view).forEach(function (x) { x.remove(); });
     var wrap = SW.el('div', { class: 'rd-body' + (marginOn() ? ' with-margin' : '') });
-    var box = SW.el('div', { class: 'listing' + (opts.words ? '' : ' hide-words') });
+    var box = SW.el('div', { class: 'listing' + (opts.words ? '' : ' hide-words') + (opts.repairs ? '' : ' no-repairs') });
     var margin = SW.el('div', { class: 'note-margin', 'aria-label': 'Annotations' });
     wrap.addEventListener('click', function (e) {
       if (e.target.closest('[data-asmerrs]')) { e.stopPropagation(); SW.asmErrors(b); return; }
@@ -207,7 +241,7 @@
         '<div class="ph-main">' + (b.parts.length > 1 ? '<span class="ph-num">File ' + (pi + 1) + ' of ' + b.parts.length + '</span>' : '') +
         '<span class="ph-title">' + SW.esc(t.label) + '</span> ' + SW.refTag(b.v.id, pi, null, null, b.parts.length) +
         (errs ? '<button class="badge err" data-asmerrs title="What the error' + (errs > 1 ? 's are' : ' is') + ', explained">' + errs + ' error' + (errs > 1 ? 's' : '') + '</button>' : '') + '</div>' +
-        (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc(r.what) + '">✦ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
+        (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip rp-m-' + SW.esc(r.mend || '') + '" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc(SW.mendOf(r).label + ': ' + r.what) + '">✦ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
         '<div class="ph-sub"><span class="ph-lang" title="What this file is written in">' + SW.esc(SW.fileLangOf(part.src, part.role)) + '</span> · ' + SW.sourceLink(part.src, part.src.split('/').pop()) +
         ' · ' + ({ program: 'read in by the loader', support: 'a support file', doc: 'documentation' }[part.role] || 'text file') + ' · ' + b.lines[pi].length + ' lines' +
         (t.title && part.role !== 'doc' ? ' · <span title="Its first comment">“' + SW.esc(t.title.slice(0, 90)) + '”</span>' : '') + '</div>' +
@@ -877,6 +911,7 @@
     setTimeout(paintUndo, 0);
     var tapeSel = SW.$('#rd-tape', tb);
     if (tapeSel) tapeSel.onchange = function () { opts.tapes = tapeSel.value; SW.store.set('read.file', tapeSel.value); renderListing(); view.scrollTop = 0; };
+    SW.$('#rd-repairs', tb).onchange = function (e) { opts.repairs = e.target.checked; SW.store.set('read.repairs', opts.repairs); SW.$$('.listing', view).forEach(function (x) { x.classList.toggle('no-repairs', !opts.repairs); }); };
     SW.$('#rd-noted', tb).onchange = function (e) { opts.onlyNoted = e.target.checked; applyFilter(); view.scrollTop = 0; };
     SW.$('#rd-by', tb).onchange = function (e) { opts.by = e.target.value; applyFilter(); view.scrollTop = 0; };
     fillBy();

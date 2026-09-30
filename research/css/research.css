@@ -1658,8 +1658,26 @@ body.dev-on .dev-only { display: revert !important; }
 /* ---------- kintsugi: where the bench repairs a version to run it ---------- */
 :root { --gold: #d4af37; --gold-bg: rgba(212, 175, 55, 0.13); }
 :root[data-theme="paper"], :root[data-theme="white"], :root[data-theme="sepia"] { --gold: #9a7400; --gold-bg: rgba(170, 128, 0, 0.12); }
-.ln.kin { background: linear-gradient(90deg, var(--gold-bg), transparent 70%); box-shadow: inset 3px 0 0 var(--gold); }
+/* the mends (js/repairs.js MENDS): a hairline by default. Corrected (hibi): a gold seam;
+   supplied (yobitsugi): a seam and a faint wash; for running (mount): paler gold */
+.ln.kin { box-shadow: inset 2px 0 0 var(--gold); }
+.ln.kin.rp-yobitsugi { background: linear-gradient(90deg, var(--gold-bg), transparent 60%); }
+.ln.kin.rp-mount { box-shadow: inset 2px 0 0 color-mix(in srgb, var(--gold) 50%, transparent); }
 .ln.kin .n { color: var(--gold); cursor: help; }
+.listing.no-repairs .ln.kin { box-shadow: none; background: none; }
+.listing.no-repairs .ln.kin .n { color: inherit; }
+.listing.no-repairs .ph-kin { display: none; }
+.kx-kin { display: inline-block; width: 18px; height: 11px; vertical-align: -1px; margin-right: 4px; box-shadow: inset 2px 0 0 var(--gold); }
+.kx-kin.rp-yobitsugi { background: linear-gradient(90deg, var(--gold-bg), transparent); }
+.kx-kin.rp-mount { box-shadow: inset 2px 0 0 color-mix(in srgb, var(--gold) 50%, transparent); }
+.rp-chip { font: 600 9.5px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
+.rp-chip.rp-m-yobitsugi { background: var(--gold-bg); }
+.rp-chip.rp-m-mount { border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: color-mix(in srgb, var(--gold) 70%, var(--text-faint)); }
+.kin-chip.rp-m-mount { opacity: .75; }
+/* ✦ the repairs in turn (Read's toolbar) */
+.kin-nav { display: inline-flex; gap: 2px; }
+.kin-nav .kin-btn { color: var(--gold); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent: -0.4em; padding-left: 0.4em; }
 .ph-kin { margin: 4px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
 .kin-chip { font: 11px var(--mono); color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
 .kin-h { color: var(--gold); }

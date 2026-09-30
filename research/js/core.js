@@ -312,19 +312,68 @@
   };
   // ---------- repairs: kintsugi ----------
   var KIND = { text: 'A passage read from another copy', load: 'What the loader reads', form: 'Lisp run before the program starts', start: 'How the bench starts it' };
+  function mendOf(r) { var M = root.SHRepairs && root.SHRepairs.MENDS; return (M && M[r.mend]) || { label: KIND[r.kind] || r.kind, note: '' }; }
+  SW.mendOf = mendOf;
   SW.repairPop = function (r, x, y) {
-    SW.pop(x, y, '<h4 class="kin-h">✦ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint">' + SW.esc(KIND[r.kind] || r.kind) + '</div>' +
+    var m = mendOf(r);
+    SW.pop(x, y, '<h4 class="kin-h">✦ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint"><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '">' + SW.esc(m.label) + '</span> ' + SW.esc(m.note) + '. ' + SW.esc(KIND[r.kind] || r.kind) + '.</div>' +
       '<p><b>What.</b> ' + SW.esc(r.what) + '</p><p><b>Why.</b> ' + SW.esc(r.why) + '</p><p class="faint"><b>Evidence.</b> ' + SW.esc(r.evidence) + '</p>' +
+      (r.by ? '<p class="faint"><b>By</b> ' + SW.esc(r.by) + ', ' + SW.esc(r.date || '') + '.</p>' : '') +
       '<p class="faint">The held file is not changed: the repair is made as the bench loads the version to run it (Run), and is marked here in gold.</p>');
   };
   // The reconstruction card: every repair to a version, and the machine it runs on
   SW.reconstructionCard = function (v) {
     var rs = root.SHRepairs ? root.SHRepairs.forVersion(v.id) : [];
     if (!v.build) return '';
-    return '<div class="kin-card"><h3>✦ Reconstruction card</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins: minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered.</p>' +
-      (rs.length ? '<table class="ov-sub"><thead><tr><th>Repair</th><th>Kind</th><th>What</th><th>Why</th><th>Evidence</th></tr></thead><tbody>' +
-        rs.map(function (r) { return '<tr><td class="mono">' + SW.esc(r.id) + '</td><td>' + SW.esc(KIND[r.kind] || r.kind) + '</td><td><b>' + SW.esc(r.title) + '.</b> ' + SW.esc(r.what) + '</td><td>' + SW.esc(r.why) + '</td><td class="faint">' + SW.esc(r.evidence) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p>No repairs.</p>') +
+    return '<div class="kin-card"><h3>✦ Reconstruction card: ' + SW.esc(v.label) + '</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered. Corrections and supplied passages change what the program reads; changes for running (paler gold) change only how it is loaded or started.</p>' +
+      (rs.length ? '<table class="ov-sub"><thead><tr><th>Repair</th><th>Kind</th><th>What</th><th>Why</th><th>Evidence</th><th>By</th></tr></thead><tbody>' +
+        rs.map(function (r) { var m = mendOf(r); return '<tr><td class="mono">' + SW.esc(r.id) + '</td><td><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '" title="' + SW.esc(m.note) + '">' + SW.esc(m.label) + '</span><div class="faint">' + SW.esc(KIND[r.kind] || r.kind) + '</div></td><td><b>' + SW.esc(r.title) + '.</b> ' + SW.esc(r.what) + '</td><td>' + SW.esc(r.why) + '</td><td class="faint">' + SW.esc(r.evidence) + '</td><td class="faint">' + SW.esc((r.by || '') + (r.date ? ', ' + r.date : '')) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p>No repairs.</p>') +
       '<h4>The machine</h4><table class="ov-sub"><tbody>' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return '<tr><td>' + SW.esc(m[0]) + '</td><td>' + SW.esc(m[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+  };
+  function bigDialog(title, html, cls) {
+    var d = SW.el('dialog', { class: 'tray-big ' + (cls || '') });
+    d.innerHTML = '<div class="tray-bighead"><b>' + SW.esc(title) + '</b><span class="refhelp-acts"><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' + html;
+    document.body.appendChild(d);
+    d.addEventListener('click', function (e) { if (e.target === d || e.target.closest('[data-x]')) d.close(); });
+    d.addEventListener('close', function () { d.remove(); });
+    d.showModal();
+    return d;
+  }
+  SW.cardsOne = function (v) { bigDialog('Reconstruction card', SW.reconstructionCard(v), 'refhelp'); };
+  // Help ▸ Reconstruction cards: every runnable version's card, the current one first
+  SW.cardsHelp = function () {
+    var cur = SW.state && SW.state.v, vs = V.VERSIONS.filter(function (v) { return v.build; }).sort(function (a, b) { return (b.id === cur) - (a.id === cur); });
+    bigDialog('Reconstruction cards', '<p>Each version the bench runs has a card: every repair made to run it, with its kind, reason, evidence and author, and the machine the bench supplies in place of ITS and the PDP-10. In Read the repaired lines are marked in gold; in Run the card is a tab beside the teletype.</p>' +
+      '<div class="keylist"><div><span class="rp-chip rp-m-hibi">Corrected</span> a reading corrected against another copy of the same file</div><div><span class="rp-chip rp-m-yobitsugi">Supplied</span> a passage supplied from another copy or version</div><div><span class="rp-chip rp-m-kake">Remade</span> code written where none survives (none so far)</div><div><span class="rp-chip rp-m-mount">For running</span> a change to how the program is loaded or started, not to its text</div></div>' +
+      vs.map(function (v) { return SW.reconstructionCard(v); }).join(''), 'refhelp');
+  };
+  // Help ▸ What you should read: the reading behind the bench (entries as the
+  // project site's bibliography has them, checked against the Zotero library)
+  var READING = [
+    ['The program', [
+      'Winograd, T. (1971) <i>Procedures as a Representation for Data in a Computer Program for Understanding Natural Language</i>. PhD thesis. Massachusetts Institute of Technology. Issued as MIT Artificial Intelligence Laboratory Technical Report AI-TR-235.',
+      'Winograd, T. (1972) ‘Understanding natural language’, <i>Cognitive Psychology</i>, 3(1), pp. 1–191. doi: 10.1016/0010-0285(72)90002-3.',
+      'Winograd, T. (1972) <i>Understanding Natural Language</i>. New York: Academic Press.',
+      'Winograd, T. (1991) Oral history interview with Terry Winograd. Interviewed by Arthur L. Norberg, 11 December. Charles Babbage Institute, University of Minnesota. Available at: <a href="https://hdl.handle.net/11299/107717" target="_blank" rel="noopener">hdl.handle.net/11299/107717</a>.']],
+    ['The languages', [
+      'Sussman, G.J., Winograd, T. and Charniak, E. (1970) <i>Micro-Planner Reference Manual</i>. MIT Artificial Intelligence Laboratory, AI Memo 203. Available at: <a href="https://dspace.mit.edu/handle/1721.1/5833" target="_blank" rel="noopener">dspace.mit.edu/handle/1721.1/5833</a>.',
+      'Hewitt, C. (1969) ‘PLANNER: a language for proving theorems in robots’, in <i>Proceedings of the 1st International Joint Conference on Artificial Intelligence</i>. Washington, DC, 7–9 May, pp. 295–301.']],
+    ['Reading and repairing code', [
+      'Berry, D.M. (2025) ‘Digital ruins and critical code studies: towards an ethics of historical software reconstruction’, <i>Stunlaw</i>, January. Available at: <a href="https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html" target="_blank" rel="noopener">stunlaw.blogspot.com</a>. The principles the bench’s repairs and reconstruction cards follow.',
+      'Berry, D.M. and Marino, M.C. (2024) ‘Reading ELIZA: critical code studies in action’, <i>Electronic Book Review</i>.',
+      'Marino, M.C. (2020) <i>Critical Code Studies</i>. Cambridge, MA: MIT Press.',
+      'Berry, D.M. (2011) <i>The Philosophy of Software: Code and Mediation in the Digital Age</i>. Basingstoke: Palgrave Macmillan.',
+      'Montfort, N., Baudoin, P., Bell, J., Bogost, I., Douglass, J., Marino, M.C., Mateas, M., Reas, C., Sample, M. and Vawter, N. (2013) <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i>. Cambridge, MA: MIT Press.']],
+    ['Critique', [
+      'Dreyfus, H.L. (1972) <i>What Computers Can’t Do: A Critique of Artificial Reason</i>. New York: Harper &amp; Row.',
+      'Winograd, T. and Flores, F. (1986) <i>Understanding Computers and Cognition: A New Foundation for Design</i>. Norwood, NJ: Ablex.']],
+    ['Other runs of SHRDLU', [
+      'Semaphore Corp. (2013) <i>SHRDLU resurrection</i>. semaphorecorp.com/misc/shrdlu.html (via the Internet Archive).',
+      'van Bergen, P. (2023) <i>Blocks World</i>. Available at: <a href="https://patrickvanbergen.com/blocks-world" target="_blank" rel="noopener">patrickvanbergen.com/blocks-world</a>.']]
+  ];
+  SW.readingHelp = function () {
+    bigDialog('What you should read', '<p>The reading behind the bench. The full list, with histories and media theory, is the project site’s <a href="../bibliography.html" target="_blank" rel="noopener">bibliography</a>.</p>' +
+      READING.map(function (g) { return '<h4>' + SW.esc(g[0]) + '</h4><ul class="reading">' + g[1].map(function (e) { return '<li>' + e + '</li>'; }).join('') + '</ul>'; }).join(''), 'refhelp');
   };
 
   // ---------- reading errors (the badges in Read open this) ----------
