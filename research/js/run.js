@@ -60,6 +60,18 @@
     return { loading: 'Loading the files through the program’s own loader…', running: 'Running…', waiting: 'Waiting for you to type.', halted: 'Stopped on an error (see the teletype).', done: 'The program has returned.' }[st] || st;
   }
 
+  // ---------- the DEC 340 display (js/display.js) ----------
+  var dispOn = SW.store.get('run.display', true), animOn = SW.store.get('run.anim', true), disp = null;
+  function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }); }
+  function paintDispBar() {
+    var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
+    if (!wrap) return;
+    wrap.classList.toggle('off', !(dispOn && has));
+    SW.$('#run-disp', view).disabled = !has;
+    SW.$('#run-anim', view).disabled = !(dispOn && has);
+    cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
+  }
+
   function boot() {
     var v = V.byId(vid);
     playing = false; results = {}; lastOut = ''; loadLog = '';
@@ -72,7 +84,11 @@
     var texts = {};
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
-      sess = new root.SHSession({ version: v, texts: texts, out: onOut, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); } });
+      var cv = SW.$('#d340', view);
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv }) : null;
+      if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
+      paintDispBar();
+      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: animOn, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); } });
       sess.boot(function (r) {
         var ms = Math.round(performance.now() - t0);
         ttyAppend('', 'tty-sh');
@@ -165,11 +181,11 @@
     var body = SW.$('#run-side-body', view); if (!body) return;
     SW.$$('.run-tabs button', view).forEach(function (b) { b.classList.toggle('on', b.dataset.side === side); });
     var v = V.byId(vid);
-    if (side === 'card') { body.innerHTML = SW.reconstructionCard(v); return; }
+    if (side === 'card') { body.innerHTML = '<div class="card-bar">' + SW.cardBar() + '</div>' + SW.reconstructionCard(v); return; }
     if (side === 'about') {
       body.innerHTML = '<div class="prose run-about"><p>This is SHRDLU itself, running in your browser: the files of <b>' + SW.esc(v.label) + '</b>, read and loaded by the program’s own loader, on a MacLisp interpreter written for the bench. Nothing is scripted: each answer is computed by the 1970s code as you type.</p>' +
         '<p>Type English and press Return, as a user did at a teletype on ITS. SHRDLU reads upper and lower case alike. End a sentence with its full stop or question mark. If SHRDLU stops in its break loop (a line ending “&gt;&gt;&gt;”), it is asking its programmer for help; type <span class="mono">GO</span> to go on. Lisp typed there is evaluated, as it was for the lab’s programmers.</p>' +
-        '<p>What survives is the system of 1972 to 1977, not the 1970 program that produced the demonstration dialogue; the test beside the teletype shows, exchange by exchange, where they agree. The DEC 340 display is not built yet, so the arm moves without being drawn.</p></div>';
+        '<p>What survives is the system of 1972 to 1977, not the 1970 program that produced the demonstration dialogue; the test beside the teletype shows, exchange by exchange, where they agree. The DEC 340 display above the tabs is drawn from the program’s own calls to MacLisp’s display slave (DISCREATE, DISALINE, DISLOCATE…): the scene as graphf projects it, and the arm as MOVETO moves it, pausing where the code says SLEEP. The restoration reads its opening scene from a saved display, GRAPHF INIT; the MIT copy draws it afresh with GP-INITIAL (repair I-F2). Switch the display off to run as a user did who was not near a 340.</p></div>';
       return;
     }
     body.innerHTML = '<p class="hint" id="run-tally"></p><div class="run-test-wrap"><table class="data run-test"><thead><tr><th class="num">No.</th><th>Person</th><th>SHRDLU, 1970</th><th>This run</th><th></th></tr></thead><tbody><tr><td colspan="5" class="hint">Reading the dialogue…</td></tr></tbody></table></div>';
@@ -190,13 +206,23 @@
       '<div class="run-grid"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"></div>' +
       '<form class="tty-in" id="tty-form"><span class="tty-prompt">▸</span><input id="tty-input" autocomplete="off" spellcheck="false" placeholder="type a sentence, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
-      '<div class="run-side"><div class="seg-btns run-tabs"><button class="btn" data-side="test">The dialogue test</button><button class="btn" data-side="card">Reconstruction card</button><button class="btn" data-side="about">About running</button></div><div id="run-side-body"></div></div></div></div>';
+      '<div class="run-side"><div class="d340"><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas>' +
+      '<div class="d340-bar"><span class="d340-name" title="The Type 340 Precision Incremental CRT display, on the AI Lab’s PDP-6 and PDP-10, driven through MacLisp’s display slave">DEC 340</span>' +
+      '<label class="check" title="Answer Y to the display question, and draw what the program draws (restarts the run)"><input type="checkbox" id="run-disp"' + (dispOn ? ' checked' : '') + '> Display</label>' +
+      '<label class="check" title="Pause where the program says SLEEP, so the arm is seen to move; untick to run at full speed"><input type="checkbox" id="run-anim"' + (animOn ? ' checked' : '') + '> Arm moves in time</label>' +
+      '<span id="run-dfig"></span>' +
+      '<span class="hint" id="d340-note"></span></div></div>' +
+      '<div class="seg-btns run-tabs"><button class="btn" data-side="test">The dialogue test</button><button class="btn" data-side="card">Reconstruction card</button><button class="btn" data-side="about">About running</button></div><div id="run-side-body"></div></div></div></div>';
     out = SW.$('#tty-out', view);
     SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid));
     SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };
     SW.$('#run-restart', view).onclick = boot;
+    SW.$('#run-disp', view).onchange = function (e) { dispOn = e.target.checked; SW.store.set('run.display', dispOn); boot(); };
+    SW.$('#run-anim', view).onchange = function (e) { animOn = e.target.checked; SW.store.set('run.anim', animOn); if (sess) sess.animate = animOn; };
+    SW.$('#run-dfig', view).appendChild(SW.figureButtons(function () { return disp ? disp.toSVG() : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/></svg>'; }, function () { return 'shrdlu-' + vid + '-340'; }, function () { return SW.refText(vid); }));
     SW.$('#run-play', view).onclick = play;
     SW.$('#run-stop', view).onclick = function () { playing = false; queue = []; status('Stopped after this exchange.'); };
+    SW.$('#run-side-body', view).addEventListener('click', function (e) { var c = e.target.closest('[data-cx]'); if (!c) return; var m = c.closest('details'); if (m) m.open = false; SW.cardAct(c.dataset.cx, vid); });
     SW.$('.run-tabs', view).addEventListener('click', function (e) { var b = e.target.closest('[data-side]'); if (b) { side = b.dataset.side; SW.store.set('run.side', side); paintSide(); } });
     var inp = SW.$('#tty-input', view);
     SW.$('#tty-form', view).onsubmit = function (e) { e.preventDefault(); if (send(inp.value)) inp.value = ''; };

@@ -110,7 +110,7 @@
     }
     var title = '';
     if (b.errorsAt[k]) title = b.errorsAt[k].map(function (e) { return e.message + (e.symbol ? ' "' + e.symbol + '"' : ''); }).join('; ');
-    if (kin) title = SW.mendOf(kin).label + ' when the bench runs this version (' + kin.id + ', ' + kin.title + '): ' + kin.what + ' By ' + (kin.by || 'the project') + ', ' + (kin.date || '') + '. Click the line number for the reason and evidence.' + (title ? ' · ' + title : '');
+    if (kin) title = 'Kintsugi · ' + SW.mendOf(kin).label + ' when the bench runs this version (' + kin.id + ', ' + kin.title + '): ' + kin.what + ' By ' + (kin.by || 'the project') + ', ' + (kin.date || '') + '. Click the line number for the reason and evidence.' + (title ? ' · ' + title : '');
     
     return '<div class="' + cls + '" id="L' + L.p + '-' + L.n + '" data-p="' + L.p + '" data-n="' + L.n + '"' +
       (title ? ' title="' + SW.esc(title) + '"' : '') + '>' +
@@ -222,7 +222,7 @@
         '<div class="ph-main">' + (b.parts.length > 1 ? '<span class="ph-num">File ' + (pi + 1) + ' of ' + b.parts.length + '</span>' : '') +
         '<span class="ph-title">' + SW.esc(t.label) + '</span> ' + SW.refTag(b.v.id, pi, null, null, b.parts.length) +
         (errs ? '<button class="badge err" data-asmerrs title="What the error' + (errs > 1 ? 's are' : ' is') + ', explained">' + errs + ' error' + (errs > 1 ? 's' : '') + '</button>' : '') + '</div>' +
-        (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip rp-m-' + SW.esc(r.mend || '') + '" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc(SW.mendOf(r).label + ': ' + r.what) + '">◆ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
+        (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip rp-m-' + SW.esc(r.mend || '') + '" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc('Kintsugi · ' + SW.mendOf(r).label + ': ' + r.what) + '">◆ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
         '<div class="ph-sub"><span class="ph-lang" title="What this file is written in">' + SW.esc(SW.fileLangOf(part.src, part.role)) + '</span> · ' + SW.sourceLink(part.src, part.src.split('/').pop()) +
         ' · ' + ({ program: 'read in by the loader', support: 'a support file', doc: 'documentation' }[part.role] || 'text file') + ' · ' + b.lines[pi].length + ' lines' +
         (t.title && part.role !== 'doc' ? ' · <span title="Its first comment">“' + SW.esc(t.title.slice(0, 90)) + '”</span>' : '') + '</div>' +
@@ -238,6 +238,7 @@
     wrap.appendChild(margin);
     view.insertBefore(wrap, bar);
     wireBox(box);
+    paintKin(box, b);
     wireMargin(margin);
     applyFilter();
     paintSel();
@@ -886,6 +887,62 @@
     r.title = h.redo ? 'Redo ' + h.redo + ' (⇧⌘Z)' : 'Redo: nothing to redo';
   }
   SW.on('notes-history', paintUndo);
+  // ---------- the repairs in the code, in gold (kintsugi), as on the Spacewar! bench ----------
+  // A gold dot by the line number; the characters the bench reads differently underlined
+  // in gold (a faint wash as well where the passage is supplied from another copy or
+  // version). The held text is shown; the hover gives what the bench reads instead.
+  function diffSpan(a, b) {   // where b differs from a: [start, end) in b
+    var i = 0, j = 0;
+    while (i < a.length && i < b.length && a[i] === b[i]) i++;
+    while (j < a.length - i && j < b.length - i && a[a.length - 1 - j] === b[b.length - 1 - j]) j++;
+    return [i, Math.max(i, b.length - j)];
+  }
+  // a raw index as an index into the text shown (a control character is shown as two, ^X)
+  function shownAt(raw, i) { var n = 0; for (var k = 0; k < i && k < raw.length; k++) n += /[\u0000-\u0002\u0004-\u0008\u000b\u000e-\u001f\u007f\r]/.test(raw[k]) ? 2 : 1; return n; }
+  function wrapChars(t, s, e, cls, title) {
+    var nodes = [], w = document.createTreeWalker(t, NodeFilter.SHOW_TEXT), x, pos = 0;
+    while ((x = w.nextNode())) nodes.push(x);
+    nodes.forEach(function (nd) {
+      var len = nd.nodeValue.length, a = Math.max(s, pos), bb = Math.min(e, pos + len);
+      if (a < bb) {
+        var piece = nd;
+        if (a > pos) piece = piece.splitText(a - pos);
+        if (bb - a < piece.nodeValue.length) piece.splitText(bb - a);
+        var sp = SW.el('span', { class: cls, title: title });
+        piece.parentNode.insertBefore(sp, piece); sp.appendChild(piece);
+      }
+      pos += len;
+    });
+  }
+  function paintKin(box, b) {
+    Object.keys(b.kinFiles || {}).forEach(function (pi) {
+      pi = +pi;
+      b.kinFiles[pi].forEach(function (r) {
+        if (!r.from) return;
+        SW.fetchText(r.from.src).then(function (txt) {
+          if (build !== b) return;
+          var src = root.LispIndex.splitLines(txt), now = src.slice(r.from.n0 - 1, r.from.n1), held = b.lines[pi].slice(r.n0 - 1, r.n1);
+          var cls = 'rp-c ' + (r.mend === 'yobitsugi' ? 'rp-c-sup' : 'rp-c-fix'), from = r.from.src.split('/').pop() + ':' + r.from.n0 + (r.from.n1 !== r.from.n0 ? '–' + r.from.n1 : '');
+          held.forEach(function (L, k) {
+            var row = SW.$('#L' + pi + '-' + L.n, box), tx = row && row.querySelector('.t'); if (!tx) return;
+            row.classList.add(r.mend === 'yobitsugi' ? 'rp-sup' : 'rp-fix');
+            var raw = L.raw, rep = now.length === held.length ? now[k] : null, d, title;
+            if (rep != null) {
+              if (rep === raw) return;
+              d = diffSpan(rep, raw);
+              title = 'Kintsugi · ' + SW.mendOf(r).label + ' (' + r.id + '): the bench reads “' + rep.trim() + '” here, from ' + from + '. Click the line number for why.';
+            } else {   // lines joined or split: the whole line is read otherwise
+              var lead = raw.length - raw.replace(/^\s+/, '').length; d = [lead, raw.length];
+              title = 'Kintsugi · ' + SW.mendOf(r).label + ' (' + r.id + '): lines ' + r.n0 + '–' + r.n1 + ' are read as ' + from + ': “' + now.join(' ').trim().slice(0, 160) + '”. Click the line number for why.';
+            }
+            if (d[1] <= d[0]) return;
+            wrapChars(tx, shownAt(raw, d[0]), shownAt(raw, d[1]), cls, title);
+          });
+        }, function () {});
+      });
+    });
+  }
+
   // ---------- ◆ the repairs, in turn, and the repairs menu (as on the Spacewar! bench) ----------
   // A stop for each passage the bench reads differently (a text repair), in file order,
   // across files: stepping to one in another file shows that file.
@@ -907,7 +964,7 @@
     SW.state.sel = { p: s.p, n0: s.n0, n1: s.n1 }; paintSel(); SW.writeQuery();
     var r = SW.$('#L' + s.p + '-' + s.n0, view);
     if (r) { r.scrollIntoView({ block: 'center' }); r.classList.remove('kin-flash'); void r.offsetWidth; r.classList.add('kin-flash'); }
-    SW.toast(kinWhat(s), 6000);
+    SW.toast('Kintsugi · ' + kinWhat(s), 6000);
   }
   function kinCurrent() {   // the selected repair, else the next one after the selection
     var st = kinStops(), s = SW.state.sel; if (!st.length) return null;
@@ -974,7 +1031,7 @@
     else if (k === 'why') { var r0 = SW.$('#rd-klist', view).getBoundingClientRect(); if (cur) SW.repairPop(cur.r, r0.left, r0.bottom + 4); }
     else if (k === 'only') { opts.onlyRepaired = el.checked; applyFilter(); if (opts.onlyRepaired) { var s = kinStops()[0]; if (s) kinGo(s); } }
     else if (k === 'marks') { var cb = SW.$('#rd-repairs', view); if (cb) { cb.checked = el.checked; cb.dispatchEvent(new Event('change')); } }
-    else if (k === 'card') SW.cardsOne(build.v);
+    else if (k === 'card') SW.cardsOne(build.v.id);
     else if (k === 'cards') SW.cardsHelp();
     else if (k === 'about') { var r1 = SW.$('#rd-klist', view).getBoundingClientRect(); SW.pop(r1.left, r1.bottom + 4, SW.kinAbout()); }
     else if (k === 'copy') {

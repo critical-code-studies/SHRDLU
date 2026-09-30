@@ -139,6 +139,7 @@
         while (budget-- > 0) {
           if (this.waiting) return 'input';
           if (this.halted) return 'error';
+          if (this.sleeping) { this.slept = this.sleeping; this.sleeping = 0; return 'sleep'; }
           this.steps++;
           if (this.pend) { this.pend = false; this.evalForm(this.x); }
           else {
@@ -571,7 +572,9 @@
     if (spec instanceof Str) return spec.s.split(/[;\s]/).filter(Boolean).pop();
     var a = this.toArray(spec);
     if (a[0] instanceof Cons) return a[1] instanceof Sym ? a[1].name + (a[2] instanceof Sym && !/^(FASL|>)$/.test(a[2].name) ? ' ' + a[2].name : '') : null;
-    return a[0] instanceof Sym ? a[0].name : null;
+    // (FN1 FN2 DEV DIR), as UREAD takes it: the second name unless it is > or FASL (or a device)
+    if (!(a[0] instanceof Sym)) return null;
+    return a[0].name + (a[1] instanceof Sym && !/^(FASL|>|<|DSK|AI|MC|ML|DM)$/.test(a[1].name) ? ' ' + a[1].name : '');
   };
   M.findFile = function (spec) {
     var name = this.fileName(spec);
@@ -1311,7 +1314,8 @@
     // time: a clock that counts the interpreter's steps, so runs repeat exactly
     subr('RUNTIME', function () { return m.steps * 10; });
     lsubr('TIME', function () { return new Flo(m.steps / 1e5); });
-    lsubr('SLEEP', function () { return NIL; });
+    // SLEEP pauses the run for that many seconds (the arm's motion in MOVETO); run() returns 'sleep'
+    lsubr('SLEEP', function (a) { var s = a.length ? (typeof a[0] === 'number' ? a[0] : a[0] instanceof Flo ? a[0].v : 0) : 0; if (s > 0) m.sleeping = s * 1000; return T; });
     // accepted and ignored: memory, purity, the debugger
     fsubr('ALLOC GCTWA NOUUO PURIFY LAPPURIFY', function () { m.ret(T); });
     lsubr('GC PAGEBPORG SUSPEND VALRET QUIT NORET *RSET GCTWA', function () { return NIL; });

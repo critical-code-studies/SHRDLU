@@ -26,8 +26,11 @@
     s.onState = o.onState || function () {};
     s.slice = o.slice || 60000;
     s.schedule = o.schedule || (typeof setTimeout === 'function' ? function (f) { setTimeout(f, 0); } : null);
+    s.animate = !!o.animate;
+    s.wait = o.wait || (typeof setTimeout === 'function' ? function (f, ms) { setTimeout(f, ms); } : null);
+    s.display = o.display || null;
     s.repairs = R.forVersion(s.v.id);
-    s.start = R.startOf(s.v.id);
+    s.start = R.startOf(s.v.id, !!o.display);
     // the directory: every program and support file, by its ITS name
     var files = {};
     s.v.build.forEach(function (b) { if (b.role !== 'doc') files[itsName(b.src)] = o.texts[b.src]; });
@@ -49,6 +52,8 @@
     (function step() {
       var r = s.m.run(s.slice);
       if (r === 'budget') { if (s.schedule) s.schedule(step); else step(); return; }
+      // SLEEP: wait as long as the program asked, when animating; otherwise go straight on
+      if (r === 'sleep') { if (s.animate && s.wait) s.wait(step, s.m.slept); else if (s.schedule) s.schedule(step); else step(); return; }
       done(r);
     })();
   };
@@ -59,7 +64,7 @@
     s.eval(s.start.load);
     s.pump(function (r) {
       if (r === 'error') { s.setState('halted', { phase: 'load' }); if (cb) cb(r); return; }
-      R.forms(s.v.id).forEach(function (f) { s.eval(f); s.pumpSync(); });
+      R.forms(s.v.id, !!s.display).forEach(function (f) { s.eval(f); s.pumpSync(); });
       s.loadedSteps = s.m.steps;
       s.setState('running');
       s.eval(s.start.run);
@@ -72,7 +77,7 @@
       })();
     });
   };
-  S.pumpSync = function () { var r; do { r = this.m.run(1e6); } while (r === 'budget'); return r; };
+  S.pumpSync = function () { var r; do { r = this.m.run(1e6); } while (r === 'budget' || r === 'sleep'); return r; };
   S.type = function (line, cb) {
     var s = this;
     s.setState('running');

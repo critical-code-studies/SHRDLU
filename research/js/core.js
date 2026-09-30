@@ -316,7 +316,7 @@
   SW.mendOf = mendOf;
   SW.repairPop = function (r, x, y) {
     var m = mendOf(r);
-    SW.pop(x, y, '<h4 class="kin-h">◆ ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint"><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '">' + SW.esc(m.label) + '</span> ' + SW.esc(m.note) + '. ' + SW.esc(KIND[r.kind] || r.kind) + '.</div>' +
+    SW.pop(x, y, '<h4 class="kin-h">Kintsugi · ' + SW.esc(r.id) + ': ' + SW.esc(r.title) + '</h4><div class="faint"><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '">' + SW.esc(m.label) + '</span> ' + SW.esc(m.note) + '. ' + SW.esc(KIND[r.kind] || r.kind) + '.</div>' +
       '<p><b>What.</b> ' + SW.esc(r.what) + '</p><p><b>Why.</b> ' + SW.esc(r.why) + '</p><p class="faint"><b>Evidence.</b> ' + SW.esc(r.evidence) + '</p>' +
       (r.by ? '<p class="faint"><b>By</b> ' + SW.esc(r.by) + ', ' + SW.esc(r.date || '') + '.</p>' : '') +
       '<p class="faint">The held file is not changed: the repair is made as the bench loads the version to run it (Run), and is marked here in gold.</p>');
@@ -344,14 +344,115 @@
       '<div class="keylist"><div><span class="kx-kin rp-hibi"></span> corrected: a reading mended against another copy of the same file</div><div><span class="kx-kin rp-yobitsugi"></span> supplied: a passage from another copy or version</div><div><span class="kx-kin rp-mount"></span> for running (paler): how the program is loaded or started, not its text</div></div>' +
       '<p class="faint">After Berry, ‘Digital ruins and critical code studies’ (2025): see Help ▸ What you should read, and Help ▸ Reconstruction cards.</p>';
   };
-  SW.cardsOne = function (v) { bigDialog('Reconstruction card', SW.reconstructionCard(v), 'refhelp'); };
-  // Help ▸ Reconstruction cards: every runnable version's card, the current one first
-  SW.cardsHelp = function () {
-    var cur = SW.state && SW.state.v, vs = V.VERSIONS.filter(function (v) { return v.build; }).sort(function (a, b) { return (b.id === cur) - (a.id === cur); });
-    bigDialog('Reconstruction cards', '<p>Each version the bench runs has a card: every repair made to run it, with its kind, reason, evidence and author, and the machine the bench supplies in place of ITS and the PDP-10. In Read the repaired lines are marked in gold; in Run the card is a tab beside the teletype.</p>' +
-      '<div class="keylist"><div><span class="rp-chip rp-m-hibi">Corrected</span> a reading corrected against another copy of the same file</div><div><span class="rp-chip rp-m-yobitsugi">Supplied</span> a passage supplied from another copy or version</div><div><span class="rp-chip rp-m-kake">Remade</span> code written where none survives (none so far)</div><div><span class="rp-chip rp-m-mount">For running</span> a change to how the program is loaded or started, not to its text</div></div>' +
-      vs.map(function (v) { return SW.reconstructionCard(v); }).join(''), 'refhelp');
+  // ---------- the cards as data: for Copy, export (Word, Markdown, PNG, SVG) and My notes ----------
+  function cardVersion(x) { return typeof x === 'string' ? V.byId(x) : x; }
+  function cardWhere(r, v) {
+    if (r.kind !== 'text') return SW.refOf(v.id);
+    var pi = -1; (v.build || []).forEach(function (b, k) { if (b.src.split('/').pop().replace(/\.\d+$/, '').toLowerCase() === r.file.toLowerCase()) pi = k; });
+    return pi >= 0 ? SW.refOf(v.id, pi, r.n0, r.n1) : SW.refOf(v.id);
+  }
+  function cardRows(v) {
+    return (root.SHRepairs ? root.SHRepairs.forVersion(v.id) : []).map(function (r) {
+      return [r.id, mendOf(r).label, cardWhere(r, v), r.title + '. ' + r.what, r.why, r.evidence, (r.by || '') + (r.date ? ', ' + r.date : '')];
+    });
+  }
+  var CARD_HEAD = ['Repair', 'Kind', 'Where', 'What', 'Why', 'Evidence', 'By'];
+  SW.cardText = function (x) {
+    var v = cardVersion(x);
+    return 'Reconstruction card: ' + v.label + ' ' + SW.refText(v.id) + ' (SHRDLU Research Bench ' + SW.VERSION + ')\n' +
+      cardRows(v).map(function (r) { return r[0] + '  ' + r[1] + ', ' + r[2] + ': ' + r[3] + ' Why: ' + r[4] + ' Evidence: ' + r[5] + '. By ' + r[6] + '.'; }).join('\n') +
+      '\nThe machine: ' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return m[0] + ': ' + m[1]; }).join(' ');
   };
+  function cardBlocks(v) {
+    var rows = cardRows(v);
+    return [{ type: 'h2', text: 'Reconstruction card: ' + v.label + ' ' + SW.refText(v.id) }]
+      .concat(rows.length ? [{ type: 'table', head: CARD_HEAD, rows: rows }] : [{ type: 'p', text: 'No repairs.' }])
+      .concat([{ type: 'h3', text: 'The machine' }, { type: 'table', head: ['Part', 'What the bench supplies'], rows: (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return [m[0], m[1]]; }) }]);
+  }
+  SW.cardDoc = function (xs) {
+    var vs = xs.map(cardVersion);
+    return { title: vs.length === 1 ? 'Reconstruction card: ' + vs[0].label : 'SHRDLU reconstruction cards',
+      subtitle: 'What the bench does to each version to run it',
+      meta: [['Generated', SW.fmtDate(SW.today()) + ', SHRDLU research bench v' + SW.VERSION], ['Bench', SW.BASE_URI]],
+      blocks: [{ type: 'p', text: 'After the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold in Read. The files under source/ are never altered; each repair is made as the version is loaded. Corrected and supplied passages change what the program reads; changes for running change only how it is loaded or started.' }]
+        .concat([].concat.apply([], vs.map(cardBlocks))) };
+  };
+  // the card as an SVG table, for PNG and SVG export and for My notes
+  SW.cardSVG = function (x) {
+    var v = cardVersion(x), rows = cardRows(v), W = 1500, pad = 24, cols = [70, 110, 190, 330, 390, 250, 110], fs = 13, lh = 17, cw = fs * 0.56;
+    function wrap(s, w) {
+      var n = Math.max(4, Math.floor((w - 10) / cw)), out = [], line = '';
+      String(s).split(/\s+/).forEach(function (wd) { if ((line + ' ' + wd).trim().length > n) { if (line) out.push(line); line = wd; while (line.length > n) { out.push(line.slice(0, n)); line = line.slice(n); } } else line = (line + ' ' + wd).trim(); });
+      if (line) out.push(line); return out;
+    }
+    var esc = SW.esc, o = [], y = pad + 26;
+    o.push('<text x="' + pad + '" y="' + y + '" font-size="22" font-weight="600" fill="#9a7400">Reconstruction card: ' + esc(v.label) + '</text>');
+    y += 22; o.push('<text x="' + pad + '" y="' + y + '" font-size="12" fill="#666" font-family="IBM Plex Mono, monospace">' + esc(SW.refText(v.id)) + '  ·  SHRDLU Research Bench ' + esc(SW.VERSION) + ', ' + esc(SW.fmtDate(SW.today())) + '</text>');
+    y += 26;
+    var xs = [pad]; cols.forEach(function (c, i) { xs.push(xs[i] + c); });
+    CARD_HEAD.forEach(function (h, i) { o.push('<text x="' + (xs[i] + 4) + '" y="' + y + '" font-size="' + fs + '" font-weight="600" fill="#222">' + h + '</text>'); });
+    y += 8; o.push('<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y + '" y2="' + y + '" stroke="#9a7400"/>');
+    rows.forEach(function (r) {
+      var cells = r.map(function (c, i) { return wrap(c, cols[i]); }), h = Math.max.apply(null, cells.map(function (c) { return c.length; })) * lh + 8;
+      cells.forEach(function (c, i) { c.forEach(function (ln, k) { o.push('<text x="' + (xs[i] + 4) + '" y="' + (y + 16 + k * lh) + '" font-size="' + fs + '" fill="' + (i === 1 ? '#9a7400' : i >= 5 ? '#666' : '#222') + '"' + (i === 0 || i === 2 ? ' font-family="IBM Plex Mono, monospace"' : '') + '>' + esc(ln) + '</text>'); }); });
+      y += h; o.push('<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y + '" y2="' + y + '" stroke="#ddd"/>');
+    });
+    y += pad;
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + y + '" width="' + W + '" height="' + y + '" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif"><rect width="' + W + '" height="' + y + '" fill="#fffdf6"/><rect x="0" y="0" width="5" height="' + y + '" fill="#d4af37"/>' + o.join('') + '</svg>';
+  };
+  // Copy, export or keep a card: k is copy | docx | md | png | svg | keep | docx-all | md-all
+  SW.cardAct = function (k, x) {
+    var v = cardVersion(x), all = V.VERSIONS.filter(function (w) { return w.build; }).sort(function (a, b) { return a.sort - b.sort; }), base = 'shrdlu-reconstruction-card-' + SW.refOf(v.id);
+    if (k === 'copy') SW.copyText(SW.cardText(v), 'the reconstruction card');
+    else if (k === 'keep') { if (SW.tray) SW.tray.addDoc(SW.cardDoc([v]), { vid: v.id, tags: ['repair', 'reconstruction card'] }); }
+    else if (k === 'svg') root.SWExport.download(base + '.svg', SW.cardSVG(v), 'image/svg+xml');
+    else if (k === 'png') { SW.toast('Rendering PNG…'); SW.figures.svgToPNG(SW.cardSVG(v), 2, '#fffdf6').then(function (r) { root.SWExport.download(base + '.png', r.png, 'image/png'); }, function () { SW.toast('The PNG could not be made; try SVG.', 6000); }); }
+    else if (k === 'keep-fig') { if (SW.tray) SW.tray.addFigure(SW.cardSVG(v), 'Reconstruction card: ' + v.label); }
+    else if (/-all$/.test(k)) SW.exportDoc(SW.cardDoc(all), 'shrdlu-reconstruction-cards', k.replace('-all', ''));
+    else SW.exportDoc(SW.cardDoc([v]), base, k);
+  };
+  // the actions, as a bar: in the card dialog and on Run's card tab
+  SW.cardBar = function () {
+    return '<span class="refhelp-acts card-acts"><button class="btn ghost" data-cx="copy" title="This card as plain text, with its references">⧉ Copy</button>' +
+      '<details class="menu more-menu"><summary class="btn ghost" title="This card, or every card, as a file">⤓ Export ▾</summary><div class="menu-body">' +
+      '<button class="btn ghost" data-cx="docx">⤓ This card, Word</button><button class="btn ghost" data-cx="md">⤓ This card, Markdown</button>' +
+      '<button class="btn ghost" data-cx="png">⤓ This card, PNG</button><button class="btn ghost" data-cx="svg">⤓ This card, SVG</button>' +
+      '<button class="btn ghost" data-cx="docx-all">⤓ All cards, Word</button><button class="btn ghost" data-cx="md-all">⤓ All cards, Markdown</button></div></details>' +
+      '<details class="menu more-menu"><summary class="btn ghost" title="Put this card in My notes (private), to gather with others for a chapter">＋ My notes ▾</summary><div class="menu-body">' +
+      '<button class="btn ghost" data-cx="keep">＋ As text and a table</button><button class="btn ghost" data-cx="keep-fig">＋ As a figure</button></div></details></span>';
+  };
+  // One card at a time, chosen from the versions the bench runs
+  function cardDialog(x) {
+    var vs = V.VERSIONS.filter(function (w) { return w.build; }).sort(function (a, b) { return a.sort - b.sort; }), esc = SW.esc;
+    var v0 = cardVersion(x), cur = v0 && v0.build ? v0.id : vs[0].id;
+    var d = SW.el('dialog', { class: 'tray-big refhelp cardshelp' });
+    d.innerHTML = '<div class="tray-bighead"><b>Reconstruction cards</b><span class="refhelp-acts">' + SW.cardBar() + '<button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' +
+      '<p>What the bench does to each version to run it, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold in Read. The files under source/ are never altered.</p>' +
+      '<div class="keylist"><div><span class="rp-chip rp-m-hibi">Corrected</span> a reading corrected against another copy of the same file</div><div><span class="rp-chip rp-m-yobitsugi">Supplied</span> a passage supplied from another copy or version</div><div><span class="rp-chip rp-m-kake">Remade</span> code written where none survives (none so far)</div><div><span class="rp-chip rp-m-mount">For running</span> a change to how the program is loaded or started, not to its text</div></div>' +
+      '<div class="kin-pick"><button class="btn ghost" data-cx="prev" title="The previous version">‹</button><select aria-label="Version">' +
+      vs.map(function (w) { return '<option value="' + esc(w.id) + '"' + (w.id === cur ? ' selected' : '') + '>' + esc(SW.refOf(w.id) + '  ' + w.label) + '</option>'; }).join('') +
+      '</select><button class="btn ghost" data-cx="next" title="The next version">›</button></div><div class="kin-one"></div>';
+    document.body.appendChild(d);
+    var sel = d.querySelector('select'), box = d.querySelector('.kin-one');
+    function show(id) { cur = id; sel.value = id; box.innerHTML = SW.reconstructionCard(V.byId(id)); }
+    sel.addEventListener('change', function () { show(sel.value); });
+    d.addEventListener('click', function (e) {
+      var c = e.target.closest('[data-cx]');
+      if (c) {
+        var k = c.dataset.cx, m = c.closest('details'); if (m) m.open = false;
+        var i = vs.findIndex(function (w) { return w.id === cur; });
+        if (k === 'prev' || k === 'next') { show(vs[(i + (k === 'next' ? 1 : -1) + vs.length) % vs.length].id); return; }
+        SW.cardAct(k, cur); return;
+      }
+      if (e.target === d || e.target.closest('[data-x]')) d.close();
+    });
+    d.addEventListener('close', function () { d.remove(); });
+    d.showModal();
+    show(cur);
+  }
+  SW.cardsOne = function (x) { cardDialog(x); };
+  // Help ▸ Reconstruction cards: opens on the version in view
+  SW.cardsHelp = function () { cardDialog(SW.state && SW.state.v); };
   // Help ▸ What you should read: the reading behind the bench (entries as the
   // project site's bibliography has them, checked against the Zotero library)
   var READING = [
@@ -1216,22 +1317,23 @@
     var t = '<text x="' + (x0 + W - 6) + '" y="' + (y0 + H - 5) + '" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="' + Math.max(8, Math.round(W / 110)) + '" fill="#8a96a3" opacity="0.9">' + SW.esc(ref) + '</text>';
     return svg.replace(/<\/svg>\s*$/, t + '</svg>');
   };
-  SW.figureButtons = function (getSvg0, name, ref) {
+  SW.figureButtons = function (getSvg0, name0, ref) {
+    var nm = function () { return typeof name0 === 'function' ? name0() : name0; };
     var getSvg = ref ? function (pal) { return SW.stampRef(getSvg0(pal), ref); } : getSvg0;
     var w = SW.el('span');
     w.appendChild(SW.el('button', { class: 'btn', title: 'Save as SVG (background: ' + SW.figBg() + '; change under ⚙)', onclick: function () {
-      root.SWExport.download(name + '.svg', SW.exportSVG(getSvg(SW.exportPalette())), 'image/svg+xml');
+      root.SWExport.download(nm() + '.svg', SW.exportSVG(getSvg(SW.exportPalette())), 'image/svg+xml');
     } }, '▣ SVG'));
     w.appendChild(document.createTextNode(' '));
     w.appendChild(SW.el('button', { class: 'btn', title: 'Save as PNG at three times screen size (background: ' + SW.figBg() + '; change under ⚙)', onclick: function () {
       SW.toast('Rendering PNG…');
       SW.figures.svgToPNG(SW.exportSVG(getSvg(SW.exportPalette())), 3, SW.figBgColour()).then(function (r) {
-        root.SWExport.download(name + '.png', r.png, 'image/png');
+        root.SWExport.download(nm() + '.png', r.png, 'image/png');
       }, function () { SW.toast('The PNG could not be made from this figure; try SVG, or zoom out first.', 6000); });
     } }, '▣ PNG'));
     w.appendChild(document.createTextNode(' '));
     w.appendChild(SW.el('button', { class: 'btn ghost', title: 'Put this figure in My notes (private), to gather with others for a chapter', onclick: function () {
-      if (SW.tray) SW.tray.addFigure(getSvg(SW.exportPalette()), name);
+      if (SW.tray) SW.tray.addFigure(getSvg(SW.exportPalette()), nm());
     } }, '＋ My notes'));
     return w;
   };

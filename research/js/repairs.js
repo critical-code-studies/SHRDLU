@@ -38,27 +38,37 @@
   var REPAIRS = {
     ejs: [
       { id: 'E-S1', kind: 'start', mend: 'mount', by: 'the project', date: '30 Sep 2026', title: 'Started as its dump started it',
-        what: 'The bench loads the files with LOAD-SHRDLU-INTERPRETED (loader.22) and then calls DUMP-SHRDLU, which runs INITIALSTUFF: the banner, the display question, SHRDLU’s break loop, then (SHRDLU). The bench answers N to the display question and types GO to leave the break loop.',
-        why: 'On ITS the program was loaded once and saved as a dump (:PDUMP SHRDLU;TS SHRDLU); each user then started the dump, which ran INITIALSTUFF. The bench loads and starts in one go. It answers N because its DEC 340 display is not built yet.',
+        what: 'The bench loads the files with LOAD-SHRDLU-INTERPRETED (loader.22) and then calls DUMP-SHRDLU, which runs INITIALSTUFF: the banner, the display question, SHRDLU’s break loop, then (SHRDLU). The bench answers Y to the display question when its DEC 340 is on (Run ▸ Display), N when it is off, and types GO to leave the break loop.',
+        why: 'On ITS the program was loaded once and saved as a dump (:PDUMP SHRDLU;TS SHRDLU); each user then started the dump, which ran INITIALSTUFF. The bench loads and starts in one go. With Y, INITIALSTUFF reads the saved display, GRAPHF INIT, form by form; with N it runs NO340.',
         evidence: 'loader.22 (LOAD-SHRDLU-INTERPRETED); setup.65 (DUMP-SHRDLU, INITIALSTUFF); PDP-10/its build/shrdlu.tcl',
-        start: { load: '(PROGN (LOAD (QUOTE LOADER)) (LOAD-SHRDLU-INTERPRETED))', run: '(DUMP-SHRDLU)', answers: ['N', 'GO '] } }
+        start: { load: '(PROGN (LOAD (QUOTE LOADER)) (LOAD-SHRDLU-INTERPRETED))', run: '(DUMP-SHRDLU)', answers: ['N', 'GO '], displayAnswers: ['Y', 'GO '] } }
     ],
     mit: [
       { id: 'I-S1', kind: 'start', mend: 'mount', by: 'the project', date: '30 Sep 2026', title: 'Loaded by its own loader, started with (SHRDLU)',
         what: 'The bench loads the files with LOADSHRDLU (loader.18), which reads each file form by form under an ERRSET, and then calls (SHRDLU).',
         why: 'This copy’s INITIALSTUFF, which would ask about the display, has that part commented out; the dump it made is not held.',
-        evidence: 'loader.18 (LOADSHRDLU, LOADX); setup.62 (INITIALSTUFF, lines 239–261 commented out)',
+        evidence: 'loader.18 (LOADSHRDLU, LOADX); setup.62 (INITIALSTUFF, lines 239–266 commented out)',
         start: { load: '(PROGN (LOAD (QUOTE LOADER)) (LOADSHRDLU))', run: '(SHRDLU)', answers: [] } },
       { id: 'I-T1', kind: 'text', mend: 'yobitsugi', by: 'the project', date: '30 Sep 2026', file: 'dictio', n0: 178, n1: 178, title: 'BOTH calls MOVE-PTW where it called **',
         what: 'Line 178 of dictio.73, in the dictionary entry for BOTH, is read as Swenson’s restoration has it: (move-ptw N in place of (** N.',
         why: 'The entry calls a function ** that no surviving file defines, so any sentence with “both” halts (exchange 13 of the dialogue). The restoration calls MOVE-PTW, PROGRAMMAR’s function for moving the word pointer, whose arguments (N NW test NW) the call already has. (Finding F9.)',
         evidence: 'its/restored/dictio.76, line 178; progmr (MOVE-PTW)',
         from: { src: 'its/restored/dictio.76', n0: 178, n1: 178 } },
+      { id: 'I-T2', kind: 'text', mend: 'yobitsugi', by: 'the project', date: '30 Sep 2026', file: 'graphf', n0: 13, n1: 13, title: 'A damaged number in the display code read as the restoration has it',
+        what: 'Line 13 of graphf.3, in GP-PROJECT, is read as Swenson’s restoration has it: (QUOTE 0.43302) where the file holds QUOTE followed by eight damaged characters.',
+        why: 'The file holds “(QUOTE” then the bytes 0xF4, ^L, ^W, “4g302)” (0xF4 stored as two bytes, C3 B4, as UTF-8), so MacLisp reads a symbol, not a number, and GP-PROJECT, which projects every corner of the scene onto the screen, fails at its first call. Some of the damaged characters are the expected ones shifted by a bit (“.” 0x2E as 0x17), and the digits 4 and 302 survive. The restoration reads 0.43302, the vertical factor of the projection beside the horizontal 0.75111.',
+        evidence: 'its/as-found/graphf.3, line 13 (bytes); its/restored/graphf.6, line 11',
+        from: { src: 'its/restored/graphf.6', n0: 11, n1: 11 } },
       { id: 'I-F1', kind: 'form', mend: 'mount', by: 'the project', date: '30 Sep 2026', title: 'No display: the arm’s drawing made to do nothing',
-        what: 'After loading, (NO340) is run and MOVETO, GRASP, UNGRASP and BLINK are defined to do nothing, as SHRDLU’s own start-up does when told there is no DEC 340.',
-        why: 'The start-up that set the display up, or switched it off, is commented out in this copy, so the arm’s motion (MOVETO in graphf) meets an uninitialised display (GP-HANDIT unbound) and halts. The bench has no 340 display yet.',
+        what: 'With the bench’s 340 off: after loading, (NO340) is run and MOVETO, GRASP, UNGRASP and BLINK are defined to do nothing, as SHRDLU’s own start-up does when told there is no DEC 340.',
+        why: 'The start-up that set the display up, or switched it off, is commented out in this copy, so the arm’s motion (MOVETO in graphf) meets an uninitialised display (GP-HANDIT unbound) and halts. This repair applies when the bench’s 340 is off (Run ▸ Display); with it on, I-F2 applies instead.',
         evidence: 'Swenson’s restoration does the same (setup.65, INITIALSTUFF, the NO340 branch); graphf.3 (NO340)',
-        form: NO_DISPLAY }
+        form: NO_DISPLAY, display: false },
+      { id: 'I-F2', kind: 'form', mend: 'mount', by: 'the project', date: '30 Sep 2026', display: true, title: 'With the display: the scene drawn by GP-INITIAL',
+        what: 'After loading, the display variables are cleared and GP-INITIAL is called, which draws the table, the blocks, the box and the hand from DISPLAY-AS (data.6); BLINK is defined to do nothing.',
+        why: 'This is the second branch of the start-up this copy has commented out (setup.62, lines 254–266), run with the bench’s DEC 340 on. The first branch reads a saved display, GRAPHF INIT, which this copy does not hold. BLINK is defined only in twutil, which the loader does not read; the restoration defines it to do nothing (setup.65).',
+        evidence: 'setup.62, lines 239–266 (commented out); graphf.3 (GP-INITIAL); data.6 (DISPLAY-AS); setup.65 (BLINK)',
+        form: "(PROGN (SETQ PH-TURN-ON NIL GP-LINES NIL GP-SURFACE NIL GP-HANDIT NIL GP-NEWOBLOCAT NIL PH-BLOCKS NIL) (GP-INITIAL) (PUTPROP 'BLINK '(LAMBDA (A) NIL) 'EXPR))" }
     ],
     stanford: [
       { id: 'S-T1', kind: 'text', mend: 'yobitsugi', by: 'the project', date: '30 Sep 2026', file: 'smspec', n0: 712, n1: 771, title: 'The damaged block of smspec read from the ITS copy',
@@ -108,7 +118,7 @@
     ['Files', 'The version’s files, held under source/, stand for its ITS directory (DSK: SHRDLU;); a file is found by its first name, the highest version (">") being the one held.'],
     ['Teletype', 'Characters typed in the terminal, the return key sent as a carriage return, as on ITS.'],
     ['Clock', 'RUNTIME counts the interpreter’s steps, so that a run can be repeated exactly; RANDOM is a seeded generator for the same reason.'],
-    ['Display', 'Not yet built: the program is told there is no DEC 340.']
+    ['Display', 'The DEC 340 (js/display.js): the DIS* calls of MacLisp’s display slave (SLAVE, src/l/slave.11), drawn on a 1024-point square screen. The slave’s own program, on the PDP-6, is not held; what each call does is read from its callers (graphf, graphf.init, the Logo TURTLE): -1 draws and 1 moves, lines are kept relative to an item’s origin, DISINI 1 reads coordinates as absolute, items are numbered from 1. SLEEP pauses the run so that the arm is seen to move. Off (Run ▸ Display), the program is told there is no 340.']
   ];
 
   var MENDS = {
@@ -119,7 +129,13 @@
   };
 
   function forVersion(vid) { return REPAIRS[vid] || []; }
-  function startOf(vid) { var s = forVersion(vid).filter(function (r) { return r.kind === 'start'; })[0]; return s ? s.start : null; }
+  function startOf(vid, display) {
+    var s = forVersion(vid).filter(function (r) { return r.kind === 'start'; })[0]; if (!s) return null;
+    var st = s.start;
+    return display && st.displayAnswers ? { load: st.load, run: st.run, answers: st.displayAnswers } : st;
+  }
+  // a repair marked display: true or false applies only with the bench's 340 on, or off
+  function applies(r, display) { return r.display === undefined || r.display === !!display; }
 
   // Apply the text repairs to a version's files (a map NAME -> text) using the
   // other copies' texts (fetch(src) -> text). Returns the lines replaced, for marking.
@@ -139,9 +155,9 @@
   }
   function aliases(vid) { var a = {}; forVersion(vid).forEach(function (r) { if (r.alias) Object.keys(r.alias).forEach(function (k) { a[k] = r.alias[k]; }); }); return a; }
   function skips(vid) { var s = []; forVersion(vid).forEach(function (r) { if (r.skip) s = s.concat(r.skip); }); return s; }
-  function forms(vid) { return forVersion(vid).filter(function (r) { return r.kind === 'form'; }).map(function (r) { return r.form; }); }
+  function forms(vid, display) { return forVersion(vid).filter(function (r) { return r.kind === 'form' && applies(r, display); }).map(function (r) { return r.form; }); }
 
-  var api = { REPAIRS: REPAIRS, MACHINE: MACHINE, MENDS: MENDS, forVersion: forVersion, startOf: startOf, applyText: applyText, aliases: aliases, skips: skips, forms: forms };
+  var api = { REPAIRS: REPAIRS, MACHINE: MACHINE, MENDS: MENDS, applies: applies, forVersion: forVersion, startOf: startOf, applyText: applyText, aliases: aliases, skips: skips, forms: forms };
   root.SHRepairs = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(this);
