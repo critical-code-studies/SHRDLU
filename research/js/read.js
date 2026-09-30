@@ -145,9 +145,9 @@
         '<div><span class="errs">(</span> a parenthesis that does not balance (hover for the message)</div>' +
         '<div><span class="pgbrk">↡</span> a page break; <span class="pgbrk">␃</span> the end-of-file mark</div>' +
         '<div class="faint" style="margin-top:6px">Repairs, in gold (kintsugi; View ▸ Repairs):</div>' +
-        '<div><span class="kx-kin rp-hibi"></span> a reading corrected against another copy of the same file</div>' +
-        '<div><span class="kx-kin rp-yobitsugi"></span> a passage supplied from another copy or version; the chip above the file names it</div>' +
-        '<div><span class="kx-kin rp-mount"></span> paler: a change for running (how the program is loaded or started), not to its text</div>' +
+        '<div><span class="rp-line">(QUOTE <span class="rp-c rp-c-fix">0.43</span>302)</span> a repaired line, underlined in gold; the characters the bench reads otherwise in a gold wash (hover for what it reads)</div>' +
+        '<div><span class="rp-line"><span class="rp-c rp-c-sup">(move-ptw</span> N</span> a deeper wash: a passage supplied from another copy or version; the chip above the file names it</div>' +
+        '<div><span style="color:var(--gold)">●</span> a corrected line, <span style="color:var(--gold)">■</span> a supplied one, by the line number</div>' +
         '<div class="faint flow" style="margin-top:6px">Text: <span class="lab">names defined in this version</span>, <span class="op">MacLisp</span>, <span class="mac">Micro-Planner (TH…)</span>, <span class="var">planner variables ($?X)</span>, <span class="num">numbers</span>, <span class="cm">comments</span>. Click a name for where it is defined and used.</div></div>');
     } }, 'Key'));
     if (b.v.build && b.parts.length > 1) {
@@ -927,6 +927,17 @@
           held.forEach(function (L, k) {
             var row = SW.$('#L' + pi + '-' + L.n, box), tx = row && row.querySelector('.t'); if (!tx) return;
             row.classList.add(r.mend === 'yobitsugi' ? 'rp-sup' : 'rp-fix');
+            // the whole code of the line: a wavy gold underline (leading whitespace left out)
+            var lt = tx.textContent, l0 = lt.length - lt.replace(/^\s+/, '').length, l1 = lt.replace(/\s+$/, '').length;
+            // one underline for the whole cell; the leading whitespace in an inline-block, which it does not reach
+            // the line's code in one span, with a gold wave drawn under it (css .rp-line::after)
+            if (l1 > l0 && !row.classList.contains('rp-wavy')) {
+              row.classList.add('rp-wavy');
+              if (l0) wrapChars(tx, 0, l0, 'rp-lead', '');
+              var ln = SW.el('span', { class: 'rp-line' }), lead = tx.querySelector('.rp-lead'), nx = lead ? lead.nextSibling : tx.firstChild;
+              while (nx) { var nn = nx.nextSibling; ln.appendChild(nx); nx = nn; }
+              tx.appendChild(ln);
+            }
             var raw = L.raw, rep = now.length === held.length ? now[k] : null, d, title;
             if (rep != null) {
               if (rep === raw) return;

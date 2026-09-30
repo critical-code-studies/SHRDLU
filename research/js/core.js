@@ -341,7 +341,7 @@
   }
   SW.kinAbout = function () {
     return '<h4>The repair marks</h4><p>Where the bench reads a version differently in order to run it, the line is marked in gold, after kintsugi, the mending of pottery with gold, which leaves the repair in view. The held files are never altered; each repair is made as the version is loaded, and each is recorded with its reason, evidence and author on the version’s reconstruction card.</p>' +
-      '<div class="keylist"><div><span class="kx-kin rp-hibi"></span> corrected: a reading mended against another copy of the same file</div><div><span class="kx-kin rp-yobitsugi"></span> supplied: a passage from another copy or version</div><div><span class="kx-kin rp-mount"></span> for running (paler): how the program is loaded or started, not its text</div></div>' +
+      '<div class="keylist"><div><span class="rp-line">(QUOTE <span class="rp-c rp-c-fix">0.43</span>302)</span> corrected: a reading mended against another copy of the same file; the line underlined in gold, the characters read otherwise in a gold wash</div><div><span class="rp-line"><span class="rp-c rp-c-sup">(move-ptw</span> N</span> supplied: a passage from another copy or version, in a deeper wash</div><div>For running: how the program is loaded or started, not its text; on the reconstruction card, not in the code</div></div>' +
       '<p class="faint">After Berry, ‘Digital ruins and critical code studies’ (2025): see Help ▸ What you should read, and Help ▸ Reconstruction cards.</p>';
   };
   // ---------- the cards as data: for Copy, export (Word, Markdown, PNG, SVG) and My notes ----------
