@@ -312,7 +312,7 @@
       // an LEXPR: the parameter is the number of arguments; ARG reads them
       b.push(params, params.value); params.value = args.length;
       this.lexpr.push(args);
-      this.stack.push({ k: kUnbindLexpr, b: b, unwind: unbindLexpr, fnName: name ? name.name : 'LAMBDA', traced: name && this.traced[name.name] ? name : null });
+      this.stack.push({ k: kUnbindLexpr, b: b, unwind: unbindLexpr, fnName: name ? name.name : 'LAMBDA', traced: name && this.traced[name.name] ? name : null, pn: !!(name && this.prof && this.prof.enter(name.name, this.steps)) });
     } else {
       var p = params, i = 0, opt = false;
       while (p instanceof Cons) {
@@ -327,15 +327,18 @@
         i++; p = p.cdr;
       }
       if (i < args.length) { this.unbindList(b); this.err('WRONG NUMBER OF ARGS', name || lam); }
-      this.stack.push({ k: kUnbind, b: b, unwind: unbind, fnName: name ? name.name : 'LAMBDA', traced: name && this.traced[name.name] ? name : null });
+      this.stack.push({ k: kUnbind, b: b, unwind: unbind, fnName: name ? name.name : 'LAMBDA', traced: name && this.traced[name.name] ? name : null, pn: !!(name && this.prof && this.prof.enter(name.name, this.steps)) });
     }
     this.progn(body);
   };
   M.unbindList = function (b) { for (var i = b.length - 2; i >= 0; i -= 2) b[i].value = b[i + 1]; };
-  function unbind(f) { this.unbindList(f.b); }
-  function kUnbind(f, v) { this.unbindList(f.b); if (f.traced) this.traceReturn(f.traced, v); this.ret(v); }
-  function unbindLexpr(f) { this.unbindList(f.b); this.lexpr.pop(); }
-  function kUnbindLexpr(f, v) { this.unbindList(f.b); this.lexpr.pop(); if (f.traced) this.traceReturn(f.traced, v); this.ret(v); }
+  // a profiler, when one is attached (m.prof: enter(name, steps) -> true, exit(name, steps)), is told
+  // each named function's entry and exit, an exit by unwinding (a THROW, an error) as well
+  function profExit(m, f) { if (f.pn && m.prof) m.prof.exit(f.fnName, m.steps); }
+  function unbind(f) { this.unbindList(f.b); profExit(this, f); }
+  function kUnbind(f, v) { this.unbindList(f.b); profExit(this, f); if (f.traced) this.traceReturn(f.traced, v); this.ret(v); }
+  function unbindLexpr(f) { this.unbindList(f.b); this.lexpr.pop(); profExit(this, f); }
+  function kUnbindLexpr(f, v) { this.unbindList(f.b); this.lexpr.pop(); profExit(this, f); if (f.traced) this.traceReturn(f.traced, v); this.ret(v); }
 
   // A value computed at once, for the few places that need one synchronously
   // (a default for an &OPTIONAL parameter): a nested run.

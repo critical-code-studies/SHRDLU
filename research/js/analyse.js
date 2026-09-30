@@ -20,7 +20,8 @@
     [5, 'Calls', 'Which definitions call which'],
     [6, 'Theorems', 'The Micro-Planner theorems of the blocks world'],
     [7, 'Symbol histories', 'One name across the versions'],
-    [8, 'Absence', 'Gaps in the record, and damage in the texts']
+    [8, 'Absence', 'Gaps in the record, and damage in the texts'],
+    [9, 'Functional overview', 'An exchange recorded: the parts of the program in time, where the steps go, the functions called']
   ];
   if (!LENSES[lens - 1]) lens = 1;
   SW.anLens = function () { return lens; };
@@ -273,6 +274,8 @@
   }
 
   // ---------- 8 absence ----------
+  // 9: the functional overview, recorded as the program runs an exchange (js/overview.js)
+  FNS[9] = function (b, el) { SW.overview.render(b, el); return null; };
   FNS[8] = function (b, el) {
     var lost = V.VERSIONS.filter(function (v) { return v.status === 'lost'; });
     var lc = wide(card('Versions known and not held', 'What the record names but the bench cannot read.'));
@@ -302,7 +305,7 @@
   };
 
   // ---------- rendering ----------
-  var MENUS = { text: [['', [1, 2, 3, 7]]], program: [['', [4, 5, 6]]], versions: [['', [8]]] };
+  var MENUS = { text: [['', [1, 2, 3, 7]]], program: [['', [9, 4, 5, 6]]], versions: [['', [8]]] };
   function menuOf(n) { for (var m in MENUS) if (MENUS[m].some(function (gr) { return gr[1].indexOf(n) >= 0; })) return m; return 'text'; }
   function lensItems(groups, attr, cur) {
     return groups.map(function (gr) {

@@ -1895,3 +1895,15 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .dl-calls { font-size: 11.5px; max-height: 320px; overflow: auto; margin: 0; padding-left: 3em; }
 .dl-t { max-height: 560px; overflow: auto; }
 @media (max-width: 900px) { .pj-grid, .dl-grid { grid-template-columns: 1fr; } }
+/* Program ▸ Functional overview */
+.ov-in { flex: 1; min-width: 280px; font-size: 13px; padding: 4px 8px; }
+.ov-svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
+.ov-body h4 { margin: 14px 0 2px; font-size: 14px; }
+.ov-keys { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; margin: 6px 0; }
+.ov-k i, .ov-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.ov-bars { display: grid; gap: 3px; max-width: 900px; }
+.ov-bar { display: grid; grid-template-columns: 17em 1fr 8em; gap: 8px; align-items: center; font-size: 12.5px; }
+.ov-bar i { height: 12px; border-radius: 2px; min-width: 2px; }
+.ov-bar em { font-style: normal; color: var(--text-faint); font-size: 11.5px; }
+.ov-t { max-height: 480px; overflow: auto; }
+.ov-out { font-size: 12px; max-height: 200px; overflow: auto; background: #05070a; padding: 8px 10px; border-radius: 6px; }
