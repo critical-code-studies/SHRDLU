@@ -326,7 +326,7 @@
       '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here  (Tab completes; Return sends)" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
       '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
-      '<div class="run-side"><div class="d340"><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas>' +
+      '<div class="run-side"><div class="d340"><div class="d340-wrap"><button class="icon-btn d340-copy" id="d340-copy" title="Copy a snapshot of the screen, as an image">⧉</button><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas></div>' +
       '<div class="d340-bar"><span class="d340-name" title="The Type 340 Precision Incremental CRT display, on the AI Lab’s PDP-6 and PDP-10, driven through MacLisp’s display slave">DEC 340</span>' +
       '<label class="check" title="Answer Y to the display question, and draw what the program draws (restarts the run)"><input type="checkbox" id="run-disp"' + (dispOn ? ' checked' : '') + '> Display</label>' +
       '<label class="check" title="How fast the arm moves: Original pauses where graphf’s MOVETO says SLEEP (.06 seconds a step); ×2 and ×3 shorten the pauses; Instant leaves them out">Arm <select id="run-arm">' + [[1, 'Original'], [2, '×2'], [3, '×3'], [0, 'Instant']].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === armSpeed ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label>' +
@@ -348,6 +348,15 @@
     dd.addEventListener('toggle', function () { if (dd.open) paintDeep(false); });
     dd.addEventListener('submit', function (e) { e.preventDefault(); var i = e.target.querySelector('input'), n = i && i.value.trim().toUpperCase(); if (n && watch.indexOf(n) < 0) { watch.push(n); SW.store.set('run.watch', watch); } paintDeep(false); });
     dd.addEventListener('click', function (e) { var x = e.target.closest('[data-unwatch]'); if (!x) return; watch = watch.filter(function (w) { return w !== x.dataset.unwatch; }); SW.store.set('run.watch', watch); paintDeep(false); });
+    // ⧉ on the screen: a snapshot, to the clipboard as an image (or saved as PNG where that is not allowed)
+    SW.$('#d340-copy', view).onclick = function () {
+      var cv = SW.$('#d340', view), name = 'shrdlu-' + vid + '-340.png';
+      cv.toBlob(function (bl) {
+        var save = function () { var a = document.createElement('a'); a.href = URL.createObjectURL(bl); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); SW.toast('Saved ' + name); };
+        if (navigator.clipboard && root.ClipboardItem) navigator.clipboard.write([new ClipboardItem({ 'image/png': bl })]).then(function () { SW.toast('Snapshot of the screen copied'); }, save);
+        else save();
+      }, 'image/png');
+    };
     SW.$('#run-flip', view).onclick = function () { var g = SW.$('.run-grid', view), on = !g.classList.contains('flip'); g.classList.toggle('flip', on); SW.store.set('run.flip', on); };
     SW.$('#run-faces', view).onchange = function (e) { facesOn = e.target.checked; SW.store.set('run.faces', facesOn); if (disp) { disp.faces = facesOn; disp.dirty(); } };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };

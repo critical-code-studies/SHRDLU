@@ -1838,3 +1838,7 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .tty-copy { position: absolute; top: 6px; right: 8px; z-index: 2; color: #8a8d86; background: rgba(7, 8, 11, .7); border-radius: 4px; }
 .tty-copy:hover { color: #e7e4da; }
 .tty-out { user-select: text; }
+.d340-wrap { position: relative; width: min(calc(100vh - 230px), 100%); }
+.d340-wrap canvas { width: 100% !important; }
+.d340-copy { position: absolute; top: 6px; right: 8px; z-index: 2; color: #8a8d86; background: rgba(5, 7, 10, .7); border-radius: 4px; }
+.d340-copy:hover { color: #e7e4da; }
