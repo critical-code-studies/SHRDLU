@@ -134,7 +134,7 @@
   }
 
   // ---------- the DEC 340 display (js/display.js) ----------
-  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), disp = null, said = null;
+  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), facesOn = SW.store.get('run.faces', false), disp = null, said = null;
   function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }) || SHRepairs.supplies(v.id, true).some(function (s) { return s.name === 'GRAPHF'; }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
@@ -146,6 +146,7 @@
     SW.$('#run-lab', view).disabled = !(dispOn && has);
     SW.$('#run-dlgon', view).disabled = !(dispOn && has);
     SW.$('#run-solid', view).disabled = !(dispOn && has);
+    SW.$('#run-faces', view).disabled = !(dispOn && has);
     cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
   }
 
@@ -162,7 +163,7 @@
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
       var cv = SW.$('#d340', view);
-      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, labels: labOn, dialogue: dlgOn }) : null;
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, faces: facesOn, labels: labOn, dialogue: dlgOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
       sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') { paintDeep(true); caption(); if (st === 'waiting') setTimeout(suggest, 0); } } });
@@ -332,7 +333,8 @@
       '<label class="check" title="Draw each object in the colour SHRDLU names it (the labels graphf writes: RED, GREEN, BLUE, WHITE; the table grey). The DEC 340 drew in one colour; untick for the screen as it was"><input type="checkbox" id="run-col"' + (colOn ? ' checked' : '') + '> Colour</label>' +
       '<label class="check" title="The names graphf writes by each object (RED, GREEN, BLUE, WHITE, BLACK: the last field of each entry in DISPLAY-AS). The surviving code of 1972–77 draws them; the 1970 film shows none"><input type="checkbox" id="run-lab"' + (labOn ? ' checked' : '') + '> Labels</label>' +
       '<label class="check" title="The last exchanges at the top of the screen, in capitals, as the 1970 film shows the conversation on the display. The surviving code writes only the objects’ names on the 340; this is the bench, after the film"><input type="checkbox" id="run-dlgon"' + (dlgOn ? ' checked' : '') + '> Dialogue</label>' +
-      '<label class="check" title="Objects hide what stands behind them, painted back to front from graphf’s own tables of positions and sizes; what is in the box shows faintly through its walls. The 340 drew lines only, with the lines graphf found hidden left out; untick for the screen as it was"><input type="checkbox" id="run-solid"' + (solidOn ? ' checked' : '') + '> Solid</label>' +
+      '<label class="check" title="Objects hide what stands behind them: the scene rebuilt in three dimensions from graphf’s own tables (positions, sizes, shapes; the hand followed through each leg of its moves) and drawn face by face, back to front; what is in the box shows faintly through its walls. The 340 drew lines only, with the lines graphf found hidden left out; untick for the screen as it was"><input type="checkbox" id="run-solid"' + (solidOn ? ' checked' : '') + '> Solid</label>' +
+      '<label class="check" title="Solid shapes with their faces shaded, lit from above and in front, each in its colour with Colour on. A bench view: the 340 drew lines"><input type="checkbox" id="run-faces"' + (facesOn ? ' checked' : '') + '> Faces</label>' +
       '<button class="btn ghost" id="run-flip" title="Put the display on the other side of the teletype">⇄</button>' +
       '<span id="run-dfig"></span>' +
       '<span class="hint" id="d340-note"></span></div></div>' +
@@ -347,6 +349,7 @@
     dd.addEventListener('submit', function (e) { e.preventDefault(); var i = e.target.querySelector('input'), n = i && i.value.trim().toUpperCase(); if (n && watch.indexOf(n) < 0) { watch.push(n); SW.store.set('run.watch', watch); } paintDeep(false); });
     dd.addEventListener('click', function (e) { var x = e.target.closest('[data-unwatch]'); if (!x) return; watch = watch.filter(function (w) { return w !== x.dataset.unwatch; }); SW.store.set('run.watch', watch); paintDeep(false); });
     SW.$('#run-flip', view).onclick = function () { var g = SW.$('.run-grid', view), on = !g.classList.contains('flip'); g.classList.toggle('flip', on); SW.store.set('run.flip', on); };
+    SW.$('#run-faces', view).onchange = function (e) { facesOn = e.target.checked; SW.store.set('run.faces', facesOn); if (disp) { disp.faces = facesOn; disp.dirty(); } };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };
     SW.$('#run-dlgon', view).onchange = function (e) { dlgOn = e.target.checked; SW.store.set('run.dialogue', dlgOn); if (disp) { disp.dialogue = dlgOn; disp.dirty(); } };
     SW.$('#run-lab', view).onchange = function (e) { labOn = e.target.checked; SW.store.set('run.labels', labOn); if (disp) { disp.labels = labOn; disp.dirty(); } };
