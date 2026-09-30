@@ -111,6 +111,33 @@
     s.eval('(SHRDLU)');
     s.pump(function (r) { s.setState(r === 'input' ? 'waiting' : r === 'error' ? 'halted' : 'done'); if (cb) cb(r); });
   };
+  // characters as typed, without a line end (^X, for instance), then run until the program waits
+  S.raw = function (text, cb) {
+    var s = this;
+    s.setState('running'); s.m.type(text);
+    s.pump(function (r) { s.setState(r === 'input' ? 'waiting' : r === 'error' ? 'halted' : 'done'); if (cb) cb(r); });
+  };
+  // A Micro-Planner goal, run as SHRDLU runs a command (THVAL2 NIL goal: ANSCOMMAND in newans), from
+  // READY: ^X takes SHRDLU into its break loop (ETAOIN reads ^X so), where the form is evaluated and its
+  // value printed; GO takes it back to READY. cb({ value, message, ok }): value, what the break loop
+  // printed (the goal on success, NIL on failure); message, a break the goal ran into on the way (a
+  // guard such as TE-SUPP), after which GO also returns to READY.
+  S.planner = function (goal, cb) {
+    var s = this, got = '', out0 = s.out;
+    if (s.state !== 'waiting') { cb({ ok: false, message: 'SHRDLU is busy' }); return; }
+    s.out = function (t) { got += t; out0(t); };
+    var done = function (res) { s.out = out0; cb(res); };
+    s.raw('\x18', function () {
+      got = '';
+      s.raw("(THVAL2 NIL '" + goal + ')\r\n', function (r) {
+        var text = got.replace(/>>>\s*$/, '').trim(), lines = text.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+        var value = lines.length ? lines[lines.length - 1] : '', message = lines.length > 1 ? lines.slice(0, -1).join(' ') : '';
+        // a nested break loop: the last line is its message, not a value
+        if (!/^[(]|^NIL$/.test(value)) { message = text; value = ''; }
+        s.raw('GO \r\n', function () { done({ ok: /^\(/.test(value), value: value, message: message, raw: text, state: r }); });
+      });
+    });
+  };
   S.pumpSync = function () { var r; do { r = this.m.run(1e6); } while (r === 'budget' || r === 'sleep'); return r; };
   S.type = function (line, cb) {
     var s = this;

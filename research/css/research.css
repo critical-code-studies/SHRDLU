@@ -1876,3 +1876,10 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .gx-p { font-size: 13.5px; line-height: 1.5; margin: 0; }
 .gx-info h4 { margin: 0 0 6px; font-size: 15px; }
 .gx-info { border: 0; padding: 0; min-height: 0; margin: 0; }
+.mw-screen { max-width: min(calc(100vh - 260px), 100%); }
+.mw-cv { width: 100%; height: auto; aspect-ratio: 1; background: #05070a; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; display: block; }
+.mw-acts { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.mw-log { margin: 0; padding-left: 1.4em; font-size: 13px; max-height: 360px; overflow: auto; }
+.mw-log li { margin: 0 0 6px; }
+.mw-log .mono { font-size: 12px; }
+.mw-ok b { color: var(--green); } .mw-no b { color: var(--red); } .mw-brk b { color: var(--violet); }

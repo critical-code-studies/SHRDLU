@@ -16,12 +16,13 @@
   var G = root.SH340 && root.SH340.geom;
 
   var GFX = [
+    ['world', 'The microworld', 'Move the objects with the mouse, through SHRDLU’s own theorems: what it will do, and what it refuses'],
     ['objects', 'The objects', 'Each block, pyramid and the box, to turn about: shape, place, size, colour, what supports what'],
     ['hand', 'The hand, 1970 and after', 'The gripper the film shows, and the point the surviving code leaves'],
     ['crane', 'The crane', 'How graphf moves the hand and arm: four legs, in steps, and holding'],
     ['path', 'The hand’s path', 'Where the hand went in the last exchange run, in three dimensions and over time']
   ];
-  var GFXG = [['What it draws', ['objects', 'hand']], ['What moves', ['crane', 'path']]];
+  var GFXG = [['The world', ['world']], ['What it draws', ['objects', 'hand']], ['What moves', ['crane', 'path']]];
   var gid = SW.store.get('gfx.id', 'objects'), build = null;
   SW.setGraphic = function (id) { if (GFX.some(function (g) { return g[0] === id; })) { gid = id; SW.store.set('gfx.id', id); } };
   SW.gfxItem = function () { return gid; };
@@ -240,6 +241,68 @@
     var t0 = readLive(b.v.id) || readData(b);
     var v3 = new Viewer(SW.$('.gx-cv3', el), null); v3.path = track; v3.cz = 330; v3.zoom = 0.72; v3.setObjects(t0 ? objectsOf(t0) : []);
   }
+  // ---------- the microworld: the objects moved with the mouse, by SHRDLU's own theorems ----------
+  // Its own copy of the program, with a 340 of its own. A goal is run as SHRDLU runs a command:
+  // (THVAL2 NIL '(THGOAL (!PUTON A B) (THUSE TC-PUTON))), from its break loop (Session.planner).
+  var mw = null;   // { vid, sess, disp, busy, sel }
+  var ACTS = [['puton', 'Put it on…', 'then click where: another object or the table', null],
+              ['pickup', 'Pick it up', '', '(THGOAL (!PICKUP $X) (THUSE TC-PICKUP))'],
+              ['cleartop', 'Clear its top', '', '(THGOAL (!CLEARTOP $X) (THUSE TC-CLEARTOP))'],
+              ['getridof', 'Get rid of it', '', '(THGOAL (!GET-RID-OF $X) (THUSE TC-GET-RID-OF))']];
+  function worldView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' +
+      cardHTML('The world', 'Click an object, then click where it is to go: another object, or the table. SHRDLU works out how, clearing and moving what is in the way, or refuses. The arm moves as it goes.',
+        '<div class="gx-bar"><span class="mw-sel hint">Nothing chosen.</span><span class="mw-acts"></span><button class="btn ghost" data-mw="reset" title="Start the world afresh">⟳ Start afresh</button></div><div class="mw-screen"><canvas class="mw-cv" width="1024" height="1024" aria-label="The blocks world on the 340: click an object, then where it is to go"></canvas></div>', 'gx-wide mw-card') +
+      cardHTML('What SHRDLU did', 'Each goal as it was given to Micro-Planner, and what came of it: done, refused (the goal failed), or stopped where one of the program’s own checks broke into its break loop.', '<ol class="mw-log"></ol>', 'gx-wide') +
+      '</div>';
+    var cv = SW.$('.mw-cv', el), log = SW.$('.mw-log', el), selEl = SW.$('.mw-sel', el), actsEl = SW.$('.mw-acts', el);
+    function say(html, cls) { var li = document.createElement('li'); li.className = cls || ''; li.innerHTML = html; log.insertBefore(li, log.firstChild); }
+    function paintSel() {
+      selEl.innerHTML = mw && mw.sel ? 'Chosen: <b class="mono">' + SW.esc(mw.sel) + '</b>' : mw && mw.busy ? 'SHRDLU is working…' : 'Nothing chosen.';
+      actsEl.innerHTML = mw && mw.sel ? ACTS.map(function (a) { return '<button class="btn" data-mw="' + a[0] + '"' + (mw.busy ? ' disabled' : '') + ' title="' + SW.esc(a[2]) + '">' + SW.esc(a[1]) + '</button>'; }).join('') : '';
+      if (mw && mw.disp) { mw.disp.highlight = mw.sel; mw.disp.dirty(); }
+    }
+    function run(goal) {
+      mw.busy = true; paintSel();
+      say('<span class="mono">' + SW.esc(goal) + '</span> <span class="hint">…</span>', 'mw-run');
+      var steps0 = mw.sess.m.steps;
+      mw.sess.planner(goal, function (r) {
+        mw.busy = false;
+        var li = log.firstChild, n = (mw.sess.m.steps - steps0).toLocaleString('en-GB');
+        li.className = r.ok ? 'mw-ok' : r.message ? 'mw-brk' : 'mw-no';
+        li.innerHTML = '<span class="mono">' + SW.esc(goal) + '</span><div>' + (r.ok ? '<b>Done.</b>' : r.message ? '<b>Stopped</b> in the break loop: <span class="mono">' + SW.esc(r.message) + '</span>. SHRDLU was taken back to READY (GO).' : '<b>Refused:</b> the goal failed (<span class="mono">' + SW.esc(r.value || 'NIL') + '</span>).') + ' <span class="hint">' + n + ' steps.</span></div>';
+        mw.sel = null; paintSel();
+      });
+    }
+    function boot() {
+      var v = b.v, srcs = v.build.map(function (x) { return x.src; }).concat(root.SHRepairs.sources(v.id)), texts = {};
+      if (mw && mw.sess) { mw.sess.gen = (mw.sess.gen || 0) + 1; }
+      mw = { vid: v.id, busy: true, sel: null };
+      paintSel();
+      Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (x) { texts[s] = x; }); })).then(function () {
+        mw.disp = new root.SH340({ canvas: cv, colour: true, solid: true, hand1970: true, labels: false });
+        mw.sess = new root.SHSession({ version: v, texts: texts, display: mw.disp, animate: true, speed: 2, out: function () {} });
+        mw.sess.boot(function (r) { mw.busy = false; paintSel(); if (r !== 'input') say('The program did not start: ' + SW.esc(r), 'mw-brk'); });
+      });
+    }
+    cv.addEventListener('click', function (e) {
+      if (!mw || !mw.disp || mw.busy) return;
+      var rc = cv.getBoundingClientRect(), X = (e.clientX - rc.left) / rc.width * 1024, Y = 1024 - (e.clientY - rc.top) / rc.height * 1024;
+      var hit = mw.disp.pickAt(X, Y);
+      if (mw.pending && hit) { var a = mw.pending; mw.pending = null; run('(THGOAL (!PUTON ' + a + ' ' + hit + ') (THUSE TC-PUTON))'); return; }
+      mw.sel = hit && !/TABLE/.test(hit) ? hit : null; paintSel();
+      if (mw.sel) { mw.pending = mw.sel; selEl.innerHTML += ' <span class="hint">then click where it is to go, or choose below</span>'; }
+    });
+    el.onclick = function (e) {
+      var a = e.target.closest('[data-mw]'); if (!a || a.disabled) return;
+      if (a.dataset.mw === 'reset') { log.innerHTML = ''; boot(); return; }
+      var act = ACTS.filter(function (x) { return x[0] === a.dataset.mw; })[0]; if (!act || !mw.sel) return;
+      if (!act[3]) { mw.pending = mw.sel; selEl.innerHTML = 'Chosen: <b class="mono">' + SW.esc(mw.sel) + '</b> <span class="hint">now click where it is to go</span>'; return; }
+      mw.pending = null; run(act[3].replace('$X', mw.sel));
+    };
+    if (mw && mw.vid === b.v.id && mw.disp) { mw.disp.canvas = cv; mw.disp.dirty(); paintSel(); } else boot();
+  }
+
   // the hand, 1970 and after: what the film shows, and what the surviving code draws
   function handSection(b) {
     var find = function (re, part) { var hit = null; b.parts.forEach(function (pt, i) { if (hit || (part && !part.test(pt.src))) return; b.lines[i].some(function (Lr) { if (re.test(Lr.raw)) { hit = [i, Lr.n]; return true; } return false; }); }); return hit; };
@@ -290,6 +353,6 @@
     SW.$('.an-head', el).addEventListener('click', function (e) { var t2 = e.target.closest('[data-g]'); if (t2) { SW.setGraphic(t2.dataset.g); SW.writeQuery(); SW.views.graphics.show(build); } });
     var body = SW.$('.gx-body', el);
     if (!b.v.build) { body.innerHTML = '<p class="hint">No source survives for ' + SW.esc(b.v.label) + ', so there is nothing to draw.</p>'; return; }
-    ({ crane: craneView, path: pathView, hand: handView }[gid] || objectsView)(body, b);
+    ({ world: worldView, crane: craneView, path: pathView, hand: handView }[gid] || objectsView)(body, b);
   } };
 })(this);

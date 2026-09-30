@@ -222,6 +222,15 @@
       this.track.push({ step: m.steps, x: h[0], y: h[1], z: h[2], held: hi[1] || null });
     } catch (e) { /* the path is a record, never a reason to stop */ }
   };
+  // the object at a point on the screen (in the 340's units), the one painted last there; else the table
+  D.pickAt = function (X, Y) {
+    var sc = sceneOf(this); if (!sc) return null;
+    function inside(P) { var c = false; for (var i = 0, j = P.length - 1; i < P.length; j = i++) { if (((P[i][1] > Y) !== (P[j][1] > Y)) && (X < (P[j][0] - P[i][0]) * (Y - P[i][1]) / (P[j][1] - P[i][1]) + P[i][0])) c = !c; } return c; }
+    var hit = null;
+    sc.objs.forEach(function (o) { if (!o.arm && o.name !== 'hand' && o.hull && inside(o.hull)) hit = o.name.replace(/ (wall|floor)$/, ''); });
+    if (!hit && sc.table) { var T = sc.table, P = [[T.x0, T.y0], [T.x1, T.y0], [T.x1, T.y1], [T.x0, T.y1]].map(function (c) { return proj(c[0], c[1], 0); }); if (inside(P)) hit = sc.table.name; }
+    return hit;
+  };
   // paint the scene: each face turned to the viewer, filled in the screen's colour and outlined
   D.drawSolid = function (g, k, H, beam, bg) {
     var sc = sceneOf(this); if (!sc) return false;
@@ -238,7 +247,7 @@
       g.save(); g.shadowBlur = 0; g.globalAlpha = alpha; g.fillStyle = d.faces ? shade(f, col) : bg; g.fill(); g.restore();
       g.strokeStyle = g.shadowColor = col; g.stroke();
     }
-    var colOf = function (o) { return d.colour && o.col ? o.col : beam; };
+    var colOf = function (o) { return d.highlight && o.name.replace(/ (wall|floor)$/, '') === d.highlight ? '#ffffff' : d.colour && o.col ? o.col : beam; };
     if (sc.table) sc.table.faces.forEach(function (f) { face(f, colOf(sc.table), 1); });
     sc.objs.forEach(function (o) {
       if (o.arm) {
