@@ -1789,3 +1789,10 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .run-dlg #run-side-body { max-height: calc(88vh - 60px); overflow: auto; }
 .run-bar .badge:empty { display: none; }
 .run-grid.flip .run-side { order: -1; }
+/* Run's toolbar holds its height as the status changes: the status in one clipped line */
+.run-bar { flex-wrap: nowrap; }
+.run-bar #run-status { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.run-bar > .btn, .run-bar > label { flex: none; }
+.run-bar .vlang { flex: none; }
+@media (max-width: 1100px) { .run-bar { flex-wrap: wrap; } .run-bar #run-status { flex-basis: 100%; order: 10; } }
+.run-bar .btn .badge { line-height: 1; padding: 1px 5px; font-size: 10.5px; vertical-align: 1px; }

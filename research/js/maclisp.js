@@ -181,6 +181,11 @@
     this.pend = false;
     return 'halt';
   };
+  // ^G: quit to the top level, unwinding the stack (bindings restored) and dropping what was typed ahead
+  M.quitToTop = function () {
+    this.unwindTo(this.floor);
+    this.waiting = null; this.pend = false; this.sleeping = 0; this.halted = null; this.tty = '';
+  };
   M.errorMessage = function (e) {
     this.terpriIfNeeded();
     this.print(';' + (e.obj !== undefined && e.obj !== null ? this.prin1String(e.obj) + ' ' : '') + e.msg + '\n');

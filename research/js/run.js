@@ -55,7 +55,7 @@
       ttyAppend(part);
     });
   }
-  function status(t) { var s = SW.$('#run-status', view); if (s) s.textContent = t; }
+  function status(t) { var s = SW.$('#run-status', view); if (s) { s.textContent = t; s.title = t; } }
   function stateText(st) {
     return { loading: 'Loading the files through the program’s own loader…', running: 'Running…', waiting: 'Waiting for you to type.', halted: 'Stopped on an error (see the teletype).', done: 'The program has returned.' }[st] || st;
   }
@@ -74,9 +74,9 @@
     cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
   }
 
-  function boot() {
+  function boot(then) {
     var v = V.byId(vid);
-    playing = false; results = {}; lastOut = ''; loadLog = '';
+    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; lastOut = ''; loadLog = '';
     if (out) out.innerHTML = '';
     paintSide();
     status('Fetching the files of ' + v.label + '…');
@@ -98,6 +98,7 @@
         status(stateText(sess.state) + '  ·  loaded and started in ' + ms + ' ms');
         var inp = SW.$('#tty-input', view); if (inp) inp.focus();
         void r;
+        if (typeof then === 'function' && sess.state === 'waiting') then();
       });
     }).catch(function (e) { status(e.message); });
   }
@@ -126,13 +127,31 @@
     return String(t || '').replace(/\[\d+\]/g, ' ').replace(/RATIO OF WINNING PARSES TO TOTAL\s+\S+/g, ' ').replace(/\bREADY\b/g, ' ').replace(/\(does it\)/gi, ' ')
       .toUpperCase().replace(/ANWHERE/g, 'ANYWHERE').replace(/[^A-Z0-9]+/g, ' ').trim();
   }
-  function play() {
+  // Play from the start, or on from where » or Stop left off (limit: how many exchanges before
+  // waiting; Infinity for Play, 1 for »). « goes back one: a run is repeatable (RANDOM is seeded,
+  // RUNTIME counts steps), so the program is started afresh and the exchanges before are replayed
+  // at full speed.
+  var limit = 0, played = 0, replaying = false;
+  function play(n) {
     loadDialogue().then(function (ex) {
-      if (!sess || sess.state !== 'waiting') { SW.toast('Start the program first, and wait for READY.'); return; }
-      queue = [];
-      ex.forEach(function (e) { e.turns.forEach(function (t) { if (t.who === 'person') queue.push({ n: e.n, text: t.text.toLowerCase(), e: e }); }); });
-      results = {}; playing = true; side = 'test'; paintSide();
+      if (!sess || sess.state !== 'waiting') { SW.toast(sess && sess.state === 'running' ? 'SHRDLU is busy: Stop quits it, as ^G did.' : 'Start the program first, and wait for READY.'); return; }
+      if (!queue.length && !played) {
+        ex.forEach(function (e) { e.turns.forEach(function (t) { if (t.who === 'person') queue.push({ n: e.n, text: t.text.toLowerCase(), e: e }); }); });
+        results = {}; paintSide();
+      }
+      if (!queue.length) { status('The dialogue is played.  ·  « goes back an exchange; ⟳ Restart starts again'); return; }
+      playing = true; limit = n;
       playNext();
+    });
+  }
+  function back() {
+    var target = played - 1;
+    if (target < 0 || (sess && sess.state === 'running')) { SW.toast(target < 0 ? 'Nothing played yet.' : 'SHRDLU is busy: Stop it first.'); return; }
+    boot(function () {
+      if (!target) { status('Back at the start.  ·  » plays exchange 1'); return; }
+      replaying = true; if (sess) sess.animate = false;
+      ttyAppend('Replaying exchanges 1–' + target + ' at full speed   ← the bench, going back one exchange\n', 'tty-bench');
+      play(target);
     });
   }
   function playNext() {
@@ -149,6 +168,13 @@
         return;
       }
       paintRow(cur.e);
+    }
+    if (cur) { played++; limit--; }
+    if (cur && limit <= 0) {
+      playing = false; var done = cur.n; cur = null;
+      if (replaying) { replaying = false; if (sess) sess.animate = armSpeed > 0; }
+      status('Exchange ' + done + ' played' + (queue.length ? '  ·  » for exchange ' + queue[0].n + ', ▶ Play for the rest, « back one' : '  ·  the dialogue is played'));
+      return;
     }
     if (!playing || !queue.length || !sess || sess.state !== 'waiting') { playing = false; cur = null; status(stateText(sess ? sess.state : '') + (queue.length ? '' : '  ·  the dialogue is played')); return; }
     cur = queue.shift();
@@ -174,7 +200,7 @@
   }
   function paintRow(e) {
     var tr = SW.$('.run-test tr[data-n="' + e.n + '"]', view);
-    if (tr) { tr.outerHTML = rowHTML(e); var t2 = SW.$('.run-test tr[data-n="' + e.n + '"]', view); if (t2) t2.scrollIntoView({ block: 'nearest' }); }
+    if (tr) { tr.outerHTML = rowHTML(e); var t2 = SW.$('.run-test tr[data-n="' + e.n + '"]', view); var dl = SW.$('#run-dlg', view); if (t2 && dl && dl.open) t2.scrollIntoView({ block: 'nearest' }); }
     paintTally();
   }
   function paintTally() {
@@ -210,7 +236,9 @@
       '<div class="toolbar run-bar"><label class="check">Version <select id="run-v">' + runnable().map(function (v) { return '<option value="' + v.id + '"' + (v.id === vid ? ' selected' : '') + '>' + SW.esc(SW.refOf(v.id) + '  ' + v.label) + '</option>'; }).join('') + '</select></label>' +
       '<button class="btn" id="run-restart" title="Load the version afresh and start it">⟳ Restart</button>' +
       '<button class="btn" id="run-play" title="Type each of the person’s lines of the 1970 dialogue in turn, and record what this run answers">▶ Play the 1970 dialogue</button>' +
-      '<button class="btn ghost" id="run-stop" title="Stop playing the dialogue after the current exchange">■ Stop</button>' +
+      '<button class="btn" id="run-back" title="Back one exchange: start the program afresh and replay the exchanges before, at full speed">«</button>' +
+      '<button class="btn" id="run-step" title="Forward one exchange: type the next exchange of the 1970 dialogue, then wait">»</button>' +
+      '<button class="btn ghost" id="run-stop" title="Stop: quit what SHRDLU is doing, as ^G did on ITS, and stop playing the dialogue">■ Stop</button>' +
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
       '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About running</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
@@ -231,15 +259,25 @@
     out = SW.$('#tty-out', view);
     SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid));
     SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };
-    SW.$('#run-restart', view).onclick = boot;
+    SW.$('#run-restart', view).onclick = function () { boot(); };
     SW.$('#run-disp', view).onchange = function (e) { dispOn = e.target.checked; SW.store.set('run.display', dispOn); boot(); };
     SW.$('#run-flip', view).onclick = function () { var g = SW.$('.run-grid', view), on = !g.classList.contains('flip'); g.classList.toggle('flip', on); SW.store.set('run.flip', on); };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };
     SW.$('#run-col', view).onchange = function (e) { colOn = e.target.checked; SW.store.set('run.colour', colOn); if (disp) { disp.colour = colOn; disp.dirty(); } };
     SW.$('#run-arm', view).onchange = function (e) { armSpeed = +e.target.value; SW.store.set('run.arm', armSpeed); if (sess) { sess.animate = armSpeed > 0; sess.speed = armSpeed || 1; } };
     SW.$('#run-dfig', view).appendChild(SW.figureButtons(function () { return disp ? disp.toSVG() : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/></svg>'; }, function () { return 'shrdlu-' + vid + '-340'; }, function () { return SW.refText(vid); }));
-    SW.$('#run-play', view).onclick = play;
-    SW.$('#run-stop', view).onclick = function () { playing = false; queue = []; status('Stopped after this exchange.'); };
+    SW.$('#run-play', view).onclick = function () { play(Infinity); };
+    SW.$('#run-step', view).onclick = function () { play(1); };
+    SW.$('#run-back', view).onclick = back;
+    SW.$('#run-stop', view).onclick = function () {
+      var busy = sess && sess.state === 'running';
+      playing = false; limit = 0; replaying = false;
+      if (cur) { queue.unshift(cur); cur = null; }   // the exchange cut short is played again by Play or Step
+      if (!busy) { status('Stopped.' + (queue.length ? '  ·  ▶ Play or » go on from exchange ' + queue[0].n : '')); return; }
+      ttyAppend('\n^G   ← typed by the bench: Stop quits to the top level, as ^G did on ITS\n', 'tty-bench');
+      lastOut = '';
+      sess.quit(function () { status('Stopped: SHRDLU is back at READY.' + (queue.length ? '  ·  ▶ Play or » go on from exchange ' + queue[0].n : '')); });
+    };
     SW.$$('.run-bar [data-side]', view).forEach(function (b) { b.onclick = function () { side = b.dataset.side; paintSide(); var d = SW.$('#run-dlg', view); if (!d.open) d.showModal(); }; });
     SW.$('#run-dlg', view).addEventListener('click', function (e) { var d = SW.$('#run-dlg', view); if (e.target === d || e.target.closest('[data-x]')) d.close(); });
     var inp = SW.$('#tty-input', view);

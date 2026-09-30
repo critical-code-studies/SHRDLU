@@ -50,8 +50,9 @@
   S.eval = function (src) { var m = this.m; m.ev(m.readFrom(new m.Stream(src))); };
   // Run the machine in slices until it waits, halts or finishes; then call done(result).
   S.pump = function (done) {
-    var s = this;
+    var s = this, g = s.gen = (s.gen || 0);
     (function step() {
+      if (s.gen !== g) return;   // quit (^G) since: this run is abandoned
       var r = s.m.run(s.slice);
       if (r === 'budget') { if (s.schedule) s.schedule(step); else step(); return; }
       // SLEEP: wait as long as the program asked, when animating; otherwise go straight on
@@ -78,6 +79,16 @@
         });
       })();
     });
+  };
+  // ^G, as on ITS: quit whatever is running to the top level, which SHRDLU sets to itself
+  // ((SSTATUS TOPLEVEL '(SHRDLU)) in the restoration; (SHRDLU) is the loop in every copy)
+  S.quit = function (cb) {
+    var s = this;
+    s.gen = (s.gen || 0) + 1;
+    s.m.quitToTop();
+    s.setState('running');
+    s.eval('(SHRDLU)');
+    s.pump(function (r) { s.setState(r === 'input' ? 'waiting' : r === 'error' ? 'halted' : 'done'); if (cb) cb(r); });
   };
   S.pumpSync = function () { var r; do { r = this.m.run(1e6); } while (r === 'budget' || r === 'sleep'); return r; };
   S.type = function (line, cb) {
