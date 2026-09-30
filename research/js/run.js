@@ -9,7 +9,7 @@
   'use strict';
   var SW = root.SW, V = root.SWVersions;
   var view = SW.$('#view-run');
-  var sess = null, vid = SW.store.get('run.v', 'ejs'), dialogue = null, playing = false, results = {}, lastOut = '', side = 'test';
+  var sess = null, vid = 'ejs', dialogue = null, playing = false, results = {}, lastOut = '', side = 'test';
   var runnable = function () { return V.VERSIONS.filter(function (v) { return v.build; }).sort(function (a, b) { return a.sort - b.sort; }); };
 
   // the canonical transcript (docs/shrdlu-dialogue-canonical.md), exchange by exchange
@@ -295,9 +295,12 @@
   }
 
   function show() {
-    if (SW.$('.run-wrap', view) && sess && sess.v.id === vid) return;   // keep a running session when coming back
+    if (SW.$('.run-wrap', view)) {
+      if (sess && sess.v.id === vid) return;   // keep a running session when coming back
+      SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); return;   // the top bar chose another version
+    }
     view.innerHTML = '<div class="run-wrap">' +
-      '<div class="toolbar run-bar"><label class="check">Version <select id="run-v">' + runnable().map(function (v) { return '<option value="' + v.id + '"' + (v.id === vid ? ' selected' : '') + '>' + SW.esc(SW.refOf(v.id) + '  ' + v.label) + '</option>'; }).join('') + '</select></label>' +
+      '<div class="toolbar run-bar">' +
       '<button class="btn" id="run-restart" title="Load the version afresh and start it">⟳ Restart</button>' +
       '<button class="btn" id="run-play" title="Type each of the person’s lines of the 1970 dialogue in turn, and record what this run answers">▶ Play the 1970 dialogue</button>' +
       '<button class="btn" id="run-back" title="Back one exchange: start the program afresh and replay the exchanges before, at full speed">«</button>' +
@@ -324,7 +327,6 @@
       '<dialog class="tray-big run-dlg" id="run-dlg"><div class="tray-bighead"><b id="run-dlg-t"></b><button class="icon-btn" data-x title="Close (Esc)">✕</button></div><div id="run-side-body"></div></dialog></div>';
     out = SW.$('#tty-out', view);
     SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid));
-    SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };
     SW.$('#run-restart', view).onclick = function () { boot(); };
     SW.$('#run-disp', view).onchange = function (e) { dispOn = e.target.checked; SW.store.set('run.display', dispOn); boot(); };
     var dd = SW.$('#run-deep', view);
@@ -390,5 +392,11 @@
     boot();
   }
 
-  SW.views.run = { show: function (b) { if (b && b.v && b.v.build && !SW.$('.run-wrap', view)) vid = SW.store.get('run.v', b.v.id); show(); }, hide: function () {} };
+  // Run runs the version chosen in the top bar; one with no text to run leaves the last one running
+  SW.views.run = { show: function (b) {
+    var v = b && b.v;
+    if (v && v.build) vid = v.id;
+    show();
+    if (v && !v.build) status(v.label + ' survives in no text the bench can run; still running ' + V.byId(vid).label + '.');
+  }, hide: function () {} };
 })(this);
