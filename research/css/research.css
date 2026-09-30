@@ -1754,23 +1754,32 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .run-deep { flex: none; margin-top: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
 .run-deep > summary { cursor: pointer; padding: 6px 10px; font-size: 13px; }
 .run-deep[open] > summary { border-bottom: 1px solid var(--line-soft); }
-#run-deep-body { max-height: 42vh; overflow: auto; padding: 6px 10px 10px; font-size: 12.5px; }
-.dd-g h4 { margin: 10px 0 4px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); }
-.dd-row { display: grid; grid-template-columns: minmax(130px, 200px) 1fr; gap: 4px 12px; padding: 4px 0; border-top: 1px solid var(--line-soft); }
-.dd-row .hint { font-size: 11px; }
+#run-deep-body { max-height: 46vh; overflow: auto; padding: 0 6px 4px; font-size: 10.5px; line-height: 1.25;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 12px; align-items: start; }
+.run-deep > summary { padding: 3px 8px; font-size: 12px; }
+.run-deep > summary .hint { font-size: 10px; }
+.dd-g { min-width: 0; }
+.dd-g.dd-wide { grid-column: 1 / -1; }
+.dd-g h4 { margin: 4px 0 0; font-size: 8.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); }
+.dd-row { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 0 8px; padding: 0; border-top: 1px solid var(--line-soft); }
+.dd-row.dd-block { grid-template-columns: minmax(0, 1fr); position: relative; }
+.dd-row.dd-block > .dd-mark { position: absolute; right: 2px; top: 0; }
+.dd-g h4 .mono { text-transform: none; letter-spacing: 0; }
+.dd-name { cursor: help; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dd-val { min-width: 0; overflow-x: auto; }
 .dd-v { white-space: pre-wrap; word-break: break-word; }
 .dd-ch .dd-name .mono { color: var(--amber); }
-.dd-mark { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--amber); border: 1px solid currentColor; border-radius: 3px; padding: 0 4px; }
-.dd-x { border: 0; background: none; color: var(--text-faint); cursor: pointer; }
+.dd-mark { color: var(--amber); font-size: 8px; margin-left: 3px; vertical-align: 1px; }
+.dd-x { border: 0; background: none; color: var(--text-faint); cursor: pointer; padding: 0 2px; font-size: 9px; }
 .dd-tree { font-family: var(--code-font); }
-.dd-node { padding-left: calc(var(--dd) * 14px); white-space: nowrap; }
+.dd-node { padding-left: calc(var(--dd) * 10px); white-space: nowrap; line-height: 1.2; }
 .dd-fe { color: var(--violet); }
 .dd-w { color: var(--text); }
-.dd-t { border-collapse: collapse; font-size: 12px; }
-.dd-t th, .dd-t td { text-align: left; padding: 1px 10px 1px 0; border-bottom: 1px solid var(--line-soft); }
-.dd-add { display: flex; gap: 6px; margin-top: 10px; }
-.dd-add input { flex: 1; font: 12.5px var(--code-font); }
+.dd-t { border-collapse: collapse; font-size: 10px; line-height: 1.2; }
+.dd-t th { font-weight: 600; color: var(--text-faint); }
+.dd-t th, .dd-t td { text-align: left; padding: 0 8px 0 0; border-bottom: 1px solid var(--line-soft); }
+.dd-add { grid-column: 1 / -1; margin: 3px 0 0; }
+.dd-add input { width: 100%; font: 10.5px var(--code-font); padding: 1px 6px; }
 .run-loadlog { flex: none; margin-top: 6px; }
 .run-loadlog pre { max-height: 180px; overflow: auto; font-size: 11px; color: var(--text-dim); background: var(--code-bg); padding: 6px 8px; border-radius: 4px; }
 .run-side { display: flex; flex-direction: column; min-height: 0; }

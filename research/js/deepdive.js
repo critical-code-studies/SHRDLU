@@ -29,12 +29,13 @@
   var SW = root.SW, L = root.MacLisp;
 
   var GROUPS = [
-    ['The sentence', [['SENTNO', 'the sentence’s number'], ['C', 'the words of the last sentence, as the parse holds them (FIRSTWORD of C); SENT itself is empty again while ETAOIN waits for the next', 'words']]],
-    ['The parse', [['C', 'the parse, node by node: features, and the words each covers', 'tree']]],
+    ['The sentence', [['SENTNO', 'the sentence’s number'], ['C', 'the words of the last sentence, as the parse holds them (FIRSTWORD of C); SENT itself is empty again while ETAOIN waits for the next', 'words', 'SENT']]],
     ['The meaning', [['INTERPRETATION', 'the semantic structures of the clause, (SM C)'], ['BACKREF', 'referents found in this sentence, for “it” and “that”'], ['LASTREL', 'the last relative, for “that”'], ['GLOBAL-MESSAGE', 'what SHRDLU says when it cannot go on']]],
-    ['The world', [['HANDAT', 'where the hand is'], ['GRASPLIST', 'what the hand held, and from when (time, object)'], ['THTIME', 'the event clock'], ['ATABLE', 'each object: its place and size', 'atable']]],
-    ['Memory', [['EVENTLIST', 'what SHRDLU did, event by event: its type, why, and when it began and ended', 'events']]],
-    ['Time', [['P-TIME', 'parsing'], ['SMN-TIME', 'semantics'], ['PLNR-TIME', 'Micro-Planner, for semantics'], ['ANS-TIME', 'answering']]]
+    ['The world', [['HANDAT', 'where the hand is'], ['GRASPLIST', 'what the hand held, and from when (time, object)'], ['THTIME', 'the event clock']]],
+    ['Time', [['P-TIME', 'parsing'], ['SMN-TIME', 'semantics'], ['PLNR-TIME', 'Micro-Planner, for semantics'], ['ANS-TIME', 'answering']]],
+    ['The parse', [['C', 'the parse, node by node: features, and the words each covers', 'tree']]],
+    ['The objects', [['ATABLE', 'each object: its place and size', 'atable']]],
+    ['Memory', [['EVENTLIST', 'what SHRDLU did, event by event: its type, why, and when it began and ended', 'events']]]
   ];
 
   function sym(m, name) { return m.obarray && m.obarray.get ? m.obarray.get(name) : null; }
@@ -81,7 +82,9 @@
     var next = {}, h = [];
     var groups = GROUPS.concat(watch && watch.length ? [['Watched', watch.map(function (w) { return [w, 'added by you']; })]] : []);
     groups.forEach(function (g) {
-      h.push('<div class="dd-g"><h4>' + SW.esc(g[0]) + '</h4>');
+      // a structure (the parse, the objects, the events) takes the group whole: its name goes in the heading
+      var block = g[1].length === 1 && /^(tree|atable|events)$/.test(g[1][0][2] || '');
+      h.push('<div class="dd-g' + (g[1][0][2] === 'tree' ? ' dd-wide' : '') + '"><h4>' + SW.esc(g[0]) + (block ? ' · <span class="mono" title="' + SW.esc(g[1][0][0] + ': ' + g[1][0][1]) + '">' + SW.esc(g[1][0][0]) + '</span>' : '') + '</h4>');
       g[1].forEach(function (r) {
         var name = r[0], key = name + (r[2] ? ':' + r[2] : ''), v = valOf(m, name), txt = show(m, v, 4000), changed = prev && prev[key] !== undefined && prev[key] !== txt;
         next[key] = txt;
@@ -92,11 +95,14 @@
         else if (r[2] === 'atable') body = atable(m, v);
         else if (r[2] === 'events') body = events(m, v);
         else body = '<span class="mono dd-v">' + SW.esc(show(m, v)) + '</span>';
-        h.push('<div class="dd-row' + (changed ? ' dd-ch' : '') + '"><div class="dd-name"><span class="mono">' + SW.esc(name) + '</span>' + (changed ? ' <span class="dd-mark" title="Changed in the last exchange">changed</span>' : '') + (r[3] !== false && watch && watch.indexOf(name) >= 0 ? ' <button class="dd-x" data-unwatch="' + SW.esc(name) + '" title="Stop watching">✕</button>' : '') + '<div class="hint">' + SW.esc(r[1]) + '</div></div><div class="dd-val">' + body + '</div></div>');
+        // one line a row: the name (its description in the hover), then the value
+        var watched = g[0] === 'Watched';
+        if (block) { h.push('<div class="dd-row dd-block' + (changed ? ' dd-ch' : '') + '">' + (changed ? '<span class="dd-mark" title="Changed in the last exchange">●</span>' : '') + '<div class="dd-val">' + body + '</div></div>'); return; }
+        h.push('<div class="dd-row' + (changed ? ' dd-ch' : '') + '"><div class="dd-name" title="' + SW.esc(name + ': ' + r[1] + (changed ? '. Changed in the last exchange.' : '')) + '"><span class="mono">' + SW.esc(r[3] || name) + '</span>' + (changed ? '<span class="dd-mark">●</span>' : '') + (watched ? '<button class="dd-x" data-unwatch="' + SW.esc(name) + '" title="Stop watching">✕</button>' : '') + '</div><div class="dd-val">' + body + '</div></div>');
       });
       h.push('</div>');
     });
-    h.push('<form class="dd-add"><input placeholder="Watch another variable, e.g. LASTSENT" aria-label="A variable to watch" spellcheck="false"><button class="btn">Watch</button></form>');
+    h.push('<form class="dd-add"><input placeholder="+ watch a variable, e.g. LASTSENT" aria-label="A variable to watch" spellcheck="false"></form>');
     el.innerHTML = h.join('');
     return next;
   }
