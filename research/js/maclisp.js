@@ -381,7 +381,7 @@
   M.terpriIfNeeded = function () { if (this.col) this.print('\n'); };
   // Characters from the user. The machine, if waiting, continues.
   M.type = function (text) {
-    this.tty += text.replace(/\r\n?|\n/g, '\r');
+    this.tty += text;   // as typed: the session sends Return as CR LF, as the ITS teletype's two keys
     if (this.waiting) { var w = this.waiting; this.waiting = null; w.call(this); }
   };
   // Wait for the teletype: retry is called (with the machine as this) when characters come.

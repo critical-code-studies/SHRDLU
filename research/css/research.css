@@ -1697,8 +1697,7 @@ body.dev-on .dev-only { display: revert !important; }
 /* ◆ the repairs in turn, and the repairs menu (Read's toolbar; as on the Spacewar! bench) */
 .toolbar .kin-nav { display: inline-flex; gap: 2px; margin-left: 4px; }
 .toolbar .kin-nav[hidden] { display: none; }
-.toolbar .kin-nav .btn { color: var(--gold); border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); padding-left: 7px; padding-right: 7px; }
-.toolbar .kin-nav .btn:hover { border-color: var(--gold); }
+.toolbar .kin-nav .btn { padding-left: 7px; padding-right: 7px; }
 .ln.kin-flash { animation: kin-flash 1.8s ease-out; }
 @keyframes kin-flash { 0%, 35% { background: color-mix(in srgb, var(--gold) 26%, transparent); } 100% { background: transparent; } }
 @media (prefers-reduced-motion: reduce) { .ln.kin-flash { animation: none; background: color-mix(in srgb, var(--gold) 18%, transparent); } }
@@ -1710,8 +1709,8 @@ body.dev-on .dev-only { display: revert !important; }
 .kin-k { font: 600 9.5px/1.6 var(--sans); text-transform: uppercase; letter-spacing: .05em; padding: 0 5px; border-radius: 3px; border: 1px solid var(--gold); color: var(--gold); }
 .kin-k.rp-m-yobitsugi { background: var(--gold-bg); }
 .kin-k.rp-m-mount { border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: color-mix(in srgb, var(--gold) 70%, var(--text-faint)); }
-.toolbar .kin-tog { color: var(--gold); border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
-.toolbar .kin-tog.open { background: color-mix(in srgb, var(--gold) 14%, transparent); border-color: var(--gold); }
+.toolbar .kin-tog .kin-dia { color: var(--gold); }   /* only the diamond in gold */
+.toolbar .kin-tog.open { background: var(--sel); }
 .toolbar .kin-chev { display: inline-block; font-size: 15px; line-height: 0.6; vertical-align: 3px; margin-left: 2px; transition: transform .15s; }
 .toolbar .kin-tog.open .kin-chev { transform: rotate(180deg) translateY(-3px); }
 /* the repairs bar: a second row of the toolbar, folded down from ◆ (as on the Spacewar! bench) */

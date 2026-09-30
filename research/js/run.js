@@ -106,7 +106,14 @@
     if (!sess || sess.state !== 'waiting') { SW.toast(sess ? 'SHRDLU is busy; wait for it to finish.' : 'Start it first.'); return false; }
     ttyAppend(line + '\n', 'tty-you');
     lastOut = '';
-    sess.type(line, function () { if (playing) playNext(); });
+    sess.type(line, function () {
+      // SHRDLU reads a sentence until its full stop, question mark or exclamation mark
+      if (!playing && line.trim() && !/[.?!]\s*$/.test(line) && !/^\s*\(/.test(line) && !/^\s*GO\s*$/i.test(line) && sess.state === 'waiting' && !/READY\s*$/.test(lastOut) && !/CONTINUE THE SENTENCE\.\s*$/.test(lastOut))
+        ttyAppend('SHRDLU is reading on to the end of the sentence: finish it with a full stop, question mark or exclamation mark.\n', 'tty-bench');
+      if (!playing && /CONTINUE THE SENTENCE\.\s*$/.test(lastOut))
+        ttyAppend('Press Return for the line feed it asks for, then type the rest of the sentence.\n', 'tty-bench');
+      if (playing) playNext();
+    });
     if (line.trim() && hist[0] !== line) { hist.unshift(line); hist = hist.slice(0, 50); SW.store.set('run.hist', hist); }
     hi = -1;
     return true;

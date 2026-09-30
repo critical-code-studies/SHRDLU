@@ -81,7 +81,9 @@
   S.type = function (line, cb) {
     var s = this;
     s.setState('running');
-    s.m.type(line + '\r');
+    // Return sends a carriage return and a line feed: the ITS teletype had a key for each, and
+    // SHRDLU asks for a line feed after a word it does not know (morpho, ETAOIN: NOGO)
+    s.m.type(line + '\r\n');
     s.pump(function (r) { s.setState(r === 'input' ? 'waiting' : r === 'error' ? 'halted' : 'done'); if (cb) cb(r); });
   };
 
