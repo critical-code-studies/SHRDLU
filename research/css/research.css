@@ -1883,3 +1883,5 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .mw-log li { margin: 0 0 6px; }
 .mw-log .mono { font-size: 12px; }
 .mw-ok b { color: var(--green); } .mw-no b { color: var(--red); } .mw-brk b { color: var(--violet); }
+.gx-link { width: 100%; max-width: 420px; height: auto; display: block; margin-top: 8px; background: #05070a; border: 1px solid var(--line); border-radius: 6px; }
+.gx-steps { width: 100%; max-width: 900px; height: auto; background: #05070a; border: 1px solid var(--line); border-radius: 8px; display: block; }

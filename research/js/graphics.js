@@ -155,13 +155,23 @@
     // a path through the scene (the hand's, in The crane): orchid where it holds something
     if (this.path && this.path.length > 1) {
       var P = this.path.map(function (q) { return v.xf([q.x, q.y, q.z]); });
+      var LEG = ['#ff5a4e', '#4fdc6a', '#5aa2ff', '#e58be0'];
       for (var i = 1; i < P.length; i++) {
-        g.strokeStyle = this.path[i].held ? '#e58be0' : '#dff2ff'; g.lineWidth = this.path[i].held ? 3 : 1.6;
+        g.strokeStyle = this.path[i].leg != null ? LEG[this.path[i].leg] : this.path[i].held ? '#e58be0' : '#dff2ff'; g.lineWidth = this.path[i].held || this.path[i].leg != null ? 3 : 1.6;
         g.beginPath(); g.moveTo(P[i - 1][0], P[i - 1][1]); g.lineTo(P[i][0], P[i][1]); g.stroke();
       }
       g.fillStyle = '#dff2ff'; g.beginPath(); g.arc(P[0][0], P[0][1], 4, 0, 7); g.fill();
       g.fillStyle = '#e58be0'; g.beginPath(); g.arc(P[P.length - 1][0], P[P.length - 1][1], 4, 0, 7); g.fill();
+      // the legs numbered at their middles
+      if (this.path[1] && this.path[1].leg != null) { g.font = 'bold 20px ui-monospace, Menlo, monospace'; for (var j = 1; j < P.length; j++) { var mx = (P[j - 1][0] + P[j][0]) / 2, my = (P[j - 1][1] + P[j][1]) / 2; g.fillStyle = LEG[this.path[j].leg]; g.fillText(String(this.path[j].leg + 1), mx + 8, my - 6); } }
+      if (this.dot != null) { var q = this.dotAt(P); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(q[0], q[1], 7, 0, 7); g.fill(); }
     }
+  };
+  // a point a fraction of the way along a screen path (for the moving dot)
+  Viewer.prototype.dotAt = function (P) {
+    var L = [0], tot = 0; for (var i = 1; i < P.length; i++) { tot += Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); L.push(tot); }
+    var s = (this.dot % 1) * tot; for (i = 1; i < P.length; i++) if (L[i] >= s) { var f = (s - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [P[i - 1][0] + f * (P[i][0] - P[i - 1][0]), P[i - 1][1] + f * (P[i][1] - P[i - 1][1])]; }
+    return P[P.length - 1];
   };
   Viewer.prototype.pick = function (e) {
     var r = this.cv.getBoundingClientRect(), x = (e.clientX - r.left) * this.cv.width / r.width, y = (e.clientY - r.top) * this.cv.height / r.height, hit = null;
@@ -225,16 +235,73 @@
     el.innerHTML = '<div class="cards gx-cards">' +
       cardHTML('A move, in four legs' + ref('GP-MOVEHAND'), '', '<p class="gx-p">MOVETO' + ref('MOVETO') + ' takes the place the hand is to go to (LOCX LOCY LOCZ); if the hand holds something it first works out what the load will pass in front of. GP-MOVEHAND then moves the hand in four legs, each changing one coordinate: up to height 1300 (octal) where it stands, back or forward (y) at that height, across (x), and down to the place. The first element of GP-HANDIT, its record of where the hand is, is set to the new place at the end.</p>') +
       cardHTML('Each leg, in steps' + ref('GP-DISMOTION'), '', '<p class="gx-p">GP-DISMOTION moves the hand on the screen 20 (octal) points at a time across and 14 up or down. At each step it draws a new arm, from the hand up to height 1730, moves the hand to it, waits (SLEEP .06), and removes the old arm. Run pauses where the code says SLEEP; its Arm menu shortens the pauses.</p>') +
-      cardHTML('Holding' + ref('GRASP'), '', '<p class="gx-p">GRASP moves the hand to the object’s handle and links the object’s picture to the hand’s (DISLINK), so that it moves with it; UNGRASP' + ref('UNGRASP') + ' unlinks it and draws it afresh where it now stands. The Planner keeps its own account of the same things: HANDAT, where the hand is, and GRASPLIST, what it held and from when (Run ▸ Deep dive).</p>') +
+      cardHTML('Holding' + ref('GRASP'), '', '<p class="gx-p">GRASP moves the hand to the object’s handle and links the object’s picture to the hand’s (DISLINK), so that it moves with it; UNGRASP' + ref('UNGRASP') + ' unlinks it and draws it afresh where it now stands. The Planner keeps its own account of the same things: HANDAT, where the hand is, and GRASPLIST, what it held and from when (Run ▸ Deep dive).</p>' + linkSVG()) +
+      cardHTML('One move, leg by leg', 'The hand going from where it starts (DISPLAY-AS gives :HAND the place (40 0 0)) to the handle of the blue block, :B10 (the top of its middle; nothing stands on it), as GP-MOVEHAND moves it: 1 up to 1300, 2 back, 3 across, 4 down. Drag to turn, scroll to zoom.', '<canvas class="gx-cv gx-legs" width="900" height="640" aria-label="The four legs of one move, in three dimensions"></canvas>', 'gx-wide') +
+      cardHTML('The steps of a leg', 'Leg 3, across, as the 340 shows it: at each step GP-DISMOTION draws a new arm 20 (octal) points on, moves the hand to it, waits .06 seconds and removes the old arm. Here the arms are all left standing, the newest brightest.', '<canvas class="gx-steps" width="900" height="300" aria-label="Successive arms along one leg"></canvas>', 'gx-wide') +
       '</div>';
     el.onclick = linkRead;
+    // the four legs, from the data file's places
+    var dt = readData(b), obs = dt ? objectsOf(dt) : [], hand = null, blk = null;
+    (dt && dt['DISPLAY-AS'] || []).forEach(function (e) { if (Array.isArray(e) && e[0] === ':HAND') hand = e[3]; });
+    obs.forEach(function (o) { if (o.name === ':B10') blk = o; });
+    var cvL = SW.$('.gx-legs', el);
+    if (hand && blk) {
+      var H = 704, tgt = [blk.loc[0] + blk.size[0] / 2, blk.loc[1] + blk.size[1] / 2, blk.loc[2] + blk.size[2]];
+      var P = [hand, [hand[0], hand[1], H], [hand[0], tgt[1], H], [tgt[0], tgt[1], H], tgt], path = [];
+      P.forEach(function (c, i) { path.push({ x: c[0], y: c[1], z: c[2], leg: i ? i - 1 : 0 }); });
+      var vl = new Viewer(cvL, null); vl.path = path; vl.cz = 330; vl.zoom = 0.72; vl.dot = 0; vl.setObjects(obs);
+      var t0 = null;
+      (function tick(ts) { if (!cvL.isConnected) return; if (t0 == null) t0 = ts; vl.dot = ((ts - t0) / 6000) % 1; vl.draw(); requestAnimationFrame(tick); })(performance.now());
+    } else cvL.replaceWith(SW.el('p', { class: 'hint' }, 'No data file with the hand and :B10 in this version.'));
+    steps(SW.$('.gx-steps', el));
+  }
+  // the hand and a block as two display items, linked: moving the hand's item moves the block's
+  function linkSVG() {
+    return '<svg viewBox="0 0 360 150" class="gx-link" role="img" aria-label="The hand’s item and the block’s item, linked by DISLINK"><g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#8a8d86">' +
+      '<rect x="20" y="30" width="120" height="44" rx="6" fill="none" stroke="#dff2ff"/><text x="80" y="50" text-anchor="middle" fill="#dff2ff">hand item</text><text x="80" y="65" text-anchor="middle">GP-HANDIT, third</text>' +
+      '<rect x="220" y="30" width="120" height="44" rx="6" fill="none" stroke="#4fdc6a"/><text x="280" y="50" text-anchor="middle" fill="#4fdc6a">block item</text><text x="280" y="65" text-anchor="middle">its GP-LINES entry</text>' +
+      '<path d="M140 52 H220" stroke="#e58be0" stroke-width="2" marker-end="url(#gxa)"/><text x="180" y="44" text-anchor="middle" fill="#e58be0">DISLINK … T</text>' +
+      '<text x="80" y="104" text-anchor="middle">DISLOCATE hand x y</text><path d="M80 80 V92" stroke="#8a8d86"/><text x="280" y="104" text-anchor="middle">moves with it</text><path d="M280 80 V92" stroke="#8a8d86"/>' +
+      '<text x="180" y="136" text-anchor="middle">UNGRASP: DISLINK … NIL, then the block drawn afresh where it stands</text>' +
+      '</g><defs><marker id="gxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e58be0"/></marker></defs></svg>';
+  }
+  // the arms along one leg, as GP-DISMOTION draws them (20 octal = 16 points apart on the screen)
+  function steps(cv) {
+    var g = cv.getContext('2d'), W = cv.width, H = cv.height;
+    g.fillStyle = '#05070a'; g.fillRect(0, 0, W, H);
+    var n = 24, x0 = 60, dx = (W - 120) / n, hy = H - 70;
+    for (var i = 0; i <= n; i++) {
+      var x = x0 + i * dx, a = 0.12 + 0.88 * Math.pow(i / n, 2.2);
+      g.globalAlpha = a; g.strokeStyle = '#dff2ff'; g.lineWidth = i === n ? 2.2 : 1.2;
+      g.beginPath(); g.moveTo(x, 12); g.lineTo(x, hy); g.stroke();
+      g.fillStyle = '#dff2ff'; g.beginPath(); g.arc(x, hy, i === n ? 4 : 2.2, 0, 7); g.fill();
+    }
+    g.globalAlpha = 1; g.fillStyle = '#8a8d86'; g.font = '13px ui-monospace, Menlo, monospace';
+    g.fillText('← 20 (octal) points a step →', x0 + dx * 2, H - 36);
+    g.fillText('each step: DISCREATE a new arm · DISALINE up to 1730 · DISLOCATE the hand · SLEEP .06 · DISFLUSH the old arm', x0, H - 14);
   }
   // the hand's path in the last exchange: through the scene, and over time
   function pathView(el, b) {
     var r = SW.runNow && SW.runNow(), track = r && r.disp && r.vid === b.v.id ? r.disp.track || [] : [];
-    if (!track.length) { el.innerHTML = '<div class="cards gx-cards">' + cardHTML('No path yet', '', '<p class="gx-p">Run an exchange that moves the arm on this version (Run, with the display on), for example “pick up a big red block.”, and its path shows here.</p>') + '</div>'; return; }
+    if (!track.length) {
+      el.innerHTML = '<div class="cards gx-cards">' + cardHTML('Running exchange 1…', '', '<p class="gx-p">No path from Run on this version yet, so the bench is running the first sentence of the 1970 dialogue, “pick up a big red block.”, on its own copy of the program. An exchange you run in Run takes its place here.</p>') + '</div>';
+      demoPath(b, function (tr) { if (el.isConnected && gid === 'path') { el.dataset.demo = '1'; drawPath(el, b, tr, true); } });
+      return;
+    }
+    drawPath(el, b, track, false);
+  }
+  var demo = {};   // a path from exchange 1, run by the bench, by version
+  function demoPath(b, cb) {
+    if (demo[b.v.id]) { cb(demo[b.v.id]); return; }
+    var v = b.v, srcs = v.build.map(function (x) { return x.src; }).concat(root.SHRepairs.sources(v.id)), texts = {};
+    Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (x) { texts[s] = x; }); })).then(function () {
+      var d = new root.SH340({}), s = new root.SHSession({ version: v, texts: texts, display: d, animate: false, out: function () {} });
+      s.boot(function (r) { if (r !== 'input') return; s.type('pick up a big red block.', function () { demo[v.id] = d.track || []; cb(demo[v.id]); }); });
+    });
+  }
+  function drawPath(el, b, track, isDemo) {
     el.innerHTML = '<div class="cards gx-cards">' +
-      cardHTML('Through the scene', 'Drag to turn, scroll to zoom. Orchid where the hand holds something; the start is the white dot, the end the orchid one.', '<canvas class="gx-cv gx-cv3" width="900" height="640" aria-label="The hand’s path through the scene, to turn about"></canvas>', 'gx-wide') +
+      cardHTML('Through the scene', (isDemo ? 'Exchange 1, “pick up a big red block.”, run by the bench. ' : 'The last exchange run in Run. ') + 'Drag to turn, scroll to zoom. Orchid where the hand holds something; the start is the white dot, the end the orchid one.', '<canvas class="gx-cv gx-cv3" width="900" height="640" aria-label="The hand’s path through the scene, to turn about"></canvas>', 'gx-wide') +
       cardHTML('Over time', 'The hand’s x (across), y (back) and z (height), in octal, at each of the ' + track.length + ' steps graphf moved it' + (track.some(function (q) { return q.held; }) ? '; the thicker line where it held something' : '') + '.', '<canvas class="gx-plot" width="640" height="360" aria-label="The hand’s x, y and z at each step"></canvas>', 'gx-wide') +
       '</div>';
     plot(SW.$('.gx-plot', el), track);
