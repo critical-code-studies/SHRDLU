@@ -96,7 +96,7 @@
         why: 'LOADSHRDLU asks for a file BLOCKS, which this copy does not hold (the ITS copy has it, as blocks.144). The loader’s other function, SHRDLU-COMPILED, loads BLOCKL and BLOCKP, which this copy does hold.',
         evidence: 'loader (LOADSHRDLU, SHRDLU-COMPILED); files (McDonald’s description of BLOCKP and BLOCKL)',
         alias: { BLOCKS: ['BLOCKL', 'BLOCKP'] } },
-      { id: 'S-L2', kind: 'load', mend: 'mount', by: 'the project', date: '30 Sep 2026', title: 'The display code is absent, and skipped',
+      { id: 'S-L2', kind: 'load', mend: 'mount', by: 'the project', date: '30 Sep 2026', display: false, title: 'The display code is absent, and skipped',
         what: 'The loader’s FASLOAD of GRAPHF is skipped, with a note in the load log.',
         why: 'This copy holds no display code (graphf). On ITS it was a compiled file on another directory, SHRDL1;.',
         evidence: 'loader (FASLOAD GRAPHF FASL DSK SHRDL1); the 1987 listing in file-note (GRAPHF FASL on SHRDLU;)',
@@ -107,7 +107,17 @@
         start: { load: '(PROGN (LOAD (QUOTE LOADER)) (LOADSHRDLU))', run: '(SHRDLU)', answers: [] } },
       { id: 'S-F1', kind: 'form', mend: 'mount', by: 'the project', date: '30 Sep 2026', title: 'No display: the arm’s drawing made to do nothing',
         what: 'MOVETO, GRASP, UNGRASP and BLINK are defined to do nothing.',
-        why: 'The display code is not in this copy (S-L2).', evidence: 'as I-F1', form: NO_DISPLAY }
+        why: 'The display code is not in this copy (S-L2).', evidence: 'as I-F1', form: NO_DISPLAY, display: false },
+      { id: 'S-L3', kind: 'load', mend: 'yobitsugi', by: 'the project', date: '30 Sep 2026', display: true, title: 'The display code supplied from the MIT copy',
+        what: 'With the bench’s 340 on, the loader’s GRAPHF is read from the MIT copy’s graphf.3, with its damaged number read as the restoration has it (S-T5), and the scene drawn by GP-INITIAL (S-F2).',
+        why: 'This copy holds no display code. On ITS it was a compiled file, GRAPHF FASL on SHRDL1; (the loader’s FASLOAD; the 1987 listing in file-note has GRAPHF FASL on SHRDLU;), which is not held. The nearest text held is the MIT copy’s source, graphf.3; the two copies agree in the files they share, apart from the differences recorded as F1 and F8.',
+        evidence: 'loader (FASLOAD GRAPHF FASL DSK SHRDL1); file-note (the 1987 listing); its/as-found/graphf.3',
+        supply: { GRAPHF: 'its/as-found/graphf.3' } },
+      { id: 'S-T5', kind: 'text', mend: 'yobitsugi', by: 'the project', date: '30 Sep 2026', display: true, file: 'graphf', n0: 13, n1: 13, title: 'A damaged number in the supplied display code read as the restoration has it',
+        what: 'Line 13 of the supplied graphf.3 is read as the restoration has it: (QUOTE 0.43302).', why: 'As I-T2.', evidence: 'as I-T2', from: { src: 'its/restored/graphf.6', n0: 11, n1: 11 } },
+      { id: 'S-F2', kind: 'form', mend: 'mount', by: 'the project', date: '30 Sep 2026', display: true, title: 'With the display: the scene drawn by GP-INITIAL',
+        what: 'As I-F2: the display variables cleared, GP-INITIAL called, BLINK defined to do nothing.', why: 'As I-F2: this copy’s setup has the display start-up commented out, as the MIT copy’s does.', evidence: 'setup (INITIALSTUFF, commented out); as I-F2',
+        form: "(PROGN (SETQ PH-TURN-ON NIL GP-LINES NIL GP-SURFACE NIL GP-HANDIT NIL GP-NEWOBLOCAT NIL PH-BLOCKS NIL) (GP-INITIAL) (PUTPROP 'BLINK '(LAMBDA (A) NIL) 'EXPR))" }
     ]
   };
 
@@ -139,10 +149,12 @@
 
   // Apply the text repairs to a version's files (a map NAME -> text) using the
   // other copies' texts (fetch(src) -> text). Returns the lines replaced, for marking.
-  function applyText(vid, files, fetchSync) {
+  function applyText(vid, files, fetchSync, display) {
     var marks = [];
+    // files supplied from another copy first, so that the text repairs reach them
+    supplies(vid, display).forEach(function (s) { files[s.name] = fetchSync(s.src); });
     // from the bottom of each file up, so that each repair's line numbers are the held file's own
-    forVersion(vid).filter(function (r) { return r.kind === 'text'; }).sort(function (a, b) { return a.file === b.file ? b.n0 - a.n0 : 0; }).forEach(function (r) {
+    forVersion(vid).filter(function (r) { return r.kind === 'text' && applies(r, display); }).sort(function (a, b) { return a.file === b.file ? b.n0 - a.n0 : 0; }).forEach(function (r) {
       var key = r.file.toUpperCase();
       if (files[key] == null) return;
       var lines = files[key].split('\n'), src = fetchSync(r.from.src).split('\n');
@@ -153,11 +165,15 @@
     });
     return marks;
   }
+  // files supplied from another copy: [{ name (ITS first name), src }]
+  function supplies(vid, display) { var s = []; forVersion(vid).forEach(function (r) { if (r.supply && applies(r, display)) Object.keys(r.supply).forEach(function (k) { s.push({ name: k, src: r.supply[k] }); }); }); return s; }
+  // every other copy's file a version's repairs read from
+  function sources(vid) { var s = []; forVersion(vid).forEach(function (r) { if (r.from) s.push(r.from.src); if (r.supply) Object.keys(r.supply).forEach(function (k) { s.push(r.supply[k]); }); }); return s; }
   function aliases(vid) { var a = {}; forVersion(vid).forEach(function (r) { if (r.alias) Object.keys(r.alias).forEach(function (k) { a[k] = r.alias[k]; }); }); return a; }
-  function skips(vid) { var s = []; forVersion(vid).forEach(function (r) { if (r.skip) s = s.concat(r.skip); }); return s; }
+  function skips(vid, display) { var s = []; forVersion(vid).forEach(function (r) { if (r.skip && applies(r, display)) s = s.concat(r.skip); }); return s; }
   function forms(vid, display) { return forVersion(vid).filter(function (r) { return r.kind === 'form' && applies(r, display); }).map(function (r) { return r.form; }); }
 
-  var api = { REPAIRS: REPAIRS, MACHINE: MACHINE, MENDS: MENDS, applies: applies, forVersion: forVersion, startOf: startOf, applyText: applyText, aliases: aliases, skips: skips, forms: forms };
+  var api = { REPAIRS: REPAIRS, MACHINE: MACHINE, MENDS: MENDS, applies: applies, supplies: supplies, sources: sources, forVersion: forVersion, startOf: startOf, applyText: applyText, aliases: aliases, skips: skips, forms: forms };
   root.SHRepairs = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(this);

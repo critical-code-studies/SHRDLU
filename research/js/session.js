@@ -35,11 +35,11 @@
     // the directory: every program and support file, by its ITS name
     var files = {};
     s.v.build.forEach(function (b) { if (b.role !== 'doc') files[itsName(b.src)] = o.texts[b.src]; });
-    s.marks = R.applyText(s.v.id, files, function (src) { return o.texts[src]; });
+    s.marks = R.applyText(s.v.id, files, function (src) { return o.texts[src]; }, !!o.display);
     var al = R.aliases(s.v.id);
     Object.keys(al).forEach(function (k) { files[k] = al[k].map(function (n) { return files[n] || ''; }).join('\n'); });
     s.files = files;
-    s.m = new L.Machine({ dialect: s.v.id === 'ejs' ? 'new' : 'old', files: files, display: o.display || null, skip: R.skips(s.v.id),
+    s.m = new L.Machine({ dialect: s.v.id === 'ejs' ? 'new' : 'old', files: files, display: o.display || null, skip: R.skips(s.v.id, !!o.display),
       out: function (t) { s.log += t; s.out(t); } });
     if (o.display) o.display.m = s.m;   // the display reads graphf's tables for its Solid view
     s.state = 'idle';

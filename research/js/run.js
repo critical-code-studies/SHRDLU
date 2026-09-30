@@ -82,13 +82,24 @@
     vocab = out.sort();
     return vocab;
   }
+  var nextSent = 0;   // the dialogue sentence after the last one typed
   function suggest() {
     var inp = SW.$('#tty-input', view), g = SW.$('#tty-ghost', view), list = SW.$('#tty-sugg', view); if (!inp || !g) return;
-    var v = inp.value, lv = v.toLowerCase();
+    var v = inp.value, lv = v.toLowerCase().replace(/\s+/g, ' ');
     sugg = []; suggAt = 0;
-    if (v.trim().length >= 2 && inp.selectionStart === v.length && !/^\s*\(/.test(v)) {
-      sugg = sentences.filter(function (s) { return s.indexOf(lv) === 0 && s !== lv; }).slice(0, 6).map(function (s) { return { full: s, label: s }; });
+    var asS = function (s) { return { full: s, label: s }; };
+    if (!v.trim()) {
+      // nothing typed: GO in the break loop, else the next sentences of the 1970 dialogue
+      if (/>>>\s*$/.test(lastOut)) sugg = [{ full: 'GO', label: 'GO (leave the break loop)' }];
+      else sugg = sentences.slice(nextSent, nextSent + 5).map(asS);
+    } else if (inp.selectionStart === v.length && !/^\s*\(/.test(v)) {
+      // sentences that begin with what is typed; then sentences with every word typed; then the word
+      sugg = sentences.filter(function (s) { return s.indexOf(lv) === 0 && s !== lv; }).slice(0, 6).map(asS);
       if (!sugg.length) {
+        var ws = lv.trim().split(' ').filter(Boolean);
+        sugg = sentences.filter(function (s) { var sw = s.split(/[^a-z-]+/); return ws.every(function (w) { return sw.some(function (x) { return x.indexOf(w) === 0; }); }); }).slice(0, 6).map(asS);
+      }
+      if (!sugg.length && v.trim().length >= 1) {
         var mw = /([a-z-]+)$/i.exec(v), w = mw ? mw[1].toLowerCase() : '';
         if (w.length >= 1) sugg = dictionary().filter(function (d) { return d.indexOf(w) === 0 && d !== w; }).slice(0, 8).map(function (d) { return { full: v.slice(0, v.length - w.length) + d, label: d }; });
       }
@@ -99,6 +110,7 @@
     var inp = SW.$('#tty-input', view), g = SW.$('#tty-ghost', view), list = SW.$('#tty-sugg', view);
     var s = sugg[suggAt], v = inp.value;
     g.innerHTML = s && s.full.toLowerCase().indexOf(v.toLowerCase()) === 0 ? '<span class="tty-ghost-v">' + SW.esc(v) + '</span>' + SW.esc(s.full.slice(v.length)) : '';
+    inp.placeholder = g.textContent ? '' : 'type here  (Tab completes; Return sends)';
     list.innerHTML = sugg.length ? '<span class="hint">Tab</span> ' + sugg.map(function (x, i) { return '<button type="button" class="tty-s' + (i === suggAt ? ' on' : '') + '" data-s="' + i + '">' + SW.esc(x.label) + '</button>'; }).join('') : '';
   }
   var taken = null;   // the last completion taken, so that Tab again cycles to the next
@@ -123,7 +135,7 @@
 
   // ---------- the DEC 340 display (js/display.js) ----------
   var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), disp = null, said = null;
-  function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }); }
+  function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }) || SHRepairs.supplies(v.id, true).some(function (s) { return s.name === 'GRAPHF'; }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
     if (!wrap) return;
@@ -139,13 +151,13 @@
 
   function boot(then) {
     var v = V.byId(vid);
-    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; deepPrev = null; vocab = null; lastOut = ''; loadLog = '';
+    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; deepPrev = null; vocab = null; nextSent = 0; lastOut = ''; loadLog = '';
     if (out) SW.$$('span', out).forEach(function (s) { if (!s.closest('#tty-form')) s.remove(); });
     paintSide();
     status('Fetching the files of ' + v.label + '…');
     // the version's files, and any other copy its repairs read from
     var srcs = v.build.map(function (b) { return b.src; });
-    SHRepairs.forVersion(vid).forEach(function (r) { if (r.from) srcs.push(r.from.src); });
+    srcs = srcs.concat(SHRepairs.sources(vid));
     var texts = {};
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
@@ -153,7 +165,7 @@
       disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, labels: labOn, dialogue: dlgOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
-      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') { paintDeep(true); caption(); } } });
+      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') { paintDeep(true); caption(); if (st === 'waiting') setTimeout(suggest, 0); } } });
       sess.boot(function (r) {
         var ms = Math.round(performance.now() - t0);
         ttyAppend('', 'tty-sh');
@@ -166,11 +178,12 @@
     }).catch(function (e) { status(e.message); });
   }
 
-  var hist = SW.store.get('run.hist', []), hi = -1;
+  var hist = SW.store.get('run.hist', []), hi = -1, si = -1, typed = '', frozen = [];   // history, suggestion, the line as typed
   function send(line) {
     if (!sess || sess.state !== 'waiting') { SW.toast(sess ? 'SHRDLU is busy; wait for it to finish.' : 'Start it first.'); return false; }
     ttyAppend(line + '\n', 'tty-you');
     if (line.trim() && !/^\s*\(/.test(line) && !/^\s*GO\s*$/i.test(line)) said = { you: line.trim(), out: '' };
+    var si = sentences.indexOf(line.trim().toLowerCase().replace(/\s+/g, ' ')); if (si >= 0) nextSent = si + 1;
     lastOut = '';
     sess.type(line, function () {
       // SHRDLU reads a sentence until its full stop, question mark or exclamation mark
@@ -181,7 +194,7 @@
       if (playing) playNext();
     });
     if (line.trim() && hist[0] !== line) { hist.unshift(line); hist = hist.slice(0, 50); SW.store.set('run.hist', hist); }
-    hi = -1;
+    hi = -1; si = -1;
     return true;
   }
 
@@ -309,7 +322,7 @@
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
       '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About…</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
-      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here, e.g. pick up a big red block.  (Tab completes)" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
+      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here  (Tab completes; Return sends)" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
       '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
       '<div class="run-side"><div class="d340"><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas>' +
@@ -357,7 +370,7 @@
     var inp = SW.$('#tty-input', view);
     SW.$('#tty-form', view).onsubmit = function (e) { e.preventDefault(); if (send(inp.value)) inp.value = ''; };
     loadDialogue().then(function (ex) { sentences = []; ex.forEach(function (e) { e.turns.forEach(function (tn) { if (tn.who === 'person') sentences.push(tn.text.toLowerCase().replace(/\s+/g, ' ')); }); }); });
-    inp.addEventListener('input', function () { taken = null; suggest(); });
+    inp.addEventListener('input', function () { taken = null; hi = -1; si = -1; suggest(); });
     inp.addEventListener('keydown', function (e) {
       if (e.key === 'Tab' && taken && inp.value === fill(taken.list[taken.i]) && taken.list.length > 1) {
         e.preventDefault();
@@ -369,18 +382,32 @@
       }
       if (e.key === 'Tab' && sugg.length) {
         e.preventDefault();
-        var g = SW.$('#tty-ghost', view);
-        if (g.textContent && inp.value !== sugg[suggAt].full) takeSugg(suggAt);
+        if (inp.value !== sugg[suggAt].full) takeSugg(suggAt);
         else { suggAt = (suggAt + (e.shiftKey ? sugg.length - 1 : 1)) % sugg.length; paintSugg(); }
         return;
       }
       if (e.key === 'Escape') { sugg = []; paintSugg(); }
     });
     SW.$('#tty-sugg', view).addEventListener('mousedown', function (e) { var b = e.target.closest('[data-s]'); if (b) { e.preventDefault(); takeSugg(+b.dataset.s); } });
-    SW.$('#tty-form', view).addEventListener('submit', function () { sugg = []; setTimeout(paintSugg, 0); });
+    SW.$('#tty-form', view).addEventListener('submit', function () { sugg = []; setTimeout(paintSugg, 0); }, true);
     inp.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowUp' && hist.length) { hi = Math.min(hist.length - 1, hi + 1); inp.value = hist[hi]; e.preventDefault(); }
-      if (e.key === 'ArrowDown') { hi = Math.max(-1, hi - 1); inp.value = hi >= 0 ? hist[hi] : ''; e.preventDefault(); }
+      // One list, up and down: the lines typed before (Up, older), the line being typed, then the
+      // suggestions below it (Down), each put in the line ready for Return
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+      e.preventDefault();
+      if (hi === -1 && si === -1) { typed = inp.value; frozen = sugg.slice(); }
+      if (e.key === 'ArrowUp') {
+        if (si > 0) si--;
+        else if (si === 0) si = -1;
+        else if (hi < hist.length - 1) hi++;
+      } else {
+        if (hi > 0) hi--;
+        else if (hi === 0) hi = -1;
+        else if (si < frozen.length - 1) si++;
+      }
+      inp.value = hi >= 0 ? hist[hi] : si >= 0 ? frozen[si].full : typed;
+      var g = SW.$('#tty-ghost', view); if (g) g.innerHTML = '';
+      SW.$('#tty-sugg', view).innerHTML = frozen.length ? '<span class="hint">↓</span> ' + frozen.map(function (x, k) { return '<button type="button" class="tty-s' + (k === si ? ' on' : '') + '" data-s="' + k + '">' + SW.esc(x.label) + '</button>'; }).join('') : '';
     });
     // a click puts the cursor in the input line, unless text is being selected to copy
     out.addEventListener('click', function () { var s = window.getSelection(); if (!s || s.isCollapsed || !out.contains(s.anchorNode)) inp.focus(); });
