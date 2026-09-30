@@ -29,8 +29,18 @@
   'use strict';
   var L = root.MacLisp || (typeof require === 'function' ? require('./maclisp.js') : null);
 
+  // Colour (an option; the 340 drew in one colour): each item in the colour its own label
+  // names, the label graphf writes by each object with DISCUSS (RED, GREEN, BLUE, WHITE;
+  // BLACK, the table, drawn grey so that it shows)
+  var COLOURS = { RED: '#ff5a4e', GREEN: '#4fdc6a', BLUE: '#5aa2ff', WHITE: '#f2f2f2', BLACK: '#8a909a' };
+  function itemColour(it, beam) {
+    for (var i = 0; i < it.texts.length; i++) { var c = COLOURS[String(it.texts[i][2]).trim().toUpperCase()]; if (c) return c; }
+    return beam;
+  }
+
   function Display(o) {
     o = o || {};
+    this.colour = !!o.colour;
     this.canvas = o.canvas || null;
     this.onChange = o.onChange || null;
     this.reset();
@@ -205,6 +215,8 @@
       var it = d.items[id]; if (!it || !it.visible) return;
       if (it.blink && Math.floor(now / 400) % 2) return;
       g.globalAlpha = Math.max(0.35, Math.min(1, it.bright / 8));
+      var col = d.colour ? itemColour(it, beam) : beam;
+      g.strokeStyle = g.fillStyle = g.shadowColor = col;
       g.beginPath();
       it.segs.forEach(function (s) {
         g.moveTo((it.ox + s[0]) * k, H - (it.oy + s[1]) * k);
@@ -220,13 +232,14 @@
   // the screen as SVG, for figures and for checks without a canvas
   D.toSVG = function () {
     var o = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/><g stroke="#cfe8ff" stroke-width="1.6" stroke-linecap="round" fill="none">'], d = this;
-    d.lines().forEach(function (l) { o.push('<line x1="' + l[0].toFixed(1) + '" y1="' + (1024 - l[1]).toFixed(1) + '" x2="' + l[2].toFixed(1) + '" y2="' + (1024 - l[3]).toFixed(1) + '"/>'); });
+    d.lines().forEach(function (l) { o.push('<line x1="' + l[0].toFixed(1) + '" y1="' + (1024 - l[1]).toFixed(1) + '" x2="' + l[2].toFixed(1) + '" y2="' + (1024 - l[3]).toFixed(1) + '"' + (d.colour ? ' stroke="' + itemColour(l[4], '#cfe8ff') + '"' : '') + '/>'); });
     o.push('</g><g fill="#cfe8ff" font-family="monospace" font-size="20">');
-    d.order.forEach(function (id) { var it = d.items[id]; if (it && it.visible) it.texts.forEach(function (t) { o.push('<text x="' + (it.ox + t[0]).toFixed(1) + '" y="' + (1024 - it.oy - t[1] - 4).toFixed(1) + '">' + String(t[2]).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); }); });
+    d.order.forEach(function (id) { var it = d.items[id]; if (it && it.visible) it.texts.forEach(function (t) { o.push('<text' + (d.colour ? ' fill="' + itemColour(it, '#cfe8ff') + '"' : '') + ' x="' + (it.ox + t[0]).toFixed(1) + '" y="' + (1024 - it.oy - t[1] - 4).toFixed(1) + '">' + String(t[2]).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); }); });
     o.push('</g></svg>');
     return o.join('');
   };
 
+  Display.COLOURS = COLOURS;
   root.SH340 = Display;
   if (typeof module !== 'undefined' && module.exports) module.exports = Display;
 })(this);

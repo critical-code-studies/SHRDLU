@@ -293,8 +293,8 @@
       if (b.asm.errors.length) ec.appendChild(SW.table(['Where', 'What'], b.asm.errors.map(function (e) { return [where(b, e.file, e.line), e.message]; }), { cls: ['mono', ''] }));
       el.appendChild(ec); linkRows(ec);
       var ctl = [];
-      b.lines.forEach(function (ls, p) { ls.forEach(function (L) { if (/[\u0000-\u0002\u0004-\u0008\u000e-\u001f\u007f]/.test(L.raw)) ctl.push([where(b, p, L.n), L.raw.replace(/[\u0000-\u001f\u007f]/g, function (ch) { return ch === '\t' ? ' ' : '^' + String.fromCharCode(ch.charCodeAt(0) ^ 64); }).trim().slice(0, 100)]); }); });
-      var cc = wide(card('Control characters in the text', ctl.length ? ctl.length + ' lines carry control characters other than tabs, page breaks and end-of-file marks, a sign of damage in copying. Shown as ^H, ^@ and so on.' : 'None beyond tabs, page breaks and end-of-file marks.'));
+      b.lines.forEach(function (ls, p) { ls.forEach(function (L) { if (/[\u0000-\u0002\u0004-\u0008\u000e-\u001a\u001c-\u001f\u007f]/.test(L.raw)) ctl.push([where(b, p, L.n), L.raw.replace(/[\u0000-\u001f\u007f]/g, function (ch) { return ch === '\t' ? ' ' : '^' + String.fromCharCode(ch.charCodeAt(0) ^ 64); }).trim().slice(0, 100)]); }); });
+      var cc = wide(card('Control characters in the text', ctl.length ? ctl.length + ' lines carry control characters other than tabs, page breaks, end-of-file marks, bare carriage returns and ALTMODE (^[, the $ of ITS commands), a sign of damage in copying. Shown as ^H, ^@ and so on; underlined in grey in Read as uncertain readings, left as found.' : 'None beyond tabs, page breaks, end-of-file marks, bare carriage returns and ALTMODE.'));
       if (ctl.length) cc.appendChild(SW.table(['Where', 'Line'], ctl, { cls: ['mono', 'mono'] }));
       el.appendChild(cc); linkRows(cc);
     }

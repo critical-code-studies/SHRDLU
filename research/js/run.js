@@ -61,7 +61,7 @@
   }
 
   // ---------- the DEC 340 display (js/display.js) ----------
-  var dispOn = SW.store.get('run.display', true), animOn = SW.store.get('run.anim', true), disp = null;
+  var dispOn = SW.store.get('run.display', true), animOn = SW.store.get('run.anim', true), colOn = SW.store.get('run.colour', false), disp = null;
   function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
@@ -69,6 +69,7 @@
     wrap.classList.toggle('off', !(dispOn && has));
     SW.$('#run-disp', view).disabled = !has;
     SW.$('#run-anim', view).disabled = !(dispOn && has);
+    SW.$('#run-col', view).disabled = !(dispOn && has);
     cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
   }
 
@@ -85,7 +86,7 @@
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
       var cv = SW.$('#d340', view);
-      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv }) : null;
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
       sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: animOn, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); } });
@@ -210,6 +211,7 @@
       '<div class="d340-bar"><span class="d340-name" title="The Type 340 Precision Incremental CRT display, on the AI Lab’s PDP-6 and PDP-10, driven through MacLisp’s display slave">DEC 340</span>' +
       '<label class="check" title="Answer Y to the display question, and draw what the program draws (restarts the run)"><input type="checkbox" id="run-disp"' + (dispOn ? ' checked' : '') + '> Display</label>' +
       '<label class="check" title="Pause where the program says SLEEP, so the arm is seen to move; untick to run at full speed"><input type="checkbox" id="run-anim"' + (animOn ? ' checked' : '') + '> Arm moves in time</label>' +
+      '<label class="check" title="Draw each object in the colour SHRDLU names it (the labels graphf writes: RED, GREEN, BLUE, WHITE; the table grey). The DEC 340 drew in one colour; untick for the screen as it was"><input type="checkbox" id="run-col"' + (colOn ? ' checked' : '') + '> Colour</label>' +
       '<span id="run-dfig"></span>' +
       '<span class="hint" id="d340-note"></span></div></div>' +
       '<div class="seg-btns run-tabs"><button class="btn" data-side="test">The dialogue test</button><button class="btn" data-side="card">Reconstruction card</button><button class="btn" data-side="about">About running</button></div><div id="run-side-body"></div></div></div></div>';
@@ -218,6 +220,7 @@
     SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };
     SW.$('#run-restart', view).onclick = boot;
     SW.$('#run-disp', view).onchange = function (e) { dispOn = e.target.checked; SW.store.set('run.display', dispOn); boot(); };
+    SW.$('#run-col', view).onchange = function (e) { colOn = e.target.checked; SW.store.set('run.colour', colOn); if (disp) { disp.colour = colOn; disp.dirty(); } };
     SW.$('#run-anim', view).onchange = function (e) { animOn = e.target.checked; SW.store.set('run.anim', animOn); if (sess) sess.animate = animOn; };
     SW.$('#run-dfig', view).appendChild(SW.figureButtons(function () { return disp ? disp.toSVG() : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/></svg>'; }, function () { return 'shrdlu-' + vid + '-340'; }, function () { return SW.refText(vid); }));
     SW.$('#run-play', view).onclick = play;

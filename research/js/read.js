@@ -148,6 +148,7 @@
         '<div><span class="rp-line">(QUOTE <span class="rp-c rp-c-fix">0.43</span>302)</span> a repaired line, underlined in gold; the characters the bench reads otherwise in a gold wash (hover for what it reads)</div>' +
         '<div><span class="rp-line"><span class="rp-c rp-c-sup">(move-ptw</span> N</span> a deeper wash: a passage supplied from another copy or version; the chip above the file names it</div>' +
         '<div><span style="color:var(--gold)">●</span> a corrected line, <span style="color:var(--gold)">■</span> a supplied one, by the line number</div>' +
+        '<div><span class="rp-line rp-line-unc">NCUJ HE@<span class="ctl">^D</span></span> an uncertain reading, left as found: a line with control characters that no repair reads otherwise (grey)</div>' +
         '<div class="faint flow" style="margin-top:6px">Text: <span class="lab">names defined in this version</span>, <span class="op">MacLisp</span>, <span class="mac">Micro-Planner (TH…)</span>, <span class="var">planner variables ($?X)</span>, <span class="num">numbers</span>, <span class="cm">comments</span>. Click a name for where it is defined and used.</div></div>');
     } }, 'Key'));
     if (b.v.build && b.parts.length > 1) {
@@ -917,18 +918,44 @@
   }
   // where a line's comment begins: the first ; not escaped with / (MacLisp's escape)
   function lispComment(s) { for (var i = 0; i < s.length; i++) { if (s[i] === '/') { i++; continue; } if (s[i] === ';') return i; } return -1; }
-  // the squiggle's reach, measured once drawn, in em so that it follows the text size
+  // the squiggle's reach, the line's text (code and comment), measured once drawn, in em so that it follows the text size
   function kinMeasure(row) {
-    var rl = row.querySelectorAll('.rp-line'), nn = row.querySelector('.n'), last = rl[rl.length - 1];
-    if (!last || !nn || !nn.lastChild) return;
-    var r0 = row.getBoundingClientRect(), fs = parseFloat(getComputedStyle(row).fontSize) || 13, rg = document.createRange();
-    rg.selectNodeContents(nn.lastChild);
-    var a = rg.getBoundingClientRect().left - r0.left, z = last.getBoundingClientRect().right - r0.left;
+    var rl = row.querySelectorAll('.rp-line'), first = rl[0], last = rl[rl.length - 1];
+    if (!last) return;
+    var r0 = row.getBoundingClientRect(), fs = parseFloat(getComputedStyle(row).fontSize) || 13;
+    var a = first.getBoundingClientRect().left - r0.left, z = last.getBoundingClientRect().right - r0.left;
     if (!r0.width || z <= a) return;
     row.style.setProperty('--k0', (a / fs).toFixed(2) + 'em');
     row.style.setProperty('--kw', ((z - a) / fs).toFixed(2) + 'em');
   }
+  // the squiggle under a line's text, code and comment (as under a misspelt word): gold for a
+  // repair, grey for an uncertain reading left as found
+  function squiggle(row, tx, raw) {
+    if (row.classList.contains('rp-sq')) return;
+    var c0 = raw.search(/\S/), c1 = raw.replace(/\s+$/, '').length;
+    if (c0 < 0 || c1 <= c0) return;
+    wrapChars(tx, shownAt(raw, c0), shownAt(raw, c1), 'rp-line', '');
+    row.classList.add('rp-sq'); kinMeasure(row);
+  }
+  // uncertain readings, left as found: lines carrying control characters (damage in copying)
+  // that no repair reads otherwise; the Absence lens lists the same lines. Not counted: tab,
+  // page mark (^L), end-of-file padding (^C), a bare carriage return (^M, part of the ITS text)
+  // and ALTMODE (^[, the $ of ITS commands such as Micro-Planner's $P)
+  var CTL_DAMAGE = /[\u0000-\u0002\u0004-\u0008\u000e-\u001a\u001c-\u001f\u007f]/;
+  function paintUnc(box, b) {
+    b.lines.forEach(function (ls, p) {
+      ls.forEach(function (L) {
+        if (L.skipped || !CTL_DAMAGE.test(L.raw) || (b.kin && b.kin[p + ':' + L.n])) return;
+        var row = SW.$('#L' + p + '-' + L.n, box), tx = row && row.querySelector('.t'); if (!tx) return;
+        row.classList.add('rp-unc');
+        var cs = (L.raw.match(new RegExp(CTL_DAMAGE.source, 'g')) || []).map(function (c) { var n = c.charCodeAt(0); return n === 127 ? '^?' : '^' + String.fromCharCode(n + 64); });
+        tx.title = 'Kintsugi · Uncertain reading, left as found (not repaired): the line carries control characters (' + cs.slice(0, 6).join(' ') + '), a sign of damage in copying.' + (tx.title ? ' · ' + tx.title : '');
+        squiggle(row, tx, L.raw);
+      });
+    });
+  }
   function paintKin(box, b) {
+    paintUnc(box, b);
     Object.keys(b.kinFiles || {}).forEach(function (pi) {
       pi = +pi;
       b.kinFiles[pi].forEach(function (r) {
@@ -940,11 +967,7 @@
           held.forEach(function (L, k) {
             var row = SW.$('#L' + pi + '-' + L.n, box), tx = row && row.querySelector('.t'); if (!tx) return;
             row.classList.add(r.mend === 'yobitsugi' ? 'rp-sup' : 'rp-fix');
-            // the squiggle (as on the Spacewar! bench): from the line number to the end of the code,
-            // not its comment; a line that is only comment, to the end of the comment
-            var raw0 = L.raw, cm = lispComment(raw0), c0 = raw0.search(/\S/), c1 = (cm < 0 ? raw0 : raw0.slice(0, cm)).replace(/\s+$/, '').length;
-            if (c0 >= 0 && c1 <= c0) c1 = raw0.replace(/\s+$/, '').length;
-            if (c0 >= 0 && c1 > c0 && !row.classList.contains('rp-sq')) { wrapChars(tx, shownAt(raw0, c0), shownAt(raw0, c1), 'rp-line', ''); row.classList.add('rp-sq'); kinMeasure(row); }
+            squiggle(row, tx, L.raw);
             var raw = L.raw, rep = now.length === held.length ? now[k] : null, d, title;
             if (rep != null) {
               if (rep === raw) return;
