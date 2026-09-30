@@ -38,11 +38,12 @@
 
   // ---------- the teletype ----------
   var out = null, loadLog = '';
+  // the output goes in before the input line, which stays at the cursor, as on a terminal
   function ttyAppend(text, cls) {
     if (!out) return;
-    var last = out.lastElementChild;
+    var form = SW.$('#tty-form', out), last = form ? form.previousElementSibling : out.lastElementChild;
     if (!cls && last && last.classList.contains('tty-sh')) last.textContent += text;
-    else out.appendChild(SW.el('span', { class: cls || 'tty-sh' }, SW.esc(text)));
+    else out.insertBefore(SW.el('span', { class: cls || 'tty-sh' }, SW.esc(text)), form || null);
     out.scrollTop = out.scrollHeight;
   }
   function onOut(t) {
@@ -55,13 +56,20 @@
       ttyAppend(part);
     });
   }
+  var deepPrev = null, watch = SW.store.get('run.watch', []);
+  function paintDeep(fresh) {
+    var d = SW.$('#run-deep', view), body = SW.$('#run-deep-body', view);
+    if (!d || !body || !d.open || !SW.deepDive) return;
+    var p = SW.deepDive.render(body, sess && sess.m, fresh ? deepPrev : null, watch);
+    if (fresh) deepPrev = p;
+  }
   function status(t) { var s = SW.$('#run-status', view); if (s) { s.textContent = t; s.title = t; } }
   function stateText(st) {
     return { loading: 'Loading the files through the program’s own loader…', running: 'Running…', waiting: 'Waiting for you to type.', halted: 'Stopped on an error (see the teletype).', done: 'The program has returned.' }[st] || st;
   }
 
   // ---------- the DEC 340 display (js/display.js) ----------
-  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), disp = null;
+  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), disp = null;
   function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
@@ -70,14 +78,15 @@
     SW.$('#run-disp', view).disabled = !has;
     SW.$('#run-arm', view).disabled = !(dispOn && has);
     SW.$('#run-col', view).disabled = !(dispOn && has);
+    SW.$('#run-lab', view).disabled = !(dispOn && has);
     SW.$('#run-solid', view).disabled = !(dispOn && has);
     cap.textContent = !has ? 'This copy holds no display code (graphf); the arm moves without being drawn (S-L2).' : dispOn ? '' : 'Off: the program is told there is no DEC 340.';
   }
 
   function boot(then) {
     var v = V.byId(vid);
-    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; lastOut = ''; loadLog = '';
-    if (out) out.innerHTML = '';
+    playing = false; limit = 0; played = 0; replaying = false; queue = []; cur = null; results = {}; deepPrev = null; lastOut = ''; loadLog = '';
+    if (out) SW.$$('span', out).forEach(function (s) { if (!s.closest('#tty-form')) s.remove(); });
     paintSide();
     status('Fetching the files of ' + v.label + '…');
     // the version's files, and any other copy its repairs read from
@@ -87,10 +96,10 @@
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
       var cv = SW.$('#d340', view);
-      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn }) : null;
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, labels: labOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
-      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); } });
+      sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') paintDeep(true); } });
       sess.boot(function (r) {
         var ms = Math.round(performance.now() - t0);
         ttyAppend('', 'tty-sh');
@@ -242,14 +251,15 @@
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
       '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About running</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
-      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"></div>' +
-      '<form class="tty-in" id="tty-form"><span class="tty-prompt">▸</span><input id="tty-input" autocomplete="off" spellcheck="false" placeholder="type a sentence, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div>' +
+      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here, e.g. pick up a big red block." aria-label="Type to SHRDLU"></form></div></div>' +
+      '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
       '<div class="run-side"><div class="d340"><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas>' +
       '<div class="d340-bar"><span class="d340-name" title="The Type 340 Precision Incremental CRT display, on the AI Lab’s PDP-6 and PDP-10, driven through MacLisp’s display slave">DEC 340</span>' +
       '<label class="check" title="Answer Y to the display question, and draw what the program draws (restarts the run)"><input type="checkbox" id="run-disp"' + (dispOn ? ' checked' : '') + '> Display</label>' +
       '<label class="check" title="How fast the arm moves: Original pauses where graphf’s MOVETO says SLEEP (.06 seconds a step); ×2 and ×3 shorten the pauses; Instant leaves them out">Arm <select id="run-arm">' + [[1, 'Original'], [2, '×2'], [3, '×3'], [0, 'Instant']].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === armSpeed ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label>' +
       '<label class="check" title="Draw each object in the colour SHRDLU names it (the labels graphf writes: RED, GREEN, BLUE, WHITE; the table grey). The DEC 340 drew in one colour; untick for the screen as it was"><input type="checkbox" id="run-col"' + (colOn ? ' checked' : '') + '> Colour</label>' +
+      '<label class="check" title="The names graphf writes by each object (RED, GREEN, BLUE, WHITE, BLACK: the last field of each entry in DISPLAY-AS). The surviving code of 1972–77 draws them; the 1970 film shows none"><input type="checkbox" id="run-lab"' + (labOn ? ' checked' : '') + '> Labels</label>' +
       '<label class="check" title="Objects hide what stands behind them, painted back to front from graphf’s own tables of positions and sizes; what is in the box shows faintly through its walls. The 340 drew lines only, with the lines graphf found hidden left out; untick for the screen as it was"><input type="checkbox" id="run-solid"' + (solidOn ? ' checked' : '') + '> Solid</label>' +
       '<button class="btn ghost" id="run-flip" title="Put the display on the other side of the teletype">⇄</button>' +
       '<span id="run-dfig"></span>' +
@@ -261,8 +271,13 @@
     SW.$('#run-v', view).onchange = function (e) { vid = e.target.value; SW.store.set('run.v', vid); SW.$('#run-lang', view).textContent = SW.langOf(V.byId(vid)); boot(); };
     SW.$('#run-restart', view).onclick = function () { boot(); };
     SW.$('#run-disp', view).onchange = function (e) { dispOn = e.target.checked; SW.store.set('run.display', dispOn); boot(); };
+    var dd = SW.$('#run-deep', view);
+    dd.addEventListener('toggle', function () { if (dd.open) paintDeep(false); });
+    dd.addEventListener('submit', function (e) { e.preventDefault(); var i = e.target.querySelector('input'), n = i && i.value.trim().toUpperCase(); if (n && watch.indexOf(n) < 0) { watch.push(n); SW.store.set('run.watch', watch); } paintDeep(false); });
+    dd.addEventListener('click', function (e) { var x = e.target.closest('[data-unwatch]'); if (!x) return; watch = watch.filter(function (w) { return w !== x.dataset.unwatch; }); SW.store.set('run.watch', watch); paintDeep(false); });
     SW.$('#run-flip', view).onclick = function () { var g = SW.$('.run-grid', view), on = !g.classList.contains('flip'); g.classList.toggle('flip', on); SW.store.set('run.flip', on); };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };
+    SW.$('#run-lab', view).onchange = function (e) { labOn = e.target.checked; SW.store.set('run.labels', labOn); if (disp) { disp.labels = labOn; disp.dirty(); } };
     SW.$('#run-col', view).onchange = function (e) { colOn = e.target.checked; SW.store.set('run.colour', colOn); if (disp) { disp.colour = colOn; disp.dirty(); } };
     SW.$('#run-arm', view).onchange = function (e) { armSpeed = +e.target.value; SW.store.set('run.arm', armSpeed); if (sess) { sess.animate = armSpeed > 0; sess.speed = armSpeed || 1; } };
     SW.$('#run-dfig', view).appendChild(SW.figureButtons(function () { return disp ? disp.toSVG() : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/></svg>'; }, function () { return 'shrdlu-' + vid + '-340'; }, function () { return SW.refText(vid); }));

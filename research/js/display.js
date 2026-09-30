@@ -97,6 +97,7 @@
     o = o || {};
     this.colour = !!o.colour;
     this.solid = !!o.solid;
+    this.labels = o.labels !== false;   // the names graphf writes by each object (DISCUSS); the 1970 film shows none
     this.canvas = o.canvas || null;
     this.onChange = o.onChange || null;
     this.reset();
@@ -292,7 +293,7 @@
       g.stroke();
       it.pts.forEach(function (p) { g.fillRect((it.ox + p[0]) * k - k, H - (it.oy + p[1]) * k - k, 2 * k + 1, 2 * k + 1); });
       g.font = Math.round(14 * k * 1.4) + 'px ui-monospace, Menlo, monospace';
-      it.texts.forEach(function (t) { g.fillText(t[2], (it.ox + t[0]) * k, H - (it.oy + t[1]) * k - 4 * k); });
+      if (d.labels) it.texts.forEach(function (t) { g.fillText(t[2], (it.ox + t[0]) * k, H - (it.oy + t[1]) * k - 4 * k); });
     });
     g.globalAlpha = 1; g.shadowBlur = 0;
   };
@@ -301,7 +302,7 @@
     var o = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#05070a"/><g stroke="#cfe8ff" stroke-width="1.6" stroke-linecap="round" fill="none">'], d = this;
     d.lines().forEach(function (l) { o.push('<line x1="' + l[0].toFixed(1) + '" y1="' + (1024 - l[1]).toFixed(1) + '" x2="' + l[2].toFixed(1) + '" y2="' + (1024 - l[3]).toFixed(1) + '"' + (d.colour ? ' stroke="' + itemColour(l[4], '#cfe8ff') + '"' : '') + '/>'); });
     o.push('</g><g fill="#cfe8ff" font-family="monospace" font-size="20">');
-    d.order.forEach(function (id) { var it = d.items[id]; if (it && it.visible) it.texts.forEach(function (t) { o.push('<text' + (d.colour ? ' fill="' + itemColour(it, '#cfe8ff') + '"' : '') + ' x="' + (it.ox + t[0]).toFixed(1) + '" y="' + (1024 - it.oy - t[1] - 4).toFixed(1) + '">' + String(t[2]).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); }); });
+    if (d.labels) d.order.forEach(function (id) { var it = d.items[id]; if (it && it.visible) it.texts.forEach(function (t) { o.push('<text' + (d.colour ? ' fill="' + itemColour(it, '#cfe8ff') + '"' : '') + ' x="' + (it.ox + t[0]).toFixed(1) + '" y="' + (1024 - it.oy - t[1] - 4).toFixed(1) + '">' + String(t[2]).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>'); }); });
     o.push('</g></svg>');
     return o.join('');
   };

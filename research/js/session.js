@@ -82,7 +82,28 @@
   };
   // ^G, as on ITS: quit whatever is running to the top level, which SHRDLU sets to itself
   // ((SSTATUS TOPLEVEL '(SHRDLU)) in the restoration; (SHRDLU) is the loop in every copy)
+  // graphf's display operations draw in steps (a new arm made, the old one removed, the hand's
+  // record updated at the end); quitting inside one leaves the screen and graphf's record of it
+  // at odds (two arms). ^G waits for the one under way to finish, run at full speed.
+  var DISPLAY_OPS = { MOVETO: 1, GRASP: 1, UNGRASP: 1, 'GP-DISMOTION': 1, 'GP-MOVEHAND': 1, 'GP-SELECTSHAPE': 1, 'GP-DRAWL': 1, 'GP-OPAQUE': 1, 'GP-TRANSPARENT': 1, 'GP-REFRESH': 1, 'GP-INITIAL': 1 };
+  S.inDisplayOp = function () { var st = this.m.stack; for (var i = st.length - 1; i >= 0; i--) if (st[i].fnName && DISPLAY_OPS[st[i].fnName]) return true; return false; };
   S.quit = function (cb) {
+    var s = this;
+    s.gen = (s.gen || 0) + 1;
+    if (s.display && s.inDisplayOp()) {
+      var g = s.gen;
+      (function tick() {
+        if (s.gen !== g) return;
+        var r, n = 0;
+        do { r = s.m.run(200); } while ((r === 'budget' || r === 'sleep') && s.inDisplayOp() && ++n < 500);
+        if ((r === 'budget' || r === 'sleep') && s.inDisplayOp()) { setTimeout(tick, 0); return; }
+        s.quitNow(cb);
+      })();
+      return;
+    }
+    s.quitNow(cb);
+  };
+  S.quitNow = function (cb) {
     var s = this;
     s.gen = (s.gen || 0) + 1;
     s.m.quitToTop();

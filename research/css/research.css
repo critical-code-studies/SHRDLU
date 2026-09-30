@@ -1746,9 +1746,31 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .tty-sh { color: #6fdc8c; text-shadow: 0 0 5px rgba(111,220,140,0.28); }
 .tty-you { color: #e58be0; }
 .tty-bench { color: #8a8d86; font-style: italic; }
-.tty-in { flex: none; display: flex; align-items: center; gap: 8px; border-top: 1px solid #23262f; padding: 8px 12px; }
-.tty-prompt { color: #e58be0; font-family: var(--mono); }
-.tty-in input { flex: 1; background: transparent; border: 0; outline: 0; color: #e58be0; font: 13.5px "IBM Plex Mono", var(--mono); }
+/* the input at the cursor, inside the teletype, as on a terminal */
+.tty-in { display: block; margin: 0; padding: 0; }
+.tty-in input { width: 100%; background: transparent; border: 0; outline: 0; padding: 0; margin: 0; color: #e58be0; caret-color: #e58be0; font: inherit; line-height: inherit; }
+.tty-in input::placeholder { color: #5b5f66; }
+/* the Deep dive */
+.run-deep { flex: none; margin-top: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.run-deep > summary { cursor: pointer; padding: 6px 10px; font-size: 13px; }
+.run-deep[open] > summary { border-bottom: 1px solid var(--line-soft); }
+#run-deep-body { max-height: 42vh; overflow: auto; padding: 6px 10px 10px; font-size: 12.5px; }
+.dd-g h4 { margin: 10px 0 4px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); }
+.dd-row { display: grid; grid-template-columns: minmax(130px, 200px) 1fr; gap: 4px 12px; padding: 4px 0; border-top: 1px solid var(--line-soft); }
+.dd-row .hint { font-size: 11px; }
+.dd-val { min-width: 0; overflow-x: auto; }
+.dd-v { white-space: pre-wrap; word-break: break-word; }
+.dd-ch .dd-name .mono { color: var(--amber); }
+.dd-mark { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--amber); border: 1px solid currentColor; border-radius: 3px; padding: 0 4px; }
+.dd-x { border: 0; background: none; color: var(--text-faint); cursor: pointer; }
+.dd-tree { font-family: var(--code-font); }
+.dd-node { padding-left: calc(var(--dd) * 14px); white-space: nowrap; }
+.dd-fe { color: var(--violet); }
+.dd-w { color: var(--text); }
+.dd-t { border-collapse: collapse; font-size: 12px; }
+.dd-t th, .dd-t td { text-align: left; padding: 1px 10px 1px 0; border-bottom: 1px solid var(--line-soft); }
+.dd-add { display: flex; gap: 6px; margin-top: 10px; }
+.dd-add input { flex: 1; font: 12.5px var(--code-font); }
 .run-loadlog { flex: none; margin-top: 6px; }
 .run-loadlog pre { max-height: 180px; overflow: auto; font-size: 11px; color: var(--text-dim); background: var(--code-bg); padding: 6px 8px; border-radius: 4px; }
 .run-side { display: flex; flex-direction: column; min-height: 0; }
