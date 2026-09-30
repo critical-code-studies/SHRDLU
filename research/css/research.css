@@ -1739,7 +1739,7 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 /* ---------- Run: the teletype ---------- */
 .run-wrap { display: flex; flex-direction: column; height: calc(100vh - var(--bar-h, 90px) - 44px); min-height: 480px; }
 .run-bar { flex: none; }
-.run-grid { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px; padding: 10px 14px 14px; }
+.run-grid { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; padding: 10px 14px 14px; }
 .tty-col { display: flex; flex-direction: column; min-height: 0; }
 .tty { flex: 1 1 auto; min-height: 260px; display: flex; flex-direction: column; background: #07080b; border: 1px solid var(--line); border-radius: 6px; box-shadow: inset 0 0 40px rgba(0,0,0,0.7); }
 .tty-out { flex: 1 1 auto; overflow-y: auto; padding: 12px 14px; font: 13.5px/1.55 "IBM Plex Mono", var(--mono); white-space: pre-wrap; word-break: break-word; cursor: text; }
@@ -1767,7 +1767,7 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 
 /* the DEC 340 display (Run): a square screen above the side tabs */
 .d340 { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 8px; }
-.d340 canvas { --p7: #d4ecff; --crt: #05070a; width: min(40vh, 100%); height: auto; aspect-ratio: 1; background: var(--crt); border: 1px solid var(--line); border-radius: 8px; box-shadow: inset 0 0 40px rgba(0,0,0,.8); }
+.d340 canvas { --p7: #d4ecff; --crt: #05070a; width: min(calc(100vh - 230px), 100%); height: auto; aspect-ratio: 1; background: var(--crt); border: 1px solid var(--line); border-radius: 8px; box-shadow: inset 0 0 40px rgba(0,0,0,.8); }
 .d340.off canvas { opacity: .35; }
 .d340-bar { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; justify-content: center; font-size: 12px; }
 .d340-name { font: 400 9.5px var(--mono); letter-spacing: .06em; color: var(--text-faint); text-transform: uppercase; }
@@ -1783,3 +1783,9 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .card-acts details > summary::-webkit-details-marker { display: none; }
 .card-acts details { position: relative; }
 .card-acts .menu-body { position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 200px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+
+/* Run: the dialogue test and About in a modal */
+.run-dlg { width: min(1100px, 94vw); }
+.run-dlg #run-side-body { max-height: calc(88vh - 60px); overflow: auto; }
+.run-bar .badge:empty { display: none; }
+.run-grid.flip .run-side { order: -1; }

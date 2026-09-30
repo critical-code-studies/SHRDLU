@@ -27,6 +27,7 @@
     s.slice = o.slice || 60000;
     s.schedule = o.schedule || (typeof setTimeout === 'function' ? function (f) { setTimeout(f, 0); } : null);
     s.animate = !!o.animate;
+    s.speed = o.speed || 1;   // the arm: 1 as the program's SLEEPs ask, 2 or 3 times as fast
     s.wait = o.wait || (typeof setTimeout === 'function' ? function (f, ms) { setTimeout(f, ms); } : null);
     s.display = o.display || null;
     s.repairs = R.forVersion(s.v.id);
@@ -40,6 +41,7 @@
     s.files = files;
     s.m = new L.Machine({ dialect: s.v.id === 'ejs' ? 'new' : 'old', files: files, display: o.display || null, skip: R.skips(s.v.id),
       out: function (t) { s.log += t; s.out(t); } });
+    if (o.display) o.display.m = s.m;   // the display reads graphf's tables for its Solid view
     s.state = 'idle';
   }
   var S = Session.prototype;
@@ -53,7 +55,7 @@
       var r = s.m.run(s.slice);
       if (r === 'budget') { if (s.schedule) s.schedule(step); else step(); return; }
       // SLEEP: wait as long as the program asked, when animating; otherwise go straight on
-      if (r === 'sleep') { if (s.animate && s.wait) s.wait(step, s.m.slept); else if (s.schedule) s.schedule(step); else step(); return; }
+      if (r === 'sleep') { if (s.animate && s.wait) s.wait(step, s.m.slept / (s.speed || 1)); else if (s.schedule) s.schedule(step); else step(); return; }
       done(r);
     })();
   };
