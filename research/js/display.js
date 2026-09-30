@@ -210,6 +210,18 @@
   }
   var D = Display.prototype;
   D.scene = function () { return sceneOf(this); };
+  // the last calls made to the display, for Graphics ▸ The display list
+  D.logCall = function (n, a, m) {
+    var c = this.clog || (this.clog = []);
+    c.push({ n: n, a: a.map(function (x) { return m.prin1String(x); }).join(' '), step: m.steps });
+    if (c.length > 600) c.splice(0, c.length - 600);
+  };
+  // draw to another canvas, with other settings (the same scene, side by side)
+  D.drawTo = function (cv, opts) {
+    var save = { canvas: this.canvas, solid: this.solid, faces: this.faces, colour: this.colour, labels: this.labels, dialogue: this.dialogue, hand1970: this.hand1970 };
+    var d = this; this.canvas = cv; Object.keys(opts || {}).forEach(function (k) { d[k] = opts[k]; });
+    try { this.draw(); } finally { Object.keys(save).forEach(function (k) { d[k] = save[k]; }); }
+  };
   // the hand's path: each place it is moved to, in three dimensions (Graphics ▸ The crane)
   D.track = [];
   D.trackHand = function (m, it) {

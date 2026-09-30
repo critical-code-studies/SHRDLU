@@ -17,12 +17,20 @@
 
   var GFX = [
     ['world', 'The microworld', 'Move the objects with the mouse, through SHRDLU’s own theorems: what it will do, and what it refuses'],
+    ['support', 'What is on what', 'The Planner’s own record of what supports what, and what the box contains'],
+    ['space', 'Finding space', 'How FINDSPACE finds room to put something down: its random tries, as GROW widens them'],
+    ['projection', 'The projection', 'How GP-PROJECT puts a point of the world on the 340’s screen'],
+    ['hidden', 'Hidden lines', 'graphf’s own hidden lines beside the bench’s solid view, and where graphf’s go stale'],
+    ['dlist', 'The display list', 'The 340’s items as the program has made them, and its last calls to the display'],
+    ['events', 'The event memory', 'What SHRDLU remembers doing, event by event, in time: what lets it answer “why?”'],
+    ['goals', 'The goal tree', 'The goals a command set off, each under the goal it served'],
+    ['parse', 'The parse', 'The last sentence’s parse, drawn as a tree'],
     ['objects', 'The objects', 'Each block, pyramid and the box, to turn about: shape, place, size, colour, what supports what'],
     ['hand', 'The hand, 1970 and after', 'The gripper the film shows, and the point the surviving code leaves'],
     ['crane', 'The crane', 'How graphf moves the hand and arm: four legs, in steps, and holding'],
     ['path', 'The hand’s path', 'Where the hand went in the last exchange run, in three dimensions and over time']
   ];
-  var GFXG = [['The world', ['world']], ['What it draws', ['objects', 'hand']], ['What moves', ['crane', 'path']]];
+  var GFXG = [['The world', ['world', 'support', 'space']], ['What it draws', ['objects', 'projection', 'hidden', 'dlist', 'hand']], ['What moves', ['crane', 'path']], ['What it knows', ['events', 'goals', 'parse']]];
   var gid = SW.store.get('gfx.id', 'objects'), build = null;
   SW.setGraphic = function (id) { if (GFX.some(function (g) { return g[0] === id; })) { gid = id; SW.store.set('gfx.id', id); } };
   SW.gfxItem = function () { return gid; };
@@ -290,14 +298,27 @@
     }
     drawPath(el, b, track, false);
   }
-  var demo = {};   // a path from exchange 1, run by the bench, by version
-  function demoPath(b, cb) {
-    if (demo[b.v.id]) { cb(demo[b.v.id]); return; }
-    var v = b.v, srcs = v.build.map(function (x) { return x.src; }).concat(root.SHRepairs.sources(v.id)), texts = {};
-    Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (x) { texts[s] = x; }); })).then(function () {
-      var d = new root.SH340({}), s = new root.SHSession({ version: v, texts: texts, display: d, animate: false, out: function () {} });
-      s.boot(function (r) { if (r !== 'input') return; s.type('pick up a big red block.', function () { demo[v.id] = d.track || []; cb(demo[v.id]); }); });
+  // the program with exchange 1 run, by version (for the path, the event memory, the goal tree, the parse)
+  var demo = {};
+  function demoSession(b, cb) {
+    var v = b.v, dm = demo[v.id];
+    if (dm) { if (dm.ready) cb(dm); else dm.waiters.push(cb); return; }
+    dm = demo[v.id] = { ready: false, waiters: [cb] };
+    texts(b, function (tx) {
+      dm.disp = new root.SH340({}); dm.sess = new root.SHSession({ version: v, texts: tx, display: dm.disp, animate: false, out: function () {} });
+      dm.sess.boot(function (r) {
+        var go = function () { dm.ready = true; var w = dm.waiters; dm.waiters = []; w.forEach(function (f) { f(dm); }); };
+        if (r !== 'input') { go(); return; }
+        dm.sess.type('pick up a big red block.', function () { dm.track = (dm.disp.track || []).slice(); go(); });
+      });
     });
+  }
+  function demoPath(b, cb) { demoSession(b, function (dm) { cb(dm.track || []); }); }
+  // the program to read what it knows from: Run's, when it runs this version and has taken a sentence; else exchange 1, run here
+  function knowing(b, cb) {
+    var r = SW.runNow && SW.runNow();
+    if (r && r.sess && r.vid === b.v.id && r.sess.state === 'waiting') { var s = r.sess.m.obarray.get('SENTNO'); if (s && typeof s.value === 'number' && s.value > 1) { cb(r.sess.m, 'the program running in Run'); return; } }
+    demoSession(b, function (dm) { cb(dm.sess.m, 'exchange 1, “pick up a big red block.”, run here (run your own in Run to see it instead)'); });
   }
   function drawPath(el, b, track, isDemo) {
     el.innerHTML = '<div class="cards gx-cards">' +
@@ -311,7 +332,31 @@
   // ---------- the microworld: the objects moved with the mouse, by SHRDLU's own theorems ----------
   // Its own copy of the program, with a 340 of its own. A goal is run as SHRDLU runs a command:
   // (THVAL2 NIL '(THGOAL (!PUTON A B) (THUSE TC-PUTON))), from its break loop (Session.planner).
-  var mw = null;   // { vid, sess, disp, busy, sel }
+  var mw = null;   // { vid, sess, disp, busy, sel, ready, waiters }
+  // the world's own copy of the program (shared by The microworld, What is on what, Finding space,
+  // Hidden lines, The display list), started once per version
+  function texts(b, cb) {
+    var v = b.v, srcs = v.build.map(function (x) { return x.src; }).concat(root.SHRepairs.sources(v.id)), tx = {};
+    Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (x) { tx[s] = x; }); })).then(function () { cb(tx); });
+  }
+  function ensureWorld(b, cb) {
+    if (mw && mw.vid === b.v.id) { if (mw.ready) cb(mw); else mw.waiters.push(cb); return; }
+    if (mw && mw.sess) mw.sess.gen = (mw.sess.gen || 0) + 1;
+    var me = mw = { vid: b.v.id, busy: true, sel: null, ready: false, waiters: [cb] };
+    texts(b, function (tx) {
+      if (mw !== me) return;
+      me.disp = new root.SH340({ colour: true, solid: true, hand1970: true, labels: false });
+      me.sess = new root.SHSession({ version: b.v, texts: tx, display: me.disp, animate: true, speed: 2, out: function () {} });
+      me.sess.boot(function () { me.busy = false; me.ready = true; var w = me.waiters; me.waiters = []; w.forEach(function (f) { f(me); }); });
+    });
+  }
+  // a printed Lisp value read back (in octal, as the program prints it), as plain data
+  var rdr = {};
+  function readValue(b, str) {
+    var d = b.v.id === 'ejs' ? 'new' : 'old', m = rdr[d] || (rdr[d] = new L.Machine({ dialect: d, files: {}, out: function () {} }));
+    try { return G.lisp(m.readFrom(new m.Stream(str)), m); } catch (e) { return null; }
+  }
+  var pfx = function (b) { return b.v.id === 'ejs' ? '!' : '#'; };   // the restoration writes # as ! (F5)
   var ACTS = [['puton', 'Put it on…', 'then click where: another object or the table', null],
               ['pickup', 'Pick it up', '', '(THGOAL (!PICKUP $X) (THUSE TC-PICKUP))'],
               ['cleartop', 'Clear its top', '', '(THGOAL (!CLEARTOP $X) (THUSE TC-CLEARTOP))'],
@@ -341,16 +386,10 @@
         mw.sel = null; paintSel();
       });
     }
-    function boot() {
-      var v = b.v, srcs = v.build.map(function (x) { return x.src; }).concat(root.SHRepairs.sources(v.id)), texts = {};
-      if (mw && mw.sess) { mw.sess.gen = (mw.sess.gen || 0) + 1; }
-      mw = { vid: v.id, busy: true, sel: null };
+    function boot(fresh) {
+      if (fresh) { if (mw && mw.sess) mw.sess.gen = (mw.sess.gen || 0) + 1; mw = null; }
+      ensureWorld(b, function () { mw.disp.canvas = cv; mw.disp.dirty(); paintSel(); });
       paintSel();
-      Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (x) { texts[s] = x; }); })).then(function () {
-        mw.disp = new root.SH340({ canvas: cv, colour: true, solid: true, hand1970: true, labels: false });
-        mw.sess = new root.SHSession({ version: v, texts: texts, display: mw.disp, animate: true, speed: 2, out: function () {} });
-        mw.sess.boot(function (r) { mw.busy = false; paintSel(); if (r !== 'input') say('The program did not start: ' + SW.esc(r), 'mw-brk'); });
-      });
     }
     cv.addEventListener('click', function (e) {
       if (!mw || !mw.disp || mw.busy) return;
@@ -362,12 +401,219 @@
     });
     el.onclick = function (e) {
       var a = e.target.closest('[data-mw]'); if (!a || a.disabled) return;
-      if (a.dataset.mw === 'reset') { log.innerHTML = ''; boot(); return; }
+      if (a.dataset.mw === 'reset') { log.innerHTML = ''; boot(true); return; }
       var act = ACTS.filter(function (x) { return x[0] === a.dataset.mw; })[0]; if (!act || !mw.sel) return;
       if (!act[3]) { mw.pending = mw.sel; selEl.innerHTML = 'Chosen: <b class="mono">' + SW.esc(mw.sel) + '</b> <span class="hint">now click where it is to go</span>'; return; }
       mw.pending = null; run(act[3].replace('$X', mw.sel));
     };
-    if (mw && mw.vid === b.v.id && mw.disp) { mw.disp.canvas = cv; mw.disp.dirty(); paintSel(); } else boot();
+    boot(false);
+  }
+
+  // ---------- What is on what: the Planner's #SUPPORT and #CONTAIN assertions, as a side view ----------
+  function supportView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('What is on what', 'Asked of the Planner itself, in the microworld’s copy of the program: (THFIND ALL … (THGOAL (' + pfx(b) + 'SUPPORT $?X $?Y))), and the same for ' + pfx(b) + 'CONTAIN. Each object stands above what holds it up, across at its own place; what the box contains sits in the box. Move things in The microworld and look again.', '<div class="gx-bar"><button class="btn" data-sp="again">⟳ Ask again</button><span class="hint sp-note">Asking…</span></div><div class="sp-draw"></div>', 'gx-wide') + cardHTML('The assertions', '', '<ul class="sp-list mono"></ul>') + '</div>';
+    function ask() {
+      ensureWorld(b, function () {
+        var P = pfx(b), q = function (rel, cb) { mw.sess.lisp("(THVAL2 NIL '(THFIND ALL (LIST $?X $?Y) (X Y) (THGOAL (" + P + rel + " $?X $?Y))))", function (r) { cb(readValue(b, r.value) || []); }, true); };
+        q('SUPPORT', function (sup) { q('CONTAIN', function (con) { if (el.isConnected) drawSupport(el, b, sup, con); }); });
+      });
+    }
+    el.onclick = function (e) { if (e.target.closest('[data-sp]')) ask(); };
+    ask();
+  }
+  function drawSupport(el, b, sup, con) {
+    var m = mw.sess.m, val = function (n) { var s = m.obarray.get(n); return s ? G.lisp(s.value, m) : null; };
+    var at = {}, col = {}; (val('ATABLE') || []).forEach(function (e) { if (Array.isArray(e)) at[e[0]] = e; });
+    (val('DISPLAY-AS') || []).forEach(function (e) { if (Array.isArray(e)) col[e[0]] = e[5]; });
+    var under = {}, kids = {}; sup.forEach(function (p) { if (Array.isArray(p)) { under[p[2]] = p[1]; (kids[p[1]] = kids[p[1]] || []).push(p[2]); } });
+    var inBox = {}; con.forEach(function (p) { if (Array.isArray(p)) inBox[p[2]] = p[1]; });
+    var level = {}, lv = function (n) { if (level[n] != null) return level[n]; var u = under[n]; return (level[n] = !u || /TABLE/.test(u) ? 0 : lv(u) + 1); };
+    var names = Object.keys(under), W = 900, H = 330, C = root.SH340.COLOURS, o = [];
+    o.push('<svg viewBox="0 0 ' + W + ' ' + H + '" class="sp-svg" role="img" aria-label="What is on what"><rect width="' + W + '" height="' + H + '" fill="#05070a"/><line x1="20" y1="' + (H - 30) + '" x2="' + (W - 20) + '" y2="' + (H - 30) + '" stroke="#8a909a" stroke-width="3"/><text x="24" y="' + (H - 10) + '" fill="#8a909a" font-size="12" font-family="ui-monospace, Menlo, monospace">:TABLE</text>');
+    var X = function (n) { var e = at[n]; return e ? 30 + (e[1][0] + e[2][0] / 2) / 640 * (W - 60) : W / 2; };
+    // on each level, boxes that would overlap are spread apart, in order across
+    var xs = {}, byLv = {};
+    names.forEach(function (n) { (byLv[lv(n)] = byLv[lv(n)] || []).push(n); });
+    Object.keys(byLv).forEach(function (l) { var row = byLv[l].sort(function (a2, b2) { return X(a2) - X(b2); }), last = -1e9; row.forEach(function (n) { var w0 = /BOX/.test(n) ? 140 : 76, x = Math.max(X(n), last + w0 / 2 + 6); xs[n] = x; last = x + w0 / 2; }); });
+    names.sort(function (a2, b2) { return lv(a2) - lv(b2); }).forEach(function (n) {
+      var x = xs[n], l = lv(n), y = H - 30 - 46 - l * 52, c = C[String(col[n] || '').toUpperCase()] || '#cfe8ff', w = 76;
+      if (/BOX/.test(n)) { w = 140; o.push('<path d="M' + (x - w / 2) + ' ' + (y - 6) + ' V' + (y + 46) + ' H' + (x + w / 2) + ' V' + (y - 6) + '" fill="none" stroke="' + c + '" stroke-width="2"/>'); }
+      else o.push('<rect x="' + (x - w / 2) + '" y="' + y + '" width="' + w + '" height="40" rx="3" fill="' + c + '" fill-opacity=".22" stroke="' + c + '" stroke-width="1.6"/>');
+      o.push('<text x="' + x + '" y="' + (y + 25) + '" text-anchor="middle" fill="#e7e4da" font-size="13" font-family="ui-monospace, Menlo, monospace">' + SW.esc(n) + (inBox[n] ? ' ⊂ box' : '') + '</text>');
+    });
+    o.push('</svg>');
+    SW.$('.sp-draw', el).innerHTML = o.join('');
+    SW.$('.sp-note', el).textContent = sup.length + ' SUPPORT and ' + con.length + ' CONTAIN assertions.';
+    SW.$('.sp-list', el).innerHTML = sup.map(function (p) { return '<li>' + SW.esc(p[1]) + ' holds up ' + SW.esc(p[2]) + '</li>'; }).concat(con.map(function (p) { return '<li>' + SW.esc(p[1]) + ' contains ' + SW.esc(p[2]) + '</li>'; })).join('');
+  }
+
+  // ---------- Finding space: FINDSPACE's own tries, recorded by wrapping GROW for one call ----------
+  function spaceView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('Finding space', 'Where SHRDLU puts something down (blockl, FINDSPACE): up to nine tries, each a random point on the surface (RANDOM) which GROW widens into the largest clear rectangle about it; the first big enough is used, its middle the place. The bench wraps GROW for one call to record each try, then puts it back. Seen from above; octal units.',
+      '<div class="gx-bar"><label class="check">Surface <select class="fs-surf"><option>:TABLE</option><option>:BOX</option></select></label><label class="check">Size <select class="fs-size"><option value="100 100 100">100 × 100 (a small cube)</option><option value="200 200 200" selected>200 × 200 (a large cube)</option><option value="200 300 300">200 × 300 (the big red block)</option></select></label><button class="btn" data-fs="try">Find space</button><span class="hint fs-note"></span></div><div class="fs-draw"></div>', 'gx-wide') + '</div>';
+    el.onclick = function (e) {
+      if (!e.target.closest('[data-fs]')) return;
+      var surf = SW.$('.fs-surf', el).value, size = SW.$('.fs-size', el).value;
+      SW.$('.fs-note', el).textContent = 'Asking…';
+      ensureWorld(b, function () {
+        var form = "(PROGN (PUTPROP 'GROW-REAL (GET 'GROW 'EXPR) 'EXPR) (SETQ *GROWS* NIL) (DEFUN GROW (A B C D) ((LAMBDA (V) (SETQ *GROWS* (CONS (LIST A V) *GROWS*)) V) (GROW-REAL A B C D))) ((LAMBDA (R) (PUTPROP 'GROW (GET 'GROW-REAL 'EXPR) 'EXPR) (LIST R (REVERSE *GROWS*))) (FINDSPACE 'RANDOM '" + surf + " '(" + size + ") NIL)))";
+        mw.sess.lisp(form, function (r) { var v = readValue(b, r.value); if (el.isConnected) drawSpace(el, b, surf, size.split(' ').map(function (x) { return parseInt(x, 8); }), v, r.message); }, true);
+      });
+    };
+    SW.$('[data-fs="try"]', el).click();
+  }
+  function drawSpace(el, b, surf, size, v, msg) {
+    var m = mw.sess.m, val = function (n) { var s = m.obarray.get(n); return s ? G.lisp(s.value, m) : null; };
+    var at = val('ATABLE') || [], col = {}; (val('DISPLAY-AS') || []).forEach(function (e) { if (Array.isArray(e)) col[e[0]] = e[5]; });
+    var box = null; at.forEach(function (e) { if (e[0] === ':BOX') box = e; });
+    var S = 440 / 640, W = 480, o = ['<svg viewBox="0 0 ' + W + ' ' + W + '" class="fs-svg" role="img" aria-label="The surface from above, with FINDSPACE’s tries"><rect width="' + W + '" height="' + W + '" fill="#05070a"/>'], C = root.SH340.COLOURS;
+    var P = function (x, y) { return [20 + x * S, W - 20 - y * S]; }, R = function (x0, y0, x1, y1, attrs) { var a = P(x0, y1), c = P(x1, y0); return '<rect x="' + a[0] + '" y="' + a[1] + '" width="' + (c[0] - a[0]) + '" height="' + (c[1] - a[1]) + '" ' + attrs + '/>'; };
+    o.push(R(0, 0, 640, 640, 'fill="#15191f" stroke="#8a909a"'));
+    at.forEach(function (e) { if (!Array.isArray(e) || /^:BW/.test(e[0]) || !Array.isArray(e[1])) return; var c = C[String(col[e[0]] || '').toUpperCase()] || '#cfe8ff'; o.push(R(e[1][0], e[1][1], e[1][0] + e[2][0], e[1][1] + e[2][1], 'fill="' + c + '" fill-opacity=".18" stroke="' + c + '"')); var t0 = P(e[1][0] + 4, e[1][1] + e[2][1] - 14); o.push('<text x="' + t0[0] + '" y="' + t0[1] + '" fill="' + c + '" font-size="10" font-family="ui-monospace, Menlo, monospace">' + SW.esc(e[0]) + '</text>'); });
+    var tries = v && Array.isArray(v[1]) ? v[1] : [], place = v && Array.isArray(v[0]) ? v[0] : null;
+    tries.forEach(function (tr, i) {
+      var pt = tr[0], rc = tr[1], ok = rc && rc[1][0] - rc[0][0] >= size[0] && rc[1][1] - rc[0][1] >= size[1];
+      if (rc) o.push(R(rc[0][0], rc[0][1], rc[1][0], rc[1][1], 'fill="none" stroke="' + (ok ? '#e58be0' : '#8a8d86') + '" stroke-dasharray="' + (ok ? '0' : '4 3') + '" stroke-width="1.5"'));
+      var q = P(pt[0], pt[1]); o.push('<circle cx="' + q[0] + '" cy="' + q[1] + '" r="4" fill="' + (ok ? '#e58be0' : '#8a8d86') + '"/><text x="' + (q[0] + 6) + '" y="' + (q[1] - 5) + '" fill="#e7e4da" font-size="11" font-family="ui-monospace, Menlo, monospace">' + (i + 1) + '</text>');
+    });
+    if (place) o.push(R(place[0], place[1], place[0] + size[0], place[1] + size[1], 'fill="#e58be0" fill-opacity=".25" stroke="#e58be0" stroke-width="2"'));
+    o.push('</svg>');
+    SW.$('.fs-draw', el).innerHTML = o.join('') + '<p class="hint">' + (msg ? 'Stopped: ' + SW.esc(msg) : place ? 'Found in ' + tries.length + ' tr' + (tries.length === 1 ? 'y' : 'ies') + ': the place (' + place.map(function (n) { return n.toString(8); }).join(' ') + '), its corner; the rectangle GROW made in orchid, the others dashed.' : 'No room found in ' + tries.length + ' tries: FINDSPACE returns NIL.') + ' Find space again for other random tries.</p>';
+    SW.$('.fs-note', el).textContent = '';
+  }
+
+  // ---------- The projection: GP-PROJECT, with a point to move ----------
+  function projectionView(el, b) {
+    var p = -1, n = 0; b.parts.forEach(function (pt, i) { if (/graphf/.test(pt.src)) p = i; });
+    if (p >= 0) b.lines[p].some(function (Lr) { if (/\(DEFUN GP-PROJECT/.test(Lr.raw)) { n = Lr.n; return true; } return false; });
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('The projection' + (n ? ' <a href="#" class="mono" data-read="' + p + ':' + n + '">' + SW.esc(SW.refText(b.v.id, p, n, n, b.parts.length)) + '</a>' : ''), 'GP-PROJECT turns a place in the world (x across, y back, z up) into a point on the 340: X = 0.9 × (x + 0.75111 y + 3), Y = 0.9 × (z + 0.43302 y + 3). It is an oblique projection: x and z are drawn true, y slanted up and to the right, so the back of the table is higher and further right than its front. Move the point.',
+      '<div class="pj-grid"><canvas class="pj-cv" width="1024" height="1024" aria-label="The projection, with a point to move"></canvas><div class="pj-ctl">' + ['x', 'y', 'z'].map(function (k, i) { return '<label class="pj-l"><b>' + k + '</b> <input type="range" min="0" max="832" value="' + [320, 320, 200][i] + '" data-pj="' + k + '"><span class="mono" data-pv="' + k + '"></span></label>'; }).join('') + '<pre class="pj-out mono"></pre></div></div>', 'gx-wide') + '</div>';
+    el.onclick = linkRead;
+    var cv = SW.$('.pj-cv', el), dt = readData(b), obs = dt ? objectsOf(dt) : [];
+    function draw() {
+      var g = cv.getContext('2d'), k = cv.width / 1024, H = cv.height, P = G.proj;
+      var v = {}; ['x', 'y', 'z'].forEach(function (a) { v[a] = +SW.$('[data-pj="' + a + '"]', el).value; SW.$('[data-pv="' + a + '"]', el).textContent = v[a].toString(8) + ' (' + v[a] + ')'; });
+      var S = function (c) { var q = P(c[0], c[1], c[2]); return [q[0] * k, H - q[1] * k]; };
+      g.fillStyle = '#05070a'; g.fillRect(0, 0, cv.width, H);
+      // the scene faintly
+      g.globalAlpha = 0.35; g.strokeStyle = '#8a909a'; g.lineWidth = 1;
+      obs.forEach(function (o) { if (!o.loc || !o.size || o.table) return; var x0 = o.loc[0], y0 = o.loc[1], z0 = o.loc[2], x1 = x0 + o.size[0], y1 = y0 + o.size[1], z1 = z0 + o.size[2]; G.boxFaces(x0, y0, z0, x1, y1, z1).forEach(function (f) { g.beginPath(); f.p.forEach(function (c, i) { var q = S(c); if (i) g.lineTo(q[0], q[1]); else g.moveTo(q[0], q[1]); }); g.closePath(); g.stroke(); }); });
+      g.globalAlpha = 1;
+      // the table and the axes
+      var T = [[0, 0, 0], [640, 0, 0], [640, 640, 0], [0, 640, 0]]; g.strokeStyle = '#8a909a'; g.beginPath(); T.forEach(function (c, i) { var q = S(c); if (i) g.lineTo(q[0], q[1]); else g.moveTo(q[0], q[1]); }); g.closePath(); g.stroke();
+      [[[0, 0, 0], [700, 0, 0], 'x', '#5aa2ff'], [[0, 0, 0], [0, 700, 0], 'y', '#4fdc6a'], [[0, 0, 0], [0, 0, 700], 'z', '#ff5a4e']].forEach(function (a) { var p0 = S(a[0]), p1 = S(a[1]); g.strokeStyle = g.fillStyle = a[3]; g.lineWidth = 2; g.beginPath(); g.moveTo(p0[0], p0[1]); g.lineTo(p1[0], p1[1]); g.stroke(); g.font = 'bold 26px ui-monospace, Menlo, monospace'; g.fillText(a[2], p1[0] + 8, p1[1] - 8); });
+      // the point: dropped to the table, and along x and y on the table
+      var pt = [v.x, v.y, v.z], foot = [v.x, v.y, 0], q0 = S(pt), q1 = S(foot), qx = S([v.x, 0, 0]), qy = S([0, v.y, 0]);
+      g.setLineDash([6, 5]); g.lineWidth = 1.5; g.strokeStyle = '#ff5a4e'; g.beginPath(); g.moveTo(q0[0], q0[1]); g.lineTo(q1[0], q1[1]); g.stroke();
+      g.strokeStyle = '#4fdc6a'; g.beginPath(); g.moveTo(qx[0], qx[1]); g.lineTo(q1[0], q1[1]); g.stroke();
+      g.strokeStyle = '#5aa2ff'; g.beginPath(); g.moveTo(qy[0], qy[1]); g.lineTo(q1[0], q1[1]); g.stroke(); g.setLineDash([]);
+      g.fillStyle = '#e58be0'; g.beginPath(); g.arc(q0[0], q0[1], 9, 0, 7); g.fill();
+      var X = 0.9 * (v.x + 0.75111 * v.y + 3), Y = 0.9 * (v.z + 0.43302 * v.y + 3);
+      SW.$('.pj-out', el).textContent = 'X = 0.9 × (' + v.x + ' + 0.75111 × ' + v.y + ' + 3) = ' + X.toFixed(1) + '\nY = 0.9 × (' + v.z + ' + 0.43302 × ' + v.y + ' + 3) = ' + Y.toFixed(1) + '\n\n(the screen: 0 to 1777 octal, 1023, both ways)\n(FIX drops the fraction: ' + Math.floor(X) + ', ' + Math.floor(Y) + ')';
+    }
+    el.oninput = draw; draw();
+  }
+
+  // ---------- Hidden lines: graphf's own, beside the bench's solid view ----------
+  function hiddenView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' +
+      cardHTML('graphf’s hidden lines', 'What the program draws: when it draws an object, GP-OPAQUE and GP-DRAWL cut its edges where they pass behind the surfaces of other objects, and draw the hidden parts with the pen up. It draws only the object that moved, so what that object now stands in front of, or behind, keeps the lines it had.', '<canvas class="hl-a" width="1024" height="1024" aria-label="The scene as the program draws it"></canvas>') +
+      cardHTML('Drawn from the geometry', 'The bench’s Solid view of the same scene: every object rebuilt in three dimensions and drawn face by face, back to front. Where the two differ, graphf’s lines are stale or cut wrongly.', '<canvas class="hl-b" width="1024" height="1024" aria-label="The same scene drawn from its geometry"></canvas>') +
+      cardHTML('The scene', 'The microworld’s copy of the program: move things there, then look again here.', '<div class="gx-bar"><button class="btn" data-hl="again">⟳ Look again</button><button class="btn" data-hl="world">The microworld</button></div>') + '</div>';
+    function draw() { ensureWorld(b, function () { mw.disp.drawTo(SW.$('.hl-a', el), { solid: false, faces: false, colour: true, labels: false, dialogue: false, hand1970: false }); mw.disp.drawTo(SW.$('.hl-b', el), { solid: true, faces: false, colour: true, labels: false, dialogue: false, hand1970: false }); }); }
+    el.onclick = function (e) { var a = e.target.closest('[data-hl]'); if (!a) return; if (a.dataset.hl === 'world') SW.openGraphic('world'); else draw(); };
+    draw();
+  }
+
+  // ---------- The display list: the 340's items, and the last calls ----------
+  function dlistView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('The items', 'Each DISCREATE makes an item: an origin, and lines drawn relative to it (DISALINE), so that DISLOCATE moves the whole. Click an item to light it up. Names are from graphf’s own tables: GP-LINES for the objects, GP-HANDIT for the hand and arm.', '<div class="dl-grid"><canvas class="dl-cv" width="1024" height="1024" aria-label="The display, with the chosen item lit"></canvas><div class="dl-t"></div></div>', 'gx-wide') +
+      cardHTML('The last calls', 'The program’s most recent calls to the display slave, oldest first, arguments as the program gave them (octal).', '<ol class="dl-calls mono"></ol>', 'gx-wide') + '</div>';
+    ensureWorld(b, function () {
+      var d = mw.disp, m = mw.sess.m, val = function (n) { var s = m.obarray.get(n); return s ? G.lisp(s.value, m) : null; };
+      var name = {}; (val('GP-LINES') || []).forEach(function (e) { if (Array.isArray(e) && typeof e[5] === 'number') name[e[5]] = e[0]; });
+      var hi = val('GP-HANDIT'); if (Array.isArray(hi)) { name[hi[2]] = 'the hand'; name[hi[4]] = 'the arm'; }
+      var sel = null, cv = SW.$('.dl-cv', el);
+      function draw() {
+        var g = cv.getContext('2d'), k = cv.width / 1024, H = cv.height;
+        g.fillStyle = '#05070a'; g.fillRect(0, 0, cv.width, H);
+        d.order.forEach(function (id) { var it = d.items[id]; if (!it || !it.visible) return; g.strokeStyle = sel == null || sel === id ? '#dff2ff' : '#3a3f47'; g.lineWidth = sel === id ? 2.4 : 1.2; g.beginPath(); it.segs.forEach(function (s) { g.moveTo((it.ox + s[0]) * k, H - (it.oy + s[1]) * k); g.lineTo((it.ox + s[2]) * k, H - (it.oy + s[3]) * k); }); g.stroke(); if (sel === id) { g.fillStyle = '#e58be0'; g.beginPath(); g.arc(it.ox * k, H - it.oy * k, 6, 0, 7); g.fill(); } });
+      }
+      SW.$('.dl-t', el).innerHTML = '<table class="ov-sub gx-t"><thead><tr><th>Item</th><th>What</th><th>Origin</th><th>Lines</th><th>Shown</th><th>Carries</th></tr></thead><tbody>' + d.order.map(function (id) { var it = d.items[id]; return '<tr data-it="' + id + '"><td class="mono">' + id.toString(8) + '</td><td class="mono">' + SW.esc(name[id] || '') + '</td><td class="mono">(' + Math.round(it.ox).toString(8) + ' ' + Math.round(it.oy).toString(8) + ')</td><td class="num">' + it.segs.length + '</td><td>' + (it.visible ? 'yes' : 'no') + '</td><td class="mono">' + it.links.map(function (x) { return x.toString(8); }).join(' ') + '</td></tr>'; }).join('') + '</tbody></table><p class="hint">' + d.order.length + ' items; item numbers and origins in octal. “Carries”: items DISLINKed to it, which move with it.</p>';
+      SW.$('.dl-calls', el).innerHTML = (d.clog || []).slice(-80).map(function (c) { return '<li>(' + SW.esc(c.n) + ' ' + SW.esc(c.a) + ')</li>'; }).join('');
+      el.onclick = function (e) { var tr = e.target.closest('tr[data-it]'); if (!tr) return; sel = +tr.dataset.it; SW.$$('tr[data-it]', el).forEach(function (x) { x.classList.toggle('on', x === tr); }); draw(); };
+      draw();
+    });
+  }
+
+  // ---------- What SHRDLU knows: the event memory, the goal tree, the parse ----------
+  function eventsOf(m) {
+    var el0 = m.obarray.get('EVENTLIST'), P = function (ev, p) { var s = m.obarray.get(p); return s ? m.get(ev, s) : m.NIL; };
+    var out = []; var x = el0 ? el0.value : null;
+    while (x instanceof L.Cons) { var ev = x.car; if (ev instanceof L.Sym && ev.name !== 'EE') {
+      var as = m.prin1String(P(ev, 'THASSERTION')), act = /\(([#!][A-Z-]+)\s+:?E\d+\s*([^()]*)\)/.exec(as);
+      out.push({ name: ev.name, type: m.princString(P(ev, 'TYPE')), why: m.princString(P(ev, 'WHY')), start: G.lisp(P(ev, 'START'), m), end: G.lisp(P(ev, 'END'), m), what: act ? (act[1] + ' ' + act[2]).trim() : '' });
+    } x = x.cdr; }
+    return out.reverse();
+  }
+  var TYPEC = { PICKUP: '#ff5a4e', PUTON: '#ff5a4e', PUT: '#ff5a4e', STACKUP: '#ff5a4e', GRASP: '#4fdc6a', UNGRASP: '#4fdc6a', CLEARTOP: '#5aa2ff', 'GET-RID-OF': '#5aa2ff', RAISEHAND: '#e58be0', MOVEHAND: '#e58be0' };
+  function evColour(tp) { return TYPEC[String(tp).replace(/^[#!]/, '')] || '#cfe8ff'; }
+  function eventsView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('The event memory', '', '<p class="hint ev-src">Reading…</p><div class="ev-draw"></div>', 'gx-wide') + '</div>';
+    knowing(b, function (m, src) {
+      var evs = eventsOf(m); SW.$('.ev-src', el).textContent = 'From ' + src + '. Each event MEMORY recorded (blockl): its type, its start and end on the event clock (THTIME), and why: a command, or the event it served. Bars in time, each row under the event it served.';
+      if (!evs.length) { SW.$('.ev-draw', el).innerHTML = '<p class="hint">No events yet.</p>'; return; }
+      var byName = {}; evs.forEach(function (e) { byName[e.name] = e; });
+      var depth = function (e) { var d = 0, w = e; while (w && byName[w.why] && d < 12) { w = byName[w.why]; d++; } return d; };
+      var tmax = Math.max.apply(null, evs.map(function (e) { return typeof e.end === 'number' ? e.end : typeof e.start === 'number' ? e.start : 0; })) || 1;
+      var W = 900, rh = 26, H = evs.length * rh + 40, X = function (tt) { return 200 + tt / tmax * (W - 420); }, o = ['<svg viewBox="0 0 ' + W + ' ' + H + '" class="ev-svg" role="img" aria-label="The event memory in time"><rect width="' + W + '" height="' + H + '" fill="#05070a"/>'];
+      for (var tt = 0; tt <= tmax; tt++) o.push('<line x1="' + X(tt) + '" y1="10" x2="' + X(tt) + '" y2="' + (H - 24) + '" stroke="#1d2129"/><text x="' + X(tt) + '" y="' + (H - 8) + '" fill="#8a8d86" font-size="11" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">' + tt + '</text>');
+      evs.sort(function (a2, b2) { return (a2.start || 0) - (b2.start || 0) || depth(a2) - depth(b2); }).forEach(function (e, i) {
+        var y = 14 + i * rh, s = typeof e.start === 'number' ? e.start : 0, en = typeof e.end === 'number' ? e.end : s, c = evColour(e.type), dx = depth(e) * 14;
+        o.push('<text x="' + (8 + dx) + '" y="' + (y + 15) + '" fill="' + c + '" font-size="12" font-family="ui-monospace, Menlo, monospace">' + SW.esc(e.name + ' ' + e.type) + '</text>');
+        o.push('<rect x="' + X(s) + '" y="' + (y + 3) + '" width="' + Math.max(4, X(en) - X(s)) + '" height="' + (rh - 8) + '" rx="3" fill="' + c + '" fill-opacity=".35" stroke="' + c + '"><title>' + SW.esc(e.name + ' ' + e.what + ', why: ' + e.why + ', from ' + s + ' to ' + en) + '</title></rect>');
+        o.push('<text x="' + (X(en) + 6) + '" y="' + (y + 15) + '" fill="#8a8d86" font-size="11" font-family="ui-monospace, Menlo, monospace">' + SW.esc(e.what) + (byName[e.why] ? ' · for ' + SW.esc(e.why) : e.why === 'COMMAND' ? ' · the command' : '') + '</text>');
+      });
+      o.push('</svg>');
+      SW.$('.ev-draw', el).innerHTML = o.join('');
+    });
+  }
+  function goalsView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('The goal tree', '', '<p class="hint gt-src">Reading…</p><div class="gt-draw"></div>', 'gx-wide') + '</div>';
+    knowing(b, function (m, src) {
+      var evs = eventsOf(m); SW.$('.gt-src', el).textContent = 'From ' + src + '. The goals the command set off, each drawn under the goal it served (the event’s WHY). This is the record SHRDLU answers “why did you …?” from: it climbs the tree.';
+      if (!evs.length) { SW.$('.gt-draw', el).innerHTML = '<p class="hint">No events yet.</p>'; return; }
+      var kids = {}, roots = [], byName = {}; evs.forEach(function (e) { byName[e.name] = e; });
+      evs.forEach(function (e) { if (byName[e.why]) (kids[e.why] = kids[e.why] || []).push(e); else roots.push(e); });
+      var W = 900, lw = 150, col = 0, pos = {}, maxd = 0;
+      (function lay(list, d) { list.forEach(function (e) { maxd = Math.max(maxd, d); var ch = kids[e.name] || []; if (!ch.length) { pos[e.name] = { x: col++, d: d }; } else { lay(ch, d + 1); var xs = ch.map(function (c) { return pos[c.name].x; }); pos[e.name] = { x: (Math.min.apply(null, xs) + Math.max.apply(null, xs)) / 2, d: d }; } }); })(roots, 0);
+      var cw = Math.max(lw + 10, (W - 20) / Math.max(1, col)), H = (maxd + 1) * 90 + 30, o = ['<svg viewBox="0 0 ' + Math.max(W, col * cw + 20) + ' ' + H + '" class="gt-svg" role="img" aria-label="The goal tree"><rect width="100%" height="100%" fill="#05070a"/>'];
+      var XY = function (e) { var p0 = pos[e.name]; return [20 + p0.x * cw + cw / 2, 30 + p0.d * 90]; };
+      evs.forEach(function (e) { if (byName[e.why]) { var a = XY(byName[e.why]), c = XY(e); o.push('<path d="M' + a[0] + ' ' + (a[1] + 44) + ' C' + a[0] + ' ' + (a[1] + 70) + ' ' + c[0] + ' ' + (c[1] - 26) + ' ' + c[0] + ' ' + c[1] + '" fill="none" stroke="#3a3f47" stroke-width="1.5"/>'); } });
+      evs.forEach(function (e) { var p1 = XY(e), c = evColour(e.type); o.push('<rect x="' + (p1[0] - lw / 2) + '" y="' + p1[1] + '" width="' + lw + '" height="44" rx="6" fill="' + c + '" fill-opacity=".16" stroke="' + c + '"/><text x="' + p1[0] + '" y="' + (p1[1] + 18) + '" text-anchor="middle" fill="' + c + '" font-size="13" font-family="ui-monospace, Menlo, monospace">' + SW.esc(e.type) + '</text><text x="' + p1[0] + '" y="' + (p1[1] + 35) + '" text-anchor="middle" fill="#e7e4da" font-size="11" font-family="ui-monospace, Menlo, monospace">' + SW.esc(e.name + ' ' + e.what.replace(/^[#!][A-Z-]+\s*/, '')) + '</text>'); });
+      o.push('</svg>');
+      SW.$('.gt-draw', el).innerHTML = o.join('');
+    });
+  }
+  function parseView(el, b) {
+    el.innerHTML = '<div class="cards gx-cards">' + cardHTML('The parse', '', '<p class="hint pt-src">Reading…</p><div class="pt-draw"></div>', 'gx-wide') + '</div>';
+    knowing(b, function (m, src) {
+      var reg = function (node, r) { var s = m.obarray.get(r); return node instanceof L.Cons && s ? m.get(node.car, s) : m.NIL; };
+      var lst = function (x) { var a = []; while (x instanceof L.Cons) { a.push(x.car); x = x.cdr; } return a; };
+      var words = function (node) { var a = reg(node, 'FIRSTWORD'), z = reg(node, 'WORDAFTER'), out = []; while (a instanceof L.Cons && a !== z && out.length < 40) { out.push(m.princString(a.car)); a = a.cdr; } return out.join(' '); };
+      var cs = m.obarray.get('C'), top = cs ? cs.value : null;
+      SW.$('.pt-src', el).textContent = 'From ' + src + '. The top node C, each node a unit PROGRAMMAR built: its first feature (CLAUSE, NG, VG, PREPG, ADJG, or a word class) over the words it covers; hover a node for all its features.';
+      if (!(top instanceof L.Cons)) { SW.$('.pt-draw', el).innerHTML = '<p class="hint">No parse yet.</p>'; return; }
+      var nodes = [], col = 0;
+      (function lay(node, d) { var ds = [], x = reg(node, 'DAUGHTERS'); while (x instanceof L.Cons && ds.length < 40) { ds.push(x); x = x.cdr; } ds.reverse(); var me = { node: node, d: d, kids: [] }; nodes.push(me); if (!ds.length) me.x = col++; else { ds.forEach(function (c) { me.kids.push(lay(c, d + 1)); }); me.x = (me.kids[0].x + me.kids[me.kids.length - 1].x) / 2; } return me; })(top, 0);
+      var cw = 110, W = Math.max(900, col * cw + 40), maxd = Math.max.apply(null, nodes.map(function (n2) { return n2.d; })), H = (maxd + 1) * 78 + 40;
+      var XY = function (n2) { return [20 + n2.x * cw + cw / 2, 26 + n2.d * 78]; }, o = ['<svg viewBox="0 0 ' + W + ' ' + H + '" class="pt-svg" role="img" aria-label="The parse tree"><rect width="100%" height="100%" fill="#05070a"/>'];
+      nodes.forEach(function (n2) { var a = XY(n2); n2.kids.forEach(function (k2) { var c = XY(k2); o.push('<line x1="' + a[0] + '" y1="' + (a[1] + 30) + '" x2="' + c[0] + '" y2="' + (c[1] - 4) + '" stroke="#3a3f47" stroke-width="1.5"/>'); }); });
+      nodes.forEach(function (n2) { var a = XY(n2), fe = lst(reg(n2.node, 'FEATURES')).map(function (f) { return m.princString(f); }), wd = words(n2.node), leaf = !n2.kids.length;
+        o.push('<g><title>' + SW.esc(fe.join(' ') + ': ' + wd) + '</title><text x="' + a[0] + '" y="' + (a[1] + 10) + '" text-anchor="middle" fill="#4d92e0" font-size="13" font-weight="600" font-family="ui-monospace, Menlo, monospace">' + SW.esc(fe[0] || '') + '</text><text x="' + a[0] + '" y="' + (a[1] + 27) + '" text-anchor="middle" fill="' + (leaf ? '#e7e4da' : '#8a8d86') + '" font-size="' + (leaf ? 13 : 11) + '" font-family="ui-monospace, Menlo, monospace">' + SW.esc(leaf ? wd : wd.length > 22 ? wd.slice(0, 21) + '…' : wd) + '</text></g>'); });
+      o.push('</svg>');
+      SW.$('.pt-draw', el).innerHTML = o.join('');
+    });
   }
 
   // the hand, 1970 and after: what the film shows, and what the surviving code draws
@@ -420,6 +666,6 @@
     SW.$('.an-head', el).addEventListener('click', function (e) { var t2 = e.target.closest('[data-g]'); if (t2) { SW.setGraphic(t2.dataset.g); SW.writeQuery(); SW.views.graphics.show(build); } });
     var body = SW.$('.gx-body', el);
     if (!b.v.build) { body.innerHTML = '<p class="hint">No source survives for ' + SW.esc(b.v.label) + ', so there is nothing to draw.</p>'; return; }
-    ({ world: worldView, crane: craneView, path: pathView, hand: handView }[gid] || objectsView)(body, b);
+    ({ world: worldView, support: supportView, space: spaceView, projection: projectionView, hidden: hiddenView, dlist: dlistView, events: eventsView, goals: goalsView, parse: parseView, crane: craneView, path: pathView, hand: handView }[gid] || objectsView)(body, b);
   } };
 })(this);

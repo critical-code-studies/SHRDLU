@@ -1339,7 +1339,7 @@
 
     // the DEC 340 display (the SLAVE library): passed to the page's display object
     'DISINI DISCREATE DISALINE DISLOCATE DISFLUSH DISET DISGORGE DISLINK DISLIST DISAD DISPLAY DISBLINK DISCOPY DISMARK DISCHANGE DISMOTION DISCRIBE DISPOINT DISAPOINT DISCUSS'.split(' ').forEach(function (n) {
-      lsubr(n, function (a) { return m.display && m.display[n] ? m.display[n](a, m) : NIL; });
+      lsubr(n, function (a) { if (m.display && m.display.logCall) m.display.logCall(n, a, m); return m.display && m.display[n] ? m.display[n](a, m) : NIL; });
     });
   }
 
