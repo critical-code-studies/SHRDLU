@@ -132,6 +132,8 @@
     return [A[0] + best.t * (B[0] - A[0]), A[1] + best.t * (B[1] - A[1]), A[2] + best.t * (B[2] - A[2])];
   }
 
+  var HAND = { r: 28, h: 44 };   // the plate's half-width and the gripper's height, in the world's units
+  function handFaces(h) { return pyramidFaces(h[0] - HAND.r, h[1] - HAND.r, h[2], h[0] + HAND.r, h[1] + HAND.r, h[2] + HAND.h); }
   // the scene: the table, the objects (faces in three dimensions), the arm; in painting order
   function sceneOf(disp) {
     var m = disp.m; if (!m) return null;
@@ -159,6 +161,10 @@
       }
       objs.push({ x0: x0, y0: y0, z0: z0, x1: x1, y1: y1, z1: z1, faces: /PYRAMID/.test(sh) ? pyramidFaces(x0, y0, z0, x1, y1, z1) : boxFaces(x0, y0, z0, x1, y1, z1), col: col, name: nm, held: nm === held });
     });
+    if (hand && disp.hand1970) {
+      objs.push({ x0: hand[0] - HAND.r, y0: hand[1] - HAND.r, z0: hand[2], x1: hand[0] + HAND.r, y1: hand[1] + HAND.r, z1: hand[2] + HAND.h, faces: handFaces(hand), name: 'hand', handShape: true });
+      hand = [hand[0], hand[1], hand[2] + HAND.h];   // the arm goes up from the gripper's apex
+    }
     if (hand) objs.push({ x0: hand[0], y0: hand[1], z0: hand[2], x1: hand[0] + 0.01, y1: hand[1] + 0.01, z1: 4000, faces: [], arm: true, name: 'arm' });
     objs.forEach(function (o) {
       o.cd = centreDepth(o);
@@ -190,6 +196,9 @@
     this.colour = !!o.colour;
     this.solid = !!o.solid;
     this.faces = !!o.faces;   // Solid with its faces shaded, not only outlined
+    // the 1970 hand (an option): the gripper the 1970 film shows at the end of the arm, a small
+    // pyramid on a flat plate; the surviving code sets up a hand item but draws nothing in it
+    this.hand1970 = o.hand1970 !== false;
     this.labels = o.labels !== false;   // the names graphf writes by each object (DISCUSS); the 1970 film shows none
     // Dialogue (an option, after the 1970 film, which shows the conversation at the top of the
     // screen; the surviving code writes only the objects' names on the 340): the last exchanges,
@@ -201,6 +210,18 @@
   }
   var D = Display.prototype;
   D.scene = function () { return sceneOf(this); };
+  // the hand's path: each place it is moved to, in three dimensions (Graphics ▸ The crane)
+  D.track = [];
+  D.trackHand = function (m, it) {
+    try {
+      var hi = lisp(m.obarray.get('GP-HANDIT') ? m.obarray.get('GP-HANDIT').value : null, m);
+      if (!Array.isArray(hi) || hi[2] !== it.id) return;
+      var h = handAt(this, m, hi, it.ox, it.oy); if (!h) return;
+      var sent = m.obarray.get('SENTNO'), sn = sent && typeof sent.value === 'number' ? sent.value : 0;
+      if (!this.track || this.track.sent !== sn) { this.track = []; this.track.sent = sn; }
+      this.track.push({ step: m.steps, x: h[0], y: h[1], z: h[2], held: hi[1] || null });
+    } catch (e) { /* the path is a record, never a reason to stop */ }
+  };
   // paint the scene: each face turned to the viewer, filled in the screen's colour and outlined
   D.drawSolid = function (g, k, H, beam, bg) {
     var sc = sceneOf(this); if (!sc) return false;
@@ -324,6 +345,7 @@
     this.calls++;
     var it = this.item(a[0], m);
     this.move(it, num(a[1]) - it.ox, num(a[2]) - it.oy);
+    this.trackHand(m, it);
     this.dirty();
     return m.NIL;
   };
@@ -426,6 +448,17 @@
       g.font = Math.round(14 * k * 1.4) + 'px ui-monospace, Menlo, monospace';
       if (d.labels) it.texts.forEach(function (t) { g.fillText(t[2], (it.ox + t[0]) * k, H - (it.oy + t[1]) * k - 4 * k); });
     });
+    if (!solid && d.hand1970 && d.m) {   // the 1970 hand, in lines, at the hand's place
+      try {
+        var hv = d.m.obarray.get('GP-HANDIT'), hi2 = hv ? lisp(hv.value, d.m) : null, hitm = Array.isArray(hi2) ? d.items[hi2[2]] : null;
+        var hp = hitm ? handAt(d, d.m, hi2, hitm.ox, hitm.oy) : null;
+        if (hp) {
+          g.globalAlpha = 1; g.strokeStyle = g.shadowColor = beam; g.beginPath();
+          handFaces(hp).forEach(function (f) { f.p.forEach(function (c, i) { var q = proj(c[0], c[1], c[2]); if (i) g.lineTo(q[0] * k, H - q[1] * k); else g.moveTo(q[0] * k, H - q[1] * k); }); g.closePath(); });
+          g.stroke();
+        }
+      } catch (e) { /* no hand to draw */ }
+    }
     if (d.dialogue && d.caption.length) {   // the conversation, top left, as in the film
       g.globalAlpha = 1; g.fillStyle = g.shadowColor = beam; g.shadowBlur = 4 * k;
       g.font = Math.round(26 * k) + 'px ui-monospace, Menlo, monospace';
@@ -445,6 +478,8 @@
   };
 
   Display.COLOURS = COLOURS;
+  // the geometry, for the Graphics views
+  Display.geom = { proj: proj, boxFaces: boxFaces, pyramidFaces: pyramidFaces, lisp: lisp };
   root.SH340 = Display;
   if (typeof module !== 'undefined' && module.exports) module.exports = Display;
 })(this);

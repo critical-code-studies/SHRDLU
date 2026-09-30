@@ -110,7 +110,7 @@
     var inp = SW.$('#tty-input', view), g = SW.$('#tty-ghost', view), list = SW.$('#tty-sugg', view);
     var s = sugg[suggAt], v = inp.value;
     g.innerHTML = s && s.full.toLowerCase().indexOf(v.toLowerCase()) === 0 ? '<span class="tty-ghost-v">' + SW.esc(v) + '</span>' + SW.esc(s.full.slice(v.length)) : '';
-    inp.placeholder = g.textContent ? '' : 'type here  (Tab completes; Return sends)';
+    inp.placeholder = '';
     list.innerHTML = sugg.length ? '<span class="hint">Tab</span> ' + sugg.map(function (x, i) { return '<button type="button" class="tty-s' + (i === suggAt ? ' on' : '') + '" data-s="' + i + '">' + SW.esc(x.label) + '</button>'; }).join('') : '';
   }
   var taken = null;   // the last completion taken, so that Tab again cycles to the next
@@ -134,7 +134,7 @@
   }
 
   // ---------- the DEC 340 display (js/display.js) ----------
-  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), facesOn = SW.store.get('run.faces', false), disp = null, said = null;
+  var dispOn = SW.store.get('run.display', true), armSpeed = +SW.store.get('run.arm', SW.store.get('run.anim', true) ? 1 : 0), colOn = SW.store.get('run.colour', false), solidOn = SW.store.get('run.solid', false), labOn = SW.store.get('run.labels', true), dlgOn = SW.store.get('run.dialogue', true), facesOn = SW.store.get('run.faces', false), handOn = SW.store.get('run.hand1970', true), disp = null, said = null;
   function hasDisplayCode(v) { return v.build.some(function (b) { return /graphf/.test(b.src); }) || SHRepairs.supplies(v.id, true).some(function (s) { return s.name === 'GRAPHF'; }); }
   function paintDispBar() {
     var v = V.byId(vid), has = hasDisplayCode(v), cap = SW.$('#d340-note', view), wrap = SW.$('.d340', view);
@@ -144,6 +144,7 @@
     SW.$('#run-arm', view).disabled = !(dispOn && has);
     SW.$('#run-col', view).disabled = !(dispOn && has);
     SW.$('#run-lab', view).disabled = !(dispOn && has);
+    SW.$('#run-hand', view).disabled = !(dispOn && has);
     SW.$('#run-dlgon', view).disabled = !(dispOn && has);
     SW.$('#run-solid', view).disabled = !(dispOn && has);
     SW.$('#run-faces', view).disabled = !(dispOn && has);
@@ -163,7 +164,7 @@
     Promise.all(srcs.map(function (s) { return SW.fetchText(s).then(function (t) { texts[s] = t; }); })).then(function () {
       var t0 = performance.now();
       var cv = SW.$('#d340', view);
-      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, faces: facesOn, labels: labOn, dialogue: dlgOn }) : null;
+      disp = dispOn && hasDisplayCode(v) && root.SH340 ? new root.SH340({ canvas: cv, colour: colOn, solid: solidOn, faces: facesOn, hand1970: handOn, labels: labOn, dialogue: dlgOn }) : null;
       if (!disp && cv) { var g = cv.getContext('2d'); g.fillStyle = getComputedStyle(cv).getPropertyValue('--crt').trim() || '#05070a'; g.fillRect(0, 0, cv.width, cv.height); }
       paintDispBar();
       sess = new root.SHSession({ version: v, texts: texts, out: onOut, display: disp, animate: armSpeed > 0, speed: armSpeed || 1, onState: function (st) { status(stateText(st) + (sess ? '  ·  ' + sess.m.steps.toLocaleString('en-GB') + ' steps' : '')); if (st !== 'running' && st !== 'loading') { paintDeep(true); caption(); if (st === 'waiting') setTimeout(suggest, 0); } } });
@@ -323,7 +324,7 @@
       '<button class="btn" data-side="test" title="The 1970 dialogue, exchange by exchange, beside what this run answers">☷ Dialogue test <span class="badge" id="run-tally-n"></span></button>' +
       '<button class="btn" data-side="about" title="What is running, and how to type to it">ⓘ About…</button>' +
       '<span class="hint" id="run-status"></span><span class="vlang tb-right" id="run-lang"></span></div>' +
-      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type here  (Tab completes; Return sends)" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
+      '<div class="run-grid' + (SW.store.get('run.flip', false) ? ' flip' : '') + '"><div class="tty-col"><div class="tty"><button class="icon-btn tty-copy" id="tty-copy" title="Copy the whole transcript (or select text in the teletype and copy it as usual)">⧉</button><div class="tty-out" id="tty-out" aria-live="polite"><form class="tty-in" id="tty-form"><span class="tty-ghost" id="tty-ghost" aria-hidden="true"></span><input id="tty-input" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="" aria-label="Type to SHRDLU"><div class="tty-sugg" id="tty-sugg"></div></form></div></div>' +
       '<details class="run-deep" id="run-deep"><summary><b>Deep dive</b> <span class="hint">the variables and structures SHRDLU keeps, read each time it waits; what changed is marked</span></summary><div id="run-deep-body"></div></details>' +
       '<details class="run-loadlog" id="run-loadlog"><summary class="hint">Load log</summary></details></div>' +
       '<div class="run-side"><div class="d340"><div class="d340-wrap"><button class="icon-btn d340-copy" id="d340-copy" title="Copy a snapshot of the screen, as an image">⧉</button><canvas id="d340" width="1024" height="1024" aria-label="The DEC 340 display: the blocks world as SHRDLU draws it"></canvas></div>' +
@@ -332,6 +333,7 @@
       '<label class="check" title="How fast the arm moves: Original pauses where graphf’s MOVETO says SLEEP (.06 seconds a step); ×2 and ×3 shorten the pauses; Instant leaves them out">Arm <select id="run-arm">' + [[1, 'Original'], [2, '×2'], [3, '×3'], [0, 'Instant']].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === armSpeed ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label>' +
       '<label class="check" title="Draw each object in the colour SHRDLU names it (the labels graphf writes: RED, GREEN, BLUE, WHITE; the table grey). The DEC 340 drew in one colour; untick for the screen as it was"><input type="checkbox" id="run-col"' + (colOn ? ' checked' : '') + '> Colour</label>' +
       '<label class="check" title="The names graphf writes by each object (RED, GREEN, BLUE, WHITE, BLACK: the last field of each entry in DISPLAY-AS). The surviving code of 1972–77 draws them; the 1970 film shows none"><input type="checkbox" id="run-lab"' + (labOn ? ' checked' : '') + '> Labels</label>' +
+      '<label class="check" title="The gripper the 1970 film shows at the end of the arm: a small pyramid on a flat plate. The surviving code sets up a hand but draws nothing in it; this is the bench, after the film"><input type="checkbox" id="run-hand"' + (handOn ? ' checked' : '') + '> 1970 Hand</label>' +
       '<label class="check" title="The last exchanges at the top of the screen, in capitals, as the 1970 film shows the conversation on the display. The surviving code writes only the objects’ names on the 340; this is the bench, after the film"><input type="checkbox" id="run-dlgon"' + (dlgOn ? ' checked' : '') + '> Dialogue</label>' +
       '<label class="check" title="Objects hide what stands behind them: the scene rebuilt in three dimensions from graphf’s own tables (positions, sizes, shapes; the hand followed through each leg of its moves) and drawn face by face, back to front; what is in the box shows faintly through its walls. The 340 drew lines only, with the lines graphf found hidden left out; untick for the screen as it was"><input type="checkbox" id="run-solid"' + (solidOn ? ' checked' : '') + '> Solid</label>' +
       '<label class="check" title="Solid shapes with their faces shaded, lit from above and in front, each in its colour with Colour on. A bench view: the 340 drew lines"><input type="checkbox" id="run-faces"' + (facesOn ? ' checked' : '') + '> Faces</label>' +
@@ -361,6 +363,7 @@
     SW.$('#run-faces', view).onchange = function (e) { facesOn = e.target.checked; SW.store.set('run.faces', facesOn); if (disp) { disp.faces = facesOn; disp.dirty(); } };
     SW.$('#run-solid', view).onchange = function (e) { solidOn = e.target.checked; SW.store.set('run.solid', solidOn); if (disp) { disp.solid = solidOn; disp.dirty(); } };
     SW.$('#run-dlgon', view).onchange = function (e) { dlgOn = e.target.checked; SW.store.set('run.dialogue', dlgOn); if (disp) { disp.dialogue = dlgOn; disp.dirty(); } };
+    SW.$('#run-hand', view).onchange = function (e) { handOn = e.target.checked; SW.store.set('run.hand1970', handOn); if (disp) { disp.hand1970 = handOn; disp.dirty(); } };
     SW.$('#run-lab', view).onchange = function (e) { labOn = e.target.checked; SW.store.set('run.labels', labOn); if (disp) { disp.labels = labOn; disp.dirty(); } };
     SW.$('#run-col', view).onchange = function (e) { colOn = e.target.checked; SW.store.set('run.colour', colOn); if (disp) { disp.colour = colOn; disp.dirty(); } };
     SW.$('#run-arm', view).onchange = function (e) { armSpeed = +e.target.value; SW.store.set('run.arm', armSpeed); if (sess) { sess.animate = armSpeed > 0; sess.speed = armSpeed || 1; } };
@@ -431,6 +434,8 @@
     boot();
   }
 
+  // what Run is running, for the Graphics views (the world as it stands, the hand's path)
+  SW.runNow = function () { return { sess: sess, disp: disp, vid: vid }; };
   // Run runs the version chosen in the top bar; one with no text to run leaves the last one running
   SW.views.run = { show: function (b) {
     var v = b && b.v;

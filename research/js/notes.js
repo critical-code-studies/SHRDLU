@@ -953,6 +953,7 @@
     function ext(url, text) { return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + text + ' ↗</a>'; }
     var d = SW.el('dialog', { class: 'tray-big annohelp joinhelp' });
     d.innerHTML = '<div class="tray-bighead"><b>Joining the annotation group</b><span class="refhelp-acts"><button class="btn ghost" data-share title="Copy a link that opens the bench with this guide showing, to send to someone joining">🔗 Copy link to this guide</button><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div><div class="ah">' +
+      '<figure class="js-card"><img src="img/join-card.png" width="600" height="315" alt="The invitation card: SHRDLU, an invitation to the Research Bench, RSVP"><figcaption class="hint">The invitation others see when you send them the link (🔗 Copy link to this guide, above); it opens the bench with this guide showing.</figcaption></figure>' +
       '<p>Annotations on the bench are shared through a private group on <b>Hypothesis</b>, the open annotation service. To read and write them you need a Hypothesis account, membership of the group, and a personal key (an API token) that lets the bench write as you. Four steps, about five minutes. You need an email address, and the group’s invitation link from the project.</p>' +
 
       '<div class="js-steps"><section class="js-step"><div class="js-num" aria-hidden="true">1</div><div class="js-body"><h3><span class="vh">Step 1: </span>Create a Hypothesis account</h3>' +
@@ -987,7 +988,7 @@
     d.showModal();
     d.addEventListener('click', function (e) {
       if (e.target.closest('[data-share]')) {
-        var url = SW.BASE_URI + 'join.html';   // its own share card (an invitation, RSVP); it opens the bench with this guide showing
+        var url = SW.BASE_URI + 'join.html?rsvp=2';   // a fresh address, so that link previews fetch the invitation card anew   // its own share card (an invitation, RSVP); it opens the bench with this guide showing
         (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
           .then(function () { SW.toast('Link copied: it opens the bench with this guide showing'); }, function () { window.prompt('Copy:', url); });
         return;

@@ -397,6 +397,7 @@
         }).join('');
       }).join('') + '<div class="help-ver hint">SHRDLU Research Bench ' + SW.esc(SW.VERSION) + (dm ? ', ' + SW.esc(SW.fmtDate(dm.content)) : '') + '</div>';
     }
+    if (which === 'graphics') return SW.gfxMenu ? SW.gfxMenu() : '';
     if (which === 'versions') return VERS.map(function (h) {
       var on = h[0] === 'absence' ? SW.state.tab === 'analyse' && lens === 8 : SW.state.tab === h[0];
       return '<button data-pick="' + h[0] + '"' + (on ? ' class="on"' : '') + '><b>' + SW.esc(h[1]) + '</b><span>' + SW.esc(h[2]) + '</span></button>';
@@ -436,6 +437,7 @@
           else window.open(p === 'code' ? 'https://github.com/critical-code-studies/SHRDLU' : 'https://github.com/critical-code-studies/SHRDLU/issues', '_blank', 'noopener');
           return;
         }
+        if (which === 'graphics') { SW.openGraphic(p); return; }
         if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return; }
         if (which === 'versions' && p !== 'absence') { SW.setTab(p); return; }
         var nl = which === 'versions' ? 8 : +p;
@@ -449,9 +451,6 @@
   window.addEventListener('resize', closeTabMenu);
   SW.openLens = function (n) { lens = n; SW.store.set('an.lens', n); SW.forget('analyse'); SW.setTab('analyse'); };
   SW.setLens = function (n) { n = +n; if (LENSES[n - 1]) { lens = n; SW.store.set('an.lens', n); } };
-  SW.setGraphic = function () {};
-  SW.gfxItem = function () { return null; };
-  SW.openGraphic = function () {};
   SW.biography = function (name) {
     bioName = name; SW.store.set('an.bio', name);
     lens = 7; SW.store.set('an.lens', 7);
