@@ -1010,8 +1010,20 @@
       else if (o) { e.preventDefault(); var rr = build.repairs.filter(function (x) { return x.id === o.dataset.o; })[0]; SW.unpop(); if (rr) SW.repairPop(rr, r0.left, r0.bottom + 4); }
     });
   }
-  // ◆ ⌄: the repairs bar, folded down under the toolbar, as on the Spacewar! bench
-  // (redrawn as the selection and settings change)
+  // small line icons for the repairs bar (currentColor, 14px), as on the Spacewar! bench
+  var KI = {
+    list: '<path d="M2 4h10M2 7h10M2 10h10"/>',
+    only: '<path d="M2 3h10L8.2 7.6V11L5.8 12V7.6z"/>',
+    from: '<path d="M3.5 1.5h5l2.5 2.5v8.5h-7.5z M8.5 1.5V4H11 M5.5 7h3.5M5.5 9.5h3.5"/>',
+    why: '<path d="M5 5.2a2 2 0 1 1 2.8 1.8c-.5.3-.8.7-.8 1.3v.6 M7 10.8v.1"/>',
+    keep: '<path d="M3.5 1.5h7v11L7 10l-3.5 2.5z M7 4v4M5 6h4"/>',
+    copy: '<path d="M4.5 4.5h7v7h-7z M2.5 9.5v-7h7"/>',
+    card: '<path d="M1.5 3.5h11v7h-11z M3.5 6h7M3.5 8h4.5"/>',
+    cards: '<path d="M3.5 5.5h9v6.5h-9z M1.5 8.5V3.5h9 M5.5 8h5"/>',
+    about: '<path d="M7 1.5a5.5 5.5 0 1 0 0 11a5.5 5.5 0 1 0 0-11z M7 6.2v3.8 M7 4.2v.1"/>'
+  };
+  function kic(k) { return '<svg class="ki" viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + KI[k] + '</svg>'; }
+  // ◆ ⌄: the repairs bar, one row folded down under the toolbar (redrawn as the selection and settings change)
   function kinBar() {
     var bar = SW.$('.kin-bar', view), tog = SW.$('#rd-klist', view); if (!bar || !build) return;
     var st = kinStops(), n = st.length, on = opts.kinBar && !!(build.repairs || []).length;
@@ -1020,23 +1032,27 @@
     if (!on) return;
     var cur = kinCurrent(), fl = fromLink(cur), ref = cur ? SW.refText(build.v.id, cur.p, cur.n0, cur.n1, build.parts.length) : '';
     var s = SW.state.sel, here = cur && s && cur.p === s.p && cur.n0 <= s.n1 && cur.n1 >= s.n0;
-    function grp(label, html) { return '<span class="kg"><span class="kg-l">' + label + '</span>' + html + '</span>'; }
+    function b(k, title, extra, lab) { return '<button class="kb" data-km="' + k + '" title="' + SW.esc(title) + '"' + (extra || '') + '>' + (KI[k] ? kic(k) : '') + (lab ? '<span>' + SW.esc(lab) + '</span>' : '') + '</button>'; }
+    function tg(k, on, title, lab, extra) { return b(k, title, ' aria-pressed="' + (on ? 'true' : 'false') + '"' + (extra || ''), lab); }
     bar.innerHTML =
-      grp('Repairs', '<button class="btn" data-km="prev"' + (n ? '' : ' disabled') + ' title="The previous repair">‹</button><button class="btn" data-km="next"' + (n ? '' : ' disabled') + ' title="The next repair (in another file if need be)">›</button>' +
-        '<button class="btn" data-km="list" title="Every repair to this version: in the text, and to how it is loaded or started">All ' + build.repairs.length + '…</button>') +
-      (cur ? '<button class="kin-cur" data-km="go" title="' + SW.esc((here ? 'This repair' : 'The next repair after the selection') + ': ' + ref + ' ' + kinWhat(cur)) + '"><span class="mono">' + SW.esc(ref.replace(/^\[REF: |\]$/g, '')) + '</span> ' + SW.esc(SW.mendOf(cur.r).label + ' (' + cur.r.id + '): ' + cur.r.title) + '</button>' : '<span class="kin-cur faint">No repair in the text of this version; the others are to how it is loaded or started.</span>') +
-      grp('Show', '<label class="check" title="Hide every line but the repairs, with two either side"><input type="checkbox" data-km="only"' + (opts.onlyRepaired ? ' checked' : '') + (n ? '' : ' disabled') + '> Only repaired lines</label>' +
-        '<label class="check" title="The gold marks in the listing (also View ▸ Repairs)"><input type="checkbox" data-km="marks"' + (opts.repairs ? ' checked' : '') + '> Gold marks</label>') +
-      grp('Evidence', '<button class="btn" data-km="from"' + (fl ? '' : ' disabled') + ' title="' + (fl ? 'The copy the passage is read from, in Read, in a new tab' : 'Only corrected and supplied passages come from another copy') + '">' + (fl ? SW.esc(fl.label) : 'Source copy') + ' ↗</button>' +
-        '<button class="btn" data-km="why"' + (cur ? '' : ' disabled') + ' title="What was done, why, the evidence and who made the repair">Why</button>') +
-      grp('Keep', '<button class="btn" data-km="keep"' + (cur ? '' : ' disabled') + ' title="This repair, cited, with its lines, into My notes (private)">＋ My notes</button>' +
-        '<button class="btn" data-km="copy" title="Every repair to this version, with references, as plain text">⧉ Copy all</button>') +
-      grp('Cards', '<button class="btn" data-km="card" title="This version’s reconstruction card: every repair, the evidence and who made it">This version</button>' +
-        '<button class="btn" data-km="cards" title="Every version’s card, one at a time">All</button>') +
-      '<span class="kg kg-end"><button class="btn" data-km="about" title="What the gold marks mean">About</button><button class="icon-btn" data-km="close" title="Fold the repairs bar away">✕</button></span>';
+      '<button class="kb" data-km="prev" title="The previous repair"' + (n ? '' : ' disabled') + '>‹</button><button class="kb" data-km="next" title="The next repair (in another file if need be)"' + (n ? '' : ' disabled') + '>›</button>' +
+      b('list', 'Every repair to this version (' + build.repairs.length + '): in the text, and to how it is loaded or started', '', String(build.repairs.length)) +
+      (cur ? '<button class="kin-cur" data-km="go" title="' + SW.esc((here ? 'This repair' : 'The next repair after the selection') + ': ' + ref + ' ' + kinWhat(cur)) + '"><span class="mono">' + SW.esc(ref.replace(/^\[REF: |\]$/g, '')) + '</span> ' + SW.esc(SW.mendOf(cur.r).label + ' (' + cur.r.id + '): ' + cur.r.title) + '</button>' : '<span class="kin-cur faint">No repair in the text; the repairs are to how it is loaded or started.</span>') +
+      '<span class="kbs"></span>' +
+      tg('only', opts.onlyRepaired, 'Only the repaired lines, with two either side', '', n ? '' : ' disabled') +
+      b('from', fl ? 'The copy the passage is read from, ' + fl.label + ', in Read, in a new tab' : 'Only corrected and supplied passages come from another copy', fl ? '' : ' disabled', fl ? fl.label : '') +
+      b('why', cur ? 'What was done to ' + cur.r.id + ', why, the evidence and who made it' : 'No repair selected', cur ? '' : ' disabled') +
+      '<span class="kbs"></span>' +
+      b('keep', cur ? 'Add this repair to My notes (' + ref + '), cited, with its lines' : 'No repair selected', cur ? '' : ' disabled') +
+      b('copy', 'Copy every repair to this version, with references, as plain text') +
+      '<span class="kbs"></span>' +
+      b('card', 'This version’s reconstruction card') +
+      b('cards', 'All reconstruction cards') +
+      b('about', 'What the gold marks mean') +
+      '<button class="kb kb-x" data-km="close" title="Fold the repairs bar away">✕</button>';
   }
   function kinAct(k, el) {
-    var cur = kinCurrent();
+    var cur = kinCurrent(), on = el && el.getAttribute && el.hasAttribute('aria-pressed') ? el.getAttribute('aria-pressed') !== 'true' : el && el.checked;
     if (k === 'prev') kinStep(-1);
     else if (k === 'next') kinStep(1);
     else if (k === 'list') kinList(el || SW.$('#rd-klist', view));
@@ -1044,8 +1060,8 @@
     else if (k === 'close') { opts.kinBar = false; SW.store.set('read.kinBar', false); kinBar(); }
     else if (k === 'from') { var fl = fromLink(cur); if (fl) root.open(fl.url, '_blank', 'noopener'); }
     else if (k === 'why') { var r0 = (el || SW.$('#rd-klist', view)).getBoundingClientRect(); if (cur) SW.repairPop(cur.r, r0.left, r0.bottom + 4); }
-    else if (k === 'only') { opts.onlyRepaired = el.checked; applyFilter(); if (opts.onlyRepaired) { var s = kinStops()[0]; if (s) kinGo(s); } }
-    else if (k === 'marks') { var cb = SW.$('#rd-repairs', view); if (cb) { cb.checked = el.checked; cb.dispatchEvent(new Event('change')); } }
+    else if (k === 'only') { opts.onlyRepaired = on; applyFilter(); if (opts.onlyRepaired) { var s = kinStops()[0]; if (s) kinGo(s); } }
+    else if (k === 'marks') { var cb = SW.$('#rd-repairs', view); if (cb) { cb.checked = on; cb.dispatchEvent(new Event('change')); } }
     else if (k === 'card') SW.cardsOne(build.v.id);
     else if (k === 'cards') SW.cardsHelp();
     else if (k === 'about') { var r1 = (el || SW.$('#rd-klist', view)).getBoundingClientRect(); SW.pop(r1.left, r1.bottom + 4, SW.kinAbout()); }
