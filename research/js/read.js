@@ -915,6 +915,19 @@
       pos += len;
     });
   }
+  // where a line's comment begins: the first ; not escaped with / (MacLisp's escape)
+  function lispComment(s) { for (var i = 0; i < s.length; i++) { if (s[i] === '/') { i++; continue; } if (s[i] === ';') return i; } return -1; }
+  // the squiggle's reach, measured once drawn, in em so that it follows the text size
+  function kinMeasure(row) {
+    var rl = row.querySelectorAll('.rp-line'), nn = row.querySelector('.n'), last = rl[rl.length - 1];
+    if (!last || !nn || !nn.lastChild) return;
+    var r0 = row.getBoundingClientRect(), fs = parseFloat(getComputedStyle(row).fontSize) || 13, rg = document.createRange();
+    rg.selectNodeContents(nn.lastChild);
+    var a = rg.getBoundingClientRect().left - r0.left, z = last.getBoundingClientRect().right - r0.left;
+    if (!r0.width || z <= a) return;
+    row.style.setProperty('--k0', (a / fs).toFixed(2) + 'em');
+    row.style.setProperty('--kw', ((z - a) / fs).toFixed(2) + 'em');
+  }
   function paintKin(box, b) {
     Object.keys(b.kinFiles || {}).forEach(function (pi) {
       pi = +pi;
@@ -927,17 +940,11 @@
           held.forEach(function (L, k) {
             var row = SW.$('#L' + pi + '-' + L.n, box), tx = row && row.querySelector('.t'); if (!tx) return;
             row.classList.add(r.mend === 'yobitsugi' ? 'rp-sup' : 'rp-fix');
-            // the whole code of the line: a wavy gold underline (leading whitespace left out)
-            var lt = tx.textContent, l0 = lt.length - lt.replace(/^\s+/, '').length, l1 = lt.replace(/\s+$/, '').length;
-            // one underline for the whole cell; the leading whitespace in an inline-block, which it does not reach
-            // the line's code in one span, with a gold wave drawn under it (css .rp-line::after)
-            if (l1 > l0 && !row.classList.contains('rp-wavy')) {
-              row.classList.add('rp-wavy');
-              if (l0) wrapChars(tx, 0, l0, 'rp-lead', '');
-              var ln = SW.el('span', { class: 'rp-line' }), lead = tx.querySelector('.rp-lead'), nx = lead ? lead.nextSibling : tx.firstChild;
-              while (nx) { var nn = nx.nextSibling; ln.appendChild(nx); nx = nn; }
-              tx.appendChild(ln);
-            }
+            // the squiggle (as on the Spacewar! bench): from the line number to the end of the code,
+            // not its comment; a line that is only comment, to the end of the comment
+            var raw0 = L.raw, cm = lispComment(raw0), c0 = raw0.search(/\S/), c1 = (cm < 0 ? raw0 : raw0.slice(0, cm)).replace(/\s+$/, '').length;
+            if (c0 >= 0 && c1 <= c0) c1 = raw0.replace(/\s+$/, '').length;
+            if (c0 >= 0 && c1 > c0 && !row.classList.contains('rp-sq')) { wrapChars(tx, shownAt(raw0, c0), shownAt(raw0, c1), 'rp-line', ''); row.classList.add('rp-sq'); kinMeasure(row); }
             var raw = L.raw, rep = now.length === held.length ? now[k] : null, d, title;
             if (rep != null) {
               if (rep === raw) return;
