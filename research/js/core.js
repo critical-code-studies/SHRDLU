@@ -1283,7 +1283,7 @@
   };
   SW.displaySVG = function (svg) { return SW.resolveVars(svg.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, '')); };
   // Palettes for figures that draw their own ground (sky, ships).
-  SW.PLATE = { bg: '#02040a', ink: '#e6f4ff', ink2: '#8fc3d6', dim: '#7fa6c4', accent: '#ffce7a', dark: true };
+  SW.PLATE = { bg: '#02040a', ink: '#e6f4ff', ink2: '#8fc3d6', dim: '#7fa6c4', accent: '#e58be0', dark: true };
   SW.exportPalette = function () {
     var k = SW.figBg();
     if (k === 'theme') {
@@ -1292,7 +1292,7 @@
     }
     var dark = k === 'black';
     return { bg: SW.FIGBG[k], dark: dark, ink: dark ? '#e6f4ff' : '#1b1f23', ink2: dark ? '#8fc3d6' : '#0f6f86',
-             dim: dark ? '#7fa6c4' : '#56606a', accent: dark ? '#ffce7a' : '#9a5b00' };
+             dim: dark ? '#7fa6c4' : '#56606a', accent: dark ? '#e58be0' : '#a3317a' };
   };
   // An SVG for export: coloured for the chosen background, with that background laid under it.
   SW.exportSVG = function (svg) {

@@ -994,7 +994,7 @@
     var f = s && s.r.from; if (!f) return null;
     var vid = null, pi = -1;
     root.SWVersions.VERSIONS.forEach(function (v) { (v.build || []).forEach(function (bb, k) { if (bb.src === f.src) { vid = v.id; pi = k; } }); });
-    return vid ? { url: '?v=' + vid + '&tab=read&l=' + pi + ':' + f.n0 + (f.n1 !== f.n0 ? '-' + f.n1 : ''), label: f.src.split('/').pop() + ':' + f.n0 + (f.n1 !== f.n0 ? '–' + f.n1 : '') } : null;
+    return vid ? { vid: vid, url: '?v=' + vid + '&tab=read&l=' + pi + ':' + f.n0 + (f.n1 !== f.n0 ? '-' + f.n1 : ''), label: f.src.split('/').pop() + ':' + f.n0 + (f.n1 !== f.n0 ? '–' + f.n1 : '') } : null;
   }
   function kinList(btn) {
     var st = kinStops(), others = (build.repairs || []).filter(function (r) { return r.kind !== 'text'; }), r0 = btn.getBoundingClientRect();
@@ -1040,7 +1040,7 @@
       (cur ? '<button class="kin-cur" data-km="go" title="' + SW.esc((here ? 'This repair' : 'The next repair after the selection') + ': ' + ref + ' ' + kinWhat(cur)) + '"><span class="mono">' + SW.esc(ref.replace(/^\[REF: |\]$/g, '')) + '</span> ' + SW.esc(SW.mendOf(cur.r).label + ' (' + cur.r.id + '): ' + cur.r.title) + '</button>' : '<span class="kin-cur faint">No repair in the text; the repairs are to how it is loaded or started.</span>') +
       '<span class="kbs"></span>' +
       tg('only', opts.onlyRepaired, 'Only the repaired lines, with two either side', '', n ? '' : ' disabled') +
-      b('from', fl ? 'The copy the passage is read from, ' + fl.label + ', in Read, in a new tab' : 'Only corrected and supplied passages come from another copy', fl ? '' : ' disabled', fl ? fl.label : '') +
+      b('from', fl ? 'The copy the passage is read from: ' + SW.refText(fl.vid) + ', ' + fl.label + ', in Read, in a new tab' : 'Only corrected and supplied passages come from another copy', fl ? '' : ' disabled', fl ? SW.refOf(fl.vid) : '') +
       b('why', cur ? 'What was done to ' + cur.r.id + ', why, the evidence and who made it' : 'No repair selected', cur ? '' : ' disabled') +
       '<span class="kbs"></span>' +
       b('keep', cur ? 'Add this repair to My notes (' + ref + '), cited, with its lines' : 'No repair selected', cur ? '' : ' disabled') +

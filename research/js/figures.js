@@ -8,9 +8,9 @@
   var F = SW.figures = {};
 
   var THEMES = {
-    print: { bg: '#ffffff', text: '#1b1f23', dim: '#6b7280', num: '#9a5b00', cm: '#4b5563', rule: '#d1d5db' },
-    paper: { bg: '#f4f1e8', text: '#1d2327', dim: '#8a9096', num: '#9a5b00', cm: '#56606a', rule: '#d6d0bf' },
-    phosphor: { bg: '#04060b', text: '#bfe4ff', dim: '#5d7086', num: '#ffce7a', cm: '#7fa6c4', rule: '#1a2638' }
+    print: { bg: '#ffffff', text: '#1b1f23', dim: '#6b7280', num: '#a3317a', cm: '#4b5563', rule: '#d1d5db' },
+    paper: { bg: '#f4f1e8', text: '#1d2327', dim: '#8a9096', num: '#a3317a', cm: '#56606a', rule: '#d6d0bf' },
+    phosphor: { bg: '#04060b', text: '#bfe4ff', dim: '#5d7086', num: '#e58be0', cm: '#7fa6c4', rule: '#1a2638' }
   };
 
   // The colours of the theme in use (⚙ Settings), for a figure in that style.

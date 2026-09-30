@@ -135,7 +135,7 @@
       var p = L.pos[id], v = p.v, x = X(p) - W_BOX / 2, y = Y(p);
       var dash = v.status === 'lost' ? ' stroke-dasharray="4 3"' : v.status === 'reconstructed' ? ' stroke-dasharray="9 3"' : '';
       var fill = v.status === 'lost' ? 'none' : 'var(--g-box)';
-      var stroke = lit[id] ? 'var(--amber, #ffce7a)' : v.status === 'lost' ? 'var(--g-muted)' : 'var(--g-stroke)';
+      var stroke = lit[id] ? 'var(--amber, #e58be0)' : v.status === 'lost' ? 'var(--g-muted)' : 'var(--g-stroke)';
       o.push('<g class="st-node" data-id="' + SW.esc(id) + '" style="cursor:pointer"><title>' + SW.esc(v.label + ' · ' + v.date + ' · ' + v.status + (v.medium ? ' · ' + v.medium : '') + '\n' + (v.summary || '')) + '</title>' +
         '<rect x="' + x + '" y="' + y + '" width="' + W_BOX + '" height="' + H_BOX + '" rx="5" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + (lit[id] ? 2.4 : 1.3) + '"' + dash + '/>' +
         '<text x="' + (x + 8) + '" y="' + (y + 18) + '" font-size="12" fill="var(--g-text)"' + (v.status === 'lost' ? ' font-style="italic"' : '') + '>' + SW.esc(trunc(short(v), 17)) + (hasTape(v) ? ' ▤' : '') + '</text>' +
@@ -147,7 +147,7 @@
         var tw = 62, tx = X(p) + W_BOX / 2 + 5, ty = y + 3 + i * 21;
         var par = /\(([^()]*)\)\s*$/.exec(short(w)), name = par ? par[1].split(',').pop().trim() : w.id;
         o.push('<g class="st-node" data-id="' + SW.esc(w.id) + '" style="cursor:pointer"><title>' + SW.esc(w.label + ': another reading of ' + short(v) + ' (' + (w.medium || w.status) + ')') + '</title>' +
-          '<rect x="' + tx.toFixed(1) + '" y="' + ty + '" width="' + tw + '" height="15" rx="7" fill="none" stroke="' + (lit[w.id] ? 'var(--amber, #ffce7a)' : 'var(--g-stroke)') + '" stroke-dasharray="2 2"/>' +
+          '<rect x="' + tx.toFixed(1) + '" y="' + ty + '" width="' + tw + '" height="15" rx="7" fill="none" stroke="' + (lit[w.id] ? 'var(--amber, #e58be0)' : 'var(--g-stroke)') + '" stroke-dasharray="2 2"/>' +
           '<text x="' + (tx + tw / 2).toFixed(1) + '" y="' + (ty + 11) + '" font-size="8.5" text-anchor="middle" fill="var(--g-muted)">' + SW.esc(trunc(name, 12)) + (hasTape(w) ? ' ▤' : '') + '</text></g>');
       });
     });
