@@ -23,7 +23,7 @@
   <meta name="bench-date" content="2026-09-30">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=3">
-  <link rel="stylesheet" href="css/research.css?v=0.1.61">
+  <link rel="stylesheet" href="css/research.css?v=0.1.63">
 </head>
 <body>
   <header class="bar">
@@ -42,6 +42,7 @@
       <span class="status" id="status" role="status" aria-live="polite"></span>
       <span class="size-btns"><button class="icon-btn" id="btn-smaller" title="Smaller code text">A−</button><button class="icon-btn" id="btn-larger" title="Larger code text">A+</button></span>
       <button class="icon-btn" id="btn-theme" title="Switch between your last light and dark colour themes (choose themes in ⚙ Settings)">◐</button>
+      <button class="icon-btn" id="btn-code" title="Go to a code: an annotation (A-, R-), a finding (C-, F), a note (initials-N)">#</button>
       <button class="icon-btn news-btn" id="btn-news" title="What’s new in the group’s annotations">✉<span class="news-n" id="news-n"></span></button>
       <!-- About is in the Help menu; this hidden button carries its handler -->
       <button class="icon-btn" id="btn-about" hidden>ⓘ</button>
@@ -58,6 +59,7 @@
     <button data-menu="graphics" data-tabs="graphics" aria-expanded="false" title="The blocks world and the machinery that draws and moves it">Graphics <span class="caret" aria-hidden="true">▾</span></button>
     <button data-tab="findings" title="What the bench and the group have established, with evidence; shared">Findings</button>
     <button data-tab="notes" title="What you have gathered for writing: figures, excerpts, findings, paragraphs; private, in this browser">My notes</button>
+    <button data-tab="paratexts" title="The scans, clippings, photographs and documents around the program, shared with the crew">Paratexts</button>
     <button data-menu="help" aria-expanded="false" title="About the bench, settings, the code">Help <span class="caret" aria-hidden="true">▾</span></button>
     <a class="tabs-map" href="sitemap.html" title="Every view and version as a plain link, for when a menu will not open">Site map</a>
   </nav>
@@ -73,6 +75,7 @@
     <section class="view" id="view-graphics"></section>
     <section class="view" id="view-findings"></section>
     <section class="view" id="view-notes"></section>
+    <section class="view" id="view-paratexts"></section>
   </main>
 
   <aside class="drawer" id="drawer" aria-label="Details">
@@ -97,6 +100,10 @@
       <div class="token-row"><input id="set-token" type="password" placeholder="6879-…" autocomplete="off" spellcheck="false"><button id="set-token-show" type="button" class="btn ghost" aria-pressed="false">Show</button></div>
       <p class="hint" id="set-check"></p>
       <p class="hint"><button type="button" class="btn ghost" id="set-join">New to this? How to join the group</button> An account, the group and your token, step by step.</p>
+      <h2>Paratexts</h2>
+      <p class="hint">The paratexts are kept in a private GitHub repository shared with the crew (critical-code-studies/shrdlu_paratexts). Paste a fine-grained token limited to that repository, with Contents read and write (Paratexts, in the menu, says how). It is kept in this browser only.</p>
+      <label for="set-ghtoken">GitHub token</label>
+      <div class="token-row"><input id="set-ghtoken" type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false"><button id="set-ghtoken-show" type="button" class="btn ghost" aria-pressed="false">Show</button></div>
       <h2>Colour theme</h2>
       <p class="hint">The colours of the whole bench: listings, annotations and figures. The ◐ button in the top bar switches between your last light and dark themes. The display in Run keeps the DEC 340’s own phosphor.</p>
       <label>Theme <select id="set-theme"></select></label>
@@ -176,31 +183,33 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/versions.js?v=0.1.61"></script>
-  <script src="js/export.js?v=0.1.61"></script>
-  <script src="js/genealogy.js?v=0.1.61"></script>
-  <script src="js/maclisp.js?v=0.1.61"></script>
-  <script src="js/repairs.js?v=0.1.61"></script>
-  <script src="js/display.js?v=0.1.61"></script>
-  <script src="js/session.js?v=0.1.61"></script>
-  <script src="js/lisp.js?v=0.1.61"></script>
-  <script src="js/core.js?v=0.1.61"></script>
-  <script src="js/swhid.js?v=0.1.61"></script>
-  <script src="js/notes.js?v=0.1.61"></script>
-  <script src="js/tray.js?v=0.1.61"></script>
-  <script src="js/figures.js?v=0.1.61"></script>
-  <script src="js/read.js?v=0.1.61"></script>
-  <script src="js/deepdive.js?v=0.1.61"></script>
-  <script src="js/run.js?v=0.1.61"></script>
-  <script src="js/graphics.js?v=0.1.61"></script>
-  <script src="js/overview.js?v=0.1.61"></script>
-  <script src="js/analyse.js?v=0.1.61"></script>
-  <script src="js/compare.js?v=0.1.61"></script>
-  <script src="js/stemma.js?v=0.1.61"></script>
-  <script src="js/about.js?v=0.1.61"></script>
-  <script src="js/edition.js?v=0.1.61"></script>
-  <script src="js/findings.js?v=0.1.61"></script>
-  <script src="js/tours.js?v=0.1.61"></script>
-  <script src="js/main.js?v=0.1.61"></script>
+  <script src="js/versions.js?v=0.1.63"></script>
+  <script src="js/export.js?v=0.1.63"></script>
+  <script src="js/genealogy.js?v=0.1.63"></script>
+  <script src="js/maclisp.js?v=0.1.63"></script>
+  <script src="js/repairs.js?v=0.1.63"></script>
+  <script src="js/display.js?v=0.1.63"></script>
+  <script src="js/session.js?v=0.1.63"></script>
+  <script src="js/lisp.js?v=0.1.63"></script>
+  <script src="js/core.js?v=0.1.63"></script>
+  <script src="js/swhid.js?v=0.1.63"></script>
+  <script src="js/notes.js?v=0.1.63"></script>
+  <script src="js/tray.js?v=0.1.63"></script>
+  <script src="js/figures.js?v=0.1.63"></script>
+  <script src="js/read.js?v=0.1.63"></script>
+  <script src="js/deepdive.js?v=0.1.63"></script>
+  <script src="js/run.js?v=0.1.63"></script>
+  <script src="js/graphics.js?v=0.1.63"></script>
+  <script src="js/overview.js?v=0.1.63"></script>
+  <script src="js/analyse.js?v=0.1.63"></script>
+  <script src="js/compare.js?v=0.1.63"></script>
+  <script src="js/stemma.js?v=0.1.63"></script>
+  <script src="js/about.js?v=0.1.63"></script>
+  <script src="js/edition.js?v=0.1.63"></script>
+  <script src="js/findings.js?v=0.1.63"></script>
+  <script src="js/tours.js?v=0.1.63"></script>
+  <script src="js/paratexts.js?v=0.1.63"></script>
+  <script src="js/guides.js?v=0.1.63"></script>
+  <script src="js/main.js?v=0.1.63"></script>
 </body>
 </html>

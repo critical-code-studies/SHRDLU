@@ -23,6 +23,11 @@
   // ---------- small helpers ----------
   SW.$ = function (sel, el) { return (el || document).querySelector(sel); };
   SW.$$ = function (sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); };
+  // A rating out of three as a row of stars: gold up to the average (rounded), the rest dim
+  SW.stars = function (avg, title) {
+    var n = Math.max(0, Math.min(3, Math.round(avg || 0)));
+    return '<span class="sw-stars"' + (title ? ' title="' + SW.esc(title) + '"' : '') + ' aria-label="' + (Math.round((avg || 0) * 10) / 10) + ' of 3 stars">' + '<b>' + '★'.repeat(n) + '</b>' + '<i>' + '★'.repeat(3 - n) + '</i></span>';
+  };
   SW.esc = function (s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -287,6 +292,16 @@
   SW.swhidList = function (files) {
     return files.map(function (f) { var id = SW.swhidOf(f); return '<div class="swhid-row"><a class="mono" href="' + SW.esc(SW.permalinkOf(f)) + '" target="_blank" rel="noopener" title="The file on GitHub, at its last change">' + SW.esc(f.split('/').pop()) + '</a> ' + (id ? '<button class="swhid mono" title="Copy ' + SW.esc(id) + '" data-copy="' + SW.esc(id) + '">' + SW.esc(id.slice(0, 17)) + '…</button> <a class="swhid-go" href="' + SW.esc(SW.swhidURL(id)) + '" target="_blank" rel="noopener" title="Open in the Software Heritage archive (once the repository is archived there)">↗</a>' : '<span class="faint">no SWHID (not in the repository)</span>') + '</div>'; }).join('');
   };
+  // Share a link: the system's share sheet where the browser has one (Mail, Messages…), else the link copied.
+  // A local address becomes the public one.
+  SW.share = function (o) {
+    var url = String(o.url || location.href).replace(/[?&]nc=\d+/, '');
+    var m = /\/research\/(?:index\.html)?(\?.*)?$/.exec(url); if (m && url.indexOf(SW.BASE_URI) !== 0) url = SW.BASE_URI + (m[1] || '');
+    var d = { title: o.title || document.title, text: o.text || '', url: url };
+    if (navigator.share && (!navigator.canShare || navigator.canShare(d))) return navigator.share(d).catch(function (e) { if (e && e.name !== 'AbortError') SW.copyText(url, 'the link'); });
+    SW.copyText(url, 'the link');
+  };
+  SW.SHARE_ICON = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" style="vertical-align:-2px"><path d="M8 1.5v8M5 4.5l3-3 3 3M3.5 7.5v6h9v-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   // Copy text; where the clipboard API is refused, through a selected textarea.
   SW.copyText = function (t, what) {
     function old() {
@@ -947,6 +962,15 @@
     });
     s = s.replace(/(^|[\s(])((?:https?:\/\/)[^\s<]+?)(?=[.,;:!?)]*(?:\s|$|&lt;))/g, function (m, pre, u) { u = unesc(u); return pre + stash(mdLink(u, u, true)); });
     s = s.replace(/\\(&gt;|&lt;|&amp;|[\\`*_\[\]~#+\-.!()])/g, function (m, c) { return stash(c); });   // \* is a plain *
+    // A-…, R-…, C-…, P-…: a code of the bench's, a link to what it names
+    s = s.replace(/(^|[\s(>\[,;])([ARCP]-[0-9A-Z]{5})(?![\w-])/g, function (m, pre, code) {
+      if (code.charAt(0) === 'P') {   // a paratext: by its title once the catalogue is read (the code until then, or without access)
+        var PT = SW.paratexts, t = PT && PT.titleOf(code);
+        if (!t && PT) PT.want();
+        return pre + stash('<a class="swlink swcode pxlink" data-pcode="' + code + '" href="?code=' + code + '" title="Paratext ' + code + ': read it here">Paratext: ' + SW.esc(t || code) + '</a>');
+      }
+      return pre + stash('<a class="swlink swcode mono" href="?code=' + code + '" title="Go to ' + code + '">' + code + '</a>');
+    });
     // @DMB: a mention of someone by their initials
     s = s.replace(/(^|[\s(>])@([A-Z][A-Za-z]{1,5})\b/g, function (m, pre, who) { return pre + stash('<span class="mention" title="A mention of ' + who + '">@' + who + '</span>'); });
     s = emph(s);

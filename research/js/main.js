@@ -5,7 +5,7 @@
   'use strict';
   var SW = root.SW, V = root.SWVersions;
 
-  var ORDER = ['read', 'run', 'analyse', 'compare', 'genealogy', 'about', 'graphics', 'findings', 'notes'];
+  var ORDER = ['read', 'run', 'analyse', 'compare', 'genealogy', 'about', 'graphics', 'findings', 'notes', 'paratexts'];
 
   function fillPicker() {
     var sel = SW.$('#pick-a');
@@ -87,6 +87,9 @@
     grp.value = SW.notes.groupId(SW.store.get('group', '1Kb3vwEV'));
     tok.value = SW.store.get('token', '');
     tok.type = 'password'; show.textContent = 'Show'; show.setAttribute('aria-pressed', 'false');
+    var gtok = SW.$('#set-ghtoken'), gshow = SW.$('#set-ghtoken-show');
+    gtok.value = SW.store.get('gh.token', ''); gtok.type = 'password'; gshow.textContent = 'Show'; gshow.setAttribute('aria-pressed', 'false');
+    gshow.onclick = function () { var hid = gtok.type === 'password'; gtok.type = hid ? 'text' : 'password'; gshow.textContent = hid ? 'Hide' : 'Show'; gshow.setAttribute('aria-pressed', String(hid)); };
     SW.$('#set-check').textContent = '';
     dlg.returnValue = '';
     dlg.showModal();
@@ -150,6 +153,8 @@
       SW.store.set('name', SW.$('#set-name').value.trim());
       SW.store.set('group', SW.notes.groupId(grp.value));
       SW.store.set('token', tok.value.trim());
+      var gwas = SW.store.get('gh.token', ''); SW.store.set('gh.token', gtok.value.trim());
+      if (gwas !== gtok.value.trim() && SW.paratexts) SW.paratexts.reset();
       SW.notes.forget();
       SW.notes.invalidate(SW.state.v);
       SW.toast('Saved');
@@ -225,6 +230,8 @@
     };
     SW.$('#drawer-close').onclick = SW.closeDrawer;
     var q = SW.readQuery();
+    // an invitation (join.html#ID → ?join=ID): the group set, the ID taken out of the address, the guide opened
+    if (q.join) { SW.notes.join(q.join); delete q.join; q.help = 'join'; try { history.replaceState(null, '', location.pathname + location.search.replace(/([?&])join=[^&]*&?/, '$1').replace(/[?&]$/, '')); } catch (e) { /* file: urls */ } }
     if (q.l) {
       var m = /^(\d+):(\d+)(?:-(\d+))?$/.exec(q.l);
       if (m) SW.state.sel = { p: +m[1], n0: +m[2], n1: +(m[3] || m[2]) };
@@ -240,11 +247,21 @@
     select(q.v || 'mit');
     // a link to an annotation: to it, once the version is up
     if (q.a && q.v) setTimeout(function () { SW.notes.follow(q); }, 900);
+    // a link to a code (?code=A-MLKH5): to what it names
+    if (q.code) setTimeout(function () { SW.notes.goCode(q.code); }, 1000);
+    var shb = SW.$('#btn-share'); if (shb) { shb.innerHTML = SW.SHARE_ICON; shb.onclick = function () { SW.share({ title: document.title }); }; }
+    SW.$('#btn-code').onclick = function (e) {
+      var r = e.currentTarget.getBoundingClientRect();
+      SW.pop(r.left - 180, r.bottom + 6, '<h4>Go to a code</h4><input type="text" class="code-in mono" placeholder="A-MLKH5, C-FT1A7, P-U1J8Q, F2, DMB-N14" autocomplete="off"><p class="hint">An annotation or reply (A-, R-), a group finding (C-), the bench’s (F), or a note in My notes (initials-N). A link can carry one: ?code=…</p>');
+      var inp = SW.$('.pop .code-in'); if (!inp) return;
+      inp.focus();
+      inp.addEventListener('keydown', function (k) { if (k.key === 'Enter' && inp.value.trim()) { SW.unpop(); SW.notes.goCode(inp.value); } });
+    };
     // The welcome tour: from a link (?tour=welcome), from Settings or About, or offered on a first visit.
     SW.$('#set-tour').onclick = function () { SW.$('#dlg-settings').close('cancel'); SW.tours.start('welcome'); };
     SW.$('#about-tour').onclick = function () { SW.$('#dlg-about').close(); SW.tours.start('welcome'); };
     // a Help item named in the link
-    var HELP = { refs: function () { SW.refHelp(); }, reading: function () { SW.readingHelp(); }, cards: function () { SW.cardsHelp(); }, anno: function () { SW.notes.help(); }, join: function () { SW.notes.joinHelp(); }, about: about, settings: settings };
+    var HELP = { codes: function () { SW.guide('codes'); }, paratexts: function () { SW.guide('paratexts'); }, refs: function () { SW.refHelp(); }, reading: function () { SW.readingHelp(); }, cards: function () { SW.cardsHelp(); }, anno: function () { SW.notes.help(); }, join: function () { SW.notes.joinHelp(); }, about: about, settings: settings };
     if (HELP[q.help]) setTimeout(HELP[q.help], 700);
     if (q.tour) setTimeout(function () { SW.tours.start(q.tour); }, 900);
     else if (!SW.store.get('tour.seen', false)) setTimeout(SW.tours.offer, 1200);

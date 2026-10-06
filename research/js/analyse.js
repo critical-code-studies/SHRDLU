@@ -384,8 +384,10 @@
                                        ['refs', 'Referencing and versions', 'How the bench cites a source, as [REF: SHI, plnr.182:120]'],
                                        ['reading', 'What you should read', 'Winograd, Micro-Planner, and reading and repairing old code'],
                                        ['cards', 'Reconstruction cards', 'Every repair the bench makes to run each version, marked in gold'],
-                                       ['join', 'Joining the annotation group', 'A Hypothesis account, the group and your token, step by step'],
+                                       ['join', 'Joining the annotation group', 'An invitation, a Hypothesis account and your tokens, step by step'],
                                        ['anno', 'Advanced annotation', 'Rich text, and links between annotations across versions'],
+                                       ['codes', 'Codes, links and sharing', 'Every item’s code, links in annotations, Share, Findings and My notes'],
+                                       ['paratexts', 'Paratexts', 'The crew’s scans and documents: collections, views, metadata, links'],
                                        ['sitemap', 'Site map', 'Every view and version as a plain link']]],
                   ['Your bench', [['settings', 'Settings', 'Initials, group, theme, fonts'],
                                   ['backup', 'Back up everything', 'Notes, drafts, settings and findings in one file'],
@@ -428,6 +430,7 @@
           if (p === 'tour') { SW.tours.start('welcome'); return; }
           if (p === 'refs') { SW.refHelp(); return; }
           if (p === 'reading') { SW.readingHelp(); return; }
+          if (p === 'codes' || p === 'paratexts') { SW.guide(p); return; }
           if (p === 'cards') { SW.cardsHelp(); return; }
           if (p === 'anno') { SW.notes.help(); return; }
           if (p === 'join') { SW.notes.joinHelp(); return; }

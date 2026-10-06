@@ -249,27 +249,36 @@
     return N.whoami().catch(function () {}).then(function () { return N.listAll({ reactions: true }); }).then(function (all) {
       newsAll = all;
       var me = SW.me().initials;
+      var byId = {}; all.forEach(function (n) { byId[n.id] = n; });
       newsItems = all.filter(function (n) { return n.source === 'hypothesis' && (String(n.date) > since || String(n.updated || '') > since) && !isMine(n); })
-        .sort(function (a, b) { return (N.mentions(b, me) - N.mentions(a, me)) || (String(b.date) < String(a.date) ? -1 : 1); });
+        .sort(function (a, b) { return (N.mentions(b, me) - N.mentions(a, me)) || (!!toMine(b, byId) - !!toMine(a, byId)) || (String(b.date) < String(a.date) ? -1 : 1); });
+      newsMine = newsItems.filter(function (n) { return toMine(n, byId); }).length;
       paintNews();
       return newsItems;
     }).catch(function () { return []; });
   };
+  // a reply or reaction under an annotation or finding of one's own: what it answers
+  var newsMine = 0;
+  function rootOf(n, byId) { var r = n, g = 0; while (r && r.parent && byId[r.parent] && g++ < 50) r = byId[r.parent]; return r; }
+  function isFinding(n) { return !n.parent && (n.tags || []).some(function (g) { return /^findings?$/i.test(g); }); }
+  function toMine(n, byId) { if (!n.parent) return null; var r = rootOf(n, byId); return r && r !== n && isMine(r) ? r : null; }
   function paintNews() {
     var n = SW.$('#news-n'), btn = SW.$('#btn-news');
     if (!n || !btn) return;
     n.textContent = newsItems.length ? (newsItems.length > 99 ? '99+' : String(newsItems.length)) : '';
     btn.classList.toggle('has-news', !!newsItems.length);
-    btn.title = newsItems.length ? newsItems.length + ' new in the group’s annotations since ' + SW.fmtDate(newsSince()) : 'What’s new in the group’s annotations';
+    btn.classList.toggle('has-mine', !!newsMine);
+    btn.title = newsItems.length ? newsItems.length + ' new in the group’s annotations since ' + SW.fmtDate(newsSince()) + (newsMine ? '; ' + newsMine + ' answer' + (newsMine === 1 ? 's' : '') + ' you' : '') : 'What’s new in the group’s annotations';
   }
   function newsLine(n, byId) {
     var V = root.SWVersions, v = V.byId(n.vid), par = n.parent && byId[n.parent];
     var what = N.isReaction(n) && (OPEN[n.text] || DONE[n.text]) ? (DONE[n.text] ? 'resolved ' : OPEN[n.text] === 'help' ? 'asked for help on ' : 'marked open ') + (par ? par.by + '’s annotation' : 'an annotation') : N.isReaction(n) ? n.text + ' on ' + (par ? par.by + '’s annotation' : 'an annotation') : n.parent ? 'reply to ' + (par ? par.by : 'an annotation') : n.anchor ? 'annotation' : 'annotation on the version';
-    var toYou = !N.isReaction(n) && N.mentions(n, SW.me().initials);
+    var toYou = !N.isReaction(n) && N.mentions(n, SW.me().initials), mine = toMine(n, byId);
+    if (mine) what = (N.isReaction(n) ? n.text + ' on' : n.parent === mine.id ? 'replies to' : 'replies under') + ' your ' + (isFinding(mine) ? 'finding' : 'annotation') + ' ' + N.code(mine).replace(/^A-/, isFinding(mine) ? 'C-' : 'A-');
     var root0 = par; while (root0 && root0.parent && byId[root0.parent]) root0 = byId[root0.parent];
     var anchor = n.anchor || (root0 && root0.anchor) || (par && par.anchor);
     var where = (v ? v.label.replace(/^Spacewar! /, '') : n.vid) + ' ' + (anchor ? SW.refText(n.vid, anchor.p, anchor.n0, anchor.n1, SW.nparts(n.vid)) : SW.refText(n.vid));
-    return { n: n, anchor: anchor, html: '<div class="news-item" data-id="' + SW.esc(n.id) + '"><div class="news-meta"><b>' + SW.esc(n.by) + '</b> · ' + (toYou ? '<b class="mention-you">mentions you</b> in ' : '') + SW.esc(what) +
+    return { n: n, anchor: anchor, mine: mine, html: '<div class="news-item' + (mine ? ' news-mine' : '') + '" data-id="' + SW.esc(n.id) + '"><div class="news-meta"><b>' + SW.esc(n.by) + '</b> · ' + (toYou ? '<b class="mention-you">mentions you</b> in ' : '') + (mine ? '<b class="mention-you">' + SW.esc(what) + '</b>' : SW.esc(what)) +
       ' · <span class="mono">' + SW.esc(where) + '</span> · <span class="faint">' + SW.esc(SW.fmtDate(n.date)) + '</span></div>' +
       (N.isReaction(n) ? '' : '<div class="news-text">' + SW.esc(SW.mdPlain(SW.figpack.split(n.text).text).slice(0, 280)) + (SW.mdPlain(SW.figpack.split(n.text).text).length > 280 ? '…' : '') + '</div>') + '</div>' };
   }
@@ -296,6 +305,7 @@
         if (!it) return;
         var l = lines.filter(function (x) { return x.n.id === it.dataset.id; })[0];
         if (!l) return;
+        if (l.mine && isFinding(l.mine)) { SW.findings.openRef('C-' + N.code(l.mine).slice(2)); return; }   // a reply to one's finding: the finding, with its replies
         SW.openAt(l.n.vid, l.anchor);
       });
       body.appendChild(list);
@@ -669,15 +679,60 @@
     e.stopPropagation();
     N.toggleCode(t.closest('.frag-q').dataset.id);
   });
+  // the chip for a status, for a finding's card too (resolved shown as well)
+  N.statusChip = function (s) { return !s || !s.state ? '' : s.state === 'resolved' ? '<span class="st st-res" title="Resolved (✅ from ' + SW.esc(s.by) + ', ' + SW.esc(SW.fmtDate(s.date)) + ')">RESOLVED</span>' : statusChip(s); };
   function statusChip(s) {
     return s.state === 'help'
       ? '<span class="st st-help" title="Help wanted (💡 from ' + SW.esc(s.by) + ', ' + SW.esc(SW.fmtDate(s.date)) + '; ✅ resolves it)">HELP!</span>'
       : '<span class="st st-open" title="Open: a question still to be answered (🔓 from ' + SW.esc(s.by) + ', ' + SW.esc(SW.fmtDate(s.date)) + '; ✅ resolves it)">OPEN</span>';
   }
+  // Each annotation's code: from its id, so it is the same for everyone and never changes
+  // (A- for an annotation, R- for a reply; the group's findings are C-, My notes initials-N)
+  N.code = function (n) {
+    if (!n || !n.id || n.source === 'buildlog') return '';
+    var h = 5381, id = String(n.id); for (var k = 0; k < id.length; k++) h = ((h * 33) ^ id.charCodeAt(k)) >>> 0;
+    return (n.parent ? 'R-' : 'A-') + h.toString(36).toUpperCase().slice(-5).padStart(5, '0');
+  };
+  // A code to what it names: an annotation or reply (A-, R-), a finding of the group's (C-),
+  // one of the bench's (F12), a note in My notes (initials-N3). Typed in the top bar (#), or ?code= in a link.
+  N.goCode = function (code) {
+    code = String(code || '').trim().toUpperCase().replace(/^\[|\]$/g, '');
+    var m;
+    if ((m = /^F(\d+)$/.exec(code))) { SW.findings.openBench('F' + m[1]); return; }
+    if (/^[A-Z]{1,4}-N\d+$/.test(code)) { SW.tray.reveal(code); return; }
+    if (/^P-[0-9A-Z]{5}$/.test(code)) { SW.paratexts.peek(code); return; }
+    if (!(m = /^([ARC])-([0-9A-Z]{5})$/.exec(code))) { SW.toast('Not a code: A-, R-, C- or P- and five letters or figures, F and a number, or initials-N and a number.', 6000); return; }
+    if (m[1] === 'C') { SW.findings.openRef(code); return; }
+    N.listAll().then(function (all) {
+      var n = all.filter(function (x) { return x.id && x.source !== 'buildlog' && N.code(x).slice(2) === m[2]; })[0];
+      if (!n) { SW.toast(code + ' is not here: deleted, or not in your group.', 5000); return; }
+      if (!n.parent && (n.tags || []).some(function (g) { return /^findings?$/i.test(g); })) { SW.findings.openRef('C-' + m[2]); return; }
+      N.follow({ v: n.vid, a: n.id });
+    });
+  };
+  // Where a code is cited: the group's annotations, replies and findings (a search of the group for the
+  // code's five characters, then the exact code checked in each text), the bench's findings, and My notes.
+  // Each as {code, what, by, date, where, text}.
+  N.citing = function (code) {
+    var tail = String(code).slice(-5), re = new RegExp('(^|[^\\w-])' + code.replace(/[-]/g, '\\-') + '(?![\\w-])');
+    function cut(t) { t = SW.noteHistory ? SW.noteHistory.visible(t) : t; t = String(t || '').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim(); return t.length > 110 ? t.slice(0, 109) + '…' : t; }
+    var out = [];
+    (SW.findings && SW.findings.list || []).forEach(function (f) { if (re.test(f.text || '') || re.test(f.title || '')) out.push({ code: f.no, what: 'bench finding', by: 'bench', date: '', where: f.title || '', text: cut(f.text) }); });
+    try { (SW.tray.data().items || []).forEach(function (it) { var t = JSON.stringify(it); if (re.test(t)) out.push({ code: it.ref || '', what: 'My notes', by: SW.me().initials, date: it.added || '', where: it.title || '', text: '' }); }); } catch (e) { /* none */ }
+    if (!N.configured()) return Promise.resolve(out);
+    return hx('GET', '/search?limit=200&group=' + encodeURIComponent(cfg().group) + '&any=' + encodeURIComponent(tail)).then(function (r) {
+      (r.rows || []).map(fromH).filter(function (n) { return n.vid && !deleted[n.id] && !isBinned(n) && !N.isReaction(n) && re.test(n.text || ''); }).forEach(function (n) {
+        var fnd = !n.parent && (n.tags || []).some(function (g) { return /^findings?$/i.test(g); });
+        out.push({ code: fnd ? 'C-' + N.code(n).slice(2) : N.code(n), what: fnd ? 'finding' : n.parent ? 'reply' : 'annotation', by: n.by, date: n.date,
+                   where: n.anchor ? SW.refOf(n.vid, n.anchor.p, n.anchor.n0, n.anchor.n1, SW.nparts ? SW.nparts(n.vid) : 1) : SW.refOf(n.vid), text: cut(n.text) });
+      });
+      return out;
+    }, function () { return out; });
+  };
   N.renderNote = function (n, isReply, reactions) {
     var who = n.source === 'buildlog' ? 'build log' : (n.name || '');
     return '<div class="note' + (isReply ? ' reply' : '') + (n.source === 'buildlog' ? ' buildlog' : '') + '" data-id="' + SW.esc(n.id) + '">' +
-      '<div class="by">' + (!isReply && N.isOpen(N.statusOf(reactions).state) ? statusChip(N.statusOf(reactions)) + ' ' : '') + '<b>' + SW.esc(n.by) + '</b> · ' + SW.esc(SW.fmtDate(n.date)) +
+      '<div class="by">' + (!isReply && N.isOpen(N.statusOf(reactions).state) ? statusChip(N.statusOf(reactions)) + ' ' : '') + (N.code(n) ? '<span class="ncode mono" data-copy="' + N.code(n) + '" title="Its code, which does not change: click to copy">' + N.code(n) + '</span> ' : '') + '<b>' + SW.esc(n.by) + '</b> · ' + SW.esc(SW.fmtDate(n.date)) +
       (who ? ' · ' + SW.esc(who) : '') + (n.source === 'draft' ? ' · <i>draft</i>' : '') + (n.dev ? ' · <span class="dev-badge" title="Developer only: hidden on the bench unless Developer mode is on (⚙)">dev</span>' : '') +
       ((n.updated && String(n.updated).slice(0, 16) !== String(n.date).slice(0, 16)) || SW.noteHistory.list(n.text).length ? ' · ' + (SW.noteHistory.list(n.text).length
         ? '<button type="button" class="hist" data-act="history" title="See the earlier wordings">edited ' + SW.esc(SW.fmtDate(n.updated || n.date)) + ' · ' + SW.noteHistory.list(n.text).length + ' earlier</button>'
@@ -840,10 +895,11 @@
     (h.split('?')[1] || '').split('#')[0].split('&').forEach(function (kv) {
       var i = kv.indexOf('='); if (i > 0) { try { q[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1)); } catch (e) { /* malformed */ } }
     });
-    return q.v ? q : null;
+    return q.v || q.code ? q : null;
   };
   // How SW.md draws a bench link: in place, marked ↪, a bare one named for what it points to.
   function nameOfLink(q) {
+    if (q.code && !q.v) return q.code;   // a code: named by itself
     var n = q.a && idx.byId[q.a], name;
     if (n) name = N.labelOf(n);
     else if (q.l) { var m = /^(\d+):(\d+)(?:-(\d+))?$/.exec(q.l); name = m ? SW.refOf(q.v, +m[1], +m[2], +(m[3] || m[2]), SW.nparts(q.v)) : SW.refOf(q.v); }
@@ -900,6 +956,7 @@
     e.preventDefault();
     var dlg = a.closest('dialog');
     if (dlg && dlg.open && !dlg.hasAttribute('data-keep')) { dlg.close(); if (dlg.classList.contains('tray-big')) dlg.remove(); }
+    if (q.code) { N.goCode(q.code); return; }   // a code written in the text
     N.follow(q);
   });
 
@@ -949,12 +1006,23 @@
   // ---------- Help ▸ Joining the annotation group ----------
   // A Hypothesis account, the group, the API token, and the bench's Settings, step by
   // step; every Hypothesis page named opens in a new tab.
+  // Joining: a guide that is also the form. An invitation link (join.html#ID, which the project sends
+  // privately: the group's ID is its invitation, so it is never in the bench's public source) arrives
+  // as ?join=ID, sets the group, and opens this.
+  N.join = function (id) {
+    id = N.groupId(id); if (!/^[A-Za-z0-9]{4,}$/.test(id)) return;
+    var had = N.groupId(SW.store.get('group', ''));
+    if (had && had !== id && !confirm('This invitation is to another annotation group (' + id + ') than the one set here (' + had + '). Use the new one?')) return;
+    SW.store.set('group', id); N.forget && N.forget();
+  };
   N.joinHelp = function () {
     function ext(url, text) { return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + text + ' ↗</a>'; }
+    var esc = SW.esc, grp = N.groupId(SW.store.get('group', '')), P = SW.paratexts;
     var d = SW.el('dialog', { class: 'tray-big annohelp joinhelp' });
-    d.innerHTML = '<div class="tray-bighead"><b>Joining the annotation group</b><span class="refhelp-acts"><button class="btn ghost" data-share title="Copy a link that opens the bench with this guide showing, to send to someone joining">🔗 Copy link to this guide</button><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div><div class="ah">' +
-      '<figure class="js-card"><img src="img/join-card.png" width="600" height="315" alt="The invitation card: SHRDLU, an invitation to the Research Bench, RSVP"><figcaption class="hint">The invitation others see when you send them the link (🔗 Copy link to this guide, above); it opens the bench with this guide showing.</figcaption></figure>' +
-      '<p>Annotations on the bench are shared through a private group on <b>Hypothesis</b>, the open annotation service. To read and write them you need a Hypothesis account, membership of the group, and a personal key (an API token) that lets the bench write as you. Four steps, about five minutes. You need an email address, and the group’s invitation link from the project.</p>' +
+    function ok(t) { return '<p class="js-ok" data-ok="' + t + '"></p>'; }
+    d.innerHTML = '<div class="tray-bighead"><b>Joining the annotation group</b><span class="refhelp-acts"><button class="btn ghost" data-share title="' + (grp ? 'A link that opens this guide with your group filled in, to send privately to someone joining: anyone with it can join the group' : 'A link that opens this guide, to send to someone joining') + '">' + SW.SHARE_ICON + ' Share ' + (grp ? 'an invitation' : 'this guide') + '</button><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div><div class="ah">' +
+      '<figure class="js-card"><img src="img/join-card.png" width="600" height="315" alt="The invitation card: SHRDLU, an invitation to the Research Bench, RSVP"><figcaption class="hint">The invitation others see when you send them the link (Share, above); it opens the bench with this guide showing.</figcaption></figure>' +
+      '<p>Annotations on the bench are shared through a private group on <b>Hypothesis</b>, the open annotation service. To read and write them you need a Hypothesis account, membership of the group, and a personal key (an API token) that lets the bench write as you. About five minutes.</p>' +
 
       '<div class="js-steps"><section class="js-step"><div class="js-num" aria-hidden="true">1</div><div class="js-body"><h3><span class="vh">Step 1: </span>Create a Hypothesis account</h3>' +
       '<ol class="ah-steps"><li>Open ' + ext('https://hypothes.is/signup', 'hypothes.is/signup') + '.</li>' +
@@ -963,37 +1031,71 @@
       '<p class="hint">Already have an account? ' + ext('https://hypothes.is/login', 'Log in') + ' and go on to step 2.</p>' +
 
       '</div></section><section class="js-step"><div class="js-num" aria-hidden="true">2</div><div class="js-body"><h3><span class="vh">Step 2: </span>Join the group</h3>' +
-      '<ol class="ah-steps"><li>Ask the project leads for the group’s invitation link if you do not have it. It looks like <span class="mono">https://hypothes.is/groups/Ab12Cd34/name</span>.</li>' +
-      '<li>Open the link while logged in to Hypothesis, and click <b>Join</b>.</li></ol>' +
+      (grp ? '<p>Your invitation has set the group here. Open it while logged in to Hypothesis, and click <b>Join</b>:</p><p><a class="btn" href="https://hypothes.is/groups/' + esc(grp) + '" target="_blank" rel="noopener noreferrer">Open the group on Hypothesis ↗</a></p>'
+        : '<ol class="ah-steps"><li>Ask the project leads for an invitation link if you do not have one. Opening it fills in the group here.</li>' +
+          '<li>Or paste the group’s link (<span class="mono">https://hypothes.is/groups/Ab12Cd34/name</span>) into step 4, open it while logged in to Hypothesis, and click <b>Join</b>.</li></ol>') +
 
       '</div></section><section class="js-step"><div class="js-num" aria-hidden="true">3</div><div class="js-body"><h3><span class="vh">Step 3: </span>Get your API token</h3>' +
       '<ol class="ah-steps"><li>Open ' + ext('https://hypothes.is/account/developer', 'hypothes.is/account/developer') + ' (logged in).</li>' +
       '<li>Click <b>Generate your API token</b>, then copy the token it shows (a long string beginning <span class="mono">6879-</span>).</li></ol>' +
       '<p class="hint">The token lets the bench write annotations in your name: keep it to yourself, like a password. If it is ever seen by someone else, generate a new one on the same page; the old one stops working.</p>' +
 
-      '</div></section><section class="js-step"><div class="js-num" aria-hidden="true">4</div><div class="js-body"><h3><span class="vh">Step 4: </span>Enter the group URL and the API key in the bench</h3>' +
-      '<ol class="ah-steps"><li>Open <b>⚙ Settings</b> (top right).</li>' +
-      '<li>Under <b>Your details</b>, give your <b>initials</b> and <b>name</b>: every annotation you write is signed with them.</li>' +
-      '<li>Under <b>Shared annotations</b>, paste the group’s invitation link (or just its ID, the part after <span class="mono">/groups/</span>) and your API token.</li>' +
-      '<li>Click <b>Test connection</b>. It should say <i>Connected as</i> your username, <i>group … found</i>. If the group is not found, check you joined it in step 2 with the same account.</li>' +
-      '<li>Click <b>Save</b>.</li></ol>' +
+      '</div></section><section class="js-step"><div class="js-num" aria-hidden="true">4</div><div class="js-body"><h3><span class="vh">Step 4: </span>Your details and the token, here</h3>' +
+      '<div class="js-form">' +
+      '<label><span>Initials</span><input data-j="initials" maxlength="4" value="' + esc(SW.store.get('initials', '')) + '" placeholder="e.g. AB" autocomplete="off"></label>' +
+      '<label><span>Name</span><input data-j="name" value="' + esc(SW.store.get('name', '')) + '" autocomplete="name"></label>' +
+      '<label><span>Group</span><input data-j="group" value="' + esc(grp) + '" placeholder="the group’s link, or its ID" autocomplete="off"></label>' +
+      '<label><span>API token</span><span class="js-pw"><input data-j="token" type="password" value="' + esc(SW.store.get('token', '')) + '" placeholder="6879-…" autocomplete="off"><button class="btn ghost" data-show="token">Show</button></span></label>' +
+      '</div><p><button class="btn" data-a="hyp">Save and test</button></p>' + ok('hyp') +
+      '<p class="hint">Every annotation you write is signed with your initials. These are kept in this browser only (⚙ Settings has them too); on another computer, enter them again.</p>' +
+
+      (P ? '</div></section><section class="js-step"><div class="js-num" aria-hidden="true">5</div><div class="js-body"><h3><span class="vh">Step 5: </span>The paratexts (if you were invited to them)</h3>' +
+        '<p>The scans, clippings and documents are in a private GitHub repository. If GitHub has emailed you an invitation to the <b>critical-code-studies</b> organisation, accept it, then:</p>' +
+        '<ol class="ah-steps"><li><a class="btn ghost" href="' + esc(P.TOKEN_URL) + '" target="_blank" rel="noopener noreferrer">Open the token form ↗</a> (its name, owner, expiry and permission are filled in).</li>' +
+        '<li>Under <b>Repository access</b>, choose <b>Only select repositories</b>, then <b>shrdlu_paratexts</b>; then <b>Generate token</b> and copy it.</li></ol>' +
+        '<div class="js-form"><label><span>GitHub token</span><span class="js-pw"><input data-j="gh" type="password" value="' + esc(SW.store.get('gh.token', '')) + '" placeholder="github_pat_…" autocomplete="off"><button class="btn ghost" data-show="gh">Show</button></span></label></div>' +
+        '<p><button class="btn" data-a="gh">Save and test</button></p>' + ok('gh') : '') +
 
       '</div></section><section class="js-step js-then"><div class="js-num" aria-hidden="true">✓</div><div class="js-body"><h3>Then</h3><ul class="ah-steps">' +
       '<li>Annotate: select lines in Read and click <b>✎ Annotate</b>, or hover a line number and click <b>+A</b>. Help ▸ Advanced annotation covers formatting, links between annotations, searching and the rest.</li>' +
-      '<li>Settings are kept in this browser only. On another computer or browser, enter them again.</li>' +
       '<li>Without a group and token, annotations are kept as drafts in this browser; once connected, share them with <b>⇪ Publish drafts to the group</b> on Versions ▸ This version.</li>' +
       '<li>Annotations in the group are seen only by its members, on the bench and on Hypothesis’s own site (' + ext('https://hypothes.is/login', 'hypothes.is') + ').</li></ul>' +
       '</div></section></div></div>';
     document.body.appendChild(d);
     d.showModal();
+    function val(k) { var el = d.querySelector('[data-j="' + k + '"]'); return el ? el.value.trim() : ''; }
+    function say(k, cls, t) { var el = d.querySelector('[data-ok="' + k + '"]'); el.className = 'js-ok ' + cls; el.textContent = t; }
     d.addEventListener('click', function (e) {
-      if (e.target.closest('[data-share]')) {
-        var url = SW.BASE_URI + 'join.html?rsvp=2';   // a fresh address, so that link previews fetch the invitation card anew   // its own share card (an invitation, RSVP); it opens the bench with this guide showing
-        (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
-          .then(function () { SW.toast('Link copied: it opens the bench with this guide showing'); }, function () { window.prompt('Copy:', url); });
+      var sh = e.target.closest('[data-show]');
+      if (sh) { var inp = d.querySelector('[data-j="' + sh.dataset.show + '"]'), hid = inp.type === 'password'; inp.type = hid ? 'text' : 'password'; sh.textContent = hid ? 'Hide' : 'Show'; return; }
+      var a = e.target.closest('[data-a]');
+      if (a && a.dataset.a === 'hyp') {
+        var ini = val('initials').toUpperCase();
+        if (!ini) { say('hyp', 'err', 'Give your initials first.'); return; }
+        SW.store.set('initials', ini); SW.store.set('name', val('name'));
+        SW.store.set('group', N.groupId(val('group'))); SW.store.set('token', val('token'));
+        N.forget(); if (SW.state.v) N.invalidate(SW.state.v);
+        if (!val('group') || !val('token')) { say('hyp', 'warn', 'Saved. Without ' + (!val('group') ? 'the group' : 'a token') + ', annotations are kept as drafts here.'); return; }
+        say('hyp', '', 'Checking…');
+        N.test().then(function (r) {
+          if (r.group) say('hyp', 'good', '✓ Connected as ' + r.user.replace(/^acct:|@hypothes\.is$/g, '') + ', a member of “' + r.group + '”. You can annotate.');
+          else say('hyp', 'warn', 'Connected as ' + r.user.replace(/^acct:|@hypothes\.is$/g, '') + ', but not yet a member of the group: join it (step 2) with this account, then test again.');
+        }, function (err) { say('hyp', 'err', err.message); });
         return;
       }
-      if (e.target === d || e.target.closest('[data-x]')) { d.close(); d.remove(); }
+      if (a && a.dataset.a === 'gh' && P) {
+        SW.store.set('gh.token', val('gh')); P.reset();
+        if (!val('gh')) { say('gh', 'warn', 'No token: Paratexts will show how to get one.'); return; }
+        say('gh', '', 'Checking…');
+        P.test().then(function (n) { say('gh', 'good', '✓ The paratexts are open to you (' + n + ' in the catalogue).'); }, function (err) { say('gh', 'err', err.message); });
+        return;
+      }
+      if (e.target.closest('[data-share]')) {
+        var g = N.groupId(SW.store.get('group', ''));
+        SW.share({ title: g ? 'Join the SHRDLU annotation group' : 'Joining the SHRDLU annotation group', text: g ? 'An invitation to read and annotate the SHRDLU source code together on the Research Bench. Keep it to the crew: anyone with the link can join.' : '', url: SW.BASE_URI + 'join.html?rsvp=2' + (g ? '#' + g : '') });
+        return;
+      }
+      if (e.target === d || e.target.closest('[data-x]')) { d.close(); }
     });
     d.addEventListener('close', function () { d.remove(); });
   };
@@ -1179,11 +1281,14 @@
     var ta = box.querySelector('textarea'), tg = box.querySelector('.edit-tags');
     ta.value = SW.noteHistory.visible(note.text);
     SW.mdTools(ta);
+    var was = ta.value.trim();
     if (tg) tg.value = (note.tags || []).join(', ');
+    var wasTags = tg ? tg.value : '';
     body.hidden = true;
     body.insertAdjacentElement('afterend', box);
     ta.focus();
     function close() { box.remove(); body.hidden = false; }
+    function leave() { if (discardOK(ta.value.trim() !== was || (tg && tg.value !== wasTags), 'your changes')) close(); else ta.focus(); }
     function save() {
       var text = ta.value.trim();
       if (!text) { ta.focus(); return; }
@@ -1200,11 +1305,11 @@
     box.addEventListener('click', function (e) {
       e.stopPropagation();
       var b = e.target.closest('[data-r]');
-      if (b) (b.dataset.r === 'cancel' ? close : save)();
+      if (b) (b.dataset.r === 'cancel' ? leave : save)();
     });
     box.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); save(); }
-      if (e.key === 'Escape') { e.stopPropagation(); close(); }
+      if (e.key === 'Escape') { e.stopPropagation(); leave(); }
     });
   }
 
@@ -1236,17 +1341,28 @@
       e.stopPropagation();
       var b = e.target.closest('[data-r]');
       if (!b) return;
-      if (b.dataset.r === 'cancel') box.remove(); else save();
+      if (b.dataset.r === 'cancel') leave(); else save();
     });
+    function leave() { if (discardOK(!!ta.value.trim(), 'this reply')) box.remove(); else ta.focus(); }
     ta.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); save(); }
-      if (e.key === 'Escape') { e.stopPropagation(); box.remove(); }
+      if (e.key === 'Escape') { e.stopPropagation(); leave(); }
     });
   }
 
+  // Unsaved writing is not thrown away by a slip. Cancel, or Esc, in a box that holds new text asks
+  // first; leaving the page asks too; and the note dialog's text is kept in this browser as it is
+  // typed, until it is saved or discarded, so it comes back if the window closes another way.
+  function discardOK(changed, what) { return !changed || confirm('Discard ' + what + '? What you have written will be lost.'); }
+  window.addEventListener('beforeunload', function (e) {
+    var d = SW.$('#dlg-note'), held = d && d.open && SW.$('#note-text').value.trim();
+    if (!held) held = SW.$$('.reply-box textarea').some(function (t) { return t.value.trim(); });
+    if (held) { e.preventDefault(); e.returnValue = ''; }
+  });
+  function unsavedKey(o) { var a = o.anchor; return [o.vid, o.parent || '', o.kind || '', a ? a.p + ':' + a.n0 + '-' + a.n1 : ''].join('|'); }
   // The note dialog. opts: {vid, kind, anchor, quote, parent, heading, anchorText}
   N.dialog = function (opts) {
-    var dlg = SW.$('#dlg-note'), me = SW.me();
+    var dlg = SW.$('#dlg-note'), me = SW.me(), key = unsavedKey(opts), kept = SW.store.get('note.unsaved', null);
     SW.$('#note-title').textContent = opts.heading || 'Annotate';
     SW.$('#note-anchor').textContent = opts.anchorText || '';
     SW.$('#note-text').value = '';
@@ -1261,18 +1377,36 @@
         (N.configured() ? ' · shared with the group' : ' · kept as a draft (no group set)')
       : '<span style="color:var(--red)">Set your initials first (⚙).</span>';
     dlg.returnValue = '';
-    SW.$('.keep-hint', dlg).hidden = true;
+    var hint = SW.$('.keep-hint', dlg), ta = SW.$('#note-text'), tgs = SW.$('#note-tags');
+    hint.textContent = 'Unsaved annotation. Save it, or Cancel to discard it.'; hint.hidden = true;
+    if (kept && kept.key === key && kept.text) {   // what was being written here before, not saved
+      ta.value = kept.text; if (kept.tags) tgs.value = kept.tags;
+      hint.textContent = 'Your unsaved text from ' + kept.at + ' is back. Save it, or Cancel to discard it.'; hint.hidden = false;
+    }
+    function keep() { var t = ta.value.trim(); SW.store.set('note.unsaved', t ? { key: key, text: ta.value, tags: tgs.value, at: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) + ', ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) } : null); }
+    function forget() { var k0 = SW.store.get('note.unsaved', null); if (k0 && k0.key === key) SW.store.set('note.unsaved', null); }
+    ta.oninput = keep; tgs.oninput = keep;
+    dlg.oncancel = function (e) {   // Esc: not while it holds text
+      if (!ta.value.trim()) return;
+      e.preventDefault();
+      dlg.classList.remove('nudge'); void dlg.offsetWidth; dlg.classList.add('nudge');
+      hint.hidden = false; ta.focus();
+    };
+    SW.$('button[value="cancel"]', dlg).onclick = function (e) {
+      if (!discardOK(!!ta.value.trim(), 'this annotation')) { e.preventDefault(); ta.focus(); return; }
+      forget();
+    };
     dlg.showModal();
-    SW.$('#note-text').focus();
+    ta.focus();
     dlg.onclose = function () {
-      if (dlg.returnValue !== 'save') return;
-      var text = SW.$('#note-text').value.trim();
-      if (!text) return;
-      var tags = SW.$('#note-tags').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (dlg.returnValue !== 'save') return;   // closed another way, its text kept to come back
+      var text = ta.value.trim();
+      if (!text) { forget(); return; }
+      var tags = tgs.value.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
       var dev = !devBox.hidden && SW.$('input', devBox).checked;
       N.create({ vid: opts.vid, kind: opts.kind || (opts.anchor ? 'line' : 'version'), anchor: opts.anchor,
                  quote: opts.quote, text: text, tags: tags, parent: opts.parent, dev: dev })
-        .catch(function (e) { if (e.message !== 'no initials') SW.toast(e.message, 5000); });
+        .then(forget, function (e) { if (e.message !== 'no initials') SW.toast(e.message + ' Your text is kept: annotate the same lines again to get it back.', 7000); });
     };
   };
 
