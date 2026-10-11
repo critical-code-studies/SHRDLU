@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.105 (2026-10-11)
+
+- The About box's Tech stack (bench-kit 0.17.1) and Inside rows, shorter.
+
 ## 0.1.104 (2026-10-11)
 
 - The bench's frame from bench-kit 0.17.0: start-up, the picker, tabs, theme and links (`kit/shell.js`; this bench's parts in `js/main.js`: its views, the language beside the picker, links to a lens or graphic, its Help items), the tab row's menus (`kit/menus.js`; its Versions and Help items and its lens and graphics menus set in `js/analyse.js`), Versions ▸ This version (`kit/version.js`; its rows and reconstruction card in `js/about.js`), and references and SWHIDs (`kit/refs.js`; set in `js/config.js`). The picker's groups and the first version are in `js/config.js`. The annotation tests load `kit/refs.js` (57 pass).
