@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.106 (2026-10-11)
+
+- bench-kit 0.17.2: Genealogy's Flow at full zoom draws the code text only for what is on screen, so the page no longer slows.
+
 ## 0.1.105 (2026-10-11)
 
 - The About box's Tech stack (bench-kit 0.17.1) and Inside rows, shorter.
