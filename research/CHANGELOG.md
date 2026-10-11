@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.88 (2026-10-11)
+
+- bench-kit 0.12.0 (it adds the plain-text language adapter of the bench template; nothing changes here but the kit's version in the About box).
+
 ## 0.1.87 (2026-10-11)
 
 - The About box comes from bench-kit 0.11.0 (`kit/about.js`), shared with Spacewar!'s; its own rows (purpose, what is inside, sources, the code) are in `js/config.js`. The release date it shows (`bench-date`) is set to this release.
