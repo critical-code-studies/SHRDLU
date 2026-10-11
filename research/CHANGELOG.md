@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.99 (2026-10-11)
+
+- bench-kit 0.16.1 (its README lists every setting and hook; nothing changes here).
+
 ## 0.1.98 (2026-10-11)
 
 - bench-kit 0.16.0 (a recorded mode for the Functional overview, for a bench that can run its program; this bench's Functional overview is read from the source, so it has no switch).
