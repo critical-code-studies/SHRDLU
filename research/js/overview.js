@@ -1,5 +1,5 @@
 /*
- * overview.js - a functional overview of a version, for a programmer (Program ▸ Functional overview):
+ * overview.js - a dynamic profile of a version, for a programmer (Program ▸ Dynamic Profile):
  * one exchange recorded as the program runs it on the bench's interpreter, as the Spacewar! bench
  * records a version on its emulator. Every named Lisp function entered and left is kept (the
  * interpreter tells an attached profiler, m.prof), with the steps spent in it alone and with
@@ -8,7 +8,7 @@
  * parsing, semantics, answering, Micro-Planner, the blocks world, the display).
  *
  * Functions can be named and marked in colours, and the names and marks shared with the crew
- * as a tracing (bench-kit's tracings.js, as in the Spacewar! bench's gizmo): click a function's
+ * as a tracing (bench-kit's tracings.js, as in the Spacewar! bench's Dynamic Profile): click a function's
  * row to name or mark it, ⇧-click to mark it with the pen; ⑂ Tracings above the table.
  */
 (function (root) {
@@ -145,7 +145,7 @@
       '<div class="gx-bar ov-trbar">' + Tr.markTool([vid]) + Tr.traceTool() + '</div>' + (marked ? '<p class="ov-marks">' + marked + '</p>' : '') + '<div class="ov-t"><table class="ov-sub"><thead><tr><th>Function</th><th>File</th><th>Calls</th><th>Steps, with what it calls</th><th>Steps, its own</th><th>Called most from</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       '<h4>What SHRDLU said</h4><pre class="ov-out mono">' + SW.esc(res.out.trim()) + '</pre>';
     var bar = SW.$('.ov-trbar', el);
-    Tr.wire(bar, [vid], { mode: 'overview', v: vid, where: 'Functional overview' });
+    Tr.wire(bar, [vid], { mode: 'overview', v: vid, where: 'Dynamic Profile' });
     bar.addEventListener('click', function (e) {
       if (!e.target.closest('.gz-clear')) return;
       var n = Tr.markCount([vid]); if (!n || Tr.readOnly() || !confirm('Take the ' + n + ' mark' + (n > 1 ? 's' : '') + ' off ' + SW.refOf(vid) + '?')) return;

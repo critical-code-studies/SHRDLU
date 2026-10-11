@@ -2,6 +2,47 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.83 (2026-10-11)
+
+- Program ▸ Functional overview is called Dynamic Profile: a recorded run, as Spacewar!'s Dynamic Profile is (both after Art Schwarz's gizmo). bench-kit 0.8.1.
+
+## 0.1.82 (2026-10-11)
+
+- Functions named and marked in colours in the profile, as in Spacewar!'s: click a function's row to name or mark it, ⇧-click to mark it with the pen; marked and named functions always listed, with each colour's count and share of the steps. ⑂ Tracings shares your names and marks with the crew through the annotation group, or opens theirs read-only (Keep as mine, Link, ✕). From bench-kit 0.8.0 (`tracings.js`).
+
+## 0.1.81 (2026-10-11)
+
+- Compare and Genealogy from bench-kit 0.7.0, the texts read through its MacLisp adapter (the same lines, forms and files as before). From Spacewar!: the flow's ribbons drawn from the lines themselves (Detail). The Definitions view is this bench's own (`js/compare-defs.js`).
+
+## 0.1.80 (2026-10-11)
+
+- Findings from bench-kit 0.6.0: the list and texts in `js/findings-data.js`, the collation of the Stanford and ITS copies in `js/findings-checks.js`, now in the export too. From Spacewar!: replies shown at once, Category opening on All, tags in words.
+
+## 0.1.79 (2026-10-11)
+
+- New annotations are tagged `bk:`, the kit's prefix for every bench; those made before keep `sh:` and are read as before (bench-kit 0.5.0).
+
+## 0.1.78 (2026-10-11)
+
+- Annotations from bench-kit 0.4.0. From Spacewar!: a copy kept from a ghost records its original, so the ghost stays hidden while the copy stands and returns when it is deleted; ghost cards fold away; the bench's own marks in tags kept on editing and shown in words.
+
+## 0.1.77 (2026-10-11)
+
+- ⚙ Settings in tabs (You, Annotations, Paratexts, Display, Developer) and one initials box (two to four letters, Not now), from bench-kit 0.3.1.
+
+## 0.1.74 to 0.1.75 (2026-10-11)
+
+- The bench takes its shared parts from bench-kit (`research/kit`, a git submodule): paratexts and Help guides (0.1.74); export, My notes, figures, stemma, edition and the tour (0.1.75). The bench's names are in `js/config.js`. PNG export within Safari's canvas limit.
+
+## 0.1.73 (2026-10-11)
+
+- The browser tab keeps the name SHRDLU Research Bench, whichever version is shown.
+
+## 0.1.66 to 0.1.72 (2026-10-11)
+
+- Initials asked for in a box of their own, the action going on once they are given (0.1.66).
+- Paratexts: films and recordings play in place (0.1.67); "Source ↗" for a paratext's original (0.1.68); links to YouTube, Vimeo and the Internet Archive played in place (0.1.69); zoom for pictures and PDFs (0.1.71); the same code as the Spacewar! bench's (0.1.72).
+
 ## 0.1.63 (2026-10-06)
 
 From the _Spacewar!_ bench (1.18.5 to 1.18.34).

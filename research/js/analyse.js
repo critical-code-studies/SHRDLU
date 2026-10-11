@@ -21,7 +21,7 @@
     [6, 'Theorems', 'The Micro-Planner theorems of the blocks world'],
     [7, 'Symbol histories', 'One name across the versions'],
     [8, 'Absence', 'Gaps in the record, and damage in the texts'],
-    [9, 'Functional overview', 'An exchange recorded: the parts of the program in time, where the steps go, the functions called']
+    [9, 'Dynamic Profile', 'An exchange recorded: the parts of the program in time, where the steps go, the functions called, named and marked']
   ];
   if (!LENSES[lens - 1]) lens = 1;
   SW.anLens = function () { return lens; };
@@ -274,7 +274,7 @@
   }
 
   // ---------- 8 absence ----------
-  // 9: the functional overview, recorded as the program runs an exchange (js/overview.js)
+  // 9: the Dynamic Profile, recorded as the program runs an exchange (js/overview.js)
   FNS[9] = function (b, el) { SW.overview.render(b, el); return null; };
   FNS[8] = function (b, el) {
     var lost = V.VERSIONS.filter(function (v) { return v.status === 'lost'; });

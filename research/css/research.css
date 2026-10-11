@@ -1902,7 +1902,7 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .dl-calls { font-size: 11.5px; max-height: 320px; overflow: auto; margin: 0; padding-left: 3em; }
 .dl-t { max-height: 560px; overflow: auto; }
 @media (max-width: 900px) { .pj-grid, .dl-grid { grid-template-columns: 1fr; } }
-/* Program ▸ Functional overview */
+/* Program ▸ Dynamic Profile */
 .ov-in { flex: 1; min-width: 280px; font-size: 13px; padding: 4px 8px; }
 .ov-svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
 .ov-body h4 { margin: 14px 0 2px; font-size: 14px; }
@@ -1940,7 +1940,7 @@ a.swcode { font-size: .92em; }
 .joinhelp .js-ok.warn { color: var(--amber); }
 .joinhelp .js-ok.err { color: var(--red); }
 @media (max-width: 520px) { .joinhelp .js-form label { grid-template-columns: 1fr; gap: 2px; } }
-/* Functional overview: functions named and marked (kit/tracings.js) */
+/* Dynamic Profile: functions named and marked (kit/tracings.js) */
 .ov-sub tr.ov-row { cursor: pointer; }
 .ov-sub tr.ov-row:hover td { background: color-mix(in srgb, var(--text) 4%, transparent); }
 .ov-sub tr.ov-marked td:first-child { box-shadow: inset 5px 0 0 var(--mk); padding-left: 10px; }
