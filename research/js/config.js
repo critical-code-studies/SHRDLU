@@ -6,6 +6,7 @@
     title: 'SHRDLU Research Bench',
     slug: 'shrdlu',
     store: 'shbench.',
+    entry: 'SHRDLU',   // where the program starts: the top level's function, in syscom (Program ▸ Functional overview)
     // the About box (kit/about.js); purpose, inside and sources are HTML
     about: {
       icon: '<svg viewBox="0 0 32 32" aria-hidden="true" width="40" height="40"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>',

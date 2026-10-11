@@ -277,7 +277,7 @@
   // ---------- 8 absence ----------
   // 9: the Dynamic Profile, recorded as the program runs an exchange (js/overview.js)
   FNS[9] = function (b, el) { SW.overview.render(b, el); return null; };
-  FNS[10] = function (b, el) { return SW.functional.render(b, el); };
+  FNS[10] = function (b, el) { return SW.functionalOverview.render(b, el, { inline: true }); };   // kit/functional.js, read as js/functional.js says
   FNS[8] = function (b, el) {
     var lost = V.VERSIONS.filter(function (v) { return v.status === 'lost'; });
     var lc = wide(card('Versions known and not held', 'What the record names but the bench cannot read.'));

@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.96 (2026-10-11)
+
+- Program ▸ Functional overview is drawn by bench-kit 0.14.0 (`kit/functional.js`); `js/functional.js` gives it this bench's reading of the MacLisp (functions, calls and quoted names, what loading runs), the parts of the system, what each defines, the Dynamic Profile's names and marks, and the arguments PARSEVAL is given. The parts are listed in the loader's order; start-up counts each file's functions.
+
 ## 0.1.95 (2026-10-11)
 
 - The badges in Read say “bracket error” (was “unbalanced”, and “error” on a file’s heading).
