@@ -10,9 +10,8 @@
   SW.BENCH.shell = {
     views: ['read', 'run', 'analyse', 'compare', 'genealogy', 'about', 'graphics', 'findings', 'notes', 'paratexts'],
     lang: function (v) { return { text: SW.langOf(v), title: 'The language this version is written in' }; },
-    // a view named in the link (the site map links to each): its lens or graphic
+    // a view named in the link (the site map links to each): its graphic (a lens is kit/lenses.js's)
     query: function (q) {
-      if (q.lens) { SW.setLens(q.lens); if (!q.tab) q.tab = 'analyse'; }
       if (q.g) { SW.setGraphic(q.g); if (!q.tab) q.tab = 'graphics'; }
     },
     help: { site: function () { window.open('../', '_blank', 'noopener'); } }

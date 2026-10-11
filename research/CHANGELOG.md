@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.111 (2026-10-12)
+
+- bench-kit 0.20.0: the Analyse view's frame is the kit's (`kit/lenses.js`): the heading, the modes, the export menu, the lens menus and `&lens=` in a link. The lenses stay this bench's (`js/analyse.js`, `SW.BENCH.lenses`).
+
 ## 0.1.110 (2026-10-12)
 
 - bench-kit 0.19.0: Help ▸ Referencing and versions, What you should read and Reconstruction cards are the kit's (`kit/helppages.js`), from this bench's data (`js/config.js`; the cards' rows in `js/core.js`). The versions table now links each text on GitHub, with its SWHIDs, and names the authors.

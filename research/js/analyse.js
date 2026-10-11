@@ -1,15 +1,12 @@
 /*
  * analyse.js - lenses on a version of SHRDLU: critical readings and maps of
- * the program. Each lens is a card set with its own export; the numbering is
- * stable so a lens can be named in discussion ("lens 3"). Also the tab-row
- * drop-down menus (Text, Program, Versions, Help), as on the main site.
+ * the program, drawn in bench-kit's Analyse view (kit/lenses.js), which gives
+ * each its heading, menu, modes and export. Also this bench's items in the tab
+ * row's menus (Versions, Help, Graphics).
  */
 (function (root) {
   'use strict';
   var SW = root.SW, V = root.SWVersions, K = root.LispIndex.KIND_LABEL;
-  var view = SW.$('#view-analyse');
-  var build = null, lens = SW.store.get('an.lens', 1);
-  var mode = SW.store.get('an.mode', 'one');
   var bioName = SW.store.get('an.bio', 'THGOAL');
 
   var LENSES = [
@@ -24,25 +21,10 @@
     [9, 'Dynamic Profile', 'An exchange recorded: the parts of the program in time, where the steps go, the functions called, named and marked'],
     [10, 'Functional overview', 'Read from the source: the main loop, start-up, the parts of the system and the calls between them']
   ];
-  if (!LENSES[lens - 1]) lens = 1;
-  SW.anLens = function () { return lens; };
-  SW.anLensName = function () { return LENSES[lens - 1][1]; };
-  var ACROSS = { 1: 1, 3: 1, 4: 1 };   // lenses with an across-the-versions mode
 
   function fileName(b, p) { return b.parts[p].src.split('/').pop(); }
   function goto(p, n) { SW.state.sel = { p: p, n0: n, n1: n }; SW.setTab('read'); SW.emit('goto', { p: p, n: n, tab: 'read' }); }
-  function card(title, lede) {
-    var c = SW.el('div', { class: 'card' });
-    c.innerHTML = '<h3>' + SW.esc(title) + '</h3>' + (lede ? '<p class="lede">' + lede + '</p>' : '');
-    return c;
-  }
-  function wide(c) { c.style.gridColumn = '1 / -1'; return c; }
-  function bars(rows, max) {
-    max = max || rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 1);
-    return '<div class="bars">' + rows.map(function (r) {
-      return '<div class="b"><span title="' + SW.esc(r[0]) + '">' + SW.esc(r[0]) + '</span><i style="width:' + (100 * r[1] / max).toFixed(1) + '%"></i><em>' + r[1] + '</em></div>';
-    }).join('') + '</div>';
-  }
+  var card = SW.lenses.card, wide = SW.lenses.wide, bars = SW.lenses.bars;   // kit/lenses.js
   function where(b, p, n) { return { html: '<a href="#" data-go="' + p + ':' + n + '">' + SW.esc(fileName(b, p) + ':' + n) + '</a>', sort: p * 100000 + n, text: fileName(b, p) + ':' + n }; }
   function linkRows(el) {
     el.addEventListener('click', function (e) {
@@ -277,7 +259,6 @@
   // ---------- 8 absence ----------
   // 9: the Dynamic Profile, recorded as the program runs an exchange (js/overview.js)
   FNS[9] = function (b, el) { SW.overview.render(b, el); return null; };
-  FNS[10] = function (b, el) { return SW.functionalOverview.render(b, el, { inline: true }); };   // kit/functional.js, read as js/functional.js says
   FNS[8] = function (b, el) {
     var lost = V.VERSIONS.filter(function (v) { return v.status === 'lost'; });
     var lc = wide(card('Versions known and not held', 'What the record names but the bench cannot read.'));
@@ -306,74 +287,23 @@
     return function () { return [SW.tableBlock('Absence and damage', ['Version', 'Date', 'Note'], lost.map(function (v) { return [v.label, v.date, v.summary]; }))].concat(rrows.length ? [SW.tableBlock('Repairs made to run this version', ['Repair', 'Kind', 'Where', 'What and why', 'Evidence', 'By'], rrows.map(function (r) { return r.map(function (c) { return c && c.text != null ? c.text : c; }); }))] : []); };
   };
 
-  // ---------- rendering ----------
-  var MENUS = { text: [['', [1, 2, 3, 7]]], program: [['', [10, 9, 4, 5, 6]]], versions: [['', [8]]] };
-  function menuOf(n) { for (var m in MENUS) if (MENUS[m].some(function (gr) { return gr[1].indexOf(n) >= 0; })) return m; return 'text'; }
-  function lensItems(groups, attr, cur) {
-    return groups.map(function (gr) {
-      return '<div class="lens-g">' + (gr[0] ? '<h5>' + SW.esc(gr[0]) + '</h5>' : '') + gr[1].map(function (n) {
-        var l = LENSES[n - 1];
-        return '<button ' + attr + '="' + n + '"' + (n === cur ? ' class="on"' : '') + '><b>' + SW.esc(l[1]) + '</b><span>' + SW.esc(l[2]) + '</span></button>';
-      }).join('') + '</div>';
-    }).join('');
-  }
-  function expMenu(w) {
-    var d = SW.el('details', { class: 'menu exp-menu tb-right' });
-    d.innerHTML = '<summary class="btn" title="Export this lens">⤓ Export ▾</summary>';
-    var body = SW.el('div', { class: 'menu-body' });
-    body.appendChild(w); d.appendChild(body);
-    return d;
-  }
-  function render() {
-    var b = build;
-    view.innerHTML = '';
-    var pad = SW.el('div', { class: 'pad', style: 'max-width:none' });
-    var L = LENSES[lens - 1];
-    var head = SW.el('div', { class: 'toolbar an-head', style: 'position:static;padding:0 0 10px' });
-    var mg = MENUS[menuOf(lens)];
-    var across = ACROSS[lens] && mode === 'across';
-    head.innerHTML = (mg[0][1].length === 1 ? '<b class="an-title">' + SW.esc(L[1]) + '</b>' :
-      '<details class="menu lens-menu"><summary class="btn" title="Choose">' + SW.esc(L[1]) + ' ▾</summary><div class="menu-body lens-list">' + lensItems(mg, 'data-l', lens) + '</div></details>') +
-      (ACROSS[lens] ? '<span class="seg-btns"><button class="btn' + (!across ? ' on' : '') + '" data-mode="one">This version</button><button class="btn' + (across ? ' on' : '') + '" data-mode="across">Across the versions</button></span>' : '') +
-      '<span class="hint an-desc">' + SW.esc(L[2]) + '.</span>' + (!across && lens !== 7 ? ' <span class="an-ref">' + SW.refTag(b.v.id) + '</span>' : '');
-    head.addEventListener('click', function (e) {
-      var t = e.target.closest('[data-l]');
-      if (t) { lens = +t.dataset.l; SW.store.set('an.lens', lens); SW.writeQuery(); render(); return; }
-      var m = e.target.closest('[data-mode]'); if (m) { mode = m.dataset.mode; SW.store.set('an.mode', mode); render(); }
-    });
-    pad.appendChild(head);
-    var cards = SW.el('div', { class: 'cards' });
-    pad.appendChild(cards);
-    view.appendChild(pad);
-    SW.markTabs();
-    var blocks;
-    if (lens === 7) {
-      blocks = biography(b, cards);
-      head.appendChild(expMenu(SW.exportButtons(function () { return { title: 'SHRDLU: the history of the name “' + bioName + '”', meta: [['Generated', SW.fmtDate(SW.today()) + ', SHRDLU research bench v' + SW.VERSION]], blocks: blocks() }; }, function () { return 'shrdlu-name-history-' + bioName; })));
-      return;
-    }
-    if (across) {
-      var vs = V.VERSIONS.filter(function (v) { return v.build; }).sort(function (a, x) { return a.sort - x.sort; });
-      var wait = SW.el('p', { class: 'hint' }, 'Reading ' + vs.length + ' versions…'); cards.appendChild(wait);
-      Promise.all(vs.map(function (v) { return SW.build(v.id); })).then(function (bs) {
-        wait.remove();
-        var bl = XFNS[lens](vs, bs, cards);
-        head.appendChild(expMenu(SW.exportButtons(function () { return { title: 'SHRDLU across the versions: ' + L[1].toLowerCase(), subtitle: L[2], meta: [['Generated', SW.fmtDate(SW.today()) + ', SHRDLU research bench v' + SW.VERSION]], blocks: bl() }; }, 'shrdlu-versions-lens-' + L[0])));
-      }).catch(function (e) { wait.textContent = e.message; });
-      return;
-    }
-    if (!b.asm && lens !== 8) { cards.innerHTML = '<p class="hint">No source survives for ' + SW.esc(b.v.label) + '. Its record is under Versions ▸ This version.</p>'; return; }
-    blocks = FNS[lens](b, cards);
-    if (blocks) head.appendChild(expMenu(SW.exportButtons(function () {
-      return { title: b.v.label + ': ' + L[1].toLowerCase(), subtitle: L[2], meta: SW.docMeta(b), blocks: blocks() };
-    }, 'shrdlu-' + b.v.id + '-lens-' + L[0])));
-  }
-
-  SW.views.analyse = { show: function (b) { build = b; render(); } };
+  // ---------- the lenses, for kit/lenses.js ----------
+  FNS[7] = biography;
+  SW.BENCH.lenses = {
+    list: LENSES,
+    // in the tab row: Text ▾, Program ▾, and Absence under Versions ▾
+    menus: { text: [['', [1, 2, 3, 7]]], program: [['', [10, 9, 4, 5, 6]]], versions: [['', [8]]] },
+    picks: { absence: 8 },
+    one: FNS, across: XFNS, acrossLabel: 'Across the versions',
+    history: { n: 7, title: function () { return 'SHRDLU: the history of the name “' + bioName + '”'; }, file: function () { return 'shrdlu-name-history-' + bioName; } },
+    functional: 10,   // kit/functional.js, read as js/functional.js says
+    anySource: [7, 8],
+    noSource: function (b) { return 'No source survives for ' + SW.esc(b.v.label) + '. Its record is under Versions ▸ This version.'; }
+  };
 
   // ---------- the menus in the tab row (bench-kit's kit/menus.js) ----------
-  // Text ▾ and Program ▾ list the lenses, Graphics ▾ the graphics; Versions ▾ and Help ▾ are the
-  // kit's, with this bench's items.
+  // Graphics ▾ lists the graphics; Versions ▾ and Help ▾ are the kit's, with this bench's items;
+  // the lens menus are kit/lenses.js's.
   SW.BENCH.menus = {
     versions: [['about', 'This version', 'Its record, sources and annotations'],
               ['compare', 'Compare', 'Two versions side by side'],
@@ -396,28 +326,13 @@
                                    ['code', 'Source code on GitHub ↗', 'github.com/critical-code-studies/SHRDLU'],
                                    ['issue', 'Report a problem ↗', 'GitHub issues'],
                                    ['about', 'About the bench', 'Version, sources, citation']]]],
-    menu: function (which) {
-      if (which === 'graphics') return SW.gfxMenu ? SW.gfxMenu() : '';
-      return MENUS[which] ? lensItems(MENUS[which], 'data-pick', SW.state.tab === 'analyse' ? lens : 0) : null;
-    },
-    on: function (which, p) { return p === 'absence' ? SW.state.tab === 'analyse' && lens === 8 : null; },
+    menu: function (which) { return which === 'graphics' ? (SW.gfxMenu ? SW.gfxMenu() : '') : null; },
     pick: function (which, p) {
       if (which === 'graphics') { SW.openGraphic(p); return true; }
       if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return true; }
-      if (which === 'versions' && p !== 'absence') return false;
-      if (which === 'help') return false;
-      var nl = which === 'versions' ? 8 : +p;
-      if (nl !== lens) { lens = nl; SW.store.set('an.lens', lens); SW.forget('analyse'); }
-      SW.setTab('analyse');
-      return true;
+      return false;
     }
   };
-  SW.openLens = function (n) { lens = n; SW.store.set('an.lens', n); SW.forget('analyse'); SW.setTab('analyse'); };
-  SW.setLens = function (n) { n = +n; if (LENSES[n - 1]) { lens = n; SW.store.set('an.lens', n); } };
-  SW.biography = function (name) {
-    bioName = name; SW.store.set('an.bio', name);
-    lens = 7; SW.store.set('an.lens', 7);
-    SW.forget('analyse');
-    SW.setTab('analyse');
-  };
+  // a name's history, from elsewhere (the symbol pop-up in Read)
+  SW.biography = function (name) { bioName = name; SW.store.set('an.bio', name); SW.forget('analyse'); SW.openLens(7); };
 })(this);
