@@ -1,4 +1,4 @@
-/* config.js - this bench's settings for bench-kit (research/kit). Loaded after core.js, before the kit. */
+/* config.js - this bench's settings for bench-kit (research/kit). Loaded after kit/base.js, before the rest of the kit and the bench's own scripts. */
 (function (root) {
   'use strict';
   root.SW.BENCH = {
@@ -6,6 +6,17 @@
     title: 'SHRDLU Research Bench',
     slug: 'shrdlu',
     store: 'shbench.',
+    // the default colour theme's name, and the accent of figures exported on black and on white
+    theme: { label: 'Blocks world', note: 'warm white on the charcoal of the lab bench, green for the machine, as on the project site (the default)' },
+    accent: { dark: '#e58be0', light: '#a3317a' },
+    // the people whose initials or names are written into the text (Analyse ▸ Hands and dates, Compare)
+    hands: [
+      { k: 'tw', who: 'Terry Winograd', re: /\bwinograd\b|\bt\.\s?w\.|\btw\b/i, colour: '#2a9d6f' },
+      { k: 'ddm', who: 'Dave McDonald', re: /\bddm\b|\bmcdonald\b/i, colour: '#d99a1e' },
+      { k: 'hill', who: 'Jeff Hill', re: /\bjeff hill\b/i, colour: '#3f8fd0' },
+      { k: 'jmh', who: '“JMH” (not yet identified)', re: /\bjmh\b/i, colour: '#c05a93' },
+      { k: 'ejs', who: 'Eric Swenson (2024)', re: /\bejs\b|\bswenson\b/i, colour: '#8a7ae0' }
+    ],
     group: '1Kb3vwEV',
     relation: 'SHRDLU, ',
     topShare: false,
