@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.114 (2026-10-12)
+
+- bench-kit 0.22.1: the Graphics menu stays on screen in a narrow window.
+
 ## 0.1.113 (2026-10-12)
 
 - bench-kit 0.22.0: the Graphics tab's frame is the kit's (`kit/graphics.js`): its heading and menu, Graphics ▾ (now in groups, two columns, as on the Spacewar! bench) and `&g=` in a link. The pictures stay this bench's (`js/graphics.js`, `SW.BENCH.graphics`).
