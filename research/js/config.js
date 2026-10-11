@@ -6,6 +6,17 @@
     title: 'SHRDLU Research Bench',
     slug: 'shrdlu',
     store: 'shbench.',
+    // the About box (kit/about.js); purpose, inside and sources are HTML
+    about: {
+      icon: '<svg viewBox="0 0 32 32" aria-hidden="true" width="40" height="40"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>',
+      author: 'David M. Berry', citeAuthor: 'Berry, D. M.',
+      purpose: 'A bench for the critical reading of the SHRDLU source code, made for the Critical Code Studies SHRDLU project (David M. Berry and Mark C. Marino).',
+      techMore: 'Built on the Spacewar! Research Bench.',
+      inside: 'A MacLisp reader and indexer for the source files, and a MacLisp interpreter written for the bench (MacLisp 1.6 and the later MacLisp of the 2024 restoration) that runs SHRDLU in the browser from each version’s own source, with every repair recorded.',
+      sources: 'Code by Terry Winograd, revised by Dave McDonald, Jeff Hill, Stu Card and Andee Rubin (MIT AI Laboratory, 1968–77); the MIT files as recovered on ITS and Eric Swenson’s 2024 restoration (PDP-10/its); Winograd’s Stanford distribution. Details under Versions.',
+      code: 'https://github.com/critical-code-studies/SHRDLU',
+      catalogue: { held: 'held as source' }
+    },
     // the default colour theme's name, and the accent of figures exported on black and on white
     theme: { label: 'Blocks world', note: 'warm white on the charcoal of the lab bench, green for the machine, as on the project site (the default)' },
     accent: { dark: '#e58be0', light: '#a3317a' },

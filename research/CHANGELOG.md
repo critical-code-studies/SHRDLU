@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.87 (2026-10-11)
+
+- The About box comes from bench-kit 0.11.0 (`kit/about.js`), shared with Spacewar!'s; its own rows (purpose, what is inside, sources, the code) are in `js/config.js`. The release date it shows (`bench-date`) is set to this release.
+
 ## 0.1.86 (2026-10-11)
 
 - Read's annotations (threads inline and in the margin, ghosts, the code an annotation marks, the selection bar and pop, export, moving a note by dragging) come from bench-kit 0.10.0 (`kit/readnotes.js`); `js/read.js` keeps the listing, its files, the repairs and filters. From Spacewar!: a note added, edited or binned makes the next refresh look for ghosts again. Unused breakpoint and run-to actions removed.
