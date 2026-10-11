@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.93 (2026-10-11)
+
+- The “unbalanced” badge in Read at the size of the other badges.
+
 ## 0.1.92 (2026-10-11)
 
 - Program ▸ Functional overview (lens 10): the program read from its source, as Spacewar!'s Functional overview shows its program from a run. The main loop: what the function SHRDLU (syscom) calls (→) and names for EVAL or APPLY to call (‘), in the order of its lines, each with its part of the system and what it calls in turn, and the arguments PARSEVAL is given. Start-up: the files in the loader's order, what each defines and the forms it runs as it loads. The parts of the system (as the Dynamic Profile groups the files), what each defines and its entry points from the other parts. The calls between the parts, as a matrix, each number opening its calls. Names and marks from the Dynamic Profile shown. Exported to Word or Markdown.
