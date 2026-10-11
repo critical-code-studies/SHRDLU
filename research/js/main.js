@@ -70,9 +70,8 @@
     var vl = SW.$('#vlang'); if (vl) vl.textContent = V.byId(id) && V.byId(id).build ? SW.langOf(V.byId(id)) : '';
     var vr = SW.$('#vref'); if (vr) { vr.textContent = V.byId(id) && V.byId(id).build ? SW.refText(id) : ''; vr.dataset.copy = vr.textContent; vr.title = 'Click to copy. The bench’s reference to this source (Help ▸ Referencing and versions)'; }
     shown = {};
-    SW.build(id).then(function (b) {
+    SW.build(id).then(function (b) {   // the tab keeps the bench's name, whichever version is shown
       if (SW.tape) SW.tape.strip(b);
-      document.title = b.v.label + ' · SHRDLU Research Bench';
     }).catch(function (e) { SW.toast(e.message, 5000); });
     SW.writeQuery();
     showCurrent();
