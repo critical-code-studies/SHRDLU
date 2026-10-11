@@ -371,18 +371,16 @@
 
   SW.views.analyse = { show: function (b) { build = b; render(); } };
 
-  // ---------- drop-downs in the tab row ----------
-  var tabMenu = null;
-  function closeTabMenu() { if (!tabMenu) return; tabMenu.el.remove(); tabMenu.btn.setAttribute('aria-expanded', 'false'); tabMenu = null; }
-  var VERS = [['about', 'This version', 'Its record, sources and annotations'],
+  // ---------- the menus in the tab row (bench-kit's kit/menus.js) ----------
+  // Text ▾ and Program ▾ list the lenses, Graphics ▾ the graphics; Versions ▾ and Help ▾ are the
+  // kit's, with this bench's items.
+  SW.BENCH.menus = {
+    versions: [['about', 'This version', 'Its record, sources and annotations'],
               ['compare', 'Compare', 'Two versions side by side'],
               ['genealogy', 'Genealogy', 'How the versions descend'],
               ['absence', 'Absence', 'Gaps in the record, and damage in the texts'],
-              ['storage', 'How the files were stored', 'The machines, ITS files, disks and backup tapes, and the path of each copy']];
-  function menuHTML(which) {
-    if (which === 'help') {
-      var dm = document.querySelector('meta[name="bench-date"]');
-      var HELP = [['Getting started', [['tour', 'Take the welcome tour', 'A few stops through the bench; about two minutes'],
+              ['storage', 'How the files were stored', 'The machines, ITS files, disks and backup tapes, and the path of each copy']],
+    help: [['Getting started', [['tour', 'Take the welcome tour', 'A few stops through the bench; about two minutes'],
                                        ['refs', 'Referencing and versions', 'How the bench cites a source, as [REF: SHI, plnr.182:120]'],
                                        ['reading', 'What you should read', 'Winograd, Micro-Planner, and reading and repairing old code'],
                                        ['cards', 'Reconstruction cards', 'Every repair the bench makes to run each version, marked in gold'],
@@ -397,66 +395,23 @@
                   ['The project', [['site', 'The SHRDLU project site', 'critical-code-studies.github.io/SHRDLU'],
                                    ['code', 'Source code on GitHub ↗', 'github.com/critical-code-studies/SHRDLU'],
                                    ['issue', 'Report a problem ↗', 'GitHub issues'],
-                                   ['about', 'About the bench', 'Version, sources, citation']]]];
-      return HELP.map(function (g, i) {
-        return (i ? '<hr class="menu-rule">' : '') + '<div class="menu-group">' + SW.esc(g[0]) + '</div>' + g[1].map(function (h) {
-          return '<button data-pick="' + h[0] + '"><b>' + SW.esc(h[1]) + '</b><span>' + SW.esc(h[2]) + '</span></button>';
-        }).join('');
-      }).join('') + '<div class="help-ver hint">SHRDLU Research Bench ' + SW.esc(SW.VERSION) + (dm ? ', ' + SW.esc(SW.fmtDate(dm.content)) : '') + '</div>';
+                                   ['about', 'About the bench', 'Version, sources, citation']]]],
+    menu: function (which) {
+      if (which === 'graphics') return SW.gfxMenu ? SW.gfxMenu() : '';
+      return MENUS[which] ? lensItems(MENUS[which], 'data-pick', SW.state.tab === 'analyse' ? lens : 0) : null;
+    },
+    on: function (which, p) { return p === 'absence' ? SW.state.tab === 'analyse' && lens === 8 : null; },
+    pick: function (which, p) {
+      if (which === 'graphics') { SW.openGraphic(p); return true; }
+      if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return true; }
+      if (which === 'versions' && p !== 'absence') return false;
+      if (which === 'help') return false;
+      var nl = which === 'versions' ? 8 : +p;
+      if (nl !== lens) { lens = nl; SW.store.set('an.lens', lens); SW.forget('analyse'); }
+      SW.setTab('analyse');
+      return true;
     }
-    if (which === 'graphics') return SW.gfxMenu ? SW.gfxMenu() : '';
-    if (which === 'versions') return VERS.map(function (h) {
-      var on = h[0] === 'absence' ? SW.state.tab === 'analyse' && lens === 8 : SW.state.tab === h[0];
-      return '<button data-pick="' + h[0] + '"' + (on ? ' class="on"' : '') + '><b>' + SW.esc(h[1]) + '</b><span>' + SW.esc(h[2]) + '</span></button>';
-    }).join('');
-    return lensItems(MENUS[which], 'data-pick', SW.state.tab === 'analyse' ? lens : 0);
-  }
-  SW.$$('#tabs [data-menu]').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var which = btn.dataset.menu;
-      if (tabMenu && tabMenu.btn === btn) { closeTabMenu(); return; }
-      closeTabMenu();
-      var r = btn.getBoundingClientRect(), el = SW.el('div', { class: 'tab-menu lens-list', role: 'menu', 'data-w': which }, menuHTML(which));
-      document.body.appendChild(el);
-      el.style.top = r.bottom + 'px';
-      el.style.left = Math.max(6, Math.min(r.left, window.innerWidth - el.offsetWidth - 6)) + 'px';
-      btn.setAttribute('aria-expanded', 'true');
-      tabMenu = { el: el, btn: btn };
-      el.addEventListener('click', function (ev) {
-        var t = ev.target.closest('[data-pick]');
-        if (!t) return;
-        closeTabMenu();
-        var p = t.dataset.pick;
-        if (which === 'help') {
-          if (p === 'tour') { SW.tours.start('welcome'); return; }
-          if (p === 'refs') { SW.refHelp(); return; }
-          if (p === 'reading') { SW.readingHelp(); return; }
-          if (p === 'codes' || p === 'paratexts') { SW.guide(p); return; }
-          if (p === 'cards') { SW.cardsHelp(); return; }
-          if (p === 'anno') { SW.notes.help(); return; }
-          if (p === 'join') { SW.notes.joinHelp(); return; }
-          if (p === 'sitemap') { location.href = 'sitemap.html'; return; }
-          if (p === 'backup') { SW.backup.save(); return; }
-          if (p === 'restore') { SW.backup.restore(); return; }
-          if (p === 'site') { window.open('../', '_blank', 'noopener'); return; }
-          if (p === 'about') SW.$('#btn-about').click();
-          else if (p === 'settings') SW.$('#btn-settings').click();
-          else window.open(p === 'code' ? 'https://github.com/critical-code-studies/SHRDLU' : 'https://github.com/critical-code-studies/SHRDLU/issues', '_blank', 'noopener');
-          return;
-        }
-        if (which === 'graphics') { SW.openGraphic(p); return; }
-        if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return; }
-        if (which === 'versions' && p !== 'absence') { SW.setTab(p); return; }
-        var nl = which === 'versions' ? 8 : +p;
-        if (nl !== lens) { lens = nl; SW.store.set('an.lens', lens); SW.forget('analyse'); }
-        SW.setTab('analyse');
-      });
-    });
-  });
-  document.addEventListener('mousedown', function (e) { if (tabMenu && !tabMenu.el.contains(e.target) && !tabMenu.btn.contains(e.target)) closeTabMenu(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeTabMenu(); });
-  window.addEventListener('resize', closeTabMenu);
+  };
   SW.openLens = function (n) { lens = n; SW.store.set('an.lens', n); SW.forget('analyse'); SW.setTab('analyse'); };
   SW.setLens = function (n) { n = +n; if (LENSES[n - 1]) { lens = n; SW.store.set('an.lens', n); } };
   SW.biography = function (name) {

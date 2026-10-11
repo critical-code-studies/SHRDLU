@@ -158,21 +158,6 @@
   SW.MADE = { mit: 'recovered from ITS backup tapes and imported unedited into PDP-10/its, 24 July 2024 (commit ace4248f)',
     stanford: 'Winograd’s code directory as distributed from Stanford, files dated 16 September 1997',
     ejs: 'edited by Eric Swenson, July to August 2024 (PDP-10/its at commit 173f8220)' };
-  // A source file's SWHID (swh:1:cnt:, its git blob hash; js/swhid.js); with the
-  // repository as origin, its path, and lines where they are lines of the file.
-  SW.SWHID_ORIGIN = 'https://github.com/critical-code-studies/SHRDLU';
-  SW.swhidOf = function (path) { var h = SW.SWHID && SW.SWHID[path]; return h ? 'swh:1:cnt:' + h[0] : ''; };
-  // a link that works now: GitHub, at the last commit that changed the file, to the lines
-  SW.permalinkOf = function (path, n0, n1) {
-    var h = SW.SWHID && SW.SWHID[path]; if (!h) return '';
-    return SW.SWHID_ORIGIN + '/blob/' + h[1] + '/source/' + path.split('/').map(encodeURIComponent).join('/') + (n0 != null ? '#L' + n0 + (n1 && n1 !== n0 ? '-L' + n1 : '') : '');
-  };
-  SW.swhidURL = function (id) { return 'https://archive.softwareheritage.org/' + id; };
-  SW.swhidCite = function (path, n0, n1) {
-    var id = SW.swhidOf(path); if (!id) return '';
-    return id + ';origin=' + SW.SWHID_ORIGIN + ';path=/source/' + path + (n0 != null ? ';lines=' + n0 + (n1 && n1 !== n0 ? '-' + n1 : '') : '');
-  };
-  SW.filesOf = function (v) { var seen = {}, out = []; (v.build || []).forEach(function (b) { var f = b.src || b.tape; if (f && !seen[f]) { seen[f] = 1; out.push(f); } }); return out; };
   // The options for a version's emulated PDP-1. The CHM builds of 4.1 (2005 to 2008)
   // were made for the Computer History Museum's PDP-1, which draws intensity codes 4
   // to 7 otherwise than DEC's PDP-35-2 (as Landsteiner's emulator maps them: 4 as 7,
@@ -187,26 +172,6 @@
   // As an opacity, 0 for s = -4; 0.62 for s = 0, as the bench drew normal points before.
   var BEAM = [0, 0.12, 0.22, 0.34, 0.62, 0.75, 0.88, 1];
   SW.beam = function (s) { s = s == null ? 0 : s; return BEAM[Math.max(-4, Math.min(3, s)) + 4]; };
-  // A version's own texts: its build less the macro tape and star table supplied to it
-  SW.ownFilesOf = function (v) {
-    var seen = {}, out = [];
-    (v.build || []).forEach(function (b) { var f = b.src || b.tape; if (!f || seen[f] || (b.role && /^(macro fio-dec system|Expensive Planetarium star table)/.test(b.role))) return; seen[f] = 1; out.push(f); });
-    return out.length ? out : SW.filesOf(v);
-  };
-  // Tiny SWHIDs, one per file, each copying on a click, its file named on hover
-  SW.swhidTiny = function (files) {
-    return files.map(function (f) { var id = SW.swhidOf(f); return id ? '<div class="swhid-row tiny"><button class="swhid mono" title="' + SW.esc(f.split('/').pop()) + ': copy ' + SW.esc(id) + '" data-copy="' + SW.esc(id) + '">' + SW.esc(id.slice(10, 22)) + '…</button> <a class="swhid-go" href="' + SW.esc(SW.swhidURL(id)) + '" target="_blank" rel="noopener" title="Open in the Software Heritage archive (once the repository is archived there)">↗</a></div>' : '<div class="swhid-row tiny faint">none</div>'; }).join('');
-  };
-  SW.swhidList = function (files) {
-    return files.map(function (f) { var id = SW.swhidOf(f); return '<div class="swhid-row"><a class="mono" href="' + SW.esc(SW.permalinkOf(f)) + '" target="_blank" rel="noopener" title="The file on GitHub, at its last change">' + SW.esc(f.split('/').pop()) + '</a> ' + (id ? '<button class="swhid mono" title="Copy ' + SW.esc(id) + '" data-copy="' + SW.esc(id) + '">' + SW.esc(id.slice(0, 17)) + '…</button> <a class="swhid-go" href="' + SW.esc(SW.swhidURL(id)) + '" target="_blank" rel="noopener" title="Open in the Software Heritage archive (once the repository is archived there)">↗</a>' : '<span class="faint">no SWHID (not in the repository)</span>') + '</div>'; }).join('');
-  };
-  SW.refOf = function (vid, p, n0, n1) {
-    var r = SW.REF[vid] || ('SH-' + vid);
-    if (p == null) return r;
-    var v = V.byId(vid), part = v && v.build && v.build[p];
-    var file = part ? part.src.split('/').pop() : String(p + 1);
-    return r + ', ' + file + (n0 != null ? ':' + n0 + (n1 && n1 !== n0 ? '–' + n1 : '') : '');
-  };
   // ---------- repairs: kintsugi ----------
   var KIND = { text: 'A passage read from another copy', load: 'What the loader reads', form: 'Lisp run before the program starts', start: 'How the bench starts it' };
   function mendOf(r) { var M = root.SHRepairs && root.SHRepairs.MENDS; return (M && M[r.mend]) || { label: KIND[r.kind] || r.kind, note: '' }; }
@@ -436,22 +401,6 @@
     }
   };
 
-  // the number of tapes (parts) a version's text is built from, without building it
-  SW.nparts = function (vid) { var v = root.SWVersions.byId(vid); return v && v.build ? v.build.length : 1; };
-  SW.refText = function (vid, p, n0, n1, nparts) { return '[REF: ' + SW.refOf(vid, p, n0, n1, nparts) + ']'; };
-  SW.refTag = function (vid, p, n0, n1, nparts) { var t = SW.refText(vid, p, n0, n1, nparts); return '<span class="swref" data-copy="' + SW.esc(t) + '" title="Click to copy. The bench’s reference to this source (Help ▸ Referencing and versions)">' + SW.esc(t) + '</span>'; };
-  SW.cite = function (b, p, n0, n1) {
-    var part = b.parts[p];
-    var range = n1 && n1 !== n0 ? 'll. ' + n0 + '–' + n1 : 'l. ' + n0;
-    return b.v.label + ' (' + b.v.date + '), ' + part.src + ', ' + range + ' ' + SW.refText(b.v.id, p, n0, n1, b.parts.length);
-  };
-  // A file in sources/, opened in a new tab on GitHub (tape images are binary,
-  // so the browser cannot show them itself; GitHub shows size, history, raw).
-  SW.REPO = 'https://github.com/critical-code-studies/SHRDLU/blob/main/source/';
-  SW.sourceURL = function (path) { return SW.REPO + path.split('/').map(encodeURIComponent).join('/'); };
-  SW.sourceLink = function (path, text) {
-    return '<a href="' + SW.esc(SW.sourceURL(path)) + '" target="_blank" rel="noopener" title="Open ' + SW.esc(path) + ' in a new tab">' + SW.esc(text || path) + ' ↗</a>';
-  };
 
   // Glosses for names (the Spacewar! bench glossed PDP-1 instructions); none yet.
   SW.glosses = {};
