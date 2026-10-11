@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.95 (2026-10-11)
+
+- The badges in Read say “bracket error” (was “unbalanced”, and “error” on a file’s heading).
+
 ## 0.1.94 (2026-10-11)
 
 - The “unbalanced” and file “errors” badges in Read at the size of the other badges, on one line.

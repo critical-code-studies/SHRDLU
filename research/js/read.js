@@ -169,7 +169,7 @@
     if (b.asm && b.asm.errors.length) {
       b.asm.errorCount = b.asm.errors.length;
       var eb = SW.el('button', { class: 'badge err', title: 'Where the parentheses do not balance' },
-        b.asm.errorCount + ' unbalanced' );
+        b.asm.errorCount + ' bracket error' + (b.asm.errorCount > 1 ? 's' : ''));
       eb.onclick = function () { SW.asmErrors(b); };
       tb.appendChild(eb);
     } else if (!b.asm) tb.appendChild(SW.el('span', { class: 'hint' }, 'No source survives.'));
@@ -230,7 +230,7 @@
       sec.innerHTML = '<div class="part-head" data-p="' + pi + '">' +
         '<div class="ph-main">' + (b.parts.length > 1 ? '<span class="ph-num">File ' + (pi + 1) + ' of ' + b.parts.length + '</span>' : '') +
         '<span class="ph-title">' + SW.esc(t.label) + '</span> ' + SW.refTag(b.v.id, pi, null, null, b.parts.length) +
-        (errs ? '<button class="badge err" data-asmerrs title="What the error' + (errs > 1 ? 's are' : ' is') + ', explained">' + errs + ' error' + (errs > 1 ? 's' : '') + '</button>' : '') + '</div>' +
+        (errs ? '<button class="badge err" data-asmerrs title="What the error' + (errs > 1 ? 's are' : ' is') + ', explained">' + errs + ' bracket error' + (errs > 1 ? 's' : '') + '</button>' : '') + '</div>' +
         (b.kinFiles && b.kinFiles[pi] ? '<div class="ph-kin">' + b.kinFiles[pi].map(function (r) { return '<button class="kin-chip rp-m-' + SW.esc(r.mend || '') + '" data-kin="' + SW.esc(r.id) + '" title="' + SW.esc('Kintsugi · ' + SW.mendOf(r).label + ': ' + r.what) + '">◆ ' + SW.esc(r.id) + ' ' + SW.esc(r.title) + '</button>'; }).join('') + '</div>' : '') +
         '<div class="ph-sub"><span class="ph-lang" title="What this file is written in">' + SW.esc(SW.fileLangOf(part.src, part.role)) + '</span> · ' + SW.sourceLink(part.src, part.src.split('/').pop()) +
         ' · ' + ({ program: 'read in by the loader', support: 'a support file', doc: 'documentation' }[part.role] || 'text file') + ' · ' + b.lines[pi].length + ' lines' +
