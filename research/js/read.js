@@ -295,8 +295,9 @@
   // (spacing and comments ignored, blank lines not counted), with two lines either
   // side as context; it is placed where most of its lines match, in order. Shown
   // faint, read-only: Open goes to the original, Keep here copies it into this
-  // version with a link back. A note already kept here is not shown as a ghost.
-  var ghosts = [], ghostKey = '', keptNow = {};   // keptNow: kept this session, hidden while Hypothesis indexes the copy
+  // version with a link back. A note kept here is not shown as a ghost while
+  // its copy stands; bin the copy and the ghost comes back.
+  var ghosts = [], ghostKey = '', keptNow = {};   // keptNow: copies made this session ({ id, at }), while Hypothesis indexes them
   var lineKey = SW.lineKey;
   function flat(b) {
     var out = [];
@@ -320,11 +321,21 @@
       var here = flat(b0), index = {};
       here.forEach(function (x, j) { if (x.k) (index[x.k] = index[x.k] || []).push(j); });
       var kept = {};
-      all.forEach(function (n) { if (n.vid === b0.v.id) { var re = /[?&]a=([A-Za-z0-9_-]+)/g, m; while ((m = re.exec(String(n.text).replace(/\\([_\-])/g, '$1')))) kept[m[1]] = 1; } });
+      // the originals kept here: by the copy's from tag, or (copies made before 0.1.78) a
+      // carried copy's link back; a plain link to a note does not count
+      all.forEach(function (n) {
+        if (n.vid !== b0.v.id) return;
+        if (n.from) kept[n.from] = 1;
+        else if ((n.tags || []).indexOf('carried') >= 0) { var re = /[?&]a=([A-Za-z0-9_-]+)/g, m; while ((m = re.exec(String(n.text).replace(/\\([_\-])/g, '$1')))) kept[m[1]] = 1; }
+      });
+      Object.keys(keptNow).forEach(function (k) {   // a copy just made counts until the search has it, unless binned since
+        var c = keptNow[k]; if (k.indexOf(b0.v.id + ':') !== 0) return;
+        if (N.isGone(c.id) || Date.now() - c.at > 120000) delete keptNow[k]; else kept[k.slice(b0.v.id.length + 1)] = 1;
+      });
       var byV = {};
       all.forEach(function (n) {
         // a copy kept from a ghost (tagged carried) is never a ghost itself: its original stands for it
-        if (n.vid === b0.v.id || !n.anchor || n.parent || n.source === 'buildlog' || N.isReaction(n) || kept[n.id] || keptNow[b0.v.id + ':' + n.id] || (n.tags || []).indexOf('carried') >= 0) return;
+        if (n.vid === b0.v.id || !n.anchor || n.parent || n.source === 'buildlog' || N.isReaction(n) || kept[n.id] || n.from || (n.tags || []).indexOf('carried') >= 0) return;
         (byV[n.vid] = byV[n.vid] || []).push(n);
       });
       var replies = {};
@@ -351,8 +362,9 @@
   }
   function ghostBlock(t, cls) {
     var g = t.note, o = g.ghostOf, a = g.anchor, oa = o.anchor;
-    var from = SW.refOf(o.vid, oa.p, oa.n0, oa.n1, SW.nparts(o.vid));
-    return '<div class="' + cls + ' ghost" data-tid="' + SW.esc(g.id) + '" data-p="' + a.p + '" data-n0="' + a.n0 + '" data-n1="' + a.n1 + '">' +
+    var from = SW.refOf(o.vid, oa.p, oa.n0, oa.n1, SW.nparts(o.vid)), shut = !!cardFold()[g.id];
+    return '<div class="' + cls + ' ghost' + (shut ? ' nfold' : '') + '" data-tid="' + SW.esc(g.id) + '" data-p="' + a.p + '" data-n0="' + a.n0 + '" data-n1="' + a.n1 + '">' +
+      '<button type="button" class="card-fold" aria-expanded="' + !shut + '" title="' + (shut ? 'Unfold this annotation' : 'Fold this annotation away (for you; kept in this browser)') + '">' + (shut ? '▸' : '▾') + '</button>' +
       '<div class="mc-where">Code · ' + (a.n1 !== a.n0 ? 'lines ' + a.n0 + '–' + a.n1 : 'line ' + a.n0) + '</div>' +
       '<div class="note"><div class="by"><span class="ghost-tag" title="An annotation on another version, shown here on the matching lines">Ghost</span> <b>' + SW.esc(o.by) + '</b> · ' + SW.esc(SW.fmtDate(o.date)) + ' · from ' + SW.esc(from) + '</div>' +
       '<div class="nbody"><div class="body note-md">' + SW.md(SW.figpack.split(o.text).text) + '</div>' +
@@ -364,9 +376,9 @@
     var t = ghosts.filter(function (x) { return x.note.ghostOf.id === id; })[0]; if (!t) return;
     var o = t.note.ghostOf, a = t.note.anchor, lines = build.lines[a.p].slice(a.n0 - 1, a.n1).map(function (L) { return L.raw; }).join('\n');
     N.create({ vid: build.v.id, kind: 'line', anchor: { p: a.p, n0: a.n0, n1: a.n1, src: a.src }, quote: lines,
-               text: o.text + '\n\nCarried from ' + N.linkOf(o), tags: (o.tags || []).concat(['carried']) })
-      .then(function () {
-        keptNow[build.v.id + ':' + o.id] = true;
+               text: o.text + '\n\nCarried from ' + N.linkOf(o), tags: (o.tags || []).concat(['carried']), from: o.id })
+      .then(function (c) {
+        keptNow[build.v.id + ':' + o.id] = { id: c && c.id, at: Date.now() };
         ghosts = ghosts.filter(function (x) { return x !== t; });
         SW.toast('Kept here, with a link back to the original. ↶ Undo (⌘Z) takes it away.', 5000);
       }, function (e) { if (e.message !== 'no initials') SW.toast(e.message, 5000); });
