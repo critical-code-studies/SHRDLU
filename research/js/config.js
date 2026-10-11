@@ -27,6 +27,11 @@
       tryText: 'The goal is set by `THGOAL` with `THUSE`', code: '`THGOAL`',
       caption: 'A link from an annotation on the restoration to one on the MIT files. The MIT annotation lists it under Linked from'
     },
+    lang: 'maclisp',   // the language of the texts, for Compare and Genealogy (kit/lang-maclisp.js)
+    compare: { comment: ';', normalised: false, reading: 'Reading',
+               supplied: ['support files', 'Include the support files (the loader, macros, the demonstration script), not only the program files the loader reads'] },
+    comparePrefix: 'SHRDLU: ',
+    genealogy: { set: ['mit', 'stanford', 'ejs'], line: 'restored', lineNames: { restored: 'To the restoration', stanford: 'Winograd’s copy' } },
     figureNum: { print: '#a3317a', paper: '#a3317a', phosphor: '#e58be0' },
     paratexts: { org: 'critical-code-studies', repo: 'shrdlu_paratexts', cache: 'shrdlu-paratexts' },
     examples: { date: 'e.g. 1971-01-15, or 1971', archive: 'e.g. MIT Museum', versions: 'e.g. mit, stanford',
