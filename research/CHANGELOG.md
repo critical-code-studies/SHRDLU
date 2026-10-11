@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.113 (2026-10-12)
+
+- bench-kit 0.22.0: the Graphics tab's frame is the kit's (`kit/graphics.js`): its heading and menu, Graphics ▾ (now in groups, two columns, as on the Spacewar! bench) and `&g=` in a link. The pictures stay this bench's (`js/graphics.js`, `SW.BENCH.graphics`).
+
 ## 0.1.112 (2026-10-12)
 
 - bench-kit 0.21.0: Read is the kit's (`kit/read.js`); `js/read.js` keeps this bench's own: MacLisp highlighting, control characters and page marks, the files as the loader reads them, the Key, the pop-up on a name and the repairs in gold. The listing is drawn as before; the column headings no longer offer the Address and Word columns, which this bench does not fill.

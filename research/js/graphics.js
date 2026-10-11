@@ -1,6 +1,7 @@
 /*
  * graphics.js - the Graphics menu: the blocks world and the machinery that draws and moves it,
- * each view built from the program's own tables and code.
+ * each view built from the program's own tables and code, drawn in bench-kit's Graphics tab
+ * (kit/graphics.js), which gives each its heading and menu.
  *
  *   objects   the objects: each block, pyramid and the box, from the version's data file
  *             (DISPLAY-AS: name, shape, place, size, colour; ATABLE: the world's own table of
@@ -31,19 +32,6 @@
     ['path', 'The hand’s path', 'Where the hand went in the last exchange run, in three dimensions and over time']
   ];
   var GFXG = [['The world', ['world', 'support', 'space']], ['What it draws', ['objects', 'projection', 'hidden', 'dlist', 'hand']], ['What moves', ['crane', 'path']], ['What it knows', ['events', 'goals', 'parse']]];
-  var gid = SW.store.get('gfx.id', 'objects'), build = null;
-  SW.setGraphic = function (id) { if (GFX.some(function (g) { return g[0] === id; })) { gid = id; SW.store.set('gfx.id', id); } };
-  SW.gfxItem = function () { return gid; };
-  SW.openGraphic = function (id) { SW.setGraphic(id); SW.forget('graphics'); SW.setTab('graphics'); };
-  SW.gfxMenu = function () {
-    return GFXG.map(function (g, i) {
-      return (i ? '<hr class="menu-rule">' : '') + '<div class="menu-group">' + SW.esc(g[0]) + '</div>' + g[1].map(function (id) {
-        var x = GFX.filter(function (y) { return y[0] === id; })[0];
-        return '<button data-pick="' + id + '"' + (SW.state.tab === 'graphics' && gid === id ? ' class="on"' : '') + '><b>' + SW.esc(x[1]) + '</b><span>' + SW.esc(x[2]) + '</span></button>';
-      }).join('');
-    }).join('');
-  };
-
   // ---------- the world's tables, from the data file or the running program ----------
   // the version's data file, read by the bench's MacLisp reader (octal, as MacLisp read it)
   function readData(b) {
@@ -293,7 +281,7 @@
     var r = SW.runNow && SW.runNow(), track = r && r.disp && r.vid === b.v.id ? r.disp.track || [] : [];
     if (!track.length) {
       el.innerHTML = '<div class="cards gx-cards">' + cardHTML('Running exchange 1…', '', '<p class="gx-p">No path from Run on this version yet, so the bench is running the first sentence of the 1970 dialogue, “pick up a big red block.”, on its own copy of the program. An exchange you run in Run takes its place here.</p>') + '</div>';
-      demoPath(b, function (tr) { if (el.isConnected && gid === 'path') { el.dataset.demo = '1'; drawPath(el, b, tr, true); } });
+      demoPath(b, function (tr) { if (el.isConnected && SW.gfxItem() === 'path') { el.dataset.demo = '1'; drawPath(el, b, tr, true); } });
       return;
     }
     drawPath(el, b, track, false);
@@ -656,16 +644,12 @@
     });
   }
 
-  SW.views.graphics = { show: function (b) {
-    build = b;
-    var el = SW.$('#view-graphics'), G0 = GFX.filter(function (x) { return x[0] === gid; })[0] || GFX[0];
-    el.className = 'view on';
-    el.innerHTML = '<div class="pad gfx-page" style="max-width:none"><div class="toolbar an-head" style="position:static;padding:0 0 10px">' +
-      '<details class="menu lens-menu"><summary class="btn" title="Choose a graphic">' + SW.esc(G0[1]) + ' ▾</summary><div class="menu-body lens-list">' + SW.gfxMenu().replace(/data-pick=/g, 'data-g=') + '</div></details>' +
-      '<span class="hint an-desc">' + SW.esc(G0[2]) + '.</span></div><div class="gx-body"></div></div>';
-    SW.$('.an-head', el).addEventListener('click', function (e) { var t2 = e.target.closest('[data-g]'); if (t2) { SW.setGraphic(t2.dataset.g); SW.writeQuery(); SW.views.graphics.show(build); } });
-    var body = SW.$('.gx-body', el);
-    if (!b.v.build) { body.innerHTML = '<p class="hint">No source survives for ' + SW.esc(b.v.label) + ', so there is nothing to draw.</p>'; return; }
-    ({ world: worldView, support: supportView, space: spaceView, projection: projectionView, hidden: hiddenView, dlist: dlistView, events: eventsView, goals: goalsView, parse: parseView, crane: craneView, path: pathView, hand: handView }[gid] || objectsView)(body, b);
-  } };
+  // ---------- the graphics, for bench-kit's Graphics tab (kit/graphics.js) ----------
+  // each drawn into a body of its own under the heading
+  function inBody(view) { return function (b, el) { var body = SW.el('div', { class: 'gx-body' }); el.appendChild(body); view(body, b); }; }
+  SW.BENCH.graphics = {
+    list: GFX, groups: GFXG, start: 'objects', store: 'gfx.id',
+    draw: { world: inBody(worldView), support: inBody(supportView), space: inBody(spaceView), projection: inBody(projectionView), hidden: inBody(hiddenView), dlist: inBody(dlistView),
+            events: inBody(eventsView), goals: inBody(goalsView), parse: inBody(parseView), objects: inBody(objectsView), crane: inBody(craneView), path: inBody(pathView), hand: inBody(handView) }
+  };
 })(this);

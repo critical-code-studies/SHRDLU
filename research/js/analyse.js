@@ -302,8 +302,8 @@
   };
 
   // ---------- the menus in the tab row (bench-kit's kit/menus.js) ----------
-  // Graphics ▾ lists the graphics; Versions ▾ and Help ▾ are the kit's, with this bench's items;
-  // the lens menus are kit/lenses.js's.
+  // Versions ▾ and Help ▾ are the kit's, with this bench's items; the lens menus are
+  // kit/lenses.js's, Graphics ▾ kit/graphics.js's.
   SW.BENCH.menus = {
     versions: [['about', 'This version', 'Its record, sources and annotations'],
               ['compare', 'Compare', 'Two versions side by side'],
@@ -326,9 +326,7 @@
                                    ['code', 'Source code on GitHub ↗', 'github.com/critical-code-studies/SHRDLU'],
                                    ['issue', 'Report a problem ↗', 'GitHub issues'],
                                    ['about', 'About the bench', 'Version, sources, citation']]]],
-    menu: function (which) { return which === 'graphics' ? (SW.gfxMenu ? SW.gfxMenu() : '') : null; },
     pick: function (which, p) {
-      if (which === 'graphics') { SW.openGraphic(p); return true; }
       if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return true; }
       return false;
     }
