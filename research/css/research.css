@@ -1202,7 +1202,7 @@ a.ov-nm:hover { text-decoration: underline; }
 .tray-ref, .fd-ref { font-size: 10.5px; color: var(--text-faint); letter-spacing: 0.02em; margin-right: 6px; }
 .fd-noteref { font-size: 10.5px; }
 .swref { font: 400 10.5px var(--mono); color: var(--text-faint); letter-spacing: 0.01em; white-space: nowrap; }
-h2 .swref { font-size: 11.5px; vertical-align: middle; }
+h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 .pick .swref { margin-left: 6px; }
 .selref { margin-right: 6px; align-self: center; }
 .refhelp { max-width: 860px; }
@@ -1268,7 +1268,7 @@ body:has(#view-read.on #rd-selbar.on) .tour-card { bottom: 64px; }
 .noscript { margin: 16px; padding: 12px 14px; border: 1px solid var(--line, #888); border-radius: 6px; background: var(--surface, #fff); color: var(--text, #111); font-size: 14px; }
 .well-plot { display: flex; justify-content: center; }
 .well-tube { border-radius: 50%; box-shadow: 0 0 0 6px #1d262e, 0 0 0 7px #3a4650; }
-.well .grav-ctl input[type=range] { width: 110px; vertical-align: middle; }
+.well .grav-ctl input[type=range] { width: 110px; vertical-align: middle; white-space: nowrap; }
 .well-row { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
 .well-row .well-plot { flex: 1 1 420px; min-width: 320px; }
 .well-side { flex: 0 1 300px; min-width: 240px; }
@@ -1391,7 +1391,7 @@ li.fd.folded { padding-bottom: 2px; }
 .orb-duals figcaption { text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 4px; }
 
 /* assembly errors, explained */
-button.badge.err { cursor: pointer; font: 11px/1.4 var(--mono); background: none; vertical-align: middle; }
+button.badge.err { cursor: pointer; font: 11px/1.4 var(--mono); background: none; vertical-align: middle; white-space: nowrap; }
 button.badge.err:hover { filter: brightness(1.2); }
 .asmerrs { width: min(96vw, 900px); }
 .asmerr { border-top: 1px solid var(--line); padding: 8px 0 4px; }
