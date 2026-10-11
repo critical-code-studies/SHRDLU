@@ -2125,3 +2125,5 @@ dialog.px-sbs { width: min(98vw, 1600px); }
 .ini-need { font: inherit; color: var(--red); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .ini-need:hover { color: var(--text); }
 .ini-dlg .ini-in::placeholder { text-transform: none; letter-spacing: 0; }
+.px-video { display: block; width: 100%; max-height: 70vh; background: #000; border-radius: 4px; }
+.px-audio { display: block; width: 100%; margin: 12px 0; }

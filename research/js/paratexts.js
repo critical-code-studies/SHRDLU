@@ -17,7 +17,7 @@
   P.configured = function () { return !!token(); };
   // A token form with everything filled in but the repository (GitHub's links cannot choose that)
   var TOKEN_URL = 'https://github.com/settings/personal-access-tokens/new?name=SHRDLU+research+bench&description=Paratexts+in+the+SHRDLU+research+bench+(shrdlu_paratexts)&target_name=critical-code-studies&expires_in=366&contents=write';
-  var STEPS = 'Paratexts in the SHRDLU research bench: setting up\n\n1. Accept the invitation to the critical-code-studies organisation on GitHub (sent by email).\n2. Open ' + TOKEN_URL + '\n   The name, owner, expiry and permission are filled in.\n3. Under Repository access choose Only select repositories, then shrdlu_paratexts.\n4. Generate token, copy it, and paste it into the bench: ⚙ Settings, Paratexts (https://critical-code-studies.github.io/spacewar/research/?tab=paratexts).\n\nThe token stays in your browser; keep it to yourself.';
+  var STEPS = 'Paratexts in the SHRDLU research bench: setting up\n\n1. Accept the invitation to the critical-code-studies organisation on GitHub (sent by email).\n2. Open ' + TOKEN_URL + '\n   The name, owner, expiry and permission are filled in.\n3. Under Repository access choose Only select repositories, then shrdlu_paratexts.\n4. Generate token, copy it, and paste it into the bench: ⚙ Settings, Paratexts (https://critical-code-studies.github.io/SHRDLU/research/?tab=paratexts).\n\nThe token stays in your browser; keep it to yourself.';
 
   // ---------- GitHub ----------
   function gh(method, path, body, accept) {
@@ -231,7 +231,12 @@
       var t = String(a.title).toLowerCase(), u = String(b.title).toLowerCase(); return t < u ? -1 : t > u ? 1 : 0;
     });
   }
-  var ICON = { pdf: '📄', image: '🖼', text: '📝', file: '📎' };
+  var ICON = { pdf: '📄', image: '🖼', text: '📝', video: '🎞', audio: '🔊', file: '📎' };
+  // a film or a recording, played where it is shown (the file read whole first, as the others are)
+  function player(it, u) {
+    var kind = it.kind === 'video' || /^video\//.test(it.mime || '') ? 'video' : it.kind === 'audio' || /^audio\//.test(it.mime || '') ? 'audio' : '';
+    return kind ? '<' + kind + ' class="px-' + kind + '" controls preload="metadata" src="' + u + '" title="' + SW.esc(it.title) + '"></' + kind + '>' : '';
+  }
   function thumb(it) { return it.kind === 'image' && urls[it.code] ? '<img alt="" src="' + urls[it.code] + '">' : ICON[it.kind] || ICON.file; }
   function fmtSize(n) { return !n ? '' : n < 1e6 ? Math.max(1, Math.round(n / 1024)) + ' KB' : (n / 1048576).toFixed(1) + ' MB'; }
   function render() {
@@ -292,7 +297,7 @@
       if (editing && editing.mode === 'new' && editing.parent === c.id) r += editRow(o.depth + 1, '');
       return r;
     }).join('');
-    nav.innerHTML = '<button class="btn px-addbtn" data-px="add" title="Upload a file with its details, to the crew’s repository">＋ Add a paratext</button>' + row('', '▤', 'All', lv.length) + row('_none', '◌', 'Not in a collection', lv.filter(function (it) { return !inColl(it).length; }).length) +
+    nav.innerHTML = '<button class="btn px-addbtn" data-px="add" title="Upload a file with its details, to the crew’s repository">＋ Add an item</button>' + row('', '▤', 'All', lv.length) + row('_none', '◌', 'Not in a collection', lv.filter(function (it) { return !inColl(it).length; }).length) +
       '<div class="px-ch"><span>Collections</span><button class="icon-btn" data-px="newc" title="A new collection">＋</button></div>' +
       tree + (editing && editing.mode === 'new' && !editing.parent ? editRow(0, '') : '') +
       (!colls().length && !editing ? '<p class="hint px-navfoot">None yet: ＋ makes one; then drag items onto it, or tick them and Add to.</p>' : '') +
@@ -499,7 +504,7 @@
     function el(n, v) { return (Array.isArray(v) ? v : [v]).filter(function (y) { return y; }).map(function (y) { return '  <dc:' + n + '>' + x(String(y)) + '</dc:' + n + '>\n'; }).join(''); }
     return '<?xml version="1.0" encoding="UTF-8"?>\n<records xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/">\n' + items.map(function (it) {
       return '<oai_dc:dc>\n' + el('title', it.title) + el('creator', it.creator) + el('subject', it.tags) + el('description', it.description) + el('publisher', it.publisher) + el('contributor', it.contributor) +
-        el('date', it.date) + el('type', it.type || (it.kind === 'image' ? 'StillImage' : it.kind === 'pdf' || it.kind === 'text' ? 'Text' : '')) + el('format', it.mime) +
+        el('date', it.date) + el('type', dcType(it)) + el('format', it.mime) +
         el('identifier', [it.code, SW.BASE_URI + '?code=' + it.code].concat(it.identifier || [], okURL(it.archiveUrl) ? [it.archiveUrl] : [])) +
         el('source', [it.source, [it.archive, it.archiveId].filter(Boolean).join(', ')]) + el('language', it.language) +
         el('relation', (it.refs || []).concat((it.versions || []).map(function (v) { return 'SHRDLU, ' + vShort(v); }))) + el('coverage', it.coverage) + el('rights', it.rights) + '</oai_dc:dc>\n';
@@ -515,7 +520,7 @@
     });
   }
   function dateParts(d) { var m = /^(\d{4})(?:-(\d{1,2})(?:-(\d{1,2}))?)?/.exec(String(d || '')); return m ? [m.slice(1).filter(Boolean).map(Number)] : null; }
-  function dcType(it) { return it.type || (it.kind === 'image' ? 'StillImage' : it.kind === 'pdf' || it.kind === 'text' ? 'Text' : ''); }
+  function dcType(it) { return it.type || (it.kind === 'image' ? 'StillImage' : it.kind === 'pdf' || it.kind === 'text' ? 'Text' : it.kind === 'video' ? 'MovingImage' : it.kind === 'audio' ? 'Sound' : ''); }
   function benchLink(it) { return SW.BASE_URI + '?code=' + it.code; }
   function ids(it) { var o = {}; (it.identifier || []).forEach(function (x) { x = String(x).trim(); if (/^(doi:)?10\.\d{4,}\//i.test(x)) o.DOI = x.replace(/^doi:/i, ''); else if (/^(isbn:)?[\d-]{10,17}X?$/i.test(x)) o.ISBN = x.replace(/^isbn:/i, ''); else if (/^https?:/.test(x) && !o.URL) o.URL = x; }); return o; }
   function cslJSON(items) {
@@ -592,6 +597,7 @@
       if (it.kind === 'image') pv.innerHTML = '<img class="px-img" alt="' + esc(it.title) + '" src="' + u + '">';
       else if (it.kind === 'pdf') pv.innerHTML = '<iframe class="px-pdf" title="' + esc(it.title) + '" src="' + u + '"></iframe>';
       else if (/^text\//.test(it.mime || '')) fetch(u).then(function (r) { return r.text(); }).then(function (t) { pv.innerHTML = '<pre class="px-text">' + esc(t) + '</pre>'; });
+      else if (player(it, u)) pv.innerHTML = player(it, u);
       else pv.innerHTML = '<p class="hint">No preview for this kind of file: ⤓ Download to open it.</p>';
     }, function (e) { pv.innerHTML = '<p class="badge err">' + esc(e.message) + '</p>'; });
   }
@@ -694,7 +700,7 @@
     var esc = SW.esc, d = SW.el('dialog', { class: 'tray-big px-dlg px-add' });
     var blank = { title: '', date: '', creator: '', source: '', rights: '', accessioned: now().slice(0, 10), description: '', tags: [], versions: SW.state.v ? [SW.state.v] : [], refs: [] };
     var into = coll(F.c);
-    d.innerHTML = '<div class="tray-bighead"><b>Add a paratext</b><span class="refhelp-acts"><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' +
+    d.innerHTML = '<div class="tray-bighead"><b>Add an item</b><span class="refhelp-acts"><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' +
       '<label class="px-drop"><input type="file" class="px-file"><span>Choose a file, or drop one here: a scan, photograph, PDF or text (up to 50 MB).</span></label>' +
       fieldsHTML(blank) + (into ? '<label class="check px-into"><input type="checkbox" class="px-intoc" checked> Into the collection “' + esc(into.name) + '”</label>' : '') + '<div class="px-acts"><button class="btn" data-a="up">Upload</button> <span class="hint px-msg"></span></div>';
     document.body.appendChild(d);
@@ -722,7 +728,7 @@
       a.disabled = true; msg.textContent = 'Uploading…';
       P.load(true).then(function () {
         var code = newCode(), ext = (file.name.match(/\.[A-Za-z0-9]+$/) || [''])[0].toLowerCase(), path = 'files/' + code + ext;
-        var mime = file.type || '', kind = mime === 'application/pdf' ? 'pdf' : /^image\//.test(mime) ? 'image' : /^text\//.test(mime) ? 'text' : 'file';
+        var mime = file.type || '', kind = mime === 'application/pdf' ? 'pdf' : /^image\//.test(mime) ? 'image' : /^text\//.test(mime) ? 'text' : /^video\//.test(mime) ? 'video' : /^audio\//.test(mime) ? 'audio' : 'file';
         return fileB64(file).then(function (b64) {
           return gh('PUT', '/contents/' + path, { message: 'Paratext ' + code + ': ' + o.title + ', added by ' + me(), content: b64 });
         }).then(function () {
@@ -806,6 +812,7 @@
           v.img.src = u;
         } else if (it.kind === 'pdf') { box.innerHTML = '<iframe class="px-pdf" title="' + esc(it.title) + '" src="' + u + '"></iframe>'; box.classList.add('px-free'); }
         else if (/^text\//.test(it.mime || '')) { box.classList.add('px-free'); fetch(u).then(function (r) { return r.text(); }).then(function (t) { box.innerHTML = '<pre class="px-text">' + esc(t) + '</pre>'; }); }
+        else if (player(it, u)) { box.innerHTML = player(it, u); box.classList.add('px-free'); }
         else box.innerHTML = '<p class="hint">No preview for this kind of file.</p>';
       }, function (e) { box.innerHTML = '<p class="badge err">' + esc(e.message) + '</p>'; });
       return v;
