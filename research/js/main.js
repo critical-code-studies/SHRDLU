@@ -83,7 +83,7 @@
     SW.$('#set-initials').value = SW.store.get('initials', '');
     SW.$('#set-name').value = SW.store.get('name', '');
     var grp = SW.$('#set-group'), tok = SW.$('#set-token'), show = SW.$('#set-token-show');
-    grp.value = SW.notes.groupId(SW.store.get('group', '1Kb3vwEV'));
+    grp.value = SW.notes.groupId(SW.store.get('group', SW.BENCH.group));
     tok.value = SW.store.get('token', '');
     tok.type = 'password'; show.textContent = 'Show'; show.setAttribute('aria-pressed', 'false');
     var gtok = SW.$('#set-ghtoken'), gshow = SW.$('#set-ghtoken-show');

@@ -28,7 +28,7 @@
     return m ? m[1] : s;
   };
   function cfg() {
-    return { group: N.groupId(SW.store.get('group', '1Kb3vwEV')), token: SW.store.get('token', '') };
+    return { group: N.groupId(SW.store.get('group', SW.BENCH.group)), token: SW.store.get('token', '') };
   }
   N.configured = function () { var c = cfg(); return !!(c.group && c.token); };
 
