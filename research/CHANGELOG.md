@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.85 (2026-10-11)
+
+- The About box has a Bench kit row: the kit's version, what it holds and a link to it (bench-kit 0.9.1).
+
 ## 0.1.84 (2026-10-11)
 
 - The helpers this bench shared with Spacewar!'s (storage, events, the side panel, popovers, tables, sharing, Markdown and the note editor, themes, figure export) come from bench-kit 0.9.0 (`kit/base.js`, `kit/md.js`, `kit/themes.js`); `js/core.js` keeps the bench's own: its texts, builds, references and repairs. The hands, the default theme's name and the figures' accent are in `js/config.js`.
