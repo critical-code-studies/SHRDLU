@@ -6,6 +6,10 @@
  * what it calls, who called it, and, moment by moment, which part of the program is running: the
  * file of the innermost function, gathered into the program's parts (the top level, reading,
  * parsing, semantics, answering, Micro-Planner, the blocks world, the display).
+ *
+ * Functions can be named and marked in colours, and the names and marks shared with the crew
+ * as a tracing (bench-kit's tracings.js, as in the Spacewar! bench's gizmo): click a function's
+ * row to name or mark it, ⇧-click to mark it with the pen; ⑂ Tracings above the table.
  */
 (function (root) {
   'use strict';
@@ -56,6 +60,16 @@
     if (this.cur) this.timeline.push(this.cur);
   };
 
+  // names, marks and tracings (kit/tracings.js), kept under ov. in this browser; the view drawn again on a change
+  var T = null, last = null;
+  function tracer() {
+    return T || (T = SW.tracings({ ns: 'ov',
+      render: function () { if (last && last.el.isConnected) draw(last.b, last.el, last.res); },
+      open: function (t) { if (SW.state.v !== t.v) SW.select(t.v); SW.openLens(9); },
+      link: function (t) { return SW.BASE_URI + '?v=' + encodeURIComponent(t.v) + '&tab=analyse&lens=9&tr=' + encodeURIComponent(t.id); },
+      hint: 'Name or mark some functions first: click a function’s row, or ⇧-click it to mark it.' }));
+  }
+
   // record an exchange: the program started on its own copy, then the sentence typed with the profiler on
   var cache = {};
   O.record = function (b, sentence, cb) {
@@ -80,6 +94,7 @@
   };
 
   O.render = function (b, el) {
+    tracer().arrive();
     var sentence = SW.store.get('ov.sentence', 'pick up a big red block.');
     el.innerHTML = '<div class="card ov-card" style="grid-column:1/-1"><h3>An exchange, recorded</h3><p class="lede">The program run on its own copy, the sentence typed, and every Lisp function it enters recorded, with the steps of the bench’s interpreter spent in it. The parts are the program’s files, gathered as its loader gathers them.</p>' +
       '<form class="ov-form gx-bar"><input class="ov-in mono" value="' + SW.esc(sentence) + '" aria-label="A sentence to record" spellcheck="false"><button class="btn">Record</button><span class="hint ov-note">Recording…</span></form><div class="ov-body"></div></div>';
@@ -108,16 +123,52 @@
     var bars = parts.map(function (p) { return '<div class="ov-bar"><span>' + SW.esc(p.part[1]) + '</span><i style="width:' + (100 * p.steps / tot).toFixed(1) + '%;background:' + p.part[3] + '"></i><em>' + (100 * p.steps / tot).toFixed(1) + '% · ' + p.fns + ' fn</em></div>'; }).join('');
     // the functions
     var fns = Object.keys(P.fn).map(function (n) { return P.fn[n]; }).sort(function (a, c) { return c.incl - a.incl; });
-    var ref = function (n) { var p = res.defs[n]; if (p == null) return SW.esc(n); var line = 0; (b.asm.symbols || []).some(function (s) { if (s.name === n && s.defs && s.defs[0]) { line = s.defs[0].line; return true; } return false; }); return '<a href="#" data-read="' + p + ':' + line + '" class="mono">' + SW.esc(n) + '</a>'; };
-    var rows = fns.slice(0, 80).map(function (f) {
+    var Tr = tracer(), vid = b.v.id;
+    last = { b: b, el: el, res: res };
+    var shownFns = fns.filter(function (f, i) { return i < 80 || Tr.mark(vid, f.name) || Tr.name(vid, f.name); });
+    // the marked functions, by colour: how many, and their own steps
+    var byMark = {}, totOwn = fns.reduce(function (t, f) { return t + f.excl; }, 0) || 1;
+    fns.forEach(function (f) { var m = Tr.mark(vid, f.name); if (m) { byMark[m] = byMark[m] || { n: 0, steps: 0 }; byMark[m].n++; byMark[m].steps += f.excl; } });
+    var marked = Tr.MARKS.filter(function (c) { return byMark[c[0]]; }).map(function (c) {
+      var x = byMark[c[0]]; return '<span class="ov-mk"><i class="gz-mk on" style="--mk:' + c[1] + '"></i> ' + x.n + ' function' + (x.n === 1 ? '' : 's') + ', ' + (x.steps / totOwn < 0.001 ? 'under 0.1' : (100 * x.steps / totOwn).toFixed(1)) + '% of the steps, their own</span>';
+    }).join('');
+    var ref = function (n) { var p = res.defs[n], nm = Tr.name(vid, n); if (p == null) return nm ? Tr.title(nm, n) : SW.esc(n); var line = 0; (b.asm.symbols || []).some(function (s) { if (s.name === n && s.defs && s.defs[0]) { line = s.defs[0].line; return true; } return false; }); return '<a href="#" data-read="' + p + ':' + line + '" class="mono">' + (nm ? Tr.title(nm, n) : SW.esc(n)) + '</a>'; };
+    var rows = shownFns.map(function (f) {
       var callers = Object.keys(f.callers).sort(function (a, c) { return f.callers[c] - f.callers[a]; }).slice(0, 3);
       var pt = P.fnPart(f.name), p = res.defs[f.name];
-      return '<tr><td>' + ref(f.name) + '</td><td><i class="ov-dot" style="background:' + pt[3] + '"></i>' + SW.esc(p != null ? b.parts[p].src.split('/').pop() : 'the machine') + '</td><td class="num">' + f.calls.toLocaleString('en-GB') + '</td><td class="num">' + f.incl.toLocaleString('en-GB') + '</td><td class="num">' + f.excl.toLocaleString('en-GB') + '</td><td class="mono">' + callers.map(SW.esc).join(' ') + '</td></tr>';
+      var mk = Tr.mark(vid, f.name);
+      return '<tr data-fn="' + SW.esc(f.name) + '" class="ov-row' + (mk ? ' ov-marked' : '') + '"' + (mk ? ' style="--mk:' + Tr.markHex(mk) + '"' : '') + ' title="Click to name or mark it; ⇧-click to mark it with the pen"><td>' + ref(f.name) + '</td><td><i class="ov-dot" style="background:' + pt[3] + '"></i>' + SW.esc(p != null ? b.parts[p].src.split('/').pop() : 'the machine') + '</td><td class="num">' + f.calls.toLocaleString('en-GB') + '</td><td class="num">' + f.incl.toLocaleString('en-GB') + '</td><td class="num">' + f.excl.toLocaleString('en-GB') + '</td><td class="mono">' + callers.map(SW.esc).join(' ') + '</td></tr>';
     }).join('');
     el.innerHTML = '<h4>The exchange in time</h4><p class="hint">Which part of the program is running, moment by moment: the file of the innermost Lisp function.</p>' + o.join('') + '<div class="ov-keys">' + key + '</div>' +
       '<h4>Where the steps go</h4><p class="hint">Each function’s own steps (not those of what it calls), gathered by part.</p><div class="ov-bars">' + bars + '</div>' +
-      '<h4>The functions</h4><p class="hint">The ' + Math.min(80, fns.length) + ' of ' + fns.length + ' with the most steps, what they call included. Click a name to read it.</p><div class="ov-t"><table class="ov-sub"><thead><tr><th>Function</th><th>File</th><th>Calls</th><th>Steps, with what it calls</th><th>Steps, its own</th><th>Called most from</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<h4>The functions</h4><p class="hint">The ' + Math.min(80, fns.length) + ' of ' + fns.length + ' with the most steps, what they call included' + (shownFns.length > Math.min(80, fns.length) ? ', and those you have named or marked' : '') + '. Click a name to read it; click its row to name or mark it.</p>' +
+      '<div class="gx-bar ov-trbar">' + Tr.markTool([vid]) + Tr.traceTool() + '</div>' + (marked ? '<p class="ov-marks">' + marked + '</p>' : '') + '<div class="ov-t"><table class="ov-sub"><thead><tr><th>Function</th><th>File</th><th>Calls</th><th>Steps, with what it calls</th><th>Steps, its own</th><th>Called most from</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       '<h4>What SHRDLU said</h4><pre class="ov-out mono">' + SW.esc(res.out.trim()) + '</pre>';
-    el.onclick = function (e) { var a = e.target.closest('[data-read]'); if (!a) return; e.preventDefault(); var x = a.dataset.read.split(':'); SW.state.sel = { p: +x[0], n0: +x[1], n1: +x[1] }; SW.setTab('read'); setTimeout(function () { if (SW.views.read.goto) SW.views.read.goto(+x[0], +x[1], true); }, 300); };
+    var bar = SW.$('.ov-trbar', el);
+    Tr.wire(bar, [vid], { mode: 'overview', v: vid, where: 'Functional overview' });
+    bar.addEventListener('click', function (e) {
+      if (!e.target.closest('.gz-clear')) return;
+      var n = Tr.markCount([vid]); if (!n || Tr.readOnly() || !confirm('Take the ' + n + ' mark' + (n > 1 ? 's' : '') + ' off ' + SW.refOf(vid) + '?')) return;
+      Tr.clearMarks([vid]); draw(b, el, res);
+    });
+    el.onclick = function (e) {
+      var a = e.target.closest('[data-read]');
+      if (!a) {
+        var tr = e.target.closest('tr[data-fn]'); if (!tr) return;
+        var fn = tr.dataset.fn;
+        if (e.shiftKey) { if (!Tr.readOnly()) { Tr.setMark(vid, fn, Tr.mark(vid, fn) ? '' : Tr.pen()); draw(b, el, res); } return; }
+        var r = tr.getBoundingClientRect();
+        SW.pop(Math.max(8, r.left + 40), r.bottom + 4, '<div class="ov-pop"><h4 class="mono">' + Tr.title(Tr.name(vid, fn), fn) + '</h4>' + Tr.nameField(Tr.name(vid, fn), fn) + '<div>' + Tr.markField(Tr.mark(vid, fn)) + '</div></div>');
+        var pop = SW.$('.pop .ov-pop'); if (!pop) return;
+        var inp = SW.$('.gz-name input', pop);
+        if (inp) { inp.focus(); inp.addEventListener('change', function () { Tr.setName(vid, fn, inp.value.trim()); draw(b, el, res); }); inp.addEventListener('keydown', function (k) { if (k.key === 'Enter') { inp.blur(); SW.unpop(); } }); }
+        pop.addEventListener('click', function (k) {
+          var mb = k.target.closest('[data-mark]'); if (!mb) return;
+          Tr.setMark(vid, fn, mb.dataset.mark); if (mb.dataset.mark) SW.store.set('ov.pen', mb.dataset.mark);
+          Tr.markSet(pop, mb.dataset.mark); draw(b, el, res);
+        });
+        return;
+      }
+      e.preventDefault(); var x = a.dataset.read.split(':'); SW.state.sel = { p: +x[0], n0: +x[1], n1: +x[1] }; SW.setTab('read'); setTimeout(function () { if (SW.views.read.goto) SW.views.read.goto(+x[0], +x[1], true); }, 300); };
   }
 })(this);

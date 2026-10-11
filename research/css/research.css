@@ -1940,3 +1940,15 @@ a.swcode { font-size: .92em; }
 .joinhelp .js-ok.warn { color: var(--amber); }
 .joinhelp .js-ok.err { color: var(--red); }
 @media (max-width: 520px) { .joinhelp .js-form label { grid-template-columns: 1fr; gap: 2px; } }
+/* Functional overview: functions named and marked (kit/tracings.js) */
+.ov-sub tr.ov-row { cursor: pointer; }
+.ov-sub tr.ov-row:hover td { background: color-mix(in srgb, var(--text) 4%, transparent); }
+.ov-sub tr.ov-marked td:first-child { box-shadow: inset 5px 0 0 var(--mk); padding-left: 10px; }
+.ov-trbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+.ov-marks { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--text-dim); margin: 2px 0 8px; }
+.ov-mk { display: inline-flex; align-items: center; gap: 5px; }
+.ov-mk .gz-mk { width: 11px; height: 11px; cursor: default; display: inline-block; }
+.ov-pop { min-width: 260px; }
+.ov-pop h4 { margin: 2px 0 8px; }
+.ov-pop .gz-name { margin-left: 0; }
+.ov-pop .gz-marks { margin: 8px 0 2px; }

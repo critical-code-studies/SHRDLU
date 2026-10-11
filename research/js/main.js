@@ -168,6 +168,7 @@
     if (q.a && q.v) setTimeout(function () { SW.notes.follow(q); }, 900);
     // a link to a code (?code=A-MLKH5): to what it names
     if (q.code) setTimeout(function () { SW.notes.goCode(q.code); }, 1000);
+    if (q.tr) SW.state.trace = q.tr;   // a shared tracing to open (kit/tracings.js)
     var shb = SW.$('#btn-share'); if (shb) { shb.innerHTML = SW.SHARE_ICON; shb.onclick = function () { SW.share({ title: document.title }); }; }
     SW.$('#btn-code').onclick = function (e) {
       var r = e.currentTarget.getBoundingClientRect();
