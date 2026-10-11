@@ -94,6 +94,50 @@
   SW.me = function () {
     return { initials: SW.store.get('initials', ''), name: SW.store.get('name', '') };
   };
+  // Initials asked for in a box of their own, when something is to be signed without them:
+  // saved (with a name, if given) as ⚙ Settings saves them, then the promise resolves with
+  // the initials, so the caller can go on with what was asked; null if cancelled.
+  var askP = null;
+  SW.askInitials = function (why) {
+    if (SW.me().initials) return Promise.resolve(SW.me().initials);
+    if (askP) return askP;
+    var d = SW.el('dialog', { class: 'ini-dlg' });
+    d.innerHTML = '<form method="dialog"><h3>Your initials</h3>' +
+      '<p class="hint">' + SW.esc(why || 'Annotations, notes and findings are signed with your initials.') + '</p>' +
+      '<label>Initials <input class="ini-in mono" maxlength="4" autocomplete="off" spellcheck="false" placeholder="e.g. AB" required></label>' +
+      '<label><span>Name <span class="faint">(optional)</span></span><input class="ini-name" autocomplete="name" value="' + SW.esc(SW.store.get('name', '')) + '"></label>' +
+      '<p class="hint">Kept in this browser only; ⚙ Settings has them too.</p><p class="ini-err" hidden></p>' +
+      '<div class="ini-acts"><button type="button" class="btn ghost" data-x>Cancel</button> <button class="btn" value="save">Save</button></div></form>';
+    document.body.appendChild(d);
+    var ini = SW.$('.ini-in', d), err = SW.$('.ini-err', d);
+    askP = new Promise(function (ok) {
+      // Save, Cancel and Esc each finish it at once (a hidden page's close event can come late)
+      var fin = false;
+      function finish() { if (fin) return; fin = true; if (d.open) d.close(); d.remove(); askP = null; ok(SW.me().initials || null); }
+      SW.$('form', d).onsubmit = function (e) {
+        e.preventDefault();
+        var v = ini.value.trim().toUpperCase();
+        if (!/^[A-Z]{1,4}$/.test(v)) { err.textContent = 'One to four letters.'; err.hidden = false; ini.focus(); return; }
+        SW.store.set('initials', v);
+        var nm = SW.$('.ini-name', d).value.trim(); if (nm) SW.store.set('name', nm);
+        SW.$$('.ini-need').forEach(function (b) { b.outerHTML = 'Signed <b>' + SW.esc(v) + '</b>'; });
+        SW.emit('me', v); SW.toast('Signed ' + v + ' from now on');
+        finish();
+      };
+      SW.$('[data-x]', d).onclick = finish;
+      d.addEventListener('cancel', function (e) { e.preventDefault(); finish(); });
+      d.addEventListener('close', finish);
+    });
+    d.showModal(); ini.focus();
+    return askP;
+  };
+  // a "Set your initials" button anywhere (the note box, a reply box) opens the box
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-ask-initials]');
+    if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    SW.askInitials();
+  }, true);   // capture: reply boxes stop their clicks from bubbling
 
   // ---------- events ----------
   var handlers = {};

@@ -324,9 +324,11 @@
   // note: {vid, kind, anchor, quote, text, tags, parent}
   N.create = function (note) {
     var me = SW.me(), by = note.by || me.initials;   // a note from My notes keeps the initials it was signed with
-    if (!by) {
-      SW.toast('Please set your initials first (⚙).', 4000);
-      return Promise.reject(new Error('no initials'));
+    if (!by) {   // asked for, then the note made; cancelled, nothing is made
+      return SW.askInitials('Annotations are signed with your initials and shared with the group.').then(function (ini) {
+        if (!ini) throw new Error('no initials');
+        return N.create(note);
+      });
     }
     var tags = ['sh:v:' + note.vid, 'sh:kind:' + (note.kind || 'line'), 'sh:by:' + by]
       .concat(note.anchor ? ['sh:lines:' + note.anchor.p + ':' + note.anchor.n0 +
@@ -1321,7 +1323,7 @@
     var box = SW.el('div', { class: 'reply-box' });
     box.innerHTML = '<textarea rows="3" placeholder="Reply to ' + SW.esc(note.by) + '…"></textarea>' +
       '<div class="reply-foot"><span class="hint">' + (me.initials ? 'Signed <b>' + SW.esc(me.initials) + '</b> · ' + SW.fmtDate(SW.today()) +
-      (N.configured() ? '' : ' · draft') : '<span style="color:var(--red)">Set your initials first (⚙).</span>') + '</span>' +
+      (N.configured() ? '' : ' · draft') : '<button type="button" class="ini-need" data-ask-initials title="Your initials sign what you write">Set your initials</button>') + '</span>' +
       '<span><button class="btn ghost" data-r="cancel">Cancel</button> <button class="btn" data-r="save">Reply</button></span></div>';
     noteEl.insertAdjacentElement('afterend', box);
     var ta = box.querySelector('textarea');
@@ -1375,7 +1377,7 @@
     SW.$('#note-who').innerHTML = me.initials
       ? 'Signed <b>' + SW.esc(me.initials) + '</b> · ' + SW.fmtDate(SW.today()) +
         (N.configured() ? ' · shared with the group' : ' · kept as a draft (no group set)')
-      : '<span style="color:var(--red)">Set your initials first (⚙).</span>';
+      : '<button type="button" class="ini-need" data-ask-initials title="Your initials sign what you write">Set your initials</button>';
     dlg.returnValue = '';
     var hint = SW.$('.keep-hint', dlg), ta = SW.$('#note-text'), tgs = SW.$('#note-tags');
     hint.textContent = 'Unsaved annotation. Save it, or Cancel to discard it.'; hint.hidden = true;

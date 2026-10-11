@@ -120,15 +120,15 @@
   }
   var binOpen = false;
   // No note without initials: its number carries them, and it is signed with them.
-  function needInitials() {
+  // then: what to do once they are given
+  function needInitials(then) {
     if (SW.me().initials) return false;
-    SW.toast('Set your initials first (⚙): notes are numbered and signed with them.', 5000);
-    var st = SW.$('#btn-settings'); if (st) st.click();
+    SW.askInitials('Notes in My notes are numbered and signed with your initials.').then(function (ini) { if (ini && then) then(); });
     return true;
   }
   T.needInitials = needInitials;
   function add(item, extra) {
-    if (needInitials()) return;
+    if (needInitials(function () { add(item, extra); })) return;
     snap();
     var t = load();
     Object.assign(item, extra || {});
@@ -506,7 +506,7 @@
   function share(i) {
     var x = load(), it = x.items[i], me = SW.me();
     var by = it.by || me.initials;
-    if (!by) { SW.toast('Please set your initials first (⚙).', 4000); return; }
+    if (!by) { SW.askInitials('A note shared to Findings is signed with your initials.').then(function (ini) { if (ini) share(i); }); return; }
     var vid = it.vid || SW.state.v;
     var title = it.kind === 'text' ? '' : (it.caption || 'Excerpt');
     var body = [title, it.kind === 'text' ? it.text : it.note].filter(function (z) { return z && String(z).trim(); }).join('\n\n');
