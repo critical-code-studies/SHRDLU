@@ -15,6 +15,6 @@
       if (q.lens) { SW.setLens(q.lens); if (!q.tab) q.tab = 'analyse'; }
       if (q.g) { SW.setGraphic(q.g); if (!q.tab) q.tab = 'graphics'; }
     },
-    help: { refs: function () { SW.refHelp(); }, reading: function () { SW.readingHelp(); }, cards: function () { SW.cardsHelp(); }, site: function () { window.open('../', '_blank', 'noopener'); } }
+    help: { site: function () { window.open('../', '_blank', 'noopener'); } }
   };
 })(this);

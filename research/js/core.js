@@ -183,166 +183,32 @@
       (r.by ? '<p class="faint"><b>By</b> ' + SW.esc(r.by) + ', ' + SW.esc(r.date || '') + '.</p>' : '') +
       '<p class="faint">The held file is not changed: the repair is made as the bench loads the version to run it (Run), and is marked here in gold.</p>');
   };
-  // The reconstruction card: every repair to a version, and the machine it runs on
-  SW.reconstructionCard = function (v) {
-    var rs = root.SHRepairs ? root.SHRepairs.forVersion(v.id) : [];
-    if (!v.build) return '';
-    return '<div class="kin-card"><h3>Reconstruction card: ' + SW.esc(v.label) + '</h3><p class="hint">What the bench does to run this version, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold where the code is shown. The files under source/ are never altered. Corrections and supplied passages change what the program reads; changes for running (paler gold) change only how it is loaded or started.</p>' +
-      (rs.length ? '<table class="ov-sub"><thead><tr><th>Repair</th><th>Kind</th><th>What</th><th>Why</th><th>Evidence</th><th>By</th></tr></thead><tbody>' +
-        rs.map(function (r) { var m = mendOf(r); return '<tr><td class="mono">' + SW.esc(r.id) + '</td><td><span class="rp-chip rp-m-' + SW.esc(r.mend || '') + '" title="' + SW.esc(m.note) + '">' + SW.esc(m.label) + '</span><div class="faint">' + SW.esc(KIND[r.kind] || r.kind) + '</div></td><td><b>' + SW.esc(r.title) + '.</b> ' + SW.esc(r.what) + '</td><td>' + SW.esc(r.why) + '</td><td class="faint">' + SW.esc(r.evidence) + '</td><td class="faint">' + SW.esc((r.by || '') + (r.date ? ', ' + r.date : '')) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p>No repairs.</p>') +
-      '<h4>The machine</h4><table class="ov-sub"><tbody>' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return '<tr><td>' + SW.esc(m[0]) + '</td><td>' + SW.esc(m[1]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
-  };
-  function bigDialog(title, html, cls) {
-    var d = SW.el('dialog', { class: 'tray-big ' + (cls || '') });
-    d.innerHTML = '<div class="tray-bighead"><b>' + SW.esc(title) + '</b><span class="refhelp-acts"><button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' + html;
-    document.body.appendChild(d);
-    d.addEventListener('click', function (e) { if (e.target === d || e.target.closest('[data-x]')) d.close(); });
-    d.addEventListener('close', function () { d.remove(); });
-    d.showModal();
-    return d;
-  }
   SW.kinAbout = function () {
     return '<h4>The repair marks</h4><p>Where the bench reads a version differently in order to run it, the line is marked in gold, after kintsugi, the mending of pottery with gold, which leaves the repair in view. The held files are never altered; each repair is made as the version is loaded, and each is recorded with its reason, evidence and author on the version’s reconstruction card.</p>' +
       '<div class="keylist"><div><span class="rp-line">(QUOTE <span class="rp-c rp-c-fix">0.43</span>302)</span> corrected: a reading mended against another copy of the same file; the line underlined in gold, the characters read otherwise in a gold wash</div><div><span class="rp-line"><span class="rp-c rp-c-sup">(move-ptw</span> N</span> supplied: a passage from another copy or version, in a deeper wash</div><div>For running: how the program is loaded or started, not its text; on the reconstruction card, not in the code</div></div>' +
       '<p class="faint">After Berry, ‘Digital ruins and critical code studies’ (2025): see Help ▸ What you should read, and Help ▸ Reconstruction cards.</p>';
   };
-  // ---------- the cards as data: for Copy, export (Word, Markdown, PNG, SVG) and My notes ----------
-  function cardVersion(x) { return typeof x === 'string' ? V.byId(x) : x; }
+
+  // Help ▸ Reconstruction cards and the card on This version (kit/helppages.js): every repair the
+  // bench makes to a version to run it (js/repairs.js), and the machine it runs on
   function cardWhere(r, v) {
     if (r.kind !== 'text') return SW.refOf(v.id);
     var pi = -1; (v.build || []).forEach(function (b, k) { if (b.src.split('/').pop().replace(/\.\d+$/, '').toLowerCase() === r.file.toLowerCase()) pi = k; });
     return pi >= 0 ? SW.refOf(v.id, pi, r.n0, r.n1) : SW.refOf(v.id);
   }
-  function cardRows(v) {
-    return (root.SHRepairs ? root.SHRepairs.forVersion(v.id) : []).map(function (r) {
-      return [r.id, mendOf(r).label, cardWhere(r, v), r.title + '. ' + r.what, r.why, r.evidence, (r.by || '') + (r.date ? ', ' + r.date : '')];
-    });
-  }
-  var CARD_HEAD = ['Repair', 'Kind', 'Where', 'What', 'Why', 'Evidence', 'By'];
-  SW.cardText = function (x) {
-    var v = cardVersion(x);
-    return 'Reconstruction card: ' + v.label + ' ' + SW.refText(v.id) + ' (SHRDLU Research Bench ' + SW.VERSION + ')\n' +
-      cardRows(v).map(function (r) { return r[0] + '  ' + r[1] + ', ' + r[2] + ': ' + r[3] + ' Why: ' + r[4] + ' Evidence: ' + r[5] + '. By ' + r[6] + '.'; }).join('\n') +
-      '\nThe machine: ' + (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return m[0] + ': ' + m[1]; }).join(' ');
-  };
-  function cardBlocks(v) {
-    var rows = cardRows(v);
-    return [{ type: 'h2', text: 'Reconstruction card: ' + v.label + ' ' + SW.refText(v.id) }]
-      .concat(rows.length ? [{ type: 'table', head: CARD_HEAD, rows: rows }] : [{ type: 'p', text: 'No repairs.' }])
-      .concat([{ type: 'h3', text: 'The machine' }, { type: 'table', head: ['Part', 'What the bench supplies'], rows: (root.SHRepairs ? root.SHRepairs.MACHINE : []).map(function (m) { return [m[0], m[1]]; }) }]);
-  }
-  SW.cardDoc = function (xs) {
-    var vs = xs.map(cardVersion);
-    return { title: vs.length === 1 ? 'Reconstruction card: ' + vs[0].label : 'SHRDLU reconstruction cards',
-      subtitle: 'What the bench does to each version to run it',
-      meta: [['Generated', SW.fmtDate(SW.today()) + ', SHRDLU research bench v' + SW.VERSION], ['Bench', SW.BASE_URI]],
-      blocks: [{ type: 'p', text: 'After the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold in Read. The files under source/ are never altered; each repair is made as the version is loaded. Corrected and supplied passages change what the program reads; changes for running change only how it is loaded or started.' }]
-        .concat([].concat.apply([], vs.map(cardBlocks))) };
-  };
-  // the card as an SVG table, for PNG and SVG export and for My notes
-  SW.cardSVG = function (x) {
-    var v = cardVersion(x), rows = cardRows(v), W = 1500, pad = 24, cols = [70, 110, 190, 330, 390, 250, 110], fs = 13, lh = 17, cw = fs * 0.56;
-    function wrap(s, w) {
-      var n = Math.max(4, Math.floor((w - 10) / cw)), out = [], line = '';
-      String(s).split(/\s+/).forEach(function (wd) { if ((line + ' ' + wd).trim().length > n) { if (line) out.push(line); line = wd; while (line.length > n) { out.push(line.slice(0, n)); line = line.slice(n); } } else line = (line + ' ' + wd).trim(); });
-      if (line) out.push(line); return out;
-    }
-    var esc = SW.esc, o = [], y = pad + 26;
-    o.push('<text x="' + pad + '" y="' + y + '" font-size="22" font-weight="600" fill="#9a7400">Reconstruction card: ' + esc(v.label) + '</text>');
-    y += 22; o.push('<text x="' + pad + '" y="' + y + '" font-size="12" fill="#666" font-family="IBM Plex Mono, monospace">' + esc(SW.refText(v.id)) + '  ·  SHRDLU Research Bench ' + esc(SW.VERSION) + ', ' + esc(SW.fmtDate(SW.today())) + '</text>');
-    y += 26;
-    var xs = [pad]; cols.forEach(function (c, i) { xs.push(xs[i] + c); });
-    CARD_HEAD.forEach(function (h, i) { o.push('<text x="' + (xs[i] + 4) + '" y="' + y + '" font-size="' + fs + '" font-weight="600" fill="#222">' + h + '</text>'); });
-    y += 8; o.push('<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y + '" y2="' + y + '" stroke="#9a7400"/>');
-    rows.forEach(function (r) {
-      var cells = r.map(function (c, i) { return wrap(c, cols[i]); }), h = Math.max.apply(null, cells.map(function (c) { return c.length; })) * lh + 8;
-      cells.forEach(function (c, i) { c.forEach(function (ln, k) { o.push('<text x="' + (xs[i] + 4) + '" y="' + (y + 16 + k * lh) + '" font-size="' + fs + '" fill="' + (i === 1 ? '#9a7400' : i >= 5 ? '#666' : '#222') + '"' + (i === 0 || i === 2 ? ' font-family="IBM Plex Mono, monospace"' : '') + '>' + esc(ln) + '</text>'); }); });
-      y += h; o.push('<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y + '" y2="' + y + '" stroke="#ddd"/>');
-    });
-    y += pad;
-    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + y + '" width="' + W + '" height="' + y + '" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif"><rect width="' + W + '" height="' + y + '" fill="#fffdf6"/><rect x="0" y="0" width="5" height="' + y + '" fill="#d4af37"/>' + o.join('') + '</svg>';
-  };
-  // Copy, export or keep a card: k is copy | docx | md | png | svg | keep | docx-all | md-all
-  SW.cardAct = function (k, x) {
-    var v = cardVersion(x), all = V.VERSIONS.filter(function (w) { return w.build; }).sort(function (a, b) { return a.sort - b.sort; }), base = 'shrdlu-reconstruction-card-' + SW.refOf(v.id);
-    if (k === 'copy') SW.copyText(SW.cardText(v), 'the reconstruction card');
-    else if (k === 'keep') { if (SW.tray) SW.tray.addDoc(SW.cardDoc([v]), { vid: v.id, tags: ['repair', 'reconstruction card'] }); }
-    else if (k === 'svg') root.SWExport.download(base + '.svg', SW.cardSVG(v), 'image/svg+xml');
-    else if (k === 'png') { SW.toast('Rendering PNG…'); SW.figures.svgToPNG(SW.cardSVG(v), 2, '#fffdf6').then(function (r) { root.SWExport.download(base + '.png', r.png, 'image/png'); }, function () { SW.toast('The PNG could not be made; try SVG.', 6000); }); }
-    else if (k === 'keep-fig') { if (SW.tray) SW.tray.addFigure(SW.cardSVG(v), 'Reconstruction card: ' + v.label); }
-    else if (/-all$/.test(k)) SW.exportDoc(SW.cardDoc(all), 'shrdlu-reconstruction-cards', k.replace('-all', ''));
-    else SW.exportDoc(SW.cardDoc([v]), base, k);
-  };
-  // the actions, as a bar: in the card dialog and on Run's card tab
-  SW.cardBar = function () {
-    return '<span class="refhelp-acts card-acts"><button class="btn ghost" data-cx="copy" title="This card as plain text, with its references">⧉ Copy</button>' +
-      '<details class="menu more-menu"><summary class="btn ghost" title="This card, or every card, as a file">⤓ Export ▾</summary><div class="menu-body">' +
-      '<button class="btn ghost" data-cx="docx">⤓ This card, Word</button><button class="btn ghost" data-cx="md">⤓ This card, Markdown</button>' +
-      '<button class="btn ghost" data-cx="png">⤓ This card, PNG</button><button class="btn ghost" data-cx="svg">⤓ This card, SVG</button>' +
-      '<button class="btn ghost" data-cx="docx-all">⤓ All cards, Word</button><button class="btn ghost" data-cx="md-all">⤓ All cards, Markdown</button></div></details>' +
-      '<details class="menu more-menu"><summary class="btn ghost" title="Put this card in My notes (private), to gather with others for a chapter">＋ My notes ▾</summary><div class="menu-body">' +
-      '<button class="btn ghost" data-cx="keep">＋ As text and a table</button><button class="btn ghost" data-cx="keep-fig">＋ As a figure</button></div></details></span>';
-  };
-  // One card at a time, chosen from the versions the bench runs
-  function cardDialog(x) {
-    var vs = V.VERSIONS.filter(function (w) { return w.build; }).sort(function (a, b) { return a.sort - b.sort; }), esc = SW.esc;
-    var v0 = cardVersion(x), cur = v0 && v0.build ? v0.id : vs[0].id;
-    var d = SW.el('dialog', { class: 'tray-big refhelp cardshelp' });
-    d.innerHTML = '<div class="tray-bighead"><b>Reconstruction cards</b><span class="refhelp-acts">' + SW.cardBar() + '<button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' +
-      '<p>What the bench does to each version to run it, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold in Read. The files under source/ are never altered.</p>' +
-      '<div class="keylist"><div><span class="rp-chip rp-m-hibi">Corrected</span> a reading corrected against another copy of the same file</div><div><span class="rp-chip rp-m-yobitsugi">Supplied</span> a passage supplied from another copy or version</div><div><span class="rp-chip rp-m-kake">Remade</span> code written where none survives (none so far)</div><div><span class="rp-chip rp-m-mount">For running</span> a change to how the program is loaded or started, not to its text</div></div>' +
-      '<div class="kin-pick"><button class="btn ghost" data-cx="prev" title="The previous version">‹</button><select aria-label="Version">' +
-      vs.map(function (w) { return '<option value="' + esc(w.id) + '"' + (w.id === cur ? ' selected' : '') + '>' + esc(SW.refOf(w.id) + '  ' + w.label) + '</option>'; }).join('') +
-      '</select><button class="btn ghost" data-cx="next" title="The next version">›</button></div><div class="kin-one"></div>';
-    document.body.appendChild(d);
-    var sel = d.querySelector('select'), box = d.querySelector('.kin-one');
-    function show(id) { cur = id; sel.value = id; box.innerHTML = SW.reconstructionCard(V.byId(id)); }
-    sel.addEventListener('change', function () { show(sel.value); });
-    d.addEventListener('click', function (e) {
-      var c = e.target.closest('[data-cx]');
-      if (c) {
-        var k = c.dataset.cx, m = c.closest('details'); if (m) m.open = false;
-        var i = vs.findIndex(function (w) { return w.id === cur; });
-        if (k === 'prev' || k === 'next') { show(vs[(i + (k === 'next' ? 1 : -1) + vs.length) % vs.length].id); return; }
-        SW.cardAct(k, cur); return;
-      }
-      if (e.target === d || e.target.closest('[data-x]')) d.close();
-    });
-    d.addEventListener('close', function () { d.remove(); });
-    d.showModal();
-    show(cur);
-  }
-  SW.cardsOne = function (x) { cardDialog(x); };
-  // Help ▸ Reconstruction cards: opens on the version in view
-  SW.cardsHelp = function () { cardDialog(SW.state && SW.state.v); };
-  // Help ▸ What you should read: the reading behind the bench (entries as the
-  // project site's bibliography has them, checked against the Zotero library)
-  var READING = [
-    ['The program', [
-      'Winograd, T. (1971) <i>Procedures as a Representation for Data in a Computer Program for Understanding Natural Language</i>. PhD thesis. Massachusetts Institute of Technology. Issued as MIT Artificial Intelligence Laboratory Technical Report AI-TR-235.',
-      'Winograd, T. (1972) ‘Understanding natural language’, <i>Cognitive Psychology</i>, 3(1), pp. 1–191. doi: 10.1016/0010-0285(72)90002-3.',
-      'Winograd, T. (1972) <i>Understanding Natural Language</i>. New York: Academic Press.',
-      'Winograd, T. (1991) Oral history interview with Terry Winograd. Interviewed by Arthur L. Norberg, 11 December. Charles Babbage Institute, University of Minnesota. Available at: <a href="https://hdl.handle.net/11299/107717" target="_blank" rel="noopener">hdl.handle.net/11299/107717</a>.']],
-    ['The languages', [
-      'Sussman, G.J., Winograd, T. and Charniak, E. (1970) <i>Micro-Planner Reference Manual</i>. MIT Artificial Intelligence Laboratory, AI Memo 203. Available at: <a href="https://dspace.mit.edu/handle/1721.1/5833" target="_blank" rel="noopener">dspace.mit.edu/handle/1721.1/5833</a>.',
-      'Hewitt, C. (1969) ‘PLANNER: a language for proving theorems in robots’, in <i>Proceedings of the 1st International Joint Conference on Artificial Intelligence</i>. Washington, DC, 7–9 May, pp. 295–301.']],
-    ['Reading and repairing code', [
-      'Berry, D. M. (2025) ‘Digital Ruins and Critical Code Studies: Towards an Ethics of Historical Software Reconstruction’, <i>Stunlaw: Philosophy and Critique for a Digital Age</i>. Available at: <a href="https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html" target="_blank" rel="noopener">https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html</a>. <span class="faint">The approach behind the bench’s repair marks (gold, in Read) and its reconstruction cards.</span>',
-      'Berry, D. M. and Marino, M. C. (2024) ‘Reading ELIZA: Critical Code Studies in Action’, <i>Electronic Book Review</i>. Available at: <a href="https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/" target="_blank" rel="noopener">https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/</a>.',
-      'Marino, M. C., Weil, P., Shrager, J., Schwarz, A., Hay, A., Ciston, S., Berry, D. M. and Millican, P. (2026) ‘Conversations about conversational code: on the collaborative critical code studies reading of ELIZA’, <i>AI &amp; Society</i>. <a href="https://doi.org/10.1007/s00146-026-03086-7" target="_blank" rel="noopener">https://doi.org/10.1007/s00146-026-03086-7</a>.',
-      'Marino, M. C. (2020) <i>Critical Code Studies</i>. Cambridge, MA: The MIT Press.',
-      'Berry, D. M. (2011) <i>The Philosophy of Software: Code and Mediation in the Digital Age</i>. Basingstoke: Palgrave Macmillan.',
-      'Montfort, N., Baudoin, P., Bell, J., Bogost, I., Douglass, J., Marino, M. C., Mateas, M., Reas, C., Sample, M. and Vawter, N. (2014) <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i>. Cambridge, MA: MIT Press.']],
-    ['Critique', [
-      'Dreyfus, H.L. (1972) <i>What Computers Can’t Do: A Critique of Artificial Reason</i>. New York: Harper &amp; Row.',
-      'Winograd, T. and Flores, F. (1986) <i>Understanding Computers and Cognition: A New Foundation for Design</i>. Norwood, NJ: Ablex.']],
-    ['Other runs of SHRDLU', [
-      'Semaphore Corp. (2013) <i>SHRDLU resurrection</i>. semaphorecorp.com/misc/shrdlu.html (via the Internet Archive).',
-      'van Bergen, P. (2023) <i>Blocks World</i>. Available at: <a href="https://patrickvanbergen.com/blocks-world" target="_blank" rel="noopener">patrickvanbergen.com/blocks-world</a>.']]
-  ];
-  SW.readingHelp = function () {
-    bigDialog('What you should read', '<p>The reading behind the bench. The full list, with histories and media theory, is the project site’s <a href="../bibliography.html" target="_blank" rel="noopener">bibliography</a>.</p>' +
-      READING.map(function (g) { return '<h4>' + SW.esc(g[0]) + '</h4><ul class="reading">' + g[1].map(function (e) { return '<li>' + e + '</li>'; }).join('') + '</ul>'; }).join(''), 'refhelp');
+  SW.BENCH.cards = {
+    about: 'What the bench does to each version to run it, after the principles for repairing digital ruins (Berry 2025): minimum intervention, reversible, recorded, and marked in gold in Read. The files under source/ are never altered; each repair is made as the version is loaded. Corrected and supplied passages change what the program reads; changes for running (paler gold) change only how it is loaded or started.',
+    subtitle: 'What the bench does to each version to run it',
+    menu: 'Every repair the bench makes to run each version, marked in gold',
+    kinds: (function () { var M = (root.SHRepairs && root.SHRepairs.MENDS) || {}, o = {}; Object.keys(M).forEach(function (k) { o[k] = ['rp-m-' + k, M[k].label, M[k].note]; }); return o; })(),
+    head: [['id', 'Repair'], ['kind', 'Kind'], ['where', 'Where'], ['what', 'What'], ['why', 'Why'], ['evidence', 'Evidence'], ['by', 'By']],
+    rows: function (v) {
+      return (root.SHRepairs ? root.SHRepairs.forVersion(v.id) : []).map(function (r) {
+        return { id: r.id, kind: r.mend, kindNote: KIND[r.kind] || r.kind, where: cardWhere(r, v), title: r.title, what: r.what, why: r.why, evidence: r.evidence, by: (r.by || '') + (r.date ? ', ' + r.date : '') };
+      });
+    },
+    after: function () { return { title: 'The machine', head: ['Part', 'What the bench supplies'], rows: root.SHRepairs ? root.SHRepairs.MACHINE : [] }; },
+    empty: 'No repairs.'
   };
 
   // ---------- reading errors (the badges in Read open this) ----------
@@ -366,41 +232,6 @@
     d.addEventListener('close', function () { d.remove(); });
     d.showModal();
   };
-
-  // Help ▸ Referencing and versions: the convention, and every source's reference
-  SW.refHelp = function () {
-    var vs = V.VERSIONS.slice().sort(function (a, b) { return a.sort - b.sort; });
-    var d = SW.el('dialog', { class: 'tray-big refhelp' });
-    d.innerHTML = '<div class="tray-bighead"><b>Referencing and versions</b><span class="refhelp-acts">' +
-      '<button class="btn ghost" data-rx="copy" title="Every reference as plain text">⧉ Copy the list</button>' +
-      '<button class="icon-btn" data-x title="Close (Esc)">✕</button></span></div>' +
-      '<p>The bench names each source text in one form, shown beside it across the bench, in citations and in exports:</p>' +
-      '<p class="refhelp-ex mono">[REF: SHI, smspec.94:712–714]</p>' +
-      '<p><b>SH</b>, then a letter for the witness, the particular surviving set of files (<b>I</b>); then the file as that witness names it (<b>smspec.94</b>) and the lines (<b>712–714</b>). The ITS copies carry ITS version numbers in their names; Winograd’s Stanford copy does not.</p>' +
-      '<table class="ov-sub"><thead><tr><th>Letter</th><th>The witness</th></tr></thead><tbody>' +
-      [['I', 'the MIT files as found on ITS backup tapes (PDP-10/its, imported unedited, July 2024)'], ['S', 'Winograd’s code directory, distributed from Stanford (files dated 1997)'], ['E', 'Eric Swenson’s restoration (PDP-10/its, July to August 2024)']].map(function (r) { return '<tr><td class="mono">' + r[0] + '</td><td>' + SW.esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table>' +
-      '<p>Shorter forms: the witness alone, <span class="mono">[REF: SHI]</span>; a whole file, <span class="mono">[REF: SHI, plnr.182]</span>. Lost versions are named without a letter: <span class="mono">SH-JAN71</span>, <span class="mono">SH-C1</span>.</p>' +
-      '<h4>The versions</h4><table class="ov-sub refhelp-t"><thead><tr><th>No.</th><th>Reference</th><th>Version</th><th>Dated</th><th>This text</th></tr></thead><tbody>' +
-      vs.map(function (v, n) { return '<tr><td class="num">' + (n + 1) + '</td><td class="mono"><span class="swref-c" data-copy="' + SW.esc(SW.refText(v.id)) + '" title="Click to copy">' + SW.esc(SW.refOf(v.id)) + '</span></td><td>' + SW.esc(v.label) + (v.status === 'lost' ? ' <span class="faint">(lost)</span>' : '') + '</td><td>' + SW.esc(v.date || '') + '</td><td>' + SW.esc(SW.MADE[v.id] || v.medium || 'none held') + '</td></tr>'; }).join('') + '</tbody></table>' +
-      '<h4>Re-creations</h4><table class="ov-sub refhelp-t"><thead><tr><th>Reference</th><th>What</th><th>In</th><th>Where and by whom</th><th>Date</th></tr></thead><tbody>' +
-      SW.PORTS.map(function (r) { return '<tr><td class="mono">' + SW.esc(r[0]) + '</td><td>' + SW.esc(r[1]) + '</td><td>' + SW.esc(r[2]) + '</td><td>' + SW.esc(r[3]) + '</td><td>' + SW.esc(r[4]) + '</td></tr>'; }).join('') + '</tbody></table>';
-    document.body.appendChild(d);
-    d.addEventListener('click', function (e) {
-      if (e.target === d || e.target.closest('[data-x]')) { d.close(); return; }
-      var rx = e.target.closest('[data-rx]'); if (rx && rx.dataset.rx === 'copy') SW.copyText(SW.refList.text(), 'the list of references');
-    });
-    d.addEventListener('close', function () { d.remove(); });
-    d.showModal();
-  };
-  SW.refList = {
-    text: function () {
-      var L = ['SHRDLU source references (SHRDLU Research Bench ' + SW.VERSION + ', ' + SW.fmtDate(SW.today()) + ')', '',
-        'Form: [REF: SH<witness>, <file>:<lines>], e.g. [REF: SHI, smspec.94:712–714].', 'Witnesses: I the MIT files as found on ITS; S Winograd’s Stanford distribution; E Swenson’s 2024 restoration.', ''];
-      V.VERSIONS.slice().sort(function (a, b) { return a.sort - b.sort; }).forEach(function (v, n) { L.push((n + 1) + '. ' + SW.refOf(v.id) + '  ' + v.label + ' (' + (v.date || '') + ')' + (v.status === 'lost' ? ', lost' : '')); });
-      return L.join('\n');
-    }
-  };
-
 
   // Glosses for names (the Spacewar! bench glossed PDP-1 instructions); none yet.
   SW.glosses = {};

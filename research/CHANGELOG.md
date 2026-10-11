@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.110 (2026-10-12)
+
+- bench-kit 0.19.0: Help ▸ Referencing and versions, What you should read and Reconstruction cards are the kit's (`kit/helppages.js`), from this bench's data (`js/config.js`; the cards' rows in `js/core.js`). The versions table now links each text on GitHub, with its SWHIDs, and names the authors.
+
 ## 0.1.109 (2026-10-11)
 
 - `css/research.css` without the rules nothing in this bench uses, most of them Spacewar's (the overview, tape, the sky, the gravity well, orbits, the memory map), carried over from the copy it began from: 1,072 lines to 617.

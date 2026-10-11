@@ -21,6 +21,6 @@
         ['This text', SW.esc(SW.MADE[v.id] || (v.medium || ''))]
       ];
     },
-    after: function (v) { return SW.reconstructionCard(v); }
+    after: function (v) { return SW.cardHTML(v, { about: true }); }
   };
 })(this);

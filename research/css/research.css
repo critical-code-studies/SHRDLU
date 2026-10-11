@@ -297,25 +297,12 @@
 
 h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 
-.refhelp { max-width: 860px; }
-.refhelp-ex { font-size: 18px; margin: 6px 0 10px; color: var(--beam); }
-.refhelp h4 { margin: 14px 0 6px; }
-
-.refhelp { max-width: 1180px; }
-.refhelp-t td { vertical-align: top; }
-.refhelp-t .swhid-row.tiny { font-size: 10px; white-space: nowrap; }
-.refhelp-t .swhid-row.tiny .swhid { font-size: 10px; padding: 0 3px; }
-.swref, .swref-c { cursor: pointer; }
-.swref:hover, .swref-c:hover { color: var(--beam); text-decoration: underline dotted; text-underline-offset: 2px; }
-
 .tray-sync.sync-ok { color: #3f9a62; }
 .tray-sync.sync-err { color: var(--amber); }
 .tray-sync.sync-off, .tray-sync.sync-busy { color: var(--text-faint); }
 
 /* ---------- the welcome tour ---------- */
 
-.refhelp .tray-bighead { display: flex; align-items: center; gap: 8px; }
-.refhelp .tray-bighead > b { flex: 1; white-space: nowrap; }
 .tabs .tabs-map { margin-left: auto; align-self: center; font-size: 12px; color: var(--text-faint); text-decoration: none; padding: 0 6px; white-space: nowrap; }
 .tabs .tabs-map:hover { color: var(--text); text-decoration: underline; }
 
@@ -429,12 +416,9 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 .kin-bar .kin-cur { flex: 1 1 auto; min-width: 0; max-width: 40em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; font: inherit; color: var(--text-dim); background: none; border: 0; padding: 0 6px; cursor: pointer; }
 .kin-bar .kin-cur:hover { color: var(--text); }
 .kin-bar .kin-cur .mono { color: var(--gold); }
-ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent: -0.4em; padding-left: 0.4em; }
 .ph-kin { margin: 4px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
 .kin-chip { font: 11px var(--mono); color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
 .kin-h { color: var(--gold); }
-.kin-card { border: 1px solid var(--gold); border-left-width: 3px; border-radius: 4px; padding: 10px 14px; margin: 16px 0; background: var(--gold-bg); }
-.kin-card h3 { color: var(--gold); margin-top: 0; }
 .vlang { font: 10px var(--mono); letter-spacing: 0.5px; color: var(--text-faint); margin-left: 8px; white-space: nowrap; }
 .ph-lang { color: var(--text-faint); font-style: italic; }
 @media (max-width: 900px) { .vlang { display: none; } }
@@ -514,14 +498,6 @@ ul.reading { padding-left: 1.2em; } ul.reading li { margin: 0 0 6px; text-indent
 .d340-bar .btn { padding: 2px 8px; font-size: 12px; }
 
 /* the reconstruction cards: picker and actions */
-.kin-pick { display: flex; gap: 4px; align-items: center; margin: 8px 0; }
-.kin-pick select { max-width: 100%; }
-.card-acts { display: inline-flex; gap: 4px; flex-wrap: wrap; }
-.card-acts .menu-body .btn { display: block; width: 100%; text-align: left; }
-.card-acts details > summary { list-style: none; }
-.card-acts details > summary::-webkit-details-marker { display: none; }
-.card-acts details { position: relative; }
-.card-acts .menu-body { position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 200px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
 
 /* Run: the dialogue test and About in a modal */
 .run-dlg { width: min(1100px, 94vw); }

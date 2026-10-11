@@ -73,6 +73,45 @@
       layout: function (raw) { return String(raw).replace(/\t/g, '        ').replace(/[\f\u0003]/g, ''); },
       words: false,
       files: ['all files', 'Include the support and documentation files, not only the program files']
+    },
+    // Help ▸ What you should read (kit/helppages.js): entries as the project site's bibliography has
+    // them, checked against the Zotero library
+    reading: {
+      intro: 'The reading behind the bench. The full list, with histories and media theory, is the project site’s <a href="../bibliography.html" target="_blank" rel="noopener">bibliography</a>.',
+      menu: 'Winograd, Micro-Planner, and reading and repairing old code',
+      groups: [
+        ['The program', [
+          'Winograd, T. (1971) <i>Procedures as a Representation for Data in a Computer Program for Understanding Natural Language</i>. PhD thesis. Massachusetts Institute of Technology. Issued as MIT Artificial Intelligence Laboratory Technical Report AI-TR-235.',
+          'Winograd, T. (1972) ‘Understanding natural language’, <i>Cognitive Psychology</i>, 3(1), pp. 1–191. doi: 10.1016/0010-0285(72)90002-3.',
+          'Winograd, T. (1972) <i>Understanding Natural Language</i>. New York: Academic Press.',
+          'Winograd, T. (1991) Oral history interview with Terry Winograd. Interviewed by Arthur L. Norberg, 11 December. Charles Babbage Institute, University of Minnesota. Available at: <a href="https://hdl.handle.net/11299/107717" target="_blank" rel="noopener">hdl.handle.net/11299/107717</a>.']],
+        ['The languages', [
+          'Sussman, G.J., Winograd, T. and Charniak, E. (1970) <i>Micro-Planner Reference Manual</i>. MIT Artificial Intelligence Laboratory, AI Memo 203. Available at: <a href="https://dspace.mit.edu/handle/1721.1/5833" target="_blank" rel="noopener">dspace.mit.edu/handle/1721.1/5833</a>.',
+          'Hewitt, C. (1969) ‘PLANNER: a language for proving theorems in robots’, in <i>Proceedings of the 1st International Joint Conference on Artificial Intelligence</i>. Washington, DC, 7–9 May, pp. 295–301.']],
+        ['Reading and repairing code', [
+          'Berry, D. M. (2025) ‘Digital Ruins and Critical Code Studies: Towards an Ethics of Historical Software Reconstruction’, <i>Stunlaw: Philosophy and Critique for a Digital Age</i>. Available at: <a href="https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html" target="_blank" rel="noopener">https://stunlaw.blogspot.com/2025/01/digital-ruins-and-critical-code-studies.html</a>. <span class="faint">The approach behind the bench’s repair marks (gold, in Read) and its reconstruction cards.</span>',
+          'Berry, D. M. and Marino, M. C. (2024) ‘Reading ELIZA: Critical Code Studies in Action’, <i>Electronic Book Review</i>. Available at: <a href="https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/" target="_blank" rel="noopener">https://electronicbookreview.com/essay/reading-eliza-critical-code-studies-in-action/</a>.',
+          'Marino, M. C., Weil, P., Shrager, J., Schwarz, A., Hay, A., Ciston, S., Berry, D. M. and Millican, P. (2026) ‘Conversations about conversational code: on the collaborative critical code studies reading of ELIZA’, <i>AI &amp; Society</i>. <a href="https://doi.org/10.1007/s00146-026-03086-7" target="_blank" rel="noopener">https://doi.org/10.1007/s00146-026-03086-7</a>.',
+          'Marino, M. C. (2020) <i>Critical Code Studies</i>. Cambridge, MA: The MIT Press.',
+          'Berry, D. M. (2011) <i>The Philosophy of Software: Code and Mediation in the Digital Age</i>. Basingstoke: Palgrave Macmillan.',
+          'Montfort, N., Baudoin, P., Bell, J., Bogost, I., Douglass, J., Marino, M. C., Mateas, M., Reas, C., Sample, M. and Vawter, N. (2014) <i>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</i>. Cambridge, MA: MIT Press.']],
+        ['Critique', [
+          'Dreyfus, H.L. (1972) <i>What Computers Can’t Do: A Critique of Artificial Reason</i>. New York: Harper &amp; Row.',
+          'Winograd, T. and Flores, F. (1986) <i>Understanding Computers and Cognition: A New Foundation for Design</i>. Norwood, NJ: Ablex.']],
+        ['Other runs of SHRDLU', [
+          'Semaphore Corp. (2013) <i>SHRDLU resurrection</i>. semaphorecorp.com/misc/shrdlu.html (via the Internet Archive).',
+          'van Bergen, P. (2023) <i>Blocks World</i>. Available at: <a href="https://patrickvanbergen.com/blocks-world" target="_blank" rel="noopener">patrickvanbergen.com/blocks-world</a>.']]
+      ]
+    },
+    // Help ▸ Referencing and versions (kit/helppages.js)
+    refHelp: {
+      example: '[REF: SHI, smspec.94:712–714]',
+      about: '<p><b>SH</b>, then a letter for the witness, the particular surviving set of files (<b>I</b>); then the file as that witness names it (<b>smspec.94</b>) and the lines (<b>712–714</b>). The ITS copies carry ITS version numbers in their names; Winograd’s Stanford copy does not.</p>',
+      letters: [['I', 'the MIT files as found on ITS backup tapes (PDP-10/its, imported unedited, July 2024)'], ['S', 'Winograd’s code directory, distributed from Stanford (files dated 1997)'], ['E', 'Eric Swenson’s restoration (PDP-10/its, July to August 2024)']],
+      more: '<p>Shorter forms: the witness alone, <span class="mono">[REF: SHI]</span>; a whole file, <span class="mono">[REF: SHI, plnr.182]</span>. Lost versions are named without a letter: <span class="mono">SH-JAN71</span>, <span class="mono">SH-C1</span>.</p>',
+      form: 'Form: [REF: SH<witness>, <file>:<lines>], e.g. [REF: SHI, smspec.94:712–714].',
+      versions: { title: 'The versions', all: true },
+      ports: { title: 'Re-creations', head: ['Reference', 'What', 'In', 'Where and by whom', 'Date'] }
     }
   };
 })(typeof window !== 'undefined' ? window : globalThis);
