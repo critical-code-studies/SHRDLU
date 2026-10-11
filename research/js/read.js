@@ -76,53 +76,17 @@
   }
 
 
-  // ---------- the repairs in the code, in gold (kintsugi), as on the Spacewar! bench ----------
-  // A gold dot by the line number; the characters the bench reads differently underlined
-  // in gold (a faint wash as well where the passage is supplied from another copy or
-  // version). The held text is shown; the hover gives what the bench reads instead.
-  function diffSpan(a, b) {   // where b differs from a: [start, end) in b
-    var i = 0, j = 0;
-    while (i < a.length && i < b.length && a[i] === b[i]) i++;
-    while (j < a.length - i && j < b.length - i && a[a.length - 1 - j] === b[b.length - 1 - j]) j++;
-    return [i, Math.max(i, b.length - j)];
-  }
+  // ---------- the repairs in gold (kintsugi): bench-kit's kintsugi.js, with this bench's ----------
+  // A gold dot by the line number; the characters the bench reads differently underlined in gold
+  // (a faint wash as well where the passage is supplied from another copy or version). The held
+  // text is shown; the hover gives what the bench reads instead. The repairs are js/repairs.js's.
+  var K = SW.kintsugi;
   // a raw index as an index into the text shown (a control character is shown as two, ^X)
   function shownAt(raw, i) { var n = 0; for (var k = 0; k < i && k < raw.length; k++) n += /[\u0000-\u0002\u0004-\u0008\u000b\u000e-\u001f\u007f\r]/.test(raw[k]) ? 2 : 1; return n; }
-  function wrapChars(t, s, e, cls, title) {
-    var nodes = [], w = document.createTreeWalker(t, NodeFilter.SHOW_TEXT), x, pos = 0;
-    while ((x = w.nextNode())) nodes.push(x);
-    nodes.forEach(function (nd) {
-      var len = nd.nodeValue.length, a = Math.max(s, pos), bb = Math.min(e, pos + len);
-      if (a < bb) {
-        var piece = nd;
-        if (a > pos) piece = piece.splitText(a - pos);
-        if (bb - a < piece.nodeValue.length) piece.splitText(bb - a);
-        var sp = SW.el('span', { class: cls, title: title });
-        piece.parentNode.insertBefore(sp, piece); sp.appendChild(piece);
-      }
-      pos += len;
-    });
-  }
-  // where a line's comment begins: the first ; not escaped with / (MacLisp's escape)
-  function lispComment(s) { for (var i = 0; i < s.length; i++) { if (s[i] === '/') { i++; continue; } if (s[i] === ';') return i; } return -1; }
-  // the squiggle's reach, the line's text (code and comment), measured once drawn, in em so that it follows the text size
-  function kinMeasure(row) {
-    var rl = row.querySelectorAll('.rp-line'), first = rl[0], last = rl[rl.length - 1];
-    if (!last) return;
-    var r0 = row.getBoundingClientRect(), fs = parseFloat(getComputedStyle(row).fontSize) || 13;
-    var a = first.getBoundingClientRect().left - r0.left, z = last.getBoundingClientRect().right - r0.left;
-    if (!r0.width || z <= a) return;
-    row.style.setProperty('--k0', (a / fs).toFixed(2) + 'em');
-    row.style.setProperty('--kw', ((z - a) / fs).toFixed(2) + 'em');
-  }
-  // the squiggle under a line's text, code and comment (as under a misspelt word): gold for a
-  // repair, grey for an uncertain reading left as found
+  // the squiggle under a line's text, code and comment
   function squiggle(row, tx, raw) {
-    if (row.classList.contains('rp-sq')) return;
     var c0 = raw.search(/\S/), c1 = raw.replace(/\s+$/, '').length;
-    if (c0 < 0 || c1 <= c0) return;
-    wrapChars(tx, shownAt(raw, c0), shownAt(raw, c1), 'rp-line', '');
-    row.classList.add('rp-sq'); kinMeasure(row);
+    if (c0 >= 0 && c1 > c0) K.squiggle(row, tx, shownAt(raw, c0), shownAt(raw, c1));
   }
   // uncertain readings, left as found: lines carrying control characters (damage in copying)
   // that no repair reads otherwise; the Absence lens lists the same lines. Not counted: tab,
@@ -161,154 +125,86 @@
               // leading whitespace is not compared (tabs in one copy, spaces in another)
               var li = raw.length - raw.replace(/^\s+/, '').length, ri = rep.length - rep.replace(/^\s+/, '').length;
               if (rep.slice(ri) === raw.slice(li)) return;
-              d = diffSpan(rep.slice(ri), raw.slice(li)); d = [d[0] + li, d[1] + li];
+              d = K.diffSpan(rep.slice(ri), raw.slice(li)); d = [d[0] + li, d[1] + li];
               title = 'Kintsugi · ' + SW.mendOf(r).label + ' (' + r.id + '): the bench reads “' + rep.trim() + '” here, from ' + from + '. Click the line number for why.';
             } else {   // lines joined or split: the whole line is read otherwise
               var lead = raw.length - raw.replace(/^\s+/, '').length; d = [lead, raw.length];
               title = 'Kintsugi · ' + SW.mendOf(r).label + ' (' + r.id + '): lines ' + r.n0 + '–' + r.n1 + ' are read as ' + from + ': “' + now.join(' ').trim().slice(0, 160) + '”. Click the line number for why.';
             }
             if (d[1] <= d[0]) return;
-            wrapChars(tx, shownAt(raw, d[0]), shownAt(raw, d[1]), cls, title);
+            K.wrapChars(tx, shownAt(raw, d[0]), shownAt(raw, d[1]), cls, title);
           });
         }, function () {});
       });
     });
   }
 
-  // ---------- ◆ the repairs, in turn, and the repairs menu (as on the Spacewar! bench) ----------
-  // A stop for each passage the bench reads differently (a text repair), in file order,
-  // across files: stepping to one in another file shows that file.
-  function kinStops() {
+  // a stop for each passage the bench reads differently (a text repair), in file order, across
+  // files: stepping to one in another file shows that file
+  function kinWhat(r) { return SW.mendOf(r).label + ' (' + r.id + '): ' + r.title + '. ' + r.what + ' By ' + (r.by || 'the project') + ', ' + (r.date || '') + '.'; }
+  function stops() {
     var st = [];
-    Object.keys(build.kinFiles || {}).forEach(function (pi) { build.kinFiles[pi].forEach(function (r) { st.push({ p: +pi, n0: r.n0, n1: r.n1, r: r }); }); });
+    Object.keys(build.kinFiles || {}).forEach(function (pi) {
+      build.kinFiles[pi].forEach(function (r) {
+        var w = kinWhat(r);
+        st.push({ p: +pi, n0: r.n0, n1: r.n1, id: r.id, r: r, chip: { cls: 'rp-m-' + (r.mend || ''), label: SW.mendOf(r).label },
+                  short: SW.mendOf(r).label + ' (' + r.id + '): ' + r.title, name: r.id + ': ' + r.title, what: w, toast: 'Kintsugi · ' + w,
+                  note: w + ' Why: ' + r.why + ' Evidence: ' + r.evidence });
+      });
+    });
     return st.sort(function (x, y) { return x.p - y.p || x.n0 - y.n0; });
   }
-  function kinPaint() {
-    var nav = SW.$('.kin-nav', view); if (!nav) return;
-    var n = kinStops().length;
-    nav.hidden = !(build.v.build && (build.repairs || []).length);
-    SW.$('.kin-n', nav).textContent = n;
-    SW.$('#rd-kprev', nav).disabled = SW.$('#rd-knext', nav).disabled = !n;
-    kinBar();
-  }
-  function kinWhat(s) { return SW.mendOf(s.r).label + ' (' + s.r.id + '): ' + s.r.title + '. ' + s.r.what + ' By ' + (s.r.by || 'the project') + ', ' + (s.r.date || '') + '.'; }
-  function kinGo(s) {
-    R.goto(s.p, s.n0, false);
-    SW.state.sel = { p: s.p, n0: s.n0, n1: s.n1 }; paintSel(); SW.writeQuery();
-    var r = SW.$('#L' + s.p + '-' + s.n0, view);
-    if (r) { r.scrollIntoView({ block: 'center' }); r.classList.remove('kin-flash'); void r.offsetWidth; r.classList.add('kin-flash'); }
-    SW.toast('Kintsugi · ' + kinWhat(s), 6000);
-  }
-  function kinCurrent() {   // the selected repair, else the next one after the selection
-    var st = kinStops(), s = SW.state.sel; if (!st.length) return null;
-    if (s) {
-      var hit = st.filter(function (x) { return x.p === s.p && x.n0 <= s.n1 && x.n1 >= s.n0; })[0]; if (hit) return hit;
-      var nx = st.filter(function (x) { return x.p > s.p || (x.p === s.p && x.n0 > s.n1); })[0]; if (nx) return nx;
-    }
-    return st[0];
-  }
-  function kinStep(dir) {
-    var st = kinStops(); if (!st.length) return;
-    var s = SW.state.sel, i;
-    if (!s) i = dir > 0 ? 0 : st.length - 1;
-    else {
-      var at = -1; st.forEach(function (x, k) { if (x.p < s.p || (x.p === s.p && x.n0 <= s.n0)) at = k; });
-      var on = at >= 0 && st[at].p === s.p && st[at].n0 <= s.n1 && st[at].n1 >= s.n0;
-      i = dir > 0 ? at + 1 : (on ? at - 1 : at);
-    }
-    kinGo(st[(i + st.length) % st.length]);
-  }
+  function others() { return (build.repairs || []).filter(function (r) { return r.kind !== 'text'; }); }
   function fromLink(s) {   // the copy a supplied or corrected passage was read from, in Read
     var f = s && s.r.from; if (!f) return null;
     var vid = null, pi = -1;
     root.SWVersions.VERSIONS.forEach(function (v) { (v.build || []).forEach(function (bb, k) { if (bb.src === f.src) { vid = v.id; pi = k; } }); });
     return vid ? { vid: vid, url: '?v=' + vid + '&tab=read&l=' + pi + ':' + f.n0 + (f.n1 !== f.n0 ? '-' + f.n1 : ''), label: f.src.split('/').pop() + ':' + f.n0 + (f.n1 !== f.n0 ? '–' + f.n1 : '') } : null;
   }
-  function kinList(btn) {
-    var st = kinStops(), others = (build.repairs || []).filter(function (r) { return r.kind !== 'text'; }), r0 = btn.getBoundingClientRect();
-    SW.pop(r0.left, r0.bottom + 4, '<h4>Repairs to ' + SW.esc(build.v.label) + ' (' + build.repairs.length + ')</h4><div class="kin-list">' + st.map(function (s, i) {
-      return '<a href="#" data-k="' + i + '"><span class="kin-k rp-m-' + SW.esc(s.r.mend) + '">' + SW.esc(SW.mendOf(s.r).label) + '</span> <span class="mono">' + SW.esc(SW.refText(build.v.id, s.p, s.n0, s.n1, build.parts.length)) + '</span><span class="kin-w">' + SW.esc(s.r.id + ': ' + s.r.title) + '</span></a>';
-    }).join('') + (others.length ? '<div class="faint kin-sub">Not in the text: how the version is loaded or started</div>' + others.map(function (r) {
-      return '<a href="#" data-o="' + SW.esc(r.id) + '"><span class="kin-k rp-m-' + SW.esc(r.mend) + '">' + SW.esc(SW.mendOf(r).label) + '</span> <span class="mono">' + SW.esc(r.id) + '</span><span class="kin-w">' + SW.esc(r.title) + '</span></a>';
-    }).join('') : '') + '</div>');
-    var pop = SW.$('.pop');
-    if (pop) pop.addEventListener('click', function (e) {
-      var a = e.target.closest('[data-k]'), o = e.target.closest('[data-o]');
-      if (a) { e.preventDefault(); SW.unpop(); kinGo(st[+a.dataset.k]); }
-      else if (o) { e.preventDefault(); var rr = build.repairs.filter(function (x) { return x.id === o.dataset.o; })[0]; SW.unpop(); if (rr) SW.repairPop(rr, r0.left, r0.bottom + 4); }
-    });
-  }
-  // small line icons for the repairs bar (currentColor, 14px), as on the Spacewar! bench
-  var KI = {
-    list: '<path d="M2 4h10M2 7h10M2 10h10"/>',
-    only: '<path d="M2 3h10L8.2 7.6V11L5.8 12V7.6z"/>',
-    from: '<path d="M3.5 1.5h5l2.5 2.5v8.5h-7.5z M8.5 1.5V4H11 M5.5 7h3.5M5.5 9.5h3.5"/>',
-    why: '<path d="M5 5.2a2 2 0 1 1 2.8 1.8c-.5.3-.8.7-.8 1.3v.6 M7 10.8v.1"/>',
-    keep: '<path d="M3.5 1.5h7v11L7 10l-3.5 2.5z M7 4v4M5 6h4"/>',
-    copy: '<path d="M4.5 4.5h7v7h-7z M2.5 9.5v-7h7"/>',
-    card: '<path d="M1.5 3.5h11v7h-11z M3.5 6h7M3.5 8h4.5"/>',
-    cards: '<path d="M3.5 5.5h9v6.5h-9z M1.5 8.5V3.5h9 M5.5 8h5"/>',
-    about: '<path d="M7 1.5a5.5 5.5 0 1 0 0 11a5.5 5.5 0 1 0 0-11z M7 6.2v3.8 M7 4.2v.1"/>'
-  };
-  function kic(k) { return '<svg class="ki" viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + KI[k] + '</svg>'; }
-  // ◆ ⌄: the repairs bar, one row folded down under the toolbar (redrawn as the selection and settings change)
-  function kinBar() {
-    var bar = SW.$('.kin-bar', view), tog = SW.$('#rd-klist', view); if (!bar || !build) return;
-    var st = kinStops(), n = st.length, on = opts.kinBar && !!(build.repairs || []).length;
-    bar.hidden = !on;
-    if (tog) { tog.setAttribute('aria-expanded', on ? 'true' : 'false'); tog.classList.toggle('open', on); }
-    if (!on) return;
-    var cur = kinCurrent(), fl = fromLink(cur), ref = cur ? SW.refText(build.v.id, cur.p, cur.n0, cur.n1, build.parts.length) : '';
-    var s = SW.state.sel, here = cur && s && cur.p === s.p && cur.n0 <= s.n1 && cur.n1 >= s.n0;
-    function b(k, title, extra, lab) { return '<button class="kb" data-km="' + k + '" title="' + SW.esc(title) + '"' + (extra || '') + '>' + (KI[k] ? kic(k) : '') + (lab ? '<span>' + SW.esc(lab) + '</span>' : '') + '</button>'; }
-    function tg(k, on, title, lab, extra) { return b(k, title, ' aria-pressed="' + (on ? 'true' : 'false') + '"' + (extra || ''), lab); }
-    bar.innerHTML =
-      '<button class="kb" data-km="prev" title="The previous repair"' + (n ? '' : ' disabled') + '>‹</button><button class="kb" data-km="next" title="The next repair (in another file if need be)"' + (n ? '' : ' disabled') + '>›</button>' +
-      b('list', 'Every repair to this version (' + build.repairs.length + '): in the text, and to how it is loaded or started', '', String(build.repairs.length)) +
-      (cur ? '<button class="kin-cur" data-km="go" title="' + SW.esc((here ? 'This repair' : 'The next repair after the selection') + ': ' + ref + ' ' + kinWhat(cur)) + '"><span class="mono">' + SW.esc(ref.replace(/^\[REF: |\]$/g, '')) + '</span> ' + SW.esc(SW.mendOf(cur.r).label + ' (' + cur.r.id + '): ' + cur.r.title) + '</button>' : '<span class="kin-cur faint">No repair in the text; the repairs are to how it is loaded or started.</span>') +
-      '<span class="kbs"></span>' +
-      tg('only', opts.onlyRepaired, 'Only the repaired lines, with two either side', '', n ? '' : ' disabled') +
-      b('from', fl ? 'The copy the passage is read from: ' + SW.refText(fl.vid) + ', ' + fl.label + ', in Read, in a new tab' : 'Only corrected and supplied passages come from another copy', fl ? '' : ' disabled', fl ? SW.refOf(fl.vid) : '') +
-      b('why', cur ? 'What was done to ' + cur.r.id + ', why, the evidence and who made it' : 'No repair selected', cur ? '' : ' disabled') +
-      '<span class="kbs"></span>' +
-      b('keep', cur ? 'Add this repair to My notes (' + ref + '), cited, with its lines' : 'No repair selected', cur ? '' : ' disabled') +
-      b('copy', 'Copy every repair to this version, with references, as plain text') +
-      '<span class="kbs"></span>' +
-      b('card', 'This version’s reconstruction card') +
-      b('cards', 'All reconstruction cards') +
-      b('about', 'What the gold marks mean') +
-      '<button class="kb kb-x" data-km="close" title="Fold the repairs bar away">✕</button>';
-  }
-  function kinAct(k, el) {
-    var cur = kinCurrent(), on = el && el.getAttribute && el.hasAttribute('aria-pressed') ? el.getAttribute('aria-pressed') !== 'true' : el && el.checked;
-    if (k === 'prev') kinStep(-1);
-    else if (k === 'next') kinStep(1);
-    else if (k === 'list') kinList(el || SW.$('#rd-klist', view));
-    else if (k === 'go') { if (cur) kinGo(cur); }
-    else if (k === 'close') { opts.kinBar = false; SW.store.set('read.kinBar', false); kinBar(); }
-    else if (k === 'from') { var fl = fromLink(cur); if (fl) root.open(fl.url, '_blank', 'noopener'); }
-    else if (k === 'why') { var r0 = (el || SW.$('#rd-klist', view)).getBoundingClientRect(); if (cur) SW.repairPop(cur.r, r0.left, r0.bottom + 4); }
-    else if (k === 'only') { opts.onlyRepaired = on; applyFilter(); if (opts.onlyRepaired) { var s = kinStops()[0]; if (s) kinGo(s); } }
-    else if (k === 'marks') { var cb = SW.$('#rd-repairs', view); if (cb) { cb.checked = on; cb.dispatchEvent(new Event('change')); } }
-    else if (k === 'card') SW.cardsOne(build.v.id);
-    else if (k === 'cards') SW.cardsHelp();
-    else if (k === 'about') { var r1 = (el || SW.$('#rd-klist', view)).getBoundingClientRect(); SW.pop(r1.left, r1.bottom + 4, SW.kinAbout()); }
-    else if (k === 'copy') {
-      var lines = kinStops().map(function (s) { return SW.refText(build.v.id, s.p, s.n0, s.n1, build.parts.length) + '  ' + kinWhat(s); })
-        .concat((build.repairs || []).filter(function (r) { return r.kind !== 'text'; }).map(function (r) { return SW.refText(build.v.id) + '  ' + SW.mendOf(r).label + ' (' + r.id + '): ' + r.title + '. ' + r.what; }));
-      var text = 'Repairs to ' + build.v.label + ' ' + SW.refText(build.v.id) + ' (SHRDLU Research Bench ' + SW.VERSION + '):\n' + lines.join('\n');
-      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () { SW.toast(lines.length + ' repairs copied'); }, function () { root.prompt('Copy:', text); });
+  var X = SW.kintsugi({
+    stops: stops,
+    has: function () { return !!(build.v.build && (build.repairs || []).length); },
+    total: function () { return (build.repairs || []).length; },
+    disableEmpty: true,
+    paint: paintKin,
+    // a file's repair chip, or a gold line number: what was done there, and why
+    click: function (e, b) {
+      var kc = e.target.closest('[data-kin]'), kr = kc ? b.repairs.filter(function (r) { return r.id === kc.dataset.kin; })[0] : null;
+      if (!kr && e.target.closest('.ln.kin .n') && !e.target.closest('.qa')) { var row = e.target.closest('.ln'); kr = b.kin[row.dataset.p + ':' + row.dataset.n]; }
+      if (kr) { SW.repairPop(kr, e.clientX, e.clientY); return true; }
+      return false;
+    },
+    // the copy a passage is read from, and why it was repaired
+    extras: function (cur, ui) {
+      var fl = fromLink(cur);
+      return ui.b('from', fl ? 'The copy the passage is read from: ' + SW.refText(fl.vid) + ', ' + fl.label + ', in Read, in a new tab' : 'Only corrected and supplied passages come from another copy', fl ? '' : ' disabled', fl ? SW.refOf(fl.vid) : '') +
+        ui.b('why', cur ? 'What was done to ' + cur.id + ', why, the evidence and who made it' : 'No repair selected', cur ? '' : ' disabled');
+    },
+    act: function (k, cur, el) {
+      if (k === 'from') { var fl = fromLink(cur); if (fl) root.open(fl.url, '_blank', 'noopener'); return true; }
+      if (k === 'why') { var r0 = el.getBoundingClientRect(); if (cur) SW.repairPop(cur.r, r0.left, r0.bottom + 4); return true; }
+      return false;
+    },
+    noRedraw: ['why'],
+    // how the version is loaded or started: on the list, after the passages
+    others: function () { return others().map(function (r) { return { chip: { cls: 'rp-m-' + (r.mend || ''), label: SW.mendOf(r).label }, ref: r.id, name: r.title, id: r.id }; }); },
+    openOther: function (id, x, y) { var r = others().filter(function (o) { return o.id === id; })[0]; if (r) SW.repairPop(r, x, y); },
+    copyLines: function () {
+      return stops().map(function (s) { return SW.refText(build.v.id, s.p, s.n0, s.n1, build.parts.length) + '  ' + s.what; })
+        .concat(others().map(function (r) { return SW.refText(build.v.id) + '  ' + SW.mendOf(r).label + ' (' + r.id + '): ' + r.title + '. ' + r.what; }));
+    },
+    about: function () { return SW.kinAbout(); },
+    titles: {
+      tog: 'Repairs: where the bench reads this version differently to run it (kintsugi). Click to show or hide the repairs bar',
+      next: 'The next repair (in another file if need be)',
+      view: 'Mark in gold where the bench changes what this version reads, to run it (kintsugi): readings corrected against another copy, passages supplied from another copy or version. Changes for running only (paler gold) are on the reconstruction card. Click a gold line number for what was changed and why.',
+      list: function (n) { return 'Every repair to this version (' + n + '): in the text, and to how it is loaded or started'; },
+      listHead: function () { return 'Repairs to ' + build.v.label + ' (' + (build.repairs || []).length + ')'; },
+      others: 'Not in the text: how the version is loaded or started',
+      noCurrent: 'No repair in the text; the repairs are to how it is loaded or started.',
+      copy: 'Copy every repair to this version, with references, as plain text'
     }
-    else if (k === 'keep') {
-      if (!cur || !SW.tray) return;
-      var ref = SW.refText(build.v.id, cur.p, cur.n0, cur.n1, build.parts.length), sel = { p: cur.p, n0: cur.n0, n1: cur.n1 };
-      listingDoc(build, sel).then(function (d) {
-        d.title = 'Repair ' + cur.r.id + ' ' + ref;
-        d.blocks.push({ type: 'p', text: kinWhat(cur) + ' Why: ' + cur.r.why + ' Evidence: ' + cur.r.evidence });
-        SW.tray.addDoc(d, { anchor: { p: cur.p, n0: cur.n0, n1: cur.n1, src: build.parts[cur.p].src }, quote: build.lines[cur.p].slice(cur.n0 - 1, cur.n1).map(function (L) { return L.raw; }).join('\n'), tags: ['repair'] });
-      });
-    }
-  }
+  });
 
   // ---------- the pop-up on a name ----------
   function symbol(name, b) {
@@ -365,35 +261,7 @@
     },
     symbol: symbol,
     lost: 'What is absent is also part of the record. Annotations on this version can still be kept under “Versions”.',
-    repairs: {
-      nav: '<span class="kin-nav" hidden><button class="btn" id="rd-kprev" title="The previous repair">‹</button>' +
-      '<button class="btn kin-tog" id="rd-klist" aria-expanded="false" title="Repairs: where the bench reads this version differently to run it (kintsugi). Click to show or hide the repairs bar"><span class="kin-dia">◆</span> <span class="kin-n"></span> <span class="kin-chev" aria-hidden="true">⌄</span></button>' +
-      '<button class="btn" id="rd-knext" title="The next repair (in another file if need be)">›</button></span>',
-      view: function () {
-        return '<label class="check" title="Mark in gold where the bench changes what this version reads, to run it (kintsugi): readings corrected against another copy, passages supplied from another copy or version. Changes for running only (paler gold) are on the reconstruction card. Click a gold line number for what was changed and why."><input type="checkbox" id="rd-repairs"' + (opts.repairs ? ' checked' : '') + '> Repairs (gold)</label>';
-      },
-      wire: function (tb) {
-        SW.$('#rd-kprev', tb).onclick = function () { kinStep(-1); };
-        SW.$('#rd-knext', tb).onclick = function () { kinStep(1); };
-        var kb = SW.el('div', { class: 'kin-bar', role: 'toolbar', 'aria-label': 'Repairs' }); kb.hidden = true;
-        tb.appendChild(kb);
-        SW.$('#rd-klist', tb).onclick = function () { opts.kinBar = !opts.kinBar; SW.store.set('read.kinBar', opts.kinBar); kinBar(); };
-        kb.addEventListener('click', function (e) { var b = e.target.closest('[data-km]'); if (b && b.tagName !== 'INPUT' && !b.disabled) { e.preventDefault(); kinAct(b.dataset.km, b); if (!/^(close|list|about|card|cards|why)$/.test(b.dataset.km)) kinBar(); } });
-        kb.addEventListener('change', function (e) { var b = e.target.closest('[data-km]'); if (b) { kinAct(b.dataset.km, b); kinBar(); } });
-        setTimeout(kinPaint, 0);
-        SW.$('#rd-repairs', tb).onchange = function (e) { opts.repairs = e.target.checked; SW.store.set('read.repairs', opts.repairs); SW.$$('.listing', view).forEach(function (x) { x.classList.toggle('no-repairs', !opts.repairs); }); };
-      },
-      paint: paintKin,
-      // a file's repair chip, or a gold line number: what was done there, and why
-      click: function (e, b) {
-        var kc = e.target.closest('[data-kin]'), kr = kc ? b.repairs.filter(function (r) { return r.id === kc.dataset.kin; })[0] : null;
-        if (!kr && e.target.closest('.ln.kin .n') && !e.target.closest('.qa')) { var row = e.target.closest('.ln'); kr = b.kin[row.dataset.p + ':' + row.dataset.n]; }
-        if (kr) { SW.repairPop(kr, e.clientX, e.clientY); return true; }
-        return false;
-      },
-      bar: function () { kinBar(); },
-      kept: function () { var keep = {}; kinStops().forEach(function (s) { for (var n = s.n0 - 2; n <= s.n1 + 2; n++) keep[s.p + ':' + n] = true; }); return keep; }
-    },
+    repairs: X,
     onShow: function (b) { build = b; }
   });
   view = ctx.view; opts = ctx.opts; R = ctx.R;

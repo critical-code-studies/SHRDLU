@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.115 (2026-10-12)
+
+- bench-kit 0.23.0: the repairs in Read (the ◆ ‹ › stepper, the repairs bar, the list, Copy, My notes, the squiggle) are the kit's (`kit/kintsugi.js`); `js/read.js` keeps where they come from (js/repairs.js) and how they are marked. Drawn as before.
+
 ## 0.1.114 (2026-10-12)
 
 - bench-kit 0.22.1: the Graphics menu stays on screen in a narrow window.
