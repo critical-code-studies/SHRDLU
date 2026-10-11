@@ -1940,15 +1940,3 @@ a.swcode { font-size: .92em; }
 .joinhelp .js-ok.warn { color: var(--amber); }
 .joinhelp .js-ok.err { color: var(--red); }
 @media (max-width: 520px) { .joinhelp .js-form label { grid-template-columns: 1fr; gap: 2px; } }
-
-/* ---------- the initials box (SW.askInitials) ---------- */
-.ini-dlg { width: min(380px, 92vw); padding: 18px 20px 16px; }
-.ini-dlg h3 { margin: 0 0 6px; font-size: 16px; }
-.ini-dlg label { display: grid; gap: 3px; margin: 10px 0 0; font-size: 13px; }
-.ini-dlg input { font-size: 15px; padding: 6px 9px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 4px; }
-.ini-dlg .ini-in { width: 7em; text-transform: uppercase; letter-spacing: .08em; }
-.ini-dlg .ini-err { color: var(--red); font-size: 13px; margin: 6px 0 0; }
-.ini-dlg .ini-acts { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
-.ini-need { font: inherit; color: var(--red); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
-.ini-need:hover { color: var(--text); }
-.ini-dlg .ini-in::placeholder { text-transform: none; letter-spacing: 0; }
