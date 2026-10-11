@@ -2127,3 +2127,7 @@ dialog.px-sbs { width: min(98vw, 1600px); }
 .ini-dlg .ini-in::placeholder { text-transform: none; letter-spacing: 0; }
 .px-video { display: block; width: 100%; max-height: 70vh; background: #000; border-radius: 4px; }
 .px-audio { display: block; width: 100%; margin: 12px 0; }
+.px-embed { display: block; width: 100%; aspect-ratio: 4 / 3; max-height: 70vh; border: 0; background: #000; border-radius: 4px; }
+.px-linkout { margin: 24px 0 8px; }
+.px-urlrow { display: grid; gap: 3px; margin: 8px 0 4px; font-size: 13px; }
+.px-urlrow input { font: 13px var(--mono); padding: 5px 8px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 4px; }
