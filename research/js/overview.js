@@ -19,17 +19,20 @@
   var PARTS = [
     ['top', 'The top level', ['SYSCOM', 'SETUP', 'LOADER', 'SHOW'], '#8a909a'],
     ['read', 'Reading the sentence', ['MORPHO'], '#cfe8ff'],
-    ['parse', 'Parsing (PROGRAMMAR and the grammar)', ['PROGMR', 'GINTER', 'GRAMAR', 'PARSER', 'CGRAM', 'MACROS'], '#4d92e0'],
+    ['parse', 'Parsing (PROGRAMMAR and the grammar)', ['PROGMR', 'PROGGO', 'GINTER', 'GRAMAR', 'PARSER', 'CGRAM', 'MACROS'], '#4d92e0'],
     ['dict', 'The dictionary', ['DICTIO'], '#6fdc8c'],
     ['sem', 'Semantics', ['SMSPEC', 'SMASS', 'SMUTIL'], '#4fdc6a'],
     ['ans', 'Answering', ['NEWANS'], '#e58be0'],
     ['plnr', 'Micro-Planner', ['PLNR', 'THTRAC'], '#ff9f6b'],
-    ['world', 'The blocks world', ['BLOCKS', 'BLOCKL', 'BLOCKP', 'DATA'], '#ff5a4e'],
+    ['world', 'The blocks world', ['BLOCKS', 'BLOCKL', 'BLOCKP', 'DATA', 'DATA2'], '#ff5a4e'],
     ['disp', 'The display (graphf)', ['GRAPHF'], '#d4ecff']
   ];
   var PART_OF = {}; PARTS.forEach(function (p) { p[2].forEach(function (f) { PART_OF[f] = p; }); });
   var OTHER = ['other', 'Supplied by the machine', [], '#5b5f66'];
   function fileKey(src) { return src.split('/').pop().replace(/\.\d+$/, '').replace(/\..*$/, '').toUpperCase(); }
+  // for the Functional overview (js/functional.js): the parts, and the part a file belongs to
+  O.PARTS = PARTS; O.OTHER = OTHER;
+  O.partOf = function (src) { return PART_OF[fileKey(src)] || OTHER; };
 
   // the profiler: calls, steps with and without callees, callers, and the running part over time
   function Prof(fnPart) {
@@ -62,6 +65,7 @@
 
   // names, marks and tracings (kit/tracings.js), kept under ov. in this browser; the view drawn again on a change
   var T = null, last = null;
+  O.tracer = function () { return tracer(); };   // the same names and marks in the Functional overview
   function tracer() {
     return T || (T = SW.tracings({ ns: 'ov',
       render: function () { if (last && last.el.isConnected) draw(last.b, last.el, last.res); },

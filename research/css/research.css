@@ -1391,7 +1391,7 @@ li.fd.folded { padding-bottom: 2px; }
 .orb-duals figcaption { text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 4px; }
 
 /* assembly errors, explained */
-button.badge.err { cursor: pointer; font: inherit; }
+button.badge.err { cursor: pointer; font: inherit; background: none; }
 button.badge.err:hover { filter: brightness(1.2); }
 .asmerrs { width: min(96vw, 900px); }
 .asmerr { border-top: 1px solid var(--line); padding: 8px 0 4px; }
@@ -1943,3 +1943,19 @@ a.swcode { font-size: .92em; }
 .ov-pop h4 { margin: 2px 0 8px; }
 .ov-pop .gz-name { margin-left: 0; }
 .ov-pop .gz-marks { margin: 8px 0 2px; }
+
+/* Program ▸ Functional overview (js/functional.js) */
+.fo-chip { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.fo-mk { display: inline-block; width: 4px; height: 12px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.fo-loop { margin: 6px 0 10px; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.fo-loop li { display: block; padding: 4px 8px; border-left: 2px solid var(--line-soft); }
+.fo-ln { display: inline-block; min-width: 2.6em; font: 12px var(--mono); color: var(--text-faint); }
+.fo-how { display: inline-block; width: 1.4em; color: var(--text-dim); }
+.fo-fn { font-weight: 600; margin-right: 8px; }
+.fo-next { margin: 3px 0 0 4em; font: 12px var(--mono); color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.fo-start td.fo-run { font-size: 12px; }
+.fo-matrix th, .fo-matrix td { white-space: nowrap; }
+.fo-matrix td.fo-self { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.fo-cell { font: inherit; background: none; border: 0; color: var(--beam); cursor: pointer; padding: 0 4px; text-decoration: underline dotted; }
+.fo-cell.on { color: var(--text); font-weight: 700; }
+.fo-pairs h4 { margin: 12px 0 6px; }
