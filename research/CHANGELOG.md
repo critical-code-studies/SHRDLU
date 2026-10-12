@@ -2,15 +2,19 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.130 (2026-10-12)
+
+- bench-kit 0.32.0: the site map is written by `kit/tools/sitemap.js` from the bench as it runs (every tab, menu item and version, the files on GitHub, the project's pages), with this bench's wording in `sitemap` in `js/config.js`; `tools/build-sitemap.js` is gone.
+
 ## 0.1.129 (2026-10-12)
 
 - bench-kit 0.31.1: the kit's tests (94: annotations, the version list, builds, the Help menu and more) run through `kit/tests/run.js`; `kit/tools/release.js` makes releases.
 
-## 0.1.128 (2026-10-13)
+## 0.1.128 (2026-10-12)
 
 - bench-kit 0.30.0: the annotation tests are the kit's (`tests/annotations.test.js` keeps this bench's values); the side panel, annotate dialog and toast are made by the kit (the tags' example is `tagsHint` in `js/config.js`); the KWIC, Key, repairs-bar, annotated-line and small-screen styles are the kit's, and `SW.beam`. Removed: Spacewar's scope, console and tape rules, unused here, and an unused glossary loader.
 
-## 0.1.127 (2026-10-13)
+## 0.1.127 (2026-10-12)
 
 - bench-kit 0.29.0: the version list's machinery (links, descent, ancestry, loading) is the kit's (`kit/versionlist.js`); `js/versions.js` keeps the records. A name's pop-up lists where it is defined and used through `SW.symbolRefs`.
 

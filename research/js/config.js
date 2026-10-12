@@ -77,7 +77,10 @@
     },
     // Help ▸ What you should read (kit/helppages.js): entries as the project site's bibliography has
     // them, checked against the Zotero library
-    sitemap: true,   // sitemap.html: Help ▸ Site map
+    // sitemap.html (Help ▸ Site map), written by kit/tools/sitemap.js
+    sitemap: { site: ['../index.html', 'The SHRDLU site'], opens: 'the MIT files as found on ITS',
+               sitePages: [['../overview.html', 'overview'], ['../dialogue.html', 'the dialogue'], ['../code.html', 'the code'], ['../people.html', 'people'], ['../timeline.html', 'timeline'], ['../bibliography.html', 'bibliography']],
+               files: 'Files in the order the program’s loader read them.', links: { storage: 'storage.html', site: '../index.html' } },
     reading: {
       intro: 'The reading behind the bench. The full list, with histories and media theory, is the project site’s <a href="../bibliography.html" target="_blank" rel="noopener">bibliography</a>.',
       menu: 'Winograd, Micro-Planner, and reading and repairing old code',

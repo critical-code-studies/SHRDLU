@@ -44,7 +44,7 @@ Live at <https://critical-code-studies.github.io/SHRDLU/research/> (not indexed)
 Its sources are `source/original/` (Winograd's distribution) and `source/its/`
 (the MIT files as found on ITS, and Eric Swenson's 2024 restoration; see
 `source/its/PROVENANCE.md`). Regenerate its site map with
-`node research/tools/build-sitemap.js`.
+`node research/kit/tools/sitemap.js` (bench-kit; needs Chrome).
 
 ## House rules
 
