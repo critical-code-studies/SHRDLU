@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.131 (2026-10-12)
+
+- bench-kit 0.33.0: `kit/tools/styles.js` checks a stylesheet change against the last commit in every state and theme.
+
 ## 0.1.130 (2026-10-12)
 
 - bench-kit 0.32.0: the site map is written by `kit/tools/sitemap.js` from the bench as it runs (every tab, menu item and version, the files on GitHub, the project's pages), with this bench's wording in `sitemap` in `js/config.js`; `tools/build-sitemap.js` is gone.
