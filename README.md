@@ -66,4 +66,4 @@ Mark C. Marino (University of Southern California).
 
 ## Licence
 
-The code of the site and of the research bench (`research/`, with bench-kit in `research/kit`) is distributed under the GNU Affero General Public License v3.0: see [`LICENSE`](LICENSE). The licence does not cover what the repository keeps from others: the SHRDLU sources in `source/` (Winograd's distribution, the ITS copies and the Java port in `javashrdlu.zip`), which stay under whatever terms their holders set, and the Knight TV font (GPL; see `assets/fonts/NOTICE.md`).
+The code of the site and of the research bench (`research/`, with bench-kit in `research/kit`) is distributed under the GNU General Public License v3.0: see [`LICENSE`](LICENSE). The licence does not cover what the repository keeps from others: the SHRDLU sources in `source/` (Winograd's distribution, the ITS copies and the Java port in `javashrdlu.zip`), which stay under whatever terms their holders set, and the Knight TV font (GPL; see `assets/fonts/NOTICE.md`).
