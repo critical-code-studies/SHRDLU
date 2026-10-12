@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.123 (2026-10-12)
+
+- bench-kit 0.25.0 as released: its README, changelog and version number now name `kit/builds.js` (the kit reports 0.25.0).
+
 ## 0.1.122 (2026-10-12)
 
 - bench-kit 0.25.0: fetching, the cache of builds, opening a version at a line and an export's details are the kit's (`kit/builds.js`); `js/core.js` keeps how a version is read and indexed (the MacLisp reader, the repairs). The emulator helpers carried over from the Spacewar! bench and never used here are gone.
