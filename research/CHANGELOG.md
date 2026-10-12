@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.124 (2026-10-12)
+
+- bench-kit 0.26.0: the colour themes, the type, the menus' panel, gold, the annotation marks and the genealogy figures' colour schemes are the kit's (`kit/themes.css`, loaded after `kit/bench.css`); `css/research.css` keeps the bench's default colours. Computed colours unchanged in every theme and figure scheme.
+
 ## 0.1.123 (2026-10-12)
 
 - bench-kit 0.25.0 as released: its README, changelog and version number now name `kit/builds.js` (the kit reports 0.25.0).
