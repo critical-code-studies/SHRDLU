@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.121 (2026-10-12)
+
+- bench-kit 0.24.4: the styles of the kinds of line, My notes' sync, Findings' levels and the site-map link are the kit's; two unused rules gone. Drawn as before.
+
 ## 0.1.120 (2026-10-12)
 
 - bench-kit 0.24.3: a drag over a paratext picture no longer selects the words the system finds in it (Live Text).
