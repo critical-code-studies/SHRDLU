@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.125 (2026-10-12)
+
+- bench-kit 0.27.0: the gold of repairs is `--kin` (and `--kin-bg`), as on the Spacewar! bench, where it was `--gold`. The chosen rating in Findings is now in gold.
+
 ## 0.1.124 (2026-10-12)
 
 - bench-kit 0.26.0: the colour themes, the type, the menus' panel, gold, the annotation marks and the genealogy figures' colour schemes are the kit's (`kit/themes.css`, loaded after `kit/bench.css`); `css/research.css` keeps the bench's default colours. Computed colours unchanged in every theme and figure scheme.

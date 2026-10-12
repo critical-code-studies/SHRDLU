@@ -23,7 +23,7 @@
   --text-faint: #767970;
   --beam: #6fdc8c;
   /* the bench's accent (annotations, titles, numbers, the current line): kept off yellow,
-     so that gold (--gold) means kintsugi alone */
+     so that gold (--kin) means kintsugi alone */
   --amber: #e58be0;
   --green: #57b86b;
   --red: #e25141;
@@ -147,48 +147,48 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
    line number, the characters read otherwise underlined in gold (corrected, hibi), with a
    faint wash where the passage is supplied from another copy (yobitsugi) */
 .ln.kin .n { cursor: help; }
-.ln.rp-fix .n::before, .ln.rp-sup .n::before { content: ''; position: absolute; left: 3px; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); transform: translateY(-50%); }
+.ln.rp-fix .n::before, .ln.rp-sup .n::before { content: ''; position: absolute; left: 3px; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--kin); transform: translateY(-50%); }
 .ln.rp-sup .n::before { border-radius: 1px; }
 /* the squiggle, as under a misspelt word, under the line's text (code and comment), as on the
    Spacewar! bench: gold for a repair, grey for an uncertain reading left as found; the
    characters read otherwise in a gold wash */
-.ln.rp-sq::after { content: ''; position: absolute; z-index: 1; pointer-events: none; left: var(--k0, 6px); width: var(--kw, calc(100% - 20px)); bottom: -1px; height: 4px; background: var(--gold);
+.ln.rp-sq::after { content: ''; position: absolute; z-index: 1; pointer-events: none; left: var(--k0, 6px); width: var(--kw, calc(100% - 20px)); bottom: -1px; height: 4px; background: var(--kin);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px; }
 .ln.rp-unc.rp-sq::after, .keylist .rp-line-unc::after { background: color-mix(in srgb, var(--text-faint) 80%, transparent); }
 /* in the key: the same squiggle under a sample */
 .keylist .rp-line { position: relative; display: inline-block; padding-bottom: 3px; }
-.keylist .rp-line::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 4px; background: var(--gold);
+.keylist .rp-line::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 4px; background: var(--kin);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px; }
 .rp-c { cursor: help; border-radius: 2px; }
-.rp-c-fix { background: color-mix(in srgb, var(--gold) 22%, transparent); }
-.rp-c-sup { background: color-mix(in srgb, var(--gold) 30%, transparent); }
+.rp-c-fix { background: color-mix(in srgb, var(--kin) 22%, transparent); }
+.rp-c-sup { background: color-mix(in srgb, var(--kin) 30%, transparent); }
 .listing.no-repairs .rp-c { background: none; }
 .listing.no-repairs .ln.rp-fix .n::before, .listing.no-repairs .ln.rp-sup .n::before { display: none; }
 .listing.no-repairs .ph-kin { display: none; }
-.rp-chip { font: 600 9.5px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
-.rp-chip.rp-m-yobitsugi { background: var(--gold-bg); }
-.rp-chip.rp-m-mount { border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: color-mix(in srgb, var(--gold) 70%, var(--text-faint)); }
+.rp-chip { font: 600 9.5px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; border: 1px solid var(--kin); color: var(--kin); white-space: nowrap; }
+.rp-chip.rp-m-yobitsugi { background: var(--kin-bg); }
+.rp-chip.rp-m-mount { border-color: color-mix(in srgb, var(--kin) 50%, transparent); color: color-mix(in srgb, var(--kin) 70%, var(--text-faint)); }
 .kin-chip.rp-m-mount { opacity: .75; }
 /* ◆ the repairs in turn, and the repairs menu (Read's toolbar; as on the Spacewar! bench) */
-@keyframes kin-flash { 0%, 35% { background: color-mix(in srgb, var(--gold) 26%, transparent); } 100% { background: transparent; } }
-@media (prefers-reduced-motion: reduce) { .ln.kin-flash { animation: none; background: color-mix(in srgb, var(--gold) 18%, transparent); } }
+@keyframes kin-flash { 0%, 35% { background: color-mix(in srgb, var(--kin) 26%, transparent); } 100% { background: transparent; } }
+@media (prefers-reduced-motion: reduce) { .ln.kin-flash { animation: none; background: color-mix(in srgb, var(--kin) 18%, transparent); } }
 .kin-list .kin-sub { margin: 6px 6px 2px; font-size: 11px; }
-.kin-k { font: 600 9.5px/1.6 var(--sans); text-transform: uppercase; letter-spacing: .05em; padding: 0 5px; border-radius: 3px; border: 1px solid var(--gold); color: var(--gold); }
-.kin-k.rp-m-yobitsugi { background: var(--gold-bg); }
-.kin-k.rp-m-mount { border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: color-mix(in srgb, var(--gold) 70%, var(--text-faint)); }
-.toolbar .kin-tog .kin-dia { color: var(--gold); }   /* only the diamond in gold */
+.kin-k { font: 600 9.5px/1.6 var(--sans); text-transform: uppercase; letter-spacing: .05em; padding: 0 5px; border-radius: 3px; border: 1px solid var(--kin); color: var(--kin); }
+.kin-k.rp-m-yobitsugi { background: var(--kin-bg); }
+.kin-k.rp-m-mount { border-color: color-mix(in srgb, var(--kin) 50%, transparent); color: color-mix(in srgb, var(--kin) 70%, var(--text-faint)); }
+.toolbar .kin-tog .kin-dia { color: var(--kin); }   /* only the diamond in gold */
 .toolbar .kin-tog.open { background: var(--sel); }
 /* the repairs bar: a second row of the toolbar, folded down from ◆ (as on the Spacewar! bench) */
-.kin-bar .kb { display: inline-flex; align-items: center; gap: 3px; height: 24px; min-width: 24px; justify-content: center; padding: 0 5px; font: 12px var(--sans); color: var(--gold); background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; flex: none; }
-.kin-bar .kb:hover:not([disabled]) { border-color: color-mix(in srgb, var(--gold) 50%, var(--line)); }
-.kin-bar .kb[aria-pressed="true"] { background: color-mix(in srgb, var(--gold) 18%, transparent); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+.kin-bar .kb { display: inline-flex; align-items: center; gap: 3px; height: 24px; min-width: 24px; justify-content: center; padding: 0 5px; font: 12px var(--sans); color: var(--kin); background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; flex: none; }
+.kin-bar .kb:hover:not([disabled]) { border-color: color-mix(in srgb, var(--kin) 50%, var(--line)); }
+.kin-bar .kb[aria-pressed="true"] { background: color-mix(in srgb, var(--kin) 18%, transparent); border-color: color-mix(in srgb, var(--kin) 55%, transparent); }
 .kin-bar .kb-x { margin-left: auto; color: var(--text-faint); }
-.kin-bar .kin-cur .mono { color: var(--gold); }
+.kin-bar .kin-cur .mono { color: var(--kin); }
 .ph-kin { margin: 4px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
-.kin-chip { font: 11px var(--mono); color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
-.kin-h { color: var(--gold); }
+.kin-chip { font: 11px var(--mono); color: var(--kin); background: var(--kin-bg); border: 1px solid var(--kin); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
+.kin-h { color: var(--kin); }
 .vlang { font: 10px var(--mono); letter-spacing: 0.5px; color: var(--text-faint); margin-left: 8px; white-space: nowrap; }
 .ph-lang { color: var(--text-faint); font-style: italic; }
 @media (max-width: 900px) { .vlang { display: none; } }
