@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.117 (2026-10-12)
+
+- bench-kit 0.24.0: a PDF paratext is drawn a page at a time, to drag, zoom and page through as a picture is.
+
 ## 0.1.116 (2026-10-12)
 
 - bench-kit 0.23.1: a PDF paratext zooms again (− ＋), by its frame's width.
