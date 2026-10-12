@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.132 (2026-10-12)
+
+- bench-kit 0.34.0: `tests/annotations.html` is now this bench's values and the kit's runner, which loads the scripts from `index.html`; a script added to the page needs no change to the tests.
+
 ## 0.1.131 (2026-10-12)
 
 - bench-kit 0.33.0: `kit/tools/styles.js` checks a stylesheet change against the last commit in every state and theme.
