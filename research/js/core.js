@@ -1,11 +1,8 @@
 /*
- * core.js - this bench's own state and helpers: its texts fetched, built and indexed, its
- * references and repairs. The helpers every bench shares are in bench-kit (kit/base.js,
- * kit/md.js, kit/themes.js), loaded before this file.
- *
- * A "build" is one version fetched, normalised and assembled: the unit that
- * every view reads from. Builds are cached, so moving between views or
- * comparing versions never reassembles needlessly.
+ * core.js - this bench's own state and helpers: how a version is read (the MacLisp reader,
+ * js/lisp.js) and indexed, its references and repairs. Fetching, the cache of builds and
+ * opening a version at a line are bench-kit's (kit/builds.js), as are the helpers every bench
+ * shares (kit/base.js, kit/md.js, kit/themes.js), loaded before this file.
  */
 (function (root) {
   'use strict';
@@ -14,38 +11,6 @@
   var SW = root.SW;   // made by kit/base.js
 
   SW.BASE_URI = 'https://critical-code-studies.github.io/SHRDLU/research/';
-  SW.oct = function (n, w) { if (n == null) return ''; var s = (n >>> 0).toString(8); while (s.length < (w || 6)) s = '0' + s; return s; };
-  // The Spacewar! bench probed its emulator for the control bits; SHRDLU has no
-  // controls to probe, so this answers nothing.
-  SW.controlMap = function () { return Promise.resolve(null); };
-
-  // Displays a version draws on. 4.4 (the dual-console version) addresses a second
-  // display with the instruction 720407 (dpy-i 400 in dj6): DEC's 1963 handbook
-  // (F-15D) gives 720407 as dpp, display one point on the second CRT (Type 31),
-  // beside dpy 720007 for the Type 30. Each of its frames goes to one of the two.
-  SW.scopeCount = function (b) { return b && b.sym && b.sym.dj6 ? 2 : 1; };
-  SW.scopeOf = function (b, md) { return SW.scopeCount(b) === 2 && md != null && (md & 0o777) === 0o407 ? 2 : 1; };
-
-  // ---------- fetching and building ----------
-  var textCache = {};
-  SW.fetchText = function (path) {
-    if (textCache[path]) return textCache[path];
-    var url = V.SRC + path.split('/').map(encodeURIComponent).join('/');
-    // revalidated, so a corrected transcription is not served from an old cache
-    textCache[path] = fetch(url, { cache: 'no-cache' }).then(function (r) {
-      if (!r.ok) throw new Error('Could not fetch ' + path + ' (' + r.status + ')');
-      return r.text();
-    });
-    return textCache[path];
-  };
-  SW.fetchBytes = function (path) {
-    var url = V.SRC + path.split('/').map(encodeURIComponent).join('/');
-    return fetch(url).then(function (r) {
-      if (!r.ok) throw new Error('Could not fetch ' + path);
-      return r.arrayBuffer();
-    }).then(function (b) { return new Uint8Array(b); });
-  };
-
   // Split one MacLisp source line into code and comment: a comment begins at the
   // first ";" that is not escaped by "/". (labels and loc are kept empty, for the
   // views that were written for assembly listings.)
@@ -75,24 +40,16 @@
     return FILE_LANG[base] || 'MacLisp';
   };
 
-  // Build = fetch + read + index. Cached per version.
-  var buildCache = {};
-  SW.build = function (id) {
-    var v = V.byId(id);
-    if (!v) return Promise.reject(new Error('Unknown version ' + id));
-    var key = id;
-    if (buildCache[key]) return buildCache[key];
-    buildCache[key] = V.load(v, SW.fetchText, A.splitLines).then(function (L) {
-      var t0 = performance.now();
-      var asm = v.build ? A.index(L.files) : null;
-      var b = { v: v, dialect: v.dialect, parts: L.parts, asm: asm, ms: 0 };
+  // A build: the files read by the MacLisp reader and indexed (kit/builds.js caches it)
+  SW.builds({
+    split: A.splitLines,
+    read: function (v, L) {
+      var b = { v: v, dialect: v.dialect, parts: L.parts, asm: v.build ? A.index(L.files) : null };
       index(b);
-      b.ms = Math.round(performance.now() - t0);
       return b;
-    });
-    buildCache[key].catch(function () { delete buildCache[key]; });
-    return buildCache[key];
-  };
+    },
+    meta: function () { return [['Read as', 'MacLisp 1.6 source, indexed by the bench']]; }
+  });
 
   function index(b) {
     b.lines = b.parts.map(function (p, pi) {
@@ -131,17 +88,6 @@
     });
   }
 
-  // Open a version at a line range (or its notes page when there is none).
-  SW.openAt = function (vid, a) {
-    var same = !vid || vid === SW.state.v;
-    if (!same) SW.select(vid);
-    if (!a) { SW.setTab('about'); return; }
-    SW.state.sel = { p: a.p, n0: a.n0, n1: a.n1 != null ? a.n1 : a.n0 };
-    SW.setTab('read');   // draws Read at the selection if it was not yet showing this version
-    if (same) SW.emit('goto', { p: a.p, n: a.n0, tab: 'read' });
-  };
-  SW.current = function () { return SW.state.v ? SW.build(SW.state.v) : Promise.reject(new Error('no version')); };
-
   // The bench's references to its sources (Help ▸ Referencing and versions):
   // SH, then a letter for the witness, then the file and lines:
   // [REF: SHI, smspec.94:712–714]. I: the MIT files as found on ITS; S: Winograd's
@@ -158,15 +104,6 @@
   SW.MADE = { mit: 'recovered from ITS backup tapes and imported unedited into PDP-10/its, 24 July 2024 (commit ace4248f)',
     stanford: 'Winograd’s code directory as distributed from Stanford, files dated 16 September 1997',
     ejs: 'edited by Eric Swenson, July to August 2024 (PDP-10/its at commit 173f8220)' };
-  // The options for a version's emulated PDP-1. The CHM builds of 4.1 (2005 to 2008)
-  // were made for the Computer History Museum's PDP-1, which draws intensity codes 4
-  // to 7 otherwise than DEC's PDP-35-2 (as Landsteiner's emulator maps them: 4 as 7,
-  // 5 and 6 as 6, 7 as 0); shown so unless Settings says otherwise.
-  var CHM_INTEN = [0, 1, 2, 3, 7, 6, 6, 0];
-  SW.chmInten = function (v) { return (v.id === '4.1d' || v.id === '4.1f') && SW.store.get('chmBright', true) ? CHM_INTEN : null; };
-  SW.cpuOpts = function (v) {
-    return { mdv: v.mdv, ctlLoad: v.ctlLoad, intenMap: SW.chmInten(v) };
-  };
   // The beam's brightness for a display intensity s (-4 to 3: DEC's order 4 5 6 7 0 1 2 3,
   // PDP-35-2): 4 is seen by a photomultiplier only, 7 barely, 0 is normal, 3 brightest.
   // As an opacity, 0 for s = -4; 0.62 for s = 0, as the bench drew normal points before.
@@ -248,12 +185,4 @@
   // lines as keys: comments, spacing and case set aside; blank lines count for nothing
   SW.lineKey = function (t) { return SW.parseLine(t).code.replace(/[\f\u0003]/g, '').replace(/\s+/g, ' ').trim().toLowerCase(); };
 
-  SW.docMeta = function (b) {
-    return [
-      ['Version', b.v.label], ['Reference', SW.refText(b.v.id)], ['Date', b.v.date], ['Authors', b.v.authors],
-      ['Sources', b.parts.map(function (p) { return p.src + (p.role !== 'program' ? ' (' + p.role + ')' : ''); }).join('; ')],
-      ['Read as', 'MacLisp 1.6 source, indexed by the bench'],
-      ['Generated', SW.fmtDate(SW.today()) + ', SHRDLU research bench v' + SW.VERSION]
-    ];
-  };
 })(this);
