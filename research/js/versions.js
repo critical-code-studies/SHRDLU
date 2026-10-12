@@ -20,14 +20,8 @@
   // No normalisations yet: kept so the views that list them still work.
   var TRANSFORMS = {};
 
-  function files(dir, list) {
-    return list.map(function (x) {
-      var f = typeof x === 'string' ? { src: x } : x;
-      f.src = dir + f.src;
-      f.role = f.role || 'program';
-      return f;
-    });
-  }
+  // the list's machinery (links, descent, loading) is bench-kit's kit/versionlist.js
+  var L = root.SWVersionList || require('../kit/versionlist.js'), files = L.files;
 
   var AUTHORS = 'Terry Winograd; revised by Dave McDonald, Jeff Hill, Stu Card and Andee Rubin';
 
@@ -70,13 +64,7 @@
     v.dialect = 'maclisp';
     v.buildNotes = (v.buildNotes || []).map(function (t) { return { by: 'log', who: 'Claude Code (build log)', date: '2026-09-30', text: t }; });
     v.runnable = !!v.build;   // runs on the bench's MacLisp (js/maclisp.js), with its recorded repairs (js/repairs.js)
-    v.url = function () { return '#v=' + encodeURIComponent(v.id); };
   });
-
-  function byId(id) {
-    for (var i = 0; i < VERSIONS.length; i++) if (VERSIONS[i].id === id) return VERSIONS[i];
-    return null;
-  }
 
   // ---------- descent ----------
   // parent: the version it was made from. witnessOf: another copy of the same
@@ -86,43 +74,13 @@
   var WITNESS = { stanford: 'mit' };
   var ALSO = {};
   var INFLUENCE = {};
-  VERSIONS.forEach(function (v) {
-    v.parent = PARENT[v.id] || null;
-    v.witnessOf = WITNESS[v.id] || null;
-    v.also = ALSO[v.id] || [];
-    v.influence = INFLUENCE[v.id] || [];
-  });
-  function ancestry(id) {
-    var v = byId(id), chain = [];
-    if (!v) return chain;
-    var cur = v.witnessOf || v.id;
-    while (cur) { chain.unshift(cur); var p = byId(cur); cur = p && p.parent; }
-    if (v.witnessOf) chain[chain.length - 1] = v.id;
-    return chain;
-  }
   var LINES = [
     { id: 'restored', label: 'To the restoration (MIT → Swenson 2024)', tip: 'ejs' },
     { id: 'stanford', label: 'Winograd’s copy (MIT → Stanford)', tip: 'stanford' }
   ];
-  LINES.forEach(function (l) { l.ids = ancestry(l.tip); });
 
-  function findTitle() { return 1; }
-
-  function load(v, fetchText, splitLines) {
-    if (!v.build) return Promise.resolve({ version: v, parts: [], files: [] });
-    return Promise.all(v.build.map(function (b) { return fetchText(b.src); })).then(function (texts) {
-      var parts = v.build.map(function (b, i) {
-        var raw = texts[i];
-        return { src: b.src, role: b.role, raw: raw, text: raw, patch: null, title: 1, end: null };
-      });
-      // the files the indexer reads as code: program and support, not documentation
-      var files = parts.map(function (p) { return { name: p.src.split('/').pop(), text: p.role === 'doc' ? '' : p.text, doc: p.role === 'doc' }; });
-      return { version: v, parts: parts, files: files };
-    });
-  }
-
-  var api = { VERSIONS: VERSIONS, TRANSFORMS: TRANSFORMS, DIALECTS: DIALECTS, byId: byId, load: load,
-              findTitle: findTitle, SRC: SRC, LINES: LINES, ancestry: ancestry };
+  var api = L({ versions: VERSIONS, src: SRC, dialects: DIALECTS, transforms: TRANSFORMS, lines: LINES,
+                 parent: PARENT, witness: WITNESS, also: ALSO, influence: INFLUENCE });
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.SWVersions = api;
 })(this);

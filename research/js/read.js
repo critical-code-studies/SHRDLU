@@ -214,12 +214,7 @@
       var K = root.LispIndex.KIND_LABEL;
       h += '<div>' + SW.esc(s.kinds.map(function (k) { return K[k] || k; }).join(', ')) +
         ' <span class="faint">· defined ' + s.defs.length + '×, used ' + s.refs.length + '×' + (Object.keys(s.calledFrom || {}).length ? ', called from ' + Object.keys(s.calledFrom).length + ' definitions' : '') + '</span></div>';
-      var list = s.defs.map(function (d) { return ['def', d]; }).concat(s.refs.map(function (r) { return ['ref', r]; }));
-      h += '<div class="refs">' + list.slice(0, 200).map(function (x) {
-        var L = b.lines[x[1].file][x[1].line - 1], f = b.parts[x[1].file].src.split('/').pop();
-        return '<a href="#" data-p="' + x[1].file + '" data-n="' + x[1].line + '">' + (x[0] === 'def' ? '◆ ' : '· ') +
-          SW.esc(f) + ':' + x[1].line + '  ' + SW.esc((L ? L.raw : '').trim().slice(0, 40)) + '</a>';
-      }).join('') + '</div>';
+      h += SW.symbolRefs(b, s, { file: true, width: 40 });
     } else h += '<div class="faint">' + (LISPFORMS[name] ? 'A MacLisp form or function, not defined in SHRDLU’s files.' : /^TH/.test(name) ? 'A Micro-Planner name.' : 'Not defined in this version’s files.') + '</div>';
     if (s) h += '<div style="margin-top:6px"><a href="#" data-bio="' + SW.esc(name) + '" title="Follow this name through every version: when it appears, changes and goes">Its history across the versions →</a></div>';
     return h;
