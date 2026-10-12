@@ -43,6 +43,7 @@
       themeHint: 'The colours of the whole bench: listings, annotations and figures. The ◐ button in the top bar switches between your last light and dark themes. The display in Run keeps the DEC 340’s own phosphor.'
     },
     tag: 'sh:',   // the prefix of this bench's tags in Hypothesis before bench-kit 0.5.0 (sh:v:mit …): still read; new tags are bk:
+    tagsHint: 'e.g. grammar, planner, provenance',   // examples of tags, in the annotate dialog
     joinCard: '<figure class="js-card"><img src="img/join-card.png" width="600" height="315" alt="The invitation card: SHRDLU, an invitation to the Research Bench, RSVP"><figcaption class="hint">The invitation others see when you send them the link (Share, above); it opens the bench with this guide showing.</figcaption></figure>',
     // the worked examples in Help ▸ Advanced annotation
     annoHelp: {

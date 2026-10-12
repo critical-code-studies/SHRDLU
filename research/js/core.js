@@ -104,11 +104,6 @@
   SW.MADE = { mit: 'recovered from ITS backup tapes and imported unedited into PDP-10/its, 24 July 2024 (commit ace4248f)',
     stanford: 'Winograd’s code directory as distributed from Stanford, files dated 16 September 1997',
     ejs: 'edited by Eric Swenson, July to August 2024 (PDP-10/its at commit 173f8220)' };
-  // The beam's brightness for a display intensity s (-4 to 3: DEC's order 4 5 6 7 0 1 2 3,
-  // PDP-35-2): 4 is seen by a photomultiplier only, 7 barely, 0 is normal, 3 brightest.
-  // As an opacity, 0 for s = -4; 0.62 for s = 0, as the bench drew normal points before.
-  var BEAM = [0, 0.12, 0.22, 0.34, 0.62, 0.75, 0.88, 1];
-  SW.beam = function (s) { s = s == null ? 0 : s; return BEAM[Math.max(-4, Math.min(3, s)) + 4]; };
   // ---------- repairs: kintsugi ----------
   var KIND = { text: 'A passage read from another copy', load: 'What the loader reads', form: 'Lisp run before the program starts', start: 'How the bench starts it' };
   function mendOf(r) { var M = root.SHRepairs && root.SHRepairs.MENDS; return (M && M[r.mend]) || { label: KIND[r.kind] || r.kind, note: '' }; }
@@ -168,17 +163,6 @@
     });
     d.addEventListener('close', function () { d.remove(); });
     d.showModal();
-  };
-
-  // Glosses for names (the Spacewar! bench glossed PDP-1 instructions); none yet.
-  SW.glosses = {};
-  SW.loadGlosses = function () {
-    SW.glossP = SW.glossP || Promise.resolve(SW.glosses);
-    if (SW.glossP) return SW.glossP;
-    SW.glossP = fetch('../assets/pdp1-instructions.json').then(function (r) { return r.json(); })
-      .then(function (j) { SW.glosses = j.entries || {}; return SW.glosses; })
-      .catch(function () { SW.glosses = {}; return SW.glosses; });
-    return SW.glossP;
   };
 
   // ---------- ghosts (kit/base.js, SW.ghostMatch) ----------

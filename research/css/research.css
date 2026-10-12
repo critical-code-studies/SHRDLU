@@ -50,84 +50,7 @@
   color-scheme: dark;
 }
 
-/* ---------- listing ---------- */
-
-/* ---------- run view ---------- */
-
-.scope-wrap { position: relative; aspect-ratio: 1; width: 100%; max-width: 540px; margin: 0 auto; border-radius: 50%; padding: 14px;
-  background: radial-gradient(circle at 50% 45%, #2a3944, #121a20 70%); box-shadow: inset 0 0 0 6px #0c1216, 0 2px 12px rgba(0,0,0,0.4); }
-.scope-wrap canvas { position: absolute; left: 50%; top: 50%; width: calc((100% - 28px) * 0.7071); height: calc((100% - 28px) * 0.7071); transform: translate(-50%, -50%); background: #000; display: block; }
-.scope-wrap canvas:focus { outline: none; }
-.scope-wrap canvas.flash { background: transparent; }
-.scope-wrap:focus-within { box-shadow: inset 0 0 0 6px #0c1216, 0 0 0 2px rgba(140,170,195,0.45); }
-/* the tube's face: the square raster sits inside it, so its corners show */
-.scope-wrap::before { content: ''; position: absolute; inset: 14px; border-radius: 50%; background: #000; }
-.console {
-  margin-top: 12px; background: linear-gradient(180deg, #7fb0c2, #5f93a8); color: #0d1a20; border-radius: 6px; padding: 10px 12px 12px;
-  border: 1px solid #3f6878; font-family: var(--mono); font-size: 11px; letter-spacing: 0.5px;
-}
-.console .reg { display: grid; grid-template-columns: 3.4em 1fr 5.6em; align-items: center; gap: 6px; margin: 3px 0; }
-.console .reg .nm { font-weight: 700; }
-.console .reg .val { font-size: 12px; text-align: right; }
-
-.console h4 { margin: 8px 0 2px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
-
-/* ---------- analysis ---------- */
-
-.kwic { font-family: var(--code-font); font-size: calc(var(--code-size) - 1px); }
-.kwic .kw { display: grid; grid-template-columns: minmax(3.5em, max-content) minmax(0, 1fr) auto minmax(0, 1fr); column-gap: 6px; padding: 1px 4px; white-space: pre; }
-.kwic .kn { color: var(--text-faint); text-align: right; padding-right: 8px; }
-.kwic .kl { text-align: right; overflow: hidden; text-overflow: ellipsis; direction: rtl; unicode-bidi: plaintext; }
-.kwic .kr { overflow: hidden; text-overflow: ellipsis; }
-.kwic .k { color: var(--amber); font-weight: 700; }
-.kwic div { cursor: pointer; }
-.kwic div:hover { background: var(--surface-2); }
-
-/* ---------- small screens ---------- */
-@media (max-width: 860px) {
-  body { overflow: auto; }
-  .bar { flex-wrap: wrap; }
-  .brand-name b { display: none; }
-  .run { grid-template-columns: 1fr !important; height: auto; }
-  body.drawer-open main { margin-right: 0; }
-  .drawer { width: 100%; }
-  .ln, .lncols { grid-template-columns: 3.2em 1fr 2em; }
-  .ln .a, .ln .w, .lncols .a, .lncols .w { display: none; }
-  .diff .row { grid-template-columns: 3em 1fr; }
-  .diff .row > span:nth-child(3), .diff .row > span:nth-child(4) { display: none; }
-  .meta { grid-template-columns: 1fr; }
-}
-
-/* An annotated line: a faint ground, not a rule, so its text keeps its column (off in ⚙ Settings) */
-:root:not(.no-note-shade) .rd-body:not(.notes-hidden) .ln.noted:not(.sel):not(.cur):not(.mlit):not(:hover) { background: var(--noted-bg); }
-
-/* Kinds of line, in the syntax colours. */
-/* definitions marked by a thin rule at the left of the line number, not a ground (a ground was distracting) */
-
-.keylist .lab { color: var(--beam); } .keylist .mac { color: var(--violet); font-weight: 600; } .keylist .num { color: var(--amber); } 
-
-/* ---------- findings ---------- */
-
-.pgbrk { color: var(--text-faint); font-size: 0.85em; margin-right: 2px; }
-
-/* ---------- Read: notes inline (the default), under the last line each covers, on the right,
-   in type a little smaller than the code ---------- */
-
-/* Tape: the rows run to the window's edge; the magnifier and the close-up */
-#view-tape .pad { max-width: none; }
-
-/* Analyse: lenses in a grouped drop-down */
-
-/* line kinds: a vertical strip at the left of the number, drawn as a background so
-   consecutive lines join into one line (a shadow per cell could show seams) */
-.ov-bar { height: 10px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
-.ov-bar i { display: block; height: 100%; }
-
 h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
-
-/* ---------- the welcome tour ---------- */
-
-/* the lens groups (Text, Program) */
 
 .legend span[title] { cursor: help; }
 
@@ -152,9 +75,6 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 /* the squiggle, as under a misspelt word, under the line's text (code and comment), as on the
    Spacewar! bench: gold for a repair, grey for an uncertain reading left as found; the
    characters read otherwise in a gold wash */
-.ln.rp-sq::after { content: ''; position: absolute; z-index: 1; pointer-events: none; left: var(--k0, 6px); width: var(--kw, calc(100% - 20px)); bottom: -1px; height: 4px; background: var(--kin);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M0 2 Q1.5 -0.4 3 2 T6 2' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") repeat-x 0 0 / 6px 4px; }
 .ln.rp-unc.rp-sq::after, .keylist .rp-line-unc::after { background: color-mix(in srgb, var(--text-faint) 80%, transparent); }
 /* in the key: the same squiggle under a sample */
 .keylist .rp-line { position: relative; display: inline-block; padding-bottom: 3px; }
@@ -169,23 +89,14 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 .listing.no-repairs .ph-kin { display: none; }
 .rp-chip { font: 600 9.5px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; border: 1px solid var(--kin); color: var(--kin); white-space: nowrap; }
 .rp-chip.rp-m-yobitsugi { background: var(--kin-bg); }
-.rp-chip.rp-m-mount { border-color: color-mix(in srgb, var(--kin) 50%, transparent); color: color-mix(in srgb, var(--kin) 70%, var(--text-faint)); }
 .kin-chip.rp-m-mount { opacity: .75; }
 /* ◆ the repairs in turn, and the repairs menu (Read's toolbar; as on the Spacewar! bench) */
-@keyframes kin-flash { 0%, 35% { background: color-mix(in srgb, var(--kin) 26%, transparent); } 100% { background: transparent; } }
-@media (prefers-reduced-motion: reduce) { .ln.kin-flash { animation: none; background: color-mix(in srgb, var(--kin) 18%, transparent); } }
 .kin-list .kin-sub { margin: 6px 6px 2px; font-size: 11px; }
-.kin-k { font: 600 9.5px/1.6 var(--sans); text-transform: uppercase; letter-spacing: .05em; padding: 0 5px; border-radius: 3px; border: 1px solid var(--kin); color: var(--kin); }
 .kin-k.rp-m-yobitsugi { background: var(--kin-bg); }
 .kin-k.rp-m-mount { border-color: color-mix(in srgb, var(--kin) 50%, transparent); color: color-mix(in srgb, var(--kin) 70%, var(--text-faint)); }
 .toolbar .kin-tog .kin-dia { color: var(--kin); }   /* only the diamond in gold */
 .toolbar .kin-tog.open { background: var(--sel); }
 /* the repairs bar: a second row of the toolbar, folded down from ◆ (as on the Spacewar! bench) */
-.kin-bar .kb { display: inline-flex; align-items: center; gap: 3px; height: 24px; min-width: 24px; justify-content: center; padding: 0 5px; font: 12px var(--sans); color: var(--kin); background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; flex: none; }
-.kin-bar .kb:hover:not([disabled]) { border-color: color-mix(in srgb, var(--kin) 50%, var(--line)); }
-.kin-bar .kb[aria-pressed="true"] { background: color-mix(in srgb, var(--kin) 18%, transparent); border-color: color-mix(in srgb, var(--kin) 55%, transparent); }
-.kin-bar .kb-x { margin-left: auto; color: var(--text-faint); }
-.kin-bar .kin-cur .mono { color: var(--kin); }
 .ph-kin { margin: 4px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
 .kin-chip { font: 11px var(--mono); color: var(--kin); background: var(--kin-bg); border: 1px solid var(--kin); border-radius: 10px; padding: 1px 8px; cursor: pointer; }
 .kin-h { color: var(--kin); }
@@ -267,8 +178,6 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 .d340-name { font: 400 9.5px var(--mono); letter-spacing: .06em; color: var(--text-faint); text-transform: uppercase; }
 .d340-bar .btn { padding: 2px 8px; font-size: 12px; }
 
-/* the reconstruction cards: picker and actions */
-
 /* Run: the dialogue test and About in a modal */
 .run-dlg { width: min(1100px, 94vw); }
 .run-dlg #run-side-body { max-height: calc(88vh - 60px); overflow: auto; }
@@ -345,8 +254,6 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 .ov-bar em { font-style: normal; color: var(--text-faint); font-size: 11.5px; }
 .ov-t { max-height: 480px; overflow: auto; }
 .ov-out { font-size: 12px; max-height: 200px; overflow: auto; background: #05070a; padding: 8px 10px; border-radius: 6px; }
-
-/* ---------- codes in text, and the joining guide as a form (paratexts and guides are in kit/paratexts.css) ---------- */
 
 /* Dynamic Profile: functions named and marked (kit/tracings.js) */
 .ov-sub tr.ov-row { cursor: pointer; }
