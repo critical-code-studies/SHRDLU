@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.134 (2026-10-12)
+
+- bench-kit 0.35.0: the tests run on GitHub on every push (`.github/workflows/tests.yml`, `kit/tools/test.js`); `node research/kit/tools/test.js` runs them by hand.
+
 ## 0.1.133 (2026-10-12)
 
 - bench-kit 0.34.1: paratext PDFs are opened with PDF.js's eval turned off (CVE-2024-4367).
