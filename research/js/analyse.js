@@ -310,22 +310,11 @@
               ['genealogy', 'Genealogy', 'How the versions descend'],
               ['absence', 'Absence', 'Gaps in the record, and damage in the texts'],
               ['storage', 'How the files were stored', 'The machines, ITS files, disks and backup tapes, and the path of each copy']],
-    help: [['Getting started', [['tour', 'Take the welcome tour', 'A few stops through the bench; about two minutes'],
-                                       ['refs', 'Referencing and versions', 'How the bench cites a source, as [REF: SHI, plnr.182:120]'],
-                                       ['reading', 'What you should read', 'Winograd, Micro-Planner, and reading and repairing old code'],
-                                       ['cards', 'Reconstruction cards', 'Every repair the bench makes to run each version, marked in gold'],
-                                       ['join', 'Joining the annotation group', 'An invitation, a Hypothesis account and your tokens, step by step'],
-                                       ['anno', 'Advanced annotation', 'Rich text, and links between annotations across versions'],
-                                       ['codes', 'Codes, links and sharing', 'Every item’s code, links in annotations, Share, Findings and My notes'],
-                                       ['paratexts', 'Paratexts', 'The crew’s scans and documents: collections, views, metadata, links'],
-                                       ['sitemap', 'Site map', 'Every view and version as a plain link']]],
-                  ['Your bench', [['settings', 'Settings', 'Initials, group, theme, fonts'],
-                                  ['backup', 'Back up everything', 'Notes, drafts, settings and findings in one file'],
-                                  ['restore', 'Restore from a backup…', 'Brings back notes and drafts beside those here']]],
-                  ['The project', [['site', 'The SHRDLU project site', 'critical-code-studies.github.io/SHRDLU'],
-                                   ['code', 'Source code on GitHub ↗', 'github.com/critical-code-studies/SHRDLU'],
-                                   ['issue', 'Report a problem ↗', 'GitHub issues'],
-                                   ['about', 'About the bench', 'Version, sources, citation']]]],
+    // Help ▾: the kit's list, with these lines changed and the project site added
+    help: { text: { tour: 'A few stops through the bench; about two minutes',
+                    refs: 'How the bench cites a source, as [REF: SHI, plnr.182:120]',
+                    paratexts: 'The crew’s scans and documents: collections, views, metadata, links' },
+            add: [['The project', ['site', 'The SHRDLU project site', 'critical-code-studies.github.io/SHRDLU']]] },
     pick: function (which, p) {
       if (which === 'versions' && p === 'storage') { location.href = 'storage.html'; return true; }
       return false;

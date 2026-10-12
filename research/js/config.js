@@ -76,6 +76,7 @@
     },
     // Help ▸ What you should read (kit/helppages.js): entries as the project site's bibliography has
     // them, checked against the Zotero library
+    sitemap: true,   // sitemap.html: Help ▸ Site map
     reading: {
       intro: 'The reading behind the bench. The full list, with histories and media theory, is the project site’s <a href="../bibliography.html" target="_blank" rel="noopener">bibliography</a>.',
       menu: 'Winograd, Micro-Planner, and reading and repairing old code',

@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.126 (2026-10-12)
+
+- bench-kit 0.28.0: Help ▾ is the kit's list with this bench's changes (three lines, the project site), where `js/analyse.js` restated the whole list; Site map from `sitemap: true` in `js/config.js`. The tab row's buttons no longer repeat their lenses (`data-lenses`): the kit reads them from `SW.BENCH.lenses.menus`.
+
 ## 0.1.125 (2026-10-12)
 
 - bench-kit 0.27.0: the gold of repairs is `--kin` (and `--kin-bg`), as on the Spacewar! bench, where it was `--gold`. The chosen rating in Findings is now in gold.
