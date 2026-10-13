@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.137 (2026-10-13)
+
+- bench-kit 0.40.1: the stars on a paratext's card rate it (a click on one was read as a click on a collection); a rating shows at once on the card and in the open panel, averages too, and is not undone by an earlier save returning.
+
 ## 0.1.136 (2026-10-13)
 
 - bench-kit 0.40.0: a version opened at a line is drawn there, never at the last version's scroll; a row in a name's pop-up selects its line; a bar offers to reload when a newer release is live; the paratext panel tightened, its record folded to six fields, and ratings from a card, painted before they save; a double-click in a find field selects all of it.
