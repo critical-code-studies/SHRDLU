@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.165 (2026-10-14)
+
+- The kit at 0.54.0: the Language filter finds an item by any language it can be read in, its own or a translation's; cards mark translations.
+
 ## 0.1.164 (2026-10-14)
 
 - The kit at 0.53.7: hovering a star shows the rating a click would give.
