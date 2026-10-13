@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.153 (2026-10-13)
+
+- The kit at 0.50.1: in Paratexts, the switchers above an item's view stay at its top left.
+
 ## 0.1.152 (2026-10-13)
 
 - The kit at 0.50.0: in Paratexts, an item's alternates as a flip (Original | Translated) or short labels, with the reading's title and note as a caption under them; Catalogued on one line, editable.
