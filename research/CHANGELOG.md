@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.154 (2026-10-13)
+
+- The kit at 0.51.0: in Paratexts, an item's readings as a row of buttons, all in view (Audio · Transcript · Translation).
+
 ## 0.1.153 (2026-10-13)
 
 - The kit at 0.50.1: in Paratexts, the switchers above an item's view stay at its top left.
