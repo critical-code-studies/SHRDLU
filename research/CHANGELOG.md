@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.139 (2026-10-13)
+
+- bench-kit 0.42.0: Help ▸ Marks and conventions, the marks for losses, restorations, corrections and doubtful readings with their Leiden forms, beside the kintsugi of the repairs; a paratext's lacunae drawn where they are as gold seams (in text, over a PDF page, under audio and video), never closed up, a restoration kept inside its seam and marked in every export.
+
 ## 0.1.138 (2026-10-13)
 
 - bench-kit 0.41.1: a paratext can carry translations beside the original, one record under one code, chosen from a language row above the view (a working or machine translation says so), and set side by side with the original.
