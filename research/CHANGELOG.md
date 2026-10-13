@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.152 (2026-10-13)
+
+- The kit at 0.50.0: in Paratexts, an item's alternates as a flip (Original | Translated) or short labels, with the reading's title and note as a caption under them; Catalogued on one line, editable.
+
 ## 0.1.151 (2026-10-13)
 
 - The kit at 0.49.0: in Paratexts, an item's Download, GitHub, Open and Source under ☰; Catalogued by a field under More metadata, which can be corrected; closing an item with changes not saved asks first.
