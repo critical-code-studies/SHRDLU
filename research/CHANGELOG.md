@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.151 (2026-10-13)
+
+- The kit at 0.49.0: in Paratexts, an item's Download, GitHub, Open and Source under ☰; Catalogued by a field under More metadata, which can be corrected; closing an item with changes not saved asks first.
+
 ## 0.1.150 (2026-10-13)
 
 - Read ▾ has the code: the versions in a submenu, then the open version's files by part (SHRDLU's own, PROGRAMMAR, Micro-Planner), each opening in Read. bench-kit 0.48.0: the paratext list takes a Language filter.
