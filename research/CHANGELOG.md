@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.146 (2026-10-13)
+
+- bench-kit 0.45.0: menus take submenus (a list beside an item; → to open, ← or Esc to close; opened in place on a narrow screen); a bench in layers gets Read ▾ as a submenu for each layer.
+
 ## 0.1.145 (2026-10-13)
 
 - bench-kit 0.44.4: the top bar's small print (version, reference, language line) in the bar's own ink, readable in every theme; on the paper theme's blue bar it had all but vanished. Its wordmark is darkened on the light themes' bars so it reads there too.
