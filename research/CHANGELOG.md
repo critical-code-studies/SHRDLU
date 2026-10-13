@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.141 (2026-10-13)
+
+- bench-kit 0.44.0: paratexts take a type (what the item is: 51 kinds, from memo, thesis, working paper and electronic mail to program listing, punched cards and oral history), with a Type column, filter and chip, and exports that carry it; the list's rows in alternate shades; a link shows as video, audio, an image, a PDF or a page; two-state switches on the toolbars, Normal / Expand for contractions and Kintsugi / Leiden for a paratext's gaps.
+
 ## 0.1.140 (2026-10-13)
 
 - bench-kit 0.43.0: Read's card lens, for a bench whose files are fixed-column listings (off unless the bench sets SW.BENCH.columns); MAD's identification field where the bench's layout puts it.
