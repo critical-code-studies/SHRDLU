@@ -10,6 +10,13 @@
     start: 'mit',   // the version shown first
     // references to the sources (kit/refs.js; the short names are SW.REF, in js/core.js)
     refs: { repo: 'https://github.com/critical-code-studies/SHRDLU', dir: 'source', prefix: 'SH-' },
+    // Read ▾: the versions, then the open version's code by part (kit/menus.js)
+    readFiles: {
+      groups: [{ label: 'SHRDLU', note: 'its own code: top level, reading, grammar, dictionary, semantics, answering, the blocks world', rest: true },
+               { label: 'PROGRAMMAR', test: /^(progmr|proggo|ginter)$/ },
+               { label: 'Micro-Planner', test: /^(plnr|thtrac)$/ }],
+      about: function (src, role) { return root.SW.fileLangOf ? root.SW.fileLangOf(src, role) : role; }
+    },
     entry: 'SHRDLU',   // where the program starts: the top level's function, in syscom (Program ▸ Functional overview)
     // the About box (kit/about.js); purpose, inside and sources are HTML
     about: {

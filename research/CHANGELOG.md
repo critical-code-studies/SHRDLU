@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.150 (2026-10-13)
+
+- Read ▾ has the code: the versions in a submenu, then the open version's files by part (SHRDLU's own, PROGRAMMAR, Micro-Planner), each opening in Read. bench-kit 0.48.0: the paratext list takes a Language filter.
+
 ## 0.1.149 (2026-10-13)
 
 - bench-kit 0.47.0: the newer-release bar no longer appears at every load (it read the sharing image's ?v=2 as a release); Read ▾ lists the versions in their groups, Winograd's distribution under the MIT version as another reading of it; menus mark the open submenu, the place you are and the item under the pointer apart.
