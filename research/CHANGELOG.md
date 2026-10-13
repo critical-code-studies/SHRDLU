@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.163 (2026-10-14)
+
+- The kit at 0.53.6: unrated stars fainter.
+
 ## 0.1.162 (2026-10-14)
 
 - The kit at 0.53.5: rated stars a little brighter.
