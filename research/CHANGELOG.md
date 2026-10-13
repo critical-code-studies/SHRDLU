@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.136 (2026-10-13)
+
+- bench-kit 0.40.0: a version opened at a line is drawn there, never at the last version's scroll; a row in a name's pop-up selects its line; a bar offers to reload when a newer release is live; the paratext panel tightened, its record folded to six fields, and ratings from a card, painted before they save; a double-click in a find field selects all of it.
+
 ## 0.1.135 (2026-10-12)
 
 - bench-kit 0.35.1: Chrome is given a minute to start in the tests on GitHub.
