@@ -57,6 +57,10 @@ h2 .swref { font-size: 11.5px; vertical-align: middle; white-space: nowrap; }
 /* ---------- SHRDLU additions ---------- */
 .brand-cube { flex: 0 0 auto; filter: drop-shadow(0 0 3px rgba(58, 168, 98, 0.55)); }
 .brand-name .brand-mark { display: block; height: 16px; width: 58px; filter: drop-shadow(0 0 3px rgba(58, 168, 98, 0.45)); }
+/* the wordmark's green is drawn for a dark bar; on the light themes' bars it is darkened to read,
+   most on paper's blue, and loses the glow */
+:root[data-theme="paper"] .brand-name .brand-mark { filter: brightness(0.25); }
+:root[data-theme="white"] .brand-name .brand-mark, :root[data-theme="sepia"] .brand-name .brand-mark { filter: brightness(0.55); }
 .brand-name { display: inline-flex; flex-direction: column; gap: 3px; }
 .pgbrk { color: var(--text-faint); font-size: 0.85em; }
 .run-person { font-family: var(--code-font); color: var(--text); }
