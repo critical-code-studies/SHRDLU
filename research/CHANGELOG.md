@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.157 (2026-10-13)
+
+- The kit at 0.53.0: in Paratexts, a link can be shown as a Text file, Code or Other.
+
 ## 0.1.156 (2026-10-13)
 
 - The kit at 0.52.0: ⚙ Settings › You has Tell me when a newer release is live, on by default.
