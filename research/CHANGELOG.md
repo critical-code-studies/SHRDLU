@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.144 (2026-10-13)
+
+- bench-kit 0.44.3: no specimen that looks like a real code or group anywhere in the kit; examples are given as shapes (A-XXXXX, P-XXXXX, XX-N1).
+
 ## 0.1.143 (2026-10-13)
 
 - bench-kit 0.44.2: no made-up Hypothesis address in the joining guide or ⚙ Settings; they ask for the group link from the invitation.
