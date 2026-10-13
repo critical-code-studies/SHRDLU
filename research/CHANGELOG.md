@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.149 (2026-10-13)
+
+- bench-kit 0.47.0: the newer-release bar no longer appears at every load (it read the sharing image's ?v=2 as a release); Read ▾ lists the versions in their groups, Winograd's distribution under the MIT version as another reading of it; menus mark the open submenu, the place you are and the item under the pointer apart.
+
 ## 0.1.148 (2026-10-13)
 
 - bench-kit 0.46.1: a release dates itself (the bench-date shown in Help and About); the site map names the groups of Help and Graphics again.
