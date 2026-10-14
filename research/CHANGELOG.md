@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.169 (2026-10-14)
+
+- The kit at 0.57.0: in Paratexts, Back and Next through the list an item was opened from, and through sequences (fixed orders, such as a run of logbooks).
+
 ## 0.1.168 (2026-10-14)
 
 - The kit at 0.56.1: missing items read Provenance found but item not available or missing, in small capitals.
