@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.173 (2026-10-18)
+
+- The kit at 0.61.0: Paratext rules, to locate and to request (the tags to-locate and to-request, and a Request: paragraph saying whom to ask and for what), in the README, Help and the Add ▸ Missing hint.
+
 ## 0.1.172 (2026-10-14)
 
 - The kit at 0.60.0: ⚙ Settings ▸ Paratexts sets how many items either side to fetch ahead (Off to 10, 1 by default).
