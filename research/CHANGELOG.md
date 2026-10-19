@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.181 (2026-10-19)
+
+- The kit at 0.65.2: the GitHub and Hypothesis tokens are written only when changed, removed only when confirmed, kept out of password managers' autofill, and left out of backup files.
+
 ## 0.1.180 (2026-10-19)
 
 - The kit at 0.65.1: an implementation's code (I-XXXXX) written in any text is a link, and Go to a code opens it.
