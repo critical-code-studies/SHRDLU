@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.185 (2026-10-19)
+
+- The kit at 0.66.2: Interlisp read by definition with ' as QUOTE only at an atom's start, its font codes stripped, and PUTPROPS and RPLQQ read as properties; an Implementations entry can name its Lisp reader.
+
 ## 0.1.184 (2026-10-19)
 
 - The kit at 0.66.1: Lisp read by definition takes ' as a letter in BBN-LISP and PDP-6 Lisp (where the scripts write DON'T and I'M), and Interlisp has a reader of its own with ' as QUOTE.
