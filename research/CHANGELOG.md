@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.179 (2026-10-19)
+
+- The kit at 0.65.0: Compare ▸ By function, for Lisp. Two versions are compared definition by definition (kit/lispdefs.js, loaded before kit/compare.js): MIT against Stanford gives 993 definitions in common, 990 identical, the three changed being the damaged block of smspec (F1).
+
 ## 0.1.178 (2026-10-19)
 
 - The kit at 0.64.1: the site map lists links in the tab row to pages of their own.
