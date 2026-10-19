@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.177 (2026-10-19)
+
+- The kit at 0.64.0: every paratext type and medium mapped to a standard term (Library of Congress Genre/Form Terms, the Getty AAT, RDA carrier types), shown in the item's box and carried in the Dublin Core export.
+
 ## 0.1.176 (2026-10-19)
 
 - The kit at 0.63.0: a new Type list (what the thing is, 58 types in ten groups, with a find box), a new optional Medium (the carrier of a program or object), and both lists extensible from the bench with New type and New medium.
