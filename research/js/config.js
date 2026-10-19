@@ -69,6 +69,9 @@
     genealogy: { set: ['mit', 'stanford', 'ejs'], line: 'restored', lineNames: { restored: 'To the restoration', stanford: 'Winograd’s copy' } },
     figureNum: { print: '#a3317a', paper: '#a3317a', phosphor: '#e58be0' },
     paratexts: { org: 'critical-code-studies', repo: 'shrdlu_paratexts', cache: 'shrdlu-paratexts' },
+    // the Implementations tab (kit/implementations.js): copies and states of Winograd's program, its ports and
+    // translations, reimplementations and SHRDLU-like programs; public, its files held privately until cleared
+    implementations: { url: 'implementations/catalogue.json' },
     examples: { date: 'e.g. 1971-01-15, or 1971', archive: 'e.g. MIT Museum', versions: 'e.g. mit, stanford',
                 refs: 'e.g. [REF: SHI, plnr.182:120]', publisher: 'e.g. MIT Press', finding: 'F2' },
     // the first version is lost, and the tree grows from it

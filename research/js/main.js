@@ -8,7 +8,7 @@
   'use strict';
   var SW = root.SW;
   SW.BENCH.shell = {
-    views: ['read', 'run', 'analyse', 'compare', 'genealogy', 'about', 'graphics', 'findings', 'notes', 'paratexts'],
+    views: ['read', 'run', 'analyse', 'compare', 'genealogy', 'about', 'graphics', 'findings', 'notes', 'paratexts', 'implementations'],
     lang: function (v) { return { text: SW.langOf(v), title: 'The language this version is written in' }; },
     help: { site: function () { window.open('../', '_blank', 'noopener'); } }
   };

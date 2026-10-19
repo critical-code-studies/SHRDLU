@@ -1,0 +1,3087 @@
+{
+ "schema": 1,
+ "kind": "implementations",
+ "prefix": "I-",
+ "relations": [
+  "port",
+  "adaptation",
+  "translation",
+  "revision",
+  "copy",
+  "reimplementation",
+  "inspired-by",
+  "recovery"
+ ],
+ "via": [
+  "publication",
+  "print listing",
+  "tape",
+  "DECUS",
+  "network",
+  "disk"
+ ],
+ "statuses": [
+  "held",
+  "linked",
+  "printed",
+  "attested",
+  "lost"
+ ],
+ "note": "Implementations of SHRDLU: copies and states of Winograd’s program, ports, translations, reimplementations and SHRDLU-like programs, with declared descent. Parents name an I-code or a variorum version (v:jan71, v:c1, v:mit, v:stanford, v:ejs). Files not yet cleared stay in the paratext archive, named in heldAt.",
+ "variorum": {
+  "v:jan71": "The January 1971 files (c. January 1971)",
+  "v:c1": "The CMU C1 version (June 1972)",
+  "v:mit": "MIT, as found on ITS (files 1972-77)",
+  "v:stanford": "Winograd’s distribution (Stanford; files 1972-77, distributed 1997)",
+  "v:ejs": "Swenson’s restoration (July-August 2024)"
+ },
+ "families": [
+  {
+   "id": "winograd",
+   "name": "Winograd’s SHRDLU",
+   "note": "The program’s own states and their copies: the MIT ITS directories, the 1997 Stanford distribution and its mirrors, Svensson’s and the course copies, Swenson’s 2024 restoration and Pereira’s reconstruction of the thesis-era image. The variorum versions (v:jan71, v:c1, v:mit, v:stanford, v:ejs) are its roots."
+  },
+  {
+   "id": "umr",
+   "name": "The UMR Common Lisp port",
+   "note": "The University of Missouri-Rolla student project’s port of the distribution from MacLisp to Common Lisp (1999-2000), its console and Java 3D versions, and the repositories that carry them on."
+  },
+  {
+   "id": "translations",
+   "name": "Translations of the source",
+   "note": "Whole-program translations of the distribution into another language."
+  },
+  {
+   "id": "microplanner",
+   "name": "Micro-Planner",
+   "note": "The planner SHRDLU runs on (Sussman, Winograd and Charniak), with its own ports."
+  },
+  {
+   "id": "reimplementations",
+   "name": "Reimplementations",
+   "note": "Programs written anew from published descriptions of SHRDLU, aiming to do what it did."
+  },
+  {
+   "id": "homages",
+   "name": "SHRDLU-like programs and homages",
+   "note": "Blocks-world and natural-language programs modelled on SHRDLU or named after it, from the 1970s to now, including magazine and textbook programs. Their descent is from the idea, not the code."
+  }
+ ],
+ "features": [
+  {
+   "id": "grammar",
+   "label": "Systemic grammar",
+   "note": "A parser for Halliday-style systemic grammar written in PROGRAMMAR, as in Winograd’s program."
+  },
+  {
+   "id": "planner",
+   "label": "Micro-Planner",
+   "note": "Deduction and action by Micro-Planner theorems (THGOAL, THASSERT, THCONSE)."
+  },
+  {
+   "id": "display",
+   "label": "Blocks display",
+   "note": "The blocks world drawn on a screen (Type 340, Java 3D, a browser)."
+  },
+  {
+   "id": "dialogue",
+   "label": "Runs the 1970 dialogue",
+   "note": "Carries out the published demonstration dialogue (Understanding Natural Language, section 1.3), or most of it."
+  },
+  {
+   "id": "why",
+   "label": "Why-questions",
+   "note": "Answers questions about its own past actions from an event history (“Why did you pick it up?”)."
+  }
+ ],
+ "collections": [],
+ "sequences": [],
+ "items": [
+  {
+   "title": "SHRDLU; (ITS directory SHRDLU from backup tape tid3100015), PDP-10/its-vault files/shrdlu",
+   "date": "1971/1974",
+   "creator": "Winograd, Terry",
+   "contributor": [
+    "Card, Stuart",
+    "Rubin, Andee",
+    "McDonald, David D.",
+    "Hill, J.",
+    "Brinkhoff, Lars"
+   ],
+   "publisher": "PDP-10 (GitHub organisation)",
+   "source": "GitHub, PDP-10/its-vault, files/shrdlu (commit 5dc6815007, Lars Brinkhoff, 2018-02-21, \"SHRDLU from tid3100015.\")",
+   "archive": "PDP-10/its-vault (GitHub)",
+   "archiveId": "files/shrdlu",
+   "archiveUrl": "https://github.com/PDP-10/its-vault/tree/master/files/shrdlu",
+   "identifier": [
+    "https://github.com/PDP-10/its-vault/tree/master/files/shrdlu",
+    "https://github.com/PDP-10/its-vault/commit/5dc6815007"
+   ],
+   "rights": "None stated (repository carries no licence). SHRDLU is Terry Winograd's work.",
+   "type": "Software",
+   "extent": "63 files, 1,544,704 bytes as a tar (md5 07b2fd933297b2a13d8b7b96c17dfbfc); moby.dump 402,480 bytes (md5 639f79aa03c8aa2f88e33ed4ae578efe)",
+   "language": "en; MacLisp; Micro-Planner; MIDAS/LAP",
+   "description": "An earlier state of the ITS SHRDLU directory than either held ITS set, recovered by Lars Brinkhoff from MIT backup tape tid3100015 and committed 21 February 2018. It holds the MacLisp core image MOBY DUMP and eight Z files (z.answer, z.blocks, z.break, z.dictio, z.gramar, z.mover, z.semant, z.syscom), which the directory's #FILES file calls \"the origninal files of the system circa January 1971\"; earlier versions of the working files (BLOCKS 141/142, DICTIO 70/71, NEWANS 58/59, SMSPEC 88/89, SMUTIL 139/140, SYSCOM 107/108, SHOW 4/5, GLOBAL, DEBUG, BREAK, SCUTIL, SCENE, LOAD); TS TWDEMO; DEMO FLICK; and MANUAL 1, a 482-line copy of the opening of the Card, Rubin and Winograd \"PROVISIONAL SHRDLU USERS' MANUAL (Version 0) ... For CMU-1 Version 10/50 Monitor, August 14, 1972\". By md5 only DEMO FLICK and TWUTIL 14 match the held ITS sets; HELP DOC and MINIH DOC match Winograd's 1997 help and minih apart from trailing padding; every other file is new to the project.",
+   "tags": [
+    "shrdlu",
+    "its",
+    "backup-tape",
+    "maclisp",
+    "micro-planner",
+    "moby-dump",
+    "source-code",
+    "1971"
+   ],
+   "genre": "software",
+   "kind": "file",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "its-vault-shrdlu.tar",
+   "mime": "application/x-tar",
+   "size": 1544704,
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-3H0GS"
+   ],
+   "movedFrom": "P-3H0GS",
+   "heldAt": "P-3H0GS",
+   "code": "I-I4B9Y",
+   "progLanguage": "Lisp (MacLisp), Micro-Planner",
+   "machine": "PDP-10, ITS (MIT-AI)",
+   "family": "winograd",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "copy",
+     "via": "tape",
+     "confidence": "probable",
+     "evidence": "P-DVNCN identifies the MOBY DUMP and Z files as the thesis-era program."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-Z68WV"
+   ]
+  },
+  {
+   "title": "GRAMAR; and GRAMMAR; (ITS directories holding the SHRDLU grammar), PDP-10/its-vault files/gramar and files/grammar",
+   "creator": "Winograd, Terry",
+   "publisher": "PDP-10 (GitHub organisation)",
+   "source": "GitHub, PDP-10/its-vault, files/gramar (commit 046d2c7610, 2018-05-29) and files/grammar (commit 4437736563, 2018-11-20), both committed by Lars Brinkhoff",
+   "archive": "PDP-10/its-vault (GitHub)",
+   "archiveId": "files/gramar; files/grammar",
+   "archiveUrl": "https://github.com/PDP-10/its-vault/tree/master/files/grammar",
+   "identifier": [
+    "https://github.com/PDP-10/its-vault/tree/master/files/gramar",
+    "https://github.com/PDP-10/its-vault/tree/master/files/grammar"
+   ],
+   "rights": "None stated (repository carries no licence). SHRDLU is Terry Winograd's work.",
+   "type": "Software",
+   "extent": "15 files (GRAMAR 61-64, PROGMR 26/27, GINTER 1/2, LOADER 26, MACR 1, CONVER SION, PARSER (INIT), TECO (INIT)); tar 491,008 bytes, md5 c72170b27c1e79e59d29745ed3fccd28",
+   "language": "en; MacLisp",
+   "description": "Two further ITS directories in which the SHRDLU grammar and PROGRAMMAR were kept: GRAMAR 61 to 64 (77-78 KB each, with long block comments describing the CLAUSE program) are much larger, commented versions of the grammar, where the held GRAMAR 28/30 run to 71 KB, and LOADER 26 loads parser and semantics from the SHRDLU, GRAMAR and PLNR directories. CONVER SION is a list of \"POSSIBLE PROBLEMS WHICH MIGT BE ENCOUNTERED IN CONVERTING SHRDLU TO ANOTHER SYSTEM\", comparing MacLisp with Stanford LISP, a document of the 1972 conversions. No file matches any held file by md5. Neither commit names the source tape.",
+   "tags": [
+    "shrdlu",
+    "its",
+    "programmar",
+    "grammar",
+    "maclisp",
+    "conversion",
+    "source-code"
+   ],
+   "genre": "software",
+   "kind": "file",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "its-vault-gramar-grammar.tar",
+   "mime": "application/x-tar",
+   "size": 491008,
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-NS270"
+   ],
+   "movedFrom": "P-NS270",
+   "heldAt": "P-NS270",
+   "code": "I-BGMGV",
+   "progLanguage": "Lisp (MacLisp), PROGRAMMAR",
+   "machine": "PDP-10, ITS (MIT-AI)",
+   "family": "winograd",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:mit",
+     "relation": "revision",
+     "via": "tape",
+     "confidence": "possible",
+     "evidence": "The GRAMAR 61-64 files are longer, commented versions of the grammar held in the MIT set."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "shrdlu-1971-restaurado: SHRDLU da época da tese (1970–71): decodificado e rodando de novo",
+   "date": "2026-10-13",
+   "creator": "Pereira, Samuel Russel",
+   "publisher": "GitHub",
+   "source": "GitHub, SamuelRusselPereira/shrdlu-1971-restaurado (created 13 October 2026)",
+   "archiveUrl": "https://github.com/SamuelRusselPereira/shrdlu-1971-restaurado",
+   "identifier": [
+    "https://github.com/SamuelRusselPereira/shrdlu-1971-restaurado"
+   ],
+   "rights": "MIT License for the new work (scripts, analyses, adjustments); redistributed historical files \"mantém os direitos de origem\" (NOTICE.md), as the README states.",
+   "type": "Software",
+   "extent": "Repository of 251 files: 129 are copies of PDP-10/its and its-vault files (matched by git blob hash against the held sets and beat A downloads); the rest are decoding scripts, diffs, thesis page crops, transcripts",
+   "language": "pt; en (summary, HOW_TO_RUN.md, RESULTS_EN.md)",
+   "description": "A reconstruction published the day before this sweep. Pereira (working with Claude) identifies the its-vault MOBY DUMP and Z files (A-01) as the thesis-era SHRDLU, decodes the image (234 of 238 comparable interpreted definitions identical to the Z files; Micro-Planner database = the 73 assertions of AI-TR-235 Appendix F) and runs it on the KA10 emulator: \"36 das 46 respostas do diálogo da tese palavra por palavra\" with 17 documented code interventions and 4 variables, 20 with none. It also reports, in 06_verificacoes/smspec_corrupcao_stanford.diff, that the smspec in Winograd's 1997 Stanford distribution has 25 bit-damaged lines (SMONE3, SMPOSS/SMPOSS2, SMRELATE) that the ITS copy lacks; beat A confirmed this by diffing the held original/code/smspec against its/as-found/smspec.94. Its claims about tapes, the pidp-10 group and Swenson's conversation with Winograd are Pereira's and are secondary here.",
+   "tags": [
+    "shrdlu",
+    "reconstruction",
+    "moby-dump",
+    "thesis",
+    "emulation",
+    "its",
+    "2026"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/SamuelRusselPereira/shrdlu-1971-restaurado",
+   "kind": "link",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-DVNCN"
+   ],
+   "movedFrom": "P-DVNCN",
+   "code": "I-Z68WV",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "PDP-10 (emulated)",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-I4B9Y",
+     "relation": "recovery",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The reconstruction decodes the its-vault MOBY DUMP and Z files (P-DVNCN)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "publisher": "Computer History Museum",
+   "archive": "Computer History Museum, Herbert Stoyan collection on LISP programming",
+   "rights": "None stated.",
+   "language": "en",
+   "kind": "link",
+   "title": "SHRDLU - PDP-10",
+   "creator": "Winograd, Terry",
+   "contributor": [
+    "Görz, Günther"
+   ],
+   "source": "Computer History Museum catalogue record 102719725 (Gift of Herbert Stoyan, acquisition X5687.2010)",
+   "archiveId": "102719725",
+   "archiveUrl": "https://www.computerhistory.org/collections/catalog/102719725",
+   "identifier": [
+    "https://www.computerhistory.org/collections/catalog/102719725"
+   ],
+   "type": "Software",
+   "extent": "0.5-inch magnetic tape; 1 folder",
+   "genre": "magtape",
+   "tags": [
+    "shrdlu",
+    "magtape",
+    "pdp-10",
+    "erlangen",
+    "stoyan",
+    "chm",
+    "undigitised",
+    "to-request"
+   ],
+   "url": "https://www.computerhistory.org/collections/catalog/102719725",
+   "description": "A catalogue record for an unread half-inch magnetic tape: \"The label says SHRDLU GOERZ ASCII PDP-10 800bpi. Presumably the tape belonged to Guenther Goerz at Erlangen.\" Publisher given as MIT. The tape has not been read or published as far as the record shows; it is a copy of SHRDLU that left MIT, of unknown version and date, and the only physical SHRDLU tape located in this sweep.",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-1TPNG"
+   ],
+   "movedFrom": "P-1TPNG",
+   "code": "I-ROBNL",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "PDP-10",
+   "family": "winograd",
+   "status": "attested",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:mit",
+     "relation": "copy",
+     "via": "tape",
+     "confidence": "possible",
+     "evidence": "A tape labelled SHRDLU GOERZ ASCII PDP-10 800bpi, unread; version unknown."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "kind": "link",
+   "url": "https://github.com/PDP-10/its/pull/2318",
+   "title": "PDP-10/its pull request #2318, “Added SHRDLU and MicroPlanner” (Eric Swenson)",
+   "date": "2024-07-22",
+   "creator": "Swenson, Eric",
+   "source": "GitHub, opened 22 July 2024, merged 25 July 2024",
+   "description": "The restoration this bench runs as Swenson’s version: SHRDLU and Micro-Planner built and running on ITS.",
+   "tags": [
+    "restoration",
+    "Swenson",
+    "ITS"
+   ],
+   "type": "Software",
+   "language": "en",
+   "identifier": [
+    "https://github.com/PDP-10/its/pull/2318"
+   ],
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "accessioned": "2026-10-11",
+   "genre": "repo",
+   "related": [],
+   "paratexts": [
+    "P-DB9VP"
+   ],
+   "movedFrom": "P-DB9VP",
+   "code": "I-XOGCO",
+   "progLanguage": "Lisp (MacLisp), Micro-Planner",
+   "machine": "PDP-10, ITS",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:ejs",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The pull request that added Swenson’s restoration to PDP-10/its."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "shrdlu-202407271253.tape (ITS DUMP tape of the restored SHRDLU directory, with L;SLAVE 11 and LISP;SLAVE FASL)",
+   "date": "2024-07-27",
+   "creator": "Swenson, Eric",
+   "publisher": "Eric Swenson (Amazon S3 bucket eswenson-its)",
+   "source": "https://s3.amazonaws.com/eswenson-its/public/shrdlu-202407271253.tape (linked in the PiDP-10 thread \"Fwd: SHRDLU and MicroPlanner\", 27 July 2024; Last-Modified 27 Jul 2024 20:06:01 GMT)",
+   "archive": "Amazon S3, eswenson-its/public",
+   "identifier": [
+    "https://s3.amazonaws.com/eswenson-its/public/shrdlu-202407271253.tape"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "1,751,482 bytes, md5 19ce2ebbb3d2f2b310f2e0070cc3cc17 (simulator tape image; not mounted or run)",
+   "language": "en; MacLisp; Micro-Planner",
+   "description": "A tape image made by Swenson for PiDP-10 users to load onto an existing ITS: \"a tape that contains just the SHRDLU directory, as well as L;SLAVE 11 and LISP;SLAVE FASL. You should be able to LOAD this on on existing ITS to get SHRDLU and MicroPlanner.\" It is the restored, interpreted state of SHRDLU five days after PR #2318, with TS SHRDLU and TS PLNR executables per his instructions. Not opened here (rule: nothing downloaded is run).",
+   "tags": [
+    "shrdlu",
+    "its",
+    "tape-image",
+    "micro-planner",
+    "2024-restoration",
+    "pidp-10"
+   ],
+   "genre": "magtape",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "shrdlu-202407271253.tape",
+   "mime": "application/octet-stream",
+   "size": 1751482,
+   "kind": "file",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-4RMI1"
+   ],
+   "movedFrom": "P-4RMI1",
+   "heldAt": "P-4RMI1",
+   "code": "I-3AYR0",
+   "progLanguage": "Lisp (MacLisp), Micro-Planner",
+   "machine": "PDP-10, ITS",
+   "family": "winograd",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:ejs",
+     "relation": "copy",
+     "via": "tape",
+     "confidence": "established",
+     "evidence": "Swenson’s tape of the restored directory, five days after PR #2318."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-7THI8"
+   ]
+  },
+  {
+   "title": "shrdlu-20240815.tape (ITS DUMP tape: SHRDLU;* *, SYS;ATSIGN 10SLAV, L;SLAVE 11, LISP;SLAVE FASL, built for KA ITS)",
+   "date": "2024-08-15",
+   "creator": "Swenson, Eric",
+   "publisher": "Eric Swenson (Amazon S3 bucket eswenson-its)",
+   "source": "https://s3.amazonaws.com/eswenson-its/public/shrdlu-20240815.tape (link as corrected in the PiDP-10 thread \"SHRDLU Status Update\", 16 Aug 2024; the first link given, s3.amazonaws.com/eswenson/its/public/..., returns 403; Last-Modified 16 Aug 2024 04:08:08 GMT)",
+   "archive": "Amazon S3, eswenson-its/public",
+   "identifier": [
+    "https://s3.amazonaws.com/eswenson-its/public/shrdlu-20240815.tape"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "2,512,234 bytes, md5 09b080798a67615d5faba408a10ea5d9 (simulator tape image; not mounted or run)",
+   "language": "en; MacLisp; Micro-Planner; MIDAS",
+   "description": "Swenson's second distribution tape, with the compiled SHRDLU (\"the SHRDLU;TS SHRDLU executable produced uses all compiled FASLs for PLNR and SHRDLU code (except for LOADER and SETUP\") and the PDP-10 slave program for the Type 340 reassembled with GT40F=0, which made the blocks display work. Contents as he lists them in the post of 16 Aug 2024: \"SHRDLU;* * / SYS;ATSIGN 10SLAV / L;SLAVE 11 / LISP;SLAVE FASL\". Not opened here.",
+   "tags": [
+    "shrdlu",
+    "its",
+    "tape-image",
+    "type-340",
+    "compiled",
+    "2024-restoration",
+    "pidp-10"
+   ],
+   "genre": "magtape",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "shrdlu-20240815.tape",
+   "mime": "application/octet-stream",
+   "size": 2512234,
+   "kind": "file",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-M0GMF"
+   ],
+   "movedFrom": "P-M0GMF",
+   "heldAt": "P-M0GMF",
+   "code": "I-7THI8",
+   "progLanguage": "Lisp (MacLisp, compiled), Micro-Planner",
+   "machine": "PDP-10, ITS, Type 340",
+   "family": "winograd",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-3AYR0",
+     "relation": "revision",
+     "via": "tape",
+     "confidence": "established",
+     "evidence": "The second tape: compiled FASLs and the reassembled slave program that made the display work."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": true,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "SHRDLU; directory on the public ITS machine SV (its.svensson.org), with Keldon Jones's READ ME",
+   "date": "2001-10/2008-02",
+   "creator": "Svensson, Paul",
+   "contributor": [
+    "Jones, Keldon"
+   ],
+   "source": "Internet Archive Wayback Machine, captures of http://its.svensson.org/SHRDLU; (20 August 2008) and http://its.svensson.org/SHRDLU;READ (2 October 2011)",
+   "archiveUrl": "https://web.archive.org/web/20080820063324/http://its.svensson.org/SHRDLU%3b",
+   "identifier": [
+    "https://web.archive.org/web/20080820063324/http://its.svensson.org/SHRDLU%3b",
+    "https://web.archive.org/web/20111002171455/http://its.svensson.org/SHRDLU%3bREAD"
+   ],
+   "rights": "None stated.",
+   "type": "Software",
+   "extent": "Directory listing of 55 files (saved page 6,129 bytes) and READ ME text (1,095 bytes)",
+   "language": "en",
+   "description": "A web view of the SHRDLU directory on Paul Svensson's public ITS (machine SV) running under the KLH10 emulator: Winograd's distribution files loaded as version 1 on 4 May 2002 (BLOCKL 1, CGRAM 1, DDM BLURB, FASL MAIL, FILE NOTE, MANUAL 1 ...) and modified second versions dated October 2001 to May 2002 (BLOCKL 2, DICTIO 2, NEWANS 2, PLNR 2, SMSPEC 2, SYSCOM 2 ...), with LGRAMR 2 of 9 February 2008. The READ ME is Keldon Jones's file for \"macshrd\", a SHRDLU modified to run on his \"simple 'maclisp' interpreter\", and says changes were needed \"especially in 'smspec' where some bizarre bitrot seems to have happened\", an early notice of the smspec damage confirmed at A-07. The listing is headed \"SV   SHRDLU\". Lars Brinkhoff's issue #147 lists \"SV:SHRDLU; (I have a copy)\". The file contents were not captured by the Wayback Machine.",
+   "tags": [
+    "shrdlu",
+    "its",
+    "klh10",
+    "emulator",
+    "keldon-jones",
+    "directory-listing"
+   ],
+   "genre": "listing",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "shrdlu-dir-20080820.html",
+   "mime": "text/html",
+   "size": 6129,
+   "kind": "text",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-CVMET"
+   ],
+   "movedFrom": "P-CVMET",
+   "code": "I-67KYI",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "PDP-10, ITS (SV, under KLH10)",
+   "family": "winograd",
+   "status": "attested",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "adaptation",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The distribution files loaded as version 1 on 4 May 2002, with modified second versions (P-CVMET)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Index of /~c451/shrdlu (University of Alberta, CMPUT 451 course copy of the SHRDLU distribution), with files init and loader2 dated 07-Jun-1995",
+   "date": "1995-06-07/2004-08-29",
+   "creator": "University of Alberta, Department of Computing Science (course c451)",
+   "publisher": "ugweb.cs.ualberta.ca",
+   "source": "Wayback Machine captures: directory 20040829033917, init 20020312133358, loader2 20020312195359; URL given on Usenet in comp.ai, 28 Jan 1999 (P-HKAKL)",
+   "archive": "Internet Archive Wayback Machine",
+   "archiveUrl": "http://web.archive.org/web/20040829033917/http://ugweb.cs.ualberta.ca:80/~c451/shrdlu/",
+   "identifier": [
+    "http://ugweb.cs.ualberta.ca/~c451/shrdlu/"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "directory listing (held) and 2 files (held as alternates); index-20040829.html 7676 bytes md5 54c70ccfa6b51317fd79d1b59d162a25; init 2388 bytes md5 236217356e746be6e6e77ce1e516ab59; loader2 3414 bytes md5 29d193b4b36aedec7eb2115ca1ab30e9",
+   "language": "en",
+   "description": "A course directory at Alberta holding the 1989 Stanford distribution (files dated 13-Dec-1989: blockl, blockp, blurb, cgram ... thtrac) plus two files dated 07-Jun-1995, init and loader2, pointed to on comp.ai in 1999 as \"scary looking source\". Compared with the held 1997 init and loader: init comments out \"(comment symbol 5000)\"; loader2 changes \"(DEFUN FLOAD FEXPR (SPECS)\" to \"(DEFUN FLOAD (SPECS)\" and comments out the Maclisp ALLOC call. Small 1995 edits towards loading the code in a non-Maclisp Lisp for teaching; a modified copy, not a port. The other 1989 files were not fetched (presumed identical to the held distribution; unverified).",
+   "tags": [
+    "ualberta",
+    "teaching",
+    "porting",
+    "loader",
+    "1995",
+    "wayback"
+   ],
+   "genre": "software",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "index-20040829.html",
+   "mime": "text/html",
+   "size": 7676,
+   "kind": "text",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-TXBRE"
+   ],
+   "movedFrom": "P-TXBRE",
+   "heldAt": "P-TXBRE",
+   "code": "I-GTTZY",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "",
+   "family": "winograd",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "revision",
+     "via": "network",
+     "confidence": "probable",
+     "evidence": "Files dated 13-Dec-1989, with init and loader2 edited 7 June 1995; the parent is the distribution’s 1989 state, before the 1997 release."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "stuartpb/shrdlu (GitHub): Terry Winograd's SHRDLU",
+   "date": "2011-03-06",
+   "creator": "Bentley, Stuart P.",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/stuartpb/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "stuartpb/shrdlu",
+   "archiveUrl": "https://github.com/stuartpb/shrdlu",
+   "identifier": [
+    "https://github.com/stuartpb/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Earliest GitHub copy of the SHRDLU source found: one commit, 6 March 2011, 'original maclisp source from http://hci.stanford.edu/winograd/shrdlu/code', i.e. the 1997 Winograd distribution (file-note, files, manual, plnr, syscom and the rest) without modification. Repository created 30 November 2012 (the commit predates it). A mirror, not a port.",
+   "tags": [
+    "github",
+    "mirror",
+    "winograd-1997-distribution",
+    "maclisp"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/stuartpb/shrdlu",
+   "kind": "link",
+   "extent": "1 commit; 33 files",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-DF3JB"
+   ],
+   "movedFrom": "P-DF3JB",
+   "code": "I-G99IK",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "One commit, 6 March 2011, of the code from Winograd’s Stanford page, unmodified."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "penlu/cmfwyp (GitHub): a resurrection of the classic natural language understanding program SHRDLU",
+   "date": "2014-11-15",
+   "creator": "Lu, Eric",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/penlu/cmfwyp",
+   "archive": "GitHub",
+   "archiveId": "penlu/cmfwyp",
+   "archiveUrl": "https://github.com/penlu/cmfwyp",
+   "identifier": [
+    "https://github.com/penlu/cmfwyp"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Earlier repository by Eric Lu, 6 commits on 15 November 2014, holding the original code and notes ('shrdlu/docs/notes.md') for a planned resurrection 'extended to allow comprehension of well-defined environments dealing with things other than blocks'. Precursor of penlu/shrdlu.",
+   "tags": [
+    "github",
+    "common-lisp",
+    "port",
+    "notes"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/penlu/cmfwyp",
+   "kind": "link",
+   "extent": "6 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-SB1S2"
+   ],
+   "movedFrom": "P-SB1S2",
+   "code": "I-IIV2Q",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The original code with notes for a planned resurrection (2014)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "policecar/shrdlu (GitHub): Terry Winograd's SHRDLU from 1972",
+   "date": "2015-12-16",
+   "creator": "policecar",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/policecar/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "policecar/shrdlu",
+   "archiveUrl": "https://github.com/policecar/shrdlu",
+   "identifier": [
+    "https://github.com/policecar/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Mirror of the 1997 Winograd distribution in one commit, 16 December 2015: 'The original SHRDLU code as found at http://hci.stanford.edu/winograd/shrdlu/code.tar.' The README is Winograd's distribution README ('a cleaned up version done by Stu Card, Andee Rubin, and Terry Winograd in 1972') with an excerpt from the PROVISIONAL SHRDLU USERS' MANUAL.",
+   "tags": [
+    "github",
+    "mirror",
+    "winograd-1997-distribution",
+    "maclisp"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/policecar/shrdlu",
+   "kind": "link",
+   "extent": "1 commit; 30 files",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-Q12W1"
+   ],
+   "movedFrom": "P-Q12W1",
+   "code": "I-KCG17",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "Mirror of code.tar from Winograd’s Stanford page, 16 December 2015."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "philspil66/SHRDLU (GitHub): A collection of versions of SHRDLU",
+   "date": "2024-01-08",
+   "creator": "Spilsbury, Phil",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/philspil66/SHRDLU",
+   "archive": "GitHub",
+   "archiveId": "philspil66/SHRDLU",
+   "archiveUrl": "https://github.com/philspil66/SHRDLU",
+   "identifier": [
+    "https://github.com/philspil66/SHRDLU"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Copy of the 1997 Winograd distribution in a Winograd_MacLisp folder, 4 commits on 8 January 2024, described as 'A collection of versions of SHRDLU'. ronperkinsuk/SHRDLU (5 March 2026) has the same description and folder.",
+   "tags": [
+    "github",
+    "mirror",
+    "winograd-1997-distribution"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/philspil66/SHRDLU",
+   "kind": "link",
+   "extent": "4 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-PK6TG"
+   ],
+   "movedFrom": "P-PK6TG",
+   "code": "I-ZC37T",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The 1997 distribution in a Winograd_MacLisp folder, 2024."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "shrdlu: shrdlu source code + associated documentation (GitHub, penlu/shrdlu)",
+   "date": "2015-06-09/2015-06-11",
+   "creator": "penlu (GitHub user)",
+   "publisher": "GitHub",
+   "source": "GitHub, penlu/shrdlu (created 9 June 2015)",
+   "archiveUrl": "https://github.com/penlu/shrdlu",
+   "identifier": [
+    "https://github.com/penlu/shrdlu"
+   ],
+   "rights": "None stated (no licence file).",
+   "type": "Software",
+   "extent": "41 files (33 MB): code/ (Winograd's 1997 set, 18 files unchanged, 15 edited) and docs/ (PDFs of AIM-181, AIM-203, AIM-203a, AIM-282, AITR-235 and Moon's MACLISP Reference Manual of 27 July 1978)",
+   "language": "en; MacLisp; Common Lisp",
+   "description": "\"A minimally modified version of Terry Winograd's SHRDLU code from 1972\" (README), edited to load in CLISP: 15 of the 33 files of the held 1997 set are changed (blockl, cgram, ginter, init, loader, macros, morpho, newans, plnr, progmr, setup, show, smutil, syscom, thtrac), the rest are identical by git blob hash. The README lists the MacLisp behaviours that block the port, such as `(cdr 'foo)` returning a property list. Named in the bench repository's PROVENANCE.md but not held in shrdlu_paratexts. The account also has penlu/cmfwyp (2014), \"a resurrection of the classic natural language understanding program SHRDLU\".",
+   "tags": [
+    "shrdlu",
+    "reconstruction",
+    "common-lisp",
+    "clisp",
+    "port"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/penlu/shrdlu",
+   "kind": "link",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-36N0R"
+   ],
+   "movedFrom": "P-36N0R",
+   "code": "I-A80OB",
+   "progLanguage": "Common Lisp (CLISP)",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "port",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "15 of the 33 files of the 1997 set edited to load in CLISP; the rest identical by git blob hash."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "kind": "link",
+   "url": "https://github.com/pcerman/etaoin-shrdlu",
+   "title": "pcerman/etaoin-shrdlu (GitHub)",
+   "date": "2021",
+   "creator": "pcerman",
+   "source": "GitHub, created 16 January 2021",
+   "rights": "MPL-2.0",
+   "description": "“This is my attempt to make the SHRDLU program executable.” A MacLisp interpreter that runs the original sources.",
+   "tags": [
+    "reconstruction",
+    "MacLisp",
+    "GitHub"
+   ],
+   "type": "Software",
+   "identifier": [
+    "https://github.com/pcerman/etaoin-shrdlu"
+   ],
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "accessioned": "2026-10-11",
+   "genre": "repo",
+   "related": [],
+   "paratexts": [
+    "P-GKQZ3"
+   ],
+   "movedFrom": "P-GKQZ3",
+   "code": "I-GRUBA",
+   "progLanguage": "Lisp (MacLisp), with a MacLisp interpreter",
+   "machine": "",
+   "family": "winograd",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "adaptation",
+     "via": "network",
+     "confidence": "probable",
+     "evidence": "“My attempt to make the SHRDLU program executable”: a MacLisp interpreter that runs the original sources."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "SHRDLU in Common Lisp: the UMR student port (1999-2000)",
+   "creator": "University of Missouri-Rolla SHRDLU project (Verren, Fischer, Jones, Adrian, Sharp and others)",
+   "date": "1999/2000",
+   "description": "The University of Missouri-Rolla student project that ported Winograd’s distribution from MacLisp to Common Lisp (CLISP, later Corman Lisp) in 1999-2000 and gave it a Java 3D front end. No copy of the project’s own repository is held; its code survives in the console and Java versions on Winograd’s page and in later repositories.",
+   "type": "Software",
+   "language": "en",
+   "tags": [],
+   "genre": "software",
+   "kind": "missing",
+   "collections": [],
+   "refs": [],
+   "related": [],
+   "paratexts": [
+    "P-NJ5FZ",
+    "P-8X2ZY",
+    "P-TBIS7",
+    "P-9CCWM",
+    "P-2QK9B"
+   ],
+   "accessioned": "2026-10-19",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "code": "I-B0LGI",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "progLanguage": "Common Lisp (CLISP, later Corman Lisp)",
+   "machine": "PC (Windows), Unix",
+   "family": "umr",
+   "status": "attested",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "port",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The UMR list records the port of Winograd’s distribution from MacLisp to Common Lisp from January 1999 (P-NJ5FZ, P-8X2ZY)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-MQ1LD",
+    "I-HUBK0",
+    "I-EQSEB",
+    "I-31JWN",
+    "I-3HRA4",
+    "I-4W0J2"
+   ]
+  },
+  {
+   "title": "shrdlu.tar.gz, Dan Knapp's posting of the UMR Common Lisp SHRDLU code (brain.mics.net/~dankna/himitsu/)",
+   "creator": "Knapp, Dan",
+   "publisher": "brain.mics.net",
+   "source": "Cited on the Semaphore Corporation \"SHRDLU resurrection\" page (held P-9CCWM)",
+   "rights": "None stated",
+   "type": "Software",
+   "language": "en; Common Lisp",
+   "description": "Provenance found but item not available or missing. A compressed tar of the University of Missouri-Rolla student project's Common Lisp port of SHRDLU, posted by Dan Knapp; Semaphore judged it \"apparently a newer version than the one posted by Keldon Jones, possibly equivalent to Greg Sharp's submittal\" (Sharp's files are the held UMR console and Java versions, so the contents may already be held). Cited in: P-9CCWM, Semaphore \"SHRDLU resurrection\" page (Wayback capture of 2018-03-23 of maf.directory), link http://brain.mics.net/~dankna/himitsu/shrdlu.tar.gz: \"[Dan Knapp] (dankna@brain.mics.net) has also posted [code] from the [student project]\". Searched: Wayback CDX for brain.mics.net/~dankna/himitsu* (no rows) and for the whole brain.mics.net domain filtered for himitsu, shrdlu and tar.gz (none); Knapp's home page as captured 2001-05-17 (links only to the CMU AI Repository, the UT AI Attic and Project SHRDLU) and comp/lang/ page 2001-06-07; GitHub code search for the UMR PLNR header (copies found are the held UMR sets).",
+   "tags": [
+    "shrdlu",
+    "umr",
+    "common-lisp",
+    "knapp",
+    "missing",
+    "to-locate"
+   ],
+   "genre": "software",
+   "kind": "missing",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-2QK9B"
+   ],
+   "movedFrom": "P-2QK9B",
+   "code": "I-MQ1LD",
+   "progLanguage": "Common Lisp",
+   "machine": "",
+   "family": "umr",
+   "status": "lost",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "Dan Knapp’s posting of the project’s code (P-2QK9B)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "kind": "link",
+   "url": "https://web.archive.org/web/20051001022542/http://hci.stanford.edu:80/~winograd/shrdlu/download/consoleshrdlu.zip",
+   "title": "consoleshrdlu.zip: the UMR text console version (Winograd’s download page, Wayback Machine)",
+   "creator": "University of Missouri-Rolla SHRDLU resurrection project",
+   "source": "Internet Archive Wayback Machine, capture of 1 October 2005",
+   "archive": "Internet Archive",
+   "archiveUrl": "https://web.archive.org/web/20051001022542/http://hci.stanford.edu:80/~winograd/shrdlu/download/consoleshrdlu.zip",
+   "rights": "No licence stated.",
+   "description": "The Windows text-only console version in Common Lisp that Winograd’s page offered. Catalogued as a link; not downloaded.",
+   "tags": [
+    "reconstruction",
+    "Common Lisp",
+    "UMR"
+   ],
+   "type": "Software",
+   "contributor": [
+    "Sharp, Greg"
+   ],
+   "extent": "zip, 0.9 MB",
+   "identifier": [
+    "https://web.archive.org/web/20051001022542/http://hci.stanford.edu:80/~winograd/shrdlu/download/consoleshrdlu.zip"
+   ],
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "accessioned": "2026-10-11",
+   "genre": "software",
+   "related": [],
+   "paratexts": [
+    "P-Z3QJY"
+   ],
+   "movedFrom": "P-Z3QJY",
+   "code": "I-HUBK0",
+   "progLanguage": "Common Lisp",
+   "machine": "PC (Windows), text console",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "revision",
+     "via": "network",
+     "confidence": "probable",
+     "evidence": "The console version offered on Winograd’s download page."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-GOBSG",
+    "I-LFA9Q"
+   ]
+  },
+  {
+   "kind": "link",
+   "url": "https://web.archive.org/web/20051215190035/http://hci.stanford.edu:80/~winograd/shrdlu/download/javashrdlu.zip",
+   "title": "javashrdlu.zip: the UMR Java 3D version (Winograd’s download page, Wayback Machine)",
+   "creator": "University of Missouri-Rolla SHRDLU resurrection project",
+   "source": "Internet Archive Wayback Machine, capture of 15 December 2005",
+   "archive": "Internet Archive",
+   "archiveUrl": "https://web.archive.org/web/20051215190035/http://hci.stanford.edu:80/~winograd/shrdlu/download/javashrdlu.zip",
+   "rights": "No licence stated.",
+   "description": "The graphical version Winograd’s page offered (“a graphical 3-D version implemented with an extra Java layer”, supplied by Greg Sharp). Catalogued as a link; the zip holds programs and was not downloaded.",
+   "tags": [
+    "reconstruction",
+    "Java",
+    "UMR"
+   ],
+   "type": "Software",
+   "contributor": [
+    "Sharp, Greg"
+   ],
+   "extent": "zip, 7.5 MB",
+   "identifier": [
+    "https://web.archive.org/web/20051215190035/http://hci.stanford.edu:80/~winograd/shrdlu/download/javashrdlu.zip"
+   ],
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "accessioned": "2026-10-11",
+   "genre": "software",
+   "related": [],
+   "paratexts": [
+    "P-NJJJG"
+   ],
+   "movedFrom": "P-NJJJG",
+   "code": "I-EQSEB",
+   "progLanguage": "Common Lisp, Java 3D",
+   "machine": "PC (Windows)",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "adaptation",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The UMR code with “an extra Java layer” for 3-D display, supplied by Greg Sharp."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": true,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-3DG35"
+   ]
+  },
+  {
+   "title": "milesd/SHRDLU (GitHub): SHRDLU is a program for understanding natural language",
+   "date": "2026-07-22",
+   "creator": "Davis, Miles",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/milesd/SHRDLU",
+   "archive": "GitHub",
+   "archiveId": "milesd/SHRDLU",
+   "archiveUrl": "https://github.com/milesd/SHRDLU",
+   "identifier": [
+    "https://github.com/milesd/SHRDLU"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "CLISP port carrying the internal version tag 'UMR-1.0' ('ported at the University of Missouri-Rolla (UMR) around 2000'), by the GitHub user milesd, whose profile name is Miles Davis (California, atarax.is); a Miles Davis (miles@umr.edu) was one of the 1999 UMR porters. The git history is reconstructed with backdated commits: 'Original MACLISP dissertation code' (author 'Terry Winograd', 1970-01-01), '1972 C1 version: cleanup by Card, Rubin, and Winograd' (1972-06-01), ten port commits authored 'Matt Fischer' dated 13 September 1999 to 14 March 2000 ('Complete Common Lisp port'), then Miles Davis's fixes (1 May 2026) and README (22 July 2026); the repository was created 4 February 2022. Renderer branches add CLX (X11), DEC ReGIS, Sixel and ASCII displays. The backdated history is a reconstruction and is not evidence of 1999 dates.",
+   "tags": [
+    "github",
+    "common-lisp",
+    "clisp",
+    "umr-port",
+    "renderer",
+    "regis",
+    "sixel"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/milesd/SHRDLU",
+   "kind": "link",
+   "extent": "15 commits (backdated history); 5 renderer branches",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-L1C1I"
+   ],
+   "movedFrom": "P-L1C1I",
+   "code": "I-31JWN",
+   "progLanguage": "Common Lisp (CLISP)",
+   "machine": "",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "probable",
+     "evidence": "Internal tag UMR-1.0; posted by a GitHub user who may be one of the 1999 porters; history backdated."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "www-shrdlu (GitHub, tsgouros/www-shrdlu)",
+   "date": "2014-06-28/2015-04-01",
+   "creator": "Sgouros, Tom",
+   "publisher": "GitHub",
+   "source": "GitHub, tsgouros/www-shrdlu (created 28 June 2014, last push 1 April 2015)",
+   "archiveUrl": "https://github.com/tsgouros/www-shrdlu",
+   "identifier": [
+    "https://github.com/tsgouros/www-shrdlu"
+   ],
+   "rights": "None stated (no licence file).",
+   "type": "Software",
+   "extent": "106 files (2.7 MB): Common Lisp source in src/ (.lisp), a three.js renderer in render/, a node queue-server; 72 files identical by git blob hash to the held UMR (javashrdlu.zip) or 1997 sets",
+   "language": "en; Common Lisp; JavaScript",
+   "description": "A 2013-2015 revival of the UMR Common Lisp port with a browser renderer. Sgouros's README: \"This project (www-shrdlu) involved re-reviving that port, and adding a Javascript/3js graphics implementation of the renderer\", run at block.cs.brown.edu, and \"The current version vaguely resembles a SHRDLU that has had a stroke.\" The src/*.lisp files are edited versions of the UMR port (remote.lisp is dated \"-ts. 12/14/2013\"); the same Lisp is reused in GunterMueller/SHRDLU_Resurrection.",
+   "tags": [
+    "shrdlu",
+    "reconstruction",
+    "common-lisp",
+    "three-js",
+    "web",
+    "brown"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/tsgouros/www-shrdlu",
+   "kind": "link",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-TYUZ5"
+   ],
+   "movedFrom": "P-TYUZ5",
+   "code": "I-3HRA4",
+   "progLanguage": "Common Lisp, JavaScript (three.js)",
+   "machine": "Web browser",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "revision",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "Sgouros: “re-reviving that port, and adding a Javascript/3js graphics implementation of the renderer”."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": true,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-3DG35"
+   ]
+  },
+  {
+   "title": "GunterMueller/SHRDLU_Resurrection (GitHub): A SHRDLU resurrection project",
+   "date": "2018-09-07",
+   "creator": "Mueller, Gunter",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/GunterMueller/SHRDLU_Resurrection",
+   "archive": "GitHub",
+   "archiveId": "GunterMueller/SHRDLU_Resurrection",
+   "archiveUrl": "https://github.com/GunterMueller/SHRDLU_Resurrection",
+   "identifier": [
+    "https://github.com/GunterMueller/SHRDLU_Resurrection"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Compilation, 7-8 September 2018 (3 commits), of javashrdlu.zip from Winograd's download page and the Common Lisp from tsgouros/www-shrdlu ('since it's cleaner code'); README text largely reproduces Sgouros's. A repackaging rather than new porting work.",
+   "tags": [
+    "github",
+    "common-lisp",
+    "java",
+    "umr-port",
+    "compilation"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/GunterMueller/SHRDLU_Resurrection",
+   "kind": "link",
+   "extent": "3 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-1DXC7"
+   ],
+   "movedFrom": "P-1DXC7",
+   "code": "I-3DG35",
+   "progLanguage": "Common Lisp, Java",
+   "machine": "",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-EQSEB",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "javashrdlu.zip repackaged"
+    },
+    {
+     "code": "I-3HRA4",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "with the Common Lisp from www-shrdlu"
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "LSaldyt/consoleshrdlu (GitHub): Clone of console shrdlu",
+   "date": "2017-10-16",
+   "creator": "Saldyt, Lucas",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/LSaldyt/consoleshrdlu",
+   "archive": "GitHub",
+   "archiveId": "LSaldyt/consoleshrdlu",
+   "archiveUrl": "https://github.com/LSaldyt/consoleshrdlu",
+   "identifier": [
+    "https://github.com/LSaldyt/consoleshrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Copy of the UMR consoleshrdlu.zip files (BLOCKL.l ... THTRAC.l, shrdlu.bat), first commit 16 October 2017, 3 commits to 30 October 2017, described as '[category:clone]'.",
+   "tags": [
+    "github",
+    "common-lisp",
+    "umr-port",
+    "clone"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/LSaldyt/consoleshrdlu",
+   "kind": "link",
+   "extent": "3 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-24ER6"
+   ],
+   "movedFrom": "P-24ER6",
+   "code": "I-GOBSG",
+   "progLanguage": "Common Lisp",
+   "machine": "",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-HUBK0",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The consoleshrdlu.zip files, described as a clone."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "id2359/shrdlu (GitHub): Trying to get an old shrdlu to work",
+   "date": "2014-06-01",
+   "creator": "id2359",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/id2359/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "id2359/shrdlu",
+   "archiveUrl": "https://github.com/id2359/shrdlu",
+   "identifier": [
+    "https://github.com/id2359/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "One commit, 1 June 2014, 'Added old shrdlu code': the UMR-era upper-case file set (BLOCKL, FIXES, MOVER and others, as in consoleshrdlu.zip), with the description 'Trying to get an old shrdlu to work'. No further work.",
+   "tags": [
+    "github",
+    "umr-port",
+    "copy"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/id2359/shrdlu",
+   "kind": "link",
+   "extent": "1 commit",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-P7O6S"
+   ],
+   "movedFrom": "P-P7O6S",
+   "code": "I-LFA9Q",
+   "progLanguage": "Common Lisp",
+   "machine": "",
+   "family": "umr",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-HUBK0",
+     "relation": "copy",
+     "via": "network",
+     "confidence": "probable",
+     "evidence": "The UMR-era upper-case file set, as in consoleshrdlu.zip."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "bodza/shrdlu (GitHub): SHRDLU [to be] resurrected in Clojure",
+   "date": "2017-04-18",
+   "creator": "Zawiasa, Robert Henryk",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/bodza/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "bodza/shrdlu",
+   "archiveUrl": "https://github.com/bodza/shrdlu",
+   "identifier": [
+    "https://github.com/bodza/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Translation of the whole SHRDLU source into Clojure in a single file, src/shrdlu/core.clj (355,180 bytes), with the 1997 distribution kept under anno/winograd; 133 commits between 18 April and 6 May 2017.",
+   "tags": [
+    "github",
+    "clojure",
+    "translation"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/bodza/shrdlu",
+   "kind": "link",
+   "extent": "133 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-6LZ5O"
+   ],
+   "movedFrom": "P-6LZ5O",
+   "code": "I-SJ5RR",
+   "progLanguage": "Clojure",
+   "machine": "JVM",
+   "family": "translations",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "translation",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "The whole source in one Clojure file, with the 1997 distribution kept under anno/winograd."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Micro-Planner files, 1971-1982 (MITDDC/plnr-1971-1982)",
+   "date": "1971/1982",
+   "creator": "Sussman, Gerald Jay",
+   "contributor": [
+    "Winograd, Terry",
+    "Charniak, Eugene",
+    "Carrano, Joe",
+    "Swenson, Eric"
+   ],
+   "publisher": "Massachusetts Institute of Technology, Department of Distinctive Collections",
+   "source": "GitHub, MITDDC/plnr-1971-1982 (initial commit by Joe Carrano, 16 October 2024), zip from codeload.github.com",
+   "archive": "Massachusetts Institute of Technology, Tapes of Tech Square (ToTS) collection, MC-0741, MIT Libraries Department of Distinctive Collections",
+   "archiveId": "MC-0741; tapes 701546, 3100015, 3100090, 3100146, 3100154, 7007554, 7007839",
+   "archiveUrl": "https://archivesspace.mit.edu/repositories/2/archival_objects/471945",
+   "identifier": [
+    "https://github.com/MITDDC/plnr-1971-1982",
+    "swh:1:dir:afcbf89b68664105987e14e1e85a52ee04102a6b",
+    "https://archivesspace.mit.edu/repositories/2/resources/1265"
+   ],
+   "rights": "\"To the extent that MIT holds rights in these files, they are released under the terms of the MIT License.\" (README)",
+   "type": "Software",
+   "extent": "175 files from 7 ToTS tape images; zip 3,019,226 bytes (md5 685b9364d7a4031b3dbee51b7915f692)",
+   "language": "en; Micro-Planner; MacLisp; LAP",
+   "description": "The ITS PLNR directory as it stood on seven MIT backup tapes, published by MIT's Department of Distinctive Collections: Micro-Planner source versions PLNR 169, 170, 171 (tape 701546), 176, 180 and 181, the LAP, FASL and dump files, MANUAL 179 and 180 (versions of AI Memo 203/203A), THTRAC 22, SETTHY and the directory note .INFO. PLNR. The README says Micro-Planner \"was used in the early natural-language understanding program, SHRDLU\" and credits Eric Swenson with identifying the files. Its sub-folder 3100015 is the same ToTS tape as the its-vault SHRDLU directory (A-01): its PLNR files and dates match the PLNR entries on AI full-dump reel 1066 of 9 March 1973. None of these PLNR versions matches the held PLNR 182, 185 or Winograd's 1997 plnr by md5.",
+   "tags": [
+    "micro-planner",
+    "plnr",
+    "its",
+    "tots",
+    "backup-tape",
+    "source-code",
+    "mit-libraries"
+   ],
+   "genre": "software",
+   "kind": "file",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "mitddc-plnr-1971-1982.zip",
+   "mime": "application/zip",
+   "size": 3019226,
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-EHZ71"
+   ],
+   "movedFrom": "P-EHZ71",
+   "heldAt": "P-EHZ71",
+   "code": "I-APC7K",
+   "progLanguage": "Lisp (MacLisp)",
+   "machine": "PDP-10, ITS (MIT-AI)",
+   "family": "microplanner",
+   "status": "held",
+   "publish": "entry",
+   "parents": [],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": [
+    "I-MPFGB",
+    "I-85GN4"
+   ]
+  },
+  {
+   "title": "Univac 1100 LISP Planner Source (1108 Micro-Planner, LISP source, ends \"PLNR LOADED\")",
+   "date": "1973",
+   "publisher": "University of Wisconsin-Madison (Univac 1108 LISP); web edition by Jack Harper, frobenius.com",
+   "contributor": [
+    "Harper, Jack"
+   ],
+   "source": "Wayback Machine, https://web.archive.org/web/20160429141342id_/http://www.frobenius.com/planner.htm (listed by the Software Preservation Group as \"???. MICRO-PLANNER source code (LISP).\")",
+   "archive": "Internet Archive, Wayback Machine",
+   "archiveUrl": "https://web.archive.org/web/20160429141342/http://www.frobenius.com/planner.htm",
+   "identifier": [
+    "https://web.archive.org/web/20160429141342/http://www.frobenius.com/planner.htm"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "web page, 63,537 bytes, md5 ec20c957a77159f02b050522edb6a091; 115 CSETQ definitions",
+   "language": "Univac 1108 LISP (Wisconsin LISP 1.5 dialect)",
+   "description": "The source of the Wisconsin Univac 1108 Micro-Planner described in the 1973 note (recorded separately): CSETQ/LAMBDA definitions of PLNR, PLNRREAD (a read-THVAL-print loop printing \"THVAL:\"), a $ read macro mapping , ,  and others to THGOAL, THASSERT, THCONSE, and the full set of TH primitives, ending with a dump list and \"PLNR LOADED\". The date is inferred from the companion description (10/16/73); the author is not stated (the Software Preservation Group gives \"???\"). Jack Harper's page says the Univac LISP sources came from a tape he received from Eric Norman in 1972 (quoted by the SPG).",
+   "tags": [
+    "micro-planner",
+    "univac-1108",
+    "wisconsin",
+    "lisp",
+    "source-code",
+    "conversion"
+   ],
+   "genre": "listing",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "planner-20160429.htm",
+   "mime": "text/html",
+   "size": 63537,
+   "kind": "text",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-OVHTM"
+   ],
+   "movedFrom": "P-OVHTM",
+   "heldAt": "P-OVHTM",
+   "code": "I-MPFGB",
+   "progLanguage": "Lisp (Univac 1100 LISP)",
+   "machine": "Univac 1108",
+   "family": "microplanner",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-APC7K",
+     "relation": "port",
+     "via": null,
+     "confidence": "probable",
+     "evidence": "The Wisconsin 1108 Micro-Planner, described in the 1973 note (P-8Q1Q5)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "mpl.tar.gz: Micro-Planner for Franz Lisp (\"MICRO-PLANNER 180/Franz patch YS.0.85\")",
+   "date": "1999-12-28",
+   "creator": "Semenov, Yury",
+   "source": "Internet Archive Wayback Machine, capture of 16 December 2005 of http://zipper.paco.net/~yury/Retro-AI/mpl.tar.gz",
+   "archiveUrl": "https://web.archive.org/web/20051216074015/http://zipper.paco.net:80/~yury/Retro-AI/mpl.tar.gz",
+   "identifier": [
+    "https://web.archive.org/web/20051216074015/http://zipper.paco.net:80/~yury/Retro-AI/mpl.tar.gz"
+   ],
+   "rights": "None stated.",
+   "type": "Software",
+   "extent": "gzip tar, 24,414 bytes (md5 d2972ff04d6f874bcda776278ed4c88f): readme, frnzplnr, plnr (75,424 bytes), thtrac, plnrdemo",
+   "language": "en; Franz Lisp",
+   "description": "A 1999 port of Micro-Planner to Franz Lisp by Yury Semenov of Odessa, made as the first step towards running SHRDLU itself: the readme says \"I want to reanimate shrdlu for my site dedicated to Russian version of D. Hofstadter's GEB\" and that he chose Franz Lisp as the dialect \"most close to MACLISP\". It announces itself as \"MICRO-PLANNER 180/Franz patch YS.0.85\", that is, a patch of PLNR 180, and lists the changes (UREAD, UWRITE, READCH, MAKOBLIST and IOC calls replaced; THSTATE and THFLUSH rewritten; THLOAD added). Listed on the SHRDLU resurrection page (A-14).",
+   "tags": [
+    "micro-planner",
+    "franz-lisp",
+    "port",
+    "reconstruction",
+    "1999"
+   ],
+   "genre": "software",
+   "kind": "file",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "semenov-mpl.tar.gz",
+   "mime": "application/x-tar",
+   "size": 24414,
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-C86B1"
+   ],
+   "movedFrom": "P-C86B1",
+   "heldAt": "P-C86B1",
+   "code": "I-85GN4",
+   "progLanguage": "Franz Lisp",
+   "machine": "Unix",
+   "family": "microplanner",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-APC7K",
+     "relation": "port",
+     "via": "network",
+     "confidence": "established",
+     "evidence": "It announces itself as MICRO-PLANNER 180 with a Franz patch: a port of PLNR 180."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "masak/shrdlu (GitHub): The classical SHRDLU engine implemented in Perl 6",
+   "date": "2009-10-08",
+   "creator": "Masak, Carl",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/masak/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "masak/shrdlu",
+   "archiveUrl": "https://github.com/masak/shrdlu",
+   "identifier": [
+    "https://github.com/masak/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Carl Masak's Perl 6 (Raku) reimplementation, first commit 8 October 2009 ('ignore local folder containing original lisp code'), 6 commits to 13 November 2010: a Shrdlu.pm module and a Person:/Computer: prompt loop with tests. The earliest GitHub reimplementation found; small and incomplete.",
+   "tags": [
+    "github",
+    "perl6",
+    "raku",
+    "reimplementation"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/masak/shrdlu",
+   "kind": "link",
+   "extent": "6 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-3N4WI"
+   ],
+   "movedFrom": "P-3N4WI",
+   "code": "I-E5C9S",
+   "progLanguage": "Perl 6 (Raku)",
+   "machine": "",
+   "family": "reimplementations",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "reimplementation",
+     "via": "publication",
+     "confidence": "possible",
+     "evidence": "A small reimplementation; the original Lisp was kept locally but ignored by git."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "garfix/blocks-world (GitHub): Client to NLI-GO to interact with the SHRDLU blocks world",
+   "date": "2023-05-28",
+   "creator": "van Bergen, Patrick",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/garfix/blocks-world",
+   "archive": "GitHub",
+   "archiveId": "garfix/blocks-world",
+   "archiveUrl": "https://github.com/garfix/blocks-world",
+   "identifier": [
+    "https://github.com/garfix/blocks-world"
+   ],
+   "rights": "MIT License (GitHub licence field)",
+   "type": "Software",
+   "language": "en",
+   "description": "Patrick van Bergen's 'replication of Terry Winograd's SHRDLU (1970)', 'rebuilt from the ground up in the Go programming language' on his NLI-GO engine (garfix/nli-go, first commit 7 August 2016, MIT licence), with a Quasar/three.js client that can play 'the 44-interaction dialog'; 69 commits 28 May to 28 June 2023; online demo at patrickvanbergen.com/blocks-world/. README: 'this form of AI is quite brittle'.",
+   "tags": [
+    "github",
+    "go",
+    "reimplementation",
+    "nli-go",
+    "threejs",
+    "demo-dialogue"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/garfix/blocks-world",
+   "kind": "link",
+   "extent": "69 commits; engine in garfix/nli-go, 1,193 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-Q4PLQ"
+   ],
+   "movedFrom": "P-Q4PLQ",
+   "code": "I-HPYX2",
+   "progLanguage": "Go, JavaScript (three.js)",
+   "machine": "Web browser",
+   "family": "reimplementations",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "reimplementation",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "“Rebuilt from the ground up in the Go programming language”; plays the 44-interaction dialogue."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": true,
+    "dialogue": true,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "jyoshimi/shrdlu (GitHub): An implementation of Winograd's old AI program",
+   "date": "2026-02-12",
+   "creator": "Yoshimi, Jeff",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/jyoshimi/shrdlu",
+   "archive": "GitHub",
+   "archiveId": "jyoshimi/shrdlu",
+   "archiveUrl": "https://github.com/jyoshimi/shrdlu",
+   "identifier": [
+    "https://github.com/jyoshimi/shrdlu"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "Jeff Yoshimi's web reimplementation in TypeScript, first commit 12 February 2026 ('Initial commit: SHRDLU blocks world interface'), 10 commits to 24 February 2026, playable at jyoshimi.github.io/shrdlu/.",
+   "tags": [
+    "github",
+    "typescript",
+    "web",
+    "reimplementation"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/jyoshimi/shrdlu",
+   "kind": "link",
+   "extent": "10 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-I5WVW"
+   ],
+   "movedFrom": "P-I5WVW",
+   "code": "I-IHQQL",
+   "progLanguage": "TypeScript",
+   "machine": "Web browser",
+   "family": "reimplementations",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:stanford",
+     "relation": "reimplementation",
+     "via": "publication",
+     "confidence": "probable",
+     "evidence": "A web reimplementation of the blocks world interface (2026)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": true,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Keldon Jones’s MacLisp interpreter in C, for SHRDLU",
+   "creator": "Jones, Keldon",
+   "date": "1999/2002",
+   "description": "A MacLisp interpreter written in C to run SHRDLU’s original code, recorded on the Semaphore resurrection page and Keldon Jones’s project pages. Not held.",
+   "type": "Software",
+   "language": "en",
+   "tags": [],
+   "genre": "software",
+   "kind": "missing",
+   "collections": [],
+   "refs": [],
+   "related": [],
+   "paratexts": [
+    "P-9CCWM",
+    "P-TBIS7"
+   ],
+   "accessioned": "2026-10-19",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "code": "I-4W0J2",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "progLanguage": "C (a MacLisp interpreter)",
+   "machine": "",
+   "family": "umr",
+   "status": "attested",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "I-B0LGI",
+     "relation": "inspired-by",
+     "via": "network",
+     "confidence": "possible",
+     "evidence": "Keldon Jones’s MacLisp interpreter in C, to run the original code (P-9CCWM, P-TBIS7)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "milisy.txt (Mini-Linguistic System, MILISY, Lisp source, \"MINI-LINGUISTIC SYSTEM READY\")",
+   "date": "1972",
+   "creator": "Moran, Thomas P.",
+   "publisher": "Semaphore Corporation (Google Drive file linked from the \"SHRDLU resurrection\" page)",
+   "source": "Google Drive file 0B9UGGbaPN5a0N3ZEVk5MZlRUZXM, view page https://drive.google.com/file/d/0B9UGGbaPN5a0N3ZEVk5MZlRUZXM/view (public, no login), downloaded from https://drive.usercontent.google.com/download?id=0B9UGGbaPN5a0N3ZEVk5MZlRUZXM&export=download&resourcekey=0-dHEijxZ5rDkZHCBFplZGxg",
+   "archive": "Google Drive",
+   "archiveId": "0B9UGGbaPN5a0N3ZEVk5MZlRUZXM",
+   "archiveUrl": "https://drive.google.com/file/d/0B9UGGbaPN5a0N3ZEVk5MZlRUZXM/view",
+   "identifier": [
+    "https://drive.google.com/file/d/0B9UGGbaPN5a0N3ZEVk5MZlRUZXM/view"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "456 lines, 13,928 bytes, md5 bccd0a534c4db7684df7f14631642a63; SOS-style line numbers (0050 to 4600), CRLF, one non-ASCII separator byte per line",
+   "language": "en; Lisp (DE/DF, @ quote: a Stanford/UCI LISP dialect, by inference from the syntax)",
+   "description": "The file the Semaphore \"SHRDLU resurrection\" page (held P-9CCWM) describes as Tom Moran's \"SHRDLU-like Mini-Linguistic System (MILISY) at Carnegie-Mellon in 1972. A version of that program slightly modified by a Stanford student for an AI course is archived here.\" It is a small blocks-world conversation program: CONVERSE prints HELLO, reads a sentence, parses it against phrase-structure rules (P-RULES, PARSE ... <S>), interprets it against a FACTS list of BOX, BALL, BLOCK, TABLE and FLOOR, and resolves IT (\"ASSUMING BY 'IT' YOU MEAN\"); it ends \"MINI-LINGUISTIC SYSTEM READY\". It is a 1970s teaching derivative of SHRDLU from CMU, the site where Card ported the program in 1972; who the Stanford student was and when the edit was made are not stated.",
+   "tags": [
+    "milisy",
+    "moran",
+    "cmu",
+    "shrdlu-derivative",
+    "lisp",
+    "source-code",
+    "teaching",
+    "blocks-world"
+   ],
+   "genre": "software",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "milisy.txt",
+   "mime": "text/plain",
+   "size": 13928,
+   "kind": "text",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-3SGD3"
+   ],
+   "movedFrom": "P-3SGD3",
+   "heldAt": "P-3SGD3",
+   "code": "I-YRO4Y",
+   "progLanguage": "Lisp",
+   "machine": "PDP-10 (CMU)",
+   "family": "homages",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "probable",
+     "evidence": "Tom Moran’s “SHRDLU-like Mini-Linguistic System” at Carnegie-Mellon, 1972 (P-9CCWM)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "SHRDLV (LINGOL grammar file shrdlv.5), with pshrdl.102 and trysh.test",
+   "creator": "Pratt, Vaughan R.",
+   "publisher": "Vaughan Pratt, boole.stanford.edu",
+   "source": "http://boole.stanford.edu/lingol/shrdlv.5 (live, served 14 October 2026); Wayback capture 13 January 2002",
+   "archive": "Stanford University (Vaughan Pratt's server boole.stanford.edu)",
+   "archiveUrl": "http://boole.stanford.edu/lingol/shrdlv.5",
+   "identifier": [
+    "http://boole.stanford.edu/lingol/shrdlv.5",
+    "https://web.archive.org/web/20020113171857/http://boole.stanford.edu:80/lingol/shrdlv.5",
+    "http://boole.stanford.edu/lingol/pshrdl.102",
+    "http://boole.stanford.edu/lingol/trysh.test"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "shrdlv.5: 27,707 bytes, 943 lines; pshrdl.102: 37,601 bytes; trysh.test: 3,465 bytes (all MACLISP/LINGOL text files)",
+   "language": "en",
+   "description": "Undated MACLISP source (ITS-style name SHRDLV, version 5) of Vaughan Pratt's LINGOL grammar for SHRDLU-type blocks-world English: rules for utterances, commands and questions, a lexicon with BLOCK, BOX, PYRAMID, GRASP ('(HOLD VERB '(1) '(GRASP SUBJ OBJ))'), and comments such as 'THE BLOCK THAT I KNOW YOU ARE HOLDING (NEEDS WORK)'. The Semaphore page reports Pratt's account that this grammar parses SHRDLU-like test sentences and that 'by 1974 SHRDLU appeared to be a victim of serious software rot'; the date of the file is not stated in it. An independent 1970s re-parsing of SHRDLU's language in another formalism, not a port. Two companion files from the same directory were also downloaded: pshrdl.102, headed ';;; \"PIG\" SHRDLV--HAS INFLECTIONAL SUFFIXES IN FRONT OF THE WORD!', which FASLOADs a MORPHO file; and trysh.test, a list of SHRDLU-style test sentences ('PICK UP A BLOCK.', 'WHY DID YOU DO THAT?', 'CAN A CUBE ROLL OFF THE TABLE?').",
+   "tags": [
+    "pratt",
+    "lingol",
+    "shrdlv",
+    "grammar",
+    "maclisp",
+    "reimplementation",
+    "1970s"
+   ],
+   "genre": "software",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "name": "shrdlv.5",
+   "mime": "application/octet-stream",
+   "size": 27707,
+   "kind": "text",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-ISKSW"
+   ],
+   "movedFrom": "P-ISKSW",
+   "heldAt": "P-ISKSW",
+   "code": "I-Y065D",
+   "progLanguage": "Lisp (MacLisp), LINGOL",
+   "machine": "PDP-10, ITS",
+   "family": "homages",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": null,
+     "confidence": "probable",
+     "evidence": "Pratt’s LINGOL grammar for SHRDLU-type blocks-world English."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "LIB MSBLOCKS, \"A SHRDLU like blocks world program\" (Pop-11, msblocks.p), with TEACH MSBLOCKS, \"Controlling a simple robot in the 'blocks world'\"",
+   "date": "1983/1997",
+   "creator": "Hogg, David",
+   "contributor": [
+    "Sloman, Aaron",
+    "Bignell, Richard"
+   ],
+   "publisher": "Poplog (University of Sussex; University of Birmingham, School of Computer Science)",
+   "source": "Wayback Machine: http://www.cs.bham.ac.uk:80/research/poplog/lib/msblocks.p (capture 2006-03-05) and .../poplog/teach/msblocks (capture 2003-01-23); linked from the Semaphore \"SHRDLU resurrection\" page (held P-9CCWM) as \"this code included in POPLOG\"",
+   "archive": "Internet Archive, Wayback Machine",
+   "archiveUrl": "https://web.archive.org/web/20060305205117/http://www.cs.bham.ac.uk:80/research/poplog/lib/msblocks.p",
+   "identifier": [
+    "https://web.archive.org/web/20060305205117/http://www.cs.bham.ac.uk:80/research/poplog/lib/msblocks.p",
+    "https://web.archive.org/web/20030123093751/http://www.cs.bham.ac.uk:80/research/poplog/teach/msblocks"
+   ],
+   "rights": "Rights reserved, University of Birmingham (\"Copyright University of Birmingham 1997. All rights reserved.\"). Held here under the archive's holding policy.",
+   "type": "Software",
+   "extent": "msblocks.p 18,945 bytes (md5 e6c8cd6833a1064030399fae5c96c68b) and TEACH MSBLOCKS 19,268 bytes (md5 9c3a54e540b8063ebf139d32759842e0); tar 45,056 bytes (md5 85a26bb4d532a699988fccfdd79c9e44)",
+   "language": "en; Pop-11",
+   "description": "A teaching reimplementation of SHRDLU's domain in Pop-11, in the Poplog library, first written in 1983: the library header reads \"Purpose: A SHRDLU like blocks world program / Author: David Hogg 1983, Richard Bignell, Oct 20 1986\", with revisions by Aaron Sloman to 1997, and a small phrase-structure grammar and lexicon (put, move, pickup; block, box, table). TEACH MSBLOCKS (\"David Hogg and A. Sloman June 1983, updated Jan 1987\") presents it as \"part of a design for a the program which simulates manipulation of arrangements of blocks ... This domain was used originally by Winograd's SHRDLU program\" (lines 58-61) and cites Understanding Natural Language. TEACH MSBLOCKS also sets students exercises and a short report on how meaning is extracted from parse trees.",
+   "tags": [
+    "shrdlu-derivative",
+    "poplog",
+    "pop-11",
+    "sussex",
+    "birmingham",
+    "teaching",
+    "blocks-world",
+    "sloman"
+   ],
+   "genre": "software",
+   "kind": "file",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "poplog-msblocks.tar",
+   "mime": "application/x-tar",
+   "size": 45056,
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-KMFBH"
+   ],
+   "movedFrom": "P-KMFBH",
+   "heldAt": "P-KMFBH",
+   "code": "I-19C3U",
+   "progLanguage": "Pop-11",
+   "machine": "Poplog",
+   "family": "homages",
+   "status": "held",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "“A SHRDLU like blocks world program” (library header, David Hogg 1983)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Un mondo di cubi colorati: Simuliamo, con il computer, elementari esperienze di logica (Commodore Computer Club no. 38)",
+   "date": "1987-01",
+   "creator": "Certi, Sandro",
+   "contributor": [
+    "Toldi, Franco"
+   ],
+   "publisher": "Commodore Computer Club (Systems Editoriale, Milan)",
+   "source": "Internet Archive, Commodore-Computer-Club-38 (Commodore-Computer-Club-38.pdf)",
+   "archive": "Internet Archive",
+   "archiveId": "Commodore-Computer-Club-38",
+   "archiveUrl": "https://archive.org/details/Commodore-Computer-Club-38",
+   "identifier": [
+    "https://archive.org/details/Commodore-Computer-Club-38"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "The whole issue, 116 PDF pages (25.6 MB); the article on printed pp. 28–30 (PDF pp. 28–30), with a BASIC listing",
+   "language": "it",
+   "genre": "article",
+   "tags": [
+    "commodore-64",
+    "basic",
+    "italy",
+    "blocks-world",
+    "1987",
+    "magazine"
+   ],
+   "description": "An Italian home-computer magazine's Commodore 64 BASIC program for a world of four coloured cubes, moved by typed sentences (\"metti il cubo giallo sul cubo rosso\", \"libera il cubo rosso\"), presented as a small version of SHRDLU: the article opens with a child stacking blocks and the rule that a cube must be cleared before it is moved. On printed p. 29 (PDF p. 29) a box headed \"SHRDLU: un programma intelligente\" says: \"Nei primi anni settanta Terry Winograd, ricercatore di A/I (Intelligenza Artificiale) al MIT (Massachusetts Institute of Technology), presentò un programma intelligente che manipolava in modo automatico un mondo immaginario…\". The issue's contents page lists it under \"Intelligenza artificiale\" (PDF p. 3). The program is run and discussed in the held video P-U4302.",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "CCC-38.pdf",
+   "mime": "application/pdf",
+   "size": 25605132,
+   "kind": "missing",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-DHIQ6"
+   ],
+   "movedFrom": "P-DHIQ6",
+   "code": "I-SGQ9J",
+   "progLanguage": "BASIC (Commodore 64)",
+   "machine": "Commodore 64",
+   "family": "homages",
+   "status": "printed",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "Presented as a small version of SHRDLU, with a box on the original."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Inteligencia artificial: lenguaje natural (ZX Revista para usuarios de ordenadores Sinclair, año III, no. 31, junio 1986)",
+   "date": "1986-06",
+   "creator": "ZX Revista",
+   "publisher": "Publinformática, S. A., Madrid",
+   "source": "Internet Archive, zx_revista (file zx31_text.pdf)",
+   "archive": "Internet Archive",
+   "archiveId": "zx_revista",
+   "archiveUrl": "https://archive.org/details/zx_revista/zx31",
+   "identifier": [
+    "https://archive.org/details/zx_revista/zx31",
+    "https://archive.org/download/zx_revista/zx31_text.pdf",
+    "https://archive.org/download/zx_revista/zx31.pdf"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "Whole issue, 84 PDF pages; the held copy is IA's derived text PDF (3,585,473 bytes); the full-resolution scan zx31.pdf is 201,947,172 bytes and was not downloaded. Article pp. 26-33 (printed page = PDF page)",
+   "language": "es",
+   "description": "The second instalment of a Spanish home-computer magazine's series on artificial intelligence (contents p. 4: '27 LENGUAJE NATURAL ... te proponemos un programa para Spectrum que te permitirá dialogar con él'). It prints a Spanish translation of the opening of the SHRDLU dialogue as HUMANO/SHRDLU exchanges ('SHRDLU: Con gusto ... SHRDLU: El cubo verde grande que soporta a la pirámide roja', p. 28; continued p. 29), gives a short history ('a finales de los años sesenta Terry Winograd desarrolla un programa que significa un avance importantísimo: el SHRDLU', p. 31; 'el programa más importante sigue siendo todavía SHRDLU', p. 32) and closes with a Sinclair BASIC listing, 'una aproximación al archifamoso SHRDLU', in which the user talks to the computer about a simulated world of blocks on a table (pp. 32-33). The anonymous article carries no byline in the pages read.",
+   "tags": [
+    "zx-revista",
+    "spain",
+    "spanish",
+    "home-computer-press",
+    "sinclair-spectrum",
+    "dialogue-reprint",
+    "basic-listing",
+    "blocks-world"
+   ],
+   "genre": "article",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "name": "ZXRevista_31_1986-06_text.pdf",
+   "mime": "application/pdf",
+   "size": 3585473,
+   "kind": "missing",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-UROEJ"
+   ],
+   "movedFrom": "P-UROEJ",
+   "code": "I-GJMZC",
+   "progLanguage": "BASIC (Sinclair)",
+   "machine": "ZX Spectrum",
+   "family": "homages",
+   "status": "printed",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "probable",
+     "evidence": "A Spectrum program to “dialogar” with, after a Spanish translation of the SHRDLU dialogue."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Exploring Artificial Intelligence on Your Commodore 64 (chapters 6-7: Understanding Natural Language; BLOCKWORLD; SHRDLU Conversation)",
+   "date": "1985-07",
+   "creator": "Hartnell, Tim",
+   "publisher": "Bantam Books / Interface Publications (copyright 1984 by Tim Hartnell)",
+   "source": "Internet Archive, timhartnellvz200giantbookofgames (community upload '54Tim Hartnell Books'), file 'Exploring Artificial Intelligence on your Commodore 64.pdf'; read via its OCR text",
+   "archive": "Internet Archive",
+   "archiveId": "timhartnellvz200giantbookofgames",
+   "archiveUrl": "https://archive.org/details/timhartnellvz200giantbookofgames",
+   "identifier": [
+    "https://archive.org/details/timhartnellvz200giantbookofgames",
+    "https://archive.org/details/exploringartific00hart",
+    "https://archive.org/details/exploringartific0000hart_n4d6"
+   ],
+   "rights": "Rights reserved, Tim Hartnell estate / Bantam. Recorded as a link only (the open copy is a community upload, not the rights holder's).",
+   "type": "Software",
+   "extent": "SHRDLU at printed pp. 84-87, 96, 117-119 (index); in the open PDF, p. 84 = PDF p. 98, p. 96 = PDF p. 110, p. 117 = PDF p. 131",
+   "language": "en",
+   "description": "Hobbyist textbook in Hartnell's 'Exploring Artificial Intelligence' series (also IBM PC 1986, Apple II 1985) that teaches natural-language processing through BLOCKWORLD, a BASIC program described as 'a simplified version of a famous program called SHRDLU' (p. 96). Chapter 6 opens with SHRDLU as a 'landmark program' (p. 84: 'The landmark programs were SHRDLU (our version is called BLOCKWORLD) and ELIZA'); chapter 7 reprints passages of Winograd's dialogue and ends with a 'SHRDLU Conversation' section (pp. 117-119). Pages from the book's index and the upload's page_numbers.json.",
+   "tags": [
+    "hartnell",
+    "blockworld",
+    "basic",
+    "home-computer",
+    "hobbyist",
+    "textbook",
+    "1980s"
+   ],
+   "genre": "book",
+   "kind": "missing",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-TVN5H"
+   ],
+   "movedFrom": "P-TVN5H",
+   "code": "I-WPMCG",
+   "progLanguage": "BASIC",
+   "machine": "Commodore 64",
+   "family": "homages",
+   "status": "printed",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "BLOCKWORLD, “a simplified version of a famous program called SHRDLU” (p. 96)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Mikro+Kleincomputer Diskette 6/1 (1988): the magazine's SHRDLU-like warehouse-crane program, written with Kibotrona Engineering AG, Basel",
+   "date": "1988",
+   "creator": "Kipfer, Beat",
+   "contributor": [
+    "Kipfer, Fred",
+    "Kibotrona Engineering AG"
+   ],
+   "publisher": "Mikro+Kleincomputer (Switzerland)",
+   "rights": "None stated",
+   "type": "Software",
+   "language": "de",
+   "description": "Provenance found but item not available or missing. A program 'welches ähnliche Eigenschaften wie SHRDLU hat', set in a warehouse where a crane moves goods and answers questions about the store, developed by the magazine with the Basel firm Kibotrona Engineering AG and distributed on the magazine's disk service rather than printed. Cited in: Beat and Fred Kipfer, 'Künstliche Intelligenz in der Praxis (4)', Mikro+Kleincomputer 88-6 (1988; this beat's record of that article), p. 55 (PDF p. 55): \"Das Programm ist aber auf der Diskette 6/1 in unserem Diskettenangebot erhältlich.\" Searched: Internet Archive full-text search (Kibotrona: only issues 88-4, which credits Kibotrona with XLISP extras, and 88-6; 'Diskette 6/1': unrelated manuals) and advanced search for Mikro+Kleincomputer disk images (none).",
+   "tags": [
+    "kibotrona",
+    "mikro-und-kleincomputer",
+    "missing",
+    "reconstruction",
+    "software",
+    "to-locate"
+   ],
+   "genre": "software",
+   "kind": "missing",
+   "collections": [],
+   "refs": [],
+   "accessioned": "2026-10-18",
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-0YZVR"
+   ],
+   "movedFrom": "P-0YZVR",
+   "code": "I-4SD9E",
+   "progLanguage": "",
+   "machine": "Home computer (disk service)",
+   "family": "homages",
+   "status": "lost",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "A crane program “welches ähnliche Eigenschaften wie SHRDLU hat” (1988)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Micro-SHRDLU (MS/PC-DOS program in the collection \"Mind-Set\")",
+   "type": "Software",
+   "language": "en",
+   "source": "Cited in The Humanities Computing Yearbook 1989-90 (Oxford: Clarendon Press, 1991), Internet Archive humanitiescomput0000unse_d2r9 (lending only)",
+   "rights": "None stated",
+   "description": "Provenance found but item not available or missing. An MS-DOS program \"Micro-SHRDLU\", part of a collection of programs called Mind-Set, listed in a 1991 guide to humanities software as a program which \"robotically\" manipulates something on screen (the rest of the entry was not read; that it imitates SHRDLU is inference from the name); publisher, author and date are not visible in the open text. Cited in: The Humanities Computing Yearbook 1989-90: a comprehensive guide to software and other resources (Oxford: Clarendon Press / Oxford University Press, 1991), entry under \"Mind-Set\" (index: \"Micro-SHRDLU (mod) 379\"; printed page 379 by the index, PDF page not seen), Internet Archive full-text search, 2026-10-18: \"Mind-Set. Collection of MS/PC-DOS programs including (i) Micro-SHRDLU, which 'roboti-[cally]' manipulates an onscreen ...\". Searched: Internet Archive full-text search for \"Micro-SHRDLU\", \"MicroSHRDLU\" and \"Mind-Set\" with SHRDLU (only this book); web search for \"Micro-SHRDLU\" and Mind-Set MS-DOS (nothing); the book itself is lending-only, so the full entry (price, supplier) was not read.",
+   "tags": [
+    "shrdlu-derivative",
+    "ms-dos",
+    "teaching",
+    "software",
+    "missing",
+    "to-locate",
+    "1980s"
+   ],
+   "genre": "software",
+   "kind": "missing",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-5YWQ7"
+   ],
+   "movedFrom": "P-5YWQ7",
+   "code": "I-ET0ZE",
+   "progLanguage": "",
+   "machine": "MS-DOS",
+   "family": "homages",
+   "status": "attested",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": null,
+     "confidence": "possible",
+     "evidence": "Named Micro-SHRDLU; that it imitates SHRDLU is inferred from the name."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Blockhead: \"Blocksworld with natural language interface (English)\" (BLOCKHED.EXE, Turbo Prolog)",
+   "creator": "Prebensen, Henrik",
+   "publisher": "Henrik Prebensen, Romansk Institut, University of Copenhagen (staff.hum.ku.dk/hp/)",
+   "source": "Wayback Machine: home page http://staff.hum.ku.dk:80/hp/ (capture 2002-10-20) and file http://www.staff.hum.ku.dk:80/hp/BLOCKHED.EXE (10 captures 2001-05-04 to 2003-04-26, 62,533-62,545 bytes); named on the Semaphore \"SHRDLU resurrection\" page (held P-9CCWM)",
+   "archive": "Internet Archive, Wayback Machine",
+   "archiveUrl": "https://web.archive.org/web/20010504014116/http://www.staff.hum.ku.dk:80/hp/BLOCKHED.EXE",
+   "identifier": [
+    "https://web.archive.org/web/20010504014116/http://www.staff.hum.ku.dk:80/hp/BLOCKHED.EXE",
+    "https://web.archive.org/web/20021020212021/http://staff.hum.ku.dk:80/hp/"
+   ],
+   "rights": "None stated",
+   "type": "Software",
+   "extent": "executable, 62,545 bytes (2001 capture); not downloaded",
+   "language": "en; Turbo Prolog (per Semaphore)",
+   "description": "A SHRDLU-like blocks-world program by Henrik Prebensen, a lecturer in French at Copenhagen, offered on his home page as \"Blockhead. Blocksworld with natural language interface (English). Load Blocksworld in the same folder as you load Blockhead in, and execute the program\". Semaphore describes it as \"a SHRDLU-like program written in Turbo Prolog with a graphical interface and documented in the book 'The Advanced User's Guide to Turbo Prolog'\" (that book was not checked here). Published but not downloaded: the only captured file is a DOS/Windows executable, and nothing downloaded is run.",
+   "tags": [
+    "shrdlu-derivative",
+    "turbo-prolog",
+    "blocks-world",
+    "copenhagen",
+    "executable"
+   ],
+   "genre": "software",
+   "url": "https://web.archive.org/web/20010504014116/http://www.staff.hum.ku.dk:80/hp/BLOCKHED.EXE",
+   "kind": "link",
+   "accessioned": "2026-10-18",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-DFJIO"
+   ],
+   "movedFrom": "P-DFJIO",
+   "code": "I-APV3Z",
+   "progLanguage": "Turbo Prolog",
+   "machine": "MS-DOS",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "Described as a SHRDLU-like program (P-9CCWM)."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "bluejay77/TerryWindogradSHRDLU (GitHub): The Shen SHRDLU",
+   "date": "2020-11-27",
+   "creator": "Ylikoski, Antti Juhani",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/bluejay77/TerryWindogradSHRDLU",
+   "archive": "GitHub",
+   "archiveId": "bluejay77/TerryWindogradSHRDLU",
+   "archiveUrl": "https://github.com/bluejay77/TerryWindogradSHRDLU",
+   "identifier": [
+    "https://github.com/bluejay77/TerryWindogradSHRDLU"
+   ],
+   "rights": "None stated (no licence file in the repository)",
+   "type": "Software",
+   "language": "en",
+   "description": "A small blocks-world command grammar in the Shen language, header dated '2015-10-02' ('Dr A. J. Y.'), uploaded 27 November 2020 (2 commits). Handles fixed command forms ('put B1 on B2'); named after SHRDLU, not a port of it.",
+   "tags": [
+    "github",
+    "shen",
+    "toy",
+    "blocks-world"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/bluejay77/TerryWindogradSHRDLU",
+   "kind": "link",
+   "extent": "1 file, shrdlu.shen",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-LCQB1"
+   ],
+   "movedFrom": "P-LCQB1",
+   "code": "I-P4JVF",
+   "progLanguage": "Shen",
+   "machine": "",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": null,
+     "confidence": "established",
+     "evidence": "A blocks-world command grammar named after SHRDLU, not a port."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "lingeringsocket/shlurd (GitHub): In homage to SHRDLU",
+   "date": "2017-05-12",
+   "creator": "Sichi, John",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/lingeringsocket/shlurd",
+   "archive": "GitHub",
+   "archiveId": "lingeringsocket/shlurd",
+   "archiveUrl": "https://github.com/lingeringsocket/shlurd",
+   "identifier": [
+    "https://github.com/lingeringsocket/shlurd"
+   ],
+   "rights": "Apache License 2.0 (GitHub licence field)",
+   "type": "Software",
+   "language": "en",
+   "description": "John Sichi's Scala system 'to support very limited natural language understanding for small worlds a la SHRDLU', on Stanford CoreNLP; 1,127 commits, 12 May 2017 to 11 October 2021. README: 'So far, SHLURD's understanding is nowhere near as powerful as that of SHRDLU.'",
+   "tags": [
+    "github",
+    "scala",
+    "homage",
+    "corenlp"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/lingeringsocket/shlurd",
+   "kind": "link",
+   "extent": "1,127 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-O16OF"
+   ],
+   "movedFrom": "P-O16OF",
+   "code": "I-SCVFY",
+   "progLanguage": "Scala",
+   "machine": "JVM",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "“In homage to SHRDLU”."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "santiontanon/SHRDLU (GitHub): An adventure game based around natural language parsing (inspired by Winograd's SHRDLU)",
+   "date": "2018-08-08",
+   "creator": "Ontañón, Santiago",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/santiontanon/SHRDLU",
+   "archive": "GitHub",
+   "archiveId": "santiontanon/SHRDLU",
+   "archiveUrl": "https://github.com/santiontanon/SHRDLU",
+   "identifier": [
+    "https://github.com/santiontanon/SHRDLU"
+   ],
+   "rights": "Apache License 2.0 (GitHub licence field)",
+   "type": "Software",
+   "language": "en",
+   "description": "Santiago Ontañón's TypeScript adventure game named after and 'inspired by Winograd's SHRDLU', with an MSX-style display; 444 commits, 8 August 2018 to 1 February 2021; a PDF on how its AI works is in misc/SHRDLU.pdf. A homage in game form, not a reimplementation.",
+   "tags": [
+    "github",
+    "typescript",
+    "game",
+    "homage",
+    "interactive-fiction"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/santiontanon/SHRDLU",
+   "kind": "link",
+   "extent": "444 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-RRDB6"
+   ],
+   "movedFrom": "P-RRDB6",
+   "code": "I-0O8G7",
+   "progLanguage": "TypeScript",
+   "machine": "Web browser (MSX style)",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "An adventure game “inspired by Winograd’s SHRDLU”."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "hosford42/SHRDLUBlocks (GitHub): A simple environment for evaluating and testing natural language understanding systems",
+   "date": "2021-07-26",
+   "creator": "Hosford, Aaron",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/hosford42/SHRDLUBlocks",
+   "archive": "GitHub",
+   "archiveId": "hosford42/SHRDLUBlocks",
+   "archiveUrl": "https://github.com/hosford42/SHRDLUBlocks",
+   "identifier": [
+    "https://github.com/hosford42/SHRDLUBlocks"
+   ],
+   "rights": "MIT License (GitHub licence field)",
+   "type": "Software",
+   "language": "en",
+   "description": "Python/pygame package (pip install shrdlu_blocks) that is 'a rough approximation of the blocks environment originally used by Terry Winograd's SHDRLU program', meant as a test bed for natural language understanding systems; first commit 26 July 2021, latest 18 June 2026.",
+   "tags": [
+    "github",
+    "python",
+    "blocks-world",
+    "test-environment"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/hosford42/SHRDLUBlocks",
+   "kind": "link",
+   "extent": "22 commits",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-DUNB9"
+   ],
+   "movedFrom": "P-DUNB9",
+   "code": "I-47U7A",
+   "progLanguage": "Python (pygame)",
+   "machine": "",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": "publication",
+     "confidence": "established",
+     "evidence": "“A rough approximation of the blocks environment” of SHRDLU, as a test bed."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "utcompling/tshrdlu (GitHub): Twitter+SHRDLU, course project code for Applied NLP, UT Austin",
+   "date": "2013-01-10",
+   "creator": "Baldridge, Jason",
+   "publisher": "GitHub",
+   "source": "GitHub, https://github.com/utcompling/tshrdlu",
+   "archive": "GitHub",
+   "archiveId": "utcompling/tshrdlu",
+   "archiveUrl": "https://github.com/utcompling/tshrdlu",
+   "identifier": [
+    "https://github.com/utcompling/tshrdlu"
+   ],
+   "rights": "Apache License 2.0 (GitHub licence field)",
+   "type": "Software",
+   "extent": "134 commits, 10 January 2013 to 29 December 2016",
+   "language": "en",
+   "description": "Parent repository for student projects in Jason Baldridge's Applied NLP course at the University of Texas at Austin (spring 2013): a Scala Twitter bot. 'The name \"tshrdlu\" comes from Twitter+SHRDLU'; the @tshrdlu account tweeted automatically from the code. Uses SHRDLU as the name for a conversational agent in teaching, not its techniques.",
+   "tags": [
+    "course",
+    "ut-austin",
+    "twitter-bot",
+    "scala",
+    "teaching",
+    "naming"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/utcompling/tshrdlu",
+   "kind": "link",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-8ZHLX"
+   ],
+   "movedFrom": "P-8ZHLX",
+   "code": "I-SE5S6",
+   "progLanguage": "Scala",
+   "machine": "",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": null,
+     "confidence": "possible",
+     "evidence": "Named from Twitter+SHRDLU; uses the name only."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  },
+  {
+   "title": "Mini-SHRDLU (C++ data structures and algorithms assignment; student repositories)",
+   "date": "2020-04-11",
+   "creator": "Various student authors (GitHub)",
+   "publisher": "GitHub",
+   "source": "GitHub search 'Mini-SHRDLU': stevebyatt10/Mini-SHRDLU (2020-04-11), matthewpinkus/Mini-SHRDLU (2020-07-30), vmhoang/Mini-SHRDLU- (2023-04-07), LouisMetha/Mini-SHRDLU (2023-04-09), Liabiliti/Mini-SHRDLU (2023-04-20), kengen1/Mini-Shrdlu (2023-11-02), qarnoldd/SHRDLUGame (2023-12-03), ti2ni1m/Mini-SHRDLU (2025-04-05) and others",
+   "archive": "GitHub",
+   "archiveUrl": "https://github.com/search?q=mini-shrdlu&type=repositories",
+   "identifier": [
+    "https://github.com/matthewpinkus/Mini-SHRDLU",
+    "https://github.com/qarnoldd/SHRDLUGame",
+    "https://github.com/stevebyatt10/Mini-SHRDLU"
+   ],
+   "rights": "Various; mostly none stated",
+   "type": "Software",
+   "extent": "At least ten student repositories, 2020-2025",
+   "language": "en",
+   "description": "A recurring second-year 'Data Structures and Algorithms Assignment 1' (matthewpinkus README: 'create a heuristic algorithm to beat any n^2 where n > 3 board game of SHRDLU') in which the blocks world is reduced to a stacking puzzle 'similar to the Hanoi Tower Problem' (qarnoldd README) solved by heuristic or Monte Carlo search. The institution is not named in the READMEs read; the language component of SHRDLU is absent. Shows the name surviving as a label for a blocks puzzle in teaching.",
+   "tags": [
+    "assignment",
+    "data-structures",
+    "blocks-world",
+    "puzzle",
+    "teaching",
+    "c++"
+   ],
+   "genre": "repo",
+   "url": "https://github.com/matthewpinkus/Mini-SHRDLU",
+   "kind": "link",
+   "accessioned": "2026-10-14",
+   "refs": [],
+   "collections": [],
+   "added": "2026-10-19T00:00:00Z",
+   "addedBy": "DMB",
+   "updated": "2026-10-19T00:00:00Z",
+   "updatedBy": "DMB",
+   "related": [],
+   "paratexts": [
+    "P-EM44D"
+   ],
+   "movedFrom": "P-EM44D",
+   "code": "I-UBMSX",
+   "progLanguage": "C++",
+   "machine": "",
+   "family": "homages",
+   "status": "linked",
+   "publish": "entry",
+   "parents": [
+    {
+     "code": "v:jan71",
+     "relation": "inspired-by",
+     "via": null,
+     "confidence": "possible",
+     "evidence": "A course assignment that reduces the blocks world to a stacking puzzle."
+    }
+   ],
+   "features": {
+    "grammar": null,
+    "planner": null,
+    "display": null,
+    "dialogue": null,
+    "why": null
+   },
+   "children": []
+  }
+ ]
+}

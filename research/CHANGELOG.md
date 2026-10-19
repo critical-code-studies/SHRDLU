@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.183 (2026-10-19)
+
+- Implementations, a tab of its own (kit 0.66.0): 47 entries for Winograd's program and its states and copies (the MIT directories and tapes, the Stanford distribution and its mirrors, Svensson's and the Alberta copies, Swenson's restoration, Pereira's reconstruction), the UMR Common Lisp port and its line, Micro-Planner, translations, reimplementations and SHRDLU-like programs, with their descent from the variorum versions, their status and the paratexts that document them. Every entry is public metadata; no file is published yet, and the eleven held files stay in the paratext archive until cleared.
+
 ## 0.1.182 (2026-10-19)
 
 - The kit at 0.65.3: a picture in an item with alternates no longer shows an empty pane; the bench says what to do when a GitHub token is lost or has expired.
