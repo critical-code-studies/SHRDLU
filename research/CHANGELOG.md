@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.184 (2026-10-19)
+
+- The kit at 0.66.1: Lisp read by definition takes ' as a letter in BBN-LISP and PDP-6 Lisp (where the scripts write DON'T and I'M), and Interlisp has a reader of its own with ' as QUOTE.
+
 ## 0.1.183 (2026-10-19)
 
 - Implementations, a tab of its own (kit 0.66.0): 47 entries for Winograd's program and its states and copies (the MIT directories and tapes, the Stanford distribution and its mirrors, Svensson's and the Alberta copies, Swenson's restoration, Pereira's reconstruction), the UMR Common Lisp port and its line, Micro-Planner, translations, reimplementations and SHRDLU-like programs, with their descent from the variorum versions, their status and the paratexts that document them. Every entry is public metadata; no file is published yet, and the eleven held files stay in the paratext archive until cleared.
