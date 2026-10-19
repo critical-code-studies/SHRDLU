@@ -1,0 +1,1704 @@
+<html>
+<head>
+<title>Univac 1100 LISP Planner Source</title>
+</head>
+<body text="#000000" link="#FFFF00" vlink="#00FF00" background="printout.gif">
+<code><pre>
+
+(READMAC ";" (READMAC "?" F))
+
+(DELIM ";" (DELIM "?" F))
+
+(CSETQ MAP2C
+(LAMBDA (L1 L2 FN)
+        (PROG NIL
+           LP &#60COND [&#60OR [NULL L1]
+                         [NULL L2]&#62 &#60RETURN NIL&#62]&#62
+              &#60FN (CAR L1) (CAR L2)&#62
+              &#60SETQ L1 (CDR L1)&#62
+              &#60SETQ L2 (CDR L2)&#62
+              &#60GO LP&#62)))
+
+(CSETQ MAPCONC
+(LAMBDA (L FN)
+        (COND [&#60NULL L&#62 NIL]
+              [T &#60NCONC (FN (CAR L)) (MAPCONC (CDR L) FN)&#62])))
+
+(CSETQ PRINTL
+(LAMBDA L
+        (MAPC L
+         (LAMBDA (I)
+                 (PRIN1 I)
+                 (PRIN1 " ")))
+        (TERPRI)
+        T))
+
+(CSETQ PROG1
+(LAMBDA (X)
+        X))
+
+(CSETQ SPACES
+(LAMBDA (A)
+        (COND [&#60NOT (LESSP A 1)&#62
+                &#60PRIN1 " "&#62
+                &#60SPACES (SUB1 A)&#62])))
+
+(CSETQ PLNR
+(LAMBDA NIL
+        (PROG &#60(THALIST (LIST (LIST NIL NIL)))&#62
+              &#60CSETQ THINDENT 0&#62
+              &#60CSETQ THSTEP NIL&#62
+              &#60CSETQ THSTEPD NIL&#62
+              &#60CSETQ THSTEPT NIL&#62
+              &#60CSETQ THSTEPF NIL&#62
+              &#60CSETQ THTRACEV NIL&#62
+              &#60BACKTR 1&#62
+              &#60READMAC "$"
+               (LAMBDA NIL
+                       (PROG &#60(THNC (READCH))&#62
+                             &#60RETURN
+                              (COND [&#60EQ THNC '?&#62
+                                      &#60LIST 'THV (TOKEN)&#62]
+                                    [&#60EQ THNC '=&#62
+                                      &#60LIST 'THNV (TOKEN)&#62]
+                                    [&#60EQ THNC '&&#62
+                                      &#60LIST 'THEV (READ)&#62]
+                                    [&#60EQ THNC 'N&#62
+                                      &#60LIST 'THANUM (TOKEN)&#62]
+                                    [&#60DELIM (STRING THNC)&#62
+                                      &#60BACKSP&#62
+                                      '$]
+                                    [&#60EQ (SETQ THNC
+                                       (DO &#60BACKSP&#62
+                                           &#60TOKEN&#62)) 'G&#62 'THGOAL]
+                                    [&#60EQ THNC 'A&#62 'THASSERT]
+                                    [&#60EQ THNC 'AL&#62 'THASSERTLIST]
+                                    [&#60EQ THNC 'E&#62 'THERASE]
+                                    [&#60EQ THNC 'R&#62 'THRESTRICT]
+                                    [&#60EQ THNC 'T&#62 '&#60THTBF THTRUE&#62]
+                                    [&#60EQ THNC 'V&#62 'THEV]
+                                    [&#60EQ THNC 'TC&#62 'THCONSE]
+                                    [&#60EQ THNC 'TA&#62 'THANTE]
+                                    [&#60EQ THNC 'TE&#62 'THERASING]
+                                    [T &#60COMPRESS (CONS "$" (EXPLODE THNC
+                                        ))&#62])&#62))&#62
+              &#60RETURN (LISP PLNRREAD)&#62)))
+
+(CSETQ PLNRREAD
+(LAMBDA NIL
+        (PROG &#60THFORM&#62
+              &#60TERPRI&#62
+              &#60CLEARBUFF&#62
+              &#60SPACE 1&#62
+              &#60PRINT "THVAL:"&#62
+              &#60CSETQ THINF F&#62
+              &#60CSETQ THMESSAGEV NIL&#62
+              &#60SETQ THFORM (READ)&#62
+              &#60AND [NOT (ATOM THFORM)]
+                   [EQ (CAR THFORM) 'RETURN]
+                   [RETURN THFORM]&#62
+              &#60RETURN (LIST 'THVAL (LIST 'QUOTE THFORM) 'THALIST)&#62)))
+
+(CSETQ THADD
+(LAMBDA (THTT THPL)
+        (PROG &#60THNF THWH THCK THLAS THTTL THT1 THFST THFSTP THFOO&#62
+              &#60SETQ THCK
+               (COND [&#60ATOM THTT&#62
+                       &#60OR [SETQ THT1 (GET THTT 'THEOREM)]
+                           [DO &#60PRINT THTT&#62
+                               &#60THERT
+                                "CAN'T THASSERT NO THEOREM - THADD"&#62]&#62
+                       &#60SETQ THWH (CAR THT1)&#62
+                       &#60SETQ THTTL THTT&#62
+                       &#60AND THPL
+                            [PROG NIL
+                               LP &#60THPUTPROP THTT (CADR THPL) (CAR THPL)
+                                   &#62
+                                  &#60COND [&#60SETQ THPL (CDDR THPL)&#62 &#60GO LP&#62
+                                         ]&#62]&#62
+                       &#60CADDR THT1&#62]
+                     [T &#60SETQ THWH 'THASSERTION&#62
+                        &#60SETQ THTTL (CONS THTT THPL)&#62
+                        THTT])&#62
+              &#60SETQ THNF 0&#62
+              &#60SETQ THLAS (LENGTH THCK)&#62
+              &#60SETQ THFST T&#62
+         THP1 &#60COND [&#60NULL THCK&#62
+                      &#60SETQ THCK THFOO&#62
+                      &#60SETQ THNF 0&#62
+                      &#60SETQ THFOO (SETQ THFST NIL)&#62
+                      &#60SETQ THFSTP T&#62
+                      &#60GO THP1&#62]
+                    [&#60NULL (SETQ THT1 (THIP (CAR THCK)))&#62 &#60RETURN NIL&#62]
+                    [&#60EQ THT1 'THOK&#62]
+                    [&#60SETQ THFOO (NCONC THFOO (LIST
+                       (COND [&#60EQ THT1 'THVRB&#62 &#60CAR THCK&#62])))&#62
+                      &#60SETQ THCK (CDR THCK)&#62
+                      &#60GO THP1&#62]&#62
+              &#60SETQ THFST NIL&#62
+              &#60MAPC (CDR THCK) THIP&#62
+              &#60SETQ THNF 0&#62
+              &#60MAPC THFOO THIP&#62
+              &#60RETURN THTTL&#62)))
+
+(DEFSPEC THAMONG
+(LAMBDA THA
+        (COND [&#60EQ (CADR (CSETQ THXX (THGAL
+                 (COND [&#60EQ (CAAR THA) 'THEV&#62
+                         &#60THVAL (CADAR THA) THALIST&#62]
+                       [T &#60CAR THA&#62]) THALIST))) 'THUNASSIGNED&#62
+                &#60THPUSH THTREE (LIST 'THAMONG THXX (THVAL (CADR THA)
+                 THALIST))&#62
+                NIL]
+              [T &#60MEMBER (CADR THXX) (THVAL (CADR THA) THALIST)&#62])))
+
+(CSETQ THAMONGF
+(LAMBDA NIL
+        (COND [THMESSAGEV
+                &#60THPOPT&#62
+                NIL]
+              [&#60CADDAR THTREE&#62
+                &#60RPLACA (CDADAR THTREE) (CAADDAR THTREE)&#62
+                &#60RPLACA (CDDAR THTREE) (CDADDAR THTREE)&#62
+                &#60SETQ THBRANCHV THTREE&#62
+                &#60SETQ THABRANCH THALIST&#62
+                &#60THPOPT&#62
+                T]
+              [T &#60RPLACA (CDADAR THTREE) 'THUNASSIGNED&#62
+                 &#60THPOPT&#62
+                 NIL])))
+
+(DEFSPEC THAND
+(LAMBDA A
+        (OR [NOT A]
+            [DO &#60THPUSH THTREE (LIST 'THAND A NIL)&#62
+                &#60SETQ THEXP (CAR A)&#62])))
+
+(CSETQ THANDF
+(LAMBDA NIL
+        (THBRANCHUN)
+        NIL))
+
+(CSETQ THANDT
+(LAMBDA NIL
+        (COND [&#60CDADAR THTREE&#62
+                &#60THBRANCH&#62
+                &#60SETQ THEXP (CADADAR THTREE)&#62
+                &#60RPLACA (CDAR THTREE) (CDADAR THTREE)&#62]
+              [&#60THPOPT&#62])
+        THVALUE))
+
+(DEFSPEC THANTE
+(LAMBDA THX
+        (THDEF 'THANTE THX)))
+
+(DEFSPEC THAPPLY
+(LAMBDA (THM DAT)
+        (THAPPLY1 THM (GET THM 'THEOREM) DAT)))
+
+(CSETQ THAPPLY1
+(LAMBDA (THM THB DAT)
+        (COND [&#60AND [THBIND (CADR THB)]
+                    [THMATCH1 DAT (CADDR THB)]&#62
+                &#60AND THTRACEV
+                     [THTRACES 'THEOREM THM]&#62
+                &#60THPUSH THTREE '(THEOREM)&#62
+                &#60THPUSH THTREE (LIST 'THPROG (CDDR THB) NIL (CDDR THB))&#62
+                &#60THPROGA&#62
+                T]
+              [T &#60SETQ THALIST THOLIST&#62
+                 &#60THPOPT&#62
+                 NIL])))
+
+(CSETQ THASS1
+(LAMBDA (THA P)
+        (PROG &#60THX THY1 THY TYPE PSEUDO&#62
+              &#60AND [CDR THA]
+                   [CADR THA]
+                   [EQ (CAADR THA) 'THPSEUDO]
+                   [SETQ PSEUDO T]&#62
+              &#60OR [ATOM (SETQ THX (CAR THA))]
+                  [THPURE (SETQ THX (THVARSUBST THX NIL))]
+                  PSEUDO
+                  [DO &#60PRINT THX&#62
+                      &#60THERT "IMPURE ASSERTION OR ERASURE - THASS1"&#62]&#62
+              &#60AND THTRACEV
+                   [THTRACES
+                    (COND [P 'THASSERT]
+                          ['THERASE]) THX]&#62
+              &#60SETQ THA
+               (COND [PSEUDO &#60CDDR THA&#62]
+                     [&#60CDR THA&#62])&#62
+              &#60OR [SETQ THX
+                   (COND [PSEUDO &#60LIST THX&#62]
+                         [P &#60THADD THX (SETQ THY
+                             (COND [&#60AND THA
+                                         [EQ (CAAR THA) 'THPROP]&#62
+                                     &#60PROG1 (EVAL (CADAR THA)) (SETQ THA
+                                      (CDR THA))&#62]))&#62]
+                         [T &#60THREMOVE THX&#62])]
+                  [RETURN NIL]&#62
+              &#60COND [P &#60SETQ TYPE 'THANTE&#62]
+                    [T &#60SETQ TYPE 'THERASING&#62]&#62
+              &#60OR PSEUDO
+                  [THPUSH THTREE (LIST
+                   (COND [P 'THASSERT]
+                         [T 'THERASE]) THX THY)]&#62
+              &#60SETQ THY (MAPCONC THA THTAE)&#62
+              &#60COND [THY &#60SETQ THEXP (CONS 'THDO THY)&#62]&#62
+              &#60RETURN THX&#62)))
+
+(DEFSPEC THASSERT
+(LAMBDA THA
+        (THASS1 THA T)))
+(DEFMAC THASSERTLIST
+(LAMBDA (THA . THRECS)
+        (PROG &#60THA1&#62
+              &#60SETQ THA1 (CAR (NTH THA -1))&#62
+              &#60SETQ THA (REVERSE (CDR (REVERSE THA)))&#62
+              &#60RETURN (CONS 'THDO (MAPCAR THA1
+               (LAMBDA (THA2)
+                       (LIST 'THASSERT (APPEND THA (LIST THA2)) (STACK
+                        THRECS)))))&#62)))
+
+(CSETQ THASSERTF
+(LAMBDA NIL
+        (THREMOVE
+         (COND [&#60ATOM (CADAR THTREE)&#62 &#60CADAR THTREE&#62]
+               [T &#60CAADAR THTREE&#62]))
+        (THPOPT)
+        NIL))
+
+(CSETQ THASSERTT
+(LAMBDA NIL
+        (PROG1 (CADAR THTREE) (THPOPT))))
+
+(DEFSPEC THASVAL
+(LAMBDA (X)
+        (AND [SETQ X (THSGAL X)]
+             [NOT (EQ (CADR X) 'THUNASSIGNED)])))
+
+(CSETQ THBAP
+(LAMBDA (TH1 TH2)
+        (PROG &#60THP&#62
+              &#60SETQ THP TH2&#62
+         THP1 &#60AND [EQUAL
+                    (COND [THPC &#60CADR THP&#62]
+                          [T &#60CAADR THP&#62]) TH1]
+                   [RETURN THP]&#62
+              &#60OR [CDR (SETQ THP (CDR THP))]
+                  [RETURN NIL]&#62
+              &#60GO THP1&#62)))
+
+(CSETQ THBI1
+(LAMBDA (X)
+        (COND [&#60ATOM X&#62 &#60LIST X 'THUNASSIGNED&#62]
+              [T &#60LIST (CAR X) (EVAL (CADR X))&#62])))
+
+(CSETQ THBIND
+(LAMBDA (A)
+        (SETQ THOLIST THALIST)
+        (OR [NULL A]
+            [PROG NIL
+               GO &#60COND [&#60NULL A&#62
+                          &#60THPUSH THTREE (LIST 'THREMBIND THOLIST)&#62
+                          &#60RETURN T&#62]&#62
+                  &#60THPUSH THALIST
+                   (COND [&#60ATOM (CAR A)&#62
+                           &#60LIST (CAR A) 'THUNASSIGNED&#62]
+                         [&#60EQ (CAAR A) 'THRESTRICT&#62
+                           &#60NCONC (THBI1 (CADAR A)) (CDDAR A)&#62]
+                         [T &#60LIST (CAAR A) (EVAL (CADAR A))&#62])&#62
+                  &#60SETQ A (CDR A)&#62
+                  &#60GO GO&#62])))
+
+(CSETQ THBRANCH
+(LAMBDA NIL
+        (COND [&#60NOT (CDADAR THTREE)&#62]
+              [&#60EQ THBRANCHV THTREE&#62 &#60SETQ THBRANCHV NIL&#62]
+              [&#60RPLACA (CDDAR THTREE) (CONS (LIST THBRANCHV THABRANCH (
+                 CADAR THTREE)) (CADDAR THTREE))&#62 &#60SETQ THBRANCHV NIL&#62])
+))
+
+(CSETQ THBRANCHUN
+(LAMBDA NIL
+        (PROG &#60X&#62
+              &#60RETURN
+               (COND [&#60SETQ X (CADDAR THTREE)&#62
+                       &#60RPLACA (CDAR THTREE) (CADDAR X)&#62
+                       &#60RPLACA (CDDAR THTREE) (CDR X)&#62
+                       &#60SETQ THALIST (CADAR X)&#62
+                       &#60SETQ THTREE (CAAR X)&#62
+                       T]
+                     [T &#60THPOPT&#62
+                        NIL])&#62)))
+
+(CSETQ THCHECK
+(LAMBDA (THPRD THX)
+        (OR [NULL THPRD]
+            [EQ THX 'THUNASSIGNED]
+            [ATTEMPT [DO &#60MAPC THPRD
+                          (LAMBDA (THY)
+                                  (OR [(EVAL THY) THX]
+                                      [ERROR 1]))&#62
+                         T]
+                     [1 F]])))
+
+(DEFSPEC THCOND
+(LAMBDA THA
+        (THPUSH THTREE (LIST 'THCOND THA NIL))
+        (SETQ THEXP (CAAR THA))))
+
+(CSETQ THCONDF
+(LAMBDA NIL
+        (THOR2 NIL)))
+
+(CSETQ THCONDT
+(LAMBDA NIL
+        (RPLACA (CAR THTREE) 'THAND)
+        (RPLACA (CDAR THTREE) (CAADAR THTREE))
+        THVALUE))
+
+(DEFSPEC THCONSE
+(LAMBDA THX
+        (THDEF 'THCONSE THX)))
+
+(CSETQ THDATA
+(LAMBDA NIL
+        (PROG &#60X&#62
+              &#60TERPRI&#62
+           GO &#60COND [&#60ATOM (SETQ X (READ))&#62 &#60RETURN X&#62]
+                    [&#60THADD (CAR X) (CDR X)&#62 &#60PRINT X&#62]
+                    [T &#60PRIN1 X&#62
+                       &#60PRINT " ALREADY ASSERTED"&#62]&#62
+              &#60GO GO&#62)))
+
+(CSETQ THDEF
+(LAMBDA (THMTYPE THX)
+        (PROG &#60THNOASSERT? THMNAME THMBODY&#62
+              &#60COND [&#60NOT (ATOM (CAR THX))&#62
+                      &#60SETQ THMBODY THX&#62
+                      &#60COND [&#60EQ THMTYPE 'THCONSE&#62
+                              &#60SETQ THMNAME (THGENSYM 'TC-G)&#62]
+                            [&#60EQ THMTYPE 'THANTE&#62
+                              &#60SETQ THMNAME (THGENSYM 'TA-G)&#62]
+                            [&#60EQ THMTYPE 'THERASING&#62
+                              &#60SETQ THMNAME (THGENSYM 'TE-G)&#62]
+                            [T &#60PRINT THMTYPE&#62
+                               &#60THERT "UNKNOWN THEOREM TYPE - THDEF"&#62]&#62]
+                    [&#60SETQ THMNAME (CAR THX)&#62 &#60SETQ THMBODY (CDR THX)&#62]&#62
+              &#60COND [&#60EQ (CAR THMBODY) 'THNOASSERT&#62
+                      &#60SETQ THNOASSERT? T&#62
+                      &#60SETQ THMBODY (CDR THMBODY)&#62]&#62
+              &#60THPUTPROP THMNAME (CONS THMTYPE THMBODY) 'THEOREM&#62
+              &#60COND [THNOASSERT?
+                      &#60PRINTL THMNAME "DEFINED BUT NOT ASSERTED"&#62
+                      &#60RETURN THMNAME&#62]
+                    [&#60THASS1 (LIST THMNAME) T&#62
+                      &#60PRINTL THMNAME "DEFINED AND ASSERTED"&#62
+                      &#60RETURN THMNAME&#62]
+                    [T &#60PRINTL THMNAME "REDEFINED"&#62
+                       &#60RETURN THMNAME&#62]&#62)))
+
+(DEFSPEC THDO
+(LAMBDA A
+        (OR [NOT A]
+            [DO &#60THPUSH THTREE (LIST 'THDO A NIL NIL)&#62
+                &#60SETQ THEXP (CAR A)&#62])))
+
+(CSETQ THDOB
+(LAMBDA NIL
+        (COND [&#60OR THMESSAGEV
+                   [NULL (CDADAR THTREE)]&#62
+                &#60RPLACA (CAR THTREE) 'THUNDO&#62
+                T]
+              [&#60THDO1&#62])))
+
+(CSETQ THDO1
+(LAMBDA NIL
+        (RPLACA (CDAR THTREE) (CDADAR THTREE))
+        (SETQ THEXP (CAADAR THTREE))
+        (COND [THBRANCHV
+                &#60RPLACA (CDDAR THTREE) (CONS THBRANCHV (CADDAR THTREE))&#62
+                &#60SETQ THBRANCHV NIL&#62
+                &#60RPLACA (CDDDAR THTREE) (CONS THABRANCH (CADDDAR THTREE)
+                 )&#62])))
+
+(CSETQ THDUMP
+(LAMBDA THFILE
+        (PROG &#60L&#62
+              &#60OBLIST
+               (LAMBDA (A)
+                       (COND [&#60GET A 'THEOREM&#62 &#60SETQ L (CONS A L)&#62]))&#62
+              &#60TERPRI (STACK THFILE)&#62
+              &#60PRINT "(DO"&#62
+              &#60THPRETTYP L (STACK THFILE)&#62
+              &#60PRINT "(THDATA))"&#62
+              &#60THSTATE&#62
+              &#60PRINT "LOADED"&#62
+              &#60TERPRI&#62
+              &#60RETURN "DUMPED"&#62)))
+
+(DEFSPEC THERASE
+(LAMBDA THA
+        (THASS1 THA NIL)))
+
+(CSETQ THERASEF
+(LAMBDA NIL
+        (THADD
+         (COND [&#60ATOM (CADAR THTREE)&#62 &#60CADAR THTREE&#62]
+               [T &#60CAADAR THTREE&#62])
+         (COND [&#60ATOM (CADAR THTREE)&#62 NIL]
+               [T &#60CDADAR THTREE&#62]))
+        (THPOPT)
+        NIL))
+
+(CSETQ THERASET
+(LAMBDA NIL
+        (PROG1 (CADAR THTREE) (THPOPT))))
+
+(DEFSPEC THERASING
+(LAMBDA THX
+        (THDEF 'THERASING THX)))
+
+(DEFSPEC THERT
+(LAMBDA (L)
+        (TERPRI)
+        (CLEARBUFF)
+        (PRINT L)
+        (CSETQ THINF T)
+        (ERROR 0)))
+
+(DEFSPEC THEV
+(LAMBDA (THA)
+        (THVAL THA THALIST)))
+
+(DEFSPEC THFAIL
+(LAMBDA THA
+        (AND THA
+             [PROG &#60THTREE1 THA1 THX&#62
+                   &#60SETQ THTREE1 THTREE&#62
+                   &#60SETQ THA1
+                    (COND [&#60EQ (CAR THA) 'THTAG&#62 'THPROG]
+                          [&#60EQ (CAR THA) 'THINF&#62
+                            &#60CSETQ THINF T&#62
+                            &#60RETURN NIL&#62]
+                          [&#60EQ (CAR THA) 'THMESSAGE&#62
+                            &#60CSETQ THMESSAGEV (THVARSUBST (CADR THA) NIL
+                             )&#62
+                            &#60RETURN NIL&#62]
+                          [T &#60CAR THA&#62])&#62
+               LP1 &#60COND [&#60NULL THTREE1&#62
+                           &#60PRINT THA&#62
+                           &#60THERT "NOT FOUND - THFAIL"&#62]
+                         [&#60EQ (CAAR THTREE1) THA1&#62 &#60GO ELP1&#62]&#62
+              ALP1 &#60SETQ THTREE1 (CDR THTREE1)&#62
+                   &#60GO LP1&#62
+              ELP1 &#60COND [&#60EQ (CAR THA) 'THTAG&#62
+                           &#60COND [&#60MEMBER (CADR THA) (CADDDAR THTREE1)&#62
+                                   &#60GO TAGS&#62]
+                                 [T &#60GO ALP1&#62]&#62]&#62
+                   &#60CSETQ THMESSAGEV (LIST (CDR THTREE1)
+                    (AND [CDR THA]
+                         [CADR THA]))&#62
+                   &#60RETURN NIL&#62
+              TAGS &#60SETQ THX (CADDAR THTREE1)&#62
+               LP2 &#60COND [&#60NULL (CAR THX)&#62 &#60GO ALP1&#62]
+                         [&#60EQ (CAADDAR THX) (CADR THA)&#62
+                           &#60CSETQ THMESSAGEV (LIST (CAAR THX)
+                            (AND [CDDR THA]
+                                 [CADDR THA]))&#62
+                           &#60RETURN NIL&#62]&#62
+                   &#60SETQ THX (CDR THX)&#62
+                   &#60GO LP2&#62])))
+
+(CSETQ THFAIL?
+(LAMBDA (PRD ACT)
+        (THPUSH THTREE (LIST 'THFAIL? PRD ACT))
+        THVALUE))
+
+(CSETQ THFAIL?F
+(LAMBDA NIL
+        (COND [&#60EVAL (CADAR THTREE)&#62
+                &#60(LAMBDA (X Y)
+                         Y) (CSETQ THMESSAGEV NIL) (EVAL (CADDAR THTREE)
+                 ) (THPOPT)&#62]
+              [T &#60THPOPT&#62
+                 NIL])))
+
+(DEFSPEC THFINALIZE
+(LAMBDA THA
+        (PROG &#60THTREE1 THT THX&#62
+              &#60COND [&#60NULL THA&#62 &#60THERT "NULL ARGUMENT - THFINALIZE"&#62]
+                    [&#60EQ (CAR THA) 'THTAG&#62 &#60SETQ THT (CADR THA)&#62]&#62
+              &#60SETQ THTREE (SETQ THTREE1 (CONS NIL THTREE))&#62
+         PLUP &#60AND [NULL (SETQ THX (CDR THTREE1))]
+                   [PRINT THA]
+                   [THERT "OVERPOP - THFINALIZE"]&#62
+              &#60SETQ THX (CAR THX)&#62
+              &#60COND [&#60AND THT
+                          [EQ (CAR THX) 'THPROG]
+                          [MEMBER THT (CADDDR THX)]&#62 &#60GO RTLEV&#62]
+                    [&#60OR [EQ (CAR THX) 'THPROG]
+                         [EQ (CAR THX) 'THAND]&#62
+                      &#60RPLACA (CDDR THX) NIL&#62
+                      &#60SETQ THTREE1 (CDR THTREE1)&#62]
+                    [&#60EQ (CAR THX) 'THREMBIND&#62
+                      &#60SETQ THTREE1 (CDR THTREE1)&#62]
+                    [&#60RPLACD THTREE1 (CDDR THTREE1)&#62]&#62
+              &#60COND [&#60EQ (CAR THX) (CAR THA)&#62 &#60GO DONE&#62]&#62
+              &#60GO PLUP&#62
+        RTLEV &#60SETQ THX (CDDR THX)&#62
+        LEVLP &#60COND [&#60NULL (CAR THX)&#62
+                      &#60SETQ THTREE1 (CDR THTREE1)&#62
+                      &#60GO PLUP&#62]
+                    [&#60EQ (CAADDAAR THX) THT&#62 &#60GO DONE&#62]&#62
+              &#60RPLACA THX (CDAR THX)&#62
+              &#60GO LEVLP&#62
+         DONE &#60THPOPT&#62
+              &#60RETURN T&#62)))
+
+(DEFSPEC THFIND
+(LAMBDA THA
+        (THBIND (CADDR THA))
+        (THPUSH THTREE (LIST 'THFIND
+         (COND [&#60EQ (CAR THA) 'ALL&#62 '&#601 NIL NIL&#62]
+               [&#60NUMBERP (CAR THA)&#62 &#60LIST (CAR THA) (CAR THA) T&#62]
+               [&#60NUMBERP (CAAR THA)&#62 &#60CAR THA&#62]
+               [&#60EQ (CAAR THA) 'EXACTLY&#62
+                 &#60LIST (CADAR THA) (ADD1 (CADAR THA)) NIL&#62]
+               [&#60EQ (CAAR THA) 'AT-MOST&#62 &#60LIST 1 (ADD1 (CADAR THA)) NIL&#62
+                ]
+               [&#60EQ (CAAR THA) 'AS-MANY-AS&#62 &#60LIST 1 (CADAR THA) T&#62]
+               [T &#60CONS (CADAR THA)
+                   (COND [&#60NULL (CDDAR THA)&#62 &#60LIST NIL T&#62]
+                         [&#60EQ (CADDAR THA) 'AT-MOST&#62
+                           &#60LIST (ADD1 (CADDDAR THA)) NIL&#62]
+                         [T &#60LIST (CADDDAR THA) T&#62])&#62]) (CONS 0 NIL) (
+         CADR THA)))
+        (THPUSH THTREE (LIST 'THPROG (CDDR THA) NIL (CDDR THA)))
+        (THPROGA)))
+
+(CSETQ THFINDF
+(LAMBDA NIL
+        (SETQ THBRANCHV NIL)
+        (COND [&#60OR THMESSAGEV
+                   [LESSP (CAADR (CSETQ THXX (CDAR THTREE))) (CAAR THXX)
+                    ]&#62
+                &#60THPOPT&#62
+                NIL]
+              [T &#60THPOPT&#62
+                 &#60CDADR THXX&#62])))
+
+(CSETQ THFINDT
+(LAMBDA NIL
+        (PROG &#60THX THY THZ THCDAR&#62
+              &#60SETQ THZ (CADDR (SETQ THCDAR (CDAR THTREE)))&#62
+              &#60AND [MEMBER (SETQ THX (THVARSUBST THZ NIL)) (CDADR THCDAR
+                    )]
+                   [GO GO]&#62
+              &#60RPLACD (CADR THCDAR) (CONS THX (CDADR THCDAR))&#62
+              &#60AND [EQUAL (SETQ THY (ADD1 (CAADR THCDAR))) (CADAR THCDAR
+                    )]
+                   [RETURN (PROG1
+                    (AND [CADDAR THCDAR]
+                         [CDADR THCDAR]) (SETQ THBRANCHV NIL) (THPOPT))]
+               &#62
+              &#60RPLACA (CADR THCDAR) THY&#62
+           GO &#60SETQ THTREE THBRANCHV&#62
+              &#60SETQ THALIST THABRANCH&#62
+              &#60SETQ THBRANCHV NIL&#62
+              &#60RETURN NIL&#62)))
+
+(DEFSPEC THFLUSH
+(LAMBDA INDS
+        (SETQ INDS
+         (OR INDS
+             '[THASSERTION THCONSE THANTE THERASING]))
+        (OBLIST
+         (LAMBDA (AT)
+                 (MAPC INDS
+                  (LAMBDA (P)
+                          (REMPROP AT P)))))
+        "DONE"))
+
+(CSETQ THGAL
+(LAMBDA (X Y)
+        (CSETQ THXX X)
+        (OR [ASSOC (CADR X) Y]
+            [DO &#60PRINT THXX&#62
+                &#60THERT "THUNBOUND - THGAL"&#62])))
+
+(CSETQ THGENSYM
+(LAMBDA (X)
+        (COMPRESS (EXPLODE (GENSYM X)))))
+
+(DEFMAC THGO
+(LAMBDA (X)
+        (LIST 'THSUCCEED 'THTAG X)))
+
+(DEFSPEC THGOAL
+(LAMBDA THA
+        (PROG &#60THY THY1 THZ THZ1 THA1 THA2&#62
+              &#60SETQ THA2 (THVARSUBST (CAR THA) T)&#62
+              &#60SETQ THA1 (CDR THA)&#62
+              &#60COND [&#60OR [NULL THA1]
+                         [AND [NOT (AND [EQ (CAAR THA1) 'THANUM]
+                                        [SETQ THA1 (CONS (LIST 'THNUM (
+                                         CADAR THA1)) (CONS '(THDBF
+                                         THTRUE) (CDR THA1)))])]
+                              [NOT (AND [EQ (CAAR THA1) 'THNODB]
+                                        [DO &#60SETQ THA1 (CDR THA1)&#62
+                                            T])]
+                              [NOT (EQ (CAAR THA1) 'THDBF)]]&#62
+                      &#60SETQ THA1 (CONS '(THDBF THTRUE) THA1)&#62]&#62
+              &#60SETQ THA1 (MAPCONC THA1 THTRY)&#62
+              &#60AND THTRACEV
+                   [THTRACES 'THGOAL THA2]&#62
+              &#60COND [&#60NULL THA1&#62 &#60RETURN NIL&#62]&#62
+              &#60THPUSH THTREE (LIST 'THGOAL THA2 THA1)&#62
+              &#60RPLACD (CDDAR THTREE) 777777Q&#62
+              &#60RETURN NIL&#62)))
+
+(CSETQ THGOALF
+(LAMBDA NIL
+        (COND [THMESSAGEV
+                &#60THPOPT&#62
+                NIL]
+              [&#60THTRY1&#62]
+              [T &#60THPOPT&#62
+                 NIL])))
+
+(CSETQ THGOALT
+(LAMBDA NIL
+        (PROG1
+         (COND [&#60EQ THVALUE 'THNOVAL&#62
+                 &#60LIST (THVARSUBST (CADAR THTREE) NIL)&#62]
+               [THVALUE]) (THPOPT))))
+
+(CSETQ THIP
+(LAMBDA (THI)
+        (PROG &#60THT1 THT3 THSV THT2 THI1&#62
+              &#60SETQ THNF (ADD1 THNF)&#62
+              &#60COND [&#60NUMBERP THI&#62 &#60RETURN 'THVRB&#62]
+                    [&#60AND [ATOM THI]
+                          [NOT (EQ THI '?)]&#62 &#60SETQ THI1 THI&#62]
+                    [&#60OR [EQ THI '?]
+                         [MEMBER (CAR THI) '(THV THNV)]&#62
+                      &#60COND [THFST &#60RETURN 'THVRB&#62]
+                            [&#60SETQ THI1 'THVRB&#62]&#62]
+                    [&#60RETURN 'THVRB&#62]&#62
+              &#60COND [&#60NOT (SETQ THT1 (GET THI1 THWH))&#62
+                      &#60PUT THI1 THWH (LIST NIL (LIST THNF (LIST THLAS 1
+                       THTTL)))&#62]
+                    [&#60EQ THT1 'THNOHASH&#62 &#60RETURN 'THBQF&#62]
+                    [&#60NOT (SETQ THT2 (ASSOC THNF (CDR THT1)))&#62
+                      &#60NCONC THT1 (LIST (LIST THNF (LIST THLAS 1 THTTL))
+                       )&#62]
+                    [&#60NOT (SETQ THT3 (ASSOC THLAS (CDR THT2)))&#62
+                      &#60NCONC THT2 (LIST (LIST THLAS 1 THTTL))&#62]
+                    [&#60AND [OR THFST
+                              THFSTP]
+                          [COND [&#60EQ THWH 'THASSERTION&#62
+                                  &#60ASSOC THTT (CDDR THT3)&#62]
+                                [T &#60MEMBER THTT (CDDR THT3)&#62]]&#62
+                      &#60RETURN NIL&#62]
+                    [&#60SETQ THSV (CDDR THT3)&#62
+                      &#60RPLACA (CDR THT3) (ADD1 (CADR THT3))&#62
+                      &#60RPLACD (CDR THT3) (NCONC (LIST THTTL) THSV)&#62]&#62
+              &#60RETURN 'THOK&#62)))
+
+(CSETQ THMATCH
+(LAMBDA THX
+        ((LAMBDA (THOLIST THALIST)
+                 (THMATCH1 (CAR THX) (CADR THX)))
+         (COND [&#60GREATERP (LENGTH THX) 2&#62 &#60CADDR THX&#62]
+               [T THALIST])
+         (COND [&#60GREATERP (LENGTH THX) 3&#62 &#60CADDDR THX&#62]
+               [T THALIST]))))
+
+(CSETQ THMATCH1
+(LAMBDA (THX THY)
+        (PROG &#60THML&#62
+              &#60COND [&#60AND [EQUAL (LENGTH
+                           (COND [&#60EQ (CAR THX) 'THEV&#62
+                                   &#60SETQ THX (THVAL (CADR THX) THOLIST)&#62
+                                  ]
+                                 [THX])) (LENGTH THY)]
+                          [ATTEMPT [DO &#60MAP2C THX THY THMATCH2&#62
+                                       T]
+                                   [1 F]]&#62
+                      &#60AND THML
+                           [THPUSH THTREE (LIST 'THMUNG THML)]&#62
+                      &#60RETURN T&#62]
+                    [T &#60MAPC THML EVAL&#62
+                       &#60RETURN NIL&#62]&#62)))
+
+(CSETQ THMATCH2
+(LAMBDA (THX THY)
+        (AND [NOT (ATOM THX)]
+             [EQ (CAR THX) 'THEV]
+             [SETQ THX (THVAL (CADR THX) THOLIST)])
+        (AND [NOT (ATOM THY)]
+             [EQ (CAR THY) 'THEV]
+             [SETQ THY (THVAL (CADR THY) THALIST)])
+        (COND [&#60EQ THX '?&#62]
+              [&#60EQ THY '?&#62]
+              [&#60OR [AND [NOT (ATOM THX)]
+                        [MEMBER (CAR THX) '(THV THNV THRESTRICT)]]
+                   [AND [NOT (ATOM THY)]
+                        [MEMBER (CAR THY) '(THV THNV THRESTRICT)]]&#62
+                &#60(LAMBDA (XPAIR YPAIR)
+                         (COND [&#60AND XPAIR
+                                     [OR [EQ (CAR THX) 'THNV]
+                                         [AND [EQ (CAR THX) 'THV]
+                                              [EQ (CADR XPAIR) '
+                                               THUNASSIGNED]]]
+                                     [THCHECK (CDDR XPAIR)
+                                      (COND [YPAIR &#60CADR YPAIR&#62]
+                                            [T THY])]&#62
+                                 &#60COND [YPAIR &#60THRPLACAS (CDR XPAIR) (
+                                               CADR YPAIR)&#62
+
+     &#60AND [CDDR YPAIR]
+          [THRPLACDS (CDR XPAIR) (THUNION (CDDR XPAIR) (CDDR YPAIR))]&#62
+                                              &#60THRPLACDS YPAIR (CDR
+                                               XPAIR)&#62]
+                                       [T &#60THRPLACAS (CDR XPAIR) THY&#62]&#62]
+                               [&#60AND YPAIR
+                                     [OR [EQ (CAR THY) 'THNV]
+                                         [AND [EQ (CAR THY) 'THV]
+                                              [EQ (CADR YPAIR) '
+                                               THUNASSIGNED]]]
+                                     [THCHECK (CDDR YPAIR)
+                                      (COND [XPAIR &#60CADR XPAIR&#62]
+                                            [T THX])]&#62
+                                 &#60COND [XPAIR &#60THRPLACAS (CDR YPAIR) (
+                                               CADR XPAIR)&#62]
+                                       [T &#60THRPLACAS (CDR YPAIR) THX&#62]&#62]
+                               [&#60AND XPAIR
+                                     [EQUAL (CADR XPAIR)
+                                      (COND [YPAIR &#60CADR YPAIR&#62]
+                                            [T THY])]&#62]
+                               [&#60AND YPAIR
+                                     [EQUAL (CADR YPAIR) THX]&#62]
+                               [T &#60ERROR 1&#62]))
+                 (COND [&#60THVAR THX&#62 &#60THGAL THX THOLIST&#62]
+                       [&#60AND [NOT (ATOM THX)]
+                             [EQ (CAR THX) 'THRESTRICT]&#62
+                         &#60COND [&#60EQ (CADR THX) '?&#62
+                                 &#60PROG1 (CONS '? (CONS 'THUNASSIGNED (
+                                  APPEND (CDDR THX) NIL))) (SETQ THX '(
+                                  THNV ?))&#62]
+                               [T &#60(LAMBDA (U)
+                                           (THRPLACDS (CDR U) (THUNION (
+                                            CDDR U) (CDDR THX)))
+                                           (SETQ THX (CADR THX))
+                                           U) (THGAL (CADR THX) THOLIST)
+                                   &#62]&#62])
+                 (COND [&#60THVAR THY&#62 &#60THGAL THY THALIST&#62]
+                       [&#60AND [NOT (ATOM THY)]
+                             [EQ (CAR THY) 'THRESTRICT]&#62
+                         &#60COND [&#60EQ (CADR THY) '?&#62
+                                 &#60PROG1 (CONS '? (CONS 'THUNASSIGNED (
+                                  APPEND (CDDR THY) NIL))) (SETQ THY '(
+                                  THNV ?))&#62]
+                               [T &#60(LAMBDA (U)
+                                           (THRPLACDS (CDR U) (THUNION (
+                                            CDDR U) (CDDR THY)))
+                                           (SETQ THY (CADR THY))
+                                           U) (THGAL (CADR THY) THALIST)
+                                   &#62]&#62])&#62]
+              [&#60EQUAL THX THY&#62]
+              [T &#60ERROR 1&#62])))
+
+(CSETQ THMATCHLIST
+(LAMBDA (THTB THWH)
+        (PROG &#60THB1 THB2 THL THNF THAL THA1 THA2 THRN THL1 THL2 THRVC&#62
+              &#60SETQ THL 377777777777Q&#62
+              &#60SETQ THNF 0&#62
+              &#60SETQ THAL (LENGTH THTB)&#62
+              &#60SETQ THB1 THTB&#62
+         THP1 &#60OR THB1
+                  [RETURN
+                   (COND [THL2 &#60APPEND THL1 THL2&#62]
+                         [THL1])]&#62
+              &#60SETQ THNF (ADD1 THNF)&#62
+              &#60SETQ THB2 (CAR THB1)&#62
+              &#60SETQ THB1 (CDR THB1)&#62
+         THP3 &#60COND [&#60OR [NULL (ATOM THB2)]
+                         [NUMBERP THB2]
+                         [EQ THB2 '?]&#62 &#60GO THP1&#62]
+                    [&#60NOT (SETQ THA1 (GET THB2 THWH))&#62
+                      &#60SETQ THA1 '(0 0)&#62]
+                    [&#60EQ THA1 'THNOHASH&#62 &#60GO THP1&#62]
+                    [&#60NOT (SETQ THA1 (ASSOC THNF (CDR THA1)))&#62
+                      &#60SETQ THA1 '(0 0)&#62]
+                    [&#60NOT (SETQ THA1 (ASSOC THAL (CDR THA1)))&#62
+                      &#60SETQ THA1 '(0 0)&#62]&#62
+              &#60SETQ THRN (CADR THA1)&#62
+              &#60SETQ THA1 (CDDR THA1)&#62
+              &#60AND [EQ THWH 'THASSERTION]
+                   [GO THP2]&#62
+              &#60COND [&#60NOT (SETQ THA2 (GET 'THVRB THWH))&#62
+                      &#60SETQ THA2 '(0 0)&#62]
+                    [&#60NOT (SETQ THA2 (ASSOC THNF (CDR THA2)))&#62
+                      &#60SETQ THA2 '(0 0)&#62]
+                    [&#60NOT (SETQ THA2 (ASSOC THAL (CDR THA2)))&#62
+                      &#60SETQ THA2 '(0 0)&#62]&#62
+              &#60SETQ THRVC (CADR THA2)&#62
+              &#60SETQ THA2 (CDDR THA2)&#62
+              &#60AND [GREATERP (PLUS THRVC THRN) THL]
+                   [GO THP1]&#62
+              &#60SETQ THL (PLUS THRVC THRN)&#62
+              &#60SETQ THL1 THA1&#62
+              &#60SETQ THL2 THA2&#62
+              &#60GO THP1&#62
+         THP2 &#60COND [&#60ZEROP THRN&#62 &#60RETURN NIL&#62]
+                    [&#60GREATERP THL THRN&#62
+                      &#60SETQ THL1 THA1&#62
+                      &#60SETQ THL THRN&#62]&#62
+              &#60GO THP1&#62)))
+
+(DEFSPEC THMESSAGE
+(LAMBDA THA
+        (THPUSH THTREE (CONS 'THMESSAGE THA))
+        THVALUE))
+
+(CSETQ THMESSAGEF
+(LAMBDA NIL
+        (PROG &#60BOD&#62
+              &#60SETQ BOD (CAR THTREE)&#62
+              &#60THPOPT&#62
+              &#60COND [&#60AND [THBIND (CADR BOD)]
+                          [THMATCH1 THMESSAGEV (CADDR BOD)]&#62
+                      &#60THPUSH THTREE (LIST 'THPROG (CDDR BOD) NIL (CDDR
+                       BOD))&#62
+                      &#60CSETQ THMESSAGEV NIL&#62
+                      &#60RETURN (THPROGA)&#62]
+                    [T &#60SETQ THALIST THOLIST&#62]&#62
+              &#60RETURN NIL&#62)))
+
+(CSETQ THMUNGF
+(LAMBDA NIL
+        (MAPC (CADAR THTREE) EVAL)
+        (THPOPT)
+        NIL))
+
+(CSETQ THNOFAIL
+(LAMBDA (THX)
+        (COND [THX &#60PUT 'THPROG 'THFAIL THPROGT&#62]
+              [T &#60PUT 'THPROG 'THFAIL THPROGF&#62])))
+
+(DEFSPEC THNOHASH
+(LAMBDA (THA . INDS)
+        (MAPC (OR INDS
+                  '[THASSERTION THCONSE THANTE THERASING])
+         (LAMBDA (X)
+                 (PUT THA X 'THNOHASH)))))
+
+(DEFMAC THNOT
+(LAMBDA (THA)
+        (LIST 'THCOND (LIST THA '(THFAIL THAND)) '((THSUCCEED)))))
+
+(DEFSPEC THNV
+(LAMBDA (X)
+        (THV1 X)))
+
+(DEFSPEC THOR
+(LAMBDA THA
+        (AND THA
+             [THPUSH THTREE (LIST 'THOR THA)]
+             [SETQ THEXP (CAR THA)])))
+
+(CSETQ THORF
+(LAMBDA NIL
+        (THOR2 T)))
+
+(CSETQ THOR2
+(LAMBDA (P)
+        (COND [THMESSAGEV
+                &#60THPOPT&#62
+                NIL]
+              [&#60AND [CADAR THTREE]
+                    [CDADAR THTREE]&#62
+                &#60RPLACA (CDAR THTREE) (CDADAR THTREE)&#62
+                &#60SETQ THEXP
+                 (COND [P &#60PROG1 (CAADAR THTREE)
+                           (OR [CADAR THTREE]
+                               [THPOPT])&#62]
+                       [&#60CAAADAR THTREE&#62])&#62]
+              [T &#60THPOPT&#62
+                 NIL])))
+
+(DEFMAC THPOPT
+(LAMBDA NIL
+        '(SETQ THTREE (CDR THTREE))))
+
+(CSETQ THPOPTV
+(LAMBDA NIL
+        (THPOPT)
+        THVALUE))
+
+(DEFSPEC THPROG
+(LAMBDA THA
+        (THBIND (CAR THA))
+        (THPUSH THTREE (LIST 'THPROG THA NIL THA))
+        (THPROGA)))
+
+(CSETQ THPROGA
+(LAMBDA NIL
+        ((LAMBDA (X)
+                 (COND [&#60NULL (CDAR X)&#62
+                         &#60THPOPT&#62
+                         'THNOVAL]
+                       [&#60ATOM (CADAR X)&#62
+                         &#60SETQ THEXP (LIST 'THTAG (CADAR X))&#62
+                         &#60RPLACA X (CDAR X)&#62
+                         THVALUE]
+                       [T &#60SETQ THEXP (CADAR X)&#62
+                          &#60RPLACA X (CDAR X)&#62
+                          THVALUE])) (CDAR THTREE))))
+
+(CSETQ THPROGF
+(LAMBDA NIL
+        (THBRANCHUN)
+        NIL))
+
+(CSETQ THPROGT
+(LAMBDA NIL
+        (THBRANCH)
+        (THPROGA)))
+
+(CSETQ THPURE
+(LAMBDA (XX)
+        (ATTEMPT [DO &#60MAPC XX
+                      (LAMBDA (Y)
+                              (AND [THVAR Y]
+                                   [ERROR 1]))&#62
+                     T]
+                 [1 F])))
+
+(DEFMAC THPUSH
+(LAMBDA (TH1 TH2)
+        (LIST 'SETQ TH1 (LIST 'CONS TH2 TH1))))
+
+(CSETQ THPUT
+(LAMBDA (ATO IND VAL)
+        (THPUSH THTREE (LIST 'THMUNG (LIST (LIST 'PUT (LIST 'QUOTE ATO)
+         (LIST 'QUOTE IND) (LIST 'QUOTE (GET ATO IND))))))
+        (PUT ATO IND VAL)))
+
+(DEFMAC THPUTPROP
+(LAMBDA (ATO VAL IND)
+        (LIST 'THPUT ATO IND VAL)))
+
+(CSETQ THREM1
+(LAMBDA (THB)
+        (PROG &#60THA THSV THA1 THA2 THA3 THA4 THA5 THONE THPC&#62
+              &#60SETQ THNF (ADD1 THNF)&#62
+              &#60COND [&#60NUMBERP THB&#62 &#60RETURN 'THVRB&#62]
+                    [&#60AND [ATOM THB]
+                          [NOT (EQ THB '?)]&#62 &#60SETQ THA THB&#62]
+                    [&#60OR [EQ THB '?]
+                         [MEMBER (CAR THB) '(THV THNV)]&#62
+                      &#60COND [THFST &#60RETURN 'THVRB&#62]
+                            [&#60SETQ THA 'THVRB&#62]&#62]
+                    [&#60RETURN 'THVRB&#62]&#62
+              &#60OR [SETQ THA1 (GET THA THWH)]
+                  [RETURN NIL]&#62
+              &#60AND [EQ THA1 'THNOHASH]
+                   [RETURN 'THBQF]&#62
+              &#60OR [SETQ THA2 (THBAP THNF THA1)]
+                  [RETURN NIL]&#62
+              &#60OR [SETQ THA3 (THBAP THAL (CADR THA2))]
+                  [RETURN NIL]&#62
+              &#60SETQ THA4 (CADR THA3)&#62
+              &#60SETQ THPC (NOT (EQ THWH 'THASSERTION))&#62
+              &#60SETQ THA5
+               (COND [&#60OR THFST
+                          THFSTP&#62 &#60THBAP THBS (CDR THA4)&#62]
+                     [&#60THBAP (COND [THPC THON]
+                                   [T &#60CAR THON&#62]) (CDR THA4)&#62])&#62
+              &#60OR THA5
+                  [RETURN NIL]&#62
+              &#60SETQ THONE (CADR THA5)&#62
+              &#60RPLACD THA5 (CDDR THA5)&#62
+              &#60AND [NOT (EQUAL (CADR THA4) 1)]
+                   [OR [SETQ THSV (CDDR THA4)]
+                       T]
+                   [RPLACA (CDR THA4) (SUB1 (CADR THA4))]
+                   [RETURN THONE]&#62
+              &#60SETQ THSV (CDDR THA3)&#62
+              &#60RPLACD THA3 THSV&#62
+              &#60AND [CDADR THA2]
+                   [RETURN THONE]&#62
+              &#60SETQ THSV (CDDR THA2)&#62
+              &#60RPLACD THA2 THSV&#62
+              &#60AND [CDR THA1]
+                   [RETURN THONE]&#62
+              &#60REMPROP THA THWH&#62
+              &#60RETURN THONE&#62)))
+
+(CSETQ THREMBINDF
+(LAMBDA NIL
+        (SETQ THALIST (CADAR THTREE))
+        (THPOPT)
+        NIL))
+
+(CSETQ THREMBINDT
+(LAMBDA NIL
+        (SETQ THALIST (CADAR THTREE))
+        (THPOPT)
+        THVALUE))
+
+(CSETQ THREMOVE
+(LAMBDA (THB)
+        (PROG &#60THB1 THWH THNF THAL THON THBS THFST THFSTP THFOO&#62
+              &#60SETQ THNF 0&#62
+              &#60SETQ THB1
+               (COND [&#60ATOM THB&#62
+                       &#60SETQ THBS THB&#62
+                       &#60SETQ THWH (CAR (SETQ THB1 (GET THB 'THEOREM)))&#62
+                       &#60CADDR THB1&#62]
+                     [&#60SETQ THWH 'THASSERTION&#62 &#60SETQ THBS THB&#62])&#62
+              &#60SETQ THAL (LENGTH THB1)&#62
+              &#60SETQ THFST T&#62
+         THP1 &#60COND [&#60NULL THB1&#62
+                      &#60SETQ THB1 THFOO&#62
+                      &#60SETQ THNF 0&#62
+                      &#60SETQ THFST (SETQ THFOO NIL)&#62
+                      &#60SETQ THFSTP T&#62
+                      &#60GO THP1&#62]
+                    [&#60NULL (SETQ THON (THREM1 (CAR THB1)))&#62 &#60RETURN NIL&#62
+                     ]
+                    [&#60MEMBER THON '(THBQF THVRB)&#62
+                      &#60SETQ THFOO (NCONC THFOO (LIST
+                       (COND [&#60EQ THON 'THVRB&#62 &#60CAR THB1&#62])))&#62
+                      &#60SETQ THB1 (CDR THB1)&#62
+                      &#60GO THP1&#62]&#62
+              &#60SETQ THFST NIL&#62
+              &#60MAPC (CDR THB1) THREM1&#62
+              &#60SETQ THNF 0&#62
+              &#60MAPC THFOO THREM1&#62
+              &#60RETURN THON&#62)))
+
+(CSETQ THREMPROP
+(LAMBDA (ATO IND)
+        (THPUSH THTREE (LIST 'THMUNG (LIST (LIST 'PUT (LIST 'QUOTE ATO)
+         (LIST 'QUOTE IND) (LIST 'QUOTE (GET ATO IND))))))
+        (REMPROP ATO IND)))
+
+(DEFSPEC THRESTRICT
+(LAMBDA THB
+        (PROG &#60X&#62
+              &#60COND [&#60ATOM (SETQ X (THGAL (CAR THB) THALIST))&#62
+                      &#60PRINT "THRESTRICT IGNORED - CONTINUING"&#62]
+                    [&#60THRPLACD (CDR X) (THUNION (CDDR X) (CDR THB))&#62]&#62
+              &#60RETURN X&#62)))
+
+(DEFMAC THRETURN
+(LAMBDA (X)
+        (LIST 'THSUCCEED 'THPROG X)))
+
+(CSETQ THRPLACA
+(LAMBDA (X Y)
+        (PROG &#60THML&#62
+              &#60THRPLACAS X Y&#62
+              &#60THPUSH THTREE (LIST 'THMUNG THML)&#62
+              &#60RETURN X&#62)))
+
+(CSETQ THRPLACD
+(LAMBDA (X Y)
+        (PROG &#60THML&#62
+              &#60THRPLACDS X Y&#62
+              &#60THPUSH THTREE (LIST 'THMUNG THML)&#62
+              &#60RETURN X&#62)))
+
+(CSETQ THRPLACAS
+(LAMBDA (X Y)
+        (THPUSH THML (LIST 'THURPLACA X (CAR X)))
+        (RPLACA X Y)))
+
+(CSETQ THRPLACDS
+(LAMBDA (X Y)
+        (THPUSH THML (LIST 'THURPLACD X (CDR X)))
+        (RPLACD X Y)))
+
+(DEFSPEC THSETQ
+(LAMBDA THL1
+        (PROG &#60THML THL&#62
+              &#60SETQ THL THL1&#62
+         LOOP &#60COND [&#60NULL THL&#62
+                      &#60THPUSH THTREE (LIST 'THMUNG THML)&#62
+                      &#60RETURN THVALUE&#62]
+                    [&#60NULL (CDR THL)&#62
+                      &#60PRINT THL1&#62
+                      &#60THERT "ODD NUMBER OF ARGUMENTS - THSETQ"&#62]
+                    [&#60ATOM (CAR THL)&#62
+                      &#60THPUSH THML (LIST 'SETQ (CAR THL) (LIST 'QUOTE (
+                       EVAL (CAR THL))))&#62
+                      &#60SET (CAR THL) (SETQ THVALUE (EVAL (CADR THL)))&#62]
+                    [T &#60THRPLACAS (CDR (THSGAL (CAR THL))) (SETQ THVALUE
+                        (THVAL (CADR THL) THALIST))&#62]&#62
+              &#60SETQ THL (CDDR THL)&#62
+              &#60GO LOOP&#62)))
+
+(CSETQ THSGAL
+(LAMBDA (X)
+        (OR [ASSOC (CADR X) THALIST]
+            [PROG &#60Y&#62
+                  &#60SETQ Y (LIST (CADR X) 'THUNASSIGNED)&#62
+                  &#60NCONC THALIST (LIST Y)&#62
+                  &#60RETURN Y&#62])))
+
+(DEFSPEC THSTATE
+(LAMBDA INDS
+        (PROG &#60THP&#62
+              &#60SETQ INDS
+               (OR INDS
+                   '[THASSERTION THCONSE THANTE THERASING])&#62
+              &#60OBLIST
+               (LAMBDA (THATOM)
+                       (MAPC INDS
+                        (LAMBDA (THWH)
+                                (AND [SETQ THP (GET THATOM THWH)]
+                                     [SETQ THP (ASSOC 1 (CDR THP))]
+                                     [MAPC (CDR THP)
+                                      (LAMBDA (THLENBUC)
+                                              (MAPC (CDDR THLENBUC)
+     (LAMBDA (ASRT)
+             (COND [&#60EQ THWH 'THASSERTION&#62 &#60PRINT ASRT&#62]
+                   [&#60PRINT (LIST ASRT)&#62]))))]))))&#62
+              &#60RETURN "DONE"&#62)))
+
+(DEFSPEC THSUCCEED
+(LAMBDA THA
+        (OR [NOT THA]
+            [PROG &#60THX&#62
+                  &#60SETQ THBRANCHV THTREE&#62
+                  &#60SETQ THABRANCH THALIST&#62
+             LOOP &#60COND [&#60NULL THTREE&#62
+                          &#60PRINT THA&#62
+                          &#60THERT "OVERPOP - THSUCCEED"&#62]
+                        [&#60EQ (CAAR THTREE) 'THREMBIND&#62
+                          &#60SETQ THALIST (CADAR THTREE)&#62
+                          &#60THPOPT&#62
+                          &#60GO LOOP&#62]
+                        [&#60EQ (CAAR THTREE) (CAR THA)&#62
+                          &#60THPOPT&#62
+                          &#60RETURN
+                           (COND [&#60CDR THA&#62 &#60EVAL (CADR THA)&#62]
+                                 [T 'THNOVAL])&#62]
+                        [&#60AND [EQ (CAR THA) 'THTAG]
+                              [EQ (CAAR THTREE) 'THPROG]
+                              [SETQ THX (MEMBER (CADR THA) (CADDDAR
+                               THTREE))]&#62
+                          &#60RPLACA (CDAR THTREE) (CONS NIL THX)&#62
+                          &#60RETURN (THPROGT)&#62]
+                        [T &#60THPOPT&#62
+                           &#60GO LOOP&#62]&#62])))
+
+(CSETQ THTAE
+(LAMBDA (XX)
+        (COND [&#60ATOM XX&#62 NIL]
+              [&#60EQ (CAR XX) 'THUSE&#62
+                &#60MAPCAR (CDR XX)
+                 (LAMBDA (X)
+                         (COND [&#60NOT (AND [CSETQ THXX (GET X 'THEOREM)]
+                                          [EQ (CAR THXX) TYPE])&#62
+                                 &#60PRINT X&#62
+                                 &#60THERT "BAD THEOREM - THTAE"&#62]
+                               [T &#60LIST 'THAPPLY X (CAR THX)&#62]))&#62]
+              [&#60EQ (CAR XX) 'THTBF&#62
+                &#60MAPCONC
+                 (COND [THY1 THY]
+                       [&#60SETQ THY1 T&#62
+                         &#60SETQ THY (THMATCHLIST (CAR THX) TYPE)&#62])
+                 (LAMBDA (Y)
+                         (COND [&#60(EVAL (CADR XX)) Y&#62
+                                 &#60LIST (LIST 'THAPPLY Y (CAR THX))&#62]))&#62]
+              [T &#60PRINT XX&#62
+                 &#60THERT "UNCLEAR RECOMMENDATION - THTAE"&#62])))
+
+(DEFSPEC THTAG
+(LAMBDA (X)
+        (AND X
+             [THPUSH THTREE (LIST 'THTAG X)])))
+
+(CSETQ THTRUE
+(LAMBDA (X)
+        T))
+
+(CSETQ THTRY
+(LAMBDA (X)
+        (COND [&#60ATOM X&#62 NIL]
+              [&#60EQ (CAR X) 'THTBF&#62
+                &#60COND [&#60NOT THZ1&#62
+                        &#60SETQ THZ1 T&#62
+                        &#60SETQ THZ (THMATCHLIST THA2 'THCONSE)&#62]&#62
+                &#60COND [THZ &#60LIST (LIST 'THTBF (CADR X) THZ)&#62]
+                      [T NIL]&#62]
+              [&#60EQ (CAR X) 'THDBF&#62
+                &#60COND [&#60NOT THY1&#62
+                        &#60SETQ THY1 T&#62
+                        &#60SETQ THY (THMATCHLIST THA2 'THASSERTION)&#62]&#62
+                &#60COND [THY &#60LIST (LIST 'THDBF (CADR X) THY)&#62]
+                      [T NIL]&#62]
+              [&#60EQ (CAR X) 'THUSE&#62
+                &#60LIST (LIST 'THTBF 'THTRUE (CDR X))&#62]
+              [&#60EQ (CAR X) 'THNUM&#62 &#60LIST X&#62]
+              [T &#60PRINT X&#62
+                 &#60THERT "UNCLEAR RECOMMENDATION - THTRY"&#62])))
+
+(CSETQ THTRY1
+(LAMBDA NIL
+        (PROG &#60THX THY THZ THW THEOREM&#62
+              &#60SETQ THZ (CAR THTREE)&#62
+              &#60SETQ THY (CDDR THZ)&#62
+              &#60RPLACD THY (SUB1 (CDR THY))&#62
+       NXTREC &#60COND [&#60OR [NULL (CAR THY)]
+                         [ZEROP (CDR THY)]&#62 &#60RETURN NIL&#62]&#62
+              &#60SETQ THX (CAAR THY)&#62
+              &#60COND [&#60EQ (SETQ THW (CAR THX)) 'THNUM&#62 &#60GO THNUM&#62]
+                    [&#60EQ THW 'THDBF&#62 &#60GO THDBF&#62]
+                    [&#60EQ THW 'THTBF&#62 &#60GO THTBF&#62]
+                    [T &#60PRINT THW&#62
+                       &#60THERT "UNCLEAR RECOMMENDATION - THTRY1"&#62]&#62
+        THNUM &#60RPLACD THY (CADR THX)&#62
+              &#60RPLACA THY (CDAR THY)&#62
+              &#60GO NXTREC&#62
+        THDBF &#60SETQ THOLIST THALIST&#62
+              &#60COND [&#60NULL (CADDR THX)&#62
+                      &#60RPLACA THY (CDAR THY)&#62
+                      &#60GO NXTREC&#62]
+                    [&#60PROG1 (AND [(EVAL (CADR THX)) (SETQ THW (CAADDR
+                                  THX))]
+                                 [THMATCH1 (CADR THZ) (CAR THW)]) (
+                       RPLACA (CDDR THX) (CDADDR THX))&#62 &#60RETURN THW&#62]
+                    [T &#60GO THDBF&#62]&#62
+        THTBF &#60COND [&#60NULL (CADDR THX)&#62
+                      &#60RPLACA THY (CDAR THY)&#62
+                      &#60GO NXTREC&#62]
+                    [&#60NOT (AND [SETQ THW (GET (SETQ THEOREM (CAADDR THX)
+                                ) 'THEOREM)]
+                               [EQ (CAR THW) 'THCONSE])&#62
+                      &#60PRINT THEOREM&#62
+                      &#60THERT "BAD THEOREM - THTRY1"&#62]
+                    [&#60PROG1 (AND [(EVAL (CADR THX)) (CAADDR THX)]
+                                 [THAPPLY1 THEOREM THW (CADR THZ)]) (
+                       RPLACA (CDDR THX) (CDADDR THX))&#62 &#60RETURN T&#62]
+                    [T &#60GO THTBF&#62]&#62)))
+
+(CSETQ THUNDOF
+(LAMBDA NIL
+        (COND [&#60NULL (CADDAR THTREE)&#62 &#60THPOPT&#62]
+              [T &#60CSETQ THXX (CDDAR THTREE)&#62
+                 &#60SETQ THALIST (CAADR THXX)&#62
+                 &#60RPLACA (CDR THXX) (CDADR THXX)&#62
+                 &#60SETQ THTREE (CAAR THXX)&#62
+                 &#60RPLACA THXX (CDAR THXX)&#62])
+        NIL))
+
+(CSETQ THUNDOT
+(LAMBDA NIL
+        (THPOPT)
+        T))
+
+(CSETQ THUNION
+(LAMBDA (L1 L2)
+        (MAPC L1
+         (LAMBDA (THX)
+                 (COND [&#60MEMBER THX L2&#62]
+                       [T &#60SETQ L2 (CONS THX L2)&#62])))
+        L2))
+
+(CSETQ THUNIQUE
+(LAMBDA THA
+        (SETQ THA (CONS 'THUNIQUE THA))
+        (PROG &#60X&#62
+              &#60SETQ X THALIST&#62
+           LP &#60COND [&#60NULL X&#62
+                      &#60THPUSH THALIST THA&#62
+                      &#60RETURN T&#62]
+                    [&#60EQ (CAAR X) 'THUNIQUE&#62
+                      &#60COND [&#60EQUAL (CAR X) THA&#62 &#60RETURN NIL&#62]&#62]&#62
+              &#60SETQ X (CDR X)&#62
+              &#60GO LP&#62)))
+
+(DEFSPEC THURPLACA
+(LAMBDA (X L)
+        (RPLACA X L)))
+
+(DEFSPEC THURPLACD
+(LAMBDA (X L)
+        (RPLACD X L)))
+
+(DEFSPEC THV
+(LAMBDA (X)
+        (THV1 X)))
+
+(CSETQ THV1
+(LAMBDA (X)
+        (CSETQ THXX X)
+        (COND [&#60EQ (SETQ X (CADR
+                 (OR [ASSOC X THALIST]
+                     [DO &#60PRINT THXX&#62
+                         &#60THERT "THUNBOUND - THV1"&#62]))) 'THUNASSIGNED&#62
+                &#60PRINT THXX&#62
+                &#60THERT "THUNASSIGNED - THV1"&#62]
+              [T X])))
+
+(CSETQ THVAL
+(LAMBDA (THEXP THALIST)
+        (PROG &#60THTREE THVALUE THBRANCHV THOLIST THABRANCH THE&#62
+              &#60SETQ THVALUE 'THNOVAL&#62
+           GO &#60SETQ THE THEXP&#62
+              &#60SETQ THEXP NIL&#62
+              &#60AND THSTEP
+                   [THBREAK "THSTEP:"]&#62
+              &#60ATTEMPT [SETQ THVALUE (EVAL THE)]
+                       [0 &#60CSETQ THINF T&#62
+                          &#60GO FAIL&#62]&#62
+          GO1 &#60AND THSTEPD
+                   [THBREAK "THSTEPD:"]&#62
+              &#60COND [THINF &#60GO FAIL&#62]
+                    [THMESSAGEV &#60GO MFAIL&#62]
+                    [THEXP &#60GO GO&#62]
+                    [THVALUE &#60GO SUCCEED&#62]
+                    [T &#60GO FAIL&#62]&#62
+      SUCCEED &#60AND THSTEPT
+                   [THBREAK "THSTEPT:"]&#62
+              &#60COND [&#60NULL THBRANCHV&#62
+                      &#60SETQ THBRANCHV THTREE&#62
+                      &#60SETQ THABRANCH THALIST&#62]&#62
+              &#60COND [&#60NULL THTREE&#62 &#60RETURN THVALUE&#62]
+                    [&#60SETQ THEXP (GET (CAAR THTREE) 'THSUCCEED)&#62
+                      &#60GO GO2&#62]
+                    [T &#60ATTEMPT [THERT "BAD SUCCEED - THVAL"]
+                                [0 &#60GO FAIL&#62]&#62]&#62
+        MFAIL &#60COND [&#60EQ (CAR THMESSAGEV) THTREE&#62
+                      &#60SETQ THEXP (CADR THMESSAGEV)&#62
+                      &#60CSETQ THMESSAGEV NIL&#62
+                      &#60GO GO&#62]&#62
+         FAIL &#60AND THSTEPF
+                   [THBREAK "THSTEPF:"]&#62
+              &#60COND [&#60NULL THTREE&#62 &#60RETURN NIL&#62]
+                    [&#60SETQ THEXP (GET (CAAR THTREE) 'THFAIL)&#62 &#60GO GO2&#62]
+                    [T &#60ATTEMPT [THERT "BAD FAIL - THVAL"]
+                                [0 &#60GO FAIL&#62]&#62]&#62
+          GO2 &#60SETQ THVALUE ((PROG1 THEXP (SETQ THEXP NIL)))&#62
+              &#60GO GO1&#62)))
+
+(CSETQ THVAR
+(LAMBDA (X)
+        (COND [&#60ATOM X&#62 NIL]
+              [T &#60MEMBER (CAR X) '(THV THNV)&#62])))
+
+(CSETQ THVARS2
+(LAMBDA (X)
+        (PROG &#60A&#62
+            L &#60AND [ATOM X]
+                   [RETURN X]&#62
+              &#60AND [EQ (CAR X) 'THEV]
+                   [DO &#60SETQ X (THVAL (CADR X) THALIST)&#62
+                       &#60GO L&#62]&#62
+              &#60OR [THVAR X]
+                  [RETURN X]&#62
+              &#60SETQ A (THGAL X THALIST)&#62
+              &#60RETURN
+               (COND [&#60EQ (CADR A) 'THUNASSIGNED&#62 X]
+                     [&#60AND THY
+                           [EQ (CAR X) 'THNV]&#62
+                       &#60THRPLACA (CDR A) 'THUNASSIGNED&#62
+                       X]
+                     [T &#60CADR A&#62])&#62)))
+
+(CSETQ THVARSUBST
+(LAMBDA (THX THY)
+        (COND [&#60EQ (CAR THX) 'THEV&#62
+                &#60SETQ THX (THVAL (CADR THX) THALIST)&#62]
+              [&#60THVAR THX&#62 &#60SETQ THX (EVAL THX)&#62])
+        (COND [&#60ATOM THX&#62 THX]
+              [T &#60MAPCAR THX THVARS2&#62])))
+
+(DEFMAC THVDO
+(LAMBDA L
+        (LIST 'THPROG NIL (LIST 'THDO (STACK L)) '(THFINALIZE THPROG))))
+
+(DEFSPEC THVSETQ
+(LAMBDA THA
+        (PROG &#60A&#62
+              &#60SETQ A THA&#62
+         LOOP &#60COND [&#60NULL A&#62 &#60RETURN THVALUE&#62]
+                    [&#60NULL (CDR A)&#62
+                      &#60PRINT THA&#62
+                      &#60THERT "ODD NUMBER OF ARGUMENTS - THVSETQ"&#62]
+                    [&#60ATOM (CAR A)&#62
+                      &#60SET (CAR A) (SETQ THVALUE (EVAL (CADR A)))&#62]
+                    [T &#60SETQ THVALUE (CAR (RPLACA (CDR (THSGAL (CAR A)))
+                        (THVAL (CADR A) THALIST)))&#62]&#62
+              &#60SETQ A (CDDR A)&#62
+              &#60GO LOOP&#62)))
+
+(PUT 'THTAG 'THFAIL THPOPTV)
+(PUT 'THGOAL 'THFAIL THGOALF)
+(PUT 'THFAIL? 'THFAIL THFAIL?F)
+(PUT 'THAMONG 'THFAIL THAMONGF)
+(PUT 'THFIND 'THFAIL THFINDF)
+(PUT 'THAND 'THFAIL THANDF)
+(PUT 'THPROG 'THFAIL THPROGF)
+(PUT 'THMUNG 'THFAIL THMUNGF)
+(PUT 'THASSERT 'THFAIL THASSERTF)
+(PUT 'THERASE 'THFAIL THERASEF)
+(PUT 'THCOND 'THFAIL THCONDF)
+(PUT 'THOR 'THFAIL THORF)
+(PUT 'THDO 'THFAIL THDOB)
+(PUT 'THUNDO 'THFAIL THUNDOF)
+(PUT 'THMESSAGE 'THFAIL THMESSAGEF)
+(PUT 'THREMBIND 'THFAIL THREMBINDF)
+(PUT 'THEOREM 'THFAIL THPOPTV)
+(PUT 'THTAG 'THSUCCEED THPOPTV)
+(PUT 'THGOAL 'THSUCCEED THGOALT)
+(PUT 'THFAIL? 'THSUCCEED THPOPTV)
+(PUT 'THFIND 'THSUCCEED THFINDT)
+(PUT 'THAND 'THSUCCEED THANDT)
+(PUT 'THPROG 'THSUCCEED THPROGT)
+(PUT 'THMUNG 'THSUCCEED THPOPTV)
+(PUT 'THASSERT 'THSUCCEED THASSERTT)
+(PUT 'THERASE 'THSUCCEED THERASET)
+(PUT 'THCOND 'THSUCCEED THCONDT)
+(PUT 'THOR 'THSUCCEED THPOPTV)
+(PUT 'THDO 'THSUCCEED THDOB)
+(PUT 'THUNDO 'THSUCCEED THUNDOT)
+(PUT 'THMESSAGE 'THSUCCEED THPOPTV)
+(PUT 'THREMBIND 'THSUCCEED THREMBINDT)
+(PUT 'THEOREM 'THSUCCEED THPOPTV)
+
+(CSETQ THBKPT
+(LAMBDA L
+        (AND THTRACEV
+             [THTRACES 'THBKPT L])
+        THVALUE))
+
+(CSETQ THBREAK
+(LAMBDA L
+        (PROG &#60VALUE&#62
+              &#60TERPRI&#62
+              &#60PRINTL (STACK L)&#62
+         LOOP &#60CLEARBUFF&#62
+              &#60COND [&#60EQ (SETQ VALUE (READ)) T&#62 &#60RETURN T&#62]
+                    [T &#60SETQ VALUE (EVAL VALUE)&#62
+                       &#60PRIN1 "--&#62"&#62
+                       &#60PRINT VALUE&#62]&#62
+              &#60GO LOOP&#62)))
+
+(CSETQ THSEL
+(LAMBDA (THF)
+        (PROG &#60THX&#62
+              &#60RETURN
+               (COND [&#60AND [SETQ THX (ASSOC THL THTRACEV)]
+                           [SETQ THX (THF THX)]&#62 &#60THVAL THX THALIST&#62]
+                     [T NIL])&#62)))
+
+(CSETQ THTABPRIN1
+(LAMBDA (X FLG UPDOWN)
+        (SPACES THINDENT)
+        (AND FLG
+             [CSETQ THINDENT (PLUS THINDENT 2)])
+        (PRIN1 UPDOWN)
+        (PRIN1 X)
+        (PRIN1 " ")))
+
+(DEFSPEC THTRACE
+(LAMBDA L
+        (MAPC L THTRACE1)
+        T))
+
+(CSETQ THTRACE1
+(LAMBDA (X)
+        (PROG &#60Y&#62
+              &#60SETQ X
+               (COND [&#60ATOM X&#62 &#60LIST X T NIL&#62]
+                     [&#60CDDR X&#62 X]
+                     [&#60NULL (CDR X)&#62
+                       &#60PRINT X&#62
+                       &#60PRINT "BAD FORMAT"&#62
+                       &#60RETURN NIL&#62]
+                     [T &#60LIST (CAR X) (CADR X) NIL&#62])&#62
+              &#60COND [&#60GET (CAR X) 'THEOREM&#62
+                      &#60COND [&#60SETQ Y (ASSOC 'THEOREM THTRACEV)&#62
+                              &#60RPLACD Y '((THSEL CADR) (THSEL CADDR))&#62]
+                            [T &#60CSETQ THTRACEV (CONS '(THEOREM (THSEL
+                                CADR) (THSEL CADDR)) THTRACEV)&#62]&#62]&#62
+              &#60COND [&#60SETQ Y (ASSOC (CAR X) THTRACEV)&#62
+                      &#60RPLACD Y (CDR X)&#62]
+                    [T &#60CSETQ THTRACEV (CONS X THTRACEV)&#62]&#62
+              &#60RETURN NIL&#62)))
+
+(CSETQ THTRACES
+(LAMBDA (THF THL)
+        (PROG &#60THY THZ THB&#62
+              &#60AND [SETQ THY (ASSOC THF THTRACEV)]
+                   [OR [SETQ THB (THVAL (CADDR THY) THALIST)]
+                       [THVAL (CADR THY) THALIST]]
+                   [SETQ THZ (GET THF 'THTRACE)]
+                   [THZ THL THB]
+                   THB
+                   [THBREAK "THBREAK:"]&#62
+              &#60RETURN NIL&#62)))
+
+(DEFSPEC THUNTRACE
+(LAMBDA THL
+        (DO &#60COND [THL &#60CSETQ THTRACEV (MAPCONC THTRACEV
+                        (LAMBDA (X)
+                                (COND [&#60MEMBER (CAR X) THL&#62
+                                        &#60PRINT X&#62
+                                        NIL]
+                                      [T &#60LIST X&#62])))&#62]
+                  [T &#60MAPC THTRACEV PRINT&#62
+                     &#60CSETQ THTRACEV NIL&#62]&#62
+            T)))
+
+(PUT 'THTRACES 'THFAIL
+(LAMBDA NIL
+        (CSETQ THINDENT (CADDAR THTREE))
+        (THTABPRIN1 (CADAR THTREE) NIL "&#60")
+        (PRINT "FAILED")
+        (MAPC (CDDDAR THTREE) EVAL)
+        (THPOPT)
+        NIL))
+
+(PUT 'THTRACES 'THSUCCEED
+(LAMBDA NIL
+        (CSETQ THINDENT (CADDAR THTREE))
+        (THTABPRIN1 (CADAR THTREE) NIL "&#60")
+        (PRIN1 "SUCCEEDED")
+        (MAPC (CDDDAR THTREE) EVAL)
+        (THPOPT)
+        THVALUE))
+
+(PUT 'THASSERT 'THTRACE
+(LAMBDA (X B)
+        (THPUSH THTREE (LIST 'THTRACES (GENSYM 'A) THINDENT '(TERPRI)
+         (COND [B '&#60THBREAK "THBREAK:"&#62]
+               [T NIL])))
+        (THTABPRIN1 "ASSERTING" T "&#62")
+        (AND PSEUDO
+             [PRIN1 "(THPSEUDO) "])
+        (PRIN1 (CADAR THTREE))
+        (PRIN1 ": ")
+        (PRINT X)))
+
+(PUT 'THGOAL 'THTRACE
+(LAMBDA (X B)
+        (THPUSH THTREE (LIST 'THTRACES (GENSYM 'G) THINDENT '
+         (AND THVALUE
+              [PRINTL ":" THVALUE]) '(TERPRI)
+         (COND [B '&#60THBREAK "THBREAK:"&#62]
+               [T NIL])))
+        (THTABPRIN1 "GOAL" T "&#62")
+        (PRIN1 (CADAR THTREE))
+        (PRIN1 ": ")
+        (PRINT X)))
+
+(PUT 'THERASE 'THTRACE
+(LAMBDA (X B)
+        (THPUSH THTREE (LIST 'THTRACES (GENSYM 'E) THINDENT '(TERPRI)
+         (COND [B '&#60THBREAK "THBREAK:"&#62]
+               [T NIL])))
+        (THTABPRIN1 "ERASING" T "&#62")
+        (AND PSEUDO
+             [PRIN1 "(THPSEUDO) "])
+        (PRIN1 (CADAR THTREE))
+        (PRIN1 ": ")
+        (PRINT X)))
+
+(PUT 'THEOREM 'THTRACE
+(LAMBDA (X B)
+        (THPUSH THTREE (LIST 'THTRACES X THINDENT '
+         (AND THVALUE
+              [PRINTL ":" THVALUE]) '(TERPRI)
+         (COND [B '&#60THBREAK "THBREAK:"&#62]
+               [T NIL])))
+        (THTABPRIN1 (CAR (GET X 'THEOREM)) T "&#62")
+        (PRIN1 X)
+        (PRIN1 ": ")
+        (PRINT DAT)))
+
+(PUT 'THBKPT 'THTRACE
+(LAMBDA (X B)
+        (THPUSH THTREE (LIST 'THTRACES (GENSYM 'B) THINDENT '(TERPRI)
+         (COND [B '&#60THBREAK "THBREAK:"&#62]
+               [T NIL])))
+        (THTABPRIN1 "BKPT" NIL "&#62")
+        (PRIN1 (CADAR THTREE))
+        (PRIN1 ": ")
+        (SETQ THBRANCHV THTREE)
+        (SETQ THABRANCH THALIST)
+        (THPOPT)
+        (PRINTL (STACK X))))
+
+(DEFSPEC THEDIT
+(LAMBDA (A)
+        (PROG &#60V&#62
+              &#60RETURN
+               (COND [&#60SETQ V (GET A 'THEOREM)&#62
+                       &#60PUT A 'THEOREM (EDIT1 V)&#62]
+                     [T "CAN'T THEDIT"])&#62)))
+
+(CSETQ THPRETTYP
+(LAMBDA (PP-L . PP-FIL)
+        (PUT 'THV 'PP-MAC "$?")
+        (PUT 'THNV 'PP-MAC "$=")
+        (SETQ PP-L (PRETTYP (MAPCAR PP-L
+         (LAMBDA (PP-A)
+                 (COND [&#60NOT (ATOM PP-A)&#62 PP-A]
+                       [&#60GET PP-A 'THEOREM&#62 &#60LIST 'THEOREM PP-A&#62]
+                       [T PP-A]))) (STACK PP-FIL)))
+        (REMPROP 'THV 'PP-MAC)
+        (REMPROP 'THNV 'PP-MAC)
+        PP-L))
+
+(PUT 'THCONSE 'PP-PP '(T T PP-PROG))
+(PUT 'THANTE 'PP-PP '(T T PP-PROG))
+(PUT 'THERASING 'PP-PP '(T T PP-PROG))
+(PUT 'THCOND 'PP-PP '(T T PP-COND))
+(PUT 'THPROG 'PP-PP '(T T PP-PROG))
+(PUT 'THDO 'PP-PP '("&#60" "&#62" T))
+(PUT 'THAND 'PP-PP '("[" "]" T))
+(PUT 'THOR 'PP-PP '("[" "]" T))
+(PUT 'THMESSAGE 'PP-PP '(T T PP-PROG))
+
+(CSETQ PLNRDUMP '(";" MAP2C MAPCONC PRINTL PROG1 SPACES
+         PLNR PLNRREAD THADD THAMONG THAMONGF THAND THANDF THANDT THANTE
+         THAPPLY THAPPLY1 THASS1 THASSERT THASSERTLIST THASSERTF
+         THASSERTT THASVAL THBAP THBI1 THBIND THBRANCH THBRANCHUN
+         THCHECK THCOND THCONDF THCONDT THCONSE THDATA THDEF THDO THDOB
+         THDO1 THDUMP THERASE THERASEF THERASET THERASING THERT THEV
+         THFAIL THFAIL? THFAIL?F THFINALIZE THFIND THFINDF THFINDT
+         THFLUSH THGAL THGENSYM THGO THGOAL THGOALF THGOALT THIP THMATCH
+         THMATCH1 THMATCH2 THMATCHLIST THMESSAGE THMESSAGEF THMUNGF
+         THNOFAIL THNOHASH THNOT THNV THOR THORF THOR2 THPOPT THPOPTV
+         THPROG THPROGA THPROGF THPROGT THPURE THPUSH THPUT THPUTPROP
+         THREM1 THREMBINDF THREMBINDT THREMOVE THREMPROP THRESTRICT
+         THRETURN THRPLACA THRPLACD THRPLACAS THRPLACDS THSETQ THSGAL
+         THSTATE THSUCCEED THTAE THTAG THTRUE THTRY THTRY1 THUNDOF
+         THUNDOT THUNION THUNIQUE THURPLACA THURPLACD THV THV1 THVAL
+         THVAR THVARS2 THVARSUBST THVDO THVSETQ (THFAIL THTAG THGOAL
+         THFAIL? THAMONG THFIND THAND THPROG THMUNG THASSERT THERASE
+         THCOND THOR THDO THUNDO THMESSAGE THREMBIND THEOREM) (THSUCCEED
+         THTAG THGOAL THFAIL? THFIND THAND THPROG THMUNG THASSERT
+         THERASE THCOND THOR THDO THUNDO THMESSAGE THREMBIND THEOREM)
+         THBKPT THBREAK THSEL THTABPRIN1 THTRACE THTRACE1 THTRACES
+         THUNTRACE (THFAIL THTRACES) (THSUCCEED THTRACES) (THTRACE
+         THASSERT THGOAL THERASE THEOREM THBKPT) THEDIT THPRETTYP (PP-PP
+         THCONSE THANTE THERASING THCOND THPROG THDO THAND THOR
+         THMESSAGE) PLNRDUMP))
+
+"PLNR LOADED"
+
+</pre></code>
+</body>
+</html>
+

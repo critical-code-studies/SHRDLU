@@ -142,20 +142,18 @@
    "size": 1544704,
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-3H0GS"
-   ],
+   "paratexts": [],
    "movedFrom": "P-3H0GS",
-   "heldAt": "P-3H0GS",
+   "heldAt": null,
    "code": "I-I4B9Y",
    "progLanguage": "Lisp (MacLisp), Micro-Planner",
    "machine": "PDP-10, ITS (MIT-AI)",
    "family": "winograd",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:jan71",
@@ -174,7 +172,15 @@
    },
    "children": [
     "I-Z68WV"
-   ]
+   ],
+   "file": "files/I-I4B9Y.tar",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Published openly in PDP-10/its-vault on GitHub, which states no licence.",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "GRAMAR; and GRAMMAR; (ITS directories holding the SHRDLU grammar), PDP-10/its-vault files/gramar and files/grammar",
@@ -212,20 +218,18 @@
    "size": 491008,
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-NS270"
-   ],
+   "paratexts": [],
    "movedFrom": "P-NS270",
-   "heldAt": "P-NS270",
+   "heldAt": null,
    "code": "I-BGMGV",
    "progLanguage": "Lisp (MacLisp), PROGRAMMAR",
    "machine": "PDP-10, ITS (MIT-AI)",
    "family": "winograd",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:mit",
@@ -242,7 +246,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-BGMGV.tar",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Published openly in PDP-10/its-vault on GitHub, which states no licence.",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "shrdlu-1971-restaurado: SHRDLU da época da tese (1970–71): decodificado e rodando de novo",
@@ -428,7 +440,8 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "extent": null
   },
   {
    "title": "shrdlu-202407271253.tape (ITS DUMP tape of the restored SHRDLU directory, with L;SLAVE 11 and LISP;SLAVE FASL)",
@@ -463,20 +476,18 @@
    "kind": "file",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-4RMI1"
-   ],
+   "paratexts": [],
    "movedFrom": "P-4RMI1",
-   "heldAt": "P-4RMI1",
+   "heldAt": null,
    "code": "I-3AYR0",
    "progLanguage": "Lisp (MacLisp), Micro-Planner",
    "machine": "PDP-10, ITS",
    "family": "winograd",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:ejs",
@@ -495,7 +506,15 @@
    },
    "children": [
     "I-7THI8"
-   ]
+   ],
+   "file": "files/I-3AYR0.tape",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Posted publicly by Eric Swenson for PiDP-10 users to load (the PiDP-10 Google Group, 27 July 2024; held as paratexts).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "shrdlu-20240815.tape (ITS DUMP tape: SHRDLU;* *, SYS;ATSIGN 10SLAV, L;SLAVE 11, LISP;SLAVE FASL, built for KA ITS)",
@@ -531,20 +550,18 @@
    "kind": "file",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-M0GMF"
-   ],
+   "paratexts": [],
    "movedFrom": "P-M0GMF",
-   "heldAt": "P-M0GMF",
+   "heldAt": null,
    "code": "I-7THI8",
    "progLanguage": "Lisp (MacLisp, compiled), Micro-Planner",
    "machine": "PDP-10, ITS, Type 340",
    "family": "winograd",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "I-3AYR0",
@@ -561,7 +578,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-7THI8.tape",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Posted publicly by Eric Swenson for PiDP-10 users to load (the PiDP-10 Google Group, August 2024).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "SHRDLU; directory on the public ITS machine SV (its.svensson.org), with Keldon Jones's READ ME",
@@ -664,20 +689,18 @@
    "kind": "text",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-TXBRE"
-   ],
+   "paratexts": [],
    "movedFrom": "P-TXBRE",
-   "heldAt": "P-TXBRE",
+   "heldAt": null,
    "code": "I-GTTZY",
    "progLanguage": "Lisp (MacLisp)",
    "machine": "",
    "family": "winograd",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:stanford",
@@ -694,7 +717,31 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-GTTZY.html",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "A public course directory at the University of Alberta (Wayback Machine captures), pointed to on comp.ai in 1999.",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   },
+   "alts": [
+    {
+     "label": "File: init (07-Jun-1995)",
+     "mime": "text/plain",
+     "size": 2388,
+     "note": "Wayback capture 2002-03-12",
+     "file": "files/I-GTTZY.init.txt"
+    },
+    {
+     "label": "File: loader2 (07-Jun-1995)",
+     "mime": "text/plain",
+     "size": 3414,
+     "note": "Wayback capture 2002-03-12",
+     "file": "files/I-GTTZY.loader2.txt"
+    }
+   ]
   },
   {
    "title": "stuartpb/shrdlu (GitHub): Terry Winograd's SHRDLU",
@@ -1057,7 +1104,8 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "extent": null
   },
   {
    "title": "SHRDLU in Common Lisp: the UMR student port (1999-2000)",
@@ -1113,7 +1161,9 @@
     "I-31JWN",
     "I-3HRA4",
     "I-4W0J2"
-   ]
+   ],
+   "source": null,
+   "extent": null
   },
   {
    "title": "shrdlu.tar.gz, Dan Knapp's posting of the UMR Common Lisp SHRDLU code (brain.mics.net/~dankna/himitsu/)",
@@ -1168,7 +1218,8 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "extent": null
   },
   {
    "kind": "link",
@@ -1722,20 +1773,18 @@
    "size": 3019226,
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-EHZ71"
-   ],
+   "paratexts": [],
    "movedFrom": "P-EHZ71",
-   "heldAt": "P-EHZ71",
+   "heldAt": null,
    "code": "I-APC7K",
    "progLanguage": "Lisp (MacLisp)",
    "machine": "PDP-10, ITS (MIT-AI)",
    "family": "microplanner",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [],
    "features": {
     "grammar": null,
@@ -1747,7 +1796,15 @@
    "children": [
     "I-MPFGB",
     "I-85GN4"
-   ]
+   ],
+   "file": "files/I-APC7K.zip",
+   "clearance": {
+    "basis": "licence",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "MIT License: \"To the extent that MIT holds rights in these files, they are released under the terms of the MIT License\" (MITDDC/plnr-1971-1982, README).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "Univac 1100 LISP Planner Source (1108 Micro-Planner, LISP source, ends \"PLNR LOADED\")",
@@ -1785,20 +1842,18 @@
    "kind": "text",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-OVHTM"
-   ],
+   "paratexts": [],
    "movedFrom": "P-OVHTM",
-   "heldAt": "P-OVHTM",
+   "heldAt": null,
    "code": "I-MPFGB",
    "progLanguage": "Lisp (Univac 1100 LISP)",
    "machine": "Univac 1108",
    "family": "microplanner",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "I-APC7K",
@@ -1815,7 +1870,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-MPFGB.htm",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "A public web page (frobenius.com, Wayback Machine capture of 2016), listed by the Software Preservation Group.",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "mpl.tar.gz: Micro-Planner for Franz Lisp (\"MICRO-PLANNER 180/Franz patch YS.0.85\")",
@@ -1848,20 +1911,18 @@
    "size": 24414,
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-C86B1"
-   ],
+   "paratexts": [],
    "movedFrom": "P-C86B1",
-   "heldAt": "P-C86B1",
+   "heldAt": null,
    "code": "I-85GN4",
    "progLanguage": "Franz Lisp",
    "machine": "Unix",
    "family": "microplanner",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "I-APC7K",
@@ -1878,7 +1939,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-85GN4.gz",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Published by its author, Yury Semenov, on his Retro-AI site for others to use (Wayback Machine capture of 2005).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "masak/shrdlu (GitHub): The classical SHRDLU engine implemented in Perl 6",
@@ -2112,7 +2181,9 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "source": null,
+   "extent": null
   },
   {
    "title": "milisy.txt (Mini-Linguistic System, MILISY, Lisp source, \"MINI-LINGUISTIC SYSTEM READY\")",
@@ -2151,20 +2222,18 @@
    "kind": "text",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-3SGD3"
-   ],
+   "paratexts": [],
    "movedFrom": "P-3SGD3",
-   "heldAt": "P-3SGD3",
+   "heldAt": null,
    "code": "I-YRO4Y",
    "progLanguage": "Lisp",
    "machine": "PDP-10 (CMU)",
    "family": "homages",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:jan71",
@@ -2181,7 +2250,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-YRO4Y.txt",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "A public file linked from the Semaphore \"SHRDLU resurrection\" page (no login).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "SHRDLV (LINGOL grammar file shrdlv.5), with pshrdl.102 and trysh.test",
@@ -2220,20 +2297,18 @@
    "kind": "text",
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-ISKSW"
-   ],
+   "paratexts": [],
    "movedFrom": "P-ISKSW",
-   "heldAt": "P-ISKSW",
+   "heldAt": null,
    "code": "I-Y065D",
    "progLanguage": "Lisp (MacLisp), LINGOL",
    "machine": "PDP-10, ITS",
    "family": "homages",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:jan71",
@@ -2250,7 +2325,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-Y065D.lisp",
+   "clearance": {
+    "basis": "other",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Served openly at boole.stanford.edu/lingol (live, 14 October 2026).",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "LIB MSBLOCKS, \"A SHRDLU like blocks world program\" (Pop-11, msblocks.p), with TEACH MSBLOCKS, \"Controlling a simple robot in the 'blocks world'\"",
@@ -2293,20 +2376,18 @@
    "size": 45056,
    "added": "2026-10-19T00:00:00Z",
    "addedBy": "DMB",
-   "updated": "2026-10-19T00:00:00Z",
+   "updated": "2026-10-19T15:31:29Z",
    "updatedBy": "DMB",
    "related": [],
-   "paratexts": [
-    "P-KMFBH"
-   ],
+   "paratexts": [],
    "movedFrom": "P-KMFBH",
-   "heldAt": "P-KMFBH",
+   "heldAt": null,
    "code": "I-19C3U",
    "progLanguage": "Pop-11",
    "machine": "Poplog",
    "family": "homages",
    "status": "held",
-   "publish": "entry",
+   "publish": "files",
    "parents": [
     {
      "code": "v:jan71",
@@ -2323,7 +2404,15 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "file": "files/I-19C3U.tar",
+   "clearance": {
+    "basis": "licence",
+    "by": "DMB",
+    "date": "2026-10-19",
+    "evidence": "Free Poplog: Poplog has been open source since 1999, under an MIT/XFree86-style licence (University of Birmingham); this file is from the Free Poplog library at cs.bham.ac.uk/research/poplog.",
+    "note": "Cleared with every SHRDLU implementation file: \"Publishing all of it\" (David M. Berry, 19 October 2026). The private copy was checked against this one by size and md5 and then deleted."
+   }
   },
   {
    "title": "Un mondo di cubi colorati: Simuliamo, con il computer, elementari esperienze di logica (Commodore Computer Club no. 38)",
@@ -2587,7 +2676,9 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "source": null,
+   "extent": null
   },
   {
    "title": "Micro-SHRDLU (MS/PC-DOS program in the collection \"Mind-Set\")",
@@ -2641,7 +2732,8 @@
     "dialogue": null,
     "why": null
    },
-   "children": []
+   "children": [],
+   "extent": null
   },
   {
    "title": "Blockhead: \"Blocksworld with natural language interface (English)\" (BLOCKHED.EXE, Turbo Prolog)",
