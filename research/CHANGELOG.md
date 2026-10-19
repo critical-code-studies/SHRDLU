@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.178 (2026-10-19)
+
+- The kit at 0.64.1: the site map lists links in the tab row to pages of their own.
+
 ## 0.1.177 (2026-10-19)
 
 - The kit at 0.64.0: every paratext type and medium mapped to a standard term (Library of Congress Genre/Form Terms, the Getty AAT, RDA carrier types), shown in the item's box and carried in the Dublin Core export.
