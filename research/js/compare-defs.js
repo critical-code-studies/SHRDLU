@@ -1,5 +1,5 @@
 /*
- * compare-defs.js - this bench's second mode in Compare (bench-kit's kit/compare.js): the
+ * compare-defs.js - this bench's second mode in Collate (bench-kit's kit/compare.js; Versions ▸ Collate): the
  * names each version defines, and whether each definition's code is the same.
  */
 (function (root) {

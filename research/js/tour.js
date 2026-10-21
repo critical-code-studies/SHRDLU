@@ -2,7 +2,7 @@
  * tour.js - this bench's guided tour: its stops, and the offer made on a first visit. The
  * tour itself is bench-kit's (kit/tours.js), which reads them from SW.BENCH. A stop: title,
  * text, and where to go: v (version), tab, find (a pattern for the line to select in Read),
- * lens, graphic, gen (genealogy view), tape ({path, mode}), b (Compare's other version),
+ * lens, graphic, gen (genealogy view), tape ({path, mode}), b (Collate's other version),
  * focus (a selector to outline).
  */
 (function (root) {
@@ -19,8 +19,8 @@
         text: 'Select a line (shift-click for a range) and choose Annotate. Annotations are signed with your initials and dated, and shared with the group through Hypothesis. Set your initials and token in ⚙ Settings; until then, annotations are kept as drafts in this browser.' },
       { title: 'Text and Program', v: 'mit', lens: 3, focus: '#tabs [data-menu="text"]',
         text: 'The Text and Program menus open lenses on the code: comments, hands and dates, the lexicon of every defined name, the files, the calls between definitions, the Micro-Planner theorems, and the history of one name across the versions.' },
-      { title: 'Compare two versions', v: 'mit', tab: 'compare', b: 'stanford', focus: '#tabs [data-menu="versions"]',
-        text: 'Compare sets two versions side by side, as text, as the definitions that differ, or as a map of their forms. Here the MIT files against Winograd’s Stanford copy: the same text, except where the Stanford smspec is damaged.' },
+      { title: 'Collate two versions', v: 'mit', tab: 'compare', b: 'stanford', focus: '#tabs [data-menu="versions"]',
+        text: 'Versions ▸ Collate sets two versions side by side, as text, as the definitions that differ, or as a map of their forms. Here the MIT files against Winograd’s Stanford copy: the same text, except where the Stanford smspec is damaged.' },
       { title: 'Run', v: 'mit', tab: 'run', focus: '#tabs [data-tab="run"]',
         text: 'Run runs SHRDLU in the browser, from each version’s own source, on a MacLisp interpreter written for the bench. Type to it at the teletype, or play the forty-two exchanges of the 1970 demonstration dialogue and see, exchange by exchange, where the surviving code agrees with the demonstration.' },
       { title: 'Findings and My notes', v: 'mit', tab: 'findings', focus: '#tabs [data-tab="notes"]',

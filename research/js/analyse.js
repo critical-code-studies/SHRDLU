@@ -306,7 +306,7 @@
   // kit/lenses.js's, Graphics ▾ kit/graphics.js's.
   SW.BENCH.menus = {
     versions: [['about', 'This version', 'Its record, sources and annotations'],
-              ['compare', 'Compare', 'Two versions side by side'],
+              ['compare', 'Collate', 'Two versions collated: side by side, as text or by definition'],
               ['genealogy', 'Genealogy', 'How the versions descend'],
               ['absence', 'Absence', 'Gaps in the record, and damage in the texts'],
               ['storage', 'How the files were stored', 'The machines, ITS files, disks and backup tapes, and the path of each copy']],
