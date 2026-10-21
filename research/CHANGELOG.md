@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.187 (2026-10-21)
+
+- The kit at 0.66.3: a submenu opens as soon as the pointer reaches its item, and the list the pointer is heading into stays open.
+
 ## 0.1.186 (2026-10-19)
 
 - Implementations: SHRDLU's eleven held files are published (David's decision of 19 October 2026), each with its clearance recorded: the MIT ITS directories from the its-vault, Swenson's two restoration tapes, the Alberta course copy with its 1995 init and loader2, MIT's Micro-Planner files (MIT License), the Univac 1108 and Franz Lisp Micro-Planners, MILISY, Pratt's LINGOL grammar and Hogg's MSBLOCKS (Free Poplog). Their private paratext records are deleted, and the paratexts that cited them give the I-codes.
