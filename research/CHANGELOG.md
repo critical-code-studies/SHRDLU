@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.194 (2026-10-21)
+
+- The kit at 0.72.0: the light and dark switch (◐) goes to a remembered theme only if it is still of the kind asked for.
+
 ## 0.1.193 (2026-10-21)
 
 - The kit at 0.71.0: a Book view for benches that read a document (not used here); the edition and Read's selection bar unchanged for code.
