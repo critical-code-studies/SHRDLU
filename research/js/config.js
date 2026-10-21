@@ -22,6 +22,7 @@
     about: {
       icon: '<svg viewBox="0 0 32 32" aria-hidden="true" width="40" height="40"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>',
       author: 'David M. Berry', citeAuthor: 'Berry, D. M.',
+      cite: { authors: 'Berry, D. M. and Marino, M. C.', title: 'SHRDLU Research Bench' },   // the bench cited as the project's work
       project: 'The <a href="https://critical-code-studies.github.io/SHRDLU/" target="_blank" rel="noopener">Critical Code Studies SHRDLU project</a>, led by David M. Berry and Mark C. Marino.',
       purpose: 'A bench for the critical reading of the SHRDLU source code.',
       techMore: 'Built on the Spacewar! Research Bench.',
