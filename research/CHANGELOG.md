@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.193 (2026-10-21)
+
+- The kit at 0.71.0: a Book view for benches that read a document (not used here); the edition and Read's selection bar unchanged for code.
+
 ## 0.1.192 (2026-10-21)
 
 - The bench is cited as the project's work: Berry, D. M. and Marino, M. C. (2026) SHRDLU Research Bench.
