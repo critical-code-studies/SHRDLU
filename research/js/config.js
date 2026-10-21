@@ -22,7 +22,8 @@
     about: {
       icon: '<svg viewBox="0 0 32 32" aria-hidden="true" width="40" height="40"><g fill="none" stroke="#3aa862" stroke-width="1.6" stroke-linejoin="round"><path d="M16 4 L27 10 L16 16 L5 10 Z"/><path d="M27 10 L27 21 M16 16 L16 27 M5 10 L5 21"/><path d="M5 21 L16 27 L27 21"/></g></svg>',
       author: 'David M. Berry', citeAuthor: 'Berry, D. M.',
-      purpose: 'A bench for the critical reading of the SHRDLU source code, made for the Critical Code Studies SHRDLU project (David M. Berry and Mark C. Marino).',
+      project: 'The <a href="https://critical-code-studies.github.io/SHRDLU/" target="_blank" rel="noopener">Critical Code Studies SHRDLU project</a>, led by David M. Berry and Mark C. Marino.',
+      purpose: 'A bench for the critical reading of the SHRDLU source code.',
       techMore: 'Built on the Spacewar! Research Bench.',
       inside: 'A MacLisp reader that indexes the sources, and an interpreter that runs SHRDLU in the browser from each version’s own files, with every repair recorded.',
       sources: 'Code by Terry Winograd, revised by Dave McDonald, Jeff Hill, Stu Card and Andee Rubin (MIT AI Laboratory, 1968–77); the MIT files as recovered on ITS and Eric Swenson’s 2024 restoration (PDP-10/its); Winograd’s Stanford distribution. Details under Versions.',

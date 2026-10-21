@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.190 (2026-10-21)
+
+- The kit at 0.68.1: the About box opens with the project the bench serves, the Critical Code Studies SHRDLU project, led by David M. Berry and Mark C. Marino; the author follows the code.
+
 ## 0.1.189 (2026-10-21)
 
 - The kit at 0.68.0: About the bench is first in Help, at the top level.
