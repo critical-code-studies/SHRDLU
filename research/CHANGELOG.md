@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.197 (2026-10-22)
+
+- The kit at 0.74.2: Collate's line in Versions is built from the modes a bench offers (this bench gives its own).
+
 ## 0.1.196 (2026-10-22)
 
 - The kit at 0.74.1: a bench without a version picker keeps its name in the top bar on narrow screens (no change here).
