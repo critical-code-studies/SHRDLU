@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.199 (2026-10-25)
+
+- The kit at 0.79.0: the Book view's changes for document benches (0.75.0 to 0.79.0); nothing changes here.
+
 ## 0.1.198 (2026-10-22)
 
 - The kit at 0.74.3: Collate's line names By function only where a version is Lisp (this bench gives its own line).
