@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.201 (2026-10-27)
+
+- The kit at 0.82.0: versions made from files in the page, for editable benches (not used here); the version picker, builds and lists underneath it extended.
+
 ## 0.1.200 (2026-10-27)
 
 - The kit at 0.81.0: changes to the Book view for document benches; nothing changes here.
