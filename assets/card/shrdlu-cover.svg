@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+ <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <radialGradient id="face" cx="50%" cy="46%" r="62%"><stop offset="0" stop-color="#16202a"/><stop offset="1" stop-color="#11131a"/></radialGradient>
+</defs>
+<rect width="512" height="512" fill="url(#face)"/>
+<text x="256" y="92" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="8" fill="#e58be0">RESEARCH BENCH</text>
+<text x="256" y="168" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="78" font-weight="700" letter-spacing="4" fill="#6fdc8c" filter="url(#glow)">SHRDLU</text>
+<g fill="none" stroke="#6fdc8c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow2)">
+ <path d="M70,404 L442,404" stroke="#3aa862" stroke-width="2" opacity="0.7"/><path d="M140.0,335.0 L173.0,353.0 L140.0,371.0 L107.0,353.0 Z M173.0,353.0 L173.0,386.0 M140.0,371.0 L140.0,404.0 M107.0,353.0 L107.0,386.0 M107.0,386.0 L140.0,404.0 L173.0,386.0"/><path d="M107.0,353.0 L140.0,371.0 L173.0,353.0 M107.0,353.0 L140.0,296.0 L173.0,353.0 M140.0,371.0 L140.0,296.0"/><path d="M234.4,311.8 L260.8,326.2 L234.4,340.6 L208.0,326.2 Z M260.8,326.2 L260.8,389.6 M234.4,340.6 L234.4,404.0 M208.0,326.2 L208.0,389.6 M208.0,389.6 L234.4,404.0 L260.8,389.6"/><path d="M364.0,320.0 L408.0,344.0 L364.0,368.0 L320.0,344.0 Z M408.0,344.0 L408.0,380.0 M364.0,368.0 L364.0,404.0 M320.0,344.0 L320.0,380.0 M320.0,380.0 L364.0,404.0 L408.0,380.0"/><path d="M364.0,320.0 L364.0,348.0 M320.0,344.0 L364.0,348.0 L408.0,344.0" opacity="0.45" stroke-dasharray="4 4"/><path d="M364.0,196 L364.0,252 M346.0,252 L382.0,252 M346.0,252 L346.0,272 M382.0,252 L382.0,272" stroke-width="3"/>
+</g>
+<text x="256" y="458" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="6" fill="#767970">1970 &#183; 2026</text>
+</svg>
