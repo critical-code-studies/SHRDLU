@@ -67,7 +67,7 @@ as drafts in your browser.
 `research/implementations/`. *Paratexts* is a private repository
 (`critical-code-studies/shrdlu_paratexts`) for the crew, members of the GitHub team
 TEAM SHRDLU. Each member pastes a fine-grained GitHub token of their own, limited to
-that repository, into ⚙ Settings; the Paratexts tab gives the form and the steps. A
+that repository, into ⚙ Settings; the Paratexts tab gives the form and the steps, and bench-kit's [tokens and keys](https://critical-code-studies.github.io/bench-kit/#config) explains what each message means. A
 token is kept in one browser only, and Safari clears what a site has stored after
 seven days without a visit; a lost or expired token is replaced by making a new one
 from the same form.
@@ -78,8 +78,12 @@ files as found on ITS, and Swenson's restoration; see `source/its/PROVENANCE.md`
 **Built on bench-kit.** The bench's shared code is
 [bench-kit](https://github.com/critical-code-studies/bench-kit), a submodule at
 `research/kit`, which also runs the ELIZA and *Spacewar!* benches. Its site,
-<https://critical-code-studies.github.io/bench-kit/>, explains what a bench does and
-how one is started; its README documents each module and setting. Regenerate the
+<https://critical-code-studies.github.io/bench-kit/>, is the general how-to: a
+[quick start](https://critical-code-studies.github.io/bench-kit/#start) with its
+prerequisites, [serving and testing a bench](https://critical-code-studies.github.io/bench-kit/#usage),
+the [Hypothesis and GitHub tokens](https://critical-code-studies.github.io/bench-kit/#config),
+and [troubleshooting](https://critical-code-studies.github.io/bench-kit/#trouble). The kit's
+README documents each module and setting. Regenerate the
 bench's site map with `node research/kit/tools/sitemap.js` (needs Chrome).
 
 ## House rules
