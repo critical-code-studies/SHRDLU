@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.203 (2026-10-29)
+
+- The kit at 0.84.4, and the project's DOI: the repository is archived on Zenodo from each GitHub Release (10.5281/zenodo.23763212, every version; v0.4.0 is 10.5281/zenodo.23763213). The About box gives it, and Cite as ends in it; the README carries the badge.
+
 ## 0.1.202 (2026-10-29)
 
 - The kit at 0.84.1: another file of a version read beside the one chosen in Read; the About box can carry a DOI; projects as files, samples and annotation types for editable benches (not used here).
