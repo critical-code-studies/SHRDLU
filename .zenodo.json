@@ -1,0 +1,15 @@
+{
+  "upload_type": "software",
+  "title": "SHRDLU: A Critical Code Studies Reading",
+  "description": "<p>A Critical Code Studies reading of SHRDLU, Terry Winograd's natural-language-understanding program (MIT Artificial Intelligence Laboratory, 1968–70): a static website reading its code, its 1970 demonstration dialogue, its microworld and its critique, and a research bench for reading the SHRDLU source together in the browser. The bench reads each version's MacLisp files with every defined name cross-referenced, runs SHRDLU from a version's own source, collates versions as text and by definition, traces their genealogy, and holds a public catalogue of SHRDLU's implementations. Live at https://critical-code-studies.github.io/SHRDLU/ and https://critical-code-studies.github.io/SHRDLU/research/.</p><p>The site's and the bench's own code is under the GNU General Public License v3.0 (the bench's shared code is bench-kit, https://github.com/critical-code-studies/bench-kit). The SHRDLU sources the repository keeps from others (Winograd's distribution, the ITS copies and Swenson's restoration in source/, the Java port, and the published implementation files in research/implementations/files/) stay under whatever terms their holders set, recorded with each.</p><p>A Critical Code Studies project co-led by David M. Berry (University of Sussex) and Mark C. Marino (University of Southern California).</p>",
+  "creators": [
+    { "name": "Berry, David M.", "affiliation": "University of Sussex" },
+    { "name": "Marino, Mark C.", "affiliation": "University of Southern California" }
+  ],
+  "license": "GPL-3.0-only",
+  "keywords": ["SHRDLU", "Terry Winograd", "critical code studies", "MacLisp", "Micro-Planner", "artificial intelligence", "history of computing", "natural language understanding", "software history", "research bench"],
+  "related_identifiers": [
+    { "identifier": "https://critical-code-studies.github.io/SHRDLU/", "relation": "isDocumentedBy", "scheme": "url" },
+    { "identifier": "https://github.com/critical-code-studies/bench-kit", "relation": "requires", "scheme": "url" }
+  ]
+}
