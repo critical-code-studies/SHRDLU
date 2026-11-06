@@ -39,7 +39,7 @@ Static HTML/CSS/JS, no framework, no build step. Served by GitHub Pages.
 <https://critical-code-studies.github.io/SHRDLU/research/> (not indexed). It runs
 in the browser from static files, with no installation and no account needed to read.
 
-**Using it.** Open the bench and choose a version in the picker at the top: the MIT
+**Using it.** Open the bench and choose a version from File ▸ Open a version… (⌘O or Ctrl-O): the MIT
 files as found on ITS, Winograd's Stanford distribution, or Eric Swenson's 2024
 restoration (the January 1971 files and the CMU version of 1972 are known from the
 record and not held). Then:
@@ -49,7 +49,7 @@ record and not held). Then:
 | Read | The version's MacLisp files, every defined name cross-referenced |
 | Run | SHRDLU run in the browser from the version's own source: type to it, or play the 1970 dialogue as a test |
 | Text, Program | The source as text (comments, hands and dates, names) and as a program (its parts, calls, Micro-Planner theorems, the dictionary) |
-| Versions | The version's record, Collate (two versions side by side, as text or by definition), Genealogy, and the gaps in the record |
+| Versions | The version's record, Collate (two versions side by side, as text or by definition), and the gaps in the record |
 | Graphics | The blocks world and the machinery that draws and moves it |
 | Findings, My notes | What the group has established, with evidence; and your own notes for writing, kept in your browser |
 | Paratexts | The scans, documents, recordings and links around the program, for the crew |
@@ -60,7 +60,7 @@ repairs, annotating, codes and links, and the archives.
 
 **Annotating** goes through the project's Hypothesis group. You need a Hypothesis
 account, membership of the group, and your API token pasted into ⚙ Settings; Help ▸
-Joining the annotation group sets out the steps. Without them, annotations are kept
+Getting set up sets out the steps. Without them, annotations are kept
 as drafts in your browser.
 
 **The archives.** *Implementations* is public: its catalogue and cleared files are in

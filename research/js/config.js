@@ -6,7 +6,7 @@
     title: 'SHRDLU Research Bench',
     slug: 'shrdlu',
     store: 'shbench.',
-    forks: [['mit', 'MIT (ITS)'], ['cmu', 'Carnegie-Mellon'], ['restored', 'Restored']],   // the version picker's groups (kit/shell.js)
+    forks: [['mit', 'MIT (ITS)'], ['cmu', 'Carnegie-Mellon'], ['restored', 'Restored']],   // the groups in Open a version (kit/shell.js)
     start: 'mit',   // the version shown first
     // references to the sources (kit/refs.js; the short names are SW.REF, in js/core.js)
     refs: { repo: 'https://github.com/critical-code-studies/SHRDLU', dir: 'source', prefix: 'SH-' },

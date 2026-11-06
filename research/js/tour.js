@@ -11,8 +11,8 @@
   B.tourOffer = 'A short tour shows how to read, compare and annotate the SHRDLU sources (seven stops, about two minutes).';
   B.tours = {
     welcome: { title: 'Welcome to the bench', stops: [
-      { title: 'Welcome to the bench', v: 'mit', tab: 'read', focus: '#pick-a',
-        text: 'The bench holds the surviving texts of SHRDLU: the MIT files as recovered from ITS, Winograd’s own Stanford distribution, and Eric Swenson’s 2024 restoration, with the versions known but lost. Choose a version here. Each is a directory of MacLisp files, read in the order the program’s own loader read them.' },
+      { title: 'Welcome to the bench', v: 'mit', tab: 'read', focus: '#tabs [data-menu="file"]',
+        text: 'The bench holds the surviving texts of SHRDLU: the MIT files as recovered from ITS, Winograd’s own Stanford distribution, and Eric Swenson’s 2024 restoration, with the versions known but lost. Choose a version from File ▸ Open a version… (⌘O or Ctrl-O). Each is a directory of MacLisp files, read in the order the program’s own loader read them.' },
       { title: 'Reading a listing', v: 'mit', tab: 'read', find: /^\(DEFPROP TC-CLEARTOP/, focus: '.ln.sel',
         text: 'This is TC-CLEARTOP, the Micro-Planner theorem for clearing the top of a block, in the file blockp. Names defined in this version are coloured; click one for where it is defined and used. Key in the toolbar explains the marks, and File chooses among the files.' },
       { title: 'Annotating together', v: 'mit', tab: 'read', find: /^\(DEFPROP TC-CLEARTOP/, focus: '#rd-selbar',

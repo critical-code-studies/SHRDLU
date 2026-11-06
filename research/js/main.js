@@ -1,8 +1,7 @@
 /*
  * main.js - this bench's parts of the frame (bench-kit's kit/shell.js, loaded after it is set):
- * its views in the order of the tabs, the language shown beside the picker, and its own Help
- * items. The picker's groups and the version shown first are
- * in js/config.js (forks, start).
+ * its views in the order of the tabs, the version's language, and its own Help items. The groups
+ * in Open a version and the version shown first are in js/config.js (forks, start).
  */
 (function (root) {
   'use strict';
