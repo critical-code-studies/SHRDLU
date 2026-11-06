@@ -53,6 +53,7 @@ record and not held). Then:
 | Graphics | The blocks world and the machinery that draws and moves it |
 | Findings, My notes | What the group has established, with evidence; and your own notes for writing, kept in your browser |
 | Paratexts | The scans, documents, recordings and links around the program, for the crew |
+| Library | The writing and recordings on SHRDLU, public: covers or a list, each work held here where its licence allows, or linked |
 | Implementations | Every known implementation of SHRDLU and of programs made after it: list, read, tree, matrix and compare |
 
 Help ▾ in the bench has the guides: referencing and versions, the marks used for

@@ -1,0 +1,407 @@
+{
+ "title": "Library",
+ "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence or is in the public domain; otherwise the entry links to where it is published. The list is still growing.",
+ "items": [
+  {
+   "id": "L-NXATMR",
+   "title": "SHRDLU",
+   "author": "Flow (Everything2 user)",
+   "date": "2000-07-31",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: Everything2. One paragraph: the program dates from the early 1970s, by Winograd at MIT, tested theories of natural language processing and problem solving; a user typed English requests to manipulate blocks. Derives the name from ETAOIN SHRDLU. SHRDLU: The single writeup on the node (node created by user Flow, published_time 2000-07-31; writeup text read from the page's embedded data).",
+   "url": "https://everything2.com/title/SHRDLU",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-YBBHRF",
+   "title": "Grounded Semantic Composition for Visual Scenes",
+   "author": "Gorniak, Peter; Roy, Deb",
+   "date": "2004-04",
+   "kind": "article",
+   "lang": "en",
+   "note": "In: Journal of Artificial Intelligence Research 21, 429-470. A related-work paragraph compares SHRDLU's semantic interpretation during parsing with their own system, and says SHRDLU had a clean symbolic scene representation and was restricted to sentences it could parse completely. SHRDLU: section 1.2 Related Work, printed pp. 432-433, PDF pp. 4-5. Free to read at https://arxiv.org/abs/1107.0031",
+   "url": "https://doi.org/10.1613/jair.1327",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-SOEYZD",
+   "title": "Как исследовать человеческое сознание эмпирически",
+   "author": "Деннет, Дэниел",
+   "date": "2005",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: История философии, no. 12, 2005 (translated by Н. С. Юлина). Russian translation of Dennett, 'How to Study Human Consciousness Empirically or Nothing Comes to Mind', Synthese 53(2), 1982. Dennett crosses Shakey with Winograd's SHRDLU in a thought experiment, a hybrid that answers questions about why it moved blocks, and declines to call it a realistic model. English gloss: How to study human consciousness empirically. SHRDLU: printed p. 212, PDF p. 15; printed p. 216, PDF p. 19.",
+   "url": "https://cyberleninka.ru/article/n/kak-issledovat-chelovecheskoe-soznanie-empiricheski",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-E6JFKJ",
+   "title": "Проблемы синтеза интеллектуального трансляционного модуля мультитранслятора для обработки речевых сообщений",
+   "author": "Чернухин, Ю. В.; Крамарь, М. В.",
+   "date": "2007",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Известия Южного федерального университета. Технические науки 77(2), thematic issue, pp. 168-169. Calls SHRDLU one of the simplest and most successful language systems, a virtual world of cubes using systemic grammar in PROGRAMMAR that coped largely because its domain was limited, then builds a SHRDLU-like noun-group grammar for robot commands. English gloss: Problems in synthesising an intelligent translation module of a multitranslator for processing speech messages. SHRDLU: printed pp. 168-169, PDF pp. 3-4, including a syntax diagram of the SHRDLU noun group (fig. 6).",
+   "url": "https://cyberleninka.ru/article/n/problemy-sinteza-intellektualnogo-translyatsionnogo-modulya-multitranslyatora-dlya-obrabotki-rechevyh-soobscheniy",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-RULR73",
+   "title": "Проблемы использования многоязыковой Трансляции в контекстно-зависимых языковых средах",
+   "author": "Чернухин, Ю. В.; Крамарь, М. В.",
+   "date": "2008",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Известия Южного федерального университета. Технические науки 78(1), special issue, pp. 54-55. Describes SHRDLU's systemic grammar implemented in PROGRAMMAR and Planner, with a feature-marking parse, and compares its structure with the authors' Multitranslator environment, whose grammar language they say can implement a SHRDLU-like syntactic system, working through the noun group. English gloss: Problems of using multilanguage translation in context-dependent language environments. SHRDLU: printed pp. 54-55, PDF pp. 1-2.",
+   "url": "https://cyberleninka.ru/article/n/problemy-ispolzovaniya-mnogoyazykovoy-translyatsii-v-kontekstno-zavisimyh-yazykovyh-sredah",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-TDDXW5",
+   "title": "Inconsistency Robustness in Logic Programs",
+   "author": "Hewitt, Carl",
+   "date": "2009-04-20",
+   "kind": "preprint",
+   "lang": "en",
+   "note": "In: arXiv:0904.3036. Hewitt's account says Winograd made an impressive demo, that successors of Planner and SHRDLU could not realise procedural embedding on the hardware of the time, that Sussman and Papert spread news of SHRDLU at Edinburgh, and that the Lighthill report mentioned it favourably. SHRDLU: PDF pp. 10, 14, 15; index entry PDF p. 54.",
+   "url": "https://arxiv.org/abs/0904.3036",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-JIOII4",
+   "title": "SHRDLU, understanding, anthropomorphisation and hindsight bias",
+   "author": "Armstrong, Stuart",
+   "date": "2014-04-07",
+   "kind": "blog",
+   "lang": "en",
+   "note": "In: LessWrong. Reproduces part of the dialogue and argues that GOFAI researchers' confidence was reasonable at the time, since nobody knew the field would become a dead end; the judgement that SHRDLU lacked understanding rests on the approach failing in general situations. SHRDLU: Whole post, 20 comments.",
+   "url": "https://www.lesswrong.com/posts/ecGNCMRQNr9aD38mA/shrdlu-understanding-anthropomorphisation-and-hindsight-bias",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-THDG6E",
+   "title": "Is artificial intelligence going off the rails?",
+   "author": "Timms, Aaron",
+   "date": "2017-10-05",
+   "kind": "magazine",
+   "lang": "en",
+   "note": "In: The Outline. One paragraph: the program made Winograd a star in AI, and during the 1970s he began to question the field's approach. Says the name was an inside joke drawn from Mad magazine. SHRDLU: One paragraph in the middle of the article.",
+   "url": "https://theoutline.com/post/2373/is-artificial-intelligence-going-off-the-rails",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-IR3BU6",
+   "title": "\"эпистемологический поворот\" как условие философской концептуализации когнитивной науки (к 85-летию акад. В. А. Лекторского)",
+   "author": "Бакулов, Виктор Дмитриевич; Силенко, Светлана Владимировна",
+   "date": "2017",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Научная мысль Кавказа, 2017 no. 4 (92). Presents SHRDLU as a step toward reproducing human speech and understanding in programs, showing interaction through grammatical structures with visualisation; it lacks social communication but raised the question of language algorithms for coding meaning. English gloss: The 'epistemological turn' as a condition of the philosophical conceptualisation of cognitive science. SHRDLU: printed p. 23, PDF p. 3.",
+   "url": "https://cyberleninka.ru/article/n/epistemologicheskiy-povorot-kak-uslovie-filosofskoy-kontseptualizatsii-kognitivnoy-nauki-k-85-letiyu-akad-v-a-lektorskogo",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-TSMPTA",
+   "title": "Photo-Realistic Blocksworld Dataset",
+   "author": "Asai, Masataro",
+   "date": "2018-12-05",
+   "kind": "preprint",
+   "lang": "en",
+   "note": "In: arXiv:1812.01818. Traces the Blocksworld domain to SHRDLU, says SHRDLU heavily inspires the CLEVR benchmark, reproduces an image from Winograd's work and notes the original environment contained unstackable pyramids. SHRDLU: section 2, The Blocksworld Domain, PDF p. 2; Figure 3 reproduces the SHRDLU display, PDF p. 4; PDF p. 5.",
+   "url": "https://arxiv.org/abs/1812.01818",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-TCVMTN",
+   "title": "ИССЛЕДОВАНИЕ СОВРЕМЕННЫХ АНАЛИЗАТОРОВ ТЕКСТОВОЙ ИНФОРМАЦИИ",
+   "author": "Брызгалов, А. А.",
+   "date": "2020",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Интеллектуальные технологии на транспорте, 2020 no. 2 (22). A short paragraph in an NLP history: SHRDLU understood interactive English dialogue about a virtual world, and with ELIZA is described as a very simple program with many limits. English gloss: A study of modern text-information analysers. SHRDLU: printed p. 78, PDF p. 1.",
+   "url": "https://cyberleninka.ru/article/n/issledovanie-sovremennyh-analizatorov-tekstovoy-informatsii",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-RPHSVF",
+   "title": "A Tale of Two \"AI\" Companies",
+   "author": "Heimann, Rich",
+   "date": "2022-07-28",
+   "kind": "blog",
+   "lang": "en",
+   "note": "In: TechTalks (bdtechtalks.com). Opens with Winograd and SHRDLU as background to Google, states that microworlds ignore the complexity of the real world and do not generalise. SHRDLU: Opening paragraphs and notes 1 to 2.",
+   "url": "https://bdtechtalks.com/2022/07/28/tale-of-two-ai-companies/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-RBRMGK",
+   "title": "SHRDLU: An early natural-language understanding computer program",
+   "author": "Jeevanandam, Nivash",
+   "date": "2022-06-30",
+   "kind": "webpage",
+   "lang": "en",
+   "note": "In: IndiaAI portal (indiaai.gov.in), AI Concepts. Introductory account for beginners on the program's origin, purpose, blocks world and name, published on the Indian government's AI portal. SHRDLU: Whole article.",
+   "url": "https://indiaai.gov.in/article/shrdlu-an-early-natural-language-understanding-computer-program",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-2LNRVV",
+   "title": "Conversational Information Seeking",
+   "author": "Zamani, Hamed; Trippas, Johanne R.; Dalton, Jeff; Radlinski, Filip",
+   "date": "2022-01-21",
+   "kind": "book",
+   "lang": "en",
+   "note": "In: arXiv:2201.08808; suggested citation given as a Foundations and Trends monograph (2023). Describes SHRDLU as an interactive dialogue interface for commands, questions and statements, and says the small number of object types kept its action space and vocabulary highly limited. SHRDLU: PDF p. 31 (early question answering systems) and PDF p. 153 (early dialogue systems).",
+   "url": "https://arxiv.org/abs/2201.08808",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-4E6YJC",
+   "title": "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ В ОБРАЗОВАТЕЛЬНОМ ПРОСТРАНСТВЕ",
+   "author": "Катханова, Юлия Федоровна; Юй, Си; Корыгин, Артем Игоревич",
+   "date": "2022",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Преподаватель ХХI век, 2022 no. 3-1, pp. 215-223. A paragraph in a history of AI calling SHRDLU a 1971 expert system modelling a robot that communicates in English, using semantic and pragmatic knowledge of a world of cubes, built on Micro Planner and Lisp on a DEC PDP-6, with later 3D rendering at Utah. English gloss: Artificial intelligence in the educational space. SHRDLU: printed p. 217, PDF p. 3.",
+   "url": "https://cyberleninka.ru/article/n/iskusstvennyy-intellekt-v-obrazovatelnom-prostranstve-1",
+   "licence": "CC BY (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-KSUYZT",
+   "title": "What is SHRDLU?",
+   "author": "Lenovo",
+   "date": "2023-05-28",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: Lenovo Glossary (US site). Commercial glossary page in question-and-answer form on the program and its virtual environment. SHRDLU: Whole page; date from the page's datePublished field.",
+   "url": "https://www.lenovo.com/us/en/glossary/what-is-shrdlu/",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-4DMDKJ",
+   "title": "Bootstrapping Developmental AIs: From Simple Competences to Intelligent Human-Compatible AIs",
+   "author": "Stefik, Mark; Price, Robert",
+   "date": "2023-08-08",
+   "kind": "preprint",
+   "lang": "en",
+   "note": "In: arXiv:2308.04586. A numbered subsection describes SHRDLU's Blocks World memory model, its grammar and its actions MOVETO, GRASP and UNGRASP, and says it sidestepped the Other Minds, External World and language acquisition problems. SHRDLU: section 4.6.3.1, SHRDLU (1971), PDF p. 72 onward (21 occurrences).",
+   "url": "https://arxiv.org/abs/2308.04586",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-BIEY4K",
+   "title": "SHRDLU",
+   "author": "Vikipeedia contributors",
+   "date": "2023-10-26",
+   "kind": "encyclopedia",
+   "lang": "et",
+   "note": "In: Vikipeedia (article created 2013-09-15; revision 6509384). Estonian-language encyclopedia article on the program. SHRDLU: Whole article.",
+   "url": "https://et.wikipedia.org/wiki/SHRDLU",
+   "licence": "Creative Commonsi litsents \"Autorile viitamine + jagamine samadel tingimustel\" (CC BY-SA 4.0)",
+   "tags": [
+    "about"
+   ]
+  },
+  {
+   "id": "L-XMJ7WQ",
+   "title": "SHRDLU",
+   "author": "Wikipedia contributors",
+   "date": "2024-06-21",
+   "kind": "encyclopedia",
+   "lang": "es",
+   "note": "In: Wikipedia, la enciclopedia libre (article created 2007-04-07; revision 160878060). Spanish-language encyclopedia article on the program. SHRDLU: Whole article.",
+   "url": "https://es.wikipedia.org/wiki/SHRDLU",
+   "licence": "Licencia Creative Commons Atribución-CompartirIgual 4.0",
+   "tags": [
+    "about"
+   ]
+  },
+  {
+   "id": "L-UYTNLP",
+   "title": "SHRDLU",
+   "author": "Wikipedia-Autoren",
+   "date": "2025-11-01",
+   "kind": "encyclopedia",
+   "lang": "de",
+   "note": "In: Wikipedia, Die freie Enzyklopädie (article created 2004-02-21; revision 261130188). German-language encyclopedia article on the program. SHRDLU: Whole article.",
+   "url": "https://de.wikipedia.org/wiki/SHRDLU",
+   "licence": "Creative Commons Attribution-ShareAlike 4.0 (deed.de linked from page footer)",
+   "tags": [
+    "about"
+   ]
+  },
+  {
+   "id": "L-OQEEOZ",
+   "title": "Платформы искусственного интеллекта в сфере образования",
+   "author": "Косоруков, Артем Андреевич",
+   "date": "2025",
+   "kind": "article",
+   "lang": "ru",
+   "note": "In: Социодинамика, 2025 no. 3. A paragraph in a history of AI platforms for education, dating SHRDLU to the 1970s and describing English dialogue in a three-dimensional blocks environment and memory of a dialogue with a given user. English gloss: Artificial intelligence platforms in education. SHRDLU: section on the history of educational AI; extracted PDF text splits the name as 'SH RDL U'.",
+   "url": "https://cyberleninka.ru/article/n/platformy-iskusstvennogo-intellekta-v-sfere-obrazovaniya",
+   "licence": "CC BY-NC (label \"Лицензия Creative Commons\" on the CyberLeninka article page)",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-ITVRJ2",
+   "title": "SHRDLU",
+   "author": "Grokipedia",
+   "date": "2026-01-14",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: Grokipedia (xAI; page states 'Fact-checked by Grok'). Machine-generated encyclopedia article with sections on development, blocks world, architecture, syntactic parsing, semantic interpretation, implementation, influence and criticisms. SHRDLU: Whole article; date from the page's dateModified field.",
+   "url": "https://grokipedia.com/page/SHRDLU",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-VJQWGV",
+   "title": "SHRDLU",
+   "author": "Viquipèdia contributors",
+   "date": "2026-08-10",
+   "kind": "encyclopedia",
+   "lang": "ca",
+   "note": "In: Viquipèdia (article created 2012-06-25; revision 38123383). Catalan-language encyclopedia article on the program. SHRDLU: Whole article.",
+   "url": "https://ca.wikipedia.org/wiki/SHRDLU",
+   "licence": "Creative Commons Reconeixement i Compartir-Igual (CC BY-SA 4.0)",
+   "tags": [
+    "about"
+   ]
+  },
+  {
+   "id": "L-6FD7YY",
+   "title": "SHRDLU",
+   "author": "Wikipedia contributors",
+   "date": "2026-10-29",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: Wikipedia, The Free Encyclopedia (article created 2002-10-03; revision 1382627603). Describes the program as written by Winograd at MIT in 1968-1970, in Micro-Planner and Lisp on a DEC PDP-6, with the blocks world, the name's origin in ETAOIN SHRDLU and an excerpt of the dialogue. SHRDLU: Whole article.",
+   "url": "https://en.wikipedia.org/wiki/SHRDLU",
+   "licence": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License",
+   "tags": [
+    "about"
+   ]
+  },
+  {
+   "id": "L-TIGG6N",
+   "title": "Chapter 2 (discussion questions and resources), Cognitive Science: An Introduction to the Science of the Mind",
+   "author": "Cambridge University Press",
+   "kind": "webpage",
+   "lang": "en",
+   "note": "In: Cambridge University Press author microsite (cognitive-science-4). Textbook companion site poses discussion questions on the micro-world, on Winograd's statement about activating procedures, and on what knowledge SHRDLU needs to parse. SHRDLU: Section 2.1 discussion questions, and a link to the YouTube video 'winograd shrdlu' under Videos.",
+   "url": "https://www.cambridge.org/core/resources/cognitive-science-4/chapter-2",
+   "tags": [
+    "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-SGS3N6",
+   "title": "SHRDLU",
+   "author": "Dix, Alan",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: Glossary to Artificial Intelligence: humans at the heart of algorithms (alandix.com). Book glossary entry: restricted natural language processing controlling a simulated robot in a blocks world. SHRDLU: The whole entry, one sentence and two links.",
+   "url": "https://alandix.com/glossary/aibook/shrdlu",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-ZJN62C",
+   "title": "The problem with SHRDLU",
+   "author": "Gent, Ian P.",
+   "kind": "webpage",
+   "lang": "en",
+   "note": "In: AI lecture slides, School of Computer Science, University of St Andrews (sites.cs.st-andrews.ac.uk/people/ipg1/AI/Lectures/ai/). Lecture slide: limited domain, hard to abstract lessons, natural language processing intermingled with planning. SHRDLU: Slide 15 of the deck, one slide. Creator inferred from the ipg1 user directory, not stated on the slide.",
+   "url": "https://sites.cs.st-andrews.ac.uk/people/ipg1/AI/Lectures/ai/tsld015.htm",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-BRLO7B",
+   "title": "SHRDLU",
+   "author": "LLMpedia",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "note": "In: LLMpedia (llmpedia.scads.ai), Llama 3.3-70B edition. Article generated by a language model without retrieval, per the page's own notice. SHRDLU: Whole article. The page carries a notice that an LLM generated it. A separate gpt-5-mini edition exists at /gpt-5-mini/SHRDLU.html.",
+   "url": "https://llmpedia.scads.ai/llama/SHRDLU.html",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-DHGFCE",
+   "title": "Terry Allen Winograd",
+   "author": "Schneppat, J.O.",
+   "kind": "webpage",
+   "lang": "en",
+   "note": "In: schneppat.com. Long biographical web essay on Winograd with sections on SHRDLU. It states that Winograd became a student of John McCarthy at Stanford, which differs from the thesis record at MIT. SHRDLU: Multiple sections; SHRDLU named 36 times on the page.",
+   "url": "https://schneppat.com/terry-allen-winograd.html",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  }
+ ]
+}
