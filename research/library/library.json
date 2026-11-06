@@ -325,6 +325,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/advancepapersoff0000inte",
+   "thumb": "library/thumbs/L-LYSMIV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -411,6 +412,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780387077390",
+   "thumb": "library/thumbs/L-PT55VN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -541,6 +543,7 @@
    "lang": "en",
    "note": "First edition. Same section headings as the 1987 second edition, recorded separately; the snippets do not show how the editions differ on SHRDLU. SHRDLU: Internet Archive full-text hit; contents list shows a chapter section 'Conversation with SHRDLU', followed by 'Heterarchical thinking' and 'What SHRDLU knows'. Printed pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000bode_k9b4",
+   "thumb": "library/thumbs/L-GY6RO7.jpg",
    "tags": [
     "discussion"
    ]
@@ -613,6 +616,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/limitsofscientif0000amer_b6p1",
+   "thumb": "library/thumbs/L-NUXYAW.jpg",
    "tags": [
     "named in the text"
    ]
@@ -698,6 +702,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/encyclopaediaofe0000unse",
+   "thumb": "library/thumbs/L-EIIH3Y.jpg",
    "tags": [
     "named in the text"
    ]
@@ -783,6 +788,7 @@
    "in": "Hassocks, Sussex, Eng. : Harvester",
    "note": "Says anyone who feels cheated by SHRDLU has not read Winograd, and contrasts it with other natural language programs. SHRDLU: Internet Archive full-text hit, 14 passages naming SHRDLU in the search snippets; index line gives p. 7.",
    "url": "https://archive.org/details/brainstormsphilo0000denn",
+   "thumb": "library/thumbs/L-RIQYDG.jpg",
    "tags": [
     "discussion"
    ]
@@ -796,6 +802,7 @@
    "lang": "en",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/godelescherbache0000doug",
+   "thumb": "library/thumbs/L-GCUFPY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -823,6 +830,7 @@
    "lang": "en",
    "note": "Revised edition. Says that by all accounts Winograd's natural language understanding program (SHRDLU, 1971) demonstrates what Papert and Minsky were after, and argues SHRDLU knows what it owns without understanding what it is to own something. SHRDLU: Internet Archive full-text hit, 5 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/whatcomputerscan00hube",
+   "thumb": "library/thumbs/L-EO5QIC.jpg",
    "tags": [
     "discussion"
    ]
@@ -864,6 +872,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modelsofthought0000simo_o9o9",
+   "thumb": "library/thumbs/L-XKJBGN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -892,6 +901,7 @@
    "in": "Vintage Books",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/gdelescherbachet00hofs",
+   "thumb": "library/thumbs/L-EMSXQQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -936,6 +946,7 @@
    "in": "Harvester Wheatsheaf",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computationalgra0000grae",
+   "thumb": "library/thumbs/L-5LADKK.jpg",
    "tags": [
     "named in the text"
    ]
@@ -950,6 +961,7 @@
    "in": "New York : Vintage Books",
    "note": "Has a section titled 'SHRDLU, Toy of Man's Designing', with quotations from Understanding Natural Language. SHRDLU: Internet Archive full-text hit; section heading 'SHRDLU, Toy of Man's Designing' with a line at printed p. 586.",
    "url": "https://archive.org/details/gdelescherbachan00hofs",
+   "thumb": "library/thumbs/L-2QHNFZ.jpg",
    "tags": [
     "discussion"
    ]
@@ -1006,6 +1018,7 @@
    "in": "Stanford, Calif.: HeurisTech Press ; Los Altos, Calif. : William Kaufmann",
    "note": "A five-page Handbook article states SHRDLU was written in LISP and MICRO-PLANNER as a doctoral project, on the belief that a program must deal with syntax and semantics in an integrated way; other articles refer back to it. SHRDLU: article IV.F4, SHRDLU, PDF pp. 313-317; also PDF pp. 169, 194, 214, 242-248, 269, 275, 294-295, 337; bibliography and index.",
    "url": "https://archive.org/details/handbookofartific01barr",
+   "thumb": "library/thumbs/L-FLBHWF.jpg",
    "tags": [
     "about",
     "free to read"
@@ -1021,6 +1034,7 @@
    "in": "Ithaca, N.Y. : Cornell University Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindsmechanismsp0000bode",
+   "thumb": "library/thumbs/L-TW3XAC.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1033,6 +1047,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/essentialpopeben0000bene",
+   "thumb": "library/thumbs/L-76M4V3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1047,6 +1062,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Essays in the volume name SHRDLU; one begins 'Even in the simple blocks world of Winograd's SHRDLU', then refers to an examination of the running program. SHRDLU: Internet Archive full-text hit, 18 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/isbn_0262580527",
+   "thumb": "library/thumbs/L-I375QQ.jpg",
    "tags": [
     "discussion"
    ]
@@ -1077,6 +1093,7 @@
    "doi": "10.1007/3-540-10858-0",
    "note": "A survey of anaphora with a numbered section on how SHRDLU resolves reference by heuristics. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: section 3.1.2, SHRDLU.",
    "url": "https://archive.org/details/anaphorainnatura0000goos",
+   "thumb": "library/thumbs/L-B45MRA.jpg",
    "tags": [
     "discussion"
    ]
@@ -1091,6 +1108,7 @@
    "in": "Indianapolis, Ind. : H.W. Sams",
    "note": "Krutch calls SHRDLU the first question-answering program, completed in 1971, and describes how the user moves objects on the display by typed command. PDF is 82 MB, recorded as a link; read through the Internet Archive text file. SHRDLU: Read in the djvu text. Name on PDF pp. .",
    "url": "https://archive.org/details/krutch-experiments_in_artificial_intelligence_for_small_computers-1981",
+   "thumb": "library/thumbs/L-IJUQ2L.jpg",
    "tags": [
     "discussion",
     "free to read"
@@ -1104,6 +1122,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modellinglanguag0000nara",
+   "thumb": "library/thumbs/L-L6XV4Q.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1216,6 +1235,7 @@
    "in": "Stanford, Calif. : HeurisTech Press ; Los Altos, Calif. : W. Kaufmann",
    "note": "Names SHRDLU as a program written in MICRO-PLANNER and refers back to the article in volume 1. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: vol. 2, list of systems and a cross-reference to article IV.F4.",
    "url": "https://archive.org/details/handbookofartif02barr",
+   "thumb": "library/thumbs/L-E7JRCB.jpg",
    "tags": [
     "mention"
    ]
@@ -1230,6 +1250,7 @@
    "in": "New York : Basic Books",
    "note": "Index gives pp. 117, 119-20, 121. Essay collection describing SHRDLU and its limitations, citing Understanding Natural Language. SHRDLU: Internet Archive full-text hit, 12 passages naming SHRDLU in the search snippets; index line gives p. 117; 117, 119-20, 121.",
    "url": "https://archive.org/details/scienceobservede0000bern",
+   "thumb": "library/thumbs/L-ODWGO6.jpg",
    "tags": [
     "discussion"
    ]
@@ -1244,6 +1265,7 @@
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersciencem00gold",
+   "thumb": "library/thumbs/L-SIDESN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1271,6 +1293,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newalchemistssil00hansrich",
+   "thumb": "library/thumbs/L-XTZAFY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1285,6 +1308,7 @@
    "in": "Harmondsworth : Penguin",
    "note": "Index gives pp. 317, 354, 475. One passage says the same arguments would apply to Winograd's SHRDLU and Weizenbaum's ELIZA. SHRDLU: Internet Archive full-text hit, 24 passages naming SHRDLU in the search snippets; index line gives p. 317, 354, 475; 317, 354,475.",
    "url": "https://archive.org/details/mindsifantasiesr0000unse_b4r5",
+   "thumb": "library/thumbs/L-G472NB.jpg",
    "tags": [
     "discussion"
    ]
@@ -1299,6 +1323,7 @@
    "in": "Paris : Masson",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/comprehensionaut0000jaye",
+   "thumb": "library/thumbs/L-R5OHW3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1311,6 +1336,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/microcomputersin0000unse",
+   "thumb": "library/thumbs/L-RCPM6T.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1340,6 +1366,7 @@
    "in": "In Smith, William Flint (ed.), Modern Media in Foreign Language Education. ACTFL Foreign Language Education Series; ERIC ED 284 452",
    "note": "Underwood presents SHRDLU with ELIZA as the best-known language programs for computer-assisted language learning, reproduces part of a dialogue with SHRDLU in capitals, and describes its limits. SHRDLU: Name on PDF pp. 1, 7, 10, 11, 12, 16, 28.",
    "url": "https://archive.org/details/micro_IA41153049_0344",
+   "thumb": "library/thumbs/L-O47BBE.jpg",
    "tags": [
     "discussion",
     "free to read"
@@ -1455,6 +1482,7 @@
    "in": "Tunbridge Wells, Kent : Abacus Press",
    "note": "Andrew describes SHRDLU clearing a block before moving it and refers to the Hofstadter dialogue title. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: passage on natural language.",
    "url": "https://archive.org/details/artificialintell0000andr",
+   "thumb": "library/thumbs/L-DHSS74.jpg",
    "tags": [
     "discussion"
    ]
@@ -1469,6 +1497,7 @@
    "in": "Brighton : Harvester Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindsmechanismph0000bode",
+   "thumb": "library/thumbs/L-5EQIGF.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1481,6 +1510,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/rethinkingcognit0000coul",
+   "thumb": "library/thumbs/L-ORNRUI.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1495,6 +1525,7 @@
    "in": "alfred a. knopf, new york",
    "note": "Refers to Terry Winograd as the brilliant author of SHRDLU in a popular book on computers. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/electroniclifeho0000mich",
+   "thumb": "library/thumbs/L-4AQ7V2.jpg",
    "tags": [
     "discussion"
    ]
@@ -1507,6 +1538,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/penguincomputing0000curr",
+   "thumb": "library/thumbs/L-VBO3IZ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1519,6 +1551,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/indepthunderstan00dyer",
+   "thumb": "library/thumbs/L-UN7O2P.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1531,6 +1564,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intimatemachinec00frud",
+   "thumb": "library/thumbs/L-DZ4CIJ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1559,6 +1593,7 @@
    "lang": "en",
    "note": "Rich's textbook says SHRDLU exploited a small body of declarative knowledge about a simple blocks world and shows assertions from it. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: section on semantic approaches to natural language.",
    "url": "https://archive.org/details/ine0000unse",
+   "thumb": "library/thumbs/L-7NEP45.jpg",
    "tags": [
     "discussion"
    ]
@@ -1573,6 +1608,7 @@
    "in": "Reading, MA: Addison-Wesley",
    "note": "Primary work by Winograd. The syntax textbook refers back to SHRDLU as a procedural parser and as a program designed on principles of systemic grammar. SHRDLU: Several passages; IA lending copy, full-text index, including the procedural parser of SHRDLU in the ATN chapter and the systemic grammar section.",
    "url": "https://archive.org/details/languageascognit00terr",
+   "thumb": "library/thumbs/L-B2GWR2.jpg",
    "tags": [
     "about"
    ]
@@ -1697,6 +1733,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/unretoparaeuropa0000albe",
+   "thumb": "library/thumbs/L-VV736E.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1709,6 +1746,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/reinventingmanro00alekrich",
+   "thumb": "library/thumbs/L-XQ67M5.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1721,6 +1759,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/developingexpert0000begg_y4c4",
+   "thumb": "library/thumbs/L-4VG5F4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1733,6 +1772,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/threedegreesabov0000bern",
+   "thumb": "library/thumbs/L-WC46IV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1747,6 +1787,7 @@
    "in": "Chapel Hill : University of North Carolina Press",
    "note": "Index gives p. 195; the annotated bibliography calls Understanding Natural Language a description of SHRDLU, the simulated robot. SHRDLU: Internet Archive full-text hit, 10 passages naming SHRDLU in the search snippets; index line gives p. 195.",
    "url": "https://archive.org/details/turingsmanwester0000bolt",
+   "thumb": "library/thumbs/L-IISAO3.jpg",
    "tags": [
     "discussion"
    ]
@@ -1759,6 +1800,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/lintelligenceart0000bonn",
+   "thumb": "library/thumbs/L-FM6BC2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1799,6 +1841,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/overcomingcomput0000curr",
+   "thumb": "library/thumbs/L-UKIAZV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1813,6 +1856,7 @@
    "in": "[Paris] : Flammarion",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligencearti0000drey",
+   "thumb": "library/thumbs/L-26OWNB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1842,6 +1886,7 @@
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artofcomputercon00gain",
+   "thumb": "library/thumbs/L-WQWBRR.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1854,6 +1899,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinlangu0000higg",
+   "thumb": "library/thumbs/L-SBESDM.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1866,6 +1912,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_351902473",
+   "thumb": "library/thumbs/L-W6OMU6.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1894,6 +1941,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell00oshe",
+   "thumb": "library/thumbs/L-B3MSF2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1908,6 +1956,7 @@
    "in": "Harper & Row",
    "note": "Popular account saying SHRDLU was not extensible and was confined to the blocks world because of what Winograd felt it could handle. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/intoheartofmind00fran",
+   "thumb": "library/thumbs/L-UXIGCS.jpg",
    "tags": [
     "discussion"
    ]
@@ -1920,6 +1969,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivecompute0000scha",
+   "thumb": "library/thumbs/L-XCKAVX.jpg",
    "tags": [
     "named in the text"
    ]
@@ -1949,6 +1999,7 @@
    "in": "Reading, Mass. : Addison-Wesley",
    "note": "Describes how SHRDLU evaluated the denotation of a question about blocks in terms of the current state. SHRDLU: Internet Archive full-text hit, 5 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/conceptualstruct0000sowa",
+   "thumb": "library/thumbs/L-GC4KRO.jpg",
    "tags": [
     "discussion"
    ]
@@ -2188,6 +2239,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/readingsinknowle00brac",
+   "thumb": "library/thumbs/L-BBMFWX.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2200,6 +2252,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/actionsystemsint0000clar",
+   "thumb": "library/thumbs/L-SRR6ZC.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2229,6 +2282,7 @@
    "in": "New York : Basic Books",
    "note": "Discusses the language understanding program SHRDLU in the history of cognitive science; the index entry gives p. 158. SHRDLU: Internet Archive full-text hit, 6 passages naming SHRDLU in the search snippets; index line gives p. 158.",
    "url": "https://archive.org/details/mindsnewscience00howa",
+   "thumb": "library/thumbs/L-BO3YHN.jpg",
    "tags": [
     "discussion"
    ]
@@ -2243,6 +2297,7 @@
    "in": "Milton Keynes [Buckinghamshire] ; Philadelphia : Open University Press",
    "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languageundersta0000gree_b4m0",
+   "thumb": "library/thumbs/L-DCSWQS.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2257,6 +2312,7 @@
    "in": "Minneapolis : University of Minnesota Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mentalitymachine00gund",
+   "thumb": "library/thumbs/L-D3BB23.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2271,6 +2327,7 @@
    "in": "Cambridge [Cambridgeshire] ; New York : Cambridge University Press",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000hand",
+   "thumb": "library/thumbs/L-WZ4NH2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2285,6 +2342,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Presents Winograd's simulated robot SHRDLU as designed for communication in English, says it can carry on fluent conversations, and describes it learning new words such as steeple. SHRDLU: Internet Archive full-text hit, 7 passages naming SHRDLU in the search snippets; index line gives p. 263.",
    "url": "https://archive.org/details/artificialintell0000haug",
+   "thumb": "library/thumbs/L-HQRIWC.jpg",
    "tags": [
     "discussion"
    ]
@@ -2297,6 +2355,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/smartrobotshandb0000hunt",
+   "thumb": "library/thumbs/L-HP5HVT.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2326,6 +2385,7 @@
    "in": "New York : Plenum Press",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandinglan0000moyn",
+   "thumb": "library/thumbs/L-PP72TE.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2340,6 +2400,7 @@
    "in": "Princeton, N.J. : Petrocelli Books",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/applicationsinar0000unse",
+   "thumb": "library/thumbs/L-3327YF.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2369,6 +2430,7 @@
    "in": "New York, N.Y. : Baen Enterprises : Distributed by Simon & Schuster",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000peat",
+   "thumb": "library/thumbs/L-YYHXKF.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2541,6 +2603,7 @@
    "in": "Reading, Mass. : Addison-Wesley",
    "note": "A dedicated article headed 'F4. SHRDLU', stating the system was written by Terry Winograd (1972). The volume number of this scan was not checked. SHRDLU: Internet Archive full-text hit; section F4, 'SHRDLU', in the Natural Language chapter.",
    "url": "https://archive.org/details/handbookofartifi00barr",
+   "thumb": "library/thumbs/L-OUPHM7.jpg",
    "tags": [
     "about"
    ]
@@ -2570,6 +2633,7 @@
    "in": "Chichester, West Sussex, England : E. Horwood ; New York : Halsted Press",
    "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fifthgenerationc0000bish",
+   "thumb": "library/thumbs/L-INWWNZ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2584,6 +2648,7 @@
    "in": "New York : Free Press",
    "note": "Says Winograd's natural language understanding program, SHRDLU, by all accounts best exemplifies the micro-world approach. SHRDLU: Internet Archive full-text hit, 4 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/mindovermachinep00drey",
+   "thumb": "library/thumbs/L-A63E3X.jpg",
    "tags": [
     "discussion"
    ]
@@ -2613,6 +2678,7 @@
    "in": "New York : Gordon and Breach Science Publishers",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000geor",
+   "thumb": "library/thumbs/L-CKYZDS.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2640,6 +2706,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/traditionofphilo0000hall",
+   "thumb": "library/thumbs/L-DVZ3D2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2654,6 +2721,7 @@
    "in": "Toronto ; New York : Bantam Books",
    "note": "The Internet Archive's full-text search finds the name in 23 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/exploringartific00hart",
+   "thumb": "library/thumbs/L-RZMJRS.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2668,6 +2736,7 @@
    "in": "San Diego : Harcourt Brace Jovanovich",
    "note": "Popular introduction giving a headed section on SHRDLU as a 1972 PhD project. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: section headed SHRDLU.",
    "url": "https://archive.org/details/questforartifici0000pate",
+   "thumb": "library/thumbs/L-NZ4QWK.jpg",
    "tags": [
     "discussion"
    ]
@@ -2682,6 +2751,7 @@
    "in": "Texas Instruments",
    "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingart0000radi",
+   "thumb": "library/thumbs/L-BYSFIM.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2694,6 +2764,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0898626676",
+   "thumb": "library/thumbs/L-DFABYH.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2723,6 +2794,7 @@
    "in": "Alexandria, Va. : Time-Life Books",
    "note": "Popular account of how Winograd named the program, explaining etaoin shrdlu. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: Time-Life book on Winograd's language program.",
    "url": "https://archive.org/details/artificialintel000time",
+   "thumb": "library/thumbs/L-PPJ46M.jpg",
    "tags": [
     "discussion"
    ]
@@ -2737,6 +2809,7 @@
    "in": "Norwood, NJ: Ablex",
    "note": "Primary work by Winograd. The authors take SHRDLU as an example of the programs they criticise, and describe its record of the conversation and its reasoning about the conversation. SHRDLU: Chapter on understanding language by computer; IA full-text index: programs of this kind, and a passage on how SHRDLU determined referents from a conversation record.",
    "url": "https://archive.org/details/understandingcom00wino",
+   "thumb": "library/thumbs/L-A53WMU.jpg",
    "tags": [
     "about"
    ]
@@ -2807,6 +2880,7 @@
    "in": "New York : Wiley",
    "note": "The 1987 edition describes SHRDLU under planning as controlling a simulated robot and under natural language as an interactive system. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: 1987 edition, entries cross-referring to SHRDLU (qv), planning and natural language.",
    "url": "https://archive.org/details/encyclopediaofar0002unse_j3d8",
+   "thumb": "library/thumbs/L-3244RO.jpg",
    "tags": [
     "discussion"
    ]
@@ -2863,6 +2937,7 @@
    "in": "Berlin ; New York : Springer-Verlag",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/unobstructedshor0000akma",
+   "thumb": "library/thumbs/L-KAVKQ2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2875,6 +2950,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/thinkingmachines0000alek",
+   "thumb": "library/thumbs/L-4PH4D7.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2887,6 +2963,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fromschematheory0000arbi",
+   "thumb": "library/thumbs/L-EAPH6F.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2901,6 +2978,7 @@
    "in": "London : MIT Press",
    "note": "Second edition. A section titled 'Conversation with SHRDLU', with sections on heterarchical thinking and what SHRDLU knows, and an adapted Winograd dialogue. SHRDLU: Internet Archive full-text hit, 29 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/artificialintell0000bode_w9k3",
+   "thumb": "library/thumbs/L-LPGAVO.jpg",
    "tags": [
     "discussion"
    ]
@@ -2961,6 +3039,7 @@
    "in": "London ; New York : Routledge & Kegan Paul",
    "note": "Garnham's introduction gives a section to SHRDLU alongside Schank's MARGIE. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: chapter on language, section Winograd's SHRDLU.",
    "url": "https://archive.org/details/artificialintell0000garn",
+   "thumb": "library/thumbs/L-CFTAO5.jpg",
    "tags": [
     "discussion"
    ]
@@ -2973,6 +3052,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/aiin1980sbeyondm00grim",
+   "thumb": "library/thumbs/L-3QH2I4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -2987,6 +3067,7 @@
    "in": "Redmond, Wash. : Tempus",
    "note": "Narrates the dialogue with SHRDLU and says Winograd's work on it convinced him of a further point, which the snippet cuts off. SHRDLU: Internet Archive full-text hit, 18 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/machineryofmindi1987john",
+   "thumb": "library/thumbs/L-KFNBTO.jpg",
    "tags": [
     "discussion"
    ]
@@ -3042,6 +3123,7 @@
    "in": "Leicester, UK : British Psychological Society",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psifipsychologic0000ridg",
+   "thumb": "library/thumbs/L-AP4QVB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3068,6 +3150,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/elementsofartifi00stan",
+   "thumb": "library/thumbs/L-WIOYFN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3082,6 +3165,7 @@
    "in": "[New York] : Walker",
    "note": "A section headed 'ATNs and SHRDLU: Two Milestones' on natural-language work. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/manmademindsprom0000wald_y7r3",
+   "thumb": "library/thumbs/L-I6OJKT.jpg",
    "tags": [
     "discussion"
    ]
@@ -3094,6 +3178,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/linguistictheory00whit",
+   "thumb": "library/thumbs/L-74VARN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3163,6 +3248,7 @@
    "in": "Signal: Communication Tools for the Information Age, printed p. 185",
    "note": "Excerpt on computers as information processors; refers to the world of toy blocks manipulated by SHRDLU as an expression of faith in what AI may achieve. SHRDLU: Printed p. 185, IA leaf 189.",
    "url": "https://archive.org/details/wholeearthcatalo00unse_2",
+   "thumb": "library/thumbs/L-PD4DFV.jpg",
    "tags": [
     "mention",
     "free to read"
@@ -3209,6 +3295,7 @@
    "in": "London ; Baltimore : E. Arnold",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/advancedinformat0000cott",
+   "thumb": "library/thumbs/L-PUVW3X.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3223,6 +3310,7 @@
    "in": "New York : W.H. Freeman",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/armchairuniverse0000dewd_x2e7",
+   "thumb": "library/thumbs/L-I5R5BT.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3237,6 +3325,7 @@
    "in": "Boston : Boyd & Fraser",
    "note": "A named textbook section on SHRDLU, stating its implementation in LISP and MICROPLANNER. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: chapter 8, Natural Language Processing, section Winograd's SHRDLU, p. 224 by the contents.",
    "url": "https://archive.org/details/artificialintell00fire",
+   "thumb": "library/thumbs/L-MZGVAV.jpg",
    "tags": [
     "discussion"
    ]
@@ -3266,6 +3355,7 @@
    "in": "New York : St. Martin's Press",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindlanguagemach0000john",
+   "thumb": "library/thumbs/L-RODF5R.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3323,6 +3413,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationalenc0001unse",
+   "thumb": "library/thumbs/L-CIDNKN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3335,6 +3426,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0205114121",
+   "thumb": "library/thumbs/L-HBWEGA.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3347,6 +3439,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/principlesofcomp0000scha",
+   "thumb": "library/thumbs/L-J2WFFA.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3359,6 +3452,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingrea0004smit",
+   "thumb": "library/thumbs/L-S7UR4F.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3386,6 +3480,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Uses SHRDLU as the illustration of internal representation in AI, says it is quoted in many popular accounts because like ELIZA it gives a convincing conversational performance, and shows figures of the blocks and the dialogue. SHRDLU: online edition, chapter 3, section Two Models of AI (10 occurrences); Figures 3.4 to 3.6 show SHRDLU and a section of its dialogue. Free to read at https://poplog.fricas.org/bham/computers-and-thought/chap3/node10.html",
    "url": "https://archive.org/details/computersthought0000unse",
+   "thumb": "library/thumbs/L-LJBLQA.jpg",
    "tags": [
     "discussion",
     "free to read"
@@ -3429,6 +3524,7 @@
    "in": "New York : Avon Books",
    "note": "Says probably the best-known microworld program is SHRDLU, a block world built by Terry Winograd. SHRDLU: Internet Archive full-text hit, 5 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/paradigmslost00jlca",
+   "thumb": "library/thumbs/L-X5Y6LO.jpg",
    "tags": [
     "discussion"
    ]
@@ -3441,6 +3537,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000chab_j5y6",
+   "thumb": "library/thumbs/L-TZGKA4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3453,6 +3550,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/microcognitionph0000clar_d0l7",
+   "thumb": "library/thumbs/L-XH5DTH.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3467,6 +3565,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Uses the now famous SHRDLU system as an example, noting it is a 'robot' only in simulation, with no real table of blocks. SHRDLU: Internet Archive full-text hit, 6 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/intentionalstanc00dani",
+   "thumb": "library/thumbs/L-IZYUTB.jpg",
    "tags": [
     "discussion"
    ]
@@ -3479,6 +3578,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinhuman00fore",
+   "thumb": "library/thumbs/L-MYAFG4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3491,6 +3591,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modularityinknow00garf",
+   "thumb": "library/thumbs/L-YONUGE.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3505,6 +3606,7 @@
    "in": "London ; New York : Routledge",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psycholinguistic0000garn_k5g4",
+   "thumb": "library/thumbs/L-5UMAXC.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3517,6 +3619,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/sciencephilosoph0000gjer",
+   "thumb": "library/thumbs/L-A3JKFV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3529,6 +3632,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/howtosolveitinli0000hall",
+   "thumb": "library/thumbs/L-UAJQU2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3541,6 +3645,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/programmingforar0000kreu",
+   "thumb": "library/thumbs/L-V5WSUS.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3553,6 +3658,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/vannostrandreinh0000long",
+   "thumb": "library/thumbs/L-TYLM5U.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3565,6 +3671,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/ef00geor_gav",
+   "thumb": "library/thumbs/L-UATOSQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3577,6 +3684,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/naturallanguagep0000ober",
+   "thumb": "library/thumbs/L-ZTR6OR.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3589,6 +3697,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/machinelearningo0000powe",
+   "thumb": "library/thumbs/L-G4UTUX.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3601,6 +3710,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/lintelligenceart0002saba",
+   "thumb": "library/thumbs/L-4GMVCC.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3615,6 +3725,7 @@
    "in": "New York : Facts on File",
    "note": "A dictionary treats SHRDLU in an entry on its integration of syntax and semantics and under blocks world. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: entries including blocks world and a system entry.",
    "url": "https://archive.org/details/factsonfiledicti00smit",
+   "thumb": "library/thumbs/L-KTPNK7.jpg",
    "tags": [
     "discussion"
    ]
@@ -3645,6 +3756,7 @@
    "in": "Paris: Presses Universitaires de France, collection La politique éclatée",
    "note": "Primary work by Winograd. French translation of Understanding Computers and Cognition (1986). SHRDLU: IA lending copy, full-text index: the French text of the passage naming SHRDLU, and a preface remarking on Winograd and Paris.",
    "url": "https://archive.org/details/lintelligenceart0000wino",
+   "thumb": "library/thumbs/L-AEYGT7.jpg",
    "tags": [
     "about"
    ]
@@ -3658,6 +3770,7 @@
    "in": "London : Collins",
    "note": "The Collins dictionary treats SHRDLU in an entry and under blocks world. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: entries including blocks world and a system entry.",
    "url": "https://archive.org/details/collinsdictionar0000unse_w3w7",
+   "thumb": "library/thumbs/L-PWMNH4.jpg",
    "tags": [
     "discussion"
    ]
@@ -3696,6 +3809,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/automatedfactory0000clel",
+   "thumb": "library/thumbs/L-PWBWMQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3722,6 +3836,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/keystudiesinpsyc0000gros_q2x4",
+   "thumb": "library/thumbs/L-BF336I.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3734,6 +3849,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_1557782571",
+   "thumb": "library/thumbs/L-GGSU6U.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3746,6 +3862,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9781557782571",
+   "thumb": "library/thumbs/L-P7ZTCU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3758,6 +3875,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/problemsolvingar00laur_0",
+   "thumb": "library/thumbs/L-KVU5Z7.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3787,6 +3905,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Lists Winograd's 1970 thesis on SHRDLU, slightly modified and published as Understanding Natural Language; index gives p. 63. SHRDLU: Internet Archive full-text hit, 21 passages naming SHRDLU in the search snippets; index line gives p. 63.",
    "url": "https://archive.org/details/ageofintelligent0000kurz",
+   "thumb": "library/thumbs/L-6CVP6H.jpg",
    "tags": [
     "discussion"
    ]
@@ -3801,6 +3920,7 @@
    "in": "New York : Ellis Horwood",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/humancomputerint0000madd",
+   "thumb": "library/thumbs/L-4LYUSH.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3830,6 +3950,7 @@
    "in": "New York, N.Y. : Van Nostrand Reinhold",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dictionaryofarti0000merc",
+   "thumb": "library/thumbs/L-AAVIT3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3868,6 +3989,7 @@
    "in": "Cambridge [England] ; New York : Cambridge University Press",
    "note": "Partridge and Wilks's sourcebook contains passages treating SHRDLU as a test and listing it among elementary early programs. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: sourcebook passages on tests of understanding and early programs.",
    "url": "https://archive.org/details/foundationsofart00dere",
+   "thumb": "library/thumbs/L-7YVMTO.jpg",
    "tags": [
     "discussion"
    ]
@@ -3882,6 +4004,7 @@
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
    "note": "The Internet Archive's full-text search finds the name in 21 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontoar0000patt",
+   "thumb": "library/thumbs/L-QW2GQ4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3909,6 +4032,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/metaconnaissance0000pitr",
+   "thumb": "library/thumbs/L-2PPTUU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3921,6 +4045,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/readingsinuncert00shaf",
+   "thumb": "library/thumbs/L-KELTHE.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3935,6 +4060,7 @@
    "in": "New York : Wiley",
    "note": "Reference work with a cross-referenced SHRDLU entry (marked qv) and passages saying SHRDLU was based on MICRO-PLANNER. SHRDLU: Internet Archive full-text hit, 47 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/encyclopediaofar0001unse_p6l7",
+   "thumb": "library/thumbs/L-SCPEKL.jpg",
    "tags": [
     "discussion"
    ]
@@ -3949,6 +4075,7 @@
    "in": "Hillsdale, N.J. : L. Erlbaum Associates",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologyoflang0000sing",
+   "thumb": "library/thumbs/L-Q53GCM.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3961,6 +4088,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/WhatEveryE_00_Tayl",
+   "thumb": "library/thumbs/L-N52IDY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3975,6 +4103,7 @@
    "in": "Boulder, Colo. : Westview Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersininfor0000wein",
+   "thumb": "library/thumbs/L-VB2WYJ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -3989,6 +4118,7 @@
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerselfsoci0000wess",
+   "thumb": "library/thumbs/L-M2HI3Y.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4001,6 +4131,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/almanacofscience00worl",
+   "thumb": "library/thumbs/L-RF4QSI.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4015,6 +4146,7 @@
    "in": "New York : Ellis Horwood",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/naturallanguagec0000bear",
+   "thumb": "library/thumbs/L-75BZBY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4027,6 +4159,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introducingcompu0000blis",
+   "thumb": "library/thumbs/L-5R74XX.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4053,6 +4186,7 @@
    "in": "Boston : Little, Brown and Co",
    "note": "Describes SHRDLU manipulating imaginary blocks and answering questions; the index gives pp. 92-3. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; index line gives p. 92-3.",
    "url": "https://archive.org/details/consciousnessexp0000denn_z5c9",
+   "thumb": "library/thumbs/L-ZDJBMJ.jpg",
    "tags": [
     "discussion"
    ]
@@ -4079,6 +4213,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/knowledgesystems0000kims",
+   "thumb": "library/thumbs/L-BRGPO2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4120,6 +4255,7 @@
    "in": "London : BBC Books",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dreammachineexpl0000palf_m7f1",
+   "thumb": "library/thumbs/L-HYTUAY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4134,6 +4270,7 @@
    "in": "Norwood, N.J. : Ablex Pub. Corp",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newguidetoartifi0000part",
+   "thumb": "library/thumbs/L-6E7LAO.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4146,6 +4283,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/macmillandiction0000suth",
+   "thumb": "library/thumbs/L-3QDF34.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4160,6 +4298,7 @@
    "in": "Alexandria, Va. : Time-Life Books",
    "note": "The Internet Archive's full-text search finds the name in 33 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialilifel00time",
+   "thumb": "library/thumbs/L-FWIIIB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4218,6 +4357,7 @@
    "in": "New York : Wiley",
    "note": "The second edition of Shapiro's encyclopedia has an entry headed SHRDLU; other entries treat it as a natural-language generation milestone and a planning example. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: entry SHRDLU, printed p. 1538 of the 1992 edition, with mentions under other entries.",
    "url": "https://archive.org/details/encyclopediaofar0000unse_t1v0",
+   "thumb": "library/thumbs/L-76DKEF.jpg",
    "tags": [
     "about"
    ]
@@ -4230,6 +4370,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/expertsystemsapp0000badi",
+   "thumb": "library/thumbs/L-QGE2TD.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4242,6 +4383,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newinformationte0000chor",
+   "thumb": "library/thumbs/L-IAEBFV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4254,6 +4396,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/expertsartificie0000coll",
+   "thumb": "library/thumbs/L-IR2JJ3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4268,6 +4411,7 @@
    "in": "New York, NY : Basic Books",
    "note": "Reproduces a figure of the block scene manipulated by SHRDLU, credited to Winograd's Understanding Natural Language, within a narrative history of AI. SHRDLU: Internet Archive full-text hit, 21 passages naming SHRDLU in the search snippets; index line gives p. 35.",
    "url": "https://archive.org/details/aitumultuoushist0000crev",
+   "thumb": "library/thumbs/L-F23FR3.jpg",
    "tags": [
     "discussion"
    ]
@@ -4281,6 +4425,7 @@
    "lang": "en",
    "note": "Carries the same passage on Winograd's program and the same argument that SHRDLU knows what it owns without understanding what it is to own something. The search snippets do not show how the edition differs on SHRDLU. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/whatcomputerssti0000drey",
+   "thumb": "library/thumbs/L-WBNZDD.jpg",
    "tags": [
     "discussion"
    ]
@@ -4293,6 +4438,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introduccionlaps0000morr_l1m4",
+   "thumb": "library/thumbs/L-TDORNX.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4305,6 +4451,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000noye",
+   "thumb": "library/thumbs/L-SPFUX5.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4319,6 +4466,7 @@
    "in": "Norwood, N.J. : Ablex Pub. Corp",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000part_p6k1",
+   "thumb": "library/thumbs/L-V6ACXQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4357,6 +4505,7 @@
    "in": "Oxford, UK ; Cambridge, Mass. : Blackwell",
    "note": "Describes the program, says the name is a nonsense word Winograd borrowed from MAD magazine, and reproduces an exchange based on Winograd's figure 3. SHRDLU: Internet Archive full-text hit, 11 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/artificialintell0000cope",
+   "thumb": "library/thumbs/L-KGNMKF.jpg",
    "tags": [
     "discussion"
    ]
@@ -4371,6 +4520,7 @@
    "in": "New York, N.Y. : Paragon House",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/glossaryofcognit0000dunl",
+   "thumb": "library/thumbs/L-POSHHG.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4385,6 +4535,7 @@
    "in": "Redwood City, CA. : Benjamin/Cummings Pub. Co",
    "note": "Luger gives SHRDLU as the system exploiting micro-world methodology, able to converse about blocks and answer queries on colour. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: introductory history, micro world methodology.",
    "url": "https://archive.org/details/artificialintell0000luge",
+   "thumb": "library/thumbs/L-2OYKTC.jpg",
    "tags": [
     "discussion"
    ]
@@ -4399,6 +4550,7 @@
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/philosophyartifi0000mood",
+   "thumb": "library/thumbs/L-LJCOUA.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4413,6 +4565,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "Reviews of Understanding Computers and Cognition and other books; one passage says it strains the imagination to appreciate how little ELIZA, SHRDLU and MYCIN know. SHRDLU: Printed pp. 181, 184, 199 and index p. 541 (IA reader search; leaf numbers 199, 202, 217, 559).",
    "url": "https://archive.org/details/contemplatingmin0000unse",
+   "thumb": "library/thumbs/L-7FL5NY.jpg",
    "tags": [
     "discussion"
    ]
@@ -4425,6 +4578,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/companionencyclo0000colm",
+   "thumb": "library/thumbs/L-PC3XFV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4439,6 +4593,7 @@
    "in": "Norwood, N.J. : Ablex Pub. Corp",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/turingtestframep0000croc",
+   "thumb": "library/thumbs/L-CCYPQK.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4466,6 +4621,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerethicsca00fore",
+   "thumb": "library/thumbs/L-35X5AO.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4494,6 +4650,7 @@
    "in": "Indianapolis, Ind. : Sams Pub",
    "note": "Says SHRDLU worked without a vision system or actual arm, and that Winograd had demonstrated basic language understanding. SHRDLU: Internet Archive full-text hit, 10 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/brainmakers0000newq",
+   "thumb": "library/thumbs/L-3QDJDQ.jpg",
    "tags": [
     "discussion"
    ]
@@ -4506,6 +4663,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/methodstoolsfora0000popo",
+   "thumb": "library/thumbs/L-GH4VEY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4518,6 +4676,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dictionnairedela0000schr",
+   "thumb": "library/thumbs/L-SBCDO3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4532,6 +4691,7 @@
    "in": "MIT Press",
    "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/digitalmantrasla00holt",
+   "thumb": "library/thumbs/L-R4ZYMB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4560,6 +4720,7 @@
    "in": "London : Faber",
    "note": "Calls SHRDLU, developed by Minsky's student Terry Winograd, one small success story from simplifying the problem. SHRDLU: Internet Archive full-text hit, 7 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/frontiersofcompl0000cove",
+   "thumb": "library/thumbs/L-PVTEEQ.jpg",
    "tags": [
     "discussion"
    ]
@@ -4574,6 +4735,7 @@
    "in": "Wellesley, Mass. : A K Peters",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mostcomplexmachi0000eckd",
+   "thumb": "library/thumbs/L-62EIY7.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4588,6 +4750,7 @@
    "in": "Buckingham [England] ; Philadelphia : Open University Press",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languageundersta0000gree",
+   "thumb": "library/thumbs/L-F5VXJI.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4602,6 +4765,7 @@
    "in": "Mahwah N.J. : Erlbaum",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/semanticsdefinin0000hipk",
+   "thumb": "library/thumbs/L-DENAUQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4614,6 +4778,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fluidconceptscre0000hofs_w7o9",
+   "thumb": "library/thumbs/L-V7NFKU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4626,6 +4791,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligencemult00gard",
+   "thumb": "library/thumbs/L-L6EKJN.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4638,6 +4804,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computercontradi00kell",
+   "thumb": "library/thumbs/L-JWLYR6.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4650,6 +4817,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computertriangle0000oakm",
+   "thumb": "library/thumbs/L-NKUGQ3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4662,6 +4830,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinforma0000radl",
+   "thumb": "library/thumbs/L-QVARV6.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4674,6 +4843,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersforbegi0000selk",
+   "thumb": "library/thumbs/L-4S23YW.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4698,6 +4868,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/personalitytheor0000andr",
+   "thumb": "library/thumbs/L-DH5GEG.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4712,6 +4883,7 @@
    "in": "MIT Press",
    "note": "Treats SHRDLU with the microworlds approach; a note cites Understanding Natural Language for the full description. SHRDLU: Internet Archive full-text hit, 4 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/closedworldcompu00edwa",
+   "thumb": "library/thumbs/L-KBBIWF.jpg",
    "tags": [
     "discussion"
    ]
@@ -4726,6 +4898,7 @@
    "in": "London : UCL Press",
    "note": "Finlay and Dix give a section to SHRDLU and explain where the name comes from. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: section Natural language understanding: SHRDLU, and introduction.",
    "url": "https://archive.org/details/introductiontoar0000finl",
+   "thumb": "library/thumbs/L-3QDFMT.jpg",
    "tags": [
     "discussion"
    ]
@@ -4738,6 +4911,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingcog0000hamp",
+   "thumb": "library/thumbs/L-5U5N4O.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4766,6 +4940,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationaldic00suth",
+   "thumb": "library/thumbs/L-RLPP44.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4778,6 +4953,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780814712764_u0w3",
+   "thumb": "library/thumbs/L-HGG33Y.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4819,6 +4995,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/sciencetechnolog0000brun_b0t0",
+   "thumb": "library/thumbs/L-REAV63.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4833,6 +5010,7 @@
    "in": "New York : Wiley",
    "note": "Reproduces a dialogue with SHRDLU about the block on the red brick, with commentary following. SHRDLU: Internet Archive full-text hit, 10 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/goodbyedescartes00devl",
+   "thumb": "library/thumbs/L-FOJRIK.jpg",
    "tags": [
     "discussion"
    ]
@@ -4845,6 +5023,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/letonbeaudemarot00hofs",
+   "thumb": "library/thumbs/L-GJRTJU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4857,6 +5036,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/objectorientedar0000trac",
+   "thumb": "library/thumbs/L-Z7CUYV.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4897,6 +5077,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognition0000jahn",
+   "thumb": "library/thumbs/L-2VEJYZ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4909,6 +5090,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 35 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivepsychol05edsols",
+   "thumb": "library/thumbs/L-SLPRUP.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4923,6 +5105,7 @@
    "in": "Westport, Conn. : Praeger",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languagethoughti0000wagm",
+   "thumb": "library/thumbs/L-QFDZIO.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4935,6 +5118,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/philosophyofpsyc0000bott",
+   "thumb": "library/thumbs/L-HQ24GD.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4947,6 +5131,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/foundationsofcom0000haus",
+   "thumb": "library/thumbs/L-2TR4MF.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4961,6 +5146,7 @@
    "in": "New York : Basic Books",
    "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/godelescherbache0000hofs",
+   "thumb": "library/thumbs/L-A66BZ2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4973,6 +5159,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/laeradelasmaquin0000kurz",
+   "thumb": "library/thumbs/L-DSLM7U.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4985,6 +5172,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/ageofspiritualma0000kurz_s3h8",
+   "thumb": "library/thumbs/L-A5VO7W.jpg",
    "tags": [
     "named in the text"
    ]
@@ -4997,6 +5185,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerstechnol0000pars",
+   "thumb": "library/thumbs/L-HQ7JYQ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5009,6 +5198,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_2321013301846",
+   "thumb": "library/thumbs/L-N2S22A.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5021,6 +5211,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_1934783025952",
+   "thumb": "library/thumbs/L-PLDDPB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5034,6 +5225,7 @@
    "in": "Cambridge ; New York : Cambridge University Press",
    "note": "Standard reference volume naming SHRDLU in its text. SHRDLU: Internet Archive full-text hit, 10 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/handbookofintell0000unse",
+   "thumb": "library/thumbs/L-FFQZOR.jpg",
    "tags": [
     "mention"
    ]
@@ -5058,6 +5250,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/paradigmsregaine00john",
+   "thumb": "library/thumbs/L-QR3GPL.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5070,6 +5263,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontosp0000elle",
+   "thumb": "library/thumbs/L-5L64CR.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5099,6 +5293,7 @@
    "in": "Upper Saddle River, N.J. : Prentice Hall",
    "note": "Jurafsky and Martin name SHRDLU in their history, as a robot simulated in a world of blocks, and call it historically important. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: history section and semantics chapter of the 2000 edition.",
    "url": "https://archive.org/details/speechlanguagepr0000jura",
+   "thumb": "library/thumbs/L-RLLSUI.jpg",
    "tags": [
     "mention"
    ]
@@ -5113,6 +5308,7 @@
    "in": "New York : Penguin Books",
    "note": "Says natural-language understanding got its start with Winograd's SHRDLU; index gives pp. 70, 273. SHRDLU: Internet Archive full-text hit, 18 passages naming SHRDLU in the search snippets; index line gives p. 70; 70, 273.",
    "url": "https://archive.org/details/ageofspiritualma0000kurz_a0b5",
+   "thumb": "library/thumbs/L-LWEXKF.jpg",
    "tags": [
     "discussion"
    ]
@@ -5127,6 +5323,7 @@
    "in": "Brooks/Cole",
    "note": "Section 3.3 follows SHRDLU's goal statements for a question about blocks; another passage says Winograd's book is obsolete for techniques of natural language processing. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/knowledgereprese00sowa_0",
+   "thumb": "library/thumbs/L-B4R5MK.jpg",
    "tags": [
     "discussion"
    ]
@@ -5185,6 +5382,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/paradigmsregaine0000cast",
+   "thumb": "library/thumbs/L-RWOL7U.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5197,6 +5395,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/complexcognition0000ster",
+   "thumb": "library/thumbs/L-ZSAGVB.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5239,6 +5438,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/developmentallin0000bria",
+   "thumb": "library/thumbs/L-RTEJ6Z.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5253,6 +5453,7 @@
    "in": "London : Dorling Kindersley",
    "note": "Popular introduction describing the robot arm and virtual world, dated 1970. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: passage on microworlds.",
    "url": "https://archive.org/details/artificialintell0000chal",
+   "thumb": "library/thumbs/L-MN3TYA.jpg",
    "tags": [
     "discussion"
    ]
@@ -5267,6 +5468,7 @@
    "in": "Malden, MA : Blackwell Publishers",
    "note": "Index gives pp. 5, 107, 117. Further-reading note says Winograd (1980) contains a critical discussion of SHRDLU. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; index line gives p. 107; 117; 5.",
    "url": "https://archive.org/details/mindsbrainscompu0000harn",
+   "thumb": "library/thumbs/L-KPBJQH.jpg",
    "tags": [
     "discussion"
    ]
@@ -5281,6 +5483,7 @@
    "in": "New York : Kluwer Academic/Plenum Publishers",
    "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/superintelligent0000hibb",
+   "thumb": "library/thumbs/L-OOVGID.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5308,6 +5511,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologischefu0000leyd",
+   "thumb": "library/thumbs/L-B6AMEK.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5322,6 +5526,7 @@
    "in": "London : Ebury",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/howtocloneperfec0000nels",
+   "thumb": "library/thumbs/L-VUBL3J.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5336,6 +5541,7 @@
    "in": "Minneapolis, MN : Fortress Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindinggodtheolo0000pete",
+   "thumb": "library/thumbs/L-ZVPEU6.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5350,6 +5556,7 @@
    "in": "Pearson",
    "note": "Standard textbook, second edition: says Winograd's SHRDLU engendered enthusiasm, in the history chapter; index lines give several pages. SHRDLU: Internet Archive full-text hit, 11 passages naming SHRDLU in the search snippets; index line gives p. 48, 51, 340, 409; 20, 23, 346, 854; 38, 41, 364, 905.",
    "url": "https://archive.org/details/isbn_9788177583670",
+   "thumb": "library/thumbs/L-S3DR4D.jpg",
    "tags": [
     "mention"
    ]
@@ -5392,6 +5599,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/historyofscience00bunc",
+   "thumb": "library/thumbs/L-NIBMOU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5438,6 +5646,7 @@
    "in": "London ; New York : Springer",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/spokendialoguete0000mcte",
+   "thumb": "library/thumbs/L-PU7UWY.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5479,6 +5688,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "History of interactive fiction. Quotes a SHRDLU transcript excerpt and comments on the program's sophistication as a language understander in the blocks world. SHRDLU: Internet Archive full-text hit, 13 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/twistylittlepass0000mont",
+   "thumb": "library/thumbs/L-SGSDS4.jpg",
    "tags": [
     "discussion"
    ]
@@ -5493,6 +5703,7 @@
    "in": "Lancaster, England : Drakkar Press",
    "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/whoeversaidcompu0000self",
+   "thumb": "library/thumbs/L-42N5NE.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5524,6 +5735,7 @@
    "lang": "en",
    "in": "Oxford University Press",
    "note": "Calls Winograd's SHRDLU an achievement of early NLP, citing Winograd 1972 and Boden 1977 ch. 6, and says it was crucial in the ancestry of later work. SHRDLU: Full-text hit in a third-party upload on Internet Archive whose rights are unclear, so it is not linked. Printed pages not obtained.",
+   "thumb": "library/thumbs/L-SFRI2B.jpg",
    "tags": [
     "discussion"
    ]
@@ -5553,6 +5765,7 @@
    "in": "Wellesley, MA : A K Peters",
    "note": "Reproduces the SHRDLU dialogue, including the exchange about grasping the pyramid. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/robotsunlimited0000davi",
+   "thumb": "library/thumbs/L-SZAWYM.jpg",
    "tags": [
     "discussion"
    ]
@@ -5627,6 +5840,7 @@
    "in": "Amherst, N.Y. : Prometheus Books",
    "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/beyondaicreating0000hall",
+   "thumb": "library/thumbs/L-ABIK7P.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5639,6 +5853,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/irreduciblemindt0000kell",
+   "thumb": "library/thumbs/L-VLZIQ4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5684,6 +5899,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/usingartificiali0000cart",
+   "thumb": "library/thumbs/L-3Q727Q.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5696,6 +5912,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialpsycho0000frie",
+   "thumb": "library/thumbs/L-BB33K3.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5708,6 +5925,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologyoflang03edharl",
+   "thumb": "library/thumbs/L-X7RXGU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5722,6 +5940,7 @@
    "in": "MIT Press",
    "note": "Names the blocks-world program SHRDLU as responding to commands in ordinary English in the micro-world period. SHRDLU: Internet Archive full-text hit, 2 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/mechanicalmindin00phil",
+   "thumb": "library/thumbs/L-LSELOU.jpg",
    "tags": [
     "mention"
    ]
@@ -5736,6 +5955,7 @@
    "in": "Baltimore, Md. : Johns Hopkins University Press",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/robotlifestoryof0000nock_y3t3",
+   "thumb": "library/thumbs/L-L556MM.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5766,6 +5986,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/irreduciblemindt0000adam",
+   "thumb": "library/thumbs/L-ANLIKJ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5778,6 +5999,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/encyclopediaofco0000hend",
+   "thumb": "library/thumbs/L-SERZPU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5805,6 +6027,7 @@
    "kind": "encyclopedia",
    "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationaldic0000rayn_t1n5",
+   "thumb": "library/thumbs/L-NCWADU.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5848,6 +6071,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780558310271",
+   "thumb": "library/thumbs/L-MQLZVW.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5862,6 +6086,7 @@
    "in": "Cambridge ; New York : Cambridge University Press",
    "note": "The print edition of Nilsson's history reports that the achievement causing the greatest excitement was the SHRDLU dialog system. Web version is P-B72IJ. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: print edition, section on natural language; note on the name.",
    "url": "https://archive.org/details/questforartifici0000nils",
+   "thumb": "library/thumbs/L-FI6RS7.jpg",
    "tags": [
     "discussion"
    ]
@@ -5921,6 +6146,7 @@
    "in": "Cambridge, Mass. : MIT Press",
    "note": "History of speech and language computing; a note points to Winograd's web page for SHRDLU. SHRDLU: Internet Archive full-text hit, 6 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/voiceinmachinebu0000pier",
+   "thumb": "library/thumbs/L-A5BAUU.jpg",
    "tags": [
     "discussion"
    ]
@@ -5965,6 +6191,7 @@
    "in": "Thousand Oaks, Calif. : SAGE",
    "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivescience0000sobe_t0w4",
+   "thumb": "library/thumbs/L-GMM7M4.jpg",
    "tags": [
     "named in the text"
    ]
@@ -5978,6 +6205,7 @@
    "in": "Cambridge ; New York : Cambridge University Press",
    "note": "The Cambridge Handbook of AI names SHRDLU among the first language understanding systems and criticises its toy domain and cumbrous grammar parsing. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: chapters on the history of language understanding.",
    "url": "https://archive.org/details/isbn_9780521691918",
+   "thumb": "library/thumbs/L-UNQI2M.jpg",
    "tags": [
     "discussion"
    ]
@@ -5990,6 +6218,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 17 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivescience0000berm",
+   "thumb": "library/thumbs/L-KVE3LM.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6002,6 +6231,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontola0010edfrom",
+   "thumb": "library/thumbs/L-7CHMV2.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6029,6 +6259,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/speechlanguagepr0000jura_o7u9",
+   "thumb": "library/thumbs/L-3TLSAC.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6100,6 +6331,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/educationreformc0000gott",
+   "thumb": "library/thumbs/L-DW2DSK.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6112,6 +6344,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computingunivers0000heya",
+   "thumb": "library/thumbs/L-EZQZMJ.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6143,6 +6376,7 @@
    "note": "Introduces SHRDLU as an early natural-language program that was fully pre-programmed, so it handled only that part of the language programmed into it, and describes it as programmed as if it were a robot with an eye and arm. SHRDLU: Chapter 1, printed p. 2 (PDF p. 16), four occurrences. Free to read at https://archive.org/details/oapen-20.500.12657-32838",
    "url": "https://langsci-press.org/catalog/book/50",
    "licence": "Published under the Creative Commons Attribution 4.0 Licence (CC BY 4.0)",
+   "thumb": "library/thumbs/L-POVNLD.jpg",
    "tags": [
     "discussion"
    ]
@@ -6155,6 +6389,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/bloomsburycompan0000webs",
+   "thumb": "library/thumbs/L-Y3NQGA.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6167,6 +6402,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/socialmachinesco0000hend",
+   "thumb": "library/thumbs/L-MJXUJI.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6181,6 +6417,7 @@
    "in": "New York, NY : Oxford University Press",
    "note": "Index gives pp. 19-20, 45; a short book on AI for general readers. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; index line gives p. 19-20, 45.",
    "url": "https://archive.org/details/artificialintell0000kapl",
+   "thumb": "library/thumbs/L-Z53LY7.jpg",
    "tags": [
     "discussion"
    ]
@@ -6227,6 +6464,7 @@
    "in": "New York, NY : ECCO, an imprint of HarperCollinsPublishers",
    "note": "Narrates the program and says Winograd chose the name SHRDLU because no better one came to mind. SHRDLU: Internet Archive full-text hit, 11 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/machinesofloving0000mark_a3k3",
+   "thumb": "library/thumbs/L-64UAOD.jpg",
    "tags": [
     "discussion"
    ]
@@ -6239,6 +6477,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligenceisno0000pier",
+   "thumb": "library/thumbs/L-GXBB7N.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6326,6 +6565,7 @@
    "kind": "book",
    "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000nish",
+   "thumb": "library/thumbs/L-OD5KWI.jpg",
    "tags": [
     "named in the text"
    ]
@@ -6370,6 +6610,7 @@
    "in": "[Place of publication not identified] ARCTURUS Publishing LTD",
    "note": "Popular introduction describing SHRDLU's imaginary robotic arm moving imaginary blocks. SHRDLU: Internet Archive full-text search highlight only, the book is lending restricted: history passage.",
    "url": "https://archive.org/details/artificialintell0000urwi",
+   "thumb": "library/thumbs/L-IHOAME.jpg",
    "tags": [
     "discussion"
    ]
@@ -6447,6 +6688,7 @@
    "in": "MIT Press",
    "note": "In a periodised history of NLP, describes SHRDLU as showing a computer could understand natural language in a highly restricted domain, and says changing the setting or scale dramatically reduced its effectiveness. SHRDLU: Chapter 4, printed pp. 113-114 (PDF pp. 134-135); index entry 'SHRDLU project, 113-114' (PDF p. 265).",
    "url": "https://archive.org/details/mit_press_book_9780262352215",
+   "thumb": "library/thumbs/L-7SG6RV.jpg",
    "tags": [
     "discussion",
     "free to read"
@@ -6524,6 +6766,7 @@
    "note": "Chapter 4 sets out what SHRDLU was, then applies Don Ihde's postphenomenological relation types to it and considers reversing those types, under the heading of a bidirectional postphenomenology. SHRDLU: Chapter 4, 'SHRDLU and Bidirectional Postphenomenology', printed pp. 144-185 (PDF pp. 145-186), with section 'What is (or was) SHRDLU?' at printed p. 146; further references in the introduction and conclusion.",
    "url": "https://archive.org/details/oapen-20.500.12657-39901",
    "licence": "This is an open access book, licensed under a Creative Commons By Attribution Share Alike licence (imprint page of the PDF)",
+   "thumb": "library/thumbs/L-TK56JR.jpg",
    "tags": [
     "about"
    ]
@@ -7331,6 +7574,7 @@
    "in": "Free draft on the authors' site",
    "note": "The current draft places SHRDLU on a history timeline; the older logical representations appendix notes its Micro-Planner representation. SHRDLU: PDF p. 21, timeline figure of NLP history. The January 2025 Appendix F (old_jan25/F.pdf) p. 22 adds one sentence on Micro-Planner in SHRDLU. Free to read at https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf",
    "url": "https://web.stanford.edu/~jurafsky/slp3/",
+   "thumb": "library/thumbs/L-J6KVLE.jpg",
    "tags": [
     "mention",
     "free to read"
@@ -7782,6 +8026,7 @@
    "in": "Tim Hartnell Books (Internet Archive bundle); also editions for the Commodore 64, IBM PC, Spectrum and Sinclair QL",
    "note": "Home-computer book that writes a small program modelled on SHRDLU and says it does not reach the dizzy heights of the original. Date not read on a title page. SHRDLU: File Tim_Hartnell_Exploring_Artificial_Intelligence_on_your_Apple_II, 21 full-text matches, first at printed p. 84, IA leaf 97.",
    "url": "https://archive.org/details/timhartnellvz200giantbookofgames",
+   "thumb": "library/thumbs/L-OH6VVD.jpg",
    "tags": [
     "discussion",
     "free to read"
