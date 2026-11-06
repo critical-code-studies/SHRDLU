@@ -3,29 +3,6 @@
  "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence or is in the public domain; otherwise the entry links to where it is published. The list is still growing.",
  "items": [
   {
-   "id": "L-MCACOY",
-   "title": "what computers can't do",
-   "date": "1963",
-   "kind": "book",
-   "lang": "en",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/whatcomputerscan0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-F6SA6H",
-   "title": "Encyclopedia of library and information science",
-   "date": "1968",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofli0051unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-TBZI6N",
    "title": "Procedures as a Representation for Data in a Computer Program for Understanding Natural Language",
    "author": "Winograd, Terry",
@@ -139,10 +116,10 @@
    "author": "International Joint Conference on Artificial Intelligence (4th : 1975 : Tbilisi, Georgia, USSR)",
    "date": "1975",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/advancepapersoff0000inte",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -181,10 +158,10 @@
    "author": "Jeffrey R. Sampson",
    "date": "1976",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 198-202,207. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780387077390",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -259,26 +236,15 @@
    ]
   },
   {
-   "id": "L-TIQLEU",
-   "title": "Understanding spoken language",
-   "date": "1978",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_0444002723",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-NUXYAW",
    "title": "Limits of scientific inquiry",
    "author": "American Academy of Arts and Sciences",
    "date": "1978",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/limitsofscientif0000amer_b6p1",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -289,10 +255,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Edinburgh : Edinburgh University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/discourseproduct0000dave",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -318,10 +284,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Hillsdale, N.J. : L. Erlbaum Associates ; New York : distributed by Halsted Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/processofquestio0000lehn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -330,10 +296,10 @@
    "author": "None",
    "date": "1978",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 13-14. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/encyclopaediaofe0000unse",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -348,32 +314,6 @@
    "tags": [
     "mention",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-UIZOEN",
-   "title": "Computers in language research: formal methods",
-   "date": "1979",
-   "kind": "book",
-   "lang": "en",
-   "in": "[2514 GC] The Hague : Mouton",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/computersinlangu0000unse_d4g0",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-YG7O6Z",
-   "title": "Philosophical perspectives in artificial intelligence",
-   "date": "1979",
-   "kind": "book",
-   "lang": "en",
-   "in": "Atlantic Highlands, N.J. : Humanities Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/philosophicalper1979unse",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -426,10 +366,10 @@
    "date": "1979",
    "kind": "book",
    "lang": "en",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 112. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/godelescherbache0000doug",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -494,10 +434,10 @@
    "author": "Simon, Herbert A. (Herbert Alexander)",
    "date": "1979",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modelsofthought0000simo_o9o9",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -508,10 +448,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Vintage Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 586; 587. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/gdelescherbachet00hofs",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -552,10 +492,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Harvester Wheatsheaf",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computationalgra0000grae",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -578,10 +518,10 @@
    "author": "Marcus, Mitchell P.",
    "date": "1980",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 225-226, 229-231. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/theoryofsyntacti0000marc",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -622,10 +562,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Ithaca, N.Y. : Cornell University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindsmechanismsp0000bode",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -634,10 +574,10 @@
    "author": "Fishman, Katharine Davis",
    "date": "1981",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 353-54. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/essentialpopeben0000bene",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -677,10 +617,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Indianapolis, Ind. : H.W. Sams",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/experimentsinart0000krut",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -689,10 +629,10 @@
    "author": "Narasimhan, Rangaswamy",
    "date": "1981",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 154-155. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modellinglanguag0000nara",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -738,32 +678,6 @@
    ]
   },
   {
-   "id": "L-HIDJ4S",
-   "title": "Strategies for natural language processing",
-   "date": "1982",
-   "kind": "book",
-   "lang": "en",
-   "in": "Hillsdale, N.J. : L. Erlbaum Associates",
-   "note": "SHRDLU: Internet Archive full-text hit, 33 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/strategiesfornat0001unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-2LEY7K",
-   "title": "Thought and object: essays on intentionality",
-   "date": "1982",
-   "kind": "book",
-   "lang": "en",
-   "in": "Oxford : Clarendon Press ; New York : Oxford University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/thoughtobjectess0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-ODWGO6",
    "title": "Science observed: essays out of my mind",
    "author": "Bernstein, Jeremy",
@@ -785,10 +699,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersciencem00gold",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -812,10 +726,10 @@
    "author": "Hanson, Dirk",
    "date": "1982",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 316-317. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newalchemistssil00hansrich",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -840,10 +754,10 @@
    "kind": "book",
    "lang": "fr",
    "in": "Paris : Masson",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 11. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/comprehensionaut0000jaye",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -852,10 +766,10 @@
    "author": "None",
    "date": "1982",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 69. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/microcomputersin0000unse",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -885,17 +799,6 @@
    "tags": [
     "discussion",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-ID5L34",
-   "title": "Parsing natural language",
-   "date": "1983",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/parsingnaturalla0000unse",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -934,10 +837,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Brighton : Harvester Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindsmechanismph0000bode",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -946,10 +849,10 @@
    "author": "Coulter, Jeff",
    "date": "1983",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/rethinkingcognit0000coul",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -972,10 +875,10 @@
    "author": "Curran, Susan",
    "date": "1983",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/penguincomputing0000curr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -984,10 +887,10 @@
    "author": "Dyer, Michael George",
    "date": "1983",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 11. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/indepthunderstan00dyer",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -996,10 +899,10 @@
    "author": "Frude, Neil",
    "date": "1983",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 50-52; 48-9. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intimatemachinec00frud",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1017,37 +920,15 @@
    ]
   },
   {
-   "id": "L-T3NPD7",
-   "title": "Interactive programming environments",
-   "date": "1984",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/interactiveprogr0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-5QFBO3",
-   "title": "Reason at work: introductory readings in philosophy",
-   "date": "1984",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/reasonatworkintr0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-VV736E",
    "title": "Un reto para Europa: cómo acabar con el paro",
    "author": "Albert, Michel",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 256-257. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/unretoparaeuropa0000albe",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1056,10 +937,10 @@
    "author": "Aleksander, Igor,Burnett, Piers",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/reinventingmanro00alekrich",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1068,10 +949,10 @@
    "author": "Begg, Vivienne",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/developingexpert0000begg_y4c4",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1080,10 +961,10 @@
    "author": "Bernstein, Jeremy",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/threedegreesabov0000bern",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1106,10 +987,10 @@
    "author": "Bonnet, Alain",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 42, 44. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/lintelligenceart0000bonn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1131,10 +1012,10 @@
    "author": "Curran, Susan",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/overcomingcomput0000curr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1145,10 +1026,10 @@
    "kind": "book",
    "lang": "fr",
    "in": "[Paris] : Flammarion",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligencearti0000drey",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1174,10 +1055,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 134. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artofcomputercon00gain",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1186,10 +1067,10 @@
    "author": "Higgins, John, 1939 April 14-",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinlangu0000higg",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1198,10 +1079,10 @@
    "author": "J. Retti u.a.",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_351902473",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1226,10 +1107,10 @@
    "author": "O'Shea, Tim,Eisenstadt, Marc",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell00oshe",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1252,10 +1133,10 @@
    "author": "Schank, Roger C.",
    "date": "1984",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 60-61. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivecompute0000scha",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1419,10 +1300,10 @@
    "author": "Brachman, Ronald J.,Levesque, Hector J.",
    "date": "1985",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 29, 72-76. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/readingsinknowle00brac",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1431,10 +1312,10 @@
    "author": "Clarke, David D.,Crossland, Jill",
    "date": "1985",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 93; 92. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/actionsystemsint0000clar",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1474,10 +1355,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Milton Keynes [Buckinghamshire] ; Philadelphia : Open University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 12 passage(s) naming SHRDLU in the search snippets; index line gives p. 3. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languageundersta0000gree_b4m0",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1488,10 +1369,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Minneapolis : University of Minnesota Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mentalitymachine00gund",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1502,10 +1383,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Cambridge [Cambridgeshire] ; New York : Cambridge University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000hand",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1528,10 +1409,10 @@
    "author": "Hunt, V. Daniel",
    "date": "1985",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 36,271, 272. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/smartrobotshandb0000hunt",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1557,10 +1438,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Plenum Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandinglan0000moyn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1571,10 +1452,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Princeton, N.J. : Petrocelli Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/applicationsinar0000unse",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1600,10 +1481,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York, N.Y. : Baen Enterprises : Distributed by Simon & Schuster",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000peat",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1637,28 +1518,6 @@
    ]
   },
   {
-   "id": "L-TA45QM",
-   "title": "Artificial intelligence: principles and applications",
-   "date": "1986",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 97, 326. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/artificialintell0000unse_r3z4",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-NTNKEY",
-   "title": "Computers in English language teaching and research: selected papers from the 1984 Lancaster symposium 'Computers in English language education and research'",
-   "date": "1986",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 3. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/computersinengli0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-3JOP6W",
    "title": "Elfish for beginners",
    "date": "1986-12",
@@ -1670,28 +1529,6 @@
    "tags": [
     "discussion",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-K6TRYJ",
-   "title": "Handbook of perception and human performance",
-   "date": "1986",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofpercep0002unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-FZ544C",
-   "title": "Industrial robotics: technology, programming, and applications",
-   "date": "1986",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/industrialroboti0000unse",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -1720,17 +1557,6 @@
    "tags": [
     "mention",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-CRCXW2",
-   "title": "Teaching second language reading for academic purposes",
-   "date": "1986",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/teachingsecondla0000unse",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -1785,10 +1611,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Chichester, West Sussex, England : E. Horwood ; New York : Halsted Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fifthgenerationc0000bish",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1828,10 +1654,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Gordon and Breach Science Publishers",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000geor",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1855,10 +1681,10 @@
    "author": "Hall, Harrison;Bowie, Norman E.",
    "date": "1986",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 9. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/traditionofphilo0000hall",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1869,10 +1695,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Toronto ; New York : Bantam Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 23 passage(s) naming SHRDLU in the search snippets; index line gives p. 84. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 23 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/exploringartific00hart",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1883,10 +1709,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Texas Instruments",
-   "note": "SHRDLU: Internet Archive full-text hit, 13 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingart0000radi",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1895,10 +1721,10 @@
    "author": "Richard M. Sorrentino,E. Tory Higgins",
    "date": "1986",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0898626676",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -1946,17 +1772,6 @@
    ]
   },
   {
-   "id": "L-YWP5HW",
-   "title": "Organizations, personnel, and decision making",
-   "date": "1987",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/organizationsper0002unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-UB2R6B",
    "title": "Tu Micro Amstrad 19, article on AI",
    "date": "1987",
@@ -1978,10 +1793,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Berlin ; New York : Springer-Verlag",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/unobstructedshor0000akma",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -1990,10 +1805,10 @@
    "author": "Aleksander, Igor",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 91-5. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/thinkingmachines0000alek",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2002,10 +1817,10 @@
    "author": "Arbib, Michael A",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 230. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fromschematheory0000arbi",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2076,10 +1891,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Routledge & Kegan Paul",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; index line gives p. 161. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000garn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2088,10 +1903,10 @@
    "author": "Grimson, William Eric Leifur,Patil, Ramesh S,Massachusetts Institute of Technology. Artificial Intelligence Laboratory,Massachusetts Institute of Technology. Laboratory for Computer Science,Massachusetts Institute of Technology. Center for Advanced Engineering Study. Seminar Office",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 160, 285-286. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/aiin1980sbeyondm00grim",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2114,10 +1929,10 @@
    "author": "Longuet-Higgins, H. C",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mentalprocessess0000long",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2128,24 +1943,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Oxford, UK ; New York, NY, USA : Blackwell ; London, England : A. Deutsch",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/articulatecomput0000mcte",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-OY4HNV",
-   "title": "Prolog and natural-language analysis",
-   "author": "Pereira, Fernando C. N",
-   "date": "1987",
-   "kind": "book",
-   "lang": "en",
-   "in": "Stanford, CA : Center for the Study of Language and Information",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/prolognaturallan0000pere",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2156,10 +1957,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Leicester, UK : British Psychological Society",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 1; 191. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psifipsychologic0000ridg",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2168,10 +1969,10 @@
    "author": "Schutzer, Daniel",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 9, 153-54. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell00dani",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2180,10 +1981,10 @@
    "author": "Tanimoto, S. (Steven)",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/elementsofartifi00stan",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2206,56 +2007,10 @@
    "author": "Whitelock, P",
    "date": "1987",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 201,211. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/linguistictheory00whit",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-6QUHDP",
-   "title": "Aspects of artificial intelligence",
-   "date": "1988",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/aspectsofartific0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-MCRS3T",
-   "title": "Einsicht ins Ich: Fantasien und Reflexionen über Selbst und Seele",
-   "date": "1988",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 304, 337, 456. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_3608930388",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-LUN2ER",
-   "title": "Future Earth: exploring the frontiers of science",
-   "date": "1988",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/futureearthexplo0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-NFSP3N",
-   "title": "Human-computer interaction: psychonomic aspects",
-   "date": "1988",
-   "kind": "book",
-   "lang": "en",
-   "in": "Berlin ; New York : Springer-Verlag",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/humancomputerint0000unse_c1g4",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2270,17 +2025,6 @@
    "tags": [
     "mention",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-YDAXUR",
-   "title": "The Artificial intelligence debate: false starts, real foundations",
-   "date": "1988",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/artificialintell0000unse_j4o6",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -2336,10 +2080,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; Baltimore : E. Arnold",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/advancedinformat0000cott",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2350,10 +2094,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : W.H. Freeman",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/armchairuniverse0000dewd_x2e7",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2364,10 +2108,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Boston : Boyd & Fraser",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 224. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell00fire",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2393,10 +2137,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : St. Martin's Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindlanguagemach0000john",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2435,10 +2179,10 @@
    "author": "None",
    "date": "1988",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 10 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationalenc0001unse",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2447,10 +2191,10 @@
    "author": "Robert L. Solso",
    "date": "1988",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0205114121",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2459,10 +2203,10 @@
    "author": "Schaffer, Cullen",
    "date": "1988",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/principlesofcomp0000scha",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2471,10 +2215,10 @@
    "author": "Smith, Frank",
    "date": "1988",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingrea0004smit",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2485,45 +2229,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Gordon and Breach",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerpsychoth0000wagm",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-LJBLQA",
-   "title": "Computers and thought: a practical introduction to artificial intelligence",
-   "date": "1989",
-   "kind": "book",
-   "lang": "en",
-   "in": "Cambridge, Mass. : MIT Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/computersthought0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-U675TG",
-   "title": "On the Frontiers of science: how scientists see our future",
-   "date": "1989",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/onfrontiersofsci0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-BOMANG",
-   "title": "Teaching languages with computers: the state of the art",
-   "date": "1989",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 13. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/teachinglanguage0000unse_g3h2",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2546,10 +2255,10 @@
    "author": "Chabris, Christopher F",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000chab_j5y6",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2558,10 +2267,10 @@
    "author": "Clark, Andy",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 25-27. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/microcognitionph0000clar_d0l7",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2584,10 +2293,10 @@
    "author": "Forester, Tom, ed.",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 131, 150. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinhuman00fore",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2596,10 +2305,10 @@
    "author": "Garfield, Jay L.",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/modularityinknow00garf",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2610,10 +2319,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Routledge",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 148, 156, 165-6, 196, 211. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psycholinguistic0000garn_k5g4",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2622,10 +2331,10 @@
    "author": "Gjertsen, Derek",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 75-6. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/sciencephilosoph0000gjer",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2634,10 +2343,10 @@
    "author": "Hall, Patrick",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 247, 261, 263. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/howtosolveitinli0000hall",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2646,10 +2355,10 @@
    "author": "Kreutzer, Wolfgang",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 10, 13, 272, 279, 338, 352, 605. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/programmingforar0000kreu",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2658,10 +2367,10 @@
    "author": "Longley, Dennis",
    "date": "1989",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/vannostrandreinh0000long",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2670,10 +2379,10 @@
    "author": "Luger, George F,Stubblefield, William A",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/ef00geor_gav",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2682,10 +2391,10 @@
    "author": "Obermeier, Klaus K.",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/naturallanguagep0000ober",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2694,10 +2403,10 @@
    "author": "Powers, David M. W",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/machinelearningo0000powe",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2706,10 +2415,10 @@
    "author": "Sabah, Gérard",
    "date": "1989",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 13 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/lintelligenceart0002saba",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2718,10 +2427,10 @@
    "author": "Smith, Raoul N",
    "date": "1989",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/factsonfiledicti00smit",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -2755,37 +2464,15 @@
    ]
   },
   {
-   "id": "L-PWMNH4",
-   "title": "Collins dictionary of artificial intelligence",
-   "date": "1990",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/collinsdictionar0000unse_w3w7",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-UZQQPI",
-   "title": "The philosophy of artificial intelligence",
-   "date": "1990",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/philosophyofarti0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-QSUW4D",
    "title": "Computer applications in the social sciences",
    "author": "Brent, Edward E.",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerapplicat0000bren",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2794,10 +2481,10 @@
    "author": "Cleland, David I",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/automatedfactory0000clel",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2820,10 +2507,10 @@
    "author": "Gross, Richard D",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 37; 29. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/keystudiesinpsyc0000gros_q2x4",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2832,10 +2519,10 @@
    "author": "Jay L. Garfield",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 12 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_1557782571",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2844,10 +2531,10 @@
    "author": "Jay L. Garfield",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9781557782571",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2856,10 +2543,10 @@
    "author": "Jean Louis Laurière",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 7. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/problemsolvingar00laur_0",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2899,10 +2586,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Ellis Horwood",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 186; 187. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/humancomputerint0000madd",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2926,10 +2613,10 @@
    "author": "Mercadal, Dennis",
    "date": "1990",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dictionaryofarti0000merc",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2938,10 +2625,10 @@
    "author": "Morris, Charles G",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 308-09. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologyintrod0000morr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -2950,10 +2637,10 @@
    "author": "N. E. Collinge",
    "date": "1990",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0415020646",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -2978,10 +2665,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "SHRDLU: Internet Archive full-text hit, 21 passage(s) naming SHRDLU in the search snippets; index line gives p. 140; 328; 604. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 21 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontoar0000patt",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3005,10 +2692,10 @@
    "author": "Pitrat, J. (Jacques)",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/metaconnaissance0000pitr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3017,10 +2704,10 @@
    "author": "Shafer, Glenn,Pearl, Judea",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/readingsinuncert00shaf",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3045,10 +2732,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Hillsdale, N.J. : L. Erlbaum Associates",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 1. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologyoflang0000sing",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3057,10 +2744,10 @@
    "author": "Taylor, William A.",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/WhatEveryE_00_Tayl",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3071,10 +2758,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Boulder, Colo. : Westview Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersininfor0000wein",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3085,10 +2772,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerselfsoci0000wess",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3097,32 +2784,10 @@
    "author": "World Information Systems,Golob, Richard,Brus, Eric",
    "date": "1990",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 255. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/almanacofscience00worl",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-S37OEL",
-   "title": "A Textbook of psychology",
-   "date": "1991",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/textbookofpsycho0000unse_i3m7",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-6BLZOQ",
-   "title": "The Linguistics encyclopedia",
-   "date": "1991",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/linguisticsencyc0000unse",
-   "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -3133,10 +2798,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Ellis Horwood",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/naturallanguagec0000bear",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3145,10 +2810,10 @@
    "author": "Blissmer, Robert H",
    "date": "1991",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 15 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introducingcompu0000blis",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3157,10 +2822,10 @@
    "author": "Chapman, David",
    "date": "1991",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 93, 95. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/VisionInst_00_Chap",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3185,10 +2850,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Routledge",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindinactionpers0000garn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3197,10 +2862,10 @@
    "author": "Kim, Steven H",
    "date": "1991",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 16, 18. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/knowledgesystems0000kims",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3224,10 +2889,10 @@
    "author": "Noble, Douglas D",
    "date": "1991",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/classroomarsenal0000nobl",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3238,10 +2903,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London : BBC Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dreammachineexpl0000palf_m7f1",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3252,10 +2917,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newguidetoartifi0000part",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3264,10 +2929,10 @@
    "author": "Sutherland, N. S. (Norman Stuart)",
    "date": "1991",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/macmillandiction0000suth",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3278,10 +2943,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Alexandria, Va. : Time-Life Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 33 passage(s) naming SHRDLU in the search snippets; index line gives p. 394; 19-20, 45. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 33 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialilifel00time",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3292,10 +2957,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Praeger",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivescience0000wagm_s6e2",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3330,28 +2995,15 @@
    ]
   },
   {
-   "id": "L-JEJQY2",
-   "title": "Minds, brains, and computers: perspectives in cognitive science and artificial intelligence",
-   "date": "1992",
-   "kind": "book",
-   "lang": "en",
-   "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/mindsbrainscompu0000unse_k4k6",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-QGE2TD",
    "title": "Expert systems applications in engineering and manufacturing",
    "author": "Badiru, Adedeji Bodunde",
    "date": "1992",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/expertsystemsapp0000badi",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3360,10 +3012,10 @@
    "author": "Chorafas, Dimitris N",
    "date": "1992",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/newinformationte0000chor",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3372,10 +3024,10 @@
    "author": "Collins, H. M. (Harry M.)",
    "date": "1992",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/expertsartificie0000coll",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3411,10 +3063,10 @@
    "author": "Morris",
    "date": "1992",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 262-63. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introduccionlaps0000morr_l1m4",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3423,10 +3075,10 @@
    "author": "Noyes, James L",
    "date": "1992",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 13 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000noye",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3437,10 +3089,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 71-72, 94, 316. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000part_p6k1",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3449,43 +3101,10 @@
    "author": "William Bright",
    "date": "1992",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; index line gives p. 3. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_0195051963",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-QOF3CC",
-   "title": "Concise encyclopedia of software engineering",
-   "date": "1993",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 206. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/conciseencyclope0000unse_v7c0",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-XLVNZE",
-   "title": "Semantics and the lexicon",
-   "date": "1993",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 224. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/semanticslexicon0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-VTV7AX",
-   "title": "Text and technology: in honour of John Sinclair",
-   "date": "1993",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/texttechnologyin0000unse",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3494,10 +3113,10 @@
    "author": "Cohen, Neal J",
    "date": "1993",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/memoryamnesiahip0000cohe",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3522,10 +3141,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York, N.Y. : Paragon House",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/glossaryofcognit0000dunl",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3536,21 +3155,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/philosophyartifi0000mood",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-YBNBG5",
-   "title": "Thinking computers and virtual persons: essays on the intentionality of machines",
-   "date": "1994",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/thinkingcomputer0000unse",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3573,10 +3181,10 @@
    "author": "Colman, Andrew M",
    "date": "1994",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/companionencyclo0000colm",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -3587,10 +3195,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/turingtestframep0000croc",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3614,10 +3222,10 @@
    "author": "Forester, Tom,Morrison, Perry",
    "date": "1994",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 166. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerethicsca00fore",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3654,10 +3262,10 @@
    "author": "Popović, Dobrivoje",
    "date": "1994",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 9. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/methodstoolsfora0000popo",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3666,10 +3274,10 @@
    "author": "Schryver, Jacques de",
    "date": "1994",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dictionnairedela0000schr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3680,43 +3288,10 @@
    "kind": "book",
    "lang": "en",
    "in": "MIT Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; index line gives p. 1. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/digitalmantrasla00holt",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-25FBBH",
-   "title": "Cognitive science",
-   "date": "1995",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/cognitivescience0003unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-CRMNVT",
-   "title": "Computers, minds and conduct",
-   "date": "1995",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 154, 156, 185. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_9780745615714",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-BPN7FY",
-   "title": "Handbook of science and technology studies",
-   "date": "1995",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofscienc0000unse_q8v6",
-   "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -3741,10 +3316,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Wellesley, Mass. : A K Peters",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mostcomplexmachi0000eckd",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3755,10 +3330,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Buckingham [England] ; Philadelphia : Open University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languageundersta0000gree",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3769,10 +3344,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Mahwah N.J. : Erlbaum",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/semanticsdefinin0000hipk",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3781,10 +3356,10 @@
    "author": "Hofstadter, Douglas R.",
    "date": "1995",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/fluidconceptscre0000hofs_w7o9",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3793,10 +3368,10 @@
    "author": "Howard Gardner",
    "date": "1995",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligencemult00gard",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3805,10 +3380,10 @@
    "author": "Kelly-Bootle, Stan,Kelly-Bootle, Stan. Devil's DP dictionary,Kelly-Bootle, Stan. Devil's DP dictionary",
    "date": "1995",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computercontradi00kell",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -3817,10 +3392,10 @@
    "author": "Oakman, Robert L.",
    "date": "1995",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computertriangle0000oakm",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3829,10 +3404,10 @@
    "author": "Radlow, James",
    "date": "1995",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 171-174. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersinforma0000radl",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3841,10 +3416,10 @@
    "author": "Selkirk, Errol",
    "date": "1995",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 154-155. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computersforbegi0000selk",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3853,32 +3428,10 @@
    "author": "Stuart-Hamilton, Ian",
    "date": "1995",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/dictionaryofcogn0000stua",
    "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-K47A36",
-   "title": "Computational psycholinguistics: AI and connectionist models of human language processing",
-   "date": "1996",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 229. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/computationalpsy0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-YPI6DH",
-   "title": "Philosophy: the quest for truth",
-   "date": "1996",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 10 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/philosophyquestf03edunse_a4m3",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3887,10 +3440,10 @@
    "author": "Andr&eacute Kukla",
    "date": "1996",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/personalitytheor0000andr",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3913,10 +3466,10 @@
    "author": "Hampson, Peter J.",
    "date": "1996",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/understandingcog0000hamp",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3941,10 +3494,10 @@
    "author": "N. S. Sutherland",
    "date": "1996",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationaldic00suth",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3953,10 +3506,10 @@
    "author": "Philip Banyard,Andrew Grayson",
    "date": "1996",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 345. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780814712764_u0w3",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -3989,26 +3542,15 @@
    ]
   },
   {
-   "id": "L-DN2NKP",
-   "title": "Knowledge management tools",
-   "date": "1997",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 37-38, 72-73. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/knowledgemanagem0000unse_d1b0",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-REAV63",
    "title": "Science & technology firsts",
    "author": "Bruno, Leonard C",
    "date": "1997",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 263. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/sciencetechnolog0000brun_b0t0",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4031,10 +3573,10 @@
    "author": "Hofstadter, Douglas R.,Marot, Clément. A une damoyselle malade. English & French",
    "date": "1997",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 15 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/letonbeaudemarot00hofs",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4043,10 +3585,10 @@
    "author": "Tracy, Kim W",
    "date": "1997",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 356-357. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/objectorientedar0000trac",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4069,10 +3611,10 @@
    "author": "Jahnke, John C",
    "date": "1998",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 270-271. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognition0000jahn",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4081,10 +3623,10 @@
    "author": "Solso, Robert L.",
    "date": "1998",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 35 passage(s) naming SHRDLU in the search snippets; index line gives p. 519; 503; 521. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 35 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivepsychol05edsols",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4095,10 +3637,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Westport, Conn. : Praeger",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 5. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/languagethoughti0000wagm",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4107,10 +3649,10 @@
    "author": "Botterill, George",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/philosophyofpsyc0000bott",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4119,10 +3661,10 @@
    "author": "Hausser, Roland R",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/foundationsofcom0000haus",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4133,10 +3675,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Basic Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/godelescherbache0000hofs",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4145,10 +3687,10 @@
    "author": "Kurzweil, Ray",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 103, 362. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/laeradelasmaquin0000kurz",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4157,10 +3699,10 @@
    "author": "Kurzweil, Ray",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/ageofspiritualma0000kurz_s3h8",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4169,10 +3711,10 @@
    "author": "Parsons, June Jamrich",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computerstechnol0000pars",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4181,10 +3723,10 @@
    "author": "Ray Kurzweil",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 70, 273. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_2321013301846",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4193,34 +3735,10 @@
    "author": "Ray Kurzwell",
    "date": "1999",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_1934783025952",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-DNUPJ2",
-   "title": "Artificial intelligence: critical concepts",
-   "date": "2000",
-   "kind": "book",
-   "lang": "en",
-   "in": "London ; New York : Routledge",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/artificialintell0004unse_v1m5",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-3FG2CZ",
-   "title": "Encyclopedia of computer science",
-   "date": "2000",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofco0000unse_o5e6",
-   "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -4237,26 +3755,15 @@
    ]
   },
   {
-   "id": "L-XG4VMD",
-   "title": "The IEBM handbook of information technology in business",
-   "date": "2000",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/iebmhandbookofin0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-GPPLXS",
    "title": "Mind in everyday life and cognitive science",
    "author": "Auyang, Sunny Y",
    "date": "2000",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 46-47. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindineverydayli0000auya",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4265,10 +3772,10 @@
    "author": "Casti, J. L",
    "date": "2000",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 132-33. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/paradigmsregaine00john",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4277,10 +3784,10 @@
    "author": "Ellery, Alex",
    "date": "2000",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontosp0000elle",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4373,37 +3880,15 @@
    ]
   },
   {
-   "id": "L-YPMTHV",
-   "title": "Encyclopedia of computers and computer history",
-   "date": "2001",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; index line gives p. 566. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofco0000unse_a6j4",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-UWULLG",
-   "title": "International encyclopedia of the social & behavioral sciences",
-   "date": "2001",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/internationalenc0003unse_2001",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
    "id": "L-RWOL7U",
    "title": "Paradigms regained: unraveling the mysteries of modern science",
    "author": "Casti, J. L",
    "date": "2001",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 146-7. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/paradigmsregaine0000cast",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4412,10 +3897,10 @@
    "author": "Sternberg, Robert J",
    "date": "2001",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/complexcognition0000ster",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4424,10 +3909,10 @@
    "author": "Brian T. Riley",
    "date": "2002",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/developmentallin0000bria",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4452,43 +3937,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Kluwer Academic/Plenum Publishers",
-   "note": "SHRDLU: Internet Archive full-text hit, 10 passage(s) naming SHRDLU in the search snippets; index line gives p. 36. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/superintelligent0000hibb",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-S6UVLY",
-   "title": "Encyclopedia of information systems",
-   "date": "2003",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofin0003unse_h1w1",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-TPT355",
-   "title": "Handbook of psychology",
-   "date": "2003",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 396. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofpsycho0007unse",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-WI452G",
-   "title": "The Oxford handbook of computational linguistics",
-   "date": "2003",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 277,579, 643. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/oxfordhandbookof0000unse_k7t9",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4497,10 +3949,10 @@
    "author": "LEYDEN",
    "date": "2003",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologischefu0000leyd",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4511,10 +3963,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London : Ebury",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/howtocloneperfec0000nels",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4525,10 +3977,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Minneapolis, MN : Fortress Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/mindinggodtheolo0000pete",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4562,26 +4014,15 @@
    ]
   },
   {
-   "id": "L-JRGYGO",
-   "title": "Introduction to philosophy: classical and contemporary readings",
-   "date": "2004",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/introductiontoph0000unse_q9t3",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-NIBMOU",
    "title": "The history of science and technology: a browser's guide to the great discoveries, inventions, and the people who made them, from the dawn of time to today",
    "author": "Bunch, Bryan H",
    "date": "2004",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 617. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/historyofscience00bunc",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4624,10 +4065,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Springer",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 24. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/spokendialoguete0000mcte",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4636,54 +4077,10 @@
    "author": "Pacific Rim International Conference on Artificial Intelligence",
    "date": "2004",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/pricai2004trends0000paci",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-TSUM35",
-   "title": "Encyclopedia of cognitive science",
-   "date": "2005",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofco0004unse_u4z8",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-7NBQLD",
-   "title": "Encyclopedia of language and linguistics",
-   "date": "2005",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 2. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/encyclopediaofla0002unse_z8l4",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-OBBVPF",
-   "title": "Routledge encyclopedia of narrative theory",
-   "date": "2005",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/routledgeencyclo0000unse_n9o6",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-CZRP37",
-   "title": "The New Encyclopaedia Britannica",
-   "date": "2005",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 12 passage(s) naming SHRDLU in the search snippets; index line gives p. 118. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/newencyclopaedia0014unse_b9k1",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4708,10 +4105,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Lancaster, England : Drakkar Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/whoeversaidcompu0000self",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4730,17 +4127,6 @@
    "tags": [
     "discussion",
     "held here"
-   ]
-  },
-  {
-   "id": "L-QD5UFY",
-   "title": "Handbook of psycholinguistics",
-   "date": "2006",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 7. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofpsycho0002unse_p8x6",
-   "tags": [
-    "mention"
    ]
   },
   {
@@ -4802,39 +4188,6 @@
    ]
   },
   {
-   "id": "L-PBKSF5",
-   "title": "Philosophy of psychology and cognitive science",
-   "date": "2007",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 14 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/philosophyofpsyc0000unse_c9m5",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-GAB2ZQ",
-   "title": "The Cambridge handbook of consciousness",
-   "date": "2007",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_9780521674126",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-J7OPEV",
-   "title": "Words and intelligence II: essays in honor of Yorick Wilks",
-   "date": "2007",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 107. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/wordsintelligenc0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-ABIK7P",
    "title": "Beyond AI: creating the conscience of the machine",
    "author": "Hall, J. Storrs",
@@ -4842,10 +4195,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Amherst, N.Y. : Prometheus Books",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; index line gives p. 77; 23. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/beyondaicreating0000hall",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4854,10 +4207,10 @@
    "author": "Kelly, Edward F",
    "date": "2007",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 11, 14, 16. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/irreduciblemindt0000kell",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4879,50 +4232,15 @@
    ]
   },
   {
-   "id": "L-ERQ7GY",
-   "title": "Handbook of conversation design for instructional applications",
-   "date": "2008",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofconver0000unse",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-NHE44X",
-   "title": "Higher computing",
-   "date": "2008",
-   "kind": "book",
-   "lang": "en",
-   "in": "Edinburgh : Leckie & Leckie",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/highercomputing0000unse_y0g6",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-X3VQAM",
-   "title": "Introducing psychological research",
-   "date": "2008",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 10 passage(s) naming SHRDLU in the search snippets; index line gives p. 345. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/introducingpsych0000unse_a4j1",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-3Q727Q",
    "title": "Using artificial intelligence in chemistry and biology: a practical guide",
    "author": "Cartwright, Hugh M.",
    "date": "2008",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 203, 208, 209. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/usingartificiali0000cart",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4931,10 +4249,10 @@
    "author": "Friedenberg, Jay",
    "date": "2008",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 9 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialpsycho0000frie",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4943,10 +4261,10 @@
    "author": "Harley, Trevor A",
    "date": "2008",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 14-15. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/psychologyoflang03edharl",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4971,10 +4289,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Baltimore, Md. : Johns Hopkins University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 81, 82. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/robotlifestoryof0000nock_y3t3",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -4996,28 +4314,15 @@
    ]
   },
   {
-   "id": "L-NYSTUP",
-   "title": "Higher computing 2009",
-   "date": "2009",
-   "kind": "book",
-   "lang": "en",
-   "in": "Edinburgh : Bright Red",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/highercomputing20000unse_x8t6",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-ANLIKJ",
    "title": "Irreducible Mind: Toward a Psychology for the 21st Century",
    "author": "Adam Crabtree,Edward F. Kelly,Emily Williams Kelly,Alan Gauld,Michael Grosso",
    "date": "2009",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 11, 14, 16. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/irreduciblemindt0000adam",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5026,10 +4331,10 @@
    "author": "Henderson, Harry",
    "date": "2009",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 27, 187; 18, 141. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/encyclopediaofco0000hend",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5053,10 +4358,10 @@
    "author": "Raynor, William J., Jr",
    "date": "2009",
    "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/internationaldic0000rayn_t1n5",
    "tags": [
-    "mention"
+    "named in the text"
    ]
   },
   {
@@ -5096,10 +4401,10 @@
    "author": "n/a",
    "date": "2010",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; index line gives p. 73. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/isbn_9780558310271",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5114,28 +4419,6 @@
    "url": "https://archive.org/details/questforartifici0000nils",
    "tags": [
     "discussion"
-   ]
-  },
-  {
-   "id": "L-OE6AQP",
-   "title": "The Cambridge Handbook of Intelligence",
-   "date": "2011",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/cambridgehandboo0000unse_t3g1",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-TME4AQ",
-   "title": "Leadership in science and technology: a reference handbook",
-   "date": "2012",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 2. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/leadershipinscie0002unse",
-   "tags": [
-    "mention"
    ]
   },
   {
@@ -5220,23 +4503,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Thousand Oaks, Calif. : SAGE",
-   "note": "SHRDLU: Internet Archive full-text hit, 8 passage(s) naming SHRDLU in the search snippets; index line gives p. 207; 227. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivescience0000sobe_t0w4",
    "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-UNQI2M",
-   "title": "The Cambridge handbook of artificial intelligence",
-   "date": "2014",
-   "kind": "book",
-   "lang": "en",
-   "in": "Cambridge ; New York : Cambridge University Press",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_9780521691918",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5245,10 +4515,10 @@
    "author": "Bermúdez, José Luis",
    "date": "2014",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 17 passage(s) naming SHRDLU in the search snippets; index line gives p. 26. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 17 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/cognitivescience0000berm",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5257,10 +4527,10 @@
    "author": "Fromkin, Victoria",
    "date": "2014",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 14 passage(s) naming SHRDLU in the search snippets; index line gives p. 507; 486; 486-487. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/introductiontola0010edfrom",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5284,10 +4554,10 @@
    "author": "Jurafsky, Dan",
    "date": "2014",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 11 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/speechlanguagepr0000jura_o7u9",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5335,26 +4605,15 @@
    ]
   },
   {
-   "id": "L-MTSOFP",
-   "title": "Inconsistency robustness",
-   "date": "2015",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 293. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/inconsistencyrob0000unse",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-DW2DSK",
    "title": "Education reform and the concept of good teaching",
    "author": "Gottlieb, Derek",
    "date": "2015",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/educationreformc0000gott",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5363,10 +4622,10 @@
    "author": "Hey, Anthony J. G",
    "date": "2015",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/computingunivers0000heya",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5406,21 +4665,10 @@
    "author": "Webster, Jonathan J",
    "date": "2015",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/bloomsburycompan0000webs",
    "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-KIQZMJ",
-   "title": "Reason and responsibility: readings in some basic problems of philosophy",
-   "date": "2016",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 14 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/reasonresponsibi0000unse_ed16",
-   "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5429,10 +4677,10 @@
    "author": "Hendler, James A., author",
    "date": "2016",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 196; 8. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/socialmachinesco0000hend",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5501,10 +4749,10 @@
    "author": "Piero Scaruffi",
    "date": "2016",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 6 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/intelligenceisno0000pier",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -5572,10 +4820,10 @@
    "author": "Nishith Pathak",
    "date": "2017",
    "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
    "url": "https://archive.org/details/artificialintell0000nish",
    "tags": [
-    "discussion"
+    "named in the text"
    ]
   },
   {
@@ -6639,48 +5887,6 @@
    ]
   },
   {
-   "id": "L-RTUEHU",
-   "title": "Machine intelligence: perspectives on the computational model",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/machineintellige0000unse_b7i0",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-JAQLNZ",
-   "title": "Mechanical bodies, computational minds: artificial intelligence from automata to cyborgs?",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; index line gives p. 96. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/isbn_9780262562065",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-C5GJDX",
-   "title": "Thinking machines: a search for artificial intelligence",
-   "author": "Aleksander, Igor",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 91-5. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/thinkingmachines0000alek_d0v6",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-MOHRTC",
-   "title": "Fuzzy engineering expert systems with neural network applications",
-   "author": "Badiru, Adedeji Bodunde",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/fuzzyengineering0000badi",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-FOOGIS",
    "title": "Chapter 2 - The Discipline Matures: Three Milestones",
    "author": "Bermúdez, José Luis",
@@ -6708,28 +5914,6 @@
    ]
   },
   {
-   "id": "L-25D7GO",
-   "title": "Complexification: explaining a paradoxical world through the science of surprise",
-   "author": "Casti, J. L",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; index line gives p. 156. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/complexification00cast",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-ON3KZC",
-   "title": "Paradigms lost: images of man in the mirror of science",
-   "author": "Casti, J. L",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/paradigmslostima00cast",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-B7HY6F",
    "title": "What is AI? Part 6",
    "author": "Copeland, Jack",
@@ -6741,17 +5925,6 @@
    "tags": [
     "discussion",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-V622UU",
-   "title": "Webster's New World dictionary of computer terms (Third Edition)",
-   "author": "Darcy, Laura",
-   "kind": "encyclopedia",
-   "note": "SHRDLU: Internet Archive full-text hit, 2 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/webstersnewworld00darc",
-   "tags": [
-    "mention"
    ]
   },
   {
@@ -6783,17 +5956,6 @@
    ]
   },
   {
-   "id": "L-XTRVQI",
-   "title": "Mental models as representations of discourse and text",
-   "author": "Garnham, Alan",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 1 passage(s) naming SHRDLU in the search snippets; index line gives p. 12, 28, 39. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/mentalmodelsasre00garn",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-ZJN62C",
    "title": "The problem with SHRDLU",
    "author": "Gent, Ian",
@@ -6822,28 +5984,6 @@
    ]
   },
   {
-   "id": "L-V6CKH3",
-   "title": "Handbook of Pragmatics",
-   "author": "Jef Verschueren,Jan-Ola Ostman,Jan Blommaert",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/handbookofpragma0000jefv",
-   "tags": [
-    "mention"
-   ]
-  },
-  {
-   "id": "L-7PAPBF",
-   "title": "Paradigms Lost Images of man in the Mirror of Science",
-   "author": "John L. Casti",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/paradigmslostima0000john",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-BRLO7B",
    "title": "SHRDLU",
    "author": "LLMpedia",
@@ -6858,28 +5998,6 @@
    ]
   },
   {
-   "id": "L-2OYKTC",
-   "title": "Artificial intelligence: structures and strategies for complex problem solving",
-   "author": "Luger, George F",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 13 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/artificialintell0000luge",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-6XOT42",
-   "title": "Computing today",
-   "author": "Mandell, Steven L",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 4 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/computingtoday0000mand",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
    "id": "L-EXFKUN",
    "title": "Interactive Fiction's Fourth Era",
    "author": "Montfort, Nick",
@@ -6891,39 +6009,6 @@
    "tags": [
     "discussion",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-J376U2",
-   "title": "The Cognitive Computer on Language, Learning, and Artificial Intelligence",
-   "author": "Roger C. Schank",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 3 passage(s) naming SHRDLU in the search snippets; index line gives p. 60-61. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/bwb_S0-BQW-275",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-TUAZVK",
-   "title": "Into the heart of the mind: an American quest for artificial intelligence",
-   "author": "Rose, Frank",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 7 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/intoheartofminda0000rose",
-   "tags": [
-    "discussion"
-   ]
-  },
-  {
-   "id": "L-HSK6OP",
-   "title": "Microtechnology in special education",
-   "author": "Rostron, Andrew",
-   "kind": "book",
-   "note": "SHRDLU: Internet Archive full-text hit, 5 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/microtechnologyi0000rost_f3f5",
-   "tags": [
-    "discussion"
    ]
   },
   {
@@ -6965,20 +6050,6 @@
    "tags": [
     "discussion",
     "free to read"
-   ]
-  },
-  {
-   "id": "L-T2IKWX",
-   "title": "Artificial Intelligence Applications: Natural Language Processing",
-   "author": "Wilber Fankhauser",
-   "date": "Nov ",
-   "kind": "book",
-   "lang": "en",
-   "in": "Createspace Independent Publishing Platform",
-   "note": "SHRDLU: Internet Archive full-text hit, 14 passage(s) naming SHRDLU in the search snippets; printed pages not obtained. Relevance assigned from the snippets.",
-   "url": "https://archive.org/details/artificialintell0000wilb",
-   "tags": [
-    "discussion"
    ]
   }
  ]
