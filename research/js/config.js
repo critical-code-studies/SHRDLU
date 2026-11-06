@@ -10,7 +10,7 @@
     start: 'mit',   // the version shown first
     // references to the sources (kit/refs.js; the short names are SW.REF, in js/core.js)
     refs: { repo: 'https://github.com/critical-code-studies/SHRDLU', dir: 'source', prefix: 'SH-' },
-    // Read ▾: the versions, then the open version's code by part (kit/menus.js)
+    // a version's files by part, where the kit lists them (kit/menus.js)
     readFiles: {
       groups: [{ label: 'SHRDLU', note: 'its own code: top level, reading, grammar, dictionary, semantics, answering, the blocks world', rest: true },
                { label: 'PROGRAMMAR', test: /^(progmr|proggo|ginter)$/ },
