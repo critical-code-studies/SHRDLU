@@ -1903,20 +1903,6 @@
    ]
   },
   {
-   "id": "L-7P4FIF",
-   "title": "Winograd interview (with Flores), Diário de Lisboa, 22 February 1983",
-   "date": "1983-02-22",
-   "kind": "interview",
-   "lang": "pt",
-   "in": "Diário de Lisboa, ano 62, n.º 21085",
-   "note": "Portuguese text of the interview that also appears in translation from Le Monde Dimanche, 2 January 1983: the opening wording matches. Winograd is asked how SHRDLU hears, understands and executes a command. Article title not established from the OCR. SHRDLU: IA leaves 27-28, with an editor's note on SHRDLU.",
-   "url": "https://archive.org/details/cc_dl_06839.189.29569",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-DHSS74",
    "title": "Artificial intelligence",
    "author": "Andrew, A. M",
@@ -2059,6 +2045,36 @@
    "thumb": "library/thumbs/L-7NEP45.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-7P4FIF",
+   "title": "Entrevista com Terry Winograd, Diário de Lisboa 1983-02-22: ano 62, n.º 21085",
+   "author": "Winograd, Terry",
+   "date": "1983-02-22",
+   "kind": "interview",
+   "lang": "pt",
+   "in": "Diário de Lisboa, ano 62, n.º 21085",
+   "note": "Portuguese version of the January 1983 Le Monde interview with Winograd, with the same introduction and the question on how his robot SHRDLU hears, understands and executes an order. The title here is descriptive; the printed headline was not established. SHRDLU: PDF p(s). 28, 29.",
+   "url": "https://archive.org/details/cc_dl_06839.189.29569",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-EKNAGN",
+   "title": "Jusqu'où ira le dialogue entre l'homme et les nouvelles machines",
+   "author": "Winograd, Terry",
+   "date": "1983-01",
+   "kind": "interview",
+   "lang": "fr",
+   "in": "Le Monde no. 11796 (Internet Archive labels the file Le Monde Diplomatique, Jan 01 1983)",
+   "note": "Interview with Winograd in the French press, with Flores named as collaborator. The introduction credits his program of 1971 at MIT, and a question asks how his robot SHRDLU can hear, understand and execute an order; he sets real computers against the myth of thinking robots. English gloss: How far will dialogue between humans and the new machines go? SHRDLU: PDF p(s). 29.",
+   "url": "https://archive.org/details/LeMondeDiplomatique1983FranceFrench",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
