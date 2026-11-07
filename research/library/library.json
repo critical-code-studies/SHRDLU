@@ -3,6 +3,141 @@
  "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence, is in the public domain, or is free to read at its source; otherwise the entry links to where it is published. A rights holder who wants a copy removed can open an issue at https://github.com/critical-code-studies/SHRDLU/issues. Gathered in November 2026 from indexes, full-text searches and catalogues. Many publishers' sites and some repositories could not be searched, so the list is incomplete.",
  "items": [
   {
+   "id": "L-EO5QIC",
+   "title": "What Computers Can't Do: The Limits of Artificial Intelligence",
+   "author": "Dreyfus, Hubert L.",
+   "date": "1979",
+   "kind": "book",
+   "lang": "en",
+   "note": "Revised edition. Says that by all accounts Winograd's natural language understanding program (SHRDLU, 1971) demonstrates what Papert and Minsky were after, and argues SHRDLU knows what it owns without understanding what it is to own something. SHRDLU: Internet Archive full-text hit, 5 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
+   "url": "https://archive.org/details/whatcomputerscan00hube",
+   "thumb": "library/thumbs/L-EO5QIC.jpg",
+   "relevance": "essential"
+  },
+  {
+   "id": "L-WBNZDD",
+   "title": "What Computers Still Can't Do: A Critique of Artificial Reason",
+   "author": "Dreyfus, Hubert L.",
+   "date": "1992",
+   "kind": "book",
+   "lang": "en",
+   "note": "Carries the same passage on Winograd's program and the same argument that SHRDLU knows what it owns without understanding what it is to own something. The search snippets do not show how the edition differs on SHRDLU. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
+   "url": "https://archive.org/details/whatcomputerssti0000drey",
+   "thumb": "library/thumbs/L-WBNZDD.jpg",
+   "relevance": "essential"
+  },
+  {
+   "id": "L-MMCFIV",
+   "title": "SHRDLU demonstration",
+   "author": "Winograd, Terry",
+   "date": "1968/1970",
+   "kind": "video",
+   "lang": "en",
+   "in": "MIT Museum, object 2007.020.027, MIT Computer Science and Artificial Intelligence Laboratory Film Collection",
+   "note": "Museum record: blocks on screen with text queries and answers above, and a link to Greenblatt's commentary on the clip. SHRDLU: Catalogue record with an embedded video; the video was not played. Date given as circa 1968-1970. Curl returned 429; read in a browser.",
+   "url": "https://mitmuseum.mit.edu/collections/object/2007.020.027",
+   "relevance": "essential",
+   "tags": [
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-TBZI6N",
+   "title": "Procedures as a Representation for Data in a Computer Program for Understanding Natural Language",
+   "author": "Winograd, Terry",
+   "date": "1971-02",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "MIT Artificial Intelligence Laboratory, AI-TR-235 (MIT PhD thesis)",
+   "note": "Primary work by Winograd. The thesis describes the program, its PROGRAMMAR grammar, semantic analysis and Micro-Planner deductive system. SHRDLU: DSpace landing page read; the PDF there returned 429, so the DTIC copy AD0721399 was read. The name occurs in OCR at PDF pp. 267, 268, 272, 341, 377, 463, as the robot object in the Planner data; the system is otherwise called the system or the program. Free to read at https://archive.org/details/DTIC_AD0721399 Also at: https://hdl.handle.net/1721.1/15546",
+   "url": "https://hdl.handle.net/1721.1/7095",
+   "file": "library/files/L-TBZI6N.pdf",
+   "licence": "No licence stated; free to read where published",
+   "source": "https://archive.org/download/DTIC_AD0721399/DTIC_AD0721399.pdf",
+   "relevance": "essential",
+   "tags": [
+    "held here"
+   ],
+   "key": 1
+  },
+  {
+   "id": "L-7M73QA",
+   "title": "Understanding Natural Language",
+   "author": "Winograd, Terry",
+   "date": "1972",
+   "kind": "book",
+   "lang": "en",
+   "in": "New York: Academic Press; Edinburgh: Edinburgh University Press",
+   "doi": "10.1016/0010-0285(72)90002-3",
+   "note": "Primary work by Winograd. The book form of the thesis, with the dialogue of section 1.3 and the program description. SHRDLU: Throughout; Internet Archive lending copy, full-text index shows assertions naming :SHRDLU in the Planner section on the data base. Also at: https://doi.org/10.1016/0010-0285(72)90002-3",
+   "url": "https://archive.org/details/understandingnat0000wino",
+   "relevance": "essential",
+   "key": 3
+  },
+  {
+   "id": "L-POAIGN",
+   "title": "A Procedural Model of Language Understanding",
+   "author": "Winograd, Terry",
+   "date": "1973",
+   "kind": "chapter",
+   "lang": "en",
+   "in": "Schank, Roger C. and Colby, Kenneth Mark (eds), Computer Models of Thought and Language. San Francisco: W. H. Freeman, chapter 4, pp. 152-186",
+   "note": "Primary work by Winograd. A shorter account of the procedural model of the 1972 program. The name SHRDLU does not occur in the indexed text of the volume. SHRDLU: Chapter 4, table of contents p. 152. The Internet Archive index finds no SHRDLU anywhere in this volume; the chapter describes the system without that name and refers to Winograd (1972) for the grammar.",
+   "url": "https://archive.org/details/computermodelsof00scha",
+   "relevance": "essential"
+  },
+  {
+   "id": "L-COB4D4",
+   "title": "An Interview with Terry Allen Winograd, OH 237",
+   "author": "Winograd, Terry; Norberg, Arthur L.",
+   "date": "1991-12-11",
+   "kind": "interview",
+   "lang": "en",
+   "in": "Charles Babbage Institute, University of Minnesota",
+   "note": "Winograd says he worked through the famous dialogue line by line, that the blocks world was in the air from vision work, that it was chosen as a familiar example, and that no line of code development followed apart from a student's change of domain to weather questions. SHRDLU: SHRDLU PDF pp. 7, 19, 37; origins of the blocks world PDF pp. 13-15 and 38-39. Free to read at https://web.archive.org/web/20221014051211/https://conservancy.umn.edu/bitstream/handle/11299/107717/oh237taw.pdf Also at: https://conservancy.umn.edu/server/api/core/bitstreams/a0a8ffa6-0149-4606-88e8-4eec0690d794/content",
+   "url": "https://hdl.handle.net/11299/107717",
+   "file": "library/files/L-COB4D4.pdf",
+   "licence": "No licence stated; free to read where published",
+   "source": "https://conservancy.umn.edu/server/api/core/bitstreams/a0a8ffa6-0149-4606-88e8-4eec0690d794/content",
+   "relevance": "essential",
+   "tags": [
+    "held here"
+   ]
+  },
+  {
+   "id": "L-PM2R36",
+   "title": "SHRDLU",
+   "author": "Winograd, Terry",
+   "date": "2001-06-16",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Winograd's Stanford HCI pages, hci.stanford.edu/~winograd/shrdlu/ (Wayback Machine)",
+   "note": "Primary. Winograd gives the dates 1968-70, the DEC-340 display on a PDP-6, MacLisp under ITS, and links to the source and the UMR ports. SHRDLU: Whole page. The file here is the capture nearest 2005.",
+   "url": "https://web.archive.org/web/20010616072101/http://hci.stanford.edu/~winograd/shrdlu/",
+   "relevance": "essential",
+   "tags": [
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-G7MAV7",
+   "title": "Terry Winograd: An Oral History",
+   "author": "Winograd, Terry; Fikes, Richard E.",
+   "date": "2023-02-14/2023-02-16",
+   "kind": "interview",
+   "lang": "en",
+   "in": "Stanford Historical Society Oral History Program; Stanford Digital Repository",
+   "note": "Primary. Winograd says he chose a limited domain so the computer could reason well, and that he rejected Minsky's suggestion of children's stories because they depend on social and embodied knowledge. At p. 114 he names SHRDLU as a landmark that got people excited, while saying the direction would not have worked. SHRDLU: Printed pp. 9, 24, 27, 39, 114, same as PDF pages. Development of the program from p. 24.",
+   "url": "https://purl.stanford.edu/qz435rp4200",
+   "file": "library/files/L-G7MAV7.pdf",
+   "licence": "No licence stated; free to read where published",
+   "source": "https://stacks.stanford.edu/file/qz435rp4200/qz435rp4200_SC0932_s5_Winograd_Terry_Transcript.pdf",
+   "relevance": "essential",
+   "tags": [
+    "held here"
+   ]
+  },
+  {
    "id": "L-NLPWRR",
    "title": "Natural Language Understanding.",
    "author": "Barr, Avron",
@@ -908,64 +1043,6 @@
    ]
   },
   {
-   "id": "L-MMCFIV",
-   "title": "SHRDLU demonstration",
-   "author": "Winograd, Terry",
-   "date": "1968/1970",
-   "kind": "video",
-   "lang": "en",
-   "in": "MIT Museum, object 2007.020.027, MIT Computer Science and Artificial Intelligence Laboratory Film Collection",
-   "note": "Museum record: blocks on screen with text queries and answers above, and a link to Greenblatt's commentary on the clip. SHRDLU: Catalogue record with an embedded video; the video was not played. Date given as circa 1968-1970. Curl returned 429; read in a browser.",
-   "url": "https://mitmuseum.mit.edu/collections/object/2007.020.027",
-   "relevance": "high",
-   "tags": [
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-TBZI6N",
-   "title": "Procedures as a Representation for Data in a Computer Program for Understanding Natural Language",
-   "author": "Winograd, Terry",
-   "date": "1971-02",
-   "kind": "thesis",
-   "lang": "en",
-   "in": "MIT Artificial Intelligence Laboratory, AI-TR-235 (MIT PhD thesis)",
-   "note": "Primary work by Winograd. The thesis describes the program, its PROGRAMMAR grammar, semantic analysis and Micro-Planner deductive system. SHRDLU: DSpace landing page read; the PDF there returned 429, so the DTIC copy AD0721399 was read. The name occurs in OCR at PDF pp. 267, 268, 272, 341, 377, 463, as the robot object in the Planner data; the system is otherwise called the system or the program. Free to read at https://archive.org/details/DTIC_AD0721399 Also at: https://hdl.handle.net/1721.1/15546",
-   "url": "https://hdl.handle.net/1721.1/7095",
-   "file": "library/files/L-TBZI6N.pdf",
-   "licence": "No licence stated; free to read where published",
-   "source": "https://archive.org/download/DTIC_AD0721399/DTIC_AD0721399.pdf",
-   "relevance": "high",
-   "tags": [
-    "held here"
-   ]
-  },
-  {
-   "id": "L-7M73QA",
-   "title": "Understanding Natural Language",
-   "author": "Winograd, Terry",
-   "date": "1972",
-   "kind": "book",
-   "lang": "en",
-   "in": "New York: Academic Press; Edinburgh: Edinburgh University Press",
-   "doi": "10.1016/0010-0285(72)90002-3",
-   "note": "Primary work by Winograd. The book form of the thesis, with the dialogue of section 1.3 and the program description. SHRDLU: Throughout; Internet Archive lending copy, full-text index shows assertions naming :SHRDLU in the Planner section on the data base. Also at: https://doi.org/10.1016/0010-0285(72)90002-3",
-   "url": "https://archive.org/details/understandingnat0000wino",
-   "relevance": "high"
-  },
-  {
-   "id": "L-POAIGN",
-   "title": "A Procedural Model of Language Understanding",
-   "author": "Winograd, Terry",
-   "date": "1973",
-   "kind": "chapter",
-   "lang": "en",
-   "in": "Schank, Roger C. and Colby, Kenneth Mark (eds), Computer Models of Thought and Language. San Francisco: W. H. Freeman, chapter 4, pp. 152-186",
-   "note": "Primary work by Winograd. A shorter account of the procedural model of the 1972 program. The name SHRDLU does not occur in the indexed text of the volume. SHRDLU: Chapter 4, table of contents p. 152. The Internet Archive index finds no SHRDLU anywhere in this volume; the chapter describes the system without that name and refers to Winograd (1972) for the grammar.",
-   "url": "https://archive.org/details/computermodelsof00scha",
-   "relevance": "high"
-  },
-  {
    "id": "L-56BNAQ",
    "title": "Five Lectures on Artificial Intelligence",
    "author": "Winograd, Terry",
@@ -1082,24 +1159,6 @@
    "relevance": "high"
   },
   {
-   "id": "L-COB4D4",
-   "title": "An Interview with Terry Allen Winograd, OH 237",
-   "author": "Winograd, Terry; Norberg, Arthur L.",
-   "date": "1991-12-11",
-   "kind": "interview",
-   "lang": "en",
-   "in": "Charles Babbage Institute, University of Minnesota",
-   "note": "Winograd says he worked through the famous dialogue line by line, that the blocks world was in the air from vision work, that it was chosen as a familiar example, and that no line of code development followed apart from a student's change of domain to weather questions. SHRDLU: SHRDLU PDF pp. 7, 19, 37; origins of the blocks world PDF pp. 13-15 and 38-39. Free to read at https://web.archive.org/web/20221014051211/https://conservancy.umn.edu/bitstream/handle/11299/107717/oh237taw.pdf Also at: https://conservancy.umn.edu/server/api/core/bitstreams/a0a8ffa6-0149-4606-88e8-4eec0690d794/content",
-   "url": "https://hdl.handle.net/11299/107717",
-   "file": "library/files/L-COB4D4.pdf",
-   "licence": "No licence stated; free to read where published",
-   "source": "https://conservancy.umn.edu/server/api/core/bitstreams/a0a8ffa6-0149-4606-88e8-4eec0690d794/content",
-   "relevance": "high",
-   "tags": [
-    "held here"
-   ]
-  },
-  {
    "id": "L-NQXMUB",
    "title": "Thinking machines: Can there be? Are we?",
    "author": "Winograd, Terry",
@@ -1139,39 +1198,6 @@
    "relevance": "high",
    "tags": [
     "free to read"
-   ]
-  },
-  {
-   "id": "L-PM2R36",
-   "title": "SHRDLU",
-   "author": "Winograd, Terry",
-   "date": "2001-06-16",
-   "kind": "webpage",
-   "lang": "en",
-   "in": "Winograd's Stanford HCI pages, hci.stanford.edu/~winograd/shrdlu/ (Wayback Machine)",
-   "note": "Primary. Winograd gives the dates 1968-70, the DEC-340 display on a PDP-6, MacLisp under ITS, and links to the source and the UMR ports. SHRDLU: Whole page. The file here is the capture nearest 2005.",
-   "url": "https://web.archive.org/web/20010616072101/http://hci.stanford.edu/~winograd/shrdlu/",
-   "relevance": "high",
-   "tags": [
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-G7MAV7",
-   "title": "Terry Winograd: An Oral History",
-   "author": "Winograd, Terry; Fikes, Richard E.",
-   "date": "2023-02-14/2023-02-16",
-   "kind": "interview",
-   "lang": "en",
-   "in": "Stanford Historical Society Oral History Program; Stanford Digital Repository",
-   "note": "Primary. Winograd says he chose a limited domain so the computer could reason well, and that he rejected Minsky's suggestion of children's stories because they depend on social and embodied knowledge. At p. 114 he names SHRDLU as a landmark that got people excited, while saying the direction would not have worked. SHRDLU: Printed pp. 9, 24, 27, 39, 114, same as PDF pages. Development of the program from p. 24.",
-   "url": "https://purl.stanford.edu/qz435rp4200",
-   "file": "library/files/L-G7MAV7.pdf",
-   "licence": "No licence stated; free to read where published",
-   "source": "https://stacks.stanford.edu/file/qz435rp4200/qz435rp4200_SC0932_s5_Winograd_Terry_Transcript.pdf",
-   "relevance": "high",
-   "tags": [
-    "held here"
    ]
   },
   {
@@ -3143,18 +3169,6 @@
    ]
   },
   {
-   "id": "L-EO5QIC",
-   "title": "What Computers Can't Do: The Limits of Artificial Intelligence",
-   "author": "Dreyfus, Hubert L.",
-   "date": "1979",
-   "kind": "book",
-   "lang": "en",
-   "note": "Revised edition. Says that by all accounts Winograd's natural language understanding program (SHRDLU, 1971) demonstrates what Papert and Minsky were after, and argues SHRDLU knows what it owns without understanding what it is to own something. SHRDLU: Internet Archive full-text hit, 5 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
-   "url": "https://archive.org/details/whatcomputerscan00hube",
-   "thumb": "library/thumbs/L-EO5QIC.jpg",
-   "relevance": "medium"
-  },
-  {
    "id": "L-WWWDTC",
    "title": "Why Computers Can't Be Intelligent",
    "author": "Dreyfus, Hubert L.",
@@ -3209,18 +3223,6 @@
    "tags": [
     "free to read"
    ]
-  },
-  {
-   "id": "L-WBNZDD",
-   "title": "What Computers Still Can't Do: A Critique of Artificial Reason",
-   "author": "Dreyfus, Hubert L.",
-   "date": "1992",
-   "kind": "book",
-   "lang": "en",
-   "note": "Carries the same passage on Winograd's program and the same argument that SHRDLU knows what it owns without understanding what it is to own something. The search snippets do not show how the edition differs on SHRDLU. SHRDLU: Internet Archive full-text hit, 9 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
-   "url": "https://archive.org/details/whatcomputerssti0000drey",
-   "thumb": "library/thumbs/L-WBNZDD.jpg",
-   "relevance": "medium"
   },
   {
    "id": "L-POSHHG",
