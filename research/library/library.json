@@ -3,6 +3,21 @@
  "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence or is in the public domain; otherwise the entry links to where it is published. The list is still growing.",
  "items": [
   {
+   "id": "L-MMCFIV",
+   "title": "SHRDLU demonstration",
+   "author": "Winograd, Terry",
+   "date": "1968/1970",
+   "kind": "video",
+   "lang": "en",
+   "in": "MIT Museum, object 2007.020.027, MIT Computer Science and Artificial Intelligence Laboratory Film Collection",
+   "note": "Museum record: blocks on screen with text queries and answers above, and a link to Greenblatt's commentary on the clip. SHRDLU: Catalogue record with an embedded video; the video was not played. Date given as circa 1968-1970. Curl returned 429; read in a browser.",
+   "url": "https://mitmuseum.mit.edu/collections/object/2007.020.027",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-JQQ2LK",
    "title": "Procedures as a Representation for Data in a Computer Program for Understanding Natural Language",
    "author": "Winograd, Terry",
@@ -100,6 +115,21 @@
    "in": "Naval Research Reviews, vol. 25, no. 12",
    "note": "Presents Winograd's Blocks World programs as an example of common sense and reproduces a sample of the discourse on a CRT with figures of the scene. SHRDLU: IA leaves 2-4, printed p. 3; the name SHRDLU does not appear, the program is the \"Blocks World\" system.",
    "url": "https://archive.org/details/sim_naval-research-reviews_1972-12_25_12",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-TFMSUI",
+   "title": "Report on a Workshop in New Techniques in Cognitive Research held at Carnegie-Mellon Univ., on 21-29 June 1972",
+   "author": "Newell, Allen",
+   "date": "1972-06",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report AD0755813, Internet Archive",
+   "note": "Reports bringing up a first version of SHRDLU at CMU during the 1972 workshop. SHRDLU: workshop report; PDF pp. 7, 8, 10, 20, 26, 40, 46, 47, 52.",
+   "url": "https://archive.org/details/DTIC_AD0755813",
    "tags": [
     "discussion",
     "free to read"
@@ -269,6 +299,21 @@
    ]
   },
   {
+   "id": "L-PMXCRF",
+   "title": "Natural Language Understanding Systems Within the A. I. Paradigm: A survey and Some Comparisons",
+   "author": "Wilks, Yorick",
+   "date": "1974-12",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA012477, Internet Archive",
+   "note": "Stanford survey; describes and discusses SHRDLU. AJCL printing recorded separately. SHRDLU: section on Winograd's system; PDF pp. 7, 9.",
+   "url": "https://archive.org/details/DTIC_ADA012477",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-56BNAQ",
    "title": "Five Lectures on Artificial Intelligence",
    "author": "Winograd, Terry",
@@ -405,6 +450,21 @@
    ]
   },
   {
+   "id": "L-PDMCLB",
+   "title": "Blocks microworld from SHRDLU program listing",
+   "author": "Computer History Museum",
+   "date": "1976",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Computer History Museum catalogue 102719667, Herbert Stoyan collection on LISP programming, X5687.2010",
+   "note": "Listing printed by Goerz at the computing centre of the University of Erlangen-Nuernberg. SHRDLU: Catalogue record for a printed listing; the listing is not online. 1976 is the date in the record.",
+   "url": "https://www.computerhistory.org/collections/catalog/102719667",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-PT55VN",
    "title": "Adaptive Information Processing: An Introductory Survey",
    "author": "Jeffrey R. Sampson",
@@ -460,6 +520,36 @@
    "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (ACL Anthology statement for materials prior to 2016)",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-63FTOQ",
+   "title": "Production Systems as a Programming Language for Artificial Intelligence Applications. Volume III.",
+   "author": "Rychener, Michael D.",
+   "date": "1976-12",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA118469, Internet Archive",
+   "note": "Reimplements the blocks problem solver of SHRDLU, coded in Micro-Planner, as a production system and lists the differences. SHRDLU: WBlox section comparing with SHRDLU; PDF pp. 63, 64, 124.",
+   "url": "https://archive.org/details/DTIC_ADA118469",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-R5KUYG",
+   "title": "Speech Understanding Research",
+   "author": "Walker, Donald E., ed.",
+   "date": "1976-10",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA034606, Internet Archive",
+   "note": "An SRI final report describes PROGRAMMAR as top-down, left-to-right and procedural. SHRDLU: review of language definition systems; PDF pp. 88, 201.",
+   "url": "https://archive.org/details/DTIC_ADA034606",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -549,6 +639,21 @@
    ]
   },
   {
+   "id": "L-T4N7SW",
+   "title": "A Model for a Natural Language Data Base System.",
+   "author": "Goodman, Bradley Alan",
+   "date": "1977-10",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "DTIC report ADA057641, Internet Archive",
+   "note": "A University of Illinois thesis on PLANES opens its history with a section describing SHRDLU. SHRDLU: section 2.1 SHRDLU, Historical Perspective, printed p. 4; PDF pp. 9, 14, 15.",
+   "url": "https://archive.org/details/DTIC_ADA057641",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-FY2A7V",
    "title": "The Relevance of AI Research to CAI",
    "author": "Kearsley, Greg P.",
@@ -564,6 +669,21 @@
    ]
   },
   {
+   "id": "L-XYB7DJ",
+   "title": "An Annotated Bibliography of Natural Language and Speech Understanding Systems.",
+   "author": "Kender, John R.",
+   "date": "1977-12",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA055863, Internet Archive",
+   "note": "A CMU annotated bibliography has an entry group on SHRDLU under Microworlds and annotations that classify it. SHRDLU: section 2.3.1 SHRDLU in an annotated bibliography; PDF pp. 9, 11, 16.",
+   "url": "https://archive.org/details/DTIC_ADA055863",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-3U3WVV",
    "title": "The Process of Question Answering. Research Report No. 88",
    "author": "Lehnert, Wendy",
@@ -573,6 +693,21 @@
    "in": "PhD dissertation, Yale University; ERIC ED150955, 293 pp",
    "note": "Treats SHRDLU among earlier question answering programs, noting that its world knowledge was limited to a blocks world and that it simulated a robot. SHRDLU: Survey of question answering systems, subsection 'Winograd (SHRDLU)', PDF p. 271. Free to read at https://files.eric.ed.gov/fulltext/ED150955.pdf",
    "url": "https://eric.ed.gov/?id=ED150955",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-QCDGXB",
+   "title": "The Process of Question Answering",
+   "author": "Lehnert, Wendy G.",
+   "date": "1977-05",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD dissertation, Yale University; issued as Yale Department of Computer Science Research Report 88 (DTIC ADA040559)",
+   "note": "Lehnert places SHRDLU first among other question-answering systems in her closing chapter, describing its limited blocks-world knowledge, its responses to requests and inquiries, and comparing it with her own account. PDF is 115 MB, recorded as a link. SHRDLU: Section 11.1.1 'Winograd (SHRDLU)', PDF pp. 280-282; contents PDF p. 17; also PDF p. 170.",
+   "url": "https://archive.org/details/DTIC_ADA040559",
    "tags": [
     "discussion",
     "free to read"
@@ -722,6 +857,20 @@
    ]
   },
   {
+   "id": "L-ISEPPS",
+   "title": "Communication yearbook. Volume 3",
+   "date": "1979",
+   "kind": "book",
+   "lang": "en",
+   "in": "New Brunswick, N.J. : Transaction Books",
+   "note": "A chapter calls Winograd's SHRDLU simulation an impressive achievement. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/communicationyea0000unse_c4i6",
+   "thumb": "library/thumbs/L-ISEPPS.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-CVVPNC",
    "title": "Financial Times, 1979, article mentioning Winograd's programme",
    "date": "1979",
@@ -760,6 +909,21 @@
    "url": "https://archive.org/details/bayguardian13brug_46",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-NLPWRR",
+   "title": "Natural Language Understanding.",
+   "author": "Barr, Avron",
+   "date": "1979-07",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA076873, Internet Archive",
+   "note": "Handbook of AI natural language section with an article on SHRDLU. SHRDLU: section F4 SHRDLU.",
+   "url": "https://archive.org/details/DTIC_ADA076873",
+   "tags": [
+    "about",
     "free to read"
    ]
   },
@@ -833,6 +997,21 @@
    "thumb": "library/thumbs/L-EO5QIC.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-WYVRJV",
+   "title": "Anaphora in natural language understanding : a survey",
+   "author": "Hirst, Graeme John",
+   "date": "1979",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Master's thesis, Australian National University",
+   "note": "Hirst's survey of anaphora in natural language understanding gives a section to Winograd's heuristics for pronoun resolution, describing them as more sophisticated than STUDENT's. PDF is 98 MB, recorded as a link. SHRDLU: Section 3.1.2 'SHRDLU', printed p. 57 onwards, PDF p. 73-74; also contents (PDF p. 5) and references (PDF p. 236).",
+   "url": "https://hdl.handle.net/1885/138376",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -976,6 +1155,36 @@
    "url": "https://archive.org/details/theoryofsyntacti0000marc",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-FVKI3J",
+   "title": "Reasoning about Knowledge and Action.",
+   "author": "Moore, Robert C.",
+   "date": "1980-10",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA126244, Internet Archive",
+   "note": "Moore calls the reasoning component the paradigm example of systems answering by checking whether an object is known to satisfy a predicate. SHRDLU: passage on blocks world reasoning; PDF pp. 9, 148.",
+   "url": "https://archive.org/details/DTIC_ADA126244",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-EAUZTP",
+   "title": "Evaluation of Natural Language Processors.",
+   "author": "Tennant, Harry Ralph",
+   "date": "1980-11",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA094762, Internet Archive",
+   "note": "Uses SHRDLU as the case of evaluating by an impressive dialog, and quotes Petrick on a list of sentences given to Winograd to test whether they could be processed. SHRDLU: evaluation of systems by example dialogs; quotes Petrick; PDF pp. 26, 28, 75, 160, 164.",
+   "url": "https://archive.org/details/DTIC_ADA094762",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -1128,6 +1337,21 @@
    ]
   },
   {
+   "id": "L-5FR4IN",
+   "title": "The nature of computation : an introduction to computer science",
+   "author": "Pohl, Ira",
+   "date": "1981",
+   "kind": "book",
+   "lang": "en",
+   "in": "Potomac, MD : Computer Science Press",
+   "note": "Pohl describes a system that let a one-armed robot SHRDLU receive English language commands. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/natureofcomputat0000pohl",
+   "thumb": "library/thumbs/L-5FR4IN.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-WOISDA",
    "title": "What Does it Mean to Understand Language?",
    "author": "Winograd, Terry",
@@ -1139,6 +1363,21 @@
    "url": "https://archive.org/details/perspectivesonco0000unse_t8n4",
    "tags": [
     "about"
+   ]
+  },
+  {
+   "id": "L-WUJUPP",
+   "title": "Procedural Semantics as a Theory of Meaning.",
+   "author": "Woods, William A.",
+   "date": "1981-03",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA097630, Internet Archive",
+   "note": "Woods places SHRDLU beside LUNAR as procedural semantics and argues such systems have privileged access to the states of their internal models. Also in ADA085588. SHRDLU: procedural semantics history and argument; PDF pp. 9, 44, 47.",
+   "url": "https://archive.org/details/DTIC_ADA097630",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -1256,6 +1495,21 @@
    ]
   },
   {
+   "id": "L-EIVNP6",
+   "title": "In-Depth Understanding. A Computer Model of Integrated Processing for Narrative Comprehension.",
+   "author": "Dyer, Michael George",
+   "date": "1982-05",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA114483, Internet Archive",
+   "note": "Describes SHRDLU with MARGIE as the earliest semantics-based approaches. SHRDLU: review of semantics-based approaches; PDF pp. 28.",
+   "url": "https://archive.org/details/DTIC_ADA114483",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-SIDESN",
    "title": "Computer science: a modern introduction",
    "author": "Goldschlager, L.; Lister, A. (Andrew)",
@@ -1343,13 +1597,13 @@
   },
   {
    "id": "L-56WPEX",
-   "title": "Foundations for the Development of a Simple Natural Language Interface for Task Knowledge Elicitation and Representation",
+   "title": "Foundations for the Development of a Simple Natural Language Interface for Task Knowledge Elicitation and Representation.",
    "author": "Rowley, M. B.",
    "date": "1982-01",
    "kind": "report",
    "lang": "en",
-   "in": "AMTE(E) TM 81102; DTIC ADA112866",
-   "note": "Rowley gives SHRDLU as an illustration of modelling language processing, describes how it finds a recently mentioned object, and says it had an overwhelming impact on the field. SHRDLU: Name on PDF pp. 5, 39, 40, 43.",
+   "in": "DTIC report ADA112866, Internet Archive",
+   "note": "A UK Admiralty memorandum describes SHRDLU, says its impact was overwhelming and that it remains superficially impressive, quoting Ritchie. SHRDLU: passage on modelling language mechanisms; quotes Ritchie 1981; PDF pp. 5, 39, 40, 43.",
    "url": "https://archive.org/details/DTIC_ADA112866",
    "tags": [
     "discussion",
@@ -1847,6 +2101,21 @@
    ]
   },
   {
+   "id": "L-GFYWGK",
+   "title": "A Database Design for the Brazilian Air Force Flying Unit Operational Control System.",
+   "author": "da Cunha, Adilson Marques",
+   "date": "1984-12",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "DTIC report ADA151848, Internet Archive",
+   "note": "An Air Force Institute of Technology thesis gives SHRDLU a lettered paragraph among natural language systems. SHRDLU: natural language front end review.",
+   "url": "https://archive.org/details/DTIC_ADA151848",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-26OWNB",
    "title": "Intelligence artificielle: mythes et limites",
    "author": "Dreyfus, Hubert L",
@@ -1892,6 +2161,21 @@
    ]
   },
   {
+   "id": "L-XOR3MZ",
+   "title": "Exploring artificial intelligence on your Spectrum + and Spectrum",
+   "author": "Hartnell, Tim",
+   "date": "1984",
+   "kind": "book",
+   "lang": "en",
+   "in": "Interface Publications",
+   "note": "Hartnell says a demonstration program in the book does not reach SHRDLU, the program which inspired it, and describes SHRDLU's replies. Sinclair edition at exploringartific0000timh. A Commodore 64 edition is separate. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/exploringartific0000hart",
+   "thumb": "library/thumbs/L-XOR3MZ.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-SBESDM",
    "title": "Computers in language learning",
    "author": "Higgins, John, 1939 April 14-",
@@ -1915,6 +2199,21 @@
    "thumb": "library/thumbs/L-W6OMU6.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-CIGQEP",
+   "title": "The Application of Artificial Intelligence to Contract Management.",
+   "author": "Kruppenbacher, T. A.",
+   "date": "1984-08",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA146681, Internet Archive",
+   "note": "An Army engineering report describes SHRDLU as among the most significant progress in understanding natural language. SHRDLU: natural language and PLANNER passages.",
+   "url": "https://archive.org/details/DTIC_ADA146681",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -2002,6 +2301,22 @@
    "thumb": "library/thumbs/L-GC4KRO.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-AOFEXC",
+   "title": "人工知能",
+   "author": "Tamura, Koichiro",
+   "date": "1984",
+   "kind": "article",
+   "lang": "ja",
+   "in": "テレビジョン学会誌 38(9): 799-806",
+   "doi": "10.3169/itej1978.38.799",
+   "note": "Reports Winograd's own remark that the program had become too complex even for its author to improve, calls the system a milestone that also showed how far there was to go, and notes his later move to Stanford. SHRDLU: PDF p. 4 (printed p. 802).",
+   "url": "https://doi.org/10.3169/itej1978.38.799",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -2232,6 +2547,21 @@
    ]
   },
   {
+   "id": "L-6S6LWZ",
+   "title": "Artificial intelligence : promise and performance",
+   "author": "Bonnet, Alain",
+   "date": "1985",
+   "kind": "book",
+   "lang": "en",
+   "in": "Englewood Cliffs, NJ : Prentice-Hall International",
+   "note": "Bonnet says the system simulates and treats it under understanding isolated phrases. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/artificialintell00bonn",
+   "thumb": "library/thumbs/L-6S6LWZ.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-BBMFWX",
    "title": "Readings in knowledge representation",
    "author": "Brachman, Ronald J.,Levesque, Hector J.",
@@ -2285,6 +2615,21 @@
    "thumb": "library/thumbs/L-BO3YHN.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-FXYEAA",
+   "title": "Communication and Miscommunication.",
+   "author": "Goodman, Bradley A.",
+   "date": "1985-10",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA162843, Internet Archive",
+   "note": "A BBN report gives a subsection to reference in SHRDLU, describing the micro-world, the imaginary arm and how referents are found. SHRDLU: section 3.2.1 Reference in SHRDLU; PDF pp. 11, 66, 67, 68, 69, 75.",
+   "url": "https://archive.org/details/DTIC_ADA162843",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -2585,8 +2930,8 @@
    "date": "1986-04",
    "kind": "report",
    "lang": "en",
-   "in": "Report Documentation Page copy, DTIC ADA619312",
-   "note": "Arens names SHRDLU as one of few analysers with a parser working within a model, then argues its weakness: it held an exact replica of its world rather than a model of it. SHRDLU: Name on PDF pp. 114, 115.",
+   "in": "DTIC report ADA619312, Internet Archive",
+   "note": "Argues that SHRDLU did not have a model of the world because it contained an exact replica of its world, every object constantly available. SHRDLU: section on contextual parsers; PDF pp. 114, 115.",
    "url": "https://archive.org/details/DTIC_ADA619312",
    "tags": [
     "discussion",
@@ -2727,6 +3072,36 @@
    ]
   },
   {
+   "id": "L-CT3P76",
+   "title": "Natural Language Generation,",
+   "author": "McDonald, David D.",
+   "date": "1986-02",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA175135, Internet Archive",
+   "note": "Says generated text is about where it was in 1970 in SHRDLU, which constructed original sentences from program expressions in its blocks model. SHRDLU: passage on the state of generated text; PDF pp. 10, 13.",
+   "url": "https://archive.org/details/DTIC_ADA175135",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-352VZS",
+   "title": "Natural Language Generation: Complexities and Techniques,",
+   "author": "McDonald, David D.",
+   "date": "1986-04",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA175122, Internet Archive",
+   "note": "Quotes a sentence from the SHRDLU dialog as a direct replacement generator made a bit more fluent by pronouns, and says its generation knowledge was procedural. SHRDLU: worked example from the standard dialog; PDF pp. 13, 14, 15, 23.",
+   "url": "https://archive.org/details/DTIC_ADA175122",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-NZ4QWK",
    "title": "The quest for artificial intelligence",
    "author": "Patent, Dorothy Hinshaw",
@@ -2767,6 +3142,36 @@
    "thumb": "library/thumbs/L-DFABYH.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-7VW7KX",
+   "title": "Operations technology : Systems and evolution",
+   "author": "Roy, Robert H",
+   "date": "1986",
+   "kind": "book",
+   "lang": "en",
+   "in": "Baltimore : Johns Hopkins University Press",
+   "note": "Roy gives SHRDLU a heading of its own and notes that the name is not an acronym. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/operationstechno0000royr",
+   "thumb": "library/thumbs/L-7VW7KX.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-AVA6KC",
+   "title": "Aspects du système APL 90 : Une extension orientée objet du langage APL",
+   "author": "Sako, Séga",
+   "date": "1986",
+   "kind": "thesis",
+   "lang": "fr",
+   "in": "Doctoral thesis, École Nationale Supérieure des Mines",
+   "note": "Sako uses Winograd's problem of representing a robot's universe of cubes as a case for object representation, alongside the programs SHRDLU and AZERTYOP. SHRDLU: Section 1.1.4 'Objet et représentation des connaissances : le robot SHRDLU', PDF p. 97; also PDF pp. 10, 92. Free to read at http://web.archive.org/web/20240913101334if_/https://theses.hal.science/tel-00829941/document",
+   "url": "https://theses.hal.science/tel-00829941v1",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -2886,6 +3291,34 @@
    ]
   },
   {
+   "id": "L-XJRGVA",
+   "title": "Explorations in reading and writing",
+   "date": "1987",
+   "kind": "book",
+   "lang": "en",
+   "in": "New York : Random House",
+   "note": "A chapter uses a sample dialogue with the robot worker in SHRDLU to illustrate why the program was limited or successful; the snippet stops before the conclusion. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/explorationsinre0000unse_z8y2",
+   "thumb": "library/thumbs/L-XJRGVA.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-5VCUAZ",
+   "title": "La Recherche en intelligence artificielle",
+   "date": "1987",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : Seuil : La Recherche",
+   "note": "A French survey describes Shrdlu as a program with good performance working on a simple universe containing a table. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/larechercheenint0000unse",
+   "thumb": "library/thumbs/L-5VCUAZ.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-L7WLRD",
    "title": "Page 6, no. 30, November 1987, article on conversation programs",
    "date": "1987-11",
@@ -2966,6 +3399,21 @@
    "thumb": "library/thumbs/L-EAPH6F.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-V7MMBX",
+   "title": "Saving belief : a critique of physicalism",
+   "author": "Baker, Lynne Rudder",
+   "date": "1987",
+   "kind": "book",
+   "lang": "en",
+   "in": "Princeton, N.J. : Princeton University Press",
+   "note": "Baker uses SHRDLU, a famous program in which a computer manipulates blocks, as an example in an argument about a subject's actual environment. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/savingbeliefcrit0000bake",
+   "thumb": "library/thumbs/L-V7MMBX.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -3076,11 +3524,11 @@
    "id": "L-Y2JJZY",
    "title": "Knowledge-Based Natural Language Understanding: A AAAI-87 Survey Talk",
    "author": "Lehnert, Wendy G.",
-   "date": "1987",
-   "kind": "talk",
+   "date": "1987-01",
+   "kind": "report",
    "lang": "en",
-   "in": "The Counselor Project, CPTM #21, University of Massachusetts Amherst; DTIC ADA249639 (another printing at DTIC_ADA249120)",
-   "note": "Lehnert quotes Winograd in 1987 on hindsight, recalls the excitement over SHRDLU in the early 1970s, and calls it an example of technology-driven research suited by the blocks world to techniques then available. SHRDLU: Name on PDF pp. 5, 7.",
+   "in": "DTIC report ADA249639, Internet Archive",
+   "note": "Survey talk on SHRDLU's reception, calling it an example of technology-driven research and a prototype to inspire further work. Another printing is DTIC ADA249120. SHRDLU: AAAI-87 survey talk, discussion of Winograd's hindsight; PDF pp. 5, 7.",
    "url": "https://archive.org/details/DTIC_ADA249639",
    "tags": [
     "discussion",
@@ -3129,6 +3577,21 @@
    ]
   },
   {
+   "id": "L-T4UZEG",
+   "title": "A transportable natural language front-end to data base management systems",
+   "author": "Safigan, Steve J.",
+   "date": "1987-09-15",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Master's thesis, Virginia Tech, Computer Science and Applications",
+   "note": "Safigan describes SHRDLU's interface for a robot arm and blocks and argues that its background knowledge ties it to the blocks world, which motivates a transportable front end. SHRDLU: PDF pp. 13-15; also PDF p. 11.",
+   "url": "https://hdl.handle.net/10919/44066",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-KHXJIV",
    "title": "Artificial intelligence: an applications-oriented approach",
    "author": "Schutzer, Daniel",
@@ -3140,6 +3603,21 @@
    "url": "https://archive.org/details/artificialintell00dani",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-7HGLWW",
+   "title": "Cognitive science : an introduction",
+   "author": "Stillings, Neil A",
+   "date": "1987",
+   "kind": "book",
+   "lang": "en",
+   "in": "Cambridge, Mass, : MIT Press",
+   "note": "An introduction to cognitive science takes an example from Winograd (1972) and calls SHRDLU a pioneering attempt. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/cognitivescience00brad",
+   "thumb": "library/thumbs/L-7HGLWW.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -3181,6 +3659,22 @@
    "thumb": "library/thumbs/L-74VARN.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-2BX4K7",
+   "title": "コンピュータ,意識,言語",
+   "author": "小林, 道夫",
+   "date": "1987",
+   "kind": "article",
+   "lang": "ja",
+   "in": "科学哲学 20(0): 31-46",
+   "doi": "10.4216/jpssj.20.31",
+   "note": "Describes the robot manipulating blocks on spoken exchange and says Winograd moved from this to a procedural understanding of semantics that took in pragmatics, setting himself against Chomsky's competence and performance. SHRDLU: PDF p. 12.",
+   "url": "https://doi.org/10.4216/jpssj.20.31",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -3298,6 +3792,21 @@
    "thumb": "library/thumbs/L-PUVW3X.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-MNIFF6",
+   "title": "User-Computer Interface Technology: An Assessment of the Current State of the Art",
+   "author": "Defense Technical Information Center",
+   "date": "1988-06",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA196839, Internet Archive",
+   "note": "An assessment of interface technology reports SHRDLU as a success in a limited domain and carefully constrained dialog, citing Winograd 1985. SHRDLU: natural language interface passages; PDF pp. 28, 82.",
+   "url": "https://archive.org/details/DTIC_ADA196839",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -3432,6 +3941,21 @@
    ]
   },
   {
+   "id": "L-NP3ALV",
+   "title": "L'Intelligence artificielle et le langage. 1, Représentations des connaissances",
+   "author": "Sabah, Gérard",
+   "date": "1988",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : Hermès",
+   "note": "Sabah describes aspects developed in SHRDLU and says the program simulates a robot. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/lintelligenceart0000saba",
+   "thumb": "library/thumbs/L-NP3ALV.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-J2WFFA",
    "title": "Principles of computer science",
    "author": "Schaffer, Cullen",
@@ -3469,6 +3993,21 @@
    "url": "https://archive.org/details/computerpsychoth0000wagm",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-3MADZK",
+   "title": "Structure of Knowledge Representation and Reasoning",
+   "author": "Wang, Kuanshen",
+   "date": "1988",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Master of Science thesis, Rice University",
+   "note": "Wang presents SHRDLU as Winograd's demonstration of procedural representation and diagrams its blocks world and word procedures. SHRDLU: PDF p. 18; Figure 2.1 'The blocks world in SHRDLU', PDF p. 77.",
+   "url": "https://hdl.handle.net/1911/20478",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -3716,6 +4255,21 @@
    ]
   },
   {
+   "id": "L-HD7HTB",
+   "title": "Connectionism, disciplinary identity and continuity",
+   "author": "Serchuk, Adam",
+   "date": "1989",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Master of Science thesis, Virginia Tech",
+   "note": "Serchuk gives SHRDLU as the representative of the micro-world approach in AI's history and describes its table-top of blocks and its use. SHRDLU: PDF p. 11, with a footnote on the name citing Dreyfus and Dreyfus.",
+   "url": "https://hdl.handle.net/10919/53246",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-KTPNK7",
    "title": "The Facts on File dictionary of artificial intelligence",
    "author": "Smith, Raoul N",
@@ -3799,6 +4353,21 @@
    "url": "https://archive.org/details/computerapplicat0000bren",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-ZWCBTI",
+   "title": "Vision, Instruction and Action",
+   "author": "Chapman, David",
+   "date": "1990-04",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA228626, Internet Archive",
+   "note": "MIT AI TR-1204 says SHRDLU did nothing except when instructed, and that its reference through simulated action pointed in the right direction. SHRDLU: passages on instruction use and grounding; PDF pp. 85, 87.",
+   "url": "https://archive.org/details/DTIC_ADA228626",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -3926,6 +4495,21 @@
    ]
   },
   {
+   "id": "L-6XSL6Z",
+   "title": "Planning Multisentential English Text Using Communicative Acts",
+   "author": "Maybury, Mark T.",
+   "date": "1990-12",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA234857, Internet Archive",
+   "note": "Treats SHRDLU as a generator using templates from canned text to abstract patterns, with its reply to an unfamiliar word as the example. SHRDLU: section 2.3.2 Template Filling: SHRDLU; PDF pp. 26, 27, 31, 46, 343.",
+   "url": "https://archive.org/details/DTIC_ADA234857",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-5N4SZG",
    "title": "Intelligence artificielle et signification. À propos des limites et des possibilitées des sciences cognitives",
    "author": "Mendonça, W. P.",
@@ -3977,6 +4561,21 @@
    "url": "https://archive.org/details/isbn_0415020646",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-A6LMNB",
+   "title": "Explanation and the Theory of Expert Problem Solving",
+   "author": "Ohio State University",
+   "date": "1990-02",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA220861, Internet Archive",
+   "note": "Says SHRDLU answers why, when and how questions only about its actions, referring back to a goal-subgoal structure. SHRDLU: passage on explanation systems; PDF pp. 36.",
+   "url": "https://archive.org/details/DTIC_ADA220861",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -4091,6 +4690,21 @@
    "thumb": "library/thumbs/L-N52IDY.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-Y3S6HK",
+   "title": "Natural Language Processing: A Tutorial. Revision",
+   "author": "Walter, Sharon M.",
+   "date": "1990-01",
+   "kind": "report",
+   "lang": "en",
+   "in": "DTIC report ADA219096, Internet Archive",
+   "note": "A Rome Air Development Center tutorial describes SHRDLU simulating a robot arm in a dialogue about blocks. SHRDLU: tutorial passage on integrated parsing; PDF pp. 13, 87.",
+   "url": "https://archive.org/details/DTIC_ADA219096",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -4431,6 +5045,21 @@
    ]
   },
   {
+   "id": "L-RBJRFW",
+   "title": "An On-Line Computational Model of Human Sentence Interpretation: A Theory of the Representation and Use of Linguistic Knowledge",
+   "author": "Jurafsky, Daniel",
+   "date": "1992-03",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "DTIC report ADA604298, Internet Archive",
+   "note": "Describes SHRDLU's semantic routines as procedures building a PLANNER program, called at various times during parsing. SHRDLU: related work on interpretation; PDF pp. 136, 138.",
+   "url": "https://archive.org/details/DTIC_ADA604298",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-TDORNX",
    "title": "Introduccion a la Psicologia",
    "author": "Morris",
@@ -4556,6 +5185,36 @@
    ]
   },
   {
+   "id": "L-AVY5J2",
+   "title": "教育工学-構成主義の「学習論」に出あう",
+   "author": "Sugai, K.",
+   "date": "1993",
+   "kind": "article",
+   "lang": "ja",
+   "in": "教育学研究 60(3): 237-247",
+   "doi": "10.11555/kyoiku1932.60.237",
+   "note": "Places SHRDLU in a history of AI as a language understanding system limited to the microworld of blocks, working by question and answer with a robot on a display, with knowledge of language and physical blocks represented, followed by attempts to widen the microworld. SHRDLU: PDF p. 6.",
+   "url": "https://doi.org/10.11555/kyoiku1932.60.237",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-SQ3AWB",
+   "title": "Yu yan xue ji chu li lun",
+   "date": "1994",
+   "kind": "book",
+   "lang": "zh",
+   "in": "Beijing : Beijing shi fan da xue chu ban she",
+   "note": "A Chinese linguistics textbook names LUNAR and SHRDLU as systems and describes each in turn. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/yuyanxuejichulil0001unse",
+   "thumb": "library/thumbs/L-SQ3AWB.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-7FL5NY",
    "title": "Contemplating Minds: A Forum for Artificial Intelligence",
    "author": "Clancey, William J.; Smoliar, Stephen W.; Stefik, Mark J.",
@@ -4641,6 +5300,36 @@
    ]
   },
   {
+   "id": "L-JHNYKW",
+   "title": "Instructable autonomous agents. Ph.D. Thesis",
+   "author": "Huffman, Scott Bradley",
+   "date": "1994-01",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "NASA Technical Reports Server, Internet Archive",
+   "note": "Says SHRDLU plans and acts in a blocks domain, turning input into code fragments, with a small amount of rote learning. SHRDLU: related work passage; PDF pp. 24, 133.",
+   "url": "https://archive.org/details/NASA_NTRS_Archive_19950019786",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-AC2QMV",
+   "title": "Philosophy of mind",
+   "author": "Jacquette, Dale, author",
+   "date": "1994",
+   "kind": "book",
+   "lang": "en",
+   "in": "Englewood Cliffs, NJ : Prentice Hall",
+   "note": "Jacquette says SHRDLU (1972) tries to implement a rationale and is limited to its artificial world. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/philosophyofmind0000jacq",
+   "thumb": "library/thumbs/L-AC2QMV.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-3QDJDQ",
    "title": "The brain makers",
    "author": "Newquist, H. P.",
@@ -4669,6 +5358,21 @@
    ]
   },
   {
+   "id": "L-PHUMWE",
+   "title": "Aproximación estadístico-algebraica al problema de la resolución de la anáfora del discurso",
+   "author": "Rico Pérez, Celia",
+   "date": "1994",
+   "kind": "thesis",
+   "lang": "es",
+   "in": "Doctoral thesis, Universidad de Alicante",
+   "note": "Rico Pérez describes the interactive system and its dialogue, states that it marked an era in automatic language processing, and considers how it treats anaphora. SHRDLU: Section 2.2 'SHRDLU', PDF pp. 60-62; also PDF p. 57.",
+   "url": "https://hdl.handle.net/10045/3912",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-SBCDO3",
    "title": "Dictionnaire de la MICRO 94",
    "author": "Schryver, Jacques de",
@@ -4694,6 +5398,22 @@
    "thumb": "library/thumbs/L-R4ZYMB.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-4HCCZ5",
+   "title": "「AIマップ-自然言語へのアプローチ」に対するコメントと回答",
+   "author": "郡司, 隆男; 橋田, 浩一; 徳永, 健伸; 丸山, 宏; 長尾, 眞",
+   "date": "1994",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 9(5): 673-683",
+   "doi": "10.11517/jjsai.9.5_673",
+   "note": "Says SHRDLU succeeded neither through procedural grammar nor through PLANNER, but through a well-chosen problem domain, the blocks-world robot, and a collection of well-judged rules and heuristics that suited it. SHRDLU: PDF p. 7, paragraph on overly specific successes.",
+   "url": "https://doi.org/10.11517/jjsai.9.5_673",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -5070,6 +5790,21 @@
    ]
   },
   {
+   "id": "L-EQM6YP",
+   "title": "Aproximación computacional al tratamiento de la anáfora pronominal y de tipo adjetivo mediante gramáticas de unificación de huecos",
+   "author": "Ferrández, Antonio",
+   "date": "1998",
+   "kind": "thesis",
+   "lang": "es",
+   "in": "Doctoral thesis, Universidad de Alicante",
+   "note": "A paragraph describes the program's dialogues on geometric figures, positions, forms and colours, and its execution of instructions with an arm. SHRDLU: PDF p. 65.",
+   "url": "https://hdl.handle.net/10045/3502",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-2VEJYZ",
    "title": "Cognition",
    "author": "Jahnke, John C",
@@ -5108,6 +5843,35 @@
    "thumb": "library/thumbs/L-QFDZIO.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-5Y7TJX",
+   "title": "Explorations in quantum computing",
+   "author": "Williams, Colin P",
+   "date": "1998",
+   "kind": "book",
+   "lang": "en",
+   "in": "Santa Clara, Calif. : TELOS",
+   "note": "Williams and Clearwater describe SHRDLU, a one-armed robot given a command in English, as an early example in a passage on automated proof. Also in Ultimate Zero and One (2000). SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/explorationsinqu0000will",
+   "thumb": "library/thumbs/L-5Y7TJX.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-5KPVOK",
+   "title": "A companion to cognitive science",
+   "date": "1999",
+   "kind": "book",
+   "lang": "en",
+   "in": "Malden, MA. : Blackwell",
+   "note": "A chapter describes the world Winograd's program could display on a monitor and how SHRDLU processed sentences. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/companiontocogni0000unse",
+   "thumb": "library/thumbs/L-5KPVOK.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -5256,6 +6020,21 @@
    ]
   },
   {
+   "id": "L-B7HY6F",
+   "title": "What is AI? Part 6",
+   "author": "Copeland, Jack",
+   "date": "2000-05",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "AlanTuring.net",
+   "note": "Describes the blocks world, SHRDLU's arm and questions about stacking pyramids, within an account of the micro-world approach. SHRDLU: Micro-world section; 10 occurrences. Page footer: site maintained by Jack Copeland, all rights reserved.",
+   "url": "https://www.alanturing.net/turing_archive/pages/reference%20articles/what_is_ai/What%20is%20AI06.html",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-5L64CR",
    "title": "An introduction to space robotics",
    "author": "Ellery, Alex",
@@ -5385,6 +6164,66 @@
    "thumb": "library/thumbs/L-RWOL7U.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-XW54PF",
+   "title": "Higher national computing",
+   "author": "Hellingsworth, Bruce",
+   "date": "2001",
+   "kind": "book",
+   "lang": "en",
+   "in": "Oxford : Newnes",
+   "note": "A computing textbook says that in a very limited universe SHRDLU could interpret instructions in ordinary language. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/highernationalco0000hell",
+   "thumb": "library/thumbs/L-XW54PF.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-RAI5PV",
+   "title": "Resolución computacional de la anáfora en diálogos: estructura del discurso y conocimiento linguístico",
+   "author": "Martínez-Barco, Patricio",
+   "date": "2001",
+   "kind": "thesis",
+   "lang": "es",
+   "in": "Doctoral thesis, Universidad de Alicante",
+   "note": "Describes SHRDLU's dialogue, its syntactic and semantic analysers and reasoning module for reference resolution, with examples of anaphora. SHRDLU: PDF pp. 86-88.",
+   "url": "https://hdl.handle.net/10045/3707",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-CL4ZPY",
+   "title": "Resolución y generación de la anáfora pronominal en español e inglés en un sistema interlingua de traducción automática",
+   "author": "Peral, Jesús",
+   "date": "2001",
+   "kind": "thesis",
+   "lang": "es",
+   "in": "Doctoral thesis, Universidad de Alicante",
+   "note": "A paragraph in the survey of dialogue systems describes SHRDLU's dialogue about its world and its storage of syntactic and semantic information for each entity. SHRDLU: PDF pp. 161-162.",
+   "url": "https://hdl.handle.net/10045/3807",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-JK4ZRL",
+   "title": "Référence et dialogue finalisé : de la linguistique à un modèle opérationnel",
+   "author": "Salmon-Alt, Susanne",
+   "date": "2001",
+   "kind": "thesis",
+   "lang": "fr",
+   "in": "Doctoral thesis, Université Henri Poincaré - Nancy 1",
+   "note": "Salmon-Alt describes reference handling in SHRDLU as a first system simulating understanding in a world limited to manipulation. SHRDLU: Section 5.4.1 'SHRDLU, Que ta voie ne meure', PDF pp. 98-99; also PDF pp. 102, 112-113, 254, 270. Free to read at http://web.archive.org/web/20240915175144if_/https://hal.univ-lorraine.fr/tel-01748628/document",
+   "url": "https://hal.univ-lorraine.fr/tel-01748628v1",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -5532,6 +6371,21 @@
    ]
   },
   {
+   "id": "L-YXZMKC",
+   "title": "As contribuições da ciência cognitiva à composição musical",
+   "author": "Oliveira, Luis Felipe de [UNESP]",
+   "date": "2003-11-22",
+   "kind": "thesis",
+   "lang": "pt",
+   "in": "Master's dissertation, Universidade Estadual Paulista (Unesp)",
+   "note": "In a dissertation on cognitive science and musical composition, Oliveira explains the origin of the name and analyses passages of the dialogue, including step 10, where the program appears to understand what it is doing. SHRDLU: Printed pp. 26-30, PDF pp. 27-31; also PDF p. 207.",
+   "url": "https://hdl.handle.net/11449/88191",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-ZVPEU6",
    "title": "Minding God: theology and the cognitive sciences",
    "author": "Peterson, Gregory R.",
@@ -5605,6 +6459,21 @@
    ]
   },
   {
+   "id": "L-SBL44G",
+   "title": "Retrieving Definitions from Scientific Text in the Salmon Fish Domain by Lexical Pattern Matching",
+   "author": "Gabbay, Igal",
+   "date": "2004-01",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Thesis, University of Limerick, Technical Communication",
+   "note": "Describes SHRDLU's simulated robot world, its teletype conversation and its answers about its reasoning, and notes its restricted subject matter. SHRDLU: PDF pp. 6-7.",
+   "url": "https://hdl.handle.net/10919/71562",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-YBBHRF",
    "title": "Grounded Semantic Composition for Visual Scenes",
    "author": "Gorniak, Peter; Roy, Deb",
@@ -5664,6 +6533,22 @@
    ]
   },
   {
+   "id": "L-6J53UI",
+   "title": "私のソフトウェア研究",
+   "author": "Yonezawa, Akinori",
+   "date": "2004",
+   "kind": "article",
+   "lang": "ja",
+   "in": "コンピュータ ソフトウェア 21(5): 352-363",
+   "doi": "10.11309/jssst.21.352",
+   "note": "Memoir. The author recalls an account of SHRDLU and of micro-Planner, proposed by Hewitt and implemented in Lisp by Sussman and others, and calls Winograd's system epoch-making at the time. SHRDLU: PDF p. 5 (printed p. 356).",
+   "url": "https://doi.org/10.11309/jssst.21.352",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-H4RKZD",
    "title": "The affordance-based concept",
    "author": "Gorniak, Peter John",
@@ -5675,6 +6560,36 @@
    "url": "http://hdl.handle.net/1721.1/33884",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-4GYQI7",
+   "title": "Nanofuture : what's next for nanotechnology",
+   "author": "Hall, J. Storrs",
+   "date": "2005",
+   "kind": "book",
+   "lang": "en",
+   "in": "Amherst, NY : Prometheus Books",
+   "note": "Hall says that in the thirty years since SHRDLU no one has finished the job, and lists what it demonstrated, parsing among them. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/nanofuturewhatsn0000hall",
+   "thumb": "library/thumbs/L-4GYQI7.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-DBB7CG",
+   "title": "Poesiemaschinen - Maschinenpoesie",
+   "author": "Link, David",
+   "date": "2005-01-20",
+   "kind": "thesis",
+   "lang": "de",
+   "in": "Doctoral thesis, Humboldt-Universität zu Berlin",
+   "note": "Link traces the name to the linotype keys and ETAOIN SHRDLU as a mark of printers' errors, and reads the program as a hierarchical construction in two parts, the robot as speaking subject and its world. He states that Winograd does not restrict the topics of talk by rhetoric or situation. SHRDLU: Chapter 7, headed with a SHRDLU reply, printed pp. 114-137 (PDF pagination is the same); also pp. 72, 180-181, 237-242. Printed in running heads pp. 2-6 as contents.",
+   "url": "https://edoc.hu-berlin.de/18452/15853",
+   "tags": [
+    "about",
     "free to read"
    ]
   },
@@ -5727,6 +6642,20 @@
    ]
   },
   {
+   "id": "L-TOFUJ3",
+   "title": "Cognitive science : an introduction to mind and brain",
+   "date": "2006",
+   "kind": "book",
+   "lang": "en",
+   "in": "London ; New York : Routledge",
+   "note": "A cognitive science textbook says SHRDLU, developed by Winograd in 1972, did not use the earlier theorem-proving approach. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/cognitivescience0000unse_s9q7",
+   "thumb": "library/thumbs/L-TOFUJ3.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-SFRI2B",
    "title": "Mind as Machine: A History of Cognitive Science",
    "author": "Boden, Margaret A.",
@@ -5756,6 +6685,21 @@
    ]
   },
   {
+   "id": "L-2JMBPJ",
+   "title": "It is necessary and possible to build (multilingual) NL-based restricted e-commerce systems with mixed sublanguage and content-oriented methods",
+   "author": "Daoud, Daoud",
+   "date": "2006",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD thesis, Université Joseph Fourier, Grenoble",
+   "note": "A paragraph in the survey of NL systems on SHRDLU, its origin in Winograd's thesis and its English interaction. SHRDLU: PDF p. 25, 3 hits. Free to read at http://web.archive.org/web/20240509130420if_/https://theses.hal.science/tel-00097826/document",
+   "url": "https://theses.hal.science/tel-00097826v1",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-SZAWYM",
    "title": "Robots unlimited: life in a virtual age",
    "author": "Levy, David",
@@ -5766,6 +6710,21 @@
    "note": "Reproduces the SHRDLU dialogue, including the exchange about grasping the pyramid. SHRDLU: Internet Archive full-text hit, 8 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/robotsunlimited0000davi",
    "thumb": "library/thumbs/L-SZAWYM.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-HBA4MO",
+   "title": "Introduction to Language 8e-Instructors Edition",
+   "author": "n/a",
+   "date": "2006",
+   "kind": "book",
+   "lang": "en",
+   "in": "n/a",
+   "note": "Fromkin's textbook says one system, named SHRDLU by its developer Winograd, demonstrated several abilities. A later edition is at an_introduction_to_language. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/isbn_9781413029512",
+   "thumb": "library/thumbs/L-HBA4MO.jpg",
    "tags": [
     "discussion"
    ]
@@ -5831,6 +6790,21 @@
    ]
   },
   {
+   "id": "L-EE4AAU",
+   "title": "CS147 Lecture 14: Agents and Natural Language",
+   "author": "Winograd, Terry",
+   "date": "2006",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Stanford University, CS147 course slides",
+   "note": "Winograd's own teaching slides place the program between Eliza and statistical recognition and reproduce a dialogue. SHRDLU: Slides listing 'Symbolic understanding (SHRDLU, 1970)' and the slide 'SHRDLU Dialog'. Year from the URL path.",
+   "url": "https://hci.stanford.edu/courses/cs147/2006/slides/14-agents/147-agents.pdf",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-ABIK7P",
    "title": "Beyond AI: creating the conscience of the machine",
    "author": "Hall, J. Storrs",
@@ -5843,6 +6817,21 @@
    "thumb": "library/thumbs/L-ABIK7P.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-IQYBD6",
+   "title": "Embodied object schemas for grounding language use",
+   "author": "Hsiao, Kai-yuh, 1977-",
+   "date": "2007",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD thesis, MIT, Program in Media Arts and Sciences",
+   "note": "Hsiao begins his account of grounded language systems with SHRDLU and describes the hand-built symbolic blocks world and grammar. SHRDLU: Section 2.4 'Grounded Language Systems', PDF p. 45.",
+   "url": "https://hdl.handle.net/1721.1/39258",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -5871,6 +6860,21 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-I7TYU7",
+   "title": "Processing : a programming handbook for visual designers and artists",
+   "author": "Reas, Casey",
+   "date": "2007",
+   "kind": "book",
+   "lang": "en",
+   "in": "Cambridge, Mass. : MIT Press",
+   "note": "A programming handbook describes SHRDLU as work exploring the computer's potential for understanding natural language. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/processingprogra0000reas",
+   "thumb": "library/thumbs/L-I7TYU7.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -6033,6 +7037,36 @@
    ]
   },
   {
+   "id": "L-M3ATL5",
+   "title": "Natural language understanding in controlled virtual environments",
+   "author": "Ye, Patrick",
+   "date": "2009",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD thesis, University of Melbourne",
+   "note": "Ye describes Winograd's project as an early attempt at language understanding in a constrained world, reproduces part of the dialogue and uses it as precedent for language understanding in virtual environments. SHRDLU: Section 2.2 'SHRDLU' in the literature review, printed pp. 28-32, PDF pp. 49-53, with a sample dialogue; also printed pp. 21, 42.",
+   "url": "https://hdl.handle.net/11343/35152",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-JWYPTO",
+   "title": "Intentional systems and the artificial intelligence (AI) hermeneutic network: agency and intentionality in expressive computational systems",
+   "author": "Zhu, Jichen",
+   "date": "2009-07-06",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD thesis, Georgia Institute of Technology, School of Literature, Communication, and Culture",
+   "note": "Zhu sets an excerpt of the SHRDLU demo beside ELIZA as an example of how an AI system is read as intentional, within her account of the AI hermeneutic network. SHRDLU: PDF pp. 23-24, with Figure 7, an excerpt from the demo; also PDF p. 10 and references.",
+   "url": "https://hdl.handle.net/1853/34730",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-ACFMX2",
    "title": "第49回竹内郁雄氏インタビュー : どうせやるなら楽しくやるべし(学生フォーラムInter-View)",
    "author": "山本, 祐輔; 川本, 淳平",
@@ -6122,6 +7156,22 @@
    ]
   },
   {
+   "id": "L-PGQKQU",
+   "title": "物理モデル理解と自然言語処理の統合による理科問題の回答(<特集>ロボットは東大に入れるか?)",
+   "author": "Inamura, Tetsunari; Yokono, Hikaru",
+   "date": "2012",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 27(5): 479-482",
+   "doi": "10.11517/jjsai.27.5_479",
+   "note": "Cites SHRDLU, with a figure, as the well-known system answering questions in natural language about a depicted physical scene, given basic vocabulary and grammar, in a paper on answering physics questions. SHRDLU: Section 2.2, with Fig. 2 'SHRDLU', PDF p. 2 (printed p. 480).",
+   "url": "https://doi.org/10.11517/jjsai.27.5_479",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-YN7CEF",
    "title": "Zork on the PDP-10",
    "author": "Maher, Jimmy",
@@ -6163,6 +7213,21 @@
    "url": "https://www.wired.com/2012/10/dead-media-beat-early-artificial-intelligence-projects/",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-5ZRYKN",
+   "title": "Asymmetric Distributional Similarity Measures to Recognize Textual Entailment by Generality",
+   "author": "Pais, Sebastião",
+   "date": "2013",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Doctoral thesis, École Nationale Supérieure des Mines de Paris",
+   "note": "Pais lists SHRDLU among notably successful NLP systems of the 1960s and quotes a description of the blocks world and how the user instructed the system. SHRDLU: PDF p. 21, 5 hits, with footnote 1. Free to read at http://web.archive.org/web/20240425070558if_/https://pastel.hal.science/pastel-00962176/document",
+   "url": "https://pastel.hal.science/pastel-00962176v1",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -6558,6 +7623,21 @@
    ]
   },
   {
+   "id": "L-TCSCO6",
+   "title": "Apprentissage incrémental de modèles de domaines par interaction dialogique",
+   "author": "Letard, Vincent",
+   "date": "2017",
+   "kind": "thesis",
+   "lang": "fr",
+   "in": "Doctoral thesis, Université Paris-Saclay",
+   "note": "Letard reproduces a dialogue with SHRDLU in the context chapter of a thesis on learning domain models through dialogue. SHRDLU: PDF pp. 30-31, in Chapter 1, with the dialogue set out. Free to read at http://web.archive.org/web/20240911095853if_/https://theses.hal.science/tel-01532754/document",
+   "url": "https://theses.hal.science/tel-01532754v1",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-OD5KWI",
    "title": "Artificial intelligence for .net: speech, language, and search",
    "author": "Nishith Pathak",
@@ -6679,6 +7759,36 @@
    ]
   },
   {
+   "id": "L-554IEW",
+   "title": "Inferring beliefs for search and rescue from natural language",
+   "author": "Schurr, Naomi D. (Naomi Danika)",
+   "date": "2018",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Thesis, MIT",
+   "note": "Schurr states that the system is considered an early effort at directing a robot in natural language, and describes its programs for parsing language. SHRDLU: PDF p. 21.",
+   "url": "https://hdl.handle.net/1721.1/120439",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-EHGWTU",
+   "title": "O \"frame problem\": a sensibilidade ao contexto como um desafio para teorias representacionais da mente",
+   "author": "Barth, Carlos Henrique",
+   "date": "2019-02-11",
+   "kind": "thesis",
+   "lang": "pt",
+   "in": "Master's dissertation, Universidade Federal de Minas Gerais",
+   "note": "Barth uses SHRDLU's blocks world as the best-known example of artificial micro-worlds made to measure for programs, in a discussion of the frame problem and the reasons for using micro-universes. SHRDLU: PDF p. 31.",
+   "url": "https://hdl.handle.net/1843/BUOS-BBYFLA",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-7SG6RV",
    "title": "All Data Are Local: Thinking Critically in a Data-Driven Society",
    "author": "Loukissas, Yanni Alexander",
@@ -6689,6 +7799,21 @@
    "note": "In a periodised history of NLP, describes SHRDLU as showing a computer could understand natural language in a highly restricted domain, and says changing the setting or scale dramatically reduced its effectiveness. SHRDLU: Chapter 4, printed pp. 113-114 (PDF pp. 134-135); index entry 'SHRDLU project, 113-114' (PDF p. 265).",
    "url": "https://archive.org/details/mit_press_book_9780262352215",
    "thumb": "library/thumbs/L-7SG6RV.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-56AMQ5",
+   "title": "Grounded language understanding (CS224U 2019)",
+   "author": "Potts, Christopher",
+   "date": "2019",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Stanford University, CS224U course materials",
+   "note": "Slide with a link to Winograd's page and a quoted passage on the catch that only a micro-world of simulated blocks could be discussed. SHRDLU: Slide 'SHRDLU (Winograd 1972)'.",
+   "url": "https://web.stanford.edu/class/cs224u/2019/materials/cs224u-2019-grounding.pdf",
    "tags": [
     "discussion",
     "free to read"
@@ -6802,6 +7927,21 @@
    ]
   },
   {
+   "id": "L-2G2PAX",
+   "title": "Multimodal and Interactive Models for Visually Grounded Language Learning",
+   "author": "Strub, Florian",
+   "date": "2020",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD thesis, Université de Lille",
+   "note": "Strub shows SHRDLU in a figure as a rule-based agent operating in a virtual toy world and states that such agents require an exponentially growing number of rules. SHRDLU: PDF pp. 47-48, with Fig. 2.5; also PDF p. 112. Free to read at http://web.archive.org/web/20240909044502if_/https://theses.hal.science/tel-03018038/document",
+   "url": "https://theses.hal.science/tel-03018038v1",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-76IAKS",
    "title": "SHRDLU",
    "author": "Wikipedia contributors",
@@ -6832,6 +7972,81 @@
    "tags": [
     "discussion",
     "held here"
+   ]
+  },
+  {
+   "id": "L-2K4IOR",
+   "title": "Generalizable Learning for Natural Language Instruction Following on Physical Robots",
+   "author": "Blukis, Valts",
+   "date": "2021-12",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD dissertation, Cornell University",
+   "note": "Blukis describes SHRDLU's dialogue and instruction following and gives the hand-designed mapping from words to grounding targets as its limit for scaling. SHRDLU: PDF p. 31.",
+   "url": "https://hdl.handle.net/1813/110811",
+   "licence": "Attribution-NonCommercial 4.0 International (repository rights statement).",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-QGWX3Z",
+   "title": "The Illusion of Intelligence: Early AI, Rule-based systems, SHRDLU, and rational agents, and my experience coding a simple blocks world",
+   "author": "Dhalla, Adam",
+   "date": "2021-01-29",
+   "kind": "blog",
+   "lang": "en",
+   "in": "Medium",
+   "note": "Subtitle states an account of rule-based systems and the author's own coding of a simple blocks world. The body was not read. SHRDLU: Only the title, byline and name count were read in a browser (11 occurrences); curl returned 403. Classified from the subtitle.",
+   "url": "https://adamdhalla.medium.com/the-illusion-of-intelligence-561ecd3a1f4e",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-IVLLSN",
+   "title": "Grounded language understanding, part 1 (CS224U 2021 handout)",
+   "author": "Potts, Christopher",
+   "date": "2021",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Stanford University, CS224U course slides",
+   "note": "Course section presenting the program within grounded language understanding. The matching lecture is on YouTube at 11:34. SHRDLU: Section titled SHRDLU in the slide navigation; most of the 31 occurrences are that navigation bar.",
+   "url": "https://web.stanford.edu/class/cs224u/2021/slides/cs224u-2021-grounding-part1-handout.pdf",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-7777BB",
+   "title": "Designing a Framework for Conversational Interfaces",
+   "author": "Tellman, Zachary",
+   "date": "2021-12-09",
+   "kind": "blog",
+   "lang": "en",
+   "in": "Microsoft Research (guest post from Semantic Machines)",
+   "note": "Opens with Winograd's paper and the virtual arm, describes work within microworlds as what followed, and uses the program as the starting comparison for conversational agents. SHRDLU: Opening section; the name appears 9 times. Read from the site's JSON record of the page.",
+   "url": "https://www.microsoft.com/en-us/research/articles/designing-a-framework-for-conversational-interfaces/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-G465U7",
+   "title": "COMPOSITIONAL GENERALIZATION IN INSTRUCTION FOLLOWING TASKS",
+   "author": "Dan, Soham",
+   "date": "2022",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD dissertation, University of Pennsylvania",
+   "note": "Dan opens his related work on blocks-world instruction following with Winograd's system as an early example of executing language instructions. SHRDLU: Section 2.2.1 'Instruction Following in Blocks World', PDF pp. 34-35; also PDF pp. 12, 20, 39.",
+   "url": "https://repository.upenn.edu/handle/20.500.14332/59692",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -6876,6 +8091,21 @@
    "url": "https://indiaai.gov.in/article/shrdlu-an-early-natural-language-understanding-computer-program",
    "tags": [
     "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-IGLSRQ",
+   "title": "Grounded Language Understanding | Stanford CS224U Natural Language Understanding | Spring 2021",
+   "author": "Potts, Christopher",
+   "date": "2022-01-06",
+   "kind": "talk",
+   "lang": "en",
+   "in": "YouTube, Stanford Online, 16:28",
+   "note": "Lecture chapter on the program within a lecture on grounded language understanding. SHRDLU: 11:34 to 13:13, from the chapter list in the video description. The point was not played.",
+   "url": "https://www.youtube.com/watch?v=OW7aDflHdG0",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -6958,6 +8188,51 @@
    ]
   },
   {
+   "id": "L-2OZKAZ",
+   "title": "Why can't the parser just be an LLM?",
+   "author": "intfiction.org contributors",
+   "date": "2023-08-24",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Interactive Fiction Community Forum (intfiction.org), topic 64001 (53 posts)",
+   "note": "Gijsbers says ChatGPT reasons worse about coloured blocks than SHRDLU; zarf says the demo failed off its supported commands and points to Wikipedia; others discuss Winograd's Language as a Cognitive Process and a Windows port. SHRDLU: Posts 6, 38, 39, 45, 46, 52; read from the topic's JSON, SHRDLU posts only.",
+   "url": "https://intfiction.org/t/why-cant-the-parser-just-be-an-llm/64001",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-SAME5P",
+   "title": "The Interaction of Artificial Intelligence: How Terry Winograd Designed the SHRDLU Program",
+   "author": "Joseph, Staney",
+   "date": "2023-10-30",
+   "kind": "blog",
+   "lang": "en",
+   "in": "Medium",
+   "note": "Introductory post answering what SHRDLU is. The body was not read. SHRDLU: Only the title, byline, first section heading and name count were read in a browser (15 occurrences); curl returned 403.",
+   "url": "https://medium.com/@staneyjoseph.in/the-interaction-of-artificial-intelligence-how-terry-winograd-designed-the-shrdlu-program-472a7de6d351",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-2YYPDF",
+   "title": "Exploring Grounded Language Systems: Reasoning and Interactive Learning",
+   "author": "Kojima, Noriyuki",
+   "date": "2023-12",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD dissertation, Cornell University",
+   "note": "Kojima names SHRDLU as the pioneering grounded language system and describes how it interprets and responds to commands in its world. SHRDLU: PDF pp. 14, 21.",
+   "url": "https://hdl.handle.net/1813/115704",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-KSUYZT",
    "title": "What is SHRDLU?",
    "author": "Lenovo",
@@ -7006,6 +8281,21 @@
    ]
   },
   {
+   "id": "L-ESZH6H",
+   "title": "A proposta de regulamento para a Inteligência Artificial da Comissão Europeia – enquadramento no direito português",
+   "author": "Silva, José Pedro Dores da",
+   "date": "2023-02-17",
+   "kind": "thesis",
+   "lang": "pt",
+   "in": "Master's dissertation, Universidade do Minho",
+   "note": "A paragraph in a law dissertation's history of AI describes the program's use of syntax, semantics, question answering and dialogue. SHRDLU: PDF p. 25.",
+   "url": "https://hdl.handle.net/1822/93404",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-4DMDKJ",
    "title": "Bootstrapping Developmental AIs: From Simple Competences to Intelligent Human-Compatible AIs",
    "author": "Stefik, Mark; Price, Robert",
@@ -7015,6 +8305,21 @@
    "in": "arXiv:2308.04586",
    "note": "A numbered subsection describes SHRDLU's Blocks World memory model, its grammar and its actions MOVETO, GRASP and UNGRASP, and says it sidestepped the Other Minds, External World and language acquisition problems. SHRDLU: section 4.6.3.1, SHRDLU (1971), PDF p. 72 onward (21 occurrences).",
    "url": "https://arxiv.org/abs/2308.04586",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-O7ZWU4",
+   "title": "Luonnollisen kielen käsittely ja kysymyksiin vastaaminen usein kysytyissä kysymyksissä",
+   "author": "Turunen, Simo",
+   "date": "2023-12-21",
+   "kind": "thesis",
+   "lang": "fi",
+   "in": "Pro gradu thesis, University of Eastern Finland",
+   "note": "Reports Liddy (2001) on SHRDLU: the program used the user's input to move wooden blocks on a table with a robot hand. SHRDLU: PDF p. 10.",
+   "url": "https://erepo.uef.fi/handle/123456789/31125",
    "tags": [
     "discussion",
     "free to read"
@@ -7126,6 +8431,21 @@
    "licence": "Creative Commons Attribution 4.0",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-C4UHYZ",
+   "title": "Democratizing Legal Understanding. A Model for Simplifying Judicial Decisions",
+   "author": "Ferrão, José Manuel Marques",
+   "date": "2024-12",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "Master's thesis, Universidade Nova de Lisboa",
+   "note": "A paragraph with a quotation from a secondary source on SHRDLU's commands and its grammar based on Halliday. SHRDLU: PDF p. 20.",
+   "url": "https://hdl.handle.net/10362/188001",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -7297,6 +8617,21 @@
    "url": "https://cs.brynmawr.edu/Courses/cs373/Fall2025/Slides/03-SHRDLU-SHAKEY.pdf",
    "tags": [
     "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-3EH4LE",
+   "title": "PIDP-10 Systems User's Guide, version 2025.03.03",
+   "author": "Obsolescence Guaranteed",
+   "date": "2025-03-03",
+   "kind": "report",
+   "lang": "en",
+   "in": "obsolescence.dev",
+   "note": "Manual section telling the reader how to run the scripted demonstration (:twdemo) under ITS. It states that only the scripted demo exists, and dates the program to 1969. SHRDLU: Section 'The Ultimate 1970s AI demo: SHRDLU', printed pp. 24-25.",
+   "url": "https://obsolescence.dev/pidp10-sw/PiDP-10_Manual.pdf",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -7505,6 +8840,21 @@
    ]
   },
   {
+   "id": "L-X7UB57",
+   "title": "John Haugeland on the failure of micro-worlds",
+   "author": "Dominus, Mark",
+   "date": "2026-02-05",
+   "kind": "blog",
+   "lang": "en",
+   "in": "The Universe of Discourse (blog.plover.com)",
+   "note": "Quotes Haugeland, Artificial Intelligence: The Very Idea (1985), pp. 185-195, on the micro-world as the program's limit, then says an LLM meets Haugeland's standard of a model of trading and property, with a test asking Claude to pretend to control a blocks world. SHRDLU: Whole post.",
+   "url": "https://blog.plover.com/2026/02/05/",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-ITVRJ2",
    "title": "SHRDLU",
    "author": "Grokipedia",
@@ -7590,6 +8940,21 @@
    "in": "Jakob Nielsen on UX (Substack)",
    "note": "Dates the program to 1972, describes the world model, says its hand-coded knowledge could not scale, and draws a lesson for 2026 about narrow demonstrations. SHRDLU: Section '1972: SHRDLU'.",
    "url": "https://jakobnielsenphd.substack.com/p/ai-history",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-NTQTWY",
+   "title": "Synthesizing Missing Data for Multimodal Models",
+   "author": "Panagopoulou, Artemis",
+   "date": "2026",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "PhD dissertation, University of Pennsylvania",
+   "note": "Panagopoulou reproduces a SHRDLU figure and presents the program as the prototype of Minsky and Papert's Blocks World paradigm. SHRDLU: Figure 2.1 'SHRDLU System Example, from Winograd (1971)', PDF pp. 21-22; listed PDF p. 12.",
+   "url": "https://repository.upenn.edu/handle/20.500.14332/63215",
    "tags": [
     "discussion",
     "free to read"
@@ -7962,16 +9327,30 @@
    ]
   },
   {
-   "id": "L-B7HY6F",
-   "title": "What is AI? Part 6",
-   "author": "Copeland, Jack",
+   "id": "L-JPOL4C",
+   "title": "AI & Robotics, Timeline of Computer History: SHRDLU natural language (1968)",
+   "author": "Computer History Museum",
    "kind": "webpage",
    "lang": "en",
-   "in": "AlanTuring.net",
-   "note": "Describes the blocks world, SHRDLU's arm and questions about stacking pyramids, within an account of the micro-world approach. SHRDLU: Micro-world section; 10 occurrences. Page footer: site maintained by Jack Copeland, all rights reserved.",
-   "url": "https://www.alanturing.net/turing_archive/pages/reference%20articles/what_is_ai/What%20is%20AI06.html",
+   "in": "Computer History Museum, Timeline of Computer History; same entry on /timeline/1968/",
+   "note": "One paragraph contrasting it with ELIZA as combining syntax, meaning and deductive reasoning, with commands to pick up and move blocks, cones and pyramids. SHRDLU: Entry under 1968, with an image captioned as the original screen display.",
+   "url": "https://www.computerhistory.org/timeline/ai-robotics/",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-VTFYQR",
+   "title": "SHRDLU - PDP-10",
+   "author": "Computer History Museum",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Computer History Museum catalogue 102719725, Herbert Stoyan collection on LISP programming, X5687.2010",
+   "note": "Tape gift of Herbert Stoyan. The record presumes it belonged to Guenther Goerz at Erlangen. SHRDLU: Catalogue record for a 0.5-inch magnetic tape; the tape itself is not online.",
+   "url": "https://www.computerhistory.org/collections/catalog/102719725",
+   "tags": [
+    "about",
     "free to read"
    ]
   },
@@ -8047,6 +9426,20 @@
    ]
   },
   {
+   "id": "L-SDOY35",
+   "title": "Introduction (chapter 1), Speech and Language Processing",
+   "author": "Jurafsky, Daniel; Martin, James H.",
+   "kind": "chapter",
+   "lang": "en",
+   "in": "Speech and Language Processing, draft chapter, Stanford LINGUIST 238 course copy",
+   "note": "Textbook passage on the simulated robot among toy blocks accepting commands of unseen complexity. SHRDLU: Section on the history of the field, passage beginning 'The natural language understanding field took off'. Authors and book title from the text of the PDF; page not noted.",
+   "url": "https://web.stanford.edu/class/linguist238/1.pdf",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-BRLO7B",
    "title": "SHRDLU",
    "author": "LLMpedia",
@@ -8072,6 +9465,35 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-Z6425D",
+   "title": "SHRDLU",
+   "author": "Oxford Reference",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "in": "Oxford Reference, Quick Reference entry",
+   "doi": "10.1093/oi/authority.20110803100503675",
+   "note": "Describes the program as working from images from a video camera scanning the scene and carrying out requests with a robotic arm, and derives the name from ETAOIN SHRDLU. SHRDLU: The Quick Reference entry, read in a browser. The source dictionary was not read from the page.",
+   "url": "https://www.oxfordreference.com/display/10.1093/oi/authority.20110803100503675",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-JT5FWL",
+   "title": "Introducing Computers - Concepts, Systems & Applications - Instructors Manual",
+   "author": "R.H. Blissmer",
+   "kind": "book",
+   "lang": "en",
+   "in": "John Wiley & Sons Inc",
+   "note": "A computing textbook gives SHRDLU as completed in 1971 as a thesis project at MIT. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "url": "https://archive.org/details/introducingcompu0000rhbl",
+   "thumb": "library/thumbs/L-JT5FWL.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -8112,6 +9534,20 @@
    "url": "https://www.jfsowa.com/pubs/signproc.htm",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-X6NMIT",
+   "title": "Shrdlu – Knowledge and References",
+   "author": "Taylor & Francis",
+   "kind": "webpage",
+   "lang": "en",
+   "in": "Taylor & Francis Knowledge Centers",
+   "note": "Machine-compiled definition followed by extracts from books. SHRDLU: Whole page. It states it is automatically generated from the publisher's books and journals, and extracts chapters including Plebe and Perconti, The Future of the Artificial Mind (2021). The server sends a 404 status with the content.",
+   "url": "https://taylorandfrancis.com/knowledge/Engineering_and_technology/Artificial_intelligence/Shrdlu",
+   "tags": [
+    "about",
     "free to read"
    ]
   }
