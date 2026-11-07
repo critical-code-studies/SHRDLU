@@ -6013,6 +6013,21 @@
    ]
   },
   {
+   "id": "L-LII2OL",
+   "title": "Spazio informatico",
+   "author": "Roncaglia, Gino",
+   "date": "1995",
+   "kind": "encyclopedia",
+   "lang": "it",
+   "in": "Enciclopedia Italiana, V Appendice (1995), Treccani",
+   "note": "Gives SHRDLU as a classic example of a program interacting with a world of geometric solids; its blocks world and operations were shown only on a monitor, a wholly virtual spatial setting. English gloss: Computer space. SHRDLU: Article body, two passages.",
+   "url": "https://www.treccani.it/enciclopedia/spazio-informatico_(Enciclopedia-Italiana)/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-4S23YW",
    "title": "Computers for beginners",
    "author": "Selkirk, Errol",
@@ -7070,7 +7085,7 @@
    "lang": "de",
    "in": "Inaugural-Dissertation, Humboldt-Universität zu Berlin",
    "doi": "10.18452/15201",
-   "note": "Reads Eliza, Parry, early adventure games and SHRDLU from their source code, for their metaphorical and algorithmic structures. The SHRDLU chapter opens on the name, which it says has no meaning, only a history, citing Winograd. SHRDLU: Chapter 7, 'Ich kann kein nicht-existierendes Ereignis erklären' - SHRDLU, PDF pp. 114-137; abstracts PDF pp. 2-5; further PDF pp. 180-181, 237-238, 242. Also at: https://edoc.hu-berlin.de/18452/15853",
+   "note": "Reads Eliza, Parry, early adventure games and SHRDLU from their source code, for their metaphorical and algorithmic structures. The SHRDLU chapter opens on the name, which it says has no meaning, only a history, citing Winograd. SHRDLU: Chapter 7, 'Ich kann kein nicht-existierendes Ereignis erklären' - SHRDLU, PDF pp. 114-137; abstracts PDF pp. 2-5; further PDF pp. 180-181, 237-238, 242. Also at: https://edoc.hu-berlin.de/server/api/core/bitstreams/6c0434be-2657-476d-9914-ecfeac0d0deb/content, https://edoc.hu-berlin.de/18452/15853",
    "url": "https://doi.org/10.18452/15201",
    "tags": [
     "about",
@@ -8484,6 +8499,21 @@
    ]
   },
   {
+   "id": "L-S33VDM",
+   "title": "Sprachautomaten",
+   "author": "Lobin, Henning",
+   "date": "2017-05-25",
+   "kind": "blog",
+   "lang": "de",
+   "in": "Die Engelbart-Galaxis, SciLogs (Spektrum)",
+   "note": "Presents SHRDLU among 1960s and 1970s dialogue systems: Winograd chose an unpronounceable name, it took instructions by terminal and explained relations in its world, and moving from the blocks world to the real world proved hard. English gloss: Language automata. SHRDLU: Section \"SHRDLU und HAL 9000\".",
+   "url": "https://scilogs.spektrum.de/engelbart-galaxis/sprachautomaten/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-OD5KWI",
    "title": "Artificial intelligence for .net: speech, language, and search",
    "author": "Nishith Pathak",
@@ -8752,7 +8782,7 @@
    "kind": "thesis",
    "lang": "pt",
    "in": "Master's dissertation, Universidade Federal de Minas Gerais",
-   "note": "Barth uses SHRDLU's blocks world as the best-known example of artificial micro-worlds made to measure for programs, in a discussion of the frame problem and the reasons for using micro-universes. SHRDLU: PDF p. 31.",
+   "note": "Barth uses SHRDLU's blocks world as the best-known example of artificial micro-worlds made to measure for programs, in a discussion of the frame problem and the reasons for using micro-universes. SHRDLU: PDF p. 31. Also at: https://repositorio.ufmg.br/server/api/core/bitstreams/952c05b7-aa49-468f-9e56-43c7ddb3703b/content",
    "url": "https://hdl.handle.net/1843/BUOS-BBYFLA",
    "tags": [
     "discussion",
@@ -9274,6 +9304,21 @@
    "url": "https://thegradientpub.substack.com/p/terry-winograd-ai-hci-language-cognition",
    "tags": [
     "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-55KJJ2",
+   "title": "Краткая история NLP, Natural Language Processing",
+   "author": "DanielVyazhev",
+   "date": "2023-01-31",
+   "kind": "blog",
+   "lang": "ru",
+   "in": "Хабр",
+   "note": "Says SHRDLU answered questions and took in new facts about its world, joining complex syntax with meaning within a limited area, and that the approach had pitfalls that blocked further development. English gloss: A brief history of NLP. SHRDLU: History section, 1970s.",
+   "url": "https://habr.com/ru/post/713804",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
