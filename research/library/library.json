@@ -339,9 +339,12 @@
    "in": "Theoretical Issues in Natural Language Processing (TINLAP-1)",
    "note": "Compares Shrdlu's arm and its enablements with a shopper's cart in a plan analysis, then asks whether the plan could survive if Shrdlu's hand were damaged. SHRDLU: PDF pp. 3-4.",
    "url": "https://aclanthology.org/T75-1002/",
-   "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (ACL Anthology statement for materials prior to 2016)",
+   "licence": "CC BY-NC-SA 3.0 (ACL Anthology, materials before 2016)",
+   "file": "library/files/L-5VD2CS.pdf",
+   "source": "https://aclanthology.org/T75-1002.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -354,6 +357,20 @@
    "in": "Thesis, MIT, architecture",
    "note": "In an architecture thesis on automated methods, Fourcade calls SHRDLU the most complete system to date and describes the user talking to a robot that performs simple manipulations. SHRDLU: PDF p. 13.",
    "url": "https://hdl.handle.net/1721.1/73716",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-OBCN37",
+   "title": "Artificial Intelligence, Language and the Study of Knowledge (AI Memo 337)",
+   "author": "Goldstein, Ira; Papert, Seymour",
+   "date": "1975-07",
+   "kind": "report",
+   "lang": "en",
+   "note": "The authors call SHRDLU a tour de force and a benchmark in computer comprehension of natural language. SHRDLU: ERIC copy, IA text file, 13 occurrences; section The SHRDLU Program and the Blocks World. Free to read at https://archive.org/details/micro_IA41153334_0899",
+   "url": "https://hdl.handle.net/1721.1/6238",
    "tags": [
     "discussion",
     "free to read"
@@ -451,6 +468,21 @@
    ]
   },
   {
+   "id": "L-FPYQX6",
+   "title": "Natural-Language Question-Answering Systems",
+   "date": "1976",
+   "kind": "chapter",
+   "lang": "en",
+   "in": "The Use of Computers in Literature Searching and Related Reading (Clinic on Library Applications of Data Processing)",
+   "note": "A section on SHRDLU, a natural-language system written by Winograd in the blocks world, with part of the dialogue. SHRDLU: IA text and index: heading SHRDLU, with a reproduced exchange.",
+   "url": "https://archive.org/details/useofcomputersin00clin",
+   "thumb": "library/thumbs/L-FPYQX6.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-6ZF55J",
    "title": "Quaderni di informatica 06",
    "date": "1976",
@@ -532,9 +564,12 @@
    "in": "American Journal of Computational Linguistics, Microfiche 53",
    "note": "A literature-review subsection describes the simulated robot and micro-world, says the small finite world makes the semantics easier and calls SHRDLU one of the largest and most powerful natural language systems to date. SHRDLU: section 2.2.2, Winograd's SHRDLU, PDF pp. 12-13; contents PDF p. 3.",
    "url": "https://aclanthology.org/J76-3005/",
-   "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (ACL Anthology statement for materials prior to 2016)",
+   "licence": "CC BY-NC-SA 3.0 (ACL Anthology, materials before 2016)",
+   "file": "library/files/L-HQEDID.pdf",
+   "source": "https://aclanthology.org/J76-3005.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -606,9 +641,12 @@
    "in": "American Journal of Computational Linguistics, Microfiche 40",
    "note": "Separately published version of Wilks's Stanford 1974 survey (P-16PSG). Describes the SHRDLU dialogue with a discontinuous sample from Winograd's book, then gives a section of discussion and classes it among first-generation systems. SHRDLU: contents PDF p. 3; section 2, Winograd's Understanding System, from PDF p. 6; section Some discussion of SHRDLU; PDF pp. 7, 10, 13.",
    "url": "https://aclanthology.org/J76-1007/",
-   "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (ACL Anthology statement for materials prior to 2016)",
+   "licence": "CC BY-NC-SA 3.0 (ACL Anthology, materials before 2016)",
+   "file": "library/files/L-4PLBQG.pdf",
+   "source": "https://aclanthology.org/J76-1007.pdf",
    "tags": [
-    "about"
+    "about",
+    "held here"
    ]
   },
   {
@@ -690,7 +728,7 @@
    "kind": "report",
    "lang": "en",
    "in": "Division of Educational Research Services, University of Alberta; ERIC ED152294, 25 pp",
-   "note": "Calls Winograd's blocks world the first significant natural language work; describes the simulated eye-hand system, systemic grammar, combined syntactic-semantic parsing and vocabulary of a few hundred words, for readers in computer-aided instruction. SHRDLU: Natural language section, PDF pp. 6-7. Free to read at https://files.eric.ed.gov/fulltext/ED152294.pdf",
+   "note": "Calls Winograd's blocks world the first significant natural language work; describes the simulated eye-hand system, systemic grammar, combined syntactic-semantic parsing and vocabulary of a few hundred words, for readers in computer-aided instruction. SHRDLU: Natural language section, PDF pp. 6-7. Free to read at https://files.eric.ed.gov/fulltext/ED152294.pdf Also at: https://archive.org/details/micro_IA41153501_0142",
    "url": "https://eric.ed.gov/?id=ED152294",
    "tags": [
     "discussion",
@@ -750,7 +788,7 @@
    "kind": "thesis",
    "lang": "en",
    "in": "PhD thesis, University of Edinburgh",
-   "note": "Reviews Winograd's PROGRAMMAR, the use of Halliday's features and semantic specialists, then compares the author's MCHINE program with SHRDLU on storage, sentence times and conversational ability. It describes computational grammar as an attempt to clean up ideas in SHRDLU and LSNLIS. SHRDLU: Section II.9, 'The SHRDLU System (Winograd)', printed pp. 62-64, PDF pp. 72-74; performance comparison in Section VI.5, printed pp. 360-363, PDF pp. 370-373; further comparisons throughout, 41 hits.",
+   "note": "Reviews Winograd's PROGRAMMAR, the use of Halliday's features and semantic specialists, then compares the author's MCHINE program with SHRDLU on storage, sentence times and conversational ability. It describes computational grammar as an attempt to clean up ideas in SHRDLU and LSNLIS. SHRDLU: Section II.9, 'The SHRDLU System (Winograd)', printed pp. 62-64, PDF pp. 72-74; performance comparison in Section VI.5, printed pp. 360-363, PDF pp. 370-373; further comparisons throughout, 41 hits. Also at: http://hdl.handle.net/1842/8125",
    "url": "https://hdl.handle.net/1842/8125",
    "tags": [
     "about",
@@ -1178,6 +1216,22 @@
    ]
   },
   {
+   "id": "L-AWDLQ7",
+   "title": "NATURAL LANGUAGE UNDERSTANDING",
+   "author": "Avron B. Barr",
+   "date": "1980",
+   "kind": "article",
+   "lang": "en",
+   "in": "AI Magazine 1(1)",
+   "doi": "10.1609/aimag.v1i1.85",
+   "note": "The article describes the SHRDLU system carrying on a dialogue in which it simulated a robot manipulating simple objects. SHRDLU: PDF pp. 2, 3. Free to read at https://archive.org/details/natural-language-understanding-21nj16lzsl",
+   "url": "https://doi.org/10.1609/aimag.v1i1.85",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-WWWDTC",
    "title": "Why Computers Can't Be Intelligent",
    "author": "Dreyfus, Hubert L.",
@@ -1412,6 +1466,20 @@
    "thumb": "library/thumbs/L-B45MRA.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-WE3X5T",
+   "title": "Undervisnings-Systemering: Ett Metodologiskt Bidrag Till Kunskapsområdet Datorstödd Undervisning",
+   "author": "Köhler, Hans",
+   "date": "1981",
+   "kind": "thesis",
+   "lang": "sv",
+   "note": "Köhler calls SHRDLU the most classical example, interpreting natural English within limits, with each word represented as a program. SHRDLU: Name on PDF pp. 71. Printed pages not read.",
+   "url": "https://archive.org/details/IA41545105_0016",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -1822,15 +1890,15 @@
   },
   {
    "id": "L-LUF7JA",
-   "title": "Winograd interviewed in Le Monde Dimanche, 2 January 1983, translated",
+   "title": "Winograd interviewed in Le Monde Dimanche, 2 January 1983, translated (SAILDART WINOGR[W83,JMC])",
    "date": "1983-01-02",
    "kind": "interview",
    "lang": "en",
    "in": "SAILDART, file WINOGR[W83,JMC] (original in Le Monde Dimanche)",
-   "note": "English translation with interpolated comments. Winograd answers that the program was not executed by a robot but simulated on a video screen. SHRDLU: Introductory note and a question on SHRDLU.",
+   "note": "Primary: English translation of a French interview, with an introduction presenting SHRDLU as an innovation in computer science. SHRDLU: Introduction, and four further occurrences.",
    "url": "https://www.saildart.org/WINOGR%5BW83,JMC%5D",
    "tags": [
-    "discussion",
+    "about",
     "free to read"
    ]
   },
@@ -1971,9 +2039,12 @@
    "doi": "10.6028/nbs.ir.83-2687",
    "note": "Lists SHRDLU first among natural language understanding systems, as an interface for manipulating blocks in a simulated Blocks World, with notes on parsing, semantics, reference to previous discourse and the need for user familiarisation. SHRDLU: Table IIa, SHRDLU, printed p. 14, PDF p. 23; text PDF p. 21; list of tables PDF p. 9. OCR damages the name in the table. Free to read at https://files.eric.ed.gov/fulltext/ED244607.pdf Also at: https://doi.org/10.6028/nbs.ir.83-2687, https://archive.org/details/NASA_NTRS_Archive_19830015922",
    "url": "https://eric.ed.gov/?id=ED244607",
-   "licence": "United States government work: NASA Technical Memorandum, National Aeronautics and Space Administration as issuing institution.",
+   "licence": "Public domain (United States government work, NASA)",
+   "file": "library/files/L-IONKLV.pdf",
+   "source": "https://files.eric.ed.gov/fulltext/ED244607.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -2220,9 +2291,12 @@
    "in": "Computational Linguistics 10(2)",
    "note": "Says SHRDLU simulated true reference with co-reference through the THFIND function of PLANNER; a footnote weighs whether it engaged in true reference because the blocks were contained in the system. SHRDLU: PDF p. 6, related approaches and a footnote.",
    "url": "https://aclanthology.org/J84-2002/",
-   "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (ACL Anthology statement for materials prior to 2016)",
+   "licence": "CC BY-NC-SA 3.0 (ACL Anthology, materials before 2016)",
+   "file": "library/files/L-Z3BTO6.pdf",
+   "source": "https://aclanthology.org/J84-2002.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -4141,6 +4215,21 @@
    ]
   },
   {
+   "id": "L-Y5SF7R",
+   "title": "Une Analyse automatique en syntaxe textuelle",
+   "author": "Ladouceur, Jacques",
+   "date": "1988",
+   "kind": "report",
+   "lang": "fr",
+   "in": "Laval University; ERIC ED 317 029",
+   "note": "Ladouceur describes SHRDLU as a program simulating a robot arm that recognises and moves shapes. SHRDLU: Name on PDF pp. 11. Printed pages not read.",
+   "url": "https://archive.org/details/ERIC_ED317029",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-5QMU4V",
    "title": "Aufhebung der Enzyklopädie im Expertensystem?",
    "author": "Matussek, Peter",
@@ -4454,6 +4543,20 @@
    "thumb": "library/thumbs/L-UATOSQ.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-GWHZJ3",
+   "title": "A Natural Language Interface to a Robotic Work Cell",
+   "author": "Monckton, Simon P.",
+   "date": "1989",
+   "kind": "thesis",
+   "lang": "en",
+   "note": "Monckton cites SHRDLU first among work showing the possibility of programming robots in English and returns to it later in the thesis. SHRDLU: Name on PDF pp. 10, 60, 68, 79, 80, 88. Printed pages not read.",
+   "url": "https://archive.org/details/micro_IA41152721_0816",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -5118,6 +5221,20 @@
    ]
   },
   {
+   "id": "L-EVTXLG",
+   "title": "GETS: A Natural Language Generator for Specifications",
+   "author": "Salek, Abul K.",
+   "date": "1991",
+   "kind": "thesis",
+   "lang": "en",
+   "note": "Salek describes the blocks of different sizes, shapes and colours and says the semantic analyser mapped the syntactic tree to MICROPLANNER. SHRDLU: Name on PDF pp. 17, 18. Printed pages not read.",
+   "url": "https://archive.org/details/micro_IA41152719_0078",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-VGFJZH",
    "title": "Desktop theater : automatic generation of expressive animation",
    "author": "Strassmann, Steven Henry",
@@ -5242,9 +5359,12 @@
    "in": "Krisis | Journal for Contemporary Philosophy 12(2): 108-111; review of Harry M. Collins, Artificial Experts (MIT Press, 1990)",
    "note": "Review of Collins opening with a SHRDLU dialogue. Relays Collins: SHRDLU-like activities can be reproduced by computers, while SHRDLU fails badly at an unrestricted imitation test, since a computer would have to take part in our world. SHRDLU: PDF pp. 1-3: opens on a reproduced conversation with SHRDLU. Free to read at https://krisis.eu/article/download/40331/37717",
    "url": "https://krisis.eu/article/view/40331",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-24NSAY.pdf",
+   "source": "https://krisis.eu/article/download/40331/37717",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -5867,6 +5987,19 @@
    "url": "https://archive.org/details/dictionaryofcogn0000stua",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-RFBWOG",
+   "title": "Terry A. Winograd: Computers and Social Values (in Speaking Minds: Interviews with Twenty Eminent Cognitive Scientists)",
+   "author": "Winograd, Terry",
+   "date": "1995",
+   "kind": "interview",
+   "lang": "en",
+   "note": "Primary. Interview with Winograd in Baumgartner and Payr (eds). SHRDLU: IA lending copy, full-text index only. The interviewer asks about the change between SHRDLU and the latest book; a note says the program became famous as SHRDLU.",
+   "url": "https://archive.org/details/speakingmindsint00baum",
+   "tags": [
+    "about"
    ]
   },
   {
@@ -6591,6 +6724,20 @@
    ]
   },
   {
+   "id": "L-YCG42P",
+   "title": "An Interview with Terry A. Winograd",
+   "author": "Vendelø, Morten Thanning",
+   "date": "2002",
+   "kind": "interview",
+   "lang": "en",
+   "note": "Primary: interview with Winograd. SHRDLU: CBS Research Portal record read; the name does not appear on the record page and the interview text was not read here.",
+   "url": "https://research.cbs.dk/en/publications/an-interview-with-terry-a-winograd",
+   "tags": [
+    "about",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-HTLIZH",
    "title": "CSIEC (Computer Simulator in Educational Communication): An Intelligent Web-Based Teaching System for Foreign Language Learning",
    "author": "Jia, Jiyou",
@@ -6705,9 +6852,12 @@
    "doi": "10.4189/shes.1.2_21",
    "note": "Says that for Searle SHRDLU does not understand English, that it had about 200 words and took in systemic grammar whole, and that had it failed Winograd might have found faults in the theory, so that its development tested systemic grammar. SHRDLU: Printed p. 23, PDF p. 3, two paragraphs before section 4. Text layer drops Japanese characters; read from the rendered page.",
    "url": "https://doi.org/10.4189/shes.1.2_21",
-   "licence": "creativecommons.org/licenses/by-nc-nd/4.0",
+   "licence": "CC BY-NC-ND 4.0",
+   "file": "library/files/L-JKK4AK.pdf",
+   "source": "https://www.jstage.jst.go.jp/article/shes/1/2/1_2_2_21/_pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -7701,9 +7851,12 @@
    "doi": "10.4230/oasics.iccsw.2014.19",
    "note": "Places SHRDLU first among text-to-scene systems, with its small vocabulary and basic semantics. SHRDLU: Section 2, PDF p. 2.",
    "url": "https://doi.org/10.4230/oasics.iccsw.2014.19",
-   "licence": "creativecommons.org/licenses/by/3.0",
+   "licence": "CC BY 3.0",
+   "file": "library/files/L-727LPY.pdf",
+   "source": "https://drops.dagstuhl.de/storage/01oasics/oasics-vol043-iccsw2014/OASIcs.ICCSW.2014.19/OASIcs.ICCSW.2014.19.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -7873,10 +8026,13 @@
    "in": "Computational Models of Language Evolution 2, Language Science Press, Berlin",
    "note": "Introduces SHRDLU as an early natural-language program that was fully pre-programmed, so it handled only that part of the language programmed into it, and describes it as programmed as if it were a robot with an eye and arm. SHRDLU: Chapter 1, printed p. 2 (PDF p. 16), four occurrences. Free to read at https://archive.org/details/oapen-20.500.12657-32838",
    "url": "https://langsci-press.org/catalog/book/50",
-   "licence": "Published under the Creative Commons Attribution 4.0 Licence (CC BY 4.0)",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-POVNLD.pdf",
+   "source": "https://archive.org/download/oapen-20.500.12657-32838/603358.pdf",
    "thumb": "library/thumbs/L-POVNLD.jpg",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -8007,9 +8163,12 @@
    "doi": "10.18653/v1/p16-1224",
    "note": "Names a blocks world language game SHRDLURN after Winograd's work; the computer learns language from scratch through interaction with people in a set of block configurations. SHRDLU: PDF pp. 1-2 and throughout (15 occurrences, mostly the game's name SHRDLURN). Free to read at https://aclanthology.org/P16-1224.pdf Also at: https://doi.org/10.18653/v1/p16-1224",
    "url": "https://aclanthology.org/P16-1224/",
-   "licence": "Creative Commons Attribution 4.0 (ACL Anthology statement for materials published in or after 2016)",
+   "licence": "CC BY 4.0 (ACL Anthology, materials from 2016)",
+   "file": "library/files/L-5EOJKV.pdf",
+   "source": "https://aclanthology.org/P16-1224.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -8049,7 +8208,7 @@
    "kind": "magazine",
    "lang": "en",
    "in": "strategy+business",
-   "note": "Profile of Winograd. Reproduces the opening of the dialogue, gives the ETAOIN SHRDLU source of the name, and reports the backlash, quoting Ben Shneiderman that SHRDLU had the illusion of broader capabilities but was restricted to a few words and concepts. SHRDLU: Middle section of the profile, several paragraphs.",
+   "note": "A profile that says Winograd claimed his place by developing SHRDLU and explains the name. SHRDLU: Eight occurrences.",
    "url": "https://www.strategy-business.com/article/Siri-Who-Is-Terry-Winograd",
    "tags": [
     "discussion",
@@ -8097,6 +8256,21 @@
    "doi": "10.48550/arxiv.1706.06551",
    "note": "Describes the small vocabulary, actions and clarification questions, and says all syntax and semantics had to be hard coded, so the system could not learn new concepts or actions. SHRDLU: PDF p. 2.",
    "url": "https://doi.org/10.48550/arxiv.1706.06551",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-KT4ZJV",
+   "title": "Cognitive Program Compiler",
+   "author": "Kunić, Toni",
+   "date": "2017",
+   "kind": "thesis",
+   "lang": "en",
+   "in": "MSc thesis, York University",
+   "note": "Describes the simulated world of 3D shapes, the agent and the natural language interface, in a history of cognitive programs. SHRDLU: PDF pp. 31-32; PDF p. 11.",
+   "url": "http://hdl.handle.net/10315/33611",
    "tags": [
     "discussion",
     "free to read"
@@ -8494,10 +8668,13 @@
    "in": "Open Humanities Press, New Metaphysics series; ISBN 978-1-78542-081-8 (PDF)",
    "note": "Book from Leach's thesis, in the New Metaphysics series. The chapter describes SHRDLU, then turns Ihde's relation types round to speculate on what the program experiences in its interaction with people, as alien phenomenology. SHRDLU: Chapter 4, 'SHRDLU and Bidirectional Postphenomenology', contents PDF p. 8; chapter from PDF p. 146; 273 occurrences. Also at: https://archive.org/details/oapen-20.500.12657-39901",
    "url": "https://library.oapen.org/bitstream/20.500.12657/39901/1/Leach_2020_Machine-Sensation.pdf",
-   "licence": "Creative Commons By Attribution Share Alike license",
+   "licence": "CC BY-SA",
+   "file": "library/files/L-TK56JR.pdf",
+   "source": "https://library.oapen.org/bitstream/20.500.12657/39901/1/Leach_2020_Machine-Sensation.pdf",
    "thumb": "library/thumbs/L-TK56JR.jpg",
    "tags": [
-    "about"
+    "about",
+    "held here"
    ]
   },
   {
@@ -8769,9 +8946,12 @@
    "doi": "10.5802/roia.20",
    "note": "Memoir. After Pitrat presented SHRDLU, Rousselot's doctoral thesis adapted it to French. He says the blocks world was a good find because it removed many general linguistic problems, such as narrative understanding. SHRDLU: PDF p. 3.",
    "url": "https://doi.org/10.5802/roia.20",
-   "licence": "Creative Commons Attribution 4",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-TEYWEK.pdf",
+   "source": "https://roia.centre-mersenne.org/item/10.5802/roia.20.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -8801,9 +8981,12 @@
    "doi": "10.18653/v1/2022.sigdial-1.17",
    "note": "Describes SHRDLU translating user input into procedures to move blocks, as the inspiration for an assembly-instruction robot. SHRDLU: PDF p. 2.",
    "url": "https://doi.org/10.18653/v1/2022.sigdial-1.17",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0 (ACL Anthology, materials from 2016)",
+   "file": "library/files/L-YROJEI.pdf",
+   "source": "https://aclanthology.org/2022.sigdial-1.17.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -8841,16 +9024,16 @@
   },
   {
    "id": "L-ZD6PAL",
-   "title": "Terry Winograd: AI, HCI, Language, and Cognition",
-   "author": "Bashir, Daniel; Winograd, Terry",
+   "title": "Terry Winograd: AI, HCI, Language, and Cognition (The Gradient Podcast, episode 87)",
+   "author": "Bashir, Daniel",
    "date": "2023-08-24",
    "kind": "podcast",
    "lang": "en",
    "in": "The Gradient Podcast, episode 87",
-   "note": "Interview with Winograd; two outline sections cover the program and early responses to it. SHRDLU: 12:26 'SHRDLU and the MIT AI Lab's intellectual roots' and 17:20 'Early responses to SHRDLU: Minsky, Dreyfus, others', from the episode's published outline. Not listened to.",
+   "note": "Primary: Winograd interviewed. The notes list segments on SHRDLU's roots and on responses from Minsky and Dreyfus. SHRDLU: Show notes: timestamps 12:26 SHRDLU and the MIT AI Lab's intellectual roots; 17:20 early responses to SHRDLU. Audio not heard.",
    "url": "https://thegradientpub.substack.com/p/terry-winograd-ai-hci-language-cognition",
    "tags": [
-    "discussion",
+    "about",
     "free to read"
    ]
   },
@@ -8910,9 +9093,12 @@
    "doi": "10.18653/v1/2023.inlg-genchal.4",
    "note": "Opens on SHRDLU: many believed it understood language, and the authors speak of an illusion of intelligence. SHRDLU: Introduction, PDF p. 1.",
    "url": "https://doi.org/10.18653/v1/2023.inlg-genchal.4",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0 (ACL Anthology, materials from 2016)",
+   "file": "library/files/L-N3DJYV.pdf",
+   "source": "https://aclanthology.org/2023.inlg-genchal.4.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -9255,9 +9441,12 @@
    "doi": "10.71235/rmee.19",
    "note": "Lists language understanding and symbol processing among SHRDLU's main characteristics in a history of AI. SHRDLU: PDF p. 3 (printed p. 25), list of SHRDLU's characteristics.",
    "url": "https://doi.org/10.71235/rmee.19",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-II65KL.pdf",
+   "source": "https://rmee.org/index.php/pub/article/download/19/18",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -9271,9 +9460,12 @@
    "doi": "10.30687/jolma/2723-9640/2024/03/014",
    "note": "Treats SHRDLU as one of the first computer science examples of a language game: orders to move blocks, questions, names for new arrangements. SHRDLU: PDF p. 9.",
    "url": "https://doi.org/10.30687/jolma/2723-9640/2024/03/014",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-ZV7EKF.pdf",
+   "source": "https://edizionicafoscari.it/media/pdf/article/the-journal-for-the-philosophy-of-language-mind-an/2024/3/art-10.30687-Jolma-2723-9640-2024-03-014_CBppI6b.pdf",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
@@ -9531,9 +9723,12 @@
    "doi": "10.31224/5802",
    "note": "A review of AI tools with a subsection describing the blocks world and the commands the program took. SHRDLU: Section 2.3 'SHRDLU (1970)', PDF pp. 3-6; PDF p. 33.",
    "url": "https://doi.org/10.31224/5802",
-   "licence": "creativecommons.org/licenses/by/4.0",
+   "licence": "CC BY 4.0",
+   "file": "library/files/L-DAJ774.pdf",
+   "source": "https://engrxiv.org/preprint/download/5802/9667/8083",
    "tags": [
-    "discussion"
+    "discussion",
+    "held here"
    ]
   },
   {
