@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.2 (2026-11-07)
+
+- Bench-kit 1.8.8: star ratings on covers and records; a To read shelf with loans and a reading log
+
 ## 0.2.1 (2026-11-07)
 
 - Bench-kit 1.8.7: a failed read of notes in a Library entry says so
