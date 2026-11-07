@@ -77,7 +77,7 @@
     // translations, reimplementations and SHRDLU-like programs; public, its files held privately until cleared
     implementations: { url: 'implementations/catalogue.json' },
     // the Library tab: research/library/library.json, files in research/library/files (kit/library.js)
-    library: { card: { description: 'Writing and recordings on SHRDLU since 1971: articles, books, theses, news, talks and films, with copies held where they can be.' } },
+    library: { order: 'listed', card: { description: 'Writing and recordings on SHRDLU since 1971: articles, books, theses, news, talks and films, with copies held where they can be.' } },
     examples: { date: 'e.g. 1971-01-15, or 1971', archive: 'e.g. MIT Museum', versions: 'e.g. mit, stanford',
                 refs: 'e.g. [REF: SHI, plnr.182:120]', publisher: 'e.g. MIT Press', finding: 'F2' },
     // the first version is lost, and the tree grows from it
