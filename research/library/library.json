@@ -165,6 +165,21 @@
    ]
   },
   {
+   "id": "L-HNV5RO",
+   "title": "Terry Winograd. Understanding natural language. New York: Academic Press, 1972, $8.95",
+   "author": "Brown, John Seely",
+   "date": "1973-11",
+   "kind": "review",
+   "lang": "en",
+   "in": "Behavioral Science 18(6)",
+   "doi": "10.1002/bs.3830180608",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.1002/bs.3830180608",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
    "id": "L-BKG2PT",
    "title": "ABC films series at MIT",
    "author": "Giguere, Lee",
@@ -177,6 +192,21 @@
    "tags": [
     "mention",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-FNEPL4",
+   "title": "Book Review: Understanding Natural Language",
+   "author": "Johnson-Laird, P. N.",
+   "date": "1973-08",
+   "kind": "review",
+   "lang": "en",
+   "in": "Quarterly Journal of Experimental Psychology",
+   "doi": "10.1080/14640747308400368",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.1080/14640747308400368",
+   "tags": [
+    "record only"
    ]
   },
   {
@@ -221,6 +251,50 @@
    "tags": [
     "mention",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-TUWAQH",
+   "title": "T. Winograd, [1972]: Understanding Natural Language. Edinburgh: Edinburgh University Press. £4.00. Pp. viii+195.",
+   "author": "Boden, Margaret A.",
+   "date": "1974-03",
+   "kind": "review",
+   "lang": "en",
+   "in": "The British Journal for the Philosophy of Science 25(1): 85",
+   "doi": "10.1093/bjps/25.1.85",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.1093/bjps/25.1.85",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-RHQEA4",
+   "title": "Review of \"Understanding Natural Language by Terry Winograd\", Psychology Department, Stanford University, in American Scientist.",
+   "author": "Clark, Herbert H.",
+   "date": "1974-04",
+   "kind": "review",
+   "lang": "en",
+   "in": "ACM SIGART Bulletin",
+   "doi": "10.1145/1045220.1045226",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read. Free to read at https://dl.acm.org/doi/pdf/10.1145/1045220.1045226",
+   "url": "https://doi.org/10.1145/1045220.1045226",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-ZCRSTY",
+   "title": "[Untitled review] Understanding Natural Language, by Terry Winograd",
+   "author": "Clark, Herbert H.",
+   "date": "1974-01",
+   "kind": "review",
+   "lang": "en",
+   "in": "American Scientist 62(1): 118-119",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.jstor.org/stable/27844771",
+   "tags": [
+    "record only"
    ]
   },
   {
@@ -299,6 +373,21 @@
    ]
   },
   {
+   "id": "L-RCAGI2",
+   "title": "Understanding Natural Language",
+   "author": "Thompson, Michael",
+   "date": "1974",
+   "kind": "review",
+   "lang": "en",
+   "in": "Leonardo",
+   "doi": "10.2307/1572810",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.2307/1572810",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
    "id": "L-PMXCRF",
    "title": "Natural Language Understanding Systems Within the A. I. Paradigm: A survey and Some Comparisons",
    "author": "Wilks, Yorick",
@@ -311,6 +400,19 @@
    "tags": [
     "about",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-SUCC3O",
+   "title": "Artificial Intelligence: When Will Computers Understand People?",
+   "author": "Winograd, Terry",
+   "date": "1974-05",
+   "kind": "magazine",
+   "lang": "en",
+   "in": "Psychology Today, vol. 7, no. 12, pp. 73-77, 79",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "tags": [
+    "record only"
    ]
   },
   {
@@ -400,11 +502,11 @@
    "author": "International Joint Conference on Artificial Intelligence (4th : 1975 : Tbilisi, Georgia, USSR)",
    "date": "1975",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Two papers in the proceedings refer to the SHRDLU program: one says that using the grammar Winograd developed in SHRDLU would fix the slots in a noun phrase, the other cites SHRDLU (Winograd, 1972) as usable in support of data-driven programming. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/advancepapersoff0000inte",
    "thumb": "library/thumbs/L-LYSMIV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -517,11 +619,11 @@
    "author": "Jeffrey R. Sampson",
    "date": "1976",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's system as simulating a robot called SHRDLU, with coloured pyramids and cubes whose positions it keeps track of, and gives a block diagram of its major components. The book remarks that the name is apparently taken from a sequence of letters. SHRDLU: printed pp. 198-202, 207 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/isbn_9780387077390",
    "thumb": "library/thumbs/L-PT55VN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -665,6 +767,33 @@
    ]
   },
   {
+   "id": "L-YOIHES",
+   "title": "言語理解の構造",
+   "author": "Winograd, Terry; 淵, 一博 (訳); 田村, 浩一郎 (訳); 白井, 良明 (訳)",
+   "date": "1976",
+   "kind": "book",
+   "lang": "ja",
+   "in": "産業図書",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://ci.nii.ac.jp/ncid/BN0081616X",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-Z65XUB",
+   "title": "Программа, понимающая естественный язык",
+   "author": "Виноград, Т.",
+   "date": "1976",
+   "kind": "book",
+   "lang": "ru",
+   "in": "Москва: Мир",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
    "id": "L-4M3Q2Q",
    "title": "BYTE, November 1977, book description",
    "date": "1977-11",
@@ -718,6 +847,21 @@
    "thumb": "library/thumbs/L-GY6RO7.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-NZMT2E",
+   "title": "Reply to Winograd",
+   "author": "Dresher, B. Elan; Hornstein, Norbert",
+   "date": "1977-12",
+   "kind": "article",
+   "lang": "en",
+   "in": "Cognition",
+   "doi": "10.1016/0010-0277(77)90022-1",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.1016/0010-0277(77)90022-1",
+   "tags": [
+    "record only"
    ]
   },
   {
@@ -857,16 +1001,54 @@
    ]
   },
   {
+   "id": "L-C2YJZJ",
+   "title": "Five lectures on artificial intelligence",
+   "author": "Winograd, Terry",
+   "date": "1977",
+   "kind": "chapter",
+   "lang": "en",
+   "in": "Zampolli, Antonio (ed.), Linguistic Structures Processing. Amsterdam: North-Holland",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-62FACH",
+   "title": "On some contested suppositions of generative linguistics about the scientific study of language: A response to Dresher and Hornstein",
+   "author": "Winograd, Terry",
+   "date": "1977",
+   "kind": "article",
+   "lang": "en",
+   "in": "Cognition",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://purl.stanford.edu/gp848tv1065",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-TIQLEU",
+   "title": "Understanding spoken language",
+   "date": "1978",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/isbn_0444002723",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-NUXYAW",
    "title": "Limits of scientific inquiry",
    "author": "American Academy of Arts and Sciences",
    "date": "1978",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Names Terry Winograd's SHRDLU as one of the programs written around 1970 at MIT that could obey commands in a subset of natural language about a simplified world, and in a list of language-understanding systems in limited domains; another passage says Winograd was among the first to see its limitations. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/limitsofscientif0000amer_b6p1",
    "thumb": "library/thumbs/L-NUXYAW.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -877,10 +1059,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Edinburgh : Edinburgh University Press",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Discusses what SHRDLU does with the request \"To clear off the green block\" and how it interprets it, and says SHRDLU was good at guiding understanding by referring to its blocks world. Also lists SHRDLU (Winograd 1972) among earlier language systems. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/discourseproduct0000dave",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -906,10 +1088,10 @@
    "kind": "book",
    "lang": "en",
    "in": "Hillsdale, N.J. : L. Erlbaum Associates ; New York : distributed by Halsted Press",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Has a section on Winograd (SHRDLU), calling it well publicized. It describes world knowledge as limited to a blocks world in which SHRDLU simulated robotic manipulation of blocks, and says Winograd presented it as based on procedural representation. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/processofquestio0000lehn",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -948,11 +1130,11 @@
    "author": "None",
    "date": "1978",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Uses SHRDLU as the worked example of a program Winograd wrote to test a theory of natural language understanding, and says the program can be seen in action answering questions and executing commands. SHRDLU: printed pp. 13-14 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/encyclopaediaofe0000unse",
    "thumb": "library/thumbs/L-EIIH3Y.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -999,6 +1181,19 @@
    ]
   },
   {
+   "id": "L-UIZOEN",
+   "title": "Computers in language research: formal methods",
+   "date": "1979",
+   "kind": "book",
+   "lang": "en",
+   "in": "[2514 GC] The Hague : Mouton",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/computersinlangu0000unse_d4g0",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-CVVPNC",
    "title": "Financial Times, 1979, article mentioning Winograd's programme",
    "date": "1979",
@@ -1024,6 +1219,19 @@
    "tags": [
     "mention",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-YG7O6Z",
+   "title": "Philosophical perspectives in artificial intelligence",
+   "date": "1979",
+   "kind": "book",
+   "lang": "en",
+   "in": "Atlantic Highlands, N.J. : Humanities Press",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/philosophicalper1979unse",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -1209,11 +1417,11 @@
    "author": "Simon, Herbert A. (Herbert Alexander)",
    "date": "1979",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says a point about language understanding is captured very well by Winograd's (1972) SHRDLU program, which interprets statements and questions in English; the index lists \"SHRDLU: language understanding by\" at p. 459. SHRDLU: printed p. 459 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/modelsofthought0000simo_o9o9",
    "thumb": "library/thumbs/L-XKJBGN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1284,11 +1492,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Harvester Wheatsheaf",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says. Also at: https://archive.org/details/computationalgra0000ritc",
+   "note": "Has a section 2.10, \"The SHRDLU System\", introducing the program (Winograd 1972) as one of the best known, and notes that the written description of SHRDLU emphasises certain features of its grammar. SHRDLU: Internet Archive full-text passages; pages not obtained. Also at: https://archive.org/details/computationalgra0000ritc",
    "url": "https://archive.org/details/computationalgra0000grae",
    "thumb": "library/thumbs/L-5LADKK.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1297,10 +1505,10 @@
    "author": "Marcus, Mitchell P.",
    "date": "1980",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Compares the coverage of the proposed grammar with the LUNAR and SHRDLU grammars, and calls SHRDLU [Winograd 71] the first system to interleave syntactic and semantic analysis, calling incrementally for semantic analysis. SHRDLU: index lines pp. 225-226, 229-231; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/theoryofsyntacti0000marc",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1402,11 +1610,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Ithaca, N.Y. : Cornell University Press",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says. Also at: https://archive.org/details/mindsmechanismph0000bode",
+   "note": "Uses Winograd's SHRDLU as an illustration: it could parse \"and\" and \"but\" correctly, and has a large number of mini-programs; the author says Winograd did not have to tell SHRDLU precisely how to pick up the big red block. SHRDLU: Internet Archive full-text passages; pages not obtained. Also at: https://archive.org/details/mindsmechanismph0000bode",
    "url": "https://archive.org/details/mindsmechanismsp0000bode",
    "thumb": "library/thumbs/L-TW3XAC.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1430,11 +1638,11 @@
    "author": "Fishman, Katharine Davis",
    "date": "1981",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU a flamboyant program whose conversations about block-building exhibited a Talmudic complexity, reproduces an exchange (\"Yes, the green pyramid\"), and says its brilliance was confined to its small blocks world. SHRDLU: printed pp. 353-354.",
    "url": "https://archive.org/details/essentialpopeben0000bene",
    "thumb": "library/thumbs/L-76M4V3.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1520,11 +1728,11 @@
    "author": "Narasimhan, Rangaswamy",
    "date": "1981",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU, due to Winograd [1972], as designed to cope with behaviour in a toy world of shapes that can be configured in several ways, and says it can simulate the acts of moving the blocks. SHRDLU: printed pp. 154-155 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/modellinglanguag0000nara",
    "thumb": "library/thumbs/L-L6XV4Q.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1655,6 +1863,32 @@
    ]
   },
   {
+   "id": "L-HIDJ4S",
+   "title": "Strategies for natural language processing",
+   "date": "1982",
+   "kind": "book",
+   "lang": "en",
+   "in": "Hillsdale, N.J. : L. Erlbaum Associates",
+   "note": "The Internet Archive's full-text search finds the name in 33 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/strategiesfornat0001unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-2LEY7K",
+   "title": "Thought and object: essays on intentionality",
+   "date": "1982",
+   "kind": "book",
+   "lang": "en",
+   "in": "Oxford : Clarendon Press ; New York : Oxford University Press",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/thoughtobjectess0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-E7JRCB",
    "title": "The Handbook of artificial intelligence, volume 2",
    "author": "Barr, Avron; Feigenbaum, Edward A. (Edward Albert)",
@@ -1737,11 +1971,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Presents Winograd's SHRDLU, developed in the early 1970s, as a simulated robot with a world of blocks, and gives extracts from a dialogue with SHRDLU taken from Winograd's account, including its handling of \"the pyramid\" when there are three pyramids. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computersciencem00gold",
    "thumb": "library/thumbs/L-SIDESN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1765,11 +1999,11 @@
    "author": "Hanson, Dirk",
    "date": "1982",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU, written by Terry Winograd, then of MIT, reproduces part of a dialogue (\"robot: The box\"), and comments that it is a remarkable work with a certain level of ability. Notes say excerpts appear in Dreyfus. SHRDLU: printed pp. 316-317 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/newalchemistssil00hansrich",
    "thumb": "library/thumbs/L-XTZAFY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1823,11 +2057,11 @@
    "author": "None",
    "date": "1982",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's (1972) system as involving a robot (SHRDLU) that responded to written natural language inputs by moving blocks, and says it could handle nested questions and display an impressive grasp of natural language. SHRDLU: printed p. 69 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/microcomputersin0000unse",
    "thumb": "library/thumbs/L-RCPM6T.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1934,6 +2168,17 @@
    ]
   },
   {
+   "id": "L-ID5L34",
+   "title": "Parsing natural language",
+   "date": "1983",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/parsingnaturalla0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-LUF7JA",
    "title": "Winograd interviewed in Le Monde Dimanche, 2 January 1983, translated (SAILDART WINOGR[W83,JMC])",
    "date": "1983-01-02",
@@ -1968,11 +2213,11 @@
    "author": "Coulter, Jeff",
    "date": "1983",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Lists Winograd's SHRDLU with Anderson's ACT, Weizenbaum's ELIZA and Bobrow's STUDENT as programs it will not go into, with a footnote citing Understanding Natural Language. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/rethinkingcognit0000coul",
    "thumb": "library/thumbs/L-ORNRUI.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -1996,11 +2241,11 @@
    "author": "Curran, Susan",
    "date": "1983",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a program that handles the manipulation of shapes in three dimensions and contrasts it with ELIZA, saying that asking SHRDLU what the weather is like shows its abilities are strictly limited. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/penguincomputing0000curr",
    "thumb": "library/thumbs/L-VBO3IZ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2009,11 +2254,11 @@
    "author": "Dyer, Michael George",
    "date": "1983",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Cites SHRDLU [Winograd, 1972] and MARGIE [Schank, 1975] as representatives of two earlier approaches to natural language processing, with a sentence on how SHRDLU represented meaning, using \"Pick up the red pyramid on a blue block\". SHRDLU: printed p. 11 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/indepthunderstan00dyer",
    "thumb": "library/thumbs/L-UN7O2P.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2037,11 +2282,11 @@
    "author": "Frude, Neil",
    "date": "1983",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "note": "Presents Terry Winograd's SHRDLU as a program inhabiting a limited conversational world, and says a number of other comprehension programs followed it. SHRDLU: printed pp. 48-52 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/intimatemachinec00frud",
    "thumb": "library/thumbs/L-DZ4CIJ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2091,6 +2336,18 @@
    "tags": [
     "discussion"
    ]
+  },
+  {
+   "id": "L-HSK6OP",
+   "title": "Microtechnology in special education",
+   "author": "Rostron, Andrew",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/microtechnologyi0000rost_f3f5",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1983"
   },
   {
    "id": "L-HFUTM6",
@@ -2211,6 +2468,17 @@
    ]
   },
   {
+   "id": "L-T3NPD7",
+   "title": "Interactive programming environments",
+   "date": "1984",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/interactiveprogr0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-F4VIQ5",
    "title": "Mi Computer, vol. 6, Aplicaciones/Robótica",
    "date": "1984",
@@ -2267,6 +2535,17 @@
    ]
   },
   {
+   "id": "L-5QFBO3",
+   "title": "Reason at work: introductory readings in philosophy",
+   "date": "1984",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/reasonatworkintr0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-VV736E",
    "title": "Un reto para Europa : cómo acabar con el paro",
    "author": "Albert, Michel",
@@ -2287,11 +2566,11 @@
    "author": "Aleksander, Igor,Burnett, Piers",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU the best-known program of its kind, the invention of Terry Winograd, developed in the early 1970s, and describes the problems such programs tackle and how, including that a program like SHRDLU, which manipulates shapes, will also know about unstable positions. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/reinventingmanro00alekrich",
    "thumb": "library/thumbs/L-XQ67M5.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2300,11 +2579,11 @@
    "author": "Begg, Vivienne",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU, devised by Winograd (see Chapter 10), used a toy world of blocks, and that the blocks world is a table top for which the program was designed. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/developingexpert0000begg_y4c4",
    "thumb": "library/thumbs/L-4VG5F4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2313,11 +2592,11 @@
    "author": "Bernstein, Jeremy",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd had completed SHRDLU, the program that carries out commands, and that in it the machine always guesses a reading of \"sitting in the box\"; another passage calls it a program even Winograd could not keep track of. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/threedegreesabov0000bern",
    "thumb": "library/thumbs/L-WC46IV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2387,11 +2666,11 @@
    "author": "Curran, Susan",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a program that handles the manipulation of shapes, says what it does when given a natural-language command, and contrasts how ELIZA and SHRDLU can be said to understand their worlds. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/overcomingcomput0000curr",
    "thumb": "library/thumbs/L-UKIAZV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2461,11 +2740,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice/Hall International",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Has a section titled \"SHRDLU - understanding a tiny world\" saying the program was developed by Terry Winograd at MIT to show that many things can be done in a limited world, with a sample dialog, a remark on LISP, and a reference to an explanation by Winograd. SHRDLU: printed pp. 132-134 (contents and index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/artofcomputercon00gain",
    "thumb": "library/thumbs/L-WQWBRR.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2504,11 +2783,11 @@
    "author": "Higgins, John, 1939 April 14-",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Calls Winograd's SHRDLU a classic program in its field, which knew about a table-top world, and treats it in Chapter 3.6 as taking natural language understanding a step further than earlier work; it gives the 1972 book as the publication. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computersinlangu0000higg",
    "thumb": "library/thumbs/L-SBESDM.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2562,11 +2841,11 @@
    "author": "O'Shea, Tim,Eisenstadt, Marc",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Has a section on SHRDLU, saying the 1970 program (Winograd, 1972) had an overwhelming performance, with a sample dialogue (e.g. \"what does the box contain?\"), and notes its parsing module was written in a particular language. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell00oshe",
    "thumb": "library/thumbs/L-B3MSF2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2598,6 +2877,18 @@
    "tags": [
     "discussion"
    ]
+  },
+  {
+   "id": "L-J376U2",
+   "title": "The Cognitive Computer on Language, Learning, and Artificial Intelligence",
+   "author": "Roger C. Schank",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/bwb_S0-BQW-275",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1984"
   },
   {
    "id": "L-UXIGCS",
@@ -2635,11 +2926,11 @@
    "author": "Schank, Roger C.",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Says the program created by Terry Winograd in the early 1970s, called SHRDLU, manipulated blocks by responding to English commands, and that one of its most impressive aspects was that it could say why it had performed an action. SHRDLU: printed pp. 60-61 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/cognitivecompute0000scha",
    "thumb": "library/thumbs/L-XCKAVX.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2996,11 +3287,11 @@
    "author": "Brachman, Ronald J.,Levesque, Hector J.",
    "date": "1985",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "States that many programs, including Winograd's SHRDLU, regard the history of their world as a sequence of states. SHRDLU: index lines pp. 29, 72-76; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/readingsinknowle00brac",
    "thumb": "library/thumbs/L-BBMFWX.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3009,11 +3300,11 @@
    "author": "Clarke, David D.,Crossland, Jill",
    "date": "1985",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Introduces SHRDLU as a program written by Terry Winograd on computerized understanding of natural language, with a figure, \"Talking to SHRDLU\", reproducing a dialogue from Winograd 1972 with commentary. SHRDLU: printed pp. 92-93 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/actionsystemsint0000clar",
    "thumb": "library/thumbs/L-SRR6ZC.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3069,11 +3360,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Milton Keynes [Buckinghamshire] ; Philadelphia : Open University Press",
-   "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"Winograd's SHRDLU\" covering the blocks world, the three modules of the program, and an evaluation of SHRDLU, and says Winograd's account of the program caused a tremendous stir. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/languageundersta0000gree_b4m0",
    "thumb": "library/thumbs/L-DCSWQS.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3084,11 +3375,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Minneapolis : University of Minnesota Press",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Calls Winograd's SHRDLU (1972) a much discussed natural language comprehension program that manipulates blocks, quotes an exchange from Churchland, and notes the author's view that both ELIZA and SHRDLU could pass Turing-type tests. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/mentalitymachine00gund",
    "thumb": "library/thumbs/L-D3BB23.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3099,11 +3390,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Cambridge [Cambridgeshire] ; New York : Cambridge University Press",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Gives SHRDLU (Winograd, 1976) as Example 2, one of the most famous natural language programs, with dialogue, and reports criticisms of it, including criticisms Winograd himself made. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000hand",
    "thumb": "library/thumbs/L-WZ4NH2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3127,11 +3418,11 @@
    "author": "Hunt, V. Daniel",
    "date": "1985",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a natural language program at MIT devised by Terry Winograd to interface with a robot, and as one of the important early natural language processing systems and a complete system, with a table of its components. SHRDLU: index lines pp. 36, 271-272; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/smartrobotshandb0000hunt",
    "thumb": "library/thumbs/L-HP5HVT.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3157,11 +3448,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Plenum Press",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes the SHRDLU model of Winograd (1972) as more interactive in its parsing, and the user commanding and questioning SHRDLU about blocks and a robot arm. Notes Dreyfus and Winograd himself noted serious shortcomings in SHRDLU. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/understandinglan0000moyn",
    "thumb": "library/thumbs/L-PP72TE.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3172,11 +3463,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Princeton, N.J. : Petrocelli Books",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Presents SHRDLU, a system developed by Terry Winograd at MIT around 1970, as a system for dynamic microworlds that responds to commands, and prints an actual conversation with it (Listing 7.5) with images of the blocks microworld. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/applicationsinar0000unse",
    "thumb": "library/thumbs/L-3327YF.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3202,12 +3493,24 @@
    "kind": "book",
    "lang": "en",
    "in": "New York, N.Y. : Baen Enterprises : Distributed by Simon & Schuster",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU dialogue (\"Can the table pick up blocks?\" \"No.\"), says SHRDLU always understood what it was doing within its world of coloured blocks, and says it was written as a PhD project by Terry Winograd at MIT. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000peat",
    "thumb": "library/thumbs/L-YYHXKF.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
+  },
+  {
+   "id": "L-TUAZVK",
+   "title": "Into the heart of the mind: an American quest for artificial intelligence",
+   "author": "Rose, Frank",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/intoheartofminda0000rose",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1985"
   },
   {
    "id": "L-C7IN5O",
@@ -3254,6 +3557,28 @@
    ]
   },
   {
+   "id": "L-TA45QM",
+   "title": "Artificial intelligence: principles and applications",
+   "date": "1986",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/artificialintell0000unse_r3z4",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-NTNKEY",
+   "title": "Computers in English language teaching and research: selected papers from the 1984 Lancaster symposium 'Computers in English language education and research'",
+   "date": "1986",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/computersinengli0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-3JOP6W",
    "title": "Elfish for beginners",
    "date": "1986-12",
@@ -3265,6 +3590,28 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-K6TRYJ",
+   "title": "Handbook of perception and human performance",
+   "date": "1986",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofpercep0002unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-FZ544C",
+   "title": "Industrial robotics: technology, programming, and applications",
+   "date": "1986",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/industrialroboti0000unse",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -3338,6 +3685,17 @@
    ]
   },
   {
+   "id": "L-CRCXW2",
+   "title": "Teaching second language reading for academic purposes",
+   "date": "1986",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/teachingsecondla0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-NR5NM2",
    "title": "Reference and the resolution of local syntactic ambiguity: the effect of context during human sentence processing",
    "author": "Altmann, Gerald T.M.",
@@ -3390,11 +3748,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Chichester, West Sussex, England : E. Horwood ; New York : Halsted Press",
-   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU (Winograd, 1972) as having an environment of blocks, and reproduces a dialogue including \"Pick up the pyramid\" answered by \"I don't understand which pyramid you mean\". SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/fifthgenerationc0000bish",
    "thumb": "library/thumbs/L-INWWNZ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3435,11 +3793,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Gordon and Breach Science Publishers",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"Winograd and SHRDLU\" contrasting it with ELIZA, which has little data base and no world; SHRDLU has a world of coloured blocks, is a robot represented in a computer, and uses augmented transition nets. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000geor",
    "thumb": "library/thumbs/L-CKYZDS.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3448,11 +3806,11 @@
    "author": "Hall, Harrison;Bowie, Norman E.",
    "date": "1986",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Discusses an exchange between Terry Winograd's SHRDLU and its interlocutor, says SHRDLU is a program living in a blocks world, notes that one reply is canned because Winograd gave it the sentence to print, and groups SHRDLU with ELIZA in an argument. SHRDLU: printed p. 9 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/traditionofphilo0000hall",
    "thumb": "library/thumbs/L-DVZ3D2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3463,11 +3821,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Toronto ; New York : Bantam Books",
-   "note": "The Internet Archive's full-text search finds the name in 23 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU the progenitor of the book's program, finished in 1971 by Terry Winograd, and says what SHRDLU could reply; the book also has a section headed \"SHRDLU Conversation\". SHRDLU: printed p. 84 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/exploringartific00hart",
    "thumb": "library/thumbs/L-RZMJRS.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3566,11 +3924,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Texas Instruments",
-   "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU, named from letters of the alphabet, was developed in 1971 by Terry Winograd at MIT, works in an imaginary blocks world, interprets the user's requests, and could conduct English conversations about the blocks. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/understandingart0000radi",
    "thumb": "library/thumbs/L-BYSFIM.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3579,11 +3937,11 @@
    "author": "Richard M. Sorrentino,E. Tory Higgins",
    "date": "1986",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "Cites Winograd's (1972) SHRDLU as describing the picking up of a box and knowing a fact about it first. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/isbn_0898626676",
    "thumb": "library/thumbs/L-DFABYH.jpg",
    "tags": [
-    "named in the text"
+    "mention"
    ]
   },
   {
@@ -3762,6 +4120,17 @@
    ]
   },
   {
+   "id": "L-YWP5HW",
+   "title": "Organizations, personnel, and decision making",
+   "date": "1987",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/organizationsper0002unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-L7WLRD",
    "title": "Page 6, no. 30, November 1987, article on conversation programs",
    "date": "1987-11",
@@ -3825,12 +4194,24 @@
    "kind": "book",
    "lang": "en",
    "in": "Berlin ; New York : Springer-Verlag",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Treats SHRDLU as a system that simulates a robot manipulator, in which commands call for goals and a geometric path planner uses a geometric model of the workspace; cites Winston 1977 for the program. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/unobstructedshor0000akma",
    "thumb": "library/thumbs/L-KAVKQ2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
+  },
+  {
+   "id": "L-C5GJDX",
+   "title": "Thinking machines: a search for artificial intelligence",
+   "author": "Aleksander, Igor",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/thinkingmachines0000alek_d0v6",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1987"
   },
   {
    "id": "L-4PH4D7",
@@ -3838,11 +4219,11 @@
    "author": "Aleksander, Igor",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's program SHRDLU as designed to manipulate a block world, and says the difficulty with methods used by programs like it is that they let machines present a misleading appearance. Index lists \"SHRDLU block world\" at pp. 91-95. SHRDLU: printed pp. 91-95 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/thinkingmachines0000alek",
    "thumb": "library/thumbs/L-4PH4D7.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3851,11 +4232,11 @@
    "author": "Arbib, Michael A",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Acknowledges a debt to Terry Winograd's SHRDLU system (1972) and its dialogue between a person and a computer. SHRDLU: printed p. 230 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/fromschematheory0000arbi",
    "thumb": "library/thumbs/L-EAPH6F.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3936,6 +4317,19 @@
    ]
   },
   {
+   "id": "L-XTRVQI",
+   "title": "Mental models as representations of discourse and text",
+   "author": "Garnham, Alan",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/mentalmodelsasre00garn",
+   "thumb": "library/thumbs/L-XTRVQI.jpg",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1987"
+  },
+  {
    "id": "L-CFTAO5",
    "title": "Artificial intelligence : an introduction",
    "author": "Garnham, Alan, 1954-",
@@ -3956,11 +4350,11 @@
    "author": "Grimson, William Eric Leifur,Patil, Ramesh S,Massachusetts Institute of Technology. Artificial Intelligence Laboratory,Massachusetts Institute of Technology. Laboratory for Computer Science,Massachusetts Institute of Technology. Center for Advanced Engineering Study. Seminar Office",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU was made famous at MIT for block assembly tasks, and that the Findspace problem in Winograd's SHRDLU was considered nearly intractable; also cites it as a system from the late 1960s and early 1970s that could interact in English. SHRDLU: index lines pp. 160, 285-286; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/aiin1980sbeyondm00grim",
    "thumb": "library/thumbs/L-3QH2I4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -3999,10 +4393,10 @@
    "author": "Longuet-Higgins, H. C",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Describes the artificial-intelligentsia headed by Terry Winograd with his program SHRDLU, in which a computational account of language appeared for the first time, and says its grammatical knowledge was language-specific. Index lists the program at pp. 30-31, 36, 191-198. SHRDLU: printed pp. 30-31, 36, 191-198 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/mentalprocessess0000long",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4042,11 +4436,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Leicester, UK : British Psychological Society",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU, written by Terry Winograd in 1972, one of the best known language-understanding programs, and argues that SHRDLU actually knows nothing about blocks, tables, boxes or pyramids. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/psifipsychologic0000ridg",
    "thumb": "library/thumbs/L-AP4QVB.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4129,11 +4523,11 @@
    "author": "Tanimoto, S. (Steven)",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Index lines list \"SHRDLU: Winograd\" with page numbers (373 in one printing, 401 in another). SHRDLU: printed p. 373 or 401 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/elementsofartifi00stan",
    "thumb": "library/thumbs/L-WIOYFN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4188,11 +4582,11 @@
    "author": "Whitelock, P",
    "date": "1987",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "A speaker's overhead is headed \"SHRDLU revisited\" (Winograd 1972), and the speaker says what was wrong with the way something was done in SHRDLU was that it was the only mechanism. SHRDLU: index lines pp. 201, 211; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/linguistictheory00whit",
    "thumb": "library/thumbs/L-74VARN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4225,6 +4619,17 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-6QUHDP",
+   "title": "Aspects of artificial intelligence",
+   "date": "1988",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/aspectsofartific0000unse",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -4269,6 +4674,30 @@
    ]
   },
   {
+   "id": "L-LUN2ER",
+   "title": "Future Earth: exploring the frontiers of science",
+   "date": "1988",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/futureearthexplo0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-NFSP3N",
+   "title": "Human-computer interaction: psychonomic aspects",
+   "date": "1988",
+   "kind": "book",
+   "lang": "en",
+   "in": "Berlin ; New York : Springer-Verlag",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/humancomputerint0000unse_c1g4",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-L5BNJT",
    "title": "Intelligiochi column, MCmicrocomputer, n. 77, settembre 1988",
    "date": "1988-09",
@@ -4294,6 +4723,17 @@
    "thumb": "library/thumbs/L-ZAUHBY.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-YDAXUR",
+   "title": "The Artificial intelligence debate: false starts, real foundations",
+   "date": "1988",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/artificialintell0000unse_j4o6",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -4365,11 +4805,11 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; Baltimore : E. Arnold",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU dialogue (pick up a big red block, grasp the pyramid, \"How many blocks are in the box?\" \"Four of them.\") and calls it a highly influential system developed by Terry Winograd of MIT. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/advancedinformat0000cott",
    "thumb": "library/thumbs/L-PUVW3X.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4395,11 +4835,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : W.H. Freeman",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU exchange (\"Which cube is sitting on the table?\"), describes it as a program created by Terry Winograd in 1970 at MIT, and says it is above ELIZA and RACTER because it understands its world of coloured blocks in terms of relations. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/armchairuniverse0000dewd_x2e7",
    "thumb": "library/thumbs/L-I5R5BT.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4470,11 +4910,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : St. Martin's Press",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Discusses SHRDLU, Procedures and the Mini-World in a section, says Winograd is candid about what SHRDLU cannot handle, and that one should not be overly impressed by it. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/mindlanguagemach0000john",
    "thumb": "library/thumbs/L-RODF5R.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4558,11 +4998,11 @@
    "author": "None",
    "date": "1988",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
+   "note": "Has an entry on SHRDLU, saying Winograd's system provided a natural-language interface, that it maintained information about its actions, and that it is discussed with LUNAR as an early natural-language project. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/internationalenc0001unse",
    "thumb": "library/thumbs/L-CIDNKN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4587,11 +5027,11 @@
    "author": "Robert L. Solso",
    "date": "1988",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Has a boxed feature on SHRDLU, saying Stanford's Terry Winograd devised and named it while at MIT, reproducing a dialogue between Winograd and SHRDLU, and calling it a pioneering program that broke new ground in developing understanding machines. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/isbn_0205114121",
    "thumb": "library/thumbs/L-HBWEGA.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4615,11 +5055,11 @@
    "author": "Schaffer, Cullen",
    "date": "1988",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "note": "Presents Terry Winograd's SHRDLU as a famous example of a program that understands English statements in a blocks world, says Winograd gave it a general understanding of the world, and reproduces a typed dialogue (\"Do you mean the big one or the small one?\"). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/principlesofcomp0000scha",
    "thumb": "library/thumbs/L-J2WFFA.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4628,11 +5068,11 @@
    "author": "Smith, Frank",
    "date": "1988",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd designed a renowned program called SHRDLU that enabled computers to make statements and respond. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/understandingrea0004smit",
    "thumb": "library/thumbs/L-S7UR4F.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4643,10 +5083,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Gordon and Breach",
-   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
+   "note": "Has a section on SHRDLU among natural language understanding systems with ELIZA and PARRY, saying Winograd (1972) chose a toy domain so that SHRDLU could possess a complete model of the elements, and noting its limitations. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computerpsychoth0000wagm",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4708,6 +5148,40 @@
    ]
   },
   {
+   "id": "L-U675TG",
+   "title": "On the Frontiers of science: how scientists see our future",
+   "date": "1989",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/onfrontiersofsci0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-BOMANG",
+   "title": "Teaching languages with computers: the state of the art",
+   "date": "1989",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/teachinglanguage0000unse_g3h2",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-ON3KZC",
+   "title": "Paradigms lost: images of man in the mirror of science",
+   "author": "Casti, J. L",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/paradigmslostima00cast",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1989"
+  },
+  {
    "id": "L-X5Y6LO",
    "title": "Paradigms lost: tackling the unanswered mysteries of modern science",
    "author": "Casti, John L.",
@@ -4728,11 +5202,11 @@
    "author": "Chabris, Christopher F",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd completed SHRDLU for his doctoral dissertation at MIT, that in a style reminiscent of ELIZA it could converse with a human but keeps up with the user, and calls it a sort of Turing Test restricted to blocks. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000chab_j5y6",
    "thumb": "library/thumbs/L-TZGKA4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4741,11 +5215,11 @@
    "author": "Clark, Andy",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's (1972) SHRDLU as a program that simulated a robot acting in a blocks world, and says Winograd produced its alleged competence by providing it with a model of the items in the domain. SHRDLU: printed pp. 25-27 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/microcognitionph0000clar_d0l7",
    "thumb": "library/thumbs/L-XH5DTH.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4769,11 +5243,11 @@
    "author": "Forester, Tom, ed.",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a program that simulated a robot arm on a TV screen, quotes Winograd's cautious claim that it was a \"computer program which understands\", and says Winograd gave up generalising its techniques. SHRDLU: printed pp. 131, 150 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/computersinhuman00fore",
    "thumb": "library/thumbs/L-MYAFG4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4782,11 +5256,11 @@
    "author": "Garfield, Jay L.",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes the simulated robot SHRDLU described by Winograd (1972) and how it resolved an ambiguity: on finding a definite noun phrase such as \"the blue pyramid\" it would first look in a likely place, then elsewhere. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/modularityinknow00garf",
    "thumb": "library/thumbs/L-YONUGE.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4797,11 +5271,11 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Routledge",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd's (1972) SHRDLU took a more sophisticated approach to combining syntactic and semantic analysis with knowledge of the world, but that its handling of ambiguity is unsuccessful, since SHRDLU takes the first reading found. SHRDLU: printed pp. 148, 156, 165-166, 196, 211 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/psycholinguistic0000garn_k5g4",
    "thumb": "library/thumbs/L-5UMAXC.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4810,11 +5284,11 @@
    "author": "Gjertsen, Derek",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Describes Shrdlu, devised by Terry Winograd, as placing the computer in a universe of toy building blocks in which it can decide questions instantly and accurately, and asks whether computers running Eliza and Shrdlu have minds. SHRDLU: printed pp. 75-76 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/sciencephilosoph0000gjer",
    "thumb": "library/thumbs/L-A3JKFV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4823,12 +5297,24 @@
    "author": "Hall, Patrick",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as the natural language program developed at MIT by Terry Winograd, who limited the domain of discourse to a blocks world, with a note on an account in Understanding Natural Language. SHRDLU: printed pp. 247, 261, 263 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/howtosolveitinli0000hall",
    "thumb": "library/thumbs/L-UAJQU2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
+  },
+  {
+   "id": "L-7PAPBF",
+   "title": "Paradigms Lost Images of man in the Mirror of Science",
+   "author": "John L. Casti",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/paradigmslostima0000john",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1989"
   },
   {
    "id": "L-V5WSUS",
@@ -4836,11 +5322,11 @@
    "author": "Kreutzer, Wolfgang",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Says the SHRDLU program is one of the most frequently cited AI programs, was implemented in MicroPlanner, became extremely influential, and was one of the first systems to demonstrate language understanding in man-computer dialogue. SHRDLU: index lines pp. 10, 13, 272, 279, 338, 352, 605; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/programmingforar0000kreu",
    "thumb": "library/thumbs/L-V5WSUS.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4849,11 +5335,11 @@
    "author": "Longley, Dennis",
    "date": "1989",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "In an entry on artificial intelligence, reproduces a Shrdlu dialogue (a pyramid, \"Is there a large block behind the pyramid?\") and says it represented a significant advance on earlier question-answering programs. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/vannostrandreinh0000long",
    "thumb": "library/thumbs/L-TYLM5U.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4862,11 +5348,11 @@
    "author": "Luger, George F,Stubblefield, William A",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's SHRDLU (1972) as a program that could converse about arrangements of blocks of different shapes and colours, answering queries such as \"what colour...\", and discusses its success in the blocks world. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/ef00geor_gav",
    "thumb": "library/thumbs/L-UATOSQ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4889,11 +5375,11 @@
    "author": "Obermeier, Klaus K.",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says that in the 1970s Terry Winograd's SHRDLU program [Winograd 72] showed in a very small application that a program could mediate between a robot and a human, and that it showed the complexity of NLP and its promise. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/naturallanguagep0000ober",
    "thumb": "library/thumbs/L-ZTR6OR.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4902,11 +5388,11 @@
    "author": "Powers, David M. W",
    "date": "1989",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Discusses Winograd's SHRDLU model, quoting his own statements of its deficiencies, that it is not a model reflecting the underlying process and that it \"does not attempt to handle hypothetical\" cases, and noting how it checks a possible interpretation in communication. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/machinelearningo0000powe",
    "thumb": "library/thumbs/L-G4UTUX.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -4986,6 +5472,34 @@
    ]
   },
   {
+   "id": "L-5SMYRQ",
+   "title": "Erkenntnis - Maschinen - Verstehen : zur Neugestaltung von Computersystemen",
+   "author": "Winograd, Terry; Flores, Fernando; Voet, Ludwig (trans.)",
+   "date": "1989",
+   "kind": "book",
+   "lang": "de",
+   "in": "Rotbuch Verlag",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://ci.nii.ac.jp/ncid/BA62029821",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-AH3QCX",
+   "title": "コンピュータと認知を理解する : 人工知能の限界と新しい設計理念",
+   "author": "Winograd, Terry; Flores, Fernando; 平賀, 譲 (訳)",
+   "date": "1989",
+   "kind": "book",
+   "lang": "ja",
+   "in": "産業図書",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://ci.nii.ac.jp/ncid/BN03598167",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
    "id": "L-PWMNH4",
    "title": "Collins dictionary of artificial intelligence",
    "date": "1990",
@@ -5028,15 +5542,26 @@
    ]
   },
   {
+   "id": "L-UZQQPI",
+   "title": "The philosophy of artificial intelligence",
+   "date": "1990",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/philosophyofarti0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-QSUW4D",
    "title": "Computer applications in the social sciences",
    "author": "Brent, Edward E.",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU (Winograd, 1972; 1980) uses procedural representations and simulates a robot arm manipulating blocks on a table, accepting commands and answering questions about them. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computerapplicat0000bren",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5060,11 +5585,11 @@
    "author": "Cleland, David I",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says a student at MIT, Terry Winograd, wrote a program named SHRDLU whose world was a set of blocks of varying shapes; on request it would rearrange the blocks to any requested configuration. Names one sophistication it added to AI programming. SHRDLU: index line p. 498; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/automatedfactory0000clel",
    "thumb": "library/thumbs/L-PWBWMQ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5087,11 +5612,11 @@
    "author": "Garfield, Jay L.",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says. Also at: https://archive.org/details/isbn_9781557782571",
+   "note": "Discusses an exchange (with commentary) between Terry Winograd's SHRDLU and its interlocutor, says SHRDLU lives in a blocks world, notes that one reply is canned because Winograd gave it the sentence to print, and says the same arguments apply to SHRDLU and ELIZA. SHRDLU: Internet Archive full-text passages; pages not obtained. Also at: https://archive.org/details/isbn_9781557782571",
    "url": "https://archive.org/details/isbn_1557782571",
    "thumb": "library/thumbs/L-GGSU6U.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5100,11 +5625,11 @@
    "author": "Gross, Richard D",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says the arguments that follow would apply to Winograd's (1972) SHRDLU, Weizenbaum's (1965) ELIZA and any Turing machine simulation. SHRDLU: index lines pp. 29, 37; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/keystudiesinpsyc0000gros_q2x4",
    "thumb": "library/thumbs/L-BF336I.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5113,11 +5638,11 @@
    "author": "Jean Louis Laurière",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Names Terry Winograd as author of SHRDLU (1971), a robot system that conducts dialogues, in a short list of problem-solving systems. SHRDLU: index line p. 7; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/problemsolvingar00laur_0",
    "thumb": "library/thumbs/L-KVU5Z7.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5173,11 +5698,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Ellis Horwood",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"Winograd's SHRDLU\", saying its domain is a small blocks world, and reproduces a dialogue (\"which cube is sitting on the table?\"). SHRDLU: printed pp. 186-187 (index lines); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/humancomputerint0000madd",
    "thumb": "library/thumbs/L-4LYUSH.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5231,10 +5756,10 @@
    "author": "Morris, Charles G",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "In Spanish, says Winograd (1972) developed a robot called SHRDLU that could communicate with its operator and follow instructions, and reproduces a dialogue between Winograd and SHRDLU (\"Toma un bloque rojo grande\"). SHRDLU: printed pp. 308-309 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/psychologyintrod0000morr",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5243,10 +5768,10 @@
    "author": "N. E. Collinge",
    "date": "1990",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's (1972) SHRDLU system, named after letters, as controlling a robot arm and as innovative in its integration of knowledge of syntax and semantics. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/isbn_0415020646",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5287,11 +5812,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "The Internet Archive's full-text search finds the name in 21 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"The SHRDLU System\", saying it was developed by Terry Winograd as part of a doctoral thesis, that it uses systemic grammar, and that its domain is limited and closed, which simplifies the task. SHRDLU: index lines pp. 140, 328, 604; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/introductiontoar0000patt",
    "thumb": "library/thumbs/L-QW2GQ4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5330,11 +5855,11 @@
    "author": "Shafer, Glenn,Pearl, Judea",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes memory structures in Winograd's SHRDLU (1972): an event memory recording the movements of blocks, cross-referenced information, and a Cartesian spatial representation. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/readingsinuncert00shaf",
    "thumb": "library/thumbs/L-KELTHE.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5345,11 +5870,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Hillsdale, N.J. : L. Erlbaum Associates",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls Winograd's SHRDLU (1972) a landmark system that could converse sensibly about its blocks world, presents a brief conversation with it, and says it represented a quantum advance over earlier language programs. SHRDLU: printed p. 1 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/psychologyoflang0000sing",
    "thumb": "library/thumbs/L-Q53GCM.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5358,11 +5883,11 @@
    "author": "Taylor, William A.",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd gave SHRDLU enough knowledge to understand words in its blocks world, that it worked so well that many people assumed natural language processing had been solved, and that the difficulty was what SHRDLU could not do outside it. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/WhatEveryE_00_Tayl",
    "thumb": "library/thumbs/L-N52IDY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5388,11 +5913,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Boulder, Colo. : Westview Press",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as the blocks-world program created by Terry Winograd at MIT in 1971, explains how it determines which block is meant by \"the blue pyramid on the block in the box\", and describes its parser dividing sentences into components. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computersininfor0000wein",
    "thumb": "library/thumbs/L-VB2WYJ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5403,11 +5928,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU (pronounced \"sherd-lew\") as a simulated robot, reproduces a numbered dialogue (\"Can the table pick up blocks?\" \"NO.\") with bracketed comments, and a figure of its block world from Winograd, 1973. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computerselfsoci0000wess",
    "thumb": "library/thumbs/L-M2HI3Y.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5416,9 +5941,31 @@
    "author": "World Information Systems,Golob, Richard,Brus, Eric",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "A figure caption says Terry Winograd developed an innovative program called SHRDLU, capable of describing in English the state of a blocks world. SHRDLU: printed p. 255 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/almanacofscience00worl",
    "thumb": "library/thumbs/L-RF4QSI.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-S37OEL",
+   "title": "A Textbook of psychology",
+   "date": "1991",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/textbookofpsycho0000unse_i3m7",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-6BLZOQ",
+   "title": "The Linguistics encyclopedia",
+   "date": "1991",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/linguisticsencyc0000unse",
    "tags": [
     "named in the text"
    ]
@@ -5431,11 +5978,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Ellis Horwood",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"Pragmatics in SHRDLU\" on Winograd's SHRDLU system (1972), describing how it uses natural language in the context of its blocks world and can produce an explanation, and mentioning its approach to reference (Winograd 1983). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/naturallanguagec0000bear",
    "thumb": "library/thumbs/L-75BZBY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5444,11 +5991,11 @@
    "author": "Blissmer, Robert H",
    "date": "1991",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU was completed in 1971 as a thesis project at MIT by Terry Winograd and was the first program to carry on a conversation of a particular kind; the user types commands to move blocks, and a sample dialog is shown. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/introducingcompu0000blis",
    "thumb": "library/thumbs/L-5R74XX.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5472,10 +6019,10 @@
    "author": "Chapman, David",
    "date": "1991",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd's SHRDLU [295] translated English instructions into actions and pointed in the right direction, while the intimacy of its connection with its blocks world makes the causal grounding of its language representations weaker. SHRDLU: printed pp. 93, 95 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/VisionInst_00_Chap",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5501,10 +6048,10 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Routledge",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU dialogue (\"Grasp the pyramid.\" \"I don't understand which pyramid you mean.\") and says Terry Winograd wrote a program he called SHRDLU, with a remark on its name. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/mindinactionpers0000garn",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5528,11 +6075,11 @@
    "author": "Kim, Steven H",
    "date": "1991",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says the program called SHRDLU, by Terry Winograd at MIT, contained an internal representation of a table-top blocks world, relates it to PLANNER, and lists it among early AI work; a later section describes it. SHRDLU: printed pp. 16, 18 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/knowledgesystems0000kims",
    "thumb": "library/thumbs/L-BRGPO2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5556,10 +6103,10 @@
    "author": "Noble, Douglas D",
    "date": "1991",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU a famous program by Terry Winograd, a language-understanding program designed by an AI doctoral student in which a microworld is used, citing Weizenbaum 1976 pp. 194ff. SHRDLU: printed pp. 46-47, 161 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/classroomarsenal0000nobl",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5570,11 +6117,11 @@
    "kind": "book",
    "lang": "en",
    "in": "London : BBC Books",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says one of Minsky's students, Terry Winograd, wrote a program called SHRDLU, an imaginary simulated world of blocks, and reproduces a dialogue under the heading \"Understanding a Block World\" (\"What does the box contain?\"). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/dreammachineexpl0000palf_m7f1",
    "thumb": "library/thumbs/L-HYTUAY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5585,11 +6132,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU dialogue (\"Put the blue pyramid on the block in the box. OK.\"), calls it a famous system built on PLANNER (Sussman and Winograd 1970), and has a section \"SHRDLU and a SORRY story\". SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/newguidetoartifi0000part",
    "thumb": "library/thumbs/L-6E7LAO.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5627,11 +6174,11 @@
    "author": "Sutherland, N. S. (Norman Stuart)",
    "date": "1991",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Has an entry saying SHRDLU is a by now classic program written by Winograd that can carry out instructions given in English about a blocks world; another entry uses it as an example of a program with routines from higher levels. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/macmillandiction0000suth",
    "thumb": "library/thumbs/L-3QDF34.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5642,11 +6189,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Alexandria, Va. : Time-Life Books",
-   "note": "The Internet Archive's full-text search finds the name in 33 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd christened the program SHRDLU, a mangled string of letters, and that it integrated the previously separate functions of syntax and semantics, giving the computer a body of knowledge and a remarkable grasp of its domain. SHRDLU: printed pp. 19-20, 45, 394 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/artificialilifel00time",
    "thumb": "library/thumbs/L-FWIIIB.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5657,10 +6204,10 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Praeger",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"The SHRDLU System and Its Micro-World Comprehension\" with Table 5.2, an interview with SHRDLU, and quotes Winograd (1973: 158) on its conversational limitations. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/cognitivescience0000wagm_s6e2",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5709,16 +6256,29 @@
    ]
   },
   {
+   "id": "L-JEJQY2",
+   "title": "Minds, brains, and computers: perspectives in cognitive science and artificial intelligence",
+   "date": "1992",
+   "kind": "book",
+   "lang": "en",
+   "in": "Norwood, N.J. : Ablex Pub. Corp",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/mindsbrainscompu0000unse_k4k6",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-QGE2TD",
    "title": "Expert systems applications in engineering and manufacturing",
    "author": "Badiru, Adedeji Bodunde",
    "date": "1992",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd developed a significant program named SHRDLU, whose operation consisted of a set of blocks on an imaginary table which on request it would rearrange, and names one sophistication it added to AI programming. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/expertsystemsapp0000badi",
    "thumb": "library/thumbs/L-QGE2TD.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5745,11 +6305,11 @@
    "author": "Chorafas, Dimitris N",
    "date": "1992",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Lists SHRDLU by Winograd (1970) with work by Ben Un and Planner by Hewitt as the best examples of understanding natural language. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/newinformationte0000chor",
    "thumb": "library/thumbs/L-IAEBFV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5832,11 +6392,11 @@
    "author": "Noyes, James L",
    "date": "1992",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 13 passages. The book has not yet been read for what it says.",
+   "note": "Has a section 6.6 on SHRDLU, saying the system was written by Terry A. Winograd in the early 1970s and simulated the responses of a person in a blocks world; the appendix lists it as natural language understanding at M.I.T. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000noye",
    "thumb": "library/thumbs/L-SPFUX5.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5847,11 +6407,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a SHRDLU dialogue (\"Put the blue pyramid on the block in the box. OK.\"), calls it perhaps the first significant natural-language understanding system, and says it is dragged out to illustrate treatises on NLU. Has a section \"Shrdlu and a Sorry Story\". SHRDLU: printed pp. 71-72, 94, 316 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/artificialintell0000part_p6k1",
    "thumb": "library/thumbs/L-V6ACXQ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5860,8 +6420,33 @@
    "author": "William Bright",
    "date": "1992",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd's 'blocks world' program SHRDLU (1972) took the final step in proceduralizing knowledge, and that LUNAR and SHRDLU (1973) were the natural successors of earlier systems. SHRDLU: printed p. 3 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/isbn_0195051963",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-6WBUJJ",
+   "title": "人工知能システムにおける記号とパターンの統合をめぐって-SHRDLUとパターン認識の批判的再検討―",
+   "author": "麻生, 英樹",
+   "date": "1992",
+   "kind": "report",
+   "lang": "ja",
+   "in": "意味と理解研究会資料",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://cir.nii.ac.jp/crid/1571980073970127872",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
+   "id": "L-QOF3CC",
+   "title": "Concise encyclopedia of software engineering",
+   "date": "1993",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/conciseencyclope0000unse_v7c0",
    "tags": [
     "named in the text"
    ]
@@ -5881,6 +6466,17 @@
    ]
   },
   {
+   "id": "L-XLVNZE",
+   "title": "Semantics and the lexicon",
+   "date": "1993",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/semanticslexicon0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-P7ZTKF",
    "title": "Situated natural language understanding section, in a report catalogued by DTIC as Combustion Mechanisms of Solid Propellants",
    "date": "1993-09",
@@ -5895,15 +6491,26 @@
    ]
   },
   {
+   "id": "L-VTV7AX",
+   "title": "Text and technology: in honour of John Sinclair",
+   "date": "1993",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/texttechnologyin0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-JL3TGV",
    "title": "Memory, amnesia, and the hippocampal system",
    "author": "Cohen, Neal J",
    "date": "1993",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes Terry Winograd's thesis work with SHRDLU as an early attempt to develop a natural language comprehension system, reproduces an excerpt of its dialogue, and draws a parallel with hippocampal function. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/memoryamnesiahip0000cohe",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5929,11 +6536,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York, N.Y. : Paragon House",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Has a glossary entry saying SHRDLU was written by Terry Winograd as a doctoral thesis project at MIT to investigate aspects of knowledge, is the best-known blocks world investigation, and used MICRO-PLANNER; it also appears in the ELIZA entry. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/glossaryofcognit0000dunl",
    "thumb": "library/thumbs/L-POSHHG.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5974,11 +6581,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Englewood Cliffs, N.J. : Prentice Hall",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's program SHRDLU, created in 1970 when he was a doctoral student, saying implementations did not use physical blocks and robot arms but simulated them. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/philosophyartifi0000mood",
    "thumb": "library/thumbs/L-LJCOUA.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6013,6 +6620,17 @@
    ]
   },
   {
+   "id": "L-YBNBG5",
+   "title": "Thinking computers and virtual persons: essays on the intentionality of machines",
+   "date": "1994",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/thinkingcomputer0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-SQ3AWB",
    "title": "Yu yan xue ji chu li lun",
    "date": "1994",
@@ -6025,6 +6643,18 @@
    "tags": [
     "discussion"
    ]
+  },
+  {
+   "id": "L-25D7GO",
+   "title": "Complexification: explaining a paradoxical world through the science of surprise",
+   "author": "Casti, J. L",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/complexification00cast",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1994"
   },
   {
    "id": "L-7FL5NY",
@@ -6047,11 +6677,11 @@
    "author": "Colman, Andrew M",
    "date": "1994",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's (1972) SHRDLU as a program that talks about moving blocks. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/companionencyclo0000colm",
    "thumb": "library/thumbs/L-PC3XFV.jpg",
    "tags": [
-    "named in the text"
+    "mention"
    ]
   },
   {
@@ -6062,11 +6692,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Norwood, N.J. : Ablex Pub. Corp",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Takes up Gunderson's claim that ELIZA and SHRDLU could pass \"Turing-type\" tests, and says Gunderson is more impressed by SHRDLU than Winograd is. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/turingtestframep0000croc",
    "thumb": "library/thumbs/L-CCYPQK.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6090,11 +6720,11 @@
    "author": "Forester, Tom,Morrison, Perry",
    "date": "1994",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says computers can behave in a certain way, as shown by Terry Winograd in his block world known as SHRDLU, an environment of blocks, pyramids and other shapes. SHRDLU: printed p. 166 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/computerethicsca00fore",
    "thumb": "library/thumbs/L-35X5AO.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6179,11 +6809,11 @@
    "author": "Popović, Dobrivoje",
    "date": "1994",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Lists SHRDLU (Winograd, 1973) as a system programmed to understand natural language, and says Winograd (1972) used PLANNER to develop it. SHRDLU: printed p. 9 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/methodstoolsfora0000popo",
    "thumb": "library/thumbs/L-GH4VEY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6207,11 +6837,11 @@
    "author": "Schryver, Jacques de",
    "date": "1994",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "In French, a dictionary entry says SHRDLU is a natural-language interface program written by Terry Winograd in 1972 at MIT, through which orders are given to a robot that stacks blocks; Winograd's entry names it with Understanding Natural Language (1972). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/dictionnairedela0000schr",
    "thumb": "library/thumbs/L-SBCDO3.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6244,6 +6874,39 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-25FBBH",
+   "title": "Cognitive science",
+   "date": "1995",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/cognitivescience0003unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-CRMNVT",
+   "title": "Computers, minds and conduct",
+   "date": "1995",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/isbn_9780745615714",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-BPN7FY",
+   "title": "Handbook of science and technology studies",
+   "date": "1995",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofscienc0000unse_q8v6",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -6283,11 +6946,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Wellesley, Mass. : A K Peters",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU, written by Terry Winograd, as another Blocks World program that could have only limited conversations and could use GPS-style problem solving to plan, with examples of its commands. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/mostcomplexmachi0000eckd",
    "thumb": "library/thumbs/L-62EIY7.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6298,11 +6961,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Buckingham [England] ; Philadelphia : Open University Press",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls Winograd's SHRDLU a classic computer model of language understanding that caused a tremendous stir, with a figure of its blocks world (adapted from Winograd, 1972) and a figure of its three modules, syntax, semantics and inference. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/languageundersta0000gree",
    "thumb": "library/thumbs/L-F5VXJI.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6313,11 +6976,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Mahwah N.J. : Erlbaum",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's block-moving program SHRDLU, written in 1972, as moving blocks on a table, and argues that the computer in SHRDLU would not really know what a block is. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/semanticsdefinin0000hipk",
    "thumb": "library/thumbs/L-DENAUQ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6326,11 +6989,11 @@
    "author": "Hofstadter, Douglas R.",
    "date": "1995",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls the subtlety of Winograd's SHRDLU program of some twenty years earlier a case that gives the author pause, and refers to its famous dialogue (Winograd, 1972) as reprinted in many places; index lists it at pp. 311, 362. SHRDLU: printed pp. 311, 362 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/fluidconceptscre0000hofs_w7o9",
    "thumb": "library/thumbs/L-V7NFKU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6339,12 +7002,24 @@
    "author": "Howard Gardner",
    "date": "1995",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd named the robot SHRDLU after a Linotype gibberish string, describes it as not a physical robot, notes that it could acknowledge a false statement, and says its success demonstrated the role of knowledge. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/intelligencemult00gard",
    "thumb": "library/thumbs/L-L6EKJN.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
+  },
+  {
+   "id": "L-V6CKH3",
+   "title": "Handbook of Pragmatics",
+   "author": "Jef Verschueren,Jan-Ola Ostman,Jan Blommaert",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofpragma0000jefv",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1995"
   },
   {
    "id": "L-JWLYR6",
@@ -6352,11 +7027,11 @@
    "author": "Kelly-Bootle, Stan,Kelly-Bootle, Stan. Devil's DP dictionary,Kelly-Bootle, Stan. Devil's DP dictionary",
    "date": "1995",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "note": "An entry quotes SHRDLU's reply \"Because you asked me to.\" when asked why it picked up a red block, and adds that some say SHRDLU represents a position on machine understanding. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computercontradi00kell",
    "thumb": "library/thumbs/L-JWLYR6.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6380,11 +7055,11 @@
    "author": "Oakman, Robert L.",
    "date": "1995",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Glosses SHRDLU (BLOCKS WORLD) as a pioneering natural language application designed by Terry Winograd at the MIT Artificial Intelligence Laboratory, and attributes its success to a constrained vocabulary and small domain. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computertriangle0000oakm",
    "thumb": "library/thumbs/L-NKUGQ3.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6393,11 +7068,11 @@
    "author": "Radlow, James",
    "date": "1995",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Says BLOCKS WORLD, also known as SHRDLU, is an impressive demonstration of natural language developed by Terry Winograd, with a dialogue in which the computer's replies are in uppercase and an exercise on the simulated robot. SHRDLU: printed pp. 171-174 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/computersinforma0000radl",
    "thumb": "library/thumbs/L-QVARV6.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6421,11 +7096,11 @@
    "author": "Selkirk, Errol",
    "date": "1995",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd's program SHRDLU has demonstrated an ability to see, know and understand its blocks, and can decide which shape is behind another. SHRDLU: printed pp. 154-155 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/computersforbegi0000selk",
    "thumb": "library/thumbs/L-4S23YW.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6434,10 +7109,10 @@
    "author": "Stuart-Hamilton, Ian",
    "date": "1995",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Has an entry describing SHRDLU as an artificial intelligence programme by Winograd and saying what the programme consists of. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/dictionaryofcogn0000stua",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6454,16 +7129,38 @@
    ]
   },
   {
+   "id": "L-K47A36",
+   "title": "Computational psycholinguistics: AI and connectionist models of human language processing",
+   "date": "1996",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/computationalpsy0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-YPI6DH",
+   "title": "Philosophy: the quest for truth",
+   "date": "1996",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/philosophyquestf03edunse_a4m3",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-DH5GEG",
    "title": "Personality Theory: A Book of Readings",
    "author": "Andr&eacute Kukla",
    "date": "1996",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Discusses an exchange between Terry Winograd's SHRDLU and its interlocutor, says SHRDLU lives in an imaginary world, notes that one reply is canned because Winograd gave it the sentence to print, and that the same arguments apply to SHRDLU and ELIZA. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/personalitytheor0000andr",
    "thumb": "library/thumbs/L-DH5GEG.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6502,11 +7199,11 @@
    "author": "Hampson, Peter J.",
    "date": "1996",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU Winograd's (1972) classic program, one of the most advanced of its time, a language-understanding system about the shapes of the BLOCKSWORLD, in which Winograd seemed to have provided a complete account of understanding. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/understandingcog0000hamp",
    "thumb": "library/thumbs/L-5U5N4O.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6547,11 +7244,11 @@
    "author": "N. S. Sutherland",
    "date": "1996",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Has an entry saying SHRDLU is a by now classic program written by Winograd that can carry out instructions given in English, and uses it as an example of a program with routines from higher levels. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/internationaldic00suth",
    "thumb": "library/thumbs/L-RLPP44.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6560,11 +7257,11 @@
    "author": "Philip Banyard,Andrew Grayson",
    "date": "1996",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Lists Winograd's SHRDLU with ELIZA and Schank's SAM as key natural language understanding programmes, and says SHRDLU could converse about a virtual toy-blocks world. SHRDLU: printed p. 345 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/isbn_9780814712764_u0w3",
    "thumb": "library/thumbs/L-HGG33Y.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6613,16 +7310,27 @@
    ]
   },
   {
+   "id": "L-DN2NKP",
+   "title": "Knowledge management tools",
+   "date": "1997",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/knowledgemanagem0000unse_d1b0",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-REAV63",
    "title": "Science & technology firsts",
    "author": "Bruno, Leonard C",
    "date": "1997",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "A chronology entry says Terry Allen Winograd creates SHRDLU, an experimental artificial intelligence program that controls an arm. SHRDLU: printed p. 263 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/sciencetechnolog0000brun_b0t0",
    "thumb": "library/thumbs/L-REAV63.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6646,12 +7354,24 @@
    "author": "Hofstadter, Douglas R.,Marot, Clément. A une damoyselle malade. English & French",
    "date": "1997",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 15 passages. The book has not yet been read for what it says.",
+   "note": "Refers to Winograd's SHRDLU program as discussed in GEB, asks whether SHRDLU can be called the most sophisticated of its kind, and reproduces dialogue between Winograd and SHRDLU (\"Four of them\"). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/letonbeaudemarot00hofs",
    "thumb": "library/thumbs/L-GJRTJU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
+  },
+  {
+   "id": "L-6XOT42",
+   "title": "Computing today",
+   "author": "Mandell, Steven L",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/computingtoday0000mand",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "1997"
   },
   {
    "id": "L-Z7CUYV",
@@ -6659,11 +7379,11 @@
    "author": "Tracy, Kim W",
    "date": "1997",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "Says Winograd's program SHRDLU received rave reviews, was used to instruct the computer to move blocks, and would attempt a task such as placing a block on a yellow solid. SHRDLU: printed pp. 356-357 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/objectorientedar0000trac",
    "thumb": "library/thumbs/L-Z7CUYV.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6730,11 +7450,11 @@
    "author": "Jahnke, John C",
    "date": "1998",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU (Winograd, 1972) a successful natural-language program, says it is not an acronym but a typesetter's string, that it has knowledge about objects and their features, and gives initial and final states of its example. SHRDLU: printed pp. 270-271 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/cognition0000jahn",
    "thumb": "library/thumbs/L-2VEJYZ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6743,11 +7463,11 @@
    "author": "Solso, Robert L.",
    "date": "1998",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 35 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd's SHRDLU broke new ground in the early work on language production and understanding, engaging world knowledge, but was imperfect, and that Winograd (1981, 1985) later incorporated changes. SHRDLU: printed pp. 503, 519, 521 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/cognitivepsychol05edsols",
    "thumb": "library/thumbs/L-SLPRUP.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6758,11 +7478,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Westport, Conn. : Praeger",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"The SHRDLU System and Its Micro-World Comprehension\" with Table 1.2, an interview with SHRDLU (Winograd, 1972), and quotes Winograd on its conversational limitations. SHRDLU: printed p. 5 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/languagethoughti0000wagm",
    "thumb": "library/thumbs/L-QFDZIO.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6828,11 +7548,11 @@
    "author": "Botterill, George",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Calls Winograd's program for understanding natural language, SHRDLU, a later product of the same MIT lab, hugely influential, and says SHRDLU interacted with a version of the MIT Blocksworld despite Winograd's disagreements with Chomsky; also lists it with ELIZA and PARRY. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/philosophyofpsyc0000bott",
    "thumb": "library/thumbs/L-HQ24GD.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6856,11 +7576,11 @@
    "author": "Hausser, Roland R",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Sets an exercise to describe the SHRDLU system of T. Winograd 1972 and say why it is a closed system, and discusses its trivial treatment of reference to objects in the toy world and its ontology, alongside Montague grammar and HEARSAY. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/foundationsofcom0000haus",
    "thumb": "library/thumbs/L-2TR4MF.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6869,11 +7589,11 @@
    "author": "Kurzweil, Ray",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "In Spanish (Kurzweil), says natural language understanding began with Terry Winograd's SHRDLU, which could understand English about its blocks, that Winograd completed his thesis on it in 1970, and that for years SHRDLU was cited as a prominent accomplishment of AI. SHRDLU: printed pp. 103, 362 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/laeradelasmaquin0000kurz",
    "thumb": "library/thumbs/L-DSLM7U.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6897,11 +7617,11 @@
    "author": "Parsons, June Jamrich",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU Winograd's famous program, a pioneering effort in natural language processing, notes the name is not an acronym, and describes the user typing instructions to manipulate blocks and boxes. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/computerstechnol0000pars",
    "thumb": "library/thumbs/L-HQ7JYQ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6910,11 +7630,11 @@
    "author": "Ray Kurzweil",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Says natural language understanding got its start with Terry Winograd's SHRDLU, which could understand English in the small world of children's blocks, that his landmark thesis was completed in 1970, that SHRDLU is criticized for its lack of generality, and that for years it was cited as a prominent accomplishment. SHRDLU: printed pp. 70, 273 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/isbn_2321013301846",
    "thumb": "library/thumbs/L-N2S22A.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6923,11 +7643,11 @@
    "author": "Ray Kurzwell",
    "date": "1999",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Same text as the other Kurzweil edition in this list: natural language understanding began with Terry Winograd's SHRDLU, his landmark thesis, its criticism for lack of generality, and its years as a prominent accomplishment. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/isbn_1934783025952",
    "thumb": "library/thumbs/L-PLDDPB.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6947,6 +7667,30 @@
    ]
   },
   {
+   "id": "L-DNUPJ2",
+   "title": "Artificial intelligence: critical concepts",
+   "date": "2000",
+   "kind": "book",
+   "lang": "en",
+   "in": "London ; New York : Routledge",
+   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/artificialintell0004unse_v1m5",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-3FG2CZ",
+   "title": "Encyclopedia of computer science",
+   "date": "2000",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/encyclopediaofco0000unse_o5e6",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-FFQZOR",
    "title": "Handbook of intelligence",
    "date": "2000",
@@ -6961,15 +7705,26 @@
    ]
   },
   {
+   "id": "L-XG4VMD",
+   "title": "The IEBM handbook of information technology in business",
+   "date": "2000",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/iebmhandbookofin0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-GPPLXS",
    "title": "Mind in everyday life and cognitive science",
    "author": "Auyang, Sunny Y",
    "date": "2000",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as an AI program that plays only with symbols for blocks that do not exist, using it as an example of a disembodied computational mind. SHRDLU: printed pp. 46-47 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/mindineverydayli0000auya",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -6978,11 +7733,11 @@
    "author": "Casti, J. L",
    "date": "2000",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says. Also at: https://archive.org/details/paradigmsregaine0000cast",
+   "note": "Calls SHRDLU probably the best-known microworld program, a block world put together by Terry Winograd in the early 1970s, and says its dialogues with inquisitors appear intelligent. SHRDLU: printed pp. 132-133 (index line); text from Internet Archive full-text passages. Also at: https://archive.org/details/paradigmsregaine0000cast",
    "url": "https://archive.org/details/paradigmsregaine00john",
    "thumb": "library/thumbs/L-QR3GPL.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7021,11 +7776,11 @@
    "author": "Ellery, Alex",
    "date": "2000",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a planning program similar to STRIPS designed to demonstrate natural language communication, which moved shaped blocks with a simulated robot arm, planned sequences by backward chaining, and used commands like PUT (block) ON (block). SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/introductiontosp0000elle",
    "thumb": "library/thumbs/L-5L64CR.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7136,6 +7891,28 @@
    ]
   },
   {
+   "id": "L-YPMTHV",
+   "title": "Encyclopedia of computers and computer history",
+   "date": "2001",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/encyclopediaofco0000unse_a6j4",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-UWULLG",
+   "title": "International encyclopedia of the social & behavioral sciences",
+   "date": "2001",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/internationalenc0003unse_2001",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-XW54PF",
    "title": "Higher national computing",
    "author": "Hellingsworth, Bruce",
@@ -7231,11 +8008,11 @@
    "author": "Sternberg, Robert J",
    "date": "2001",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says MIT researcher Terry Winograd (1972) had developed SHRDLU by the early 1970s, a program simulating a robot performing operations in a block world, with a question whether a pyramid can support a pyramid, and relates it to Searle's Chinese room. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/complexcognition0000ster",
    "thumb": "library/thumbs/L-ZSAGVB.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7285,16 +8062,28 @@
    ]
   },
   {
+   "id": "L-MOHRTC",
+   "title": "Fuzzy engineering expert systems with neural network applications",
+   "author": "Badiru, Adedeji Bodunde",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/fuzzyengineering0000badi",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "2002"
+  },
+  {
    "id": "L-RTEJ6Z",
    "title": "Developmental Linguistics",
    "author": "Brian T. Riley",
    "date": "2002",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd's (1972) SHRDLU performed impressively in its microworld and had a more sophisticated mechanism for combining syntax and semantics, but that its treatment of pronouns is unsuccessful, since SHRDLU takes the first reading found. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/developmentallin0000bria",
    "thumb": "library/thumbs/L-RTEJ6Z.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7335,11 +8124,11 @@
    "kind": "book",
    "lang": "en",
    "in": "New York : Kluwer Academic/Plenum Publishers",
-   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a conversation with SHRDLU (\"Pick up a small blue pyramid.\" \"OK\") and says SHRDLU encoded knowledge, could converse in typed natural language about its blocks, and was Terry Winograd's program. SHRDLU: printed p. 36 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/superintelligent0000hibb",
    "thumb": "library/thumbs/L-OOVGID.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7357,6 +8146,28 @@
    ]
   },
   {
+   "id": "L-S6UVLY",
+   "title": "Encyclopedia of information systems",
+   "date": "2003",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/encyclopediaofin0003unse_h1w1",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-TPT355",
+   "title": "Handbook of psychology",
+   "date": "2003",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofpsycho0007unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-TLDHBZ",
    "title": "Ren gong zhi neng ji qi ying yong",
    "date": "2003",
@@ -7368,6 +8179,17 @@
    "thumb": "library/thumbs/L-TLDHBZ.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-WI452G",
+   "title": "The Oxford handbook of computational linguistics",
+   "date": "2003",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/oxfordhandbookof0000unse_k7t9",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -7407,11 +8229,11 @@
    "author": "LEYDEN",
    "date": "2003",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "In Dutch, says SHRDLU was developed by Winograd (1972) over 15 years earlier, and gives a passage from a conversation between Winograd and SHRDLU, a program dealing with a small blocks world, in Box 4.6. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/psychologischefu0000leyd",
    "thumb": "library/thumbs/L-B6AMEK.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7422,11 +8244,11 @@
    "kind": "book",
    "lang": "en",
    "in": "London : Ebury",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says the creator of SHRDLU, Terry Winograd, admits a limitation when he tried to extend it, describes SHRDLU's world as a room full of blocks, and has a box on how it got its name. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/howtocloneperfec0000nels",
    "thumb": "library/thumbs/L-VUBL3J.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7452,11 +8274,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Minneapolis, MN : Fortress Press",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Terry Winograd published his work in 1972 with a program named SHRDLU after a row of letters on linotype machines, reproduces an exchange (\"Four of them\"), and argues SHRDLU did not understand what it was talking about. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/mindinggodtheolo0000pete",
    "thumb": "library/thumbs/L-ZVPEU6.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7524,16 +8346,27 @@
    ]
   },
   {
+   "id": "L-JRGYGO",
+   "title": "Introduction to philosophy: classical and contemporary readings",
+   "date": "2004",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/introductiontoph0000unse_q9t3",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-NIBMOU",
    "title": "The history of science and technology: a browser's guide to the great discoveries, inventions, and the people who made them, from the dawn of time to today",
    "author": "Bunch, Bryan H",
    "date": "2004",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "A chronology entry says Terry Winograd develops SHRDLU, a dialogue system that allows a computer to converse. SHRDLU: printed p. 617 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/historyofscience00bunc",
    "thumb": "library/thumbs/L-NIBMOU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7606,11 +8439,11 @@
    "kind": "book",
    "lang": "en",
    "in": "London ; New York : Springer",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces a dialogue with SHRDLU (\"Grasp the pyramid.\" \"I don't understand which pyramid you mean.\"), says it was developed at MIT in the early 1970s, and describes how it resolved references to blocks using a combination of methods. SHRDLU: printed pp. 24 ff. (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/spokendialoguete0000mcte",
    "thumb": "library/thumbs/L-PU7UWY.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7619,10 +8452,10 @@
    "author": "Pacific Rim International Conference on Artificial Intelligence",
    "date": "2004",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU as a kind of software agent working in a block world and calls Winograd's SHRDLU [1], from a historical point of view, the most important natural language understanding system. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/pricai2004trends0000paci",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7668,6 +8501,50 @@
    "thumb": "library/thumbs/L-TSUM35.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-7NBQLD",
+   "title": "Encyclopedia of language and linguistics",
+   "date": "2005",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/encyclopediaofla0002unse_z8l4",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-JAQLNZ",
+   "title": "Mechanical bodies, computational minds: artificial intelligence from automata to cyborgs?",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/isbn_9780262562065",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "2005"
+  },
+  {
+   "id": "L-OBBVPF",
+   "title": "Routledge encyclopedia of narrative theory",
+   "date": "2005",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/routledgeencyclo0000unse_n9o6",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-CZRP37",
+   "title": "The New Encyclopaedia Britannica",
+   "date": "2005",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 12 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/newencyclopaedia0014unse_b9k1",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -7738,11 +8615,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Lancaster, England : Drakkar Press",
-   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
+   "note": "Reproduces SHRDLU dialogue (\"When did you pick up the green pyramid?\" \"While I was stacking...\") and discusses the apparent ability of Winograd's program to communicate in English. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/whoeversaidcompu0000self",
    "thumb": "library/thumbs/L-42N5NE.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7775,6 +8652,17 @@
    "thumb": "library/thumbs/L-TOFUJ3.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-QD5UFY",
+   "title": "Handbook of psycholinguistics",
+   "date": "2006",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofpsycho0002unse_p8x6",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -7943,6 +8831,39 @@
    ]
   },
   {
+   "id": "L-PBKSF5",
+   "title": "Philosophy of psychology and cognitive science",
+   "date": "2007",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/philosophyofpsyc0000unse_c9m5",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-GAB2ZQ",
+   "title": "The Cambridge handbook of consciousness",
+   "date": "2007",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/isbn_9780521674126",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-J7OPEV",
+   "title": "Words and intelligence II: essays in honor of Yorick Wilks",
+   "date": "2007",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/wordsintelligenc0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-HB7KWL",
    "title": "Situated Language Understanding as Filtering Perceived Affordances",
    "author": "Gorniak, Peter",
@@ -7965,11 +8886,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Amherst, N.Y. : Prometheus Books",
-   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd was the author of SHRDLU, one of the major triumphs of early AI, and that after its success he ran into the problem of fuzzy language. SHRDLU: printed pp. 23, 77 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/beyondaicreating0000hall",
    "thumb": "library/thumbs/L-ABIK7P.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -7993,11 +8914,11 @@
    "author": "Kelly, Edward F",
    "date": "2007",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says. Also at: https://archive.org/details/irreduciblemindt0000adam",
+   "note": "The author calls SHRDLU a virtual robot that interacted with its world, and says Winograd's success with it derived in part from the restricted domain, while another author reports on SHRDLU without mentioning Winograd's later change of position. SHRDLU: printed pp. 11, 14, 16 (index line); text from Internet Archive full-text passages. Also at: https://archive.org/details/irreduciblemindt0000adam",
    "url": "https://archive.org/details/irreduciblemindt0000kell",
    "thumb": "library/thumbs/L-VLZIQ4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8049,16 +8970,51 @@
    ]
   },
   {
+   "id": "L-ERQ7GY",
+   "title": "Handbook of conversation design for instructional applications",
+   "date": "2008",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/handbookofconver0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-NHE44X",
+   "title": "Higher computing",
+   "date": "2008",
+   "kind": "book",
+   "lang": "en",
+   "in": "Edinburgh : Leckie & Leckie",
+   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/highercomputing0000unse_y0g6",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
+   "id": "L-X3VQAM",
+   "title": "Introducing psychological research",
+   "date": "2008",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 10 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/introducingpsych0000unse_a4j1",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-3Q727Q",
    "title": "Using artificial intelligence in chemistry and biology: a practical guide",
    "author": "Cartwright, Hugh M.",
    "date": "2008",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd's SHRDLU system, developed in the early 1970s, as an example: it knew basic facts about blocks and their properties, could carry out commands like placing the green cube under the red pyramid, and was written when some people felt AI was close. SHRDLU: printed pp. 203, 208, 209 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/usingartificiali0000cart",
    "thumb": "library/thumbs/L-3Q727Q.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8067,11 +9023,11 @@
    "author": "Friedenberg, Jay",
    "date": "2008",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 9 passages. The book has not yet been read for what it says.",
+   "note": "Describes Winograd communicating with SHRDLU by typing commands, SHRDLU responding by asking clarificatory questions and picking up a red block to place in a container, as an example of instructions interpreted in a block world. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialpsycho0000frie",
    "thumb": "library/thumbs/L-BB33K3.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8096,11 +9052,11 @@
    "author": "Harley, Trevor A",
    "date": "2008",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls SHRDLU (Winograd, 1972) the next influential program after ELIZA, explains the name, says its success in understanding sentences about blocks was much hailed, but that it could only understand within its domain and had primitive syntactic processing. SHRDLU: printed pp. 14-15 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/psychologyoflang03edharl",
    "thumb": "library/thumbs/L-X7RXGU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8141,11 +9097,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Baltimore, Md. : Johns Hopkins University Press",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Says Winograd's system, called SHRDLU, was entirely virtual, was not one program but three (grammar, and others), reproduces a reply \"I don't understand which pyramid you mean\", and explains what it had to know about objects. SHRDLU: printed pp. 81-82 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/robotlifestoryof0000nock_y3t3",
    "thumb": "library/thumbs/L-L556MM.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8164,6 +9120,19 @@
    "tags": [
     "discussion",
     "held here"
+   ]
+  },
+  {
+   "id": "L-NYSTUP",
+   "title": "Higher computing 2009",
+   "date": "2009",
+   "kind": "book",
+   "lang": "en",
+   "in": "Edinburgh : Bright Red",
+   "note": "The Internet Archive's full-text search finds the name in 5 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/highercomputing20000unse_x8t6",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -8187,11 +9156,11 @@
    "author": "Henderson, Harry",
    "date": "2009",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "In an entry, says SHRDLU, a meaningless name derived from a row of letters, was developed in Minsky's group at MIT, worked in an abstract blocks world, and appears in a panel with a sample dialog; also cites it with ELIZA. SHRDLU: printed pp. 18, 27, 141, 187 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/encyclopediaofco0000hend",
    "thumb": "library/thumbs/L-SERZPU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8215,11 +9184,11 @@
    "author": "Raynor, William J., Jr",
    "date": "2009",
    "kind": "encyclopedia",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "note": "In an entry on PLANNER, says it was the basis for the SHRDLU language and led to other languages including CONNIVER, with a cross-reference to SHRDLU. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/internationaldic0000rayn_t1n5",
    "thumb": "library/thumbs/L-NCWADU.jpg",
    "tags": [
-    "named in the text"
+    "mention"
    ]
   },
   {
@@ -8350,11 +9319,11 @@
    "author": "n/a",
    "date": "2010",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Says the arguments that follow would apply to Winograd's SHRDLU (Winograd 1973), Weizenbaum's ELIZA (Weizenbaum 1965) and any Turing machine simulation. SHRDLU: index line p. 73; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/isbn_9780558310271",
    "thumb": "library/thumbs/L-MQLZVW.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8370,6 +9339,28 @@
    "thumb": "library/thumbs/L-FI6RS7.jpg",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-RTUEHU",
+   "title": "Machine intelligence: perspectives on the computational model",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/machineintellige0000unse_b7i0",
+   "tags": [
+    "named in the text"
+   ],
+   "date": "2011"
+  },
+  {
+   "id": "L-OE6AQP",
+   "title": "The Cambridge Handbook of Intelligence",
+   "date": "2011",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/cambridgehandboo0000unse_t3g1",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -8416,6 +9407,17 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-TME4AQ",
+   "title": "Leadership in science and technology: a reference handbook",
+   "date": "2012",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 1 passage. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/leadershipinscie0002unse",
+   "tags": [
+    "named in the text"
    ]
   },
   {
@@ -8526,6 +9528,21 @@
    ]
   },
   {
+   "id": "L-JNCVMF",
+   "title": "SHRDLU in Action",
+   "author": "Julien, Alec",
+   "date": "2013-10-14",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=bo4RvYJYOzI",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-EU4BO7",
    "title": "Combining Self-Motivation with Planning and Inference in a Self-Motivated Cognitive Agent Framework",
    "author": "Liu, Daphne H.",
@@ -8578,11 +9595,11 @@
    "kind": "book",
    "lang": "en",
    "in": "Thousand Oaks, Calif. : SAGE",
-   "note": "The Internet Archive's full-text search finds the name in 8 passages. The book has not yet been read for what it says.",
+   "note": "Has a section \"Semantic Information Processing: SHRDLU\", saying the program seemed amazing when it appeared, that Winograd created in it a simulated simple robot handling a small domain, and includes a diagram of a portion of SHRDLU from Understanding Natural Language. SHRDLU: printed pp. 207, 227 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/cognitivescience0000sobe_t0w4",
    "thumb": "library/thumbs/L-GMM7M4.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8597,6 +9614,21 @@
    "url": "https://www.youtube.com/watch?v=VtsvUoSjwmE",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-WQF7S2",
+   "title": "winograd shrdlu",
+   "author": "Yuret, Deniz",
+   "date": "2013-09-13",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=QAJz4YKUwqw",
+   "tags": [
+    "record only",
     "free to read"
    ]
   },
@@ -8651,11 +9683,11 @@
    "author": "Bermúdez, José Luis",
    "date": "2014",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 17 passages. The book has not yet been read for what it says.",
+   "note": "Has a checklist item \"Winograd's SHRDLU\" saying it is more sophisticated than a conversation-simulating program, and describes SHRDLU as a virtual robot reporting on its blocks world, discussed in section 2.1. SHRDLU: printed p. 26 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/cognitivescience0000berm",
    "thumb": "library/thumbs/L-KVE3LM.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8683,11 +9715,11 @@
    "author": "Fromkin, Victoria",
    "date": "2014",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU, named by its developer Terry Winograd, is an early natural language processing program and demonstrated a number of capacities, with a link to Winograd's page, in the discussion of semantic representation. SHRDLU: index lines pp. 395, 404, 458, 486-487, 507-509; text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/introductiontola0010edfrom",
    "thumb": "library/thumbs/L-7CHMV2.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8711,11 +9743,11 @@
    "author": "Jurafsky, Dan",
    "date": "2014",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 11 passages. The book has not yet been read for what it says.",
+   "note": "Says the period began with Winograd's SHRDLU system, which simulated a robot embedded in a world of toy blocks (Winograd, 1972a), that it was historically important, and that it used the Micro-Planner language. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/speechlanguagepr0000jura_o7u9",
    "thumb": "library/thumbs/L-3TLSAC.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8778,6 +9810,17 @@
    ]
   },
   {
+   "id": "L-MTSOFP",
+   "title": "Inconsistency robustness",
+   "date": "2015",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/inconsistencyrob0000unse",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-YYWF7E",
    "title": "CS Unplugged",
    "author": "Bell, Tim; Witten, Ian H.",
@@ -8798,11 +9841,11 @@
    "author": "Gottlieb, Derek",
    "date": "2015",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU, initiated by Terry Winograd, as a 1971 program in natural language, and quotes Dreyfus's description of it as simulating a robot arm that can move a set of blocks, in an analysis of micro-worlds. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/educationreformc0000gott",
    "thumb": "library/thumbs/L-DW2DSK.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8811,11 +9854,11 @@
    "author": "Hey, Anthony J. G",
    "date": "2015",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Describes SHRDLU, developed by Terry Winograd and written in 1972, as a blocks-world program with a figure, a command sequence such as \"into the box\", and calls it a great step forward in natural language understanding. SHRDLU: printed pp. 268, 291-292 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/computingunivers0000heya",
    "thumb": "library/thumbs/L-EZQZMJ.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8858,11 +9901,11 @@
    "author": "Webster, Jonathan J",
    "date": "2015",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU, written by Terry Winograd as part of his PhD, was an influential system of its kind, and that Winograd's modelling in it was based on Halliday's networks and grammar. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/bloomsburycompan0000webs",
    "thumb": "library/thumbs/L-Y3NQGA.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8882,16 +9925,27 @@
    ]
   },
   {
+   "id": "L-KIQZMJ",
+   "title": "Reason and responsibility: readings in some basic problems of philosophy",
+   "date": "2016",
+   "kind": "book",
+   "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/reasonresponsibi0000unse_ed16",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-MJXUJI",
    "title": "Social machines: the coming collision of artificial intelligence, social networking, and humanity",
    "author": "Hendler, James A., author",
    "date": "2016",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "note": "Cites Terry Winograd's SHRDLU as a natural language understanding program with a URL to Winograd's page and a date of 1968. SHRDLU: printed pp. 8, 196 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/socialmachinesco0000hend",
    "thumb": "library/thumbs/L-MJXUJI.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -8978,11 +10032,11 @@
    "author": "Piero Scaruffi",
    "date": "2016",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 6 passages. The book has not yet been read for what it says.",
+   "note": "Calls Terry Winograd's Shrdlu (1972) one of the first practical implementations of natural language processing, reproduces an exchange with it at MIT in 1970 (\"FIND A BLOCK WHICH...\"), and says results with it and LUNAR were crude. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/intelligenceisno0000pier",
    "thumb": "library/thumbs/L-GXBB7N.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -9159,11 +10213,11 @@
    "author": "Nishith Pathak",
    "date": "2017",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 7 passages. The book has not yet been read for what it says.",
+   "note": "Says SHRDLU (pronounced sher-duh-loo), created by Professor Winograd in 1970 at MIT, was a natural language program, reproduces a demo of it, and says that however intelligent it seemed it was a simple program. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/artificialintell0000nish",
    "thumb": "library/thumbs/L-OD5KWI.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -9338,6 +10392,37 @@
    ]
   },
   {
+   "id": "L-PPJ5MD",
+   "title": "SHRDLU: A Game Prototype Inspired by Winograd’s Natural Language Understanding Work",
+   "author": "Ontañón, Santiago",
+   "date": "2018-09-25",
+   "kind": "conference",
+   "lang": "en",
+   "in": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment 14(1): 268-270",
+   "doi": "10.1609/aiide.v14i1.13009",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read. Free to read at https://ojs.aaai.org/index.php/AIIDE/article/view/13009",
+   "url": "https://doi.org/10.1609/aiide.v14i1.13009",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-KQCIWU",
+   "title": "SHRDLU prototype v1",
+   "author": "Ontañón, Santiago",
+   "date": "2018-06-28",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=8FNBTs2yv4s",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-24RU3P",
    "title": "Contexts in philosophy: pragmatic competence as filter",
    "author": "Penco, Carlo",
@@ -9461,6 +10546,21 @@
    ]
   },
   {
+   "id": "L-6JJSC7",
+   "title": "SHRDLU demo v2.5 (PC game)",
+   "author": "Ontañón, Santiago",
+   "date": "2019-07-15",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=dPKfS9DsLmM",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-56AMQ5",
    "title": "Grounded language understanding (CS224U 2019)",
    "author": "Potts, Christopher",
@@ -9472,6 +10572,21 @@
    "url": "https://web.stanford.edu/class/cs224u/2019/materials/cs224u-2019-grounding.pdf",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-45F6QK",
+   "title": "SHRDLU MIT, 1968 #yapayzeka",
+   "author": "yapayzeka.academy",
+   "date": "2019-08-19",
+   "kind": "video",
+   "lang": "tr",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=1KZyAMLA0e4",
+   "tags": [
+    "record only",
     "free to read"
    ]
   },
@@ -9612,6 +10727,21 @@
    "tags": [
     "about",
     "held here"
+   ]
+  },
+  {
+   "id": "L-2I5FUZ",
+   "title": "Exam Question 4: Terry Winograd & SHRDLU",
+   "author": "Lenos, Philip",
+   "date": "2020-09-12",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=-0J3CR6qj_0",
+   "tags": [
+    "record only",
+    "free to read"
    ]
   },
   {
@@ -9815,6 +10945,21 @@
    ]
   },
   {
+   "id": "L-3W7DEP",
+   "title": "[Lecture] How did computers answer questions before Siri and Alexa? BASEBALL, LUNAR, and SHRDLU",
+   "author": "Boyd-Graber, Jordan",
+   "date": "2022-01-28",
+   "kind": "talk",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=0butNAOBO0U",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-G465U7",
    "title": "COMPOSITIONAL GENERALIZATION IN INSTRUCTION FOLLOWING TASKS",
    "author": "Dan, Soham",
@@ -9826,6 +10971,21 @@
    "url": "https://repository.upenn.edu/handle/20.500.14332/59692",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-QK2ZIX",
+   "title": "Winograd's SHRDLU demo (Java GUI)",
+   "author": "Gatti, Lorenzo",
+   "date": "2022-06-16",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=lzz3qUawahg",
+   "tags": [
+    "record only",
     "free to read"
    ]
   },
@@ -9921,6 +11081,21 @@
    "tags": [
     "discussion",
     "held here"
+   ]
+  },
+  {
+   "id": "L-VVWRDA",
+   "title": "Searle's arguments against SHRDLU: intentionality as a condition of language understanding",
+   "author": "Trasforini, Samuele",
+   "date": "2022",
+   "kind": "preprint",
+   "lang": "en",
+   "in": "ResearchGate",
+   "doi": "10.13140/rg.2.2.19126.16965",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://doi.org/10.13140/rg.2.2.19126.16965",
+   "tags": [
+    "record only"
    ]
   },
   {
@@ -10179,6 +11354,21 @@
    ]
   },
   {
+   "id": "L-73YDQV",
+   "title": "PiDP-10 SHRDLU - Origin of the first AI 'summer'",
+   "author": "Obsolescence Guaranteed",
+   "date": "2023-11-11",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=8ZGQcJVdjj8",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-FNFW3E",
    "title": "Dialogue Games for Benchmarking Language Understanding: Motivation, Taxonomy, Strategy",
    "author": "Schlangen, David",
@@ -10358,6 +11548,21 @@
    "licence": "Creative Commons Attribution 4.0",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-7FNGBL",
+   "title": "SHRDLU, pick up the red pyramid.",
+   "author": "Brinkhoff, Lars",
+   "date": "2024-07-25",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=7bu3cCCf7Zo",
+   "tags": [
+    "record only",
+    "free to read"
    ]
   },
   {
@@ -10667,6 +11872,21 @@
    ]
   },
   {
+   "id": "L-UQ7O56",
+   "title": "SHRDLU: linguaggio naturale negli anni '70 / Intelligenza Artificiale",
+   "author": "Mille e Una Avventura",
+   "date": "2025-10-15",
+   "kind": "video",
+   "lang": "it",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=82VLDHQYurU",
+   "licence": "Creative Commons Attribution license (reuse allowed)",
+   "tags": [
+    "record only"
+   ]
+  },
+  {
    "id": "L-3EH4LE",
    "title": "PIDP-10 Systems User's Guide, version 2025.03.03",
    "author": "Obsolescence Guaranteed",
@@ -10886,6 +12106,36 @@
    ]
   },
   {
+   "id": "L-RLGFI4",
+   "title": "SHRDLU: la IA que obedecía en un mundo de bloques",
+   "author": "Chico, Juan",
+   "date": "2026-10-12",
+   "kind": "video",
+   "lang": "es",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=ksrqNlmRCl0",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-6QXPZ7",
+   "title": "SHRDLU: The AI That Followed Orders in a World of Blocks",
+   "author": "Chico, Juan",
+   "date": "2026-10-04",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=mw5e5k-nFw0",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-WMAZDQ",
    "title": "SHRDLU understands English in a world of blocks",
    "author": "DevThrottle",
@@ -11018,6 +12268,21 @@
    "thumb": "library/thumbs/L-J6KVLE.jpg",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-CV35MR",
+   "title": "ELIZA, SHRDLU, And The 30-Year AI Era When Computers 'Thought' By Rule (The Rule-Based Era)",
+   "author": "MedStudyHub",
+   "date": "2026-05-28",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=rIxtrfmFX88",
+   "tags": [
+    "record only",
     "free to read"
    ]
   },
@@ -11157,6 +12422,21 @@
    ]
   },
   {
+   "id": "L-7OIGYS",
+   "title": "ELIZA and SHRDLU Explained: Why Rule-Based AI Hit a Wall",
+   "author": "Zribi, Becher (Tech Untangled)",
+   "date": "2026-10-26",
+   "kind": "video",
+   "lang": "en",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=PSxnBLV-COw",
+   "tags": [
+    "record only",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-WAXFKE",
    "title": "SHRDLU",
    "author": "위키백과 contributors",
@@ -11169,6 +12449,21 @@
    "licence": "Creative Commons Attribution-ShareAlike (creativecommons.org/licenses/by-sa/4.0/deed.ko)",
    "tags": [
     "about"
+   ]
+  },
+  {
+   "id": "L-P7H2AP",
+   "title": "SHRDLU：1970年代に作られた「言語を理解するAI」",
+   "author": "イミテーションゲーム【AI論文紹介】",
+   "date": "2026-06-10",
+   "kind": "video",
+   "lang": "ja",
+   "in": "YouTube",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.youtube.com/watch?v=HZhcNKKjkU4",
+   "tags": [
+    "record only",
+    "free to read"
    ]
   },
   {
@@ -11540,6 +12835,17 @@
    ]
   },
   {
+   "id": "L-V622UU",
+   "title": "Webster's New World dictionary of computer terms (Third Edition)",
+   "author": "Darcy, Laura",
+   "kind": "encyclopedia",
+   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/webstersnewworld00darc",
+   "tags": [
+    "named in the text"
+   ]
+  },
+  {
    "id": "L-SGS3N6",
    "title": "SHRDLU",
    "author": "Dix, Alan",
@@ -11564,6 +12870,20 @@
    "url": "https://www.britannica.com/science/history-of-artificial-intelligence",
    "tags": [
     "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-2CCAT3",
+   "title": "SHRDLU",
+   "author": "Encyclopaedia Britannica",
+   "kind": "encyclopedia",
+   "lang": "en",
+   "in": "Encyclopaedia Britannica online",
+   "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
+   "url": "https://www.britannica.com/technology/SHRDLU",
+   "tags": [
+    "record only",
     "free to read"
    ]
   },
@@ -11748,6 +13068,20 @@
    "tags": [
     "about",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-T2IKWX",
+   "title": "Artificial Intelligence Applications: Natural Language Processing",
+   "author": "Wilber Fankhauser",
+   "date": "Nov ",
+   "kind": "book",
+   "lang": "en",
+   "in": "Createspace Independent Publishing Platform",
+   "note": "The Internet Archive's full-text search finds the name in 14 passages. The book has not yet been read for what it says.",
+   "url": "https://archive.org/details/artificialintell0000wilb",
+   "tags": [
+    "named in the text"
    ]
   }
  ]
