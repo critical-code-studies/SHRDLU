@@ -1,6 +1,6 @@
 {
  "title": "Library",
- "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence or is in the public domain; otherwise the entry links to where it is published. The list is still growing.",
+ "intro": "Writing and recordings on SHRDLU, from 1971 onward: articles, books, chapters, theses, news items, web pages, talks and films. A copy is held here where the work has an open licence or is in the public domain; otherwise the entry links to where it is published. Gathered in November 2026 from indexes, full-text searches and catalogues. Many publishers' sites and some repositories could not be searched, so the list is incomplete.",
  "items": [
   {
    "id": "L-MMCFIV",
@@ -599,6 +599,21 @@
    "tags": [
     "discussion",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-HMY44E",
+   "title": "Machina sapiens : essai sur l'intelligence artificielle",
+   "author": "Skyvington, William",
+   "date": "1976",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : Seuil",
+   "note": "Has a passage headed on the software of Shrdlu, with worked declarations using its name. Snippet only. English gloss: Machina sapiens: an essay on artificial intelligence. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/isbn_2020044625",
+   "thumb": "library/thumbs/L-HMY44E.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -1475,7 +1490,8 @@
    "date": "1981",
    "kind": "thesis",
    "lang": "sv",
-   "note": "Köhler calls SHRDLU the most classical example, interpreting natural English within limits, with each word represented as a program. SHRDLU: Name on PDF pp. 71. Printed pages not read.",
+   "in": "Stockholms universitet",
+   "note": "Says Winograd's 1972 program SHRDLU can within limits interpret natural English, and describes how it represents knowledge. English gloss: Instructional systems: a methodological study. SHRDLU: IA page index 71.",
    "url": "https://archive.org/details/IA41545105_0016",
    "tags": [
     "discussion",
@@ -1556,20 +1572,6 @@
    ]
   },
   {
-   "id": "L-TFBEAL",
-   "title": "Elektuur, no. 225-226, juli-augustus 1982",
-   "date": "1982-07",
-   "kind": "magazine",
-   "lang": "nl",
-   "in": "Elektuur, no. 225-226",
-   "note": "Gives SHRDLU as a good example of AI research with a translated conversation. Article title not established from the OCR. SHRDLU: File \"Elektuur_225_226_1982_07_08\", printed p. 7-30, IA leaf 29.",
-   "url": "https://archive.org/details/elektuur_1980_1983",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-QJV4JE",
    "title": "Fantastyka, no. 1, October 1982",
    "date": "1982-10",
@@ -1640,6 +1642,19 @@
    ]
   },
   {
+   "id": "L-SHNW7C",
+   "title": "Revistas Investigación y Ciencia 1982",
+   "date": "1982",
+   "kind": "magazine",
+   "lang": "es",
+   "note": "Investigación y Ciencia, Spanish edition of Scientific American: explains the program's name by letter frequency and says SHRDLU simulates a robot's actions and responses. SHRDLU: IA page index 50, 52, 53, 54, 55, 62 File in the item: IYC075-1982-12-dic.",
+   "url": "https://archive.org/details/iyc1982",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-E7JRCB",
    "title": "The Handbook of artificial intelligence, volume 2",
    "author": "Barr, Avron; Feigenbaum, Edward A. (Edward Albert)",
@@ -1700,6 +1715,21 @@
    ]
   },
   {
+   "id": "L-AKFSKJ",
+   "title": "Enciclopedia Einaudi",
+   "author": "Giulio Einaudi Editore",
+   "date": "1982",
+   "kind": "encyclopedia",
+   "lang": "it",
+   "note": "Enciclopedia Einaudi: cites the program sHRDLU in Winograd 1972 and Boden 1977 for AI. SHRDLU: IA page index 193 File in the item: 13 CONOSCENZA - Enciclopedia Einaudi [1982]-OCR. PDF is 86 MB, recorded as a link.",
+   "url": "https://archive.org/details/enciclopedia-einaudi-1982",
+   "thumb": "library/thumbs/L-AKFSKJ.jpg",
+   "tags": [
+    "mention",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-SIDESN",
    "title": "Computer science: a modern introduction",
    "author": "Goldschlager, L.; Lister, A. (Andrew)",
@@ -1716,16 +1746,16 @@
   },
   {
    "id": "L-JAHHAG",
-   "title": "Langue, discours et machines : la compréhension et le traitement des langages naturels",
+   "title": "Micro Systèmes 22 (mars 1982)",
    "author": "Goujon, P.",
    "date": "1982-03",
    "kind": "magazine",
    "lang": "fr",
    "in": "Micro-Systèmes, no. 22, mars-avril 1982",
-   "note": "Gives a figure of the SHRDLU universe and a French translation of a stretch of dialogue. SHRDLU: Printed pp. 91-92, IA leaves 90-91, with Fig. 7 and dialogue.",
+   "note": "Magazine article with about 19 passages on SHRDLU, including a figure of its universe (fig. 7), the concepts of form, size, colour and support, a worked dialogue and the moves it plans to grasp a block. SHRDLU: IA page index 90, 91 PDF is 184 MB, recorded as a link.",
    "url": "https://archive.org/details/micro-systemes-22-mars-1982",
    "tags": [
-    "discussion",
+    "about",
     "free to read"
    ]
   },
@@ -1773,6 +1803,21 @@
    ]
   },
   {
+   "id": "L-TFBEAL",
+   "title": "Elektuur 225/226",
+   "author": "Jos Verstraten",
+   "date": "1982-07",
+   "kind": "magazine",
+   "lang": "nl",
+   "in": "Elektuur, in the Internet Archive set elektuur 1980 - 1983",
+   "note": "Electronics magazine article gives a sample conversation with SHRDLU and says it came in the early seventies from Terry Winograd. SHRDLU: Internet Archive text; page not established.",
+   "url": "https://archive.org/details/elektuur_1980_1983",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-RCPM6T",
    "title": "Microcomputers in education",
    "author": "None",
@@ -1783,6 +1828,20 @@
    "thumb": "library/thumbs/L-RCPM6T.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-5GZLMO",
+   "title": "El Ordenador Personal Magazine (Spain)",
+   "author": "Ordenador Individual, S.A.",
+   "date": "1982",
+   "kind": "magazine",
+   "lang": "es",
+   "note": "Magazine article calls Winograd's SHRDLU an interesting application of the idea and explains the letters of its name. SHRDLU: Internet Archive text; page not established.",
+   "url": "https://archive.org/details/OrdenadorPersonalMagazine",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -1818,13 +1877,13 @@
   },
   {
    "id": "L-THB4UB",
-   "title": "Intelligenza artificiale",
+   "title": "Le Scienze, n. 172",
    "author": "Waltz, David L.",
-   "date": "1982-12",
+   "date": "1982",
    "kind": "magazine",
    "lang": "it",
    "in": "Le Scienze, n. 172, dicembre 1982",
-   "note": "Italian edition of Waltz's Scientific American article; explains the name and how the program answers typed questions. SHRDLU: IA leaves 22, 23, 29.",
+   "note": "Le Scienze 172: explains that Winograd's program is called SHRDLU after the letters of the alphabet by frequency, and answers questions typed at a keyboard. SHRDLU: IA page index 22, 23, 29.",
    "url": "https://archive.org/details/lescienze-172",
    "tags": [
     "discussion",
@@ -1855,20 +1914,6 @@
    "in": "BYTE, vol. 8, no. 7",
    "note": "In a book review, describes LUNAR and SHRDLU as limited-domain systems of the early 1970s in which syntax and semantics were no longer separate. SHRDLU: IA leaf 455.",
    "url": "https://archive.org/details/byte-magazine-1983-07",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-HFUTM6",
-   "title": "Micro 7, n° 2, février 1983, article on artificial intelligence",
-   "date": "1983-02",
-   "kind": "magazine",
-   "lang": "fr",
-   "in": "Micro 7, no. 2",
-   "note": "Introduces SHRDLU as an American demonstration program that understands English and obeys orders in a closed fictional universe. Article title not established from the OCR. SHRDLU: printed p. 46, IA leaf 45.",
-   "url": "https://archive.org/details/Micro7-02",
    "tags": [
     "discussion",
     "free to read"
@@ -2048,6 +2093,21 @@
    ]
   },
   {
+   "id": "L-HFUTM6",
+   "title": "Micro 7 n° 02",
+   "author": "SEDEP s.a.",
+   "date": "1983-02",
+   "kind": "magazine",
+   "lang": "fr",
+   "in": "Micro 7, no. 2",
+   "note": "Magazine piece on SHRDLU as an American demonstration program that understands and speaks English and obeys orders, in a closed fictional logical universe of ten objects. SHRDLU: IA page index 45 PDF is 197 MB, recorded as a link.",
+   "url": "https://archive.org/details/Micro7-02",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-7P4FIF",
    "title": "Entrevista com Terry Winograd, Diário de Lisboa 1983-02-22: ano 62, n.º 21085",
    "author": "Winograd, Terry",
@@ -2208,15 +2268,17 @@
   },
   {
    "id": "L-VV736E",
-   "title": "Un reto para Europa: cómo acabar con el paro",
+   "title": "Un reto para Europa : cómo acabar con el paro",
    "author": "Albert, Michel",
    "date": "1984",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 2 passages. The book has not yet been read for what it says.",
+   "lang": "es",
+   "in": "Barcelona Planeta",
+   "note": "Same passage as Los nuevos alquimistas: SHRDLU knows much about very little. Snippet only. English gloss: A challenge for Europe. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
    "url": "https://archive.org/details/unretoparaeuropa0000albe",
    "thumb": "library/thumbs/L-VV736E.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -2378,6 +2440,20 @@
    ]
   },
   {
+   "id": "L-ONJTRZ",
+   "title": "Corso pratico col computer",
+   "author": "Fabbri Editori",
+   "date": "1984-01-01",
+   "kind": "magazine",
+   "lang": "it",
+   "note": "Partwork course has a heading on the program SHRDLU, placing Winograd at Stanford, and an example where it cannot act on 'move the pyramid' without knowing which. English gloss: Practical computer course. SHRDLU: IA page index 9 File in the item: 12m.",
+   "url": "https://archive.org/details/corsopraticocolcomputer",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-WQWBRR",
    "title": "The art of computer conversation: a new medium for communication",
    "author": "Gaines, Brian R; Shaw, Mildred L. G",
@@ -2390,6 +2466,21 @@
    "thumb": "library/thumbs/L-WQWBRR.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-QYKU4A",
+   "title": "Los nuevos alquimistas : Silicon Valley y la revolución microelectrónica",
+   "author": "Hanson, Dirk",
+   "date": "1984",
+   "kind": "book",
+   "lang": "es",
+   "in": "Barcelona : Planeta",
+   "note": "Spanish translation of a book on Silicon Valley: SHRDLU knows much about very little; its field is a table top; written by Winograd. Snippet only. English gloss: The new alchemists. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/losnuevosalquimi0000hans",
+   "thumb": "library/thumbs/L-QYKU4A.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -2481,12 +2572,12 @@
   {
    "id": "L-XUP45T",
    "title": "Point de vue québécois sur l'intelligence artificielle",
-   "author": "Parent, Richard",
+   "author": "Parent, Richard.",
    "date": "1984",
    "kind": "report",
    "lang": "fr",
-   "in": "Québec; also IA micro_IA40243513_1721",
-   "note": "Parent calls SHRDLU a precursor of dialogue with machines in natural language from 1972. SHRDLU: Name on PDF pp. 49, 106. Printed pages not read.",
+   "in": "Université Laval, Faculté des sciences sociales",
+   "note": "Says Winograd's SHRDLU was a precursor in dialogue in the user's own language, from 1972, simulating a robot handling simple objects on a table. English gloss: A Quebec view of artificial intelligence. SHRDLU: IA page index 49, 107.",
    "url": "https://archive.org/details/micro_IA41159529_0330",
    "tags": [
     "discussion",
@@ -2626,32 +2717,32 @@
    ]
   },
   {
+   "id": "L-BYSTNZ",
+   "title": "Le Scienze, n. 195",
+   "author": "Winograd, Terry",
+   "date": "1984",
+   "kind": "magazine",
+   "lang": "it",
+   "in": "Le Scienze, n. 195",
+   "note": "Le Scienze 195, Italian edition of Scientific American: the passage matches Winograd's own article in Investigación y Ciencia 1984; describes shrdlu, from the late 1960s, acting on a simulated scene, working well partly because its universe is limited. SHRDLU: IA page index 32.",
+   "url": "https://archive.org/details/lescienze-195",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-JKFRIB",
-   "title": "Investigación y Ciencia, 1984, edition of Winograd's Scientific American article",
+   "title": "Programación y tratamiento de lenguajes",
    "author": "Winograd, Terry",
    "date": "1984",
    "kind": "magazine",
    "lang": "es",
    "in": "Investigación y Ciencia, 1984",
-   "note": "Spanish edition of Winograd's Scientific American article. Article title not established from the OCR. SHRDLU: File \"IYC098-1984-11-nov\", printed p. 82, IA leaf 83.",
+   "note": "Article by Winograd in the Spanish edition of Scientific American, per the issue's contents line: gives SHRDLU, from the late 1960s, as an early example, where a person communicates in English about a simulated world of blocks. English gloss: Programming and handling languages. SHRDLU: IA page index 83 File in the item: IYC098-1984-11-nov.",
    "url": "https://archive.org/details/iyc1984",
    "tags": [
-    "mention",
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-BYSTNZ",
-   "title": "Software per lavorare con il linguaggio",
-   "author": "Winograd, Terry",
-   "date": "1984-11",
-   "kind": "magazine",
-   "lang": "it",
-   "in": "Le Scienze, n. 195",
-   "note": "Italian edition of Winograd's Scientific American article. SHRDLU: File \"1984_195\", IA leaf 32.",
-   "url": "https://archive.org/details/lescienze-195",
-   "tags": [
-    "mention",
+    "discussion",
     "free to read"
    ]
   },
@@ -2870,6 +2961,21 @@
    ]
   },
   {
+   "id": "L-UQ2JYR",
+   "title": "Anaya - Inteligencia Artificial: Conceptos y Programas",
+   "author": "Anaya",
+   "date": "1985",
+   "kind": "book",
+   "lang": "es",
+   "note": "Programming book says its BLOQUELANDIA is a version of SHRDLU, compares its limits with the original and says SHRDLU could answer questions. English gloss: Artificial intelligence: concepts and programs. SHRDLU: IA page index 96, 98, 99, 104, 108, 120, 126, 128 PDF is 159 MB, recorded as a link.",
+   "url": "https://archive.org/details/inteligencia-artificial-conceptos-y-programas-tim-hartnellacme",
+   "thumb": "library/thumbs/L-UQ2JYR.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-6S6LWZ",
    "title": "Artificial intelligence : promise and performance",
    "author": "Bonnet, Alain",
@@ -2912,13 +3018,13 @@
   },
   {
    "id": "L-UQ6DZX",
-   "title": "(Ri)creazioni al calcolatore",
+   "title": "Le Scienze, n. 199",
    "author": "Dewdney, A. K.",
-   "date": "1985-03",
+   "date": "1985",
    "kind": "magazine",
    "lang": "it",
    "in": "Le Scienze, n. 199, marzo 1985",
-   "note": "Italian edition of Dewdney's column on Eliza, Racter and Shrdlu; an illustration shows the robotic hand after a command, with dialogue. SHRDLU: IA leaves 40-42.",
+   "note": "Le Scienze, Italian edition of Scientific American: an article on conversational programs describes Shrdlu's world of blocks, pyramids and boxes, with an illustration of its robot hand. SHRDLU: IA page index 40, 41, 42.",
    "url": "https://archive.org/details/lescienze-199",
    "tags": [
     "discussion",
@@ -3219,15 +3325,15 @@
   },
   {
    "id": "L-67QO5T",
-   "title": "Svet Kompjutera, December 1986",
+   "title": "Svet Kompjutera 1986 12",
    "date": "1986-12",
    "kind": "magazine",
    "lang": "sr",
    "in": "Svet Kompjutera, 1986-12",
-   "note": "Refers to work on machine understanding of language after SHRDLU. Article title not established from the OCR. SHRDLU: IA leaf 10.",
+   "note": "Yugoslav computer magazine: says the name is not an abbreviation, its author Teri Vinograd worked from a relatively simple idea, an original approach, and that machine language understanding people after SHRDLU took a new line. Text read through OCR with damage. English gloss: World of Computers. SHRDLU: IA page index 10.",
    "url": "https://archive.org/details/Svet_Kompjutera_1986_12",
    "tags": [
-    "mention",
+    "discussion",
     "free to read"
    ]
   },
@@ -3334,21 +3440,6 @@
    "thumb": "library/thumbs/L-CKYZDS.jpg",
    "tags": [
     "named in the text"
-   ]
-  },
-  {
-   "id": "L-YWVLLU",
-   "title": "Eliza contro Turing",
-   "author": "Giustozzi, Corrado",
-   "date": "1986-05",
-   "kind": "magazine",
-   "lang": "it",
-   "in": "MCmicrocomputer, n. 52, IntelliGiochi column",
-   "note": "Sets SHRDLU, which \"understands\" its world, against programs of the Eliza family built to simulate conversation. SHRDLU: IA leaves 86, 88.",
-   "url": "https://archive.org/details/MC_microcomputer-052",
-   "tags": [
-    "discussion",
-    "free to read"
    ]
   },
   {
@@ -3541,6 +3632,21 @@
    ]
   },
   {
+   "id": "L-YWVLLU",
+   "title": "MC microcomputer 052 1986",
+   "author": "Techimedia",
+   "date": "1986",
+   "kind": "magazine",
+   "lang": "it",
+   "in": "MCmicrocomputer, n. 52, IntelliGiochi column",
+   "note": "Magazine piece says SHRDLU can understand things and be aware of its own world, and that by Turing's test its conversation is sensible. SHRDLU: IA page index 86, 88.",
+   "url": "https://archive.org/details/MC_microcomputer-052",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-PPJ46M",
    "title": "Artificial intelligence",
    "author": "Time-Life Books",
@@ -3648,7 +3754,7 @@
    "kind": "book",
    "lang": "fr",
    "in": "Paris : Seuil : La Recherche",
-   "note": "A French survey describes Shrdlu as a program with good performance working on a simple universe containing a table. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "note": "Describes Shrdlu working on a simple universe with a table, and names it after ELIZA as giving orders to a robot. Snippet only. English gloss: Research in artificial intelligence. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
    "url": "https://archive.org/details/larechercheenint0000unse",
    "thumb": "library/thumbs/L-5VCUAZ.jpg",
    "tags": [
@@ -3780,21 +3886,6 @@
    "thumb": "library/thumbs/L-LPGAVO.jpg",
    "tags": [
     "discussion"
-   ]
-  },
-  {
-   "id": "L-GAMEUO",
-   "title": "Un mondo di cubi colorati: Simuliamo, con il computer, elementari esperienze di logica",
-   "author": "Certi, Sandro",
-   "date": "1987-01",
-   "kind": "magazine",
-   "lang": "it",
-   "in": "Commodore Computer Club, no. 38",
-   "note": "Section on SHRDLU as the model for a home-computer simulation of a world of colored blocks. SHRDLU: IA leaf 28, section headed \"SHRDLU: un programma intelligente\".",
-   "url": "https://archive.org/details/Commodore-Computer-Club-38",
-   "tags": [
-    "discussion",
-    "free to read"
    ]
   },
   {
@@ -4018,6 +4109,21 @@
    ]
   },
   {
+   "id": "L-GAMEUO",
+   "title": "Commodore Computer Club 38",
+   "author": "Systems Editoriale",
+   "date": "1987-01",
+   "kind": "magazine",
+   "lang": "it",
+   "in": "Commodore Computer Club, no. 38",
+   "note": "Has a section titled SHRDLU, an intelligent program, on the early 1970s program and its odd name. SHRDLU: IA page index 28.",
+   "url": "https://archive.org/details/Commodore-Computer-Club-38",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-WIOYFN",
    "title": "The elements of artificial intelligence: an introduction using LISP",
    "author": "Tanimoto, S. (Steven)",
@@ -4028,6 +4134,22 @@
    "thumb": "library/thumbs/L-WIOYFN.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-HEVH3Q",
+   "title": "Divertirsi con il calcolatore",
+   "author": "Virginio Sala (a cura di)",
+   "date": "1987-09",
+   "kind": "book",
+   "lang": "it",
+   "in": "Le Scienze s.p.a",
+   "note": "Collection from Le Scienze: says Shrdlu, created in 1970 by Winograd, is far above Eliza and Racter in intelligent conversation, with the world illustrated. English gloss: Having fun with the computer. SHRDLU: IA page index 143, 145 PDF is 111 MB, recorded as a link.",
+   "url": "https://archive.org/details/divertirsiconilcalcolatore",
+   "thumb": "library/thumbs/L-HEVH3Q.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -4134,6 +4256,19 @@
    ]
   },
   {
+   "id": "L-WTXWQ7",
+   "title": "El Mundo De La Computacion",
+   "date": "1988",
+   "kind": "magazine",
+   "lang": "es",
+   "note": "Partwork describes the program, with a robot that must first clear a block before obeying an order. English gloss: The world of computing. SHRDLU: IA page index 40 File in the item: El_mundo_de_la_computacion-4. PDF is 164 MB, recorded as a link.",
+   "url": "https://archive.org/details/el-mundo-de-la-computacion-4",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-L5BNJT",
    "title": "Intelligiochi column, MCmicrocomputer, n. 77, settembre 1988",
    "date": "1988-09",
@@ -4148,17 +4283,17 @@
    ]
   },
   {
-   "id": "L-6LRY4Y",
-   "title": "La Stampa, 25 August 1988",
-   "date": "1988-08-25",
-   "kind": "news",
-   "lang": "it",
-   "in": "La Stampa",
-   "note": "Refers to a 1970s program with the improbable name SHRDLU that showed it could handle solids. Article title not established from the OCR. SHRDLU: Printed p. 3, IA leaf 2; column OCR scrambled.",
-   "url": "https://archive.org/details/lastampa_1988-08-25",
+   "id": "L-ZAUHBY",
+   "title": "Psychologie cognitive : modèles et méthodes",
+   "date": "1988",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Grenoble : Presses universitaires de Grenoble",
+   "note": "Uses Winograd's SHRDLU (1972) as its illustration under a heading on the program, and distinguishes categories of procedures in it. English gloss: Cognitive psychology: models and methods. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/psychologiecogni0000unse",
+   "thumb": "library/thumbs/L-ZAUHBY.jpg",
    "tags": [
-    "mention",
-    "free to read"
+    "discussion"
    ]
   },
   {
@@ -4208,6 +4343,21 @@
    ]
   },
   {
+   "id": "L-OBVDBZ",
+   "title": "Programmation en Prolog pour l'intelligence artificielle",
+   "author": "Bratko, Ivan",
+   "date": "1988",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : InterEditions",
+   "note": "French translation of Bratko, Prolog Programming for Artificial Intelligence. Snippets: Planner was integrated in the famous Shrdlu, and a personal remark that Shrdlu changed the writer's way of seeing things. English gloss: Prolog programming for AI. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/programmationenp0000brat",
+   "thumb": "library/thumbs/L-OBVDBZ.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-PUVW3X",
    "title": "Advanced information technology in education and training",
    "author": "Cotterell, Arthur",
@@ -4250,6 +4400,21 @@
    "thumb": "library/thumbs/L-I5R5BT.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-6LRY4Y",
+   "title": "La Stampa (1988-08-25)",
+   "author": "Editrice La Stampa",
+   "date": "1988-08-25",
+   "kind": "news",
+   "lang": "it",
+   "in": "Editrice La Stampa S.p.A",
+   "note": "La Stampa, 1988-08-25: damaged OCR snippet naming SHRDLU; surrounding text not read. SHRDLU: IA page index 2.",
+   "url": "https://archive.org/details/lastampa_1988-08-25",
+   "tags": [
+    "mention",
+    "free to read"
    ]
   },
   {
@@ -4358,6 +4523,21 @@
    ]
   },
   {
+   "id": "L-BGWUHH",
+   "title": "Origine et développement des industries de la langue",
+   "author": "L'Homme, Marie-Claude",
+   "date": "1988",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Québec : Centre international de recherche sur le bilinguisme = International Center for Research on Bilingualism",
+   "note": "Reprints a conversation with SHRDLU in French. Snippet only. English gloss: Origin and development of the language industries. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/origineetdevelop0000lhom",
+   "thumb": "library/thumbs/L-BGWUHH.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-5QMU4V",
    "title": "Aufhebung der Enzyklopädie im Expertensystem?",
    "author": "Matussek, Peter",
@@ -4383,6 +4563,22 @@
    "thumb": "library/thumbs/L-CIDNKN.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-RPUBGW",
+   "title": "I calcolatori della quinta generazione",
+   "author": "Peter Bishop",
+   "date": "1988-03",
+   "kind": "book",
+   "lang": "it",
+   "in": "Franco Muzzio Editore",
+   "note": "Gives a dialogue with Shrdlu on lifting a red block and the meaning of 'object'. English gloss: Fifth generation computers. SHRDLU: IA page index 39, 192.",
+   "url": "https://archive.org/details/icalcolatoridellaquintagenerazione",
+   "thumb": "library/thumbs/L-RPUBGW.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -4818,6 +5014,20 @@
    ]
   },
   {
+   "id": "L-ZNGCZ6",
+   "title": "Séminaire du Cirade sur la représentation : 1989-1990",
+   "date": "1990",
+   "kind": "report",
+   "lang": "fr",
+   "in": "Cirade",
+   "note": "Same claim as Lebrun 1990: SHRDLU first showed the computer's use in understanding language, with a syntactic component. English gloss: Cirade seminar on representation, 1989-1990. SHRDLU: IA page index 50 PDF is 51 MB, recorded as a link.",
+   "url": "https://archive.org/details/micro_IA41159515_0314",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-QSUW4D",
    "title": "Computer applications in the social sciences",
    "author": "Brent, Edward E.",
@@ -4943,12 +5153,12 @@
   {
    "id": "L-5XPKKC",
    "title": "La compréhension en lecture : un carrefour interdisciplinaire",
-   "author": "Lebrun, Monique",
+   "author": "Lebrun, Monique.",
    "date": "1990",
-   "kind": "report",
+   "kind": "article",
    "lang": "fr",
-   "in": "Québec",
-   "note": "Lebrun says SHRDLU was the first program to show the usefulness of the computer in language comprehension. SHRDLU: Name on PDF pp. 30. Printed pages not read.",
+   "in": "Université du Québec à Montréal, Centre interdisciplinaire de recherches sur l'apprentissage et le développement en éducation",
+   "note": "Says SHRDLU was the first to show the computer's use in language understanding and describes its syntactic component. English gloss: Reading comprehension: an interdisciplinary crossroads. SHRDLU: IA page index 30.",
    "url": "https://archive.org/details/micro_IA41159513_0247",
    "tags": [
     "discussion",
@@ -5101,15 +5311,17 @@
   },
   {
    "id": "L-2PPTUU",
-   "title": "Métaconnaissance: Futur de l'intelligence artificielle",
+   "title": "Métaconnaissance : Futur de l'intelligence artificielle",
    "author": "Pitrat, J. (Jacques)",
    "date": "1990",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 4 passages. The book has not yet been read for what it says.",
+   "lang": "fr",
+   "in": "Paris : Hermès",
+   "note": "Discusses SHRDLU's use of 'it' for reference and calls Winograd 1972 pioneering on text analysis with a generation part. English gloss: Metaknowledge: the future of AI. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
    "url": "https://archive.org/details/metaconnaissance0000pitr",
    "thumb": "library/thumbs/L-2PPTUU.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5240,6 +5452,21 @@
    ]
   },
   {
+   "id": "L-XXUJSU",
+   "title": "Paradigmes perdus : la science en question",
+   "author": "Casti, John",
+   "date": "1991",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : InterEditions",
+   "note": "French translation of Casti, Paradigms Lost. Calls SHRDLU the best-known micro-world program, built by Winograd in the early 1970s, with a figure (5.4) of the world according to SHRDLU. English gloss: Paradigms lost: science in question. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/paradigmesperdus0000cast",
+   "thumb": "library/thumbs/L-XXUJSU.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-U6GS2Z",
    "title": "Vision, instruction, and action",
    "author": "Chapman, David",
@@ -5278,6 +5505,21 @@
    "url": "https://archive.org/details/mindinactionpers0000garn",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-RHIQBR",
+   "title": "Intelligence artificielle en LISP et PROLOG",
+   "author": "Kabbaj, Adil",
+   "date": "1991",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : Masson",
+   "note": "Section 1.3 is on syntactic-semantic analysis of a sentence, SHRDLU and LUNAR. Snippet only. English gloss: AI in LISP and PROLOG. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/intelligencearti0000kabb",
+   "thumb": "library/thumbs/L-RHIQBR.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -5572,14 +5814,16 @@
   {
    "id": "L-TDORNX",
    "title": "Introduccion a la Psicologia",
-   "author": "Morris",
+   "author": "Morris, Charles G.",
    "date": "1992",
    "kind": "book",
-   "note": "The Internet Archive's full-text search finds the name in 3 passages. The book has not yet been read for what it says.",
+   "lang": "es",
+   "in": "Prentice Hall (a Pearson Education company); Prentice Hall",
+   "note": "Spanish edition of a psychology textbook: reprints a dialogue between Winograd and SHRDLU, saying Winograd developed it in 1972. Snippet only. English gloss: Introduction to psychology. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
    "url": "https://archive.org/details/introduccionlaps0000morr_l1m4",
    "thumb": "library/thumbs/L-TDORNX.jpg",
    "tags": [
-    "named in the text"
+    "discussion"
    ]
   },
   {
@@ -5620,6 +5864,20 @@
    "url": "https://archive.org/details/isbn_0195051963",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-LPG5OI",
+   "title": "Dictionnaire critique de la communication",
+   "date": "1993",
+   "kind": "encyclopedia",
+   "lang": "fr",
+   "in": "Paris : Presses universitaires de France",
+   "note": "Reference work with an entry headed SHRDLU, described as a system for understanding natural language. Snippet only. English gloss: Critical dictionary of communication. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/dictionnairecrit0001unse",
+   "thumb": "library/thumbs/L-LPG5OI.jpg",
+   "tags": [
+    "about"
    ]
   },
   {
@@ -5679,6 +5937,21 @@
    ]
   },
   {
+   "id": "L-WQMRGH",
+   "title": "Linguistique et traitement automatique des langues",
+   "author": "Fuchs, Catherine",
+   "date": "1993",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Paris : Hachette",
+   "note": "Has an entry on SHRDLU under human-machine dialogue, noting the name was chosen for being hard to pronounce, and cites its morphological analysis. English gloss: Linguistics and automatic language processing. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/linguistiqueettr0000fuch",
+   "thumb": "library/thumbs/L-WQMRGH.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-2OYKTC",
    "title": "Artificial intelligence : structures and strategies for complex problem solving",
    "author": "Luger, George F",
@@ -5709,6 +5982,21 @@
    ]
   },
   {
+   "id": "L-JO2UAA",
+   "title": "El Nuevo Debate Sobre La Inteligencia Artificial",
+   "author": "Stephen Graubard",
+   "date": "1993",
+   "kind": "book",
+   "lang": "es",
+   "in": "Gedisa Editorial; GEDISA",
+   "note": "Spanish translation of Graubard (ed.), The Artificial Intelligence Debate: SHRDLU among famous programs written around 1970 at MIT, with a reference to who first saw its limits. Snippet only. English gloss: The new debate on artificial intelligence. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/elnuevodebatesob0000step",
+   "thumb": "library/thumbs/L-JO2UAA.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-AVY5J2",
    "title": "教育工学-構成主義の「学習論」に出あう",
    "author": "菅井, 勝雄",
@@ -5731,7 +6019,7 @@
    "kind": "book",
    "lang": "zh",
    "in": "Beijing : Beijing shi fan da xue chu ban she",
-   "note": "A Chinese linguistics textbook names LUNAR and SHRDLU as systems and describes each in turn. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
+   "note": "Describes SHRDLU after LUNAR as an example of a language system. Snippet only. English gloss: Basic theory of linguistics. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
    "url": "https://archive.org/details/yuyanxuejichulil0001unse",
    "thumb": "library/thumbs/L-SQ3AWB.jpg",
    "tags": [
@@ -6422,6 +6710,21 @@
    ]
   },
   {
+   "id": "L-M332JT",
+   "title": "Tong xin xin shi dai",
+   "author": "Gelin (Green, John O.), 1945-",
+   "date": "1998",
+   "kind": "book",
+   "lang": "zh",
+   "in": "Bei jing : Zhong guo qing nian chu ban she",
+   "note": "Says Winograd became famous in the classic AI period of the early 1970s by creating SHRDLU, and has a section on SHRDLU and Block World. Snippet only. English gloss: The new age of communication. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/tongxinxinshidai0000geli",
+   "thumb": "library/thumbs/L-M332JT.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-2VEJYZ",
    "title": "Cognition",
    "author": "Jahnke, John C",
@@ -6492,6 +6795,34 @@
    ]
   },
   {
+   "id": "L-PKHELB",
+   "title": "Le Cerveau et la pensée : la révolution des sciences cognitives",
+   "date": "1999",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Auxerre : Éditions Sciences humaines",
+   "note": "Says Winograd created SHRDLU in 1970, which understands and answers instructions, and that going beyond it proved harder than expected. Snippet only. English gloss: The brain and thought: the cognitive science revolution. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/lecerveauetlapen0000unse",
+   "thumb": "library/thumbs/L-PKHELB.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-7QLGTH",
+   "title": "PC Format (1999-2003)",
+   "date": "1999",
+   "kind": "magazine",
+   "lang": "hu",
+   "in": "PC Format (Hungary)",
+   "note": "Hungarian PC magazine invites readers to try SHRDLU, built at the MIT AI lab by Winograd, with an example command it could have followed. SHRDLU: IA page index 30, 31, 32 File in the item: pc_format_2001-09. PDF is 138 MB, recorded as a link.",
+   "url": "https://archive.org/details/pc_format_1999-2003",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-HQ24GD",
    "title": "The philosophy of psychology",
    "author": "Botterill, George",
@@ -6502,6 +6833,21 @@
    "thumb": "library/thumbs/L-HQ24GD.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-BWRYTS",
+   "title": "Matière et conscience",
+   "author": "Churchland, Paul M., 1942-",
+   "date": "1999",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Seyssel (France) : Champ Vallon",
+   "note": "French translation of Churchland, Matter and Consciousness. Calls SHRDLU much more impressive, handling syntax, and says its knowledge base is not empty but confined to the narrow block world. English gloss: Matter and consciousness. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/matiereetconscie0000chur",
+   "thumb": "library/thumbs/L-BWRYTS.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -6585,6 +6931,22 @@
    ]
   },
   {
+   "id": "L-L5YIL7",
+   "title": "Enciclopedia medica italiana",
+   "author": "Vella, Luciano",
+   "date": "1999",
+   "kind": "encyclopedia",
+   "lang": "it",
+   "in": "Firenze : USES",
+   "note": "Enciclopedia medica italiana: one clause on orders in ordinary language (SHRDLU). SHRDLU: IA page index 358 PDF is 87 MB, recorded as a link.",
+   "url": "https://archive.org/details/bub_gb_kWybadAuILsC",
+   "thumb": "library/thumbs/L-L5YIL7.jpg",
+   "tags": [
+    "mention",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-FFQZOR",
    "title": "Handbook of intelligence",
    "date": "2000",
@@ -6621,6 +6983,21 @@
    "thumb": "library/thumbs/L-QR3GPL.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-FYPFEZ",
+   "title": "Les réseaux du sens : de l'informatique aux neurosciences",
+   "author": "Chazal, Gérard",
+   "date": "2000",
+   "kind": "book",
+   "lang": "fr",
+   "in": "Seyssel : Champ Vallon : Diffusion, Presses universitaires de France",
+   "note": "Sets SHRDLU's conversation against ELIZA's and says its universe is very restricted, with knowledge limited to it. English gloss: Networks of meaning: from computing to neuroscience. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/lesreseauxdusens0000chaz",
+   "thumb": "library/thumbs/L-FYPFEZ.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -6769,6 +7146,21 @@
    "note": "A computing textbook says that in a very limited universe SHRDLU could interpret instructions in ordinary language. SHRDLU: Internet Archive lending copy, full-text index snippet only; page not seen, and the extent of the passage beyond the snippet is not established.",
    "url": "https://archive.org/details/highernationalco0000hell",
    "thumb": "library/thumbs/L-XW54PF.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-JSNJCO",
+   "title": "Filosofia e scienza cognitiva",
+   "author": "Marconi, Diego, 1947-",
+   "date": "2001",
+   "kind": "book",
+   "lang": "it",
+   "in": "Roma-Bari : Editori Laterza",
+   "note": "Says the best-known 1970s system, Winograd's SHRDLU, fitted this model, with its world virtual in memory and the system organised as a set of experts. Snippet only. English gloss: Philosophy and cognitive science. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/filosofiaescienz0000marc",
+   "thumb": "library/thumbs/L-JSNJCO.jpg",
    "tags": [
     "discussion"
    ]
@@ -6962,6 +7354,20 @@
    "tags": [
     "about",
     "free to read"
+   ]
+  },
+  {
+   "id": "L-TLDHBZ",
+   "title": "Ren gong zhi neng ji qi ying yong",
+   "date": "2003",
+   "kind": "book",
+   "lang": "zh",
+   "in": "Beijing : Qing hua da xue chu ban she",
+   "note": "Textbook section on SHRDLU as a natural-language system directing a robot hand. Snippet only. English gloss: Artificial intelligence and its applications. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/rengongzhinengji0000unse",
+   "thumb": "library/thumbs/L-TLDHBZ.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -7305,6 +7711,21 @@
    "note": "History of interactive fiction. Quotes a SHRDLU transcript excerpt and comments on the program's sophistication as a language understander in the blocks world. SHRDLU: Internet Archive full-text hit, 13 passages naming SHRDLU in the search snippets; printed pages not obtained (lending copy; reader search returned a server error).",
    "url": "https://archive.org/details/twistylittlepass0000mont",
    "thumb": "library/thumbs/L-SGSDS4.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-UD4LCT",
+   "title": "Cómo clonar a la rubia perfecta : una guía desenfadada para entender los prodigios de la ciencia moderna",
+   "author": "Nelson, Sue",
+   "date": "2005",
+   "kind": "book",
+   "lang": "es",
+   "in": "Madrid : Nowtilus",
+   "note": "Spanish translation of a popular science book. A boxed note gives the origin of the acronym from its creator, and calls SHRDLU a successful program. Snippet only. English gloss: How to clone the perfect blonde. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/comoclonarlarubi0000nels",
+   "thumb": "library/thumbs/L-UD4LCT.jpg",
    "tags": [
     "discussion"
    ]
@@ -7698,6 +8119,21 @@
    ]
   },
   {
+   "id": "L-OUMBZR",
+   "title": "Bewustzijn : van filosofie tot hersenwetenschap",
+   "author": "Kolk, Herman, 1944-",
+   "date": "2008",
+   "kind": "book",
+   "lang": "nl",
+   "in": "Amsterdam : Boom",
+   "note": "Describes the block-world program named SHRDLU and says its success made the limits of GPS painfully clear. Snippet only. English gloss: Consciousness: from philosophy to brain science. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/bewustzijnvanfil0000kolk",
+   "thumb": "library/thumbs/L-OUMBZR.jpg",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
    "id": "L-L556MM",
    "title": "The robot: the life story of a technology",
    "author": "Nocks, Lisa",
@@ -7849,6 +8285,21 @@
    ]
   },
   {
+   "id": "L-4CMSGP",
+   "title": "基于认知的汉语计算语言学研究",
+   "author": "袁, 毓林",
+   "date": "2009",
+   "kind": "book",
+   "lang": "zh",
+   "note": "Describes Winograd's 1972 SHRDLU, a block-world system taking commands, and its working process with an augmented transition network. Internet Archive user upload, not downloaded. English gloss: Yuan Yulin, Cognition-based Chinese computational linguistics. SHRDLU: IA page index 33, 34, 117.",
+   "url": "https://archive.org/details/2009_20220826",
+   "thumb": "library/thumbs/L-4CMSGP.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-QXHVGS",
    "title": "Applying the symbolic paradigm",
    "author": "Bermúdez, José Luis",
@@ -7874,6 +8325,21 @@
    "doi": "10.1017/cbo9780511781322.004",
    "note": "Textbook chapter on three milestones, with SHRDLU showing how grammatical rules might be represented with other information about the environment. SHRDLU: Index abstract only (OpenAlex); publisher page not reachable or paywalled, so the extent of the passage was not read beyond the abstract. Also at: https://doi.org/10.1017/CBO9780511781322.004, https://www.cambridge.org/core/books/cognitive-science/discipline-matures-three-milestones/0A16E9F827A993861258F25F0E518731",
    "url": "https://doi.org/10.1017/cbo9780511781322.004",
+   "tags": [
+    "discussion"
+   ]
+  },
+  {
+   "id": "L-BJHWTY",
+   "title": "Ren gong zhi neng ji chu = Fundamentals of artifical intelligence",
+   "author": "Cai,Zixing (1938.3?)",
+   "date": "2010",
+   "kind": "book",
+   "lang": "zh",
+   "in": "Beijing : Gao deng jiao yu chu ban she",
+   "note": "Textbook section 8.9.1: SHRDLU, from MIT, directs a manipulator moving blocks on a table and answers by inference. Snippet only. English gloss: Foundations of artificial intelligence. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/rengongzhinengji0002caiz",
+   "thumb": "library/thumbs/L-BJHWTY.jpg",
    "tags": [
     "discussion"
    ]
@@ -7962,6 +8428,21 @@
    "in": "n+1, issue 13",
    "note": "Gives the logical form for 'pick up a red block' and says the program's success lay in the narrow domain it worked within. SHRDLU: Section headed 'Eliza and Shrdlu'.",
    "url": "https://www.nplusonemag.com/issue-13/essays/stupidity-of-computers/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-WTR2HU",
+   "title": "Daniel Denett, La Conciencia Explicada",
+   "author": "Daniel Denett",
+   "date": "2012",
+   "kind": "book",
+   "lang": "es",
+   "note": "Spanish translation of Dennett, Consciousness Explained: SHRDLU manipulated blocks and most of its answers were canned. Internet Archive user upload, not downloaded. SHRDLU: IA page index 96, 97, 492.",
+   "url": "https://archive.org/details/daniel-denett-la-conciencia-explicada",
+   "thumb": "library/thumbs/L-WTR2HU.jpg",
    "tags": [
     "discussion",
     "free to read"
@@ -8335,6 +8816,21 @@
    "thumb": "library/thumbs/L-EZQZMJ.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-AOBWDJ",
+   "title": "Yu ji qi ren gong wu : Ren gong zhi neng shi dai de da wei lai = Machines of loving grace",
+   "author": "John Markoff",
+   "date": "2015",
+   "kind": "book",
+   "lang": "zh",
+   "in": "Hang zhou : Zhe jiang ren min chu ban she",
+   "note": "Chinese translation of Markoff, Machines of Loving Grace: recounts why Winograd chose the name and his later turn. Snippet only. English gloss: Dancing with robots. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/yujiqirengongwur0000john",
+   "thumb": "library/thumbs/L-AOBWDJ.jpg",
+   "tags": [
+    "discussion"
    ]
   },
   {
@@ -9034,6 +9530,20 @@
    "doi": "10.48550/arxiv.2012.05672",
    "note": "DeepMind paper's account of early work: SHRDLU as a robot in a blocks world that could process limited language in both directions. SHRDLU: PDF p. 36.",
    "url": "https://doi.org/10.48550/arxiv.2012.05672",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-RYQGDF",
+   "title": "Bilim ve Teknik Dergisi (Internet Archive compilation)",
+   "author": "Ahmet Özkan Hoca",
+   "date": "2020-03-16",
+   "kind": "magazine",
+   "lang": "tr",
+   "note": "Bilim ve Teknik archive: says SHRDLU does not understand commands in natural language but appears to. Internet Archive compilation. SHRDLU: Internet Archive text; page not established.",
+   "url": "https://archive.org/details/tatillerdetatliugrasib.t.dergisi",
    "tags": [
     "discussion",
     "free to read"
@@ -9821,6 +10331,20 @@
    ]
   },
   {
+   "id": "L-I7NQYB",
+   "title": "PCMania - Epoca 1",
+   "author": "bhenblod",
+   "date": "2024-09-10",
+   "kind": "magazine",
+   "lang": "es",
+   "note": "PC magazine reprints a dialogue with Shrdlu and places it after Eliza and before Racter in a chronology. SHRDLU: Internet Archive text; page not established.",
+   "url": "https://archive.org/details/pcmania-epoca1",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-HGEAT6",
    "title": "Artificial intelligence: revolutionizing cardiology with large language models",
    "author": "Boonstra, Machteld J.; Weissenbacher, Davy; Moore, Jason H.",
@@ -10158,6 +10682,21 @@
    ]
   },
   {
+   "id": "L-4OMG4E",
+   "title": "FUNDAMENTO+ DE+ LA+ IA+volumen+ I",
+   "author": "Patricio Moreno",
+   "date": "2025-03-21",
+   "kind": "book",
+   "lang": "es",
+   "note": "Says Winograd's publication on SHRDLU stood out for handling the context of linguistic interactions and was more than a technical achievement. English gloss: Foundations of AI, vol. 1. SHRDLU: IA page index 25.",
+   "url": "https://archive.org/details/fundamento-de-la-iavolumen-i",
+   "thumb": "library/thumbs/L-4OMG4E.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-YQWLKW",
    "title": "‘World Models,’ an Old Idea in AI, Mount a Comeback",
    "author": "Pavlus, John",
@@ -10373,6 +10912,21 @@
    "url": "https://blog.plover.com/2026/02/05/",
    "tags": [
     "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-UFLRI4",
+   "title": "Tenere Fuori, Lasciar Passare, Non c'è oltre senza confine",
+   "author": "Giovanni Martini",
+   "date": "2026",
+   "kind": "book",
+   "lang": "it",
+   "note": "Says Winograd wrote SHRDLU, among the first programs to converse in English, governing a small world, and later argued the road it opened does not lead where it seemed to. English gloss: Keeping out, letting through. SHRDLU: IA page index 20, 15 File in the item: Tenere Fuori, Lasciar Passare - Interno.",
+   "url": "https://archive.org/details/collana-erranze-24-tenere-fuori-lasciar-passare",
+   "thumb": "library/thumbs/L-UFLRI4.jpg",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -10647,6 +11201,45 @@
    ]
   },
   {
+   "id": "L-WCXQSH",
+   "title": "Churchland, P. - Materia y conciencia",
+   "kind": "book",
+   "lang": "es",
+   "note": "Spanish translation of Churchland, Matter and Consciousness: Winograd's SHRDLU handles semantics and syntax and manipulates elements in the simulated block world, all it knows. Internet Archive user upload of a commercial book, not downloaded. SHRDLU: IA page index 171.",
+   "url": "https://archive.org/details/materia-y-conciencia-churchland",
+   "thumb": "library/thumbs/L-WCXQSH.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-ELOV7Q",
+   "title": "Dennett Coscienza Checosaè",
+   "kind": "book",
+   "lang": "it",
+   "note": "Italian translation of Dennett, Consciousness Explained: SHRDLU manipulated blocks and explained what it was doing and why, with largely canned answers. Internet Archive user upload of a commercial book, not downloaded. SHRDLU: IA page index 107, 108, 602.",
+   "url": "https://archive.org/details/DennettCoscienzaChecosae",
+   "thumb": "library/thumbs/L-ELOV7Q.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-WMXCSB",
+   "title": "deshanooro (Internet Archive item title)",
+   "kind": "book",
+   "lang": "ar",
+   "note": "Arabic text: names SHRDLU, by Winograd in the early seventies, and says that in carrying out its interlocutor's orders it performed analysis. Internet Archive user upload, not downloaded. SHRDLU: IA page index 409, 410, 411, 412.",
+   "url": "https://archive.org/details/deshanooro",
+   "thumb": "library/thumbs/L-WMXCSB.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-HX4IDN",
    "title": "El Ordenador Personal, no. 32, article on AI",
    "kind": "magazine",
@@ -10673,6 +11266,31 @@
    ]
   },
   {
+   "id": "L-7F4BR5",
+   "title": "Geneza Wirtualnych Asystentow",
+   "kind": "article",
+   "lang": "pl",
+   "note": "Describes SHRDLU as a program able to converse about its world, part of a research project on simplified worlds. English gloss: The genesis of virtual assistants. SHRDLU: IA page index 3.",
+   "url": "https://archive.org/details/geneza-wirtualnych-asystentow",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-EGBS6W",
+   "title": "Hofstadter, D. - Gödel, Escher, Bach: Una eterna trenza dorada",
+   "kind": "book",
+   "lang": "es",
+   "note": "Spanish translation of Hofstadter, Gödel, Escher, Bach (1979), with the dialogue and the figures of it. Internet Archive user upload of a commercial book, not downloaded. SHRDLU: IA page index 8, 14, 20, 719, 720, 721, 722, 723, 724, 725.",
+   "url": "https://archive.org/details/douglas-hofstadter-godel-escher-bach-una-eterna-trenza-dorada",
+   "thumb": "library/thumbs/L-EGBS6W.jpg",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-JZD3BJ",
    "title": "Kino 1 1977",
    "kind": "other",
@@ -10692,6 +11310,18 @@
    "in": "esoteric.codes",
    "note": "Describes SHRDLU as a program ordering a mechanical arm to move blocks in a simulated space, and its resolving of references to identical blocks. SHRDLU: Two occurrences, in the passage following the account of Dreyfus. Author and date not established.",
    "url": "https://esoteric.codes/blog/lessons-from-early-ai-on-cognition-and-reasoning",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-TJIIWO",
+   "title": "Micro Sistemas 13",
+   "kind": "magazine",
+   "lang": "pt",
+   "note": "Brazilian magazine (Micro Sistemas): Shrdlu is a program by Winograd simulating questions and orders on blocks; a simplified version for teaching was developed by Winston. SHRDLU: IA page index 20 File in the item: MicroSistemas013. PDF is 57 MB, recorded as a link.",
+   "url": "https://archive.org/details/microsistemas",
    "tags": [
     "discussion",
     "free to read"
@@ -10731,19 +11361,6 @@
    "in": "Ordenador Popular, no. 14",
    "note": "Says Winograd's thesis program is a classic, describes commands to the blocks machine, and lists it in a chronology. Article title not established from the OCR. Issue date not established. SHRDLU: File \"Ordenador Popular 014 - Mayo 1984\", printed p. 124, IA leaf 123; printed p. 130, IA leaf 129.",
    "url": "https://archive.org/details/ordenador-popular-14",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-7QLGTH",
-   "title": "PC Format (Hungary), article on talking computers",
-   "kind": "magazine",
-   "lang": "hu",
-   "in": "PC Format (Hungary)",
-   "note": "Tells the reader to try SHRDLU, says it can speak only of its small world, and that thirty years later we still wait for a computer to talk to. Article title not established from the OCR. Issue date not established. SHRDLU: File \"pc_format_2001-09\", printed p. 31, IA leaf 30; printed p. 32, IA leaf 31; printed p. 33, IA leaf 32.",
-   "url": "https://archive.org/details/pc_format_1999-2003",
    "tags": [
     "discussion",
     "free to read"
@@ -10850,6 +11467,19 @@
    "url": "https://archive.org/details/zx-magazine-spanish-33",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-XBMUFX",
+   "title": "الذكاء الاصطناعي مارجريت إيه بودين",
+   "kind": "book",
+   "lang": "ar",
+   "note": "Arabic translation of Boden's short book on AI, per the item title: the leading example is SHRDLU by Winograd at MIT. Internet Archive user upload, not downloaded. SHRDLU: IA page index 44.",
+   "url": "https://archive.org/details/20240805_20240805_1951",
+   "thumb": "library/thumbs/L-XBMUFX.jpg",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
