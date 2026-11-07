@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.1.241 (2026-11-07)
+
+- Bench-kit 1.8.4: relevance levels, ratings, tags and key works in the Library; Preprint badge
+
 ## 0.1.240 (2026-11-07)
 
 - Library: 915 works, 208 held
