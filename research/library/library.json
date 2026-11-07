@@ -1391,7 +1391,8 @@
    "note": "Calls SHRDLU the best-known program of its kind, the invention of Terry Winograd, developed in the early 1970s, and describes the problems such programs tackle and how, including that a program like SHRDLU, which manipulates shapes, will also know about unstable positions. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/reinventingmanro00alekrich",
    "thumb": "library/thumbs/L-XQ67M5.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-C5GJDX",
@@ -1402,7 +1403,8 @@
    "note": "Describes Winograd's program SHRDLU as designed to manipulate a block world, and says the difficulty with methods used by programs like it is that they let machines present an illusion of understanding. Index lists \"SHRDLU block world\" at pp. 91-95. SHRDLU: printed pp. 91-95 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/thinkingmachines0000alek_d0v6",
    "thumb": "library/thumbs/L-C5GJDX.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-4PH4D7",
@@ -1413,7 +1415,8 @@
    "note": "Describes Winograd's program SHRDLU as designed to manipulate a block world, and says the difficulty with methods used by programs like it is that they let machines present a misleading appearance. Index lists \"SHRDLU block world\" at pp. 91-95. SHRDLU: printed pp. 91-95 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/thinkingmachines0000alek",
    "thumb": "library/thumbs/L-4PH4D7.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-NR5NM2",
@@ -1501,7 +1504,8 @@
    "note": "Acknowledges a debt to Terry Winograd's SHRDLU system (1972) and its dialogue between a person and a computer. SHRDLU: printed p. 230 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/fromschematheory0000arbi",
    "thumb": "library/thumbs/L-EAPH6F.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-7JB6VS",
@@ -1581,7 +1585,8 @@
    "kind": "book",
    "note": "Describes SHRDLU as an AI program that plays only with symbols for blocks that do not exist, using it as an example of a disembodied computational mind. SHRDLU: printed pp. 46-47 (index line); text from Internet Archive full-text passages.",
    "url": "https://archive.org/details/mindineverydayli0000auya",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-QGE2TD",
@@ -1592,7 +1597,8 @@
    "note": "Says Terry Winograd developed a significant program named SHRDLU, whose operation consisted of a set of blocks on an imaginary table which on request it would rearrange, and names one sophistication it added to AI programming. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/expertsystemsapp0000badi",
    "thumb": "library/thumbs/L-QGE2TD.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-MOHRTC",
@@ -1603,7 +1609,8 @@
    "note": "Says Winograd developed a significant program named SHRDLU whose world consisted of blocks of varying shapes on an imaginary table, which it would rearrange on request, and names one sophistication it added to AI programming. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/fuzzyengineering0000badi",
    "thumb": "library/thumbs/L-MOHRTC.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-57SYIZ",
@@ -1717,7 +1724,8 @@
    "note": "Says SHRDLU, devised by Winograd (see Chapter 10), used a toy world of blocks, and that the blocks world is a table top for which the program was designed. SHRDLU: Internet Archive full-text passages; pages not obtained.",
    "url": "https://archive.org/details/developingexpert0000begg_y4c4",
    "thumb": "library/thumbs/L-4VG5F4.jpg",
-   "relevance": "section"
+   "relevance": "section",
+   "lang": "en"
   },
   {
    "id": "L-YYWF7E",
