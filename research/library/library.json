@@ -2077,6 +2077,22 @@
    ]
   },
   {
+   "id": "L-B6ISCM",
+   "title": "CAI研究の可能性と今後の課題 : パラダイム論の観点からみたCAI設計思想の転換をめぐって",
+   "author": "菅井, 勝雄",
+   "date": "1983-03-20",
+   "kind": "article",
+   "lang": "ja",
+   "in": "日本教育工学雑誌 7(4), pp. 171-181",
+   "doi": "10.15077/jmet.7.4_171",
+   "note": "In a history of CAI thinking, lists SHRDLU beside SCHOLAR and says this intelligent robot managed block play at a kindergarten level, which raised the problem of knowledge representation. English gloss: Possibilities and issues for CAI research. SHRDLU: PDF pp. 8 (article pp. 171-181).",
+   "url": "https://doi.org/10.15077/jmet.7.4_171",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-S2KKBT",
    "title": "Comments on \"Sixth Generation Computers\"",
    "date": "1984-06",
@@ -2429,22 +2445,6 @@
    ]
   },
   {
-   "id": "L-L7XPPV",
-   "title": "知識ベースト・プランニング",
-   "author": "Nakashima, Hideyuki",
-   "date": "1984",
-   "kind": "article",
-   "lang": "ja",
-   "in": "日本ロボット学会誌 2(6): 605-611",
-   "doi": "10.7210/jrsj.2.605",
-   "note": "Presents SHRDLU as the example of a total system in a survey of planning languages, beside PLANNER and Prolog, with a section on how knowledge is represented and used in the language understanding system. SHRDLU: Section 3.2 'SHRDLU', PDF pp. 4-6 (printed pp. 608-610); named in introduction PDF p. 1.",
-   "url": "https://doi.org/10.7210/jrsj.2.605",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-B3MSF2",
    "title": "Artificial intelligence: tools, techniques, and applications",
    "author": "O'Shea, Tim,Eisenstadt, Marc",
@@ -2546,22 +2546,6 @@
    ]
   },
   {
-   "id": "L-AOFEXC",
-   "title": "人工知能",
-   "author": "Tamura, Koichiro",
-   "date": "1984",
-   "kind": "article",
-   "lang": "ja",
-   "in": "テレビジョン学会誌 38(9): 799-806",
-   "doi": "10.3169/itej1978.38.799",
-   "note": "Reports Winograd's own remark that the program had become too complex even for its author to improve, calls the system a milestone that also showed how far there was to go, and notes his later move to Stanford. SHRDLU: PDF p. 4 (printed p. 802).",
-   "url": "https://doi.org/10.3169/itej1978.38.799",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-RBHL5N",
    "title": "An Adaptive Multi-Dimensional Space Model for Visual Recognition Using Verbal Concepts",
    "author": "Tokuta, A. Olabambo",
@@ -2632,6 +2616,38 @@
    "url": "https://archive.org/details/lescienze-195",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-L7XPPV",
+   "title": "知識ベースト・プランニング",
+   "author": "中島, 秀之",
+   "date": "1984-12-30",
+   "kind": "article",
+   "lang": "ja",
+   "in": "日本ロボット学会誌 2(6), pp. 605-611",
+   "doi": "10.7210/jrsj.2.605",
+   "note": "Section 3.2 presents SHRDLU as a total system combining knowledge representation and language understanding, with a hand and eye on blocks, and says PLANNER, criticised for inefficient backtracking, had SHRDLU as nearly its only use. English gloss: Knowledge-based planning. SHRDLU: PDF pp. 1, 4, 5, 6 (article pp. 605-611).",
+   "url": "https://doi.org/10.7210/jrsj.2.605",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-AOFEXC",
+   "title": "人工知能",
+   "author": "田村, 浩一郎",
+   "date": "1984-09-20",
+   "kind": "article",
+   "lang": "ja",
+   "in": "テレビジョン学会誌 38(9), pp. 799-806",
+   "doi": "10.3169/itej1978.38.799",
+   "note": "Reports Winograd's own remark that the program is so complex its author barely understands it, and says the oddly named system was a milestone that also showed how far there was to go. English gloss: Artificial intelligence. SHRDLU: PDF pp. 4 (article pp. 799-806).",
+   "url": "https://doi.org/10.3169/itej1978.38.799",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -3980,13 +3996,29 @@
    "id": "L-2BX4K7",
    "title": "コンピュータ,意識,言語",
    "author": "小林, 道夫",
-   "date": "1987",
+   "date": "1987-11-05",
    "kind": "article",
    "lang": "ja",
-   "in": "科学哲学 20(0): 31-46",
+   "in": "科学哲学 20(0), pp. 31-46",
    "doi": "10.4216/jpssj.20.31",
-   "note": "Describes the robot manipulating blocks on spoken exchange and says Winograd moved from this to a procedural understanding of semantics that took in pragmatics, setting himself against Chomsky's competence and performance. SHRDLU: PDF p. 12.",
+   "note": "Philosophy of science paper: presents SHRDLU in the blocks world as leading Winograd to a procedural understanding of semantics that includes pragmatics, against Chomsky's competence and performance split. Title from J-STAGE. SHRDLU: PDF pp. 12 (article pp. 31-46).",
    "url": "https://doi.org/10.4216/jpssj.20.31",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-W2SWQ6",
+   "title": "コンピュータには何ができないか : H.L.ドレイファスの場合 (「AIにおける論争」〔第1回〕)",
+   "author": "黒崎, 政男",
+   "date": "1987-12-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 2(4), pp. 420-427",
+   "doi": "10.11517/jjsai.2.4_420",
+   "note": "In an account of Dreyfus, names Winograd, developer of SHRDLU, as showing Dreyfus's influence in his 1986 book, says narrowing to the blocks world gave some results, and quotes Tanaka calling 1970s work on understanding ad hoc. English gloss: What computers can't do: the case of H. L. Dreyfus. SHRDLU: PDF pp. 1, 4 (article pp. 420-427).",
+   "url": "https://doi.org/10.11517/jjsai.2.4_420",
    "tags": [
     "discussion",
     "free to read"
@@ -5579,13 +5611,13 @@
   {
    "id": "L-AVY5J2",
    "title": "教育工学-構成主義の「学習論」に出あう",
-   "author": "Sugai, K.",
-   "date": "1993",
+   "author": "菅井, 勝雄",
+   "date": "1993-09-30",
    "kind": "article",
    "lang": "ja",
-   "in": "教育学研究 60(3): 237-247",
+   "in": "教育学研究 60(3), pp. 237-247",
    "doi": "10.11555/kyoiku1932.60.237",
-   "note": "Places SHRDLU in a history of AI as a language understanding system limited to the microworld of blocks, working by question and answer with a robot on a display, with knowledge of language and physical blocks represented, followed by attempts to widen the microworld. SHRDLU: PDF p. 6.",
+   "note": "Describes SHRDLU (1971) as a language-understanding system, called epoch-making then, limited to a small world, with robot question-answering on a display; says Winograd later hit a wall on language and criticised AI. English gloss: Educational technology meets the constructivist theory of learning. SHRDLU: PDF pp. 6 (article pp. 237-247).",
    "url": "https://doi.org/10.11555/kyoiku1932.60.237",
    "tags": [
     "discussion",
@@ -5798,13 +5830,29 @@
    "id": "L-4HCCZ5",
    "title": "「AIマップ-自然言語へのアプローチ」に対するコメントと回答",
    "author": "郡司, 隆男; 橋田, 浩一; 徳永, 健伸; 丸山, 宏; 長尾, 眞",
-   "date": "1994",
+   "date": "1994-09-01",
    "kind": "article",
    "lang": "ja",
-   "in": "人工知能 9(5): 673-683",
+   "in": "人工知能 9(5), pp. 673-683",
    "doi": "10.11517/jjsai.9.5_673",
-   "note": "Says SHRDLU succeeded neither through procedural grammar nor through PLANNER, but through a well-chosen problem domain, the blocks-world robot, and a collection of well-judged rules and heuristics that suited it. SHRDLU: PDF p. 7, paragraph on overly specific successes.",
+   "note": "A commentator says SHRDLU succeeded neither through procedural grammar nor the PLANNER theorem prover, but through its well-chosen problem domain and a sensible collection of rules and heuristics. English gloss: Comments and answers on \"AI Map: approaches to natural language\". SHRDLU: PDF pp. 7 (article pp. 673-683).",
    "url": "https://doi.org/10.11517/jjsai.9.5_673",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-L4NVGJ",
+   "title": "「渕 一博氏のロジックプログラミング」へのコメント",
+   "author": "雨宮, 真人; 柳生, 孝昭; 林, 弘",
+   "date": "1994-05-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 9(3), pp. 373-380",
+   "doi": "10.11517/jjsai.9.3_373",
+   "note": "Says SHRDLU succeeded by setting aside the problem and limiting itself to domains where meaning can be explained symbolically and procedurally, and that later work in this line did not get past its frame. English gloss: Comment on \"Fuchi Kazuhiro's logic programming\". SHRDLU: PDF pp. 2 (article pp. 373-380).",
+   "url": "https://doi.org/10.11517/jjsai.9.3_373",
    "tags": [
     "discussion",
     "free to read"
@@ -6075,6 +6123,22 @@
    ]
   },
   {
+   "id": "L-YCCXLZ",
+   "title": "Toward Adaptive Intelligent Systems",
+   "author": "KITANO, Hiroaki",
+   "date": "1996-07-10",
+   "kind": "article",
+   "lang": "en",
+   "in": "計測と制御 35(7), pp. 514-519",
+   "doi": "10.11499/sicejl1962.35.7_514",
+   "note": "English-language article. Says SHRDLU was an early AI success understanding natural language in a block world, Winograd having simplified manipulation of real objects into an abstract symbol task, and that traditional AI models fit such tasks. Title from J-STAGE. SHRDLU: PDF pp. 2 (article pp. 514-519).",
+   "url": "https://doi.org/10.11499/sicejl1962.35.7_514",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-RLPP44",
    "title": "The international dictionary of psychology",
    "author": "N. S. Sutherland",
@@ -6127,6 +6191,22 @@
    "url": "https://archive.org/details/electricwordsdic0000wilk",
    "tags": [
     "discussion"
+   ]
+  },
+  {
+   "id": "L-EPHJJB",
+   "title": "(自然言語処理+利用者)×対象=知的自然言語システム",
+   "author": "村木, 一至",
+   "date": "1996-07-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 11(4), pp. 522-529",
+   "doi": "10.11517/jjsai.11.4_522",
+   "note": "Says those who appreciated SHRDLU's results tended to think ELIZA a fraud, yet ELIZA was far stronger at keeping a conversation going; a table lists SHRDLU among technologies that fell out of use. English gloss: (NLP + user) x object = intelligent natural language systems. SHRDLU: PDF pp. 1, 2, 6 (article pp. 522-529).",
+   "url": "https://doi.org/10.11517/jjsai.11.4_522",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -6502,15 +6582,31 @@
    ]
   },
   {
-   "id": "L-2SSEHC",
-   "title": "言語理解 : SHRDLUの先にあるもの",
-   "author": "Tanaka, Hozumi",
-   "date": "2000",
+   "id": "L-64OZHM",
+   "title": "オフィス移動ロボットJijo-2の音声対話システム",
+   "author": "松井, 俊浩; 麻生, 英樹; 浅野, 太; 本村, 陽一; 原, 功; 栗田, 多喜夫; 速水, 悟; 山崎, 信行",
+   "date": "2000-03-15",
    "kind": "article",
    "lang": "ja",
-   "in": "人工知能 15(5): 821-828",
+   "in": "日本ロボット学会誌 18(2), pp. 300-307",
+   "doi": "10.7210/jrsj.18.300",
+   "note": "Related-work paragraph: SHRDLU took the form of dialogue with a robot, using parsing to resolve ambiguity and pronoun reference, with success tied to the blocks domain; Horswill's system is called SHRDLU-type. English gloss: The spoken dialogue system of the office robot Jijo-2. SHRDLU: PDF pp. 6 (article pp. 300-307).",
+   "url": "https://doi.org/10.7210/jrsj.18.300",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-2SSEHC",
+   "title": "言語理解 : SHRDLUの先にあるもの",
+   "author": "田中, 穂積",
+   "date": "2000-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 15(5), pp. 821-828",
    "doi": "10.11517/jjsai.15.5_821",
-   "note": "Tanaka's survey of language understanding takes Winograd's thesis as its starting point and follows parsing and corpus-based work from the 1960s onward. The issue note in vol. 15(6) summarises it this way. SHRDLU: Printed pp. 821-828; title, and PDF pp. 1 and 7.",
+   "note": "Tanaka recalls getting the TR from a stack at MIT, describes the robot that takes English commands in the blocks world, and in section 7.1 returns to SHRDLU as background for language-controlled robot research. English gloss: Understanding natural language: beyond SHRDLU. SHRDLU: PDF pp. 1, 7 (article pp. 821-828).",
    "url": "https://doi.org/10.11517/jjsai.15.5_821",
    "tags": [
     "about",
@@ -6521,12 +6617,12 @@
    "id": "L-NGXCXB",
    "title": "「言語理解-SHRDLUの先にあるもの-」へのコメントと回答",
    "author": "郡司, 隆男; 西田, 豊明; 梶, 博行; 田中, 穂積",
-   "date": "2000",
+   "date": "2000-11-01",
    "kind": "article",
    "lang": "ja",
-   "in": "人工知能 15(6): 1035-1042",
+   "in": "人工知能 15(6), pp. 1035-1042",
    "doi": "10.11517/jjsai.15.6_1035",
-   "note": "Comments by Gunji (linguistics), Nishida (AI and engineering) and Kaji (machine translation) on Tanaka's survey, with Tanaka's replies. SHRDLU: Throughout; 23 occurrences, PDF pp. 1, 3-7.",
+   "note": "Commentaries on Tanaka 2000 with his reply. One commenter says Winograd's account let readers see the range and limits of the model behind SHRDLU, and that his computational approach was epoch-making when theory and mathematical models dominated. English gloss: Comments on \"Understanding natural language: beyond SHRDLU\" and answers. SHRDLU: PDF pp. 1, 3, 4, 5, 6, 7 (article pp. 1035-1042).",
    "url": "https://doi.org/10.11517/jjsai.15.6_1035",
    "tags": [
     "about",
@@ -6662,6 +6758,22 @@
    "url": "https://web.archive.org/web/20010616072101/http://hci.stanford.edu/~winograd/shrdlu/",
    "tags": [
     "about",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-DK4HP2",
+   "title": "ニューロナルな視点からの挑戦",
+   "author": "中野, 良平",
+   "date": "2001-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 16(5), pp. 704-711",
+   "doi": "10.11517/jjsai.16.5_704",
+   "note": "Places SHRDLU at the grounded level of understanding confined to the block world, and reports the Dreyfus brothers' 1986 criticism that its success came from limiting the object to a micro-world, which extension cannot carry to the everyday world. English gloss: A challenge from the neuronal viewpoint. SHRDLU: PDF pp. 2, 3 (article pp. 704-711).",
+   "url": "https://doi.org/10.11517/jjsai.16.5_704",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -6861,6 +6973,22 @@
    ]
   },
   {
+   "id": "L-3JWNWS",
+   "title": "ロボットによる言語獲得 : 言語処理の新しいパラダイムを目指して(「言語獲得」)",
+   "author": "岩橋, 直人",
+   "date": "2003-01-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 18(1), pp. 49-58",
+   "doi": "10.11517/jjsai.18.1_49",
+   "note": "Using Schank's spectrum of understanding, says SHRDLU integrated language, perception and action and reached the meaningful level; contrasts ELIZA; later cites Winograd on the difficulty of machine language understanding, via Maturana. English gloss: Language acquisition by robots. SHRDLU: PDF pp. 1, 8 (article pp. 49-58).",
+   "url": "https://doi.org/10.11517/jjsai.18.1_49",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-E2RLHB",
    "title": "AppleSauce, April 2004",
    "date": "2004-04",
@@ -6994,13 +7122,13 @@
   {
    "id": "L-6J53UI",
    "title": "私のソフトウェア研究",
-   "author": "Yonezawa, Akinori",
-   "date": "2004",
+   "author": "米澤, 明憲",
+   "date": "2004-09-28",
    "kind": "article",
    "lang": "ja",
-   "in": "コンピュータ ソフトウェア 21(5): 352-363",
+   "in": "コンピュータ ソフトウェア 21(5), pp. 352-363",
    "doi": "10.11309/jssst.21.352",
-   "note": "Memoir. The author recalls an account of SHRDLU and of micro-Planner, proposed by Hewitt and implemented in Lisp by Sussman and others, and calls Winograd's system epoch-making at the time. SHRDLU: PDF p. 5 (printed p. 356).",
+   "note": "Memoir: Winston's three-day lectures in Japan presented SHRDLU in detail and Micro-Planner, which the author credits for its success, calling the system epoch-making then; he later gave Winograd's thesis to a student. English gloss: My software research. SHRDLU: PDF pp. 5 (article pp. 352-363).",
    "url": "https://doi.org/10.11309/jssst.21.352",
    "tags": [
     "discussion",
@@ -7217,22 +7345,6 @@
    ]
   },
   {
-   "id": "L-D3NY7Z",
-   "title": "ロボットにおける言語理解(<小特集>ロボットにおける音響技術)",
-   "author": "Tokunaga, Takenobu; Tanaka, Hozumi",
-   "date": "2006",
-   "kind": "article",
-   "lang": "ja",
-   "in": "日本音響学会誌 63(1): 35-40",
-   "doi": "10.20697/jasj.63.1_35",
-   "note": "Names SHRDLU as the first dialogue system with a robot, shows it in a figure, and says later dialogue systems moved to databases and travel planning. SHRDLU: Section 1, PDF pp. 1-2, with Fig. 1.",
-   "url": "https://doi.org/10.20697/jasj.63.1_35",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-KOEPAJ",
    "title": "SHRDLU",
    "author": "Ward",
@@ -7257,6 +7369,38 @@
    "in": "Stanford University, CS147 course slides",
    "note": "Winograd's own teaching slides place the program between Eliza and statistical recognition and reproduce a dialogue. SHRDLU: Slides listing 'Symbolic understanding (SHRDLU, 1970)' and the slide 'SHRDLU Dialog'. Year from the URL path.",
    "url": "https://hci.stanford.edu/courses/cs147/2006/slides/14-agents/147-agents.pdf",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-D3NY7Z",
+   "title": "ロボットにおける言語理解(ロボットにおける音響技術)",
+   "author": "徳永, 健伸; 田中, 穂積",
+   "date": "2006-12-25",
+   "kind": "article",
+   "lang": "ja",
+   "in": "日本音響学会誌 63(1), pp. 35-40",
+   "doi": "10.20697/jasj.63.1_35",
+   "note": "Calls SHRDLU the first robot dialogue system, shows its display (fig. 1), and says it covered nearly all language processing conceivable at the time; later dialogue systems moved to databases and travel planning. English gloss: Language understanding in robots. SHRDLU: PDF pp. 1, 2 (article pp. 35-40).",
+   "url": "https://doi.org/10.20697/jasj.63.1_35",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-KMVMBH",
+   "title": "セマンティックコンピューティング : 知的システム・知的環境の設計原理(セマンティックコンピューティング)",
+   "author": "横井, 俊夫",
+   "date": "2006-11-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 21(6), pp. 683-690",
+   "doi": "10.11517/jjsai.21.6_683",
+   "note": "Gives SHRDLU and ELIZA as opposed construction methods: SHRDLU holds a whole model of the block world and infers answers from it and the question. English gloss: Semantic computing: design principles of intelligent systems and environments. SHRDLU: PDF pp. 2 (article pp. 683-690).",
+   "url": "https://doi.org/10.11517/jjsai.21.6_683",
    "tags": [
     "discussion",
     "free to read"
@@ -7546,13 +7690,29 @@
    "id": "L-ACFMX2",
    "title": "第49回竹内郁雄氏インタビュー : どうせやるなら楽しくやるべし(学生フォーラムInter-View)",
    "author": "山本, 祐輔; 川本, 淳平",
-   "date": "2009",
-   "kind": "interview",
+   "date": "2009-03-01",
+   "kind": "article",
    "lang": "ja",
-   "in": "人工知能 24(2): 315-317",
+   "in": "人工知能 24(2), pp. 315-317",
    "doi": "10.11517/jjsai.24.2_315",
-   "note": "Interview with Ikuo Takeuchi, who says SHRDLU was much talked about in AI when he joined NTT, that it struck him strongly, and that finding it was written in Lisp led him to Lisp. SHRDLU: PDF p. 2, with footnote 2.",
+   "note": "Report on Takeuchi Ikuo: at NTT he was struck by SHRDLU, found it was written in Lisp, and resolved to work on Lisp, which led to his Lisp machines. Title from J-STAGE. SHRDLU: PDF pp. 2 (article pp. 315-317).",
    "url": "https://doi.org/10.11517/jjsai.24.2_315",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-QDIKXR",
+   "title": "言語理解・意味理解の先駆者田中穂積先生の想い出(3)",
+   "author": "横井, 俊夫",
+   "date": "2009-11-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 24(6), pp. 773_3-774",
+   "doi": "10.11517/jjsai.24.6_773_3",
+   "note": "Memorial note: Tanaka Hozumi ported SHRDLU, made it work in Japanese and extended it, as the first language-understanding system in Japan, and was first user of the author's Lisp system. Part of a joint memorial page (24(6) p. 773); the passage falls in Yokoi's section by its first-person details. English gloss: Memories of Tanaka Hozumi (3). SHRDLU: PDF pp. 1 (article pp. 773_3-774).",
+   "url": "https://doi.org/10.11517/jjsai.24.6_773_3",
    "tags": [
     "discussion",
     "free to read"
@@ -7632,6 +7792,22 @@
    ]
   },
   {
+   "id": "L-7MOP4Z",
+   "title": "人とロボットの言語コミュニケーションにおける間主観性(主観性とパースペクティブ)",
+   "author": "岩橋, 直人",
+   "date": "2011-07-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 26(4), pp. 352-359",
+   "doi": "10.11517/jjsai.26.4_352",
+   "note": "Calls SHRDLU the representative method of dialogue with a robot in physical space, and says it has no subjective cognition, grasping events only objectively, from a god's viewpoint. English gloss: Intersubjectivity in human-robot language communication. SHRDLU: PDF pp. 1 (article pp. 352-359).",
+   "url": "https://doi.org/10.11517/jjsai.26.4_352",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-IJOL56",
    "title": "The Stupidity of Computers",
    "author": "Auerbach, David",
@@ -7641,22 +7817,6 @@
    "in": "n+1, issue 13",
    "note": "Gives the logical form for 'pick up a red block' and says the program's success lay in the narrow domain it worked within. SHRDLU: Section headed 'Eliza and Shrdlu'.",
    "url": "https://www.nplusonemag.com/issue-13/essays/stupidity-of-computers/",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
-   "id": "L-PGQKQU",
-   "title": "物理モデル理解と自然言語処理の統合による理科問題の回答(<特集>ロボットは東大に入れるか?)",
-   "author": "Inamura, Tetsunari; Yokono, Hikaru",
-   "date": "2012",
-   "kind": "article",
-   "lang": "ja",
-   "in": "人工知能 27(5): 479-482",
-   "doi": "10.11517/jjsai.27.5_479",
-   "note": "Cites SHRDLU, with a figure, as the well-known system answering questions in natural language about a depicted physical scene, given basic vocabulary and grammar, in a paper on answering physics questions. SHRDLU: Section 2.2, with Fig. 2 'SHRDLU', PDF p. 2 (printed p. 480).",
-   "url": "https://doi.org/10.11517/jjsai.27.5_479",
    "tags": [
     "discussion",
     "free to read"
@@ -7704,6 +7864,22 @@
    "url": "https://www.wired.com/2012/10/dead-media-beat-early-artificial-intelligence-projects/",
    "tags": [
     "mention",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-PGQKQU",
+   "title": "物理モデル理解と自然言語処理の統合による理科問題の回答(ロボットは東大に入れるか?)",
+   "author": "稲邑, 哲也; 横野, 光",
+   "date": "2012-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 27(5), pp. 479-482",
+   "doi": "10.11517/jjsai.27.5_479",
+   "note": "Shows SHRDLU (fig. 2) as the well-known question-answering system on a physical world: with basic vocabulary and grammar it achieves reference, disambiguation and reverse question generation in the block world. English gloss: Answering science questions by integrating physical model understanding and NLP. SHRDLU: PDF pp. 2 (article pp. 479-482).",
+   "url": "https://doi.org/10.11517/jjsai.27.5_479",
+   "tags": [
+    "discussion",
     "free to read"
    ]
   },
@@ -7793,6 +7969,22 @@
    "in": "YouTube, Stanford Online, 1:14:09",
    "note": "Winograd describes the program, the vision and robot work at the lab that gave him the blocks world, and its integration with a logical model of the table. SHRDLU: From 23:57, confirmed from the page's auto-generated transcript, which renders the name as 'shirtleu'; blocks world at 24:24.",
    "url": "https://www.youtube.com/watch?v=VtsvUoSjwmE",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-ZJXQUE",
+   "title": "音声対話システムの進化と淘汰 : 歴史と最近の技術動向(音声対話システムの実用化に向けて)",
+   "author": "河原, 達也",
+   "date": "2013-01-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 28(1), pp. 45-51",
+   "doi": "10.11517/jjsai.28.1_45",
+   "note": "Traces spoken dialogue systems to ELIZA and SHRDLU: ELIZA matches words on the surface, SHRDLU holds dialogue after deep conceptual understanding though limited to the blocks world; SHRDLU also appears in a history figure. English gloss: Evolution and selection of spoken dialogue systems. SHRDLU: PDF pp. 1, 2 (article pp. 45-51).",
+   "url": "https://doi.org/10.11517/jjsai.28.1_45",
    "tags": [
     "discussion",
     "free to read"
@@ -8001,22 +8193,6 @@
    ]
   },
   {
-   "id": "L-7QQHKQ",
-   "title": "それも一つの研究者人生(<レクチャーシリーズ>つながりが創発するイノベーション〔第3回〕)",
-   "author": "Maruyama, Hiroshi",
-   "date": "2015",
-   "kind": "article",
-   "lang": "ja",
-   "in": "人工知能 30(5): 686-690",
-   "doi": "10.11517/jjsai.30.5_686",
-   "note": "Lecture series memoir. The author recounts reading Understanding Natural Language, describes SHRDLU carrying out commands such as Pick up the big red block on screen, and reproduces a figure of the display. SHRDLU: PDF pp. 1-2, with Fig. 1.",
-   "url": "https://doi.org/10.11517/jjsai.30.5_686",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-POVNLD",
    "title": "How Mobile Robots Can Self-Organise a Vocabulary",
    "author": "Vogt, Paul",
@@ -8046,6 +8222,22 @@
    "thumb": "library/thumbs/L-Y3NQGA.jpg",
    "tags": [
     "named in the text"
+   ]
+  },
+  {
+   "id": "L-7QQHKQ",
+   "title": "それも一つの研究者人生(つながりが創発するイノベーション〔第3回〕)",
+   "author": "丸山, 宏",
+   "date": "2015-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 30(5), pp. 686-690",
+   "doi": "10.11517/jjsai.30.5_686",
+   "note": "Autobiographical: Yonezawa handed the author Winograd's book; he describes SHRDLU, shows its screen (fig. 1), calls its integration of parsing, semantic and context analysis and planning a dream system, and returned to it for a master's thesis topic. English gloss: That too is one researcher's life. SHRDLU: PDF pp. 1, 2 (article pp. 686-690).",
+   "url": "https://doi.org/10.11517/jjsai.30.5_686",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
@@ -8368,6 +8560,38 @@
    ]
   },
   {
+   "id": "L-2FMSZY",
+   "title": "過去からのメディア論 ループを出るか入るか：人工知能と知能拡張小史",
+   "author": "大谷, 卓史",
+   "date": "2017-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "情報管理 60(6), pp. 440-443",
+   "doi": "10.1241/johokanri.60.440",
+   "note": "Section \"From AI to IA: Winograd's turn\": he studied under Papert at MIT and wrote SHRDLU, then at Stanford learned the limits of language-understanding AI, gave up AI research and moved to groupware and software design. English gloss: Looping in or out: a short history of AI and intelligence augmentation. SHRDLU: PDF pp. 3 (article pp. 440-443).",
+   "url": "https://doi.org/10.1241/johokanri.60.440",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-AIQJVZ",
+   "title": "人と機械の言語獲得",
+   "author": "海野, 裕也",
+   "date": "2017-03-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "認知科学 24(1), pp. 16-22",
+   "doi": "10.11225/jcss.24.16",
+   "note": "Describes Wang, Liang and Manning's SHRDLURN, a language game with coloured blocks, whose name the author takes to be a play on Winograd's SHRDLU. English gloss: Language acquisition in humans and machines. SHRDLU: PDF pp. 5, 6 (article pp. 16-22).",
+   "url": "https://doi.org/10.11225/jcss.24.16",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-TSMPTA",
    "title": "Photo-Realistic Blocksworld Dataset",
    "author": "Asai, Masataro",
@@ -8643,22 +8867,6 @@
    ]
   },
   {
-   "id": "L-RXCDHX",
-   "title": "日本語による論理プログラミングの試み",
-   "author": "Indo, Kenryo",
-   "date": "2020",
-   "kind": "article",
-   "lang": "ja",
-   "in": "関東学園大学経済学紀要 46(0): 31-121",
-   "doi": "10.20589/kantogakueneconomics.46.0_31",
-   "note": "Describes the blocks world and command line, notes the source code on Winograd's Stanford page and that the program uses LISP and Micro-Planner, and sets procedural embedding against clause-form logic programming. SHRDLU: PDF p. 9 (paragraph on SHRDLU), further on PDF pp. 10, 67, 86.",
-   "url": "https://doi.org/10.20589/kantogakueneconomics.46.0_31",
-   "tags": [
-    "discussion",
-    "free to read"
-   ]
-  },
-  {
    "id": "L-TK56JR",
    "title": "Machine Sensation: Anthropomorphism and ‘Natural’ Interaction with Nonhumans",
    "author": "Leach, Tessa G.",
@@ -8756,6 +8964,22 @@
    ]
   },
   {
+   "id": "L-RXCDHX",
+   "title": "日本語による論理プログラミングの試み",
+   "author": "犬童, 健良",
+   "date": "2020",
+   "kind": "article",
+   "lang": "ja",
+   "in": "関東学園大学経済学紀要 46(0), pp. 31-121",
+   "doi": "10.20589/kantogakueneconomics.46.0_31",
+   "note": "Describes SHRDLU as joining text understanding and problem solving, written in Lisp and Micro-Planner, and says voice assistants only replace its moving of blocks with changes of phone or PC state. One occurrence misprints SHADLU. English gloss: An attempt at logic programming in Japanese. SHRDLU: PDF pp. 9, 10, 67, 86 (article pp. 31-121).",
+   "url": "https://doi.org/10.20589/kantogakueneconomics.46.0_31",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
    "id": "L-CBBPZL",
    "title": "Artefacts mobiles et systèmes d’ALAO, le cas du système SPOC+",
    "author": "Asgari, Hamed",
@@ -8840,6 +9064,22 @@
    "in": "Microsoft Research (guest post from Semantic Machines)",
    "note": "Opens with Winograd's paper and the virtual arm, describes work within microworlds as what followed, and uses the program as the starting comparison for conversational agents. SHRDLU: Opening section; the name appears 9 times. Read from the site's JSON record of the page.",
    "url": "https://www.microsoft.com/en-us/research/articles/designing-a-framework-for-conversational-interfaces/",
+   "tags": [
+    "discussion",
+    "free to read"
+   ]
+  },
+  {
+   "id": "L-VKPTYF",
+   "title": "認知科学の新しい方法論を目指して：認知科学よビッグサイエンスになれ",
+   "author": "斉藤, 康己",
+   "date": "2021-09-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "認知科学 28(3), pp. 398-409",
+   "doi": "10.11225/cs.2021.030",
+   "note": "Discusses SHRDLURN as sharing SHRDLU's toy world, notes both run in simulation, and proposes trying this kind of experiment on a real robot with children. English gloss: Toward a new methodology for cognitive science. SHRDLU: PDF pp. 10 (article pp. 398-409).",
+   "url": "https://doi.org/10.11225/cs.2021.030",
    "tags": [
     "discussion",
     "free to read"
@@ -10126,6 +10366,22 @@
    "licence": "Creative Commons Attribution-ShareAlike (creativecommons.org/licenses/by-sa/4.0/deed.ko)",
    "tags": [
     "about"
+   ]
+  },
+  {
+   "id": "L-ZTDL3O",
+   "title": "レクチャーシリーズ：「日本における人工知能の源流を訪ねて」〔第12回〕安西祐一郎先生に聞く「人間の認知のメカニズムを探究する」",
+   "author": "安西, 祐一郎; 三宅, 陽一郎; 杉本, 舞; 大内, 孝子",
+   "date": "2026-11-01",
+   "kind": "article",
+   "lang": "ja",
+   "in": "人工知能 41(6), pp. 880-892",
+   "doi": "10.11517/jjsai.41.6_880",
+   "note": "Interview. Anzai recalls that after a Winograd seminar at the Electrotechnical Laboratory, Tanaka Hozumi ran the program with evident pleasure: told to move the red block, it reasoned and moved it on screen. Title from J-STAGE. SHRDLU: PDF pp. 3 (article pp. 880-892).",
+   "url": "https://doi.org/10.11517/jjsai.41.6_880",
+   "tags": [
+    "discussion",
+    "free to read"
    ]
   },
   {
