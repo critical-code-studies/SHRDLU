@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.13 (2026-11-08)
+
+- Bench-kit 1.8.18: a Library tab in Settings with the reader's library card
+
 ## 0.2.12 (2026-11-08)
 
 - Bench-kit 1.8.17: works with no author cited and sorted by Cite Them Right Harvard
