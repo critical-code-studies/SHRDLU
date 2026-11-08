@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.6 (2026-11-08)
+
+- Bench-kit 1.8.12: export the Library to Zotero as RIS or BibTeX; To read ordered by date due
+
 ## 0.2.5 (2026-11-08)
 
 - Bench-kit 1.8.11: Library and To read as tabs, one Show menu
