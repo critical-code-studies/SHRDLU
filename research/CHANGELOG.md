@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.9 (2026-11-08)
+
+- Bench-kit 1.8.15: views without repeated headings; the current menu item marked; Library and To read as tabs
+
 ## 0.2.8 (2026-11-08)
 
 - Bench-kit 1.8.14: no doubled lines on a To read card after checking out with a token
