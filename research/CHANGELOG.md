@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.15 (2026-11-08)
+
+- Bench-kit 1.8.20: the gallery's pane lays out a work's box by its own width
+
 ## 0.2.14 (2026-11-08)
 
 - Bench-kit 1.8.19: a gallery view in the Library; pinned tabs and a filters column; the library card's back
