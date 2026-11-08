@@ -3585,17 +3585,6 @@
    "lang": "en"
   },
   {
-   "id": "L-MYAFG4",
-   "title": "Computers in the human context: information technology, productivity, and people",
-   "author": "Forester, Tom, ed.",
-   "date": "1989",
-   "kind": "book",
-   "note": "Describes SHRDLU as a program that simulated a robot arm on a TV screen, quotes Winograd's cautious claim that it was a \"computer program which understands\", and says Winograd gave up generalising its techniques. SHRDLU: printed pp. 131, 150 (index line); text from Internet Archive full-text passages.",
-   "url": "https://archive.org/details/computersinhuman00fore",
-   "thumb": "library/thumbs/L-MYAFG4.jpg",
-   "relevance": "medium"
-  },
-  {
    "id": "L-35X5AO",
    "title": "Computer ethics: cautionary tales and ethical dilemmas in computing",
    "author": "Forester, Tom,Morrison, Perry",
@@ -4708,19 +4697,6 @@
    "relevance": "medium"
   },
   {
-   "id": "L-MCRS3T",
-   "title": "Einsicht ins Ich: Fantasien und Reflexionen über Selbst und Seele",
-   "author": "Hofstadter, Douglas R.; Dennett, Daniel C. (eds)",
-   "date": "1988",
-   "kind": "book",
-   "lang": "de",
-   "in": "Klett-Cotta",
-   "note": "German translation of Hofstadter and Dennett, The Mind's I (1981). Snippets: Winograd's famous SHRDLU pretends to be a robot, and Searle's considerations are said to apply equally to SHRDLU and ELIZA. English gloss: Insight into the I. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
-   "url": "https://archive.org/details/isbn_3608930388",
-   "thumb": "library/thumbs/L-MCRS3T.jpg",
-   "relevance": "medium"
-  },
-  {
    "id": "L-V7NFKU",
    "title": "Fluid concepts & creative analogies: computer models of the fundamental mechanisms of thought",
    "author": "Hofstadter, Douglas R.",
@@ -4837,6 +4813,22 @@
    ]
   },
   {
+   "id": "L-FPYQX6",
+   "title": "Natural-Language Question-Answering Systems",
+   "date": "1976",
+   "kind": "chapter",
+   "lang": "en",
+   "in": "The Use of Computers in Literature Searching and Related Reading (Clinic on Library Applications of Data Processing)",
+   "note": "A section on SHRDLU, a natural-language system written by Winograd in the blocks world, with part of the dialogue. SHRDLU: IA text and index: heading SHRDLU, with a reproduced exchange.",
+   "url": "https://archive.org/details/useofcomputersin00clin",
+   "thumb": "library/thumbs/L-FPYQX6.jpg",
+   "relevance": "medium",
+   "tags": [
+    "free to read"
+   ],
+   "author": "Clinic on Library Applications of Data Processing (12th : 1975 : University of Illinois); Lancaster, F. Wilfrid (Frederick Wilfrid)"
+  },
+  {
    "id": "L-Q6P4JJ",
    "title": "Foreign Language Instructional Technology Conference. Proceedings (3rd, Monterey, California, September 21-24, 1982)",
    "author": "Defense Language Institute; Goethe Institute",
@@ -4872,6 +4864,21 @@
    "thumb": "library/thumbs/L-LYSMIV.jpg",
    "relevance": "medium",
    "lang": "en"
+  },
+  {
+   "id": "L-6ZF55J",
+   "title": "Quaderni di informatica 06",
+   "date": "1976",
+   "kind": "magazine",
+   "lang": "it",
+   "in": "Quaderni di informatica, no. 6",
+   "note": "Discusses Winograd's program for analysing and executing orders, with a figure of its organisation. SHRDLU: Fig. 2 \"Organizzazione del programma di Winograd\"; the name SHRDLU does not appear in the passage read.",
+   "url": "https://archive.org/details/quaderni-informatica-06",
+   "relevance": "medium",
+   "tags": [
+    "free to read"
+   ],
+   "author": "Honeywell Information Systems Italia; Centro di Ricerca e Progettazione"
   },
   {
    "id": "L-G5I2LB",
@@ -6108,21 +6115,6 @@
    "relevance": "medium",
    "tags": [
     "held here"
-   ]
-  },
-  {
-   "id": "L-CLZNU6",
-   "title": "Information Technology and Disabilities, 1995",
-   "author": "McNulty, Tom (ed.)",
-   "date": "1995",
-   "kind": "article",
-   "lang": "en",
-   "in": "Information Technology and Disabilities 2:1 (January 1995)",
-   "note": "An article sets SHRDLU beside ELIZA, saying it used AI techniques to hold a discussion about a blocks world, with a sample exchange. SHRDLU: Name on PDF pp. 37. Printed pages not read.",
-   "url": "https://archive.org/details/micro_IA41155130_0543",
-   "relevance": "medium",
-   "tags": [
-    "free to read"
    ]
   },
   {
@@ -8851,21 +8843,6 @@
    "relevance": "medium"
   },
   {
-   "id": "L-R5KUYG",
-   "title": "Speech Understanding Research",
-   "author": "Walker, Donald E., ed.",
-   "date": "1976-10",
-   "kind": "report",
-   "lang": "en",
-   "in": "DTIC report ADA034606, Internet Archive",
-   "note": "An SRI final report describes PROGRAMMAR as top-down, left-to-right and procedural. SHRDLU: review of language definition systems; PDF pp. 88, 201.",
-   "url": "https://archive.org/details/DTIC_ADA034606",
-   "relevance": "medium",
-   "tags": [
-    "free to read"
-   ]
-  },
-  {
    "id": "L-Y3S6HK",
    "title": "Natural Language Processing: A Tutorial. Revision",
    "author": "Walter, Sharon M.",
@@ -9356,33 +9333,19 @@
    ]
   },
   {
-   "id": "L-FPYQX6",
-   "title": "Natural-Language Question-Answering Systems",
-   "date": "1976",
-   "kind": "chapter",
+   "id": "L-R5KUYG",
+   "title": "Speech Understanding Research",
+   "date": "1976-10",
+   "kind": "report",
    "lang": "en",
-   "in": "The Use of Computers in Literature Searching and Related Reading (Clinic on Library Applications of Data Processing)",
-   "note": "A section on SHRDLU, a natural-language system written by Winograd in the blocks world, with part of the dialogue. SHRDLU: IA text and index: heading SHRDLU, with a reproduced exchange.",
-   "url": "https://archive.org/details/useofcomputersin00clin",
-   "thumb": "library/thumbs/L-FPYQX6.jpg",
+   "in": "DTIC report ADA034606, Internet Archive",
+   "note": "An SRI final report describes PROGRAMMAR as top-down, left-to-right and procedural. SHRDLU: review of language definition systems; PDF pp. 88, 201.",
+   "url": "https://archive.org/details/DTIC_ADA034606",
    "relevance": "medium",
    "tags": [
     "free to read"
-   ]
-  },
-  {
-   "id": "L-6ZF55J",
-   "title": "Quaderni di informatica 06",
-   "date": "1976",
-   "kind": "magazine",
-   "lang": "it",
-   "in": "Quaderni di informatica, no. 6",
-   "note": "Discusses Winograd's program for analysing and executing orders, with a figure of its organisation. SHRDLU: Fig. 2 \"Organizzazione del programma di Winograd\"; the name SHRDLU does not appear in the passage read.",
-   "url": "https://archive.org/details/quaderni-informatica-06",
-   "relevance": "medium",
-   "tags": [
-    "free to read"
-   ]
+   ],
+   "contributor": "ed. Walker, Donald E."
   },
   {
    "id": "L-TIQLEU",
@@ -9765,6 +9728,19 @@
    "relevance": "medium"
   },
   {
+   "id": "L-MCRS3T",
+   "title": "Einsicht ins Ich: Fantasien und Reflexionen über Selbst und Seele",
+   "date": "1988",
+   "kind": "book",
+   "lang": "de",
+   "in": "Klett-Cotta",
+   "note": "German translation of Hofstadter and Dennett, The Mind's I (1981). Snippets: Winograd's famous SHRDLU pretends to be a robot, and Searle's considerations are said to apply equally to SHRDLU and ELIZA. English gloss: Insight into the I. SHRDLU: Internet Archive full-text search snippet only; book is lending-restricted, so the surrounding text was not read.",
+   "url": "https://archive.org/details/isbn_3608930388",
+   "thumb": "library/thumbs/L-MCRS3T.jpg",
+   "relevance": "medium",
+   "contributor": "eds Hofstadter, Douglas R. and Dennett, Daniel C."
+  },
+  {
    "id": "L-WTXWQ7",
    "title": "El Mundo De La Computacion",
    "date": "1988",
@@ -9834,6 +9810,17 @@
    "tags": [
     "free to read"
    ]
+  },
+  {
+   "id": "L-MYAFG4",
+   "title": "Computers in the human context: information technology, productivity, and people",
+   "date": "1989",
+   "kind": "book",
+   "note": "Describes SHRDLU as a program that simulated a robot arm on a TV screen, quotes Winograd's cautious claim that it was a \"computer program which understands\", and says Winograd gave up generalising its techniques. SHRDLU: printed pp. 131, 150 (index line); text from Internet Archive full-text passages.",
+   "url": "https://archive.org/details/computersinhuman00fore",
+   "thumb": "library/thumbs/L-MYAFG4.jpg",
+   "relevance": "medium",
+   "contributor": "ed. Forester, Tom"
   },
   {
    "id": "L-U675TG",
@@ -9993,6 +9980,21 @@
    "url": "https://archive.org/details/isbn_9780745615714",
    "thumb": "library/thumbs/L-CRMNVT.jpg",
    "relevance": "medium"
+  },
+  {
+   "id": "L-CLZNU6",
+   "title": "Information Technology and Disabilities, 1995",
+   "date": "1995",
+   "kind": "article",
+   "lang": "en",
+   "in": "Information Technology and Disabilities 2:1 (January 1995)",
+   "note": "An article sets SHRDLU beside ELIZA, saying it used AI techniques to hold a discussion about a blocks world, with a sample exchange. SHRDLU: Name on PDF pp. 37. Printed pages not read.",
+   "url": "https://archive.org/details/micro_IA41155130_0543",
+   "relevance": "medium",
+   "tags": [
+    "free to read"
+   ],
+   "contributor": "ed. McNulty, Tom"
   },
   {
    "id": "L-K47A36",
@@ -12819,14 +12821,15 @@
   {
    "id": "L-YOIHES",
    "title": "言語理解の構造",
-   "author": "Winograd, Terry; 淵, 一博 (訳); 田村, 浩一郎 (訳); 白井, 良明 (訳)",
+   "author": "Winograd, Terry",
    "date": "1976",
    "kind": "book",
    "lang": "ja",
    "in": "産業図書",
    "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
    "url": "https://ci.nii.ac.jp/ncid/BN0081616X",
-   "relevance": "unchecked"
+   "relevance": "unchecked",
+   "contributor": "translated by 淵, 一博 and 田村, 浩一郎 and 白井, 良明"
   },
   {
    "id": "L-C2YJZJ",
@@ -12854,26 +12857,28 @@
   {
    "id": "L-5SMYRQ",
    "title": "Erkenntnis - Maschinen - Verstehen : zur Neugestaltung von Computersystemen",
-   "author": "Winograd, Terry; Flores, Fernando; Voet, Ludwig (trans.)",
+   "author": "Winograd, Terry; Flores, Fernando",
    "date": "1989",
    "kind": "book",
    "lang": "de",
    "in": "Rotbuch Verlag",
    "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
    "url": "https://ci.nii.ac.jp/ncid/BA62029821",
-   "relevance": "unchecked"
+   "relevance": "unchecked",
+   "contributor": "translated by Voet, Ludwig"
   },
   {
    "id": "L-AH3QCX",
    "title": "コンピュータと認知を理解する : 人工知能の限界と新しい設計理念",
-   "author": "Winograd, Terry; Flores, Fernando; 平賀, 譲 (訳)",
+   "author": "Winograd, Terry; Flores, Fernando",
    "date": "1989",
    "kind": "book",
    "lang": "ja",
    "in": "産業図書",
    "note": "Seen only as a catalogue or publisher record, or a page description; the work itself has not been read.",
    "url": "https://ci.nii.ac.jp/ncid/BN03598167",
-   "relevance": "unchecked"
+   "relevance": "unchecked",
+   "contributor": "translated by 平賀, 譲"
   },
   {
    "id": "L-45F6QK",

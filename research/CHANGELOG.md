@@ -2,6 +2,10 @@
 
 Changes to the SHRDLU research bench (`research/`). The bench keeps its own version numbers, raised by 0.0.1 with each change; this file records the versions published, newest first. Changes to the website around it are in the repository's commit history.
 
+## 0.2.11 (2026-11-08)
+
+- Library: 916 works, 208 held
+
 ## 0.2.10 (2026-11-08)
 
 - Bench-kit 1.8.16: To read cards with their own paper, ink and stamps; due-soon alerts; fuller Zotero export
