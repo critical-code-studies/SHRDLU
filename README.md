@@ -39,6 +39,10 @@ Static HTML/CSS/JS, no framework, no build step. Served by GitHub Pages.
 <https://critical-code-studies.github.io/SHRDLU/research/> (not indexed). It runs
 in the browser from static files, with no installation and no account needed to read.
 
+![The bench reading TC-CLEARTOP in the MIT files, showing where TC-GET-RID-OF is defined and used, then running SHRDLU: PICK UP A BIG RED BLOCK moves the arm on the DEC 340 display](docs/media/bench-read-run.gif)
+
+*Reading the MIT files at TC-CLEARTOP, then Run: the program answers from its own source on the bench's MacLisp interpreter.*
+
 **Using it.** Open the bench and choose a version from File ▸ Open a version… (⌘O or Ctrl-O): the MIT
 files as found on ITS, Winograd's Stanford distribution, or Eric Swenson's 2024
 restoration (the January 1971 files and the CMU version of 1972 are known from the
